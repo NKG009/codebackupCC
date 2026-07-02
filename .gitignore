@@ -1,0 +1,8 @@
+# Ignore Salesforce static resources directories
+**/staticresources/
+**/staticresources/**
+
+# Optional: ignore archives and IDE files
+*.zip
+.vscode/
+.DS_Store
