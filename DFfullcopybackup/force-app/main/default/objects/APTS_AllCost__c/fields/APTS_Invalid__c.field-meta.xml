@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>APTS_Invalid__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>True if setup data is in error</description>
+    <inlineHelpText>True if setup data is in error</inlineHelpText>
+    <label>Invalid</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

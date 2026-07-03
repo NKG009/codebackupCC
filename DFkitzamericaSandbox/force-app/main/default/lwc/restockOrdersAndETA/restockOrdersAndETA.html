@@ -1,0 +1,35 @@
+<template>
+    <div class="container">
+
+        <!-- ON THE WATER SECTION -->
+        <div class="section">
+            <div class="section-header">
+                <h2>🚢 On The Water Orders</h2>
+            </div>
+
+            <lightning-datatable
+                key-field="ROWNO"
+                data={etaInventory}
+                columns={etaColumns}
+                class="styled-table"
+                hide-checkbox-column
+            ></lightning-datatable>
+        </div>
+
+        <!-- RESTOCK SECTION -->
+        <div class="section">
+            <div class="section-header">
+                <h2>📦 Restock Orders</h2>
+            </div>
+
+            <lightning-datatable
+                key-field="ROWNO"
+                data={restockData}
+                columns={restockColumns}
+                class="styled-table"
+                hide-checkbox-column
+            ></lightning-datatable>
+        </div>
+
+    </div>
+</template>

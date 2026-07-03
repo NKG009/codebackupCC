@@ -1,0 +1,55 @@
+{
+  "appPageId" : "e5e20351-b2eb-40ea-a61a-a58569864f9e",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "d0a2ac93-02ec-4785-b8f3-de52c7a6e3d8",
+  "label" : "Expediting",
+  "regions" : [ {
+    "id" : "f4f97a0e-fc74-4748-8d81-4360bbe50a17",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:mtr",
+      "id" : "ba688b34-43a9-449f-b6e6-628cb9c1709f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"text-align:center; padding:30px 15px; background-color:#f9f9f9; border:1px solid #ddd; border-radius:8px; font-family:Arial, sans-serif; max-width:600px; margin:auto;\">\n  <div style=\"font-size:32px; color:#e60000; margin-bottom:10px;\">&#9881;</div>\n  <h2 style=\"color:#e60000; margin-bottom:10px;\">Component Design in Progress</h2>\n  <p style=\"color:#555; font-size:16px;\">\n    The page component design is currently in progress and will be available soon.\n  </p>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "74d89715-03d8-4f7a-9679-7b8fa1218d56",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "384d0f49-7c4e-44a2-8691-8d9a1af53b5d",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "c111e109-832c-4610-898a-12d82df3f96a",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Expediting"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "fe434445-5d3c-4225-924d-a938cdd642aa",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3bd4913e-6b9a-4d5c-96db-020f93a06778",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-expediting"
+}

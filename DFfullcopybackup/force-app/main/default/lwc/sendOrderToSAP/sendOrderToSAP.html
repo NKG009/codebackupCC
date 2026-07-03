@@ -1,0 +1,30 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-quick-action-panel header="Sending Order To SAP">
+        <template if:true={loaded}>
+            <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning slds-m-bottom_medium" role="alert">
+                <lightning-icon icon-name="utility:warning" variant="inverse" size="x-small" class="slds-m-right_x-small"></lightning-icon>
+                <h2>Duplicate Order Detected</h2>
+            </div>
+
+            <p class="slds-text-align_center slds-m-vertical_small">
+                Duplicate Order: <strong>{duplicateOrderName}</strong>
+            </p>
+
+            <div class="slds-modal__footer">
+                <lightning-button label="Cancel" onclick={handleCancel} class="slds-m-right_x-small"></lightning-button>
+                <lightning-button label="View Duplicate" variant="brand-outline" onclick={navigateToDuplicate} class="slds-m-right_x-small"></lightning-button>
+                <lightning-button label="Send To SAP" variant="brand" onclick={handleSendToSap}></lightning-button>
+            </div>
+
+        </template>
+        <template if:false={loaded}>
+            <div class="spinner-container">
+                <div class="slds-is-relative">
+                    <lightning-spinner alternative-text="Loading" ></lightning-spinner>
+                </div>
+            </div>
+        </template>
+        
+    </lightning-quick-action-panel>
+</template>

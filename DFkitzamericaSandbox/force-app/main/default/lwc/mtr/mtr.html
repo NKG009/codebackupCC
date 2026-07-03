@@ -1,0 +1,118 @@
+<template>
+    <!-- MTR Page LWC Template -->
+    <template if:true={isMtrPage}>
+        <div class="container">
+            <div class="card glass">
+                <h1 class="title">🧾 MTR Search</h1>
+
+                <div class="search-row">
+                    <lightning-input
+                        type="text"
+                        label="MFG #"
+                        variant="label-hidden"
+                        placeholder="Enter MFG Number"
+                        class="search-input"
+                        value={mfg}
+                        onchange={handleInputChange}>
+                    </lightning-input>
+
+                    <lightning-input
+                        type="text"
+                        label="Customer PO #"
+                        variant="label-hidden"
+                        placeholder="Enter Customer PO Number"
+                        class="search-input"
+                        value={po}
+                        onchange={handleInputChange}>
+                    </lightning-input>
+
+                    <lightning-input
+                        type="text"
+                        label="Suborder #"
+                        variant="label-hidden"
+                        placeholder="Enter Suborder Number"
+                        class="search-input"
+                        value={suborder}
+                        onchange={handleInputChange}>
+                    </lightning-input>
+
+                    <lightning-button
+                        label="Search"
+                        variant="brand"
+                        class="search-btn"
+                        onclick={handleSearch}>
+                    </lightning-button>
+                </div>
+
+                <template if:true={data.length}>
+                    <lightning-datatable
+                        key-field="id"
+                        data={data}
+                        columns={columns}
+                        hide-checkbox-column="true"
+                        class="datatable">
+                    </lightning-datatable>
+                </template>
+
+                <template if:false={data.length}>
+                    <div class="result-placeholder">
+                        <lightning-icon icon-name="utility:warning" size="large" class="icon"></lightning-icon>
+                        <p class="no-data-text">No data yet — please enter search criteria.</p>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </template>
+
+
+<!-- Expediting Page LWC Template -->
+    <template if:true={isExpeditingPage}>
+        <div class="container">
+            <div class="card glass">
+                <h1 class="title"><lightning-icon icon-name="utility:truck" size="large" class="icon"></lightning-icon> Expediting Search</h1>
+        <div class="search-row">
+                 <lightning-input
+                        type="text"
+                        label="Purchase Order #"
+                        variant="label-hidden"
+                        placeholder="Enter Purchase Order Number"
+                        class="search-input"
+                        onchange={handleInputChange}>
+                    </lightning-input>
+
+                    <lightning-input
+                        type="text"
+                        label="Customer"
+                        variant="label-hidden"
+                        placeholder="Enter Customer Number"
+                        class="search-input"
+                        onchange={handleInputChange}>
+                    </lightning-input>
+
+                     <lightning-button
+                        label="Search"
+                        variant="brand"
+                        class="search-btn"
+                        onclick={handleSearch}>
+                    </lightning-button>
+                </div>
+               
+
+                
+                <p class="no-data-text">
+                     <lightning-icon icon-name="utility:warning" size="large" class="icon"></lightning-icon>
+                    Expediting feature is under development. Please check back soon.
+                </p>
+            </div>
+        </div>
+    </template>
+
+    <template if:true={isUnknownPage}>
+        <div class="container">
+            <div class="card glass">
+                <h1 class="title">⚙️ Page Not Found</h1>
+                <p class="no-data-text">Unknown page. Please navigate to /mtr or /expediting.</p>
+            </div>
+        </div>
+    </template>
+</template>

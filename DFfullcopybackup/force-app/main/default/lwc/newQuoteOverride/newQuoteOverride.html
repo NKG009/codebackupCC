@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Create New Quote" icon-name="standard:quote">
+        <div class="slds-p-around_medium">
+            <lightning-record-edit-form 
+                object-api-name="SBQQ__Quote__c"
+                onsuccess={handleSuccess}
+                onerror={handleError}
+                density="compact">
+                
+                <lightning-messages></lightning-messages>
+
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name="SBQQ__Opportunity2__c"></lightning-input-field>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name="SBQQ__Account__c"></lightning-input-field>
+                    </div>
+                </div>
+
+                <div class="slds-m-top_medium">
+                    <lightning-button 
+                        variant="brand" 
+                        type="submit" 
+                        label="Create Quote">
+                    </lightning-button>
+                </div>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>

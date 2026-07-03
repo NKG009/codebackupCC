@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>APTS_Symbol_Indicator_SAP__c</fullName>
+    <description>Currency or Percentage from SAP table - KONP</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Currency or Percentage from SAP table - KONP</inlineHelpText>
+    <label>Symbol Indicator</label>
+    <length>5</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

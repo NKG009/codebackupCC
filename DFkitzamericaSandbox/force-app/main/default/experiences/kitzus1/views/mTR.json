@@ -1,0 +1,55 @@
+{
+  "appPageId" : "e5e20351-b2eb-40ea-a61a-a58569864f9e",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "b22ff092-d765-4d58-b063-62d9aa438272",
+  "label" : "MTR",
+  "regions" : [ {
+    "id" : "c5bb34cf-ec88-4997-aea4-d55591a91a89",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:mtr",
+      "id" : "dcdf5b3c-9963-4b7a-8e9d-66b4e74f7b0b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"text-align:center; padding:30px 15px; background-color:#f9f9f9; border:1px solid #ddd; border-radius:8px; font-family:Arial, sans-serif; max-width:600px; margin:auto;\">\n  <div style=\"font-size:32px; color:#e60000; margin-bottom:10px;\">&#9881;</div>\n  <h2 style=\"color:#e60000; margin-bottom:10px;\">Component Design in Progress</h2>\n  <p style=\"color:#555; font-size:16px;\">\n    The page component design is currently in progress and will be available soon.\n  </p>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "2c80a0d7-5c21-4070-bba6-80fcdc3dcab8",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2958a97e-df9e-43a2-bb27-a9075d3102d8",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "58f14bd2-5a60-46ab-a246-68015217f9c6",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "MTR"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "b8eadcc3-b2a4-464a-b4c5-a1692d615422",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9dfe8dc3-c710-4633-a9ab-78c608f10b22",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-mtr"
+}

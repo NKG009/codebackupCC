@@ -1,0 +1,10 @@
+<apex:page controller="QuickBooksLoginController" action="{!completeAuthorization }">
+    <apex:form id="main_form">
+        <apex:pageBlock title="Quick Books">
+             <apex:pageMessages ></apex:pageMessages>
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Authorize" action="{! doAuthorizationQuickBooks }" />
+                </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

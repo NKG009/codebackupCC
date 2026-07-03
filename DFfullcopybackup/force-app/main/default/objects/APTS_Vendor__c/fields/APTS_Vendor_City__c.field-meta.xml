@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>APTS_Vendor_City__c</fullName>
+    <description>Vendor City from SAP</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Vendor City from SAP</inlineHelpText>
+    <label>Vendor City</label>
+    <length>75</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

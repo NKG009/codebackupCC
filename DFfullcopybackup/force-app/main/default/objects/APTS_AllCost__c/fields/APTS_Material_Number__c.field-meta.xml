@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>APTS_Material_Number__c</fullName>
+    <description>Material Number of the Product sourced from SAP</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Material Number of the Product sourced from SAP</inlineHelpText>
+    <label>Material Number</label>
+    <length>30</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

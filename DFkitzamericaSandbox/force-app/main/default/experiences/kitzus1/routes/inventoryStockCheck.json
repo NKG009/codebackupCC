@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "93193323-cd82-4aab-800d-66c034cbe002",
+  "appPageId" : "e5e20351-b2eb-40ea-a61a-a58569864f9e",
+  "configurationTags" : [ ],
+  "devName" : "Inventory_Stock_Check__c",
+  "id" : "d45d5e69-07f6-49d3-9a3a-110e576d0645",
+  "label" : "Inventory Stock Check",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-inventory-stock-check",
+  "type" : "route",
+  "urlPrefix" : "inventory-stock-check"
+}

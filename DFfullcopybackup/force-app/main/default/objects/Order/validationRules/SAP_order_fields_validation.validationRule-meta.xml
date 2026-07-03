@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SAP_order_fields_validation</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR(
+    ISBLANK(TEXT(Sales_Order_Type__c)),
+    ISBLANK(TEXT(Freight_Terms__c)),
+    ISBLANK(PoNumber)
+)</errorConditionFormula>
+    <errorMessage>Sales Order Type, Freight Terms, and PO Number must be filled in.</errorMessage>
+</ValidationRule>

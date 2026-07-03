@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "4eba84a0-cbc8-4326-88c9-7b039ae72cb9",
+  "appPageId" : "e5e20351-b2eb-40ea-a61a-a58569864f9e",
+  "configurationTags" : [ ],
+  "devName" : "NCR__c",
+  "id" : "84b5b7e0-b2bc-4c31-98db-3562dd995893",
+  "label" : "NCR",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-ncr",
+  "type" : "route",
+  "urlPrefix" : "ncr"
+}

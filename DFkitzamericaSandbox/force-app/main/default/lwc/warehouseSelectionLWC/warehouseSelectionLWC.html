@@ -1,0 +1,56 @@
+<template>
+    <div class="container">
+        <h2 class="title">Select Warehouse</h2>
+
+
+        <!--table class="line-table">
+            <tr>
+                <th>Line #</th>
+                <th>Size (in)</th>
+                <th>Material Number</th>
+                <th>KCA Figure No.</th>
+            </tr>
+            <tr>
+                <td>{lineInfo.lineNumber}</td>
+                <td>{lineInfo.size}</td>
+                <td>{lineInfo.materialNumber}</td>
+                <td>{lineInfo.kcaFigure}</td>
+            </tr>
+        </table-->
+
+
+        <table class="data-table">
+            <tr>
+                 <th>Select</th>
+                <th>WH Name</th>
+                <th>WH No</th>
+                <th>WH Location</th>
+                <th>Avail Qnty</th>
+            </tr>
+
+
+            <template for:each={warehouseList} for:item="wh">
+                <tr key={wh.id} data-id={wh.id} onclick={handleSelect}
+                class="row">
+
+                 <td>
+                        <input type="radio"
+                               name="warehouseSelect"
+                               value={wh.number}
+                               checked={wh.isSelected}
+                               >
+                    </td>
+                    <td><a>{wh.name}</a></td>
+                    <td>{wh.number}</td>
+                    <td>{wh.location}</td>
+                    <td>{wh.qty}</td>
+                </tr>
+            </template>
+        </table>
+
+        <div class="button-area">
+            <lightning-button label="OK" variant="brand" onclick={handleOk}></lightning-button>
+        </div>
+    </div>
+
+</template>

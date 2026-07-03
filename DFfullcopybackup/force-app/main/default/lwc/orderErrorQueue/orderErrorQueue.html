@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Order Error Queue" icon-name="standard:orders">
+        <div slot="actions">
+            <lightning-button label="Refresh" onclick={handleRefresh}></lightning-button>
+        </div>
+        <template if:true={oeqRecords}>
+            <div class="slds-p-around_medium">
+                <div style="height: 400px;">
+                    <lightning-datatable
+                        key-field="Order__c"
+                        data={oeqRecords}
+                        columns={columns}
+                        hide-checkbox-column="true"
+                        onrowaction={callRowAction}>
+                    </lightning-datatable>
+                </div>
+            </div>
+        </template>
+        <template if:true={sendordertosapclick}>
+            <lightning-quick-action-panel header="Sending Order To SAP">
+                <div class="spinner-container">
+                    <div class="slds-is-relative">
+                        <lightning-spinner alternative-text="Loading" ></lightning-spinner>
+                    </div>
+                </div>
+            </lightning-quick-action-panel>
+        </template>
+        
+        
+    </lightning-card>
+</template>

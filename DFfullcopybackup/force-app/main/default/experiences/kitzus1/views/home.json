@@ -1,0 +1,48 @@
+{
+  "appPageId" : "e5e20351-b2eb-40ea-a61a-a58569864f9e",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "109d5701-e1b6-4726-a3e9-374a4d28188c",
+  "label" : "Home",
+  "regions" : [ {
+    "id" : "8e0baf8c-c2bf-4ffa-aa30-0abf69040e70",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><strong style=\"font-size: 36px; font-family: arial; color: rgb(0, 102, 204);\">Welcome!</strong></p><p><br></p><p style=\"text-align: justify;\"><br></p><p style=\"text-align: justify;\"><span style=\"font-size: 16px; font-family: arial;\">Welcome to the KITZ Corporation of America customer access site. From this site you will be able to access many current and future web based services including access to catalogs, technical literature, inventory, MTR's and order status.</span></p><p style=\"text-align: justify;\"><span style=\"font-size: 16px; font-family: arial;\">In order to view and/or print the documents on this site you will need to have Adobe Acrobat Reader installed on your computer. Click here and follow the directions on the screen to download and install the free version of Adobe Acrobat.</span></p><ol><li style=\"text-align: justify;\"><span style=\"font-size: 16px; font-family: arial;\">We invite you to provide us with feedback about our site. Please feel free to contact us via our feedback page. If you are having technical difficulties while accessing any of the features on this site, please send an email to davido@kitz.com.</span></li></ol><p>&nbsp;</p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "7d59da41-4107-484e-b26a-2663140f3e0f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8a968793-fb06-4f2b-8674-3fc7eee9ca89",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "2d36e6aa-b2e8-4a6b-adf9-d65a9fae9e1f",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "2d4acb06-383f-4877-b968-0244d4811d4e",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "58152d97-e848-4629-a8ca-9bc67a9568a5",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Home",
+  "type" : "view",
+  "viewType" : "home"
+}

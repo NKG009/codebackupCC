@@ -1,0 +1,44 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    
+        <lightning-record-edit-form
+            density="comfy"
+            object-api-name={objectApiName} 
+            onsuccess={handleSuccess} 
+            onload={handleLoad}
+        >
+            <lightning-quick-action-panel header="New Quote">
+                <lightning-messages></lightning-messages>
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <lightning-input-field field-name="SBQQ__Opportunity2__c"></lightning-input-field>
+                        <lightning-input-field field-name="SBQQ__SalesRep__c" required="true"></lightning-input-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <lightning-input-field field-name="SBQQ__Account__c" required="true"></lightning-input-field>
+                        <lightning-input-field field-name="Customer_Reference__c"></lightning-input-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <lightning-input-field field-name="SBQQ__PrimaryContact__c" required="true"></lightning-input-field>
+                        <lightning-input-field field-name="Sales_Order_Type__c" required="true"></lightning-input-field>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <div slot="footer">
+                    <lightning-button label="Cancel" onclick={handleCancel} ></lightning-button>
+                    <lightning-button
+                        variant="brand"
+                        label="Save"
+                        type="submit"
+                        class="slds-m-left_x-small"
+                    ></lightning-button>
+                </div>
+                <template if:true={isLoading}>
+                    <div class="spinner-container">
+                        <div class="slds-is-relative">
+                            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+                        </div>
+                    </div>
+                </template>
+            </lightning-quick-action-panel>
+        </lightning-record-edit-form>
+</template>

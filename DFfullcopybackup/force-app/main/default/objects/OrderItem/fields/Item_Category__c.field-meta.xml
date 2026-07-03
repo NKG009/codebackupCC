@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Item_Category__c</fullName>
+    <label>Item Category</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Stock Order</fullName>
+                <default>false</default>
+                <label>Stock Order</label>
+            </value>
+            <value>
+                <fullName>Indent Order(Product)</fullName>
+                <default>false</default>
+                <label>Indent Order(Product)</label>
+            </value>
+            <value>
+                <fullName>Indent Order(Parts)</fullName>
+                <default>false</default>
+                <label>Indent Order(Parts)</label>
+            </value>
+            <value>
+                <fullName>KB Order(Direct)</fullName>
+                <default>false</default>
+                <label>KB Order(Direct)</label>
+            </value>
+            <value>
+                <fullName>Individual Spec</fullName>
+                <default>false</default>
+                <label>Individual Spec</label>
+            </value>
+            <value>
+                <fullName>Project w/ Spec</fullName>
+                <default>false</default>
+                <label>Project w/ Spec</label>
+            </value>
+            <value>
+                <fullName>Project w/o Spec</fullName>
+                <default>false</default>
+                <label>Project w/o Spec</label>
+            </value>
+            <value>
+                <fullName>Project Stock Order</fullName>
+                <default>false</default>
+                <label>Project Stock Order</label>
+            </value>
+            <value>
+                <fullName>Consigned Stock Order</fullName>
+                <default>false</default>
+                <label>Consigned Stock Order</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

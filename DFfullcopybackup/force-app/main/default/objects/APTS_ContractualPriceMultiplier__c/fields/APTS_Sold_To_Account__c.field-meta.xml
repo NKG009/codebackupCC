@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>APTS_Sold_To_Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Reference to the Account object to capture Sold-To</description>
+    <inlineHelpText>Reference to the Account object to capture Sold-To</inlineHelpText>
+    <label>Sold-To Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Contractual Price Multiplier</relationshipLabel>
+    <relationshipName>Contractual_Price_Multiplier</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

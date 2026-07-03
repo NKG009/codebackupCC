@@ -1,0 +1,53 @@
+/* Main container padding */
+.container {
+    padding: 20px;
+}
+
+/* Section wrapper */
+.section {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Section header */
+.section-header {
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #e5e5e5;
+}
+
+.section-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+/* Override datatable padding for compact look */
+.styled-table lightning-datatable {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Optional zebra striping (subtle) */
+.slds-table tbody tr:nth-child(odd) {
+    background-color: #fafafa;
+}
+
+/* Center table headers */
+.styled-table .slds-table thead th {
+    text-align: center !important;
+}
+
+/* Center table cell text */
+.styled-table .slds-table tbody td {
+    text-align: center !important;
+}
+
+/* Ensure inner cell wrapper also centers */
+.styled-table .slds-truncate {
+    text-align: center !important;
+}

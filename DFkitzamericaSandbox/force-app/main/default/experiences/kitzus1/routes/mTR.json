@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "b22ff092-d765-4d58-b063-62d9aa438272",
+  "appPageId" : "e5e20351-b2eb-40ea-a61a-a58569864f9e",
+  "configurationTags" : [ ],
+  "devName" : "MTR__c",
+  "id" : "7444487a-a459-47b1-b440-08ce5857bd15",
+  "label" : "MTR",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-mtr",
+  "type" : "route",
+  "urlPrefix" : "mtr"
+}

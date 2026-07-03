@@ -1,0 +1,30 @@
+<template>
+    <div class="container">
+        <div class="card glass">
+            <h1 class="title">📦 Inventory Stock Check</h1>
+
+            <div class="search-section">
+                <lightning-input
+                    type="text"
+                    label="Search for Inventory"
+                    placeholder="Enter Part No."
+                    class="search-input"
+                    value={searchKey}
+                    onchange={handleInputChange}>
+                </lightning-input>
+
+                <lightning-button
+                    label="Search"
+                    variant="brand"
+                    class="search-btn"
+                    onclick={handleSearch}>
+                </lightning-button>
+            </div>
+
+            <div class="result-placeholder">
+                <lightning-icon icon-name="utility:warning" size="large" class="icon"></lightning-icon>
+                <p class="no-data-text">No data yet — try searching for a product!</p>
+            </div>
+        </div>
+    </div>
+</template>

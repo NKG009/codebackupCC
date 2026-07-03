@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>APTS_Source_Business_Object__c</fullName>
+    <description>API name of the SAP source Table name for this record</description>
+    <externalId>false</externalId>
+    <inlineHelpText>API name of the SAP source Table name for this record</inlineHelpText>
+    <label>Source Business Object</label>
+    <length>100</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

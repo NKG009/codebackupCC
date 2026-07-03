@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "path": "c:/Users/Nikhi/OneDrive/Desktop/CloudCacheNewVSCode/DFfullcopybackup"
+    }
+  ],
+  "settings": {
+    "eslint.workingDirectories": [
+      "c:/Users/Nikhi/OneDrive/Desktop/CloudCacheNewVSCode/DFfullcopybackup"
+    ],
+    "eslint.validate": [
+      "javascript",
+      "typescript"
+    ],
+    "eslint.options": {
+      "overrideConfigFile": "c:\\Users\\Nikhi\\OneDrive\\Desktop\\CloudCacheNewVSCode\\DFfullcopybackup\\.eslintrc.json"
+    }
+  }
+}
