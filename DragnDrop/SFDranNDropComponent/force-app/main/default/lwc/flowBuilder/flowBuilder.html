@@ -1,0 +1,30 @@
+
+<template>
+    <div class="container slds-grid slds-gutters" style="height: 100vh;">
+        <!-- Left Panel - Components (Fixed) -->
+        <div class="slds-col slds-size_3-of-12" style="background: white; min-width: 240px;">
+            <div class="slds-panel slds-panel_docked slds-is-open" style="height: 100%;">
+                <div class="slds-panel__header slds-border_bottom">
+                    <h2 class="slds-text-heading_small slds-p-horizontal_small">Components</h2>
+                </div>
+                <div class="slds-panel__body" style="overflow-y: auto; padding: 0.5rem;">
+                    <div class="component-list">
+                        <div class="component-item" data-type="decision">🧠 Decision</div>
+                        <div class="component-item" data-type="action">📧 Send Email</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Panel - Canvas -->
+        <div class="slds-col slds-size_9-of-12">
+            <div class="canvas-container" style="height: 100%;">
+                <div class="flow-canvas" id="flowCanvas" style="height: 100%;">
+                    <div class="empty-state" if:true={isCanvasEmpty}>
+                        Drag components here to build your flow
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
