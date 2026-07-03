@@ -1,0 +1,517 @@
+<template>
+<lightning-card title="Project Manager Checklist">
+<div class="slds-p-around_medium">
+
+
+
+            <!-- Homeowner Info -->
+            <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Project Manager Name</h2>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <lightning-input class="slds-col slds-size_1-of-2" label="First Name" onchange={handleChange} name="firstName"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Last Name" onchange={handleChange} name="lastName"></lightning-input>
+                </div>
+            </div>
+<div class="slds-box slds-m-bottom_medium">
+       <lightning-input
+    class="slds-col slds-size_1-of-2"
+    type="date"
+    label="Date"
+    name="date"
+    value={todayDate}  
+    onchange={handleChange}>
+</lightning-input>
+            </div>
+
+
+
+            <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Client Address</h2>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Street Address" onchange={handleChange} name="street"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="City" onchange={handleChange} name="city"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="State" onchange={handleChange} name="state"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Zip Code" onchange={handleChange} name="zip"></lightning-input>
+                </div>
+            </div>
+
+         <!-- Pre-Installation Checklist -->
+<div class="slds-box slds-m-top_large slds-p-around_medium">
+    <h3 class="slds-text-heading_small slds-m-bottom_medium">Pre-Installation: </h3>
+
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Notify Homeowner – Alert to our presence, confirm access points, work hours, and any concerns."
+                checked={preInstallation.notifyHomeowner}
+                onchange={handlePreInstallChange}
+                data-id="notifyHomeowner">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Verify Permits & Inspections – Make sure all necessary permits are posted, photographed, and approved upon completion of work."
+                checked={preInstallation.verifyPermits}
+                onchange={handlePreInstallChange}
+                data-id="verifyPermits">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Review Materials & Equipment – Compare material order sheet to materials on site and confirm they are the same. (SEE CHART BELOW)"
+                checked={preInstallation.reviewMaterials}
+                onchange={handlePreInstallChange}
+                data-id="reviewMaterials">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Meet with Crew – Ensure accurate scope of work."
+                checked={preInstallation.meetCrew}
+                onchange={handlePreInstallChange}
+                data-id="meetCrew">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Protect Property – Set up tarps, plywood sheets, and other protective measures to prevent damage to landscaping, windows, siding, and pool if present."
+                checked={preInstallation.protectProperty}
+                onchange={handlePreInstallChange}
+                data-id="protectProperty">
+            </lightning-input>
+        </div>
+    </div>
+</div>
+
+
+<!-- Single picklist upload -->
+<div class="slds-box slds-m-bottom_medium">
+    <p class="slds-text-title_bold">Photo of:</p>
+    <lightning-radio-group
+        name="docType"
+        options={docPhotoOptions}
+        value={docPhoto.type}
+        onchange={handleDocTypeChange}>
+    </lightning-radio-group>
+
+    <template if:false={docPhoto.isfileuploaded}>
+        <lightning-file-upload
+            name="docFile"
+            accept=".jpg,.jpeg,.png"
+            onuploadfinished={handleDocFileUpload}>
+        </lightning-file-upload>
+    </template>
+
+    <template if:true={docPhoto.isfileuploaded}>
+        <img src={docPhoto.fileurl} alt={docPhoto.type} width="200"/>
+    </template>
+</div>
+
+
+
+
+<div class="slds-box slds-m-top_large slds-p-around_medium">
+    <h3 class="slds-text-heading_small slds-m-bottom_medium">Material Checklist</h3>
+
+    <div class="slds-grid slds-wrap">
+
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered material-checklist-table">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th scope="col" class="left-col">
+                    <div class="slds-truncate">Material</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Amount">Amount</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Brand">Brand</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Series">Series</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Color">Color</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Size">Size</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Type">Type</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={materials} for:item="material" for:index="index">
+                <tr key={material.name}>
+                    <td class="left-col">{material.name}</td>
+                    <td><input type="checkbox" checked={material.amount} data-index={index} data-field="amount" onchange={handleMaterialChange} /></td>
+                    <td><input type="checkbox" checked={material.brand} data-index={index} data-field="brand" onchange={handleMaterialChange} /></td>
+                    <td><input type="checkbox" checked={material.series} data-index={index} data-field="series" onchange={handleMaterialChange} /></td>
+                    <td><input type="checkbox" checked={material.color} data-index={index} data-field="color" onchange={handleMaterialChange} /></td>
+                    <td><input type="checkbox" checked={material.size} data-index={index} data-field="size" onchange={handleMaterialChange} /></td>
+                    <td><input type="checkbox" checked={material.type} data-index={index} data-field="type" onchange={handleMaterialChange} /></td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</div>
+</div>
+
+
+<!-- Pre-Installation: Work In Progress Section -->
+<div class="slds-box slds-m-top_large slds-p-around_medium">
+    <h3 class="slds-text-heading_small slds-m-bottom_medium">Pre-Installation: </h3>
+
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Safety Check – Ensure all crew members are using proper PPE (harnesses, gloves, helmets, etc.)."
+                checked={preInstallation.safetyCheck}
+                onchange={handlePreInstallChange}
+                data-id="safetyCheck">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Monitor Tear-Off Process – Ensure proper removal of old roofing materials and disposal in designated areas."
+                checked={preInstallation.tearOff}
+                onchange={handlePreInstallChange}
+                data-id="tearOff">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Check Roof Decking – Inspect for rot or structural damage; replace if necessary."
+                checked={preInstallation.roofDecking}
+                onchange={handlePreInstallChange}
+                data-id="roofDecking">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Oversee Underlayment Installation – Ensure correct placement of water barriers and underlayment."
+                checked={preInstallation.underlayment}
+                onchange={handlePreInstallChange}
+                data-id="underlayment">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Take Photos using spaces below (ONLY APPLICABLE TO CASH JOBS)"
+                checked={preInstallation.photosCashJobs}
+                onchange={handlePreInstallChange}
+                data-id="photosCashJobs">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Monitor Shingle or Material Installation – Confirm proper nailing, flashing, and ventilation."
+                checked={preInstallation.shingleInstall}
+                onchange={handlePreInstallChange}
+                data-id="shingleInstall">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Keep Job Site Clean – Regularly clear debris and nails using magnets or sweepers."
+                checked={preInstallation.jobSiteClean}
+                onchange={handlePreInstallChange}
+                data-id="jobSiteClean">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Update Homeowner – Update homeowner on any concerns, unusual circumstances, or additional work required during the installation process."
+                checked={preInstallation.updateHomeowner}
+                onchange={handlePreInstallChange}
+                data-id="updateHomeowner">
+            </lightning-input>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- End of the Day Wrap-Up Section -->
+<div class="slds-box slds-m-top_large slds-p-around_medium">
+    <h3 class="slds-text-heading_small slds-m-bottom_medium">End of the Day Wrap-Up (1 Day Job)</h3>
+
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Inspect Progress & Quality – Ensure work meets project standards."
+                checked={endOfDay.inspectProgress}
+                onchange={handleEndOfDayChange}
+                data-id="inspectProgress">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Clean Up Thoroughly – Make final walkthrough before consulting homeowner to make sure debris is removed, nails are picked up, and in general the site is clean."
+                checked={endOfDay.cleanUp}
+                onchange={handleEndOfDayChange}
+                data-id="cleanUp">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Confirm customer is satisfied with installation and cleanup."
+                checked={endOfDay.customerSatisfied}
+                onchange={handleEndOfDayChange}
+                data-id="customerSatisfied">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Complete attic safety checks for HVAC / water heater."
+                checked={endOfDay.atticSafety}
+                onchange={handleEndOfDayChange}
+                data-id="atticSafety">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Collect & photograph first insurance check & deductible."
+                checked={endOfDay.insuranceCheck}
+                onchange={handleEndOfDayChange}
+                data-id="insuranceCheck">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Collect signed certificate of completion from customer."
+                checked={endOfDay.certificate}
+                onchange={handleEndOfDayChange}
+                data-id="certificate">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input
+                type="checkbox"
+                label="Take Photos in spaces below (ONLY APPLICABLE TO CASH JOBS)."
+                checked={endOfDay.photosCashJobs}
+                onchange={handleEndOfDayChange}
+                data-id="photosCashJobs">
+            </lightning-input>
+        </div>
+    </div>
+</div>
+
+<!-- Photo Upload Section -->
+    <template for:each={sitePhotoBlocks} for:item="block">
+        <div key={block.id} class="slds-box slds-m-bottom_medium">
+            <p class="slds-text-title_bold">Photo Of:</p>
+
+            <lightning-radio-group
+                name={block.id}
+                options={sitePhotoOptions}
+                value={block.filename}
+                data-id={block.id}
+                onchange={handleSitePhotoChange}>
+            </lightning-radio-group>
+
+            <template if:false={block.isfileuploaded}>
+                <lightning-file-upload
+                    name="siteFile"
+                    data-id={block.id}
+                    accept=".jpg,.jpeg,.png"
+                    onuploadfinished={handleSiteFileUpload}>
+                </lightning-file-upload>
+            </template>
+
+            <template if:true={block.isfileuploaded}>
+                <img src={block.fileurl} alt={block.filename} width="200"/>
+            </template>
+
+            <lightning-button
+                variant="destructive-text"
+                label="Remove"
+                data-id={block.id}
+                onclick={removeSitePhotoBlock}>
+            </lightning-button>
+        </div>
+    </template>
+
+    <lightning-button
+        variant="brand-outline"
+        label="Add Another"
+        onclick={addSitePhotoBlock}>
+    </lightning-button>
+
+<!-- End of Day Wrap-Up (Multi-Day Job) Section -->
+<div class="slds-box slds-m-top_large slds-p-around_medium">
+    <h3 class="slds-text-heading_small slds-m-bottom_medium">End of Day Wrap-Up (Multi-Day Job)</h3>
+
+    <div class="slds-grid slds-wrap">
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input 
+                type="checkbox" 
+                label="Inspect Progress & Quality – Ensure work meets project standards." 
+                checked={multiDayEndOfDay.inspectProgress} 
+                onchange={handleMultiDayEndOfDayChange} 
+                data-id="inspectProgress">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input 
+                type="checkbox" 
+                label="Clean Up Thoroughly – Make final walkthrough before consulting homeowner to make sure debris is removed, nails are picked up, and in general the site is clean." 
+                checked={multiDayEndOfDay.cleanUp} 
+                onchange={handleMultiDayEndOfDayChange} 
+                data-id="cleanUp">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input 
+                type="checkbox" 
+                label="Confirm customer is satisfied with installation and cleanup." 
+                checked={multiDayEndOfDay.customerSatisfied} 
+                onchange={handleMultiDayEndOfDayChange} 
+                data-id="customerSatisfied">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input 
+                type="checkbox" 
+                label="Complete attic safety checks for HVAC / water heater." 
+                checked={multiDayEndOfDay.atticSafety} 
+                onchange={handleMultiDayEndOfDayChange} 
+                data-id="atticSafety">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input 
+                type="checkbox" 
+                label="Collect & photograph first insurance check & deductible." 
+                checked={multiDayEndOfDay.insuranceCheck} 
+                onchange={handleMultiDayEndOfDayChange} 
+                data-id="insuranceCheck">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input 
+                type="checkbox" 
+                label="Collect signed certificate of completion from customer." 
+                checked={multiDayEndOfDay.certificate} 
+                onchange={handleMultiDayEndOfDayChange} 
+                data-id="certificate">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input 
+                type="checkbox" 
+                label="Confirm start time of crew for following day." 
+                checked={multiDayEndOfDay.crewStartNextDay} 
+                onchange={handleMultiDayEndOfDayChange} 
+                data-id="crewStartNextDay">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input 
+                type="checkbox" 
+                label="Consult with crew on any tools & equipment to be left behind." 
+                checked={multiDayEndOfDay.consultCrewEquipment} 
+                onchange={handleMultiDayEndOfDayChange} 
+                data-id="consultCrewEquipment">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input 
+                type="checkbox" 
+                label="Inform homeowner of proposed start time." 
+                checked={multiDayEndOfDay.informHomeownerStartTime} 
+                onchange={handleMultiDayEndOfDayChange} 
+                data-id="informHomeownerStartTime">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input 
+                type="checkbox" 
+                label="Confirm with homeowner equipment can be left overnight." 
+                checked={multiDayEndOfDay.confirmEquipmentOvernight} 
+                onchange={handleMultiDayEndOfDayChange} 
+                data-id="confirmEquipmentOvernight">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input 
+                type="checkbox" 
+                label="Confirm cleanup is sufficient with homeowner to be left overnight." 
+                checked={multiDayEndOfDay.confirmCleanupOvernight} 
+                onchange={handleMultiDayEndOfDayChange} 
+                data-id="confirmCleanupOvernight">
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+            <lightning-input 
+                type="checkbox" 
+                label="Refer to day one protocol upon completion." 
+                checked={multiDayEndOfDay.referDayOneProtocol} 
+                onchange={handleMultiDayEndOfDayChange} 
+                data-id="referDayOneProtocol">
+            </lightning-input>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Save & Reset Buttons -->
+<div class="slds-m-top_large actions">
+<lightning-button variant="brand" label="Save" onclick={handleSave}></lightning-button>
+<lightning-button variant="neutral" label="Reset" onclick={handleReset}></lightning-button>
+</div>
+</div>
+</lightning-card>
+</template>

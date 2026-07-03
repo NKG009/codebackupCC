@@ -1,0 +1,177 @@
+67.0 APEX_CODE,FINEST;APEX_PROFILING,FINE;CALLOUT,INFO;DATA_ACCESS,INFO;DB,FINEST;NBA,INFO;SYSTEM,DEBUG;VALIDATION,INFO;VISUALFORCE,FINER;WAVE,INFO;WORKFLOW,FINE
+08:05:03.0 (302278)|USER_INFO|[EXTERNAL]|005Ec00000ZXoEn|nikhil.gaurav@cloudcacheconsulting.com|(GMT-04:00) Eastern Daylight Time (America/New_York)|GMT-04:00
+08:05:03.0 (338842)|EXECUTION_STARTED
+08:05:03.0 (349912)|CODE_UNIT_STARTED|[EXTERNAL]|apex://LMSCourseController/ACTION$getRecentActivity
+08:05:03.0 (1918175)|CODE_UNIT_STARTED|[EXTERNAL]|01pEc00000w5hao|LMSCourseController.getRecentActivity()
+08:05:03.0 (2167469)|HEAP_ALLOCATE|[95]|Bytes:3
+08:05:03.0 (2237680)|HEAP_ALLOCATE|[100]|Bytes:152
+08:05:03.0 (2254351)|HEAP_ALLOCATE|[417]|Bytes:408
+08:05:03.0 (2266180)|HEAP_ALLOCATE|[430]|Bytes:408
+08:05:03.0 (2285516)|HEAP_ALLOCATE|[317]|Bytes:6
+08:05:03.0 (2295630)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:40
+08:05:03.0 (2303377)|METHOD_ENTRY|[1]|01pEc00000w5hao|LMSCourseController.LMSCourseController()
+08:05:03.0 (2308222)|STATEMENT_EXECUTE|[1]
+08:05:03.0 (2313425)|STATEMENT_EXECUTE|[1]
+08:05:03.0 (2330505)|HEAP_ALLOCATE|[68]|Bytes:5
+08:05:03.0 (2349711)|HEAP_ALLOCATE|[74]|Bytes:5
+08:05:03.0 (2354839)|HEAP_ALLOCATE|[82]|Bytes:7
+08:05:03.0 (2567249)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:5
+08:05:03.0 (2579366)|METHOD_EXIT|[1]|LMSCourseController
+08:05:03.0 (2590443)|HEAP_ALLOCATE|[114]|Bytes:5
+08:05:03.0 (2592908)|STATEMENT_EXECUTE|[113]
+08:05:03.0 (2594030)|STATEMENT_EXECUTE|[114]
+08:05:03.0 (2609730)|HEAP_ALLOCATE|[114]|Bytes:4
+08:05:03.0 (2645445)|VARIABLE_SCOPE_BEGIN|[114]|activities|List<Map<String,ANY>>|true|false
+08:05:03.0 (2677156)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+08:05:03.0 (2724152)|VARIABLE_ASSIGNMENT|[114]|activities|[]|0x40170b2c
+08:05:03.0 (2729346)|HEAP_ALLOCATE|[115]|Bytes:131
+08:05:03.0 (2738883)|HEAP_ALLOCATE|[115]|Bytes:4
+08:05:03.0 (15109449)|SOQL_EXECUTE_BEGIN|[115]|Aggregations:0|SELECT Id, Learner__r.Name, LMS_Course__r.Name, CreatedDate FROM LMS_Certification__c ORDER BY CreatedDate DESC NULLS FIRST LIMIT 3
+08:05:03.0 (24761443)|SOQL_EXECUTE_EXPLAIN|[115]|Index on ApexExecutionOverlayAction : [ScopeId], cardinality: 0, sobjectCardinality: 3, relativeCost 0
+08:05:03.0 (24776533)|SOQL_EXECUTE_END|[115]|Rows:0
+08:05:03.0 (25049760)|HEAP_ALLOCATE|[115]|Bytes:54
+08:05:03.0 (25058609)|HEAP_ALLOCATE|[115]|Bytes:8
+08:05:03.0 (25070563)|SYSTEM_METHOD_ENTRY|[7]|QueryLocatorIterator.QueryLocatorIterator()
+08:05:03.0 (25075464)|STATEMENT_EXECUTE|[7]
+08:05:03.0 (25085954)|SYSTEM_METHOD_EXIT|[7]|QueryLocatorIterator
+08:05:03.0 (25092745)|HEAP_ALLOCATE|[115]|Bytes:28
+08:05:03.0 (25105376)|HEAP_ALLOCATE|[115]|Bytes:8
+08:05:03.0 (25108007)|HEAP_ALLOCATE|[115]|Bytes:8
+08:05:03.0 (25114773)|VARIABLE_SCOPE_BEGIN|[15]|this|Database.QueryLocatorIterator|true|false
+08:05:03.0 (25160105)|VARIABLE_ASSIGNMENT|[15]|this|{}|0x7e12ebfc
+08:05:03.0 (25163718)|VARIABLE_SCOPE_BEGIN|[15]|values|List<SObject>|true|false
+08:05:03.0 (25169264)|VARIABLE_ASSIGNMENT|[15]|values|null|
+08:05:03.0 (25171281)|VARIABLE_SCOPE_BEGIN|[15]|ql|Database.QueryLocator|true|false
+08:05:03.0 (25192071)|VARIABLE_ASSIGNMENT|[15]|ql|{"query":"SELECT Id, Learner__ (111 more) ..."}|0x5a47be1f
+08:05:03.0 (25194825)|VARIABLE_SCOPE_BEGIN|[15]|totalNumRecords|Integer|false|false
+08:05:03.0 (25202284)|VARIABLE_ASSIGNMENT|[15]|totalNumRecords|0
+08:05:03.0 (25204443)|VARIABLE_SCOPE_BEGIN|[15]|queryMoreSize|Integer|false|false
+08:05:03.0 (25207817)|VARIABLE_ASSIGNMENT|[15]|queryMoreSize|50000
+08:05:03.0 (27254700)|HEAP_ALLOCATE|[115]|Bytes:28
+08:05:03.0 (27279764)|METHOD_ENTRY|[115]||Database.QueryLocatorIterator.hasNext()
+08:05:03.0 (27301379)|METHOD_EXIT|[115]||Database.QueryLocatorIterator.hasNext()
+08:05:03.0 (27354634)|VARIABLE_ASSIGNMENT|[115]|c|null|
+08:05:03.0 (27358866)|STATEMENT_EXECUTE|[115]
+08:05:03.0 (27377893)|HEAP_ALLOCATE|[117]|Bytes:127
+08:05:03.0 (27394054)|HEAP_ALLOCATE|[117]|Bytes:4
+08:05:03.0 (28164745)|SOQL_EXECUTE_BEGIN|[117]|Aggregations:0|SELECT Id, Learner__r.Name, LMS_Course__r.Name, CreatedDate FROM LMS_Enrolment__c ORDER BY CreatedDate DESC NULLS FIRST LIMIT 3
+08:05:03.0 (47506655)|SOQL_EXECUTE_EXPLAIN|[117]|Index on ApexExecutionOverlayAction : [ScopeId], cardinality: 0, sobjectCardinality: 3, relativeCost 0
+08:05:03.0 (47519661)|SOQL_EXECUTE_END|[117]|Rows:2
+08:05:03.0 (47540597)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:12
+08:05:03.0 (47705143)|HEAP_ALLOCATE|[117]|Bytes:28
+08:05:03.0 (47833727)|HEAP_ALLOCATE|[117]|Bytes:12
+08:05:03.0 (47842071)|HEAP_ALLOCATE|[117]|Bytes:8
+08:05:03.0 (47843635)|HEAP_ALLOCATE|[117]|Bytes:8
+08:05:03.0 (47850735)|VARIABLE_SCOPE_BEGIN|[15]|this|Database.QueryLocatorIterator|true|false
+08:05:03.0 (47895438)|VARIABLE_ASSIGNMENT|[15]|this|{}|0x6103bc64
+08:05:03.0 (47899764)|VARIABLE_SCOPE_BEGIN|[15]|values|List<SObject>|true|false
+08:05:03.0 (48237150)|VARIABLE_ASSIGNMENT|[15]|values|[{"CreatedDate":"2026-06-19T08:33:18.000Z","Id":"a8EEc000002ERLlMAO","Learner__c":"0054N000005ih5eQAA","Learner__r":{"Name":"User1685539642771924 (4 more) ...","Id":"0054N000005ih5eQAA","CommunityNickname":"User1685539642771924 (4 more) ..."},"LMS_Course__r":{"Name":"Salesforce Administr (17 more) ...","Id":"a80Ec000000JSBtIAO"},"LMS_Course__c":"a80Ec000000JSBtIAO"},{"CreatedDate":"2026-06-16T12:47:31.000Z","Id":"a8EEc000002E2f7MAC","Learner__c":"0054N000005ih5eQAA","Learner__r":{"Name":"User1685539642771924 (4 more) ...","Id":"0054N000005ih5eQAA","CommunityNickname":"User1685539642771924 (4 more) ..."},"LMS_Course__r":{"Name":"HR Compliance","Id":"a80Ec000000J9UDIA0"},"LMS_Course__c":"a80Ec000000J9UDIA0"}]|0x69375062
+08:05:03.0 (48247040)|VARIABLE_SCOPE_BEGIN|[15]|ql|Database.QueryLocator|true|false
+08:05:03.0 (48260242)|VARIABLE_ASSIGNMENT|[15]|ql|{"query":"SELECT Id, Learner__ (107 more) ..."}|0x73be8f70
+08:05:03.0 (48263162)|VARIABLE_SCOPE_BEGIN|[15]|totalNumRecords|Integer|false|false
+08:05:03.0 (48270507)|VARIABLE_ASSIGNMENT|[15]|totalNumRecords|2
+08:05:03.0 (48272689)|VARIABLE_SCOPE_BEGIN|[15]|queryMoreSize|Integer|false|false
+08:05:03.0 (48276107)|VARIABLE_ASSIGNMENT|[15]|queryMoreSize|49998
+08:05:03.0 (48332964)|HEAP_ALLOCATE|[117]|Bytes:28
+08:05:03.0 (48355324)|METHOD_ENTRY|[117]||Database.QueryLocatorIterator.hasNext()
+08:05:03.0 (48444121)|METHOD_EXIT|[117]||Database.QueryLocatorIterator.hasNext()
+08:05:03.0 (48448834)|METHOD_ENTRY|[117]||Database.QueryLocatorIterator.next()
+08:05:03.0 (48522877)|METHOD_EXIT|[117]||Database.QueryLocatorIterator.next()
+08:05:03.0 (48527831)|VARIABLE_SCOPE_BEGIN|[117]|e|LMS_Enrolment__c|true|false
+08:05:03.0 (48614226)|VARIABLE_ASSIGNMENT|[117]|e|{"CreatedDate":"2026-06-19T08:33:18.000Z","Id":"a8EEc000002ERLlMAO","Learner__c":"0054N000005ih5eQAA","Learner__r":{"Name":"User1685539642771924 (4 more) ...","Id":"0054N000005ih5eQAA","CommunityNickname":"User1685539642771924 (4 more) ..."},"LMS_Course__r":{"Name":"Salesforce Administr (17 more) ...","Id":"a80Ec000000JSBtIAO"},"LMS_Course__c":"a80Ec000000JSBtIAO"}|0x1bb956cf
+08:05:03.0 (48620661)|STATEMENT_EXECUTE|[118]
+08:05:03.0 (48639035)|HEAP_ALLOCATE|[118]|Bytes:4
+08:05:03.0 (48649392)|HEAP_ALLOCATE|[118]|Bytes:2
+08:05:03.0 (48713471)|HEAP_ALLOCATE|[118]|Bytes:4
+08:05:03.0 (48756375)|HEAP_ALLOCATE|[118]|Bytes:13
+08:05:03.0 (48806252)|HEAP_ALLOCATE|[118]|Bytes:74
+08:05:03.0 (48815400)|HEAP_ALLOCATE|[118]|Bytes:4
+08:05:03.0 (48817361)|HEAP_ALLOCATE|[118]|Bytes:9
+08:05:03.0 (48822022)|HEAP_ALLOCATE|[118]|Bytes:9
+08:05:03.0 (48853157)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+08:05:03.0 (48861638)|METHOD_ENTRY|[117]||Database.QueryLocatorIterator.hasNext()
+08:05:03.0 (48881105)|METHOD_EXIT|[117]||Database.QueryLocatorIterator.hasNext()
+08:05:03.0 (48884048)|METHOD_ENTRY|[117]||Database.QueryLocatorIterator.next()
+08:05:03.0 (48929168)|METHOD_EXIT|[117]||Database.QueryLocatorIterator.next()
+08:05:03.0 (48932307)|VARIABLE_SCOPE_BEGIN|[117]|e|LMS_Enrolment__c|true|false
+08:05:03.0 (48990147)|VARIABLE_ASSIGNMENT|[117]|e|{"CreatedDate":"2026-06-16T12:47:31.000Z","Id":"a8EEc000002E2f7MAC","Learner__c":"0054N000005ih5eQAA","Learner__r":{"Name":"User1685539642771924 (4 more) ...","Id":"0054N000005ih5eQAA","CommunityNickname":"User1685539642771924 (4 more) ..."},"LMS_Course__r":{"Name":"HR Compliance","Id":"a80Ec000000J9UDIA0"},"LMS_Course__c":"a80Ec000000J9UDIA0"}|0x1c156f0
+08:05:03.0 (48995266)|STATEMENT_EXECUTE|[118]
+08:05:03.0 (49000628)|HEAP_ALLOCATE|[118]|Bytes:4
+08:05:03.0 (49018536)|HEAP_ALLOCATE|[118]|Bytes:50
+08:05:03.0 (49033746)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+08:05:03.0 (49043494)|METHOD_ENTRY|[117]||Database.QueryLocatorIterator.hasNext()
+08:05:03.0 (49050852)|METHOD_EXIT|[117]||Database.QueryLocatorIterator.hasNext()
+08:05:03.0 (49055457)|VARIABLE_ASSIGNMENT|[117]|e|null|
+08:05:03.0 (49070244)|STATEMENT_EXECUTE|[119]
+08:05:03.0 (55673104)|HEAP_ALLOCATE|[119]|Bytes:284
+08:05:03.0 (55841350)|FATAL_ERROR|System.UnexpectedException: class common.apex.runtime.impl.MapValue cannot be cast to class java.lang.Comparable (common.apex.runtime.impl.MapValue is in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @772485dd; java.lang.Comparable is in module java.base of loader 'bootstrap')
+
+External entry point
+08:05:03.0 (55852791)|FATAL_ERROR|System.UnexpectedException: class common.apex.runtime.impl.MapValue cannot be cast to class java.lang.Comparable (common.apex.runtime.impl.MapValue is in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @772485dd; java.lang.Comparable is in module java.base of loader 'bootstrap')
+
+External entry point
+08:05:03.55 (55859420)|CUMULATIVE_LIMIT_USAGE
+08:05:03.55 (55859420)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 2 out of 100
+  Number of query rows: 2 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 0
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+08:05:03.55 (55859420)|TOTAL_EMAIL_RECIPIENTS_QUEUED|0
+08:05:03.55 (55859420)|STATIC_VARIABLE_LIST|
+  int:BYTES:0
+  int:BYTES:0
+  byte[]:DigitOnes:0
+  byte[]:DigitTens:0
+  Boolean:FALSE:0
+  int:MAX_EXPONENT:0
+  double:MAX_VALUE:0
+  int:MAX_VALUE:0
+  int:MIN_EXPONENT:0
+  double:MIN_NORMAL:0
+  double:MIN_VALUE:0
+  int:MIN_VALUE:0
+  double:NEGATIVE_INFINITY:0
+  double:NaN:0
+  double:POSITIVE_INFINITY:0
+  int:PRECISION:0
+  int:SIZE:0
+  int:SIZE:0
+  Boolean:TRUE:0
+  String:__sfdcParameterizedTypes:0
+  String:_sfdcAdditionalCodeLocations:0
+  String:_sfdcAdditionalCodeLocations:0
+  String:_sfdcAdditionalCodeLocations:0
+  char[]:digits:0
+  long:serialVersionUID:0
+  long:serialVersionUID:0
+  long:serialVersionUID:0
+
+08:05:03.55 (55859420)|CUMULATIVE_LIMIT_USAGE_END
+
+08:05:03.0 (55947164)|CODE_UNIT_FINISHED|LMSCourseController.getRecentActivity()
+08:05:03.55 (55969365)|CUMULATIVE_PROFILING_BEGIN
+08:05:03.55 (55969365)|CUMULATIVE_PROFILING|SOQL operations|
+Class.LMSCourseController.getRecentActivity: line 115, column 1: [SELECT Id, Learner__r.Name, LMS_Course__r.Name, CreatedDate FROM LMS_Certification__c ORDER BY CreatedDate DESC LIMIT 3]: executed 3 times in 24 ms
+Class.LMSCourseController.getRecentActivity: line 117, column 1: [SELECT Id, Learner__r.Name, LMS_Course__r.Name, CreatedDate FROM LMS_Enrolment__c ORDER BY CreatedDate DESC LIMIT 3]: executed 7 times in 21 ms
+
+08:05:03.55 (55969365)|CUMULATIVE_PROFILING|No profiling information for SOSL operations
+08:05:03.55 (55969365)|CUMULATIVE_PROFILING|No profiling information for DML operations
+08:05:03.55 (55969365)|CUMULATIVE_PROFILING|method invocations|
+External entry point: public static List<Map<String,ANY>> getRecentActivity(): executed 1 time in 54 ms
+Class.LMSCourseController.getRecentActivity: line 119, column 1: global public void sort(): executed 1 time in 7 ms
+Class.LMSCourseController.getRecentActivity: line 114, column 1: global public List<Map<String,ANY>>(): executed 1 time in 0 ms
+Class.LMSCourseController.getRecentActivity: line 118, column 1: global public Object put(Object, Object): executed 10 times in 0 ms
+
+08:05:03.55 (55969365)|CUMULATIVE_PROFILING_END
+08:05:03.0 (84984890)|CODE_UNIT_FINISHED|apex://LMSCourseController/ACTION$getRecentActivity
+08:05:03.0 (85004557)|EXECUTION_FINISHED

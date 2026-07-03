@@ -1,0 +1,190 @@
+67.0 APEX_CODE,FINEST;APEX_PROFILING,FINE;CALLOUT,INFO;DATA_ACCESS,INFO;DB,FINEST;NBA,INFO;SYSTEM,DEBUG;VALIDATION,INFO;VISUALFORCE,FINER;WAVE,INFO;WORKFLOW,FINE
+08:05:03.0 (728639)|USER_INFO|[EXTERNAL]|005Ec00000ZXoEn|nikhil.gaurav@cloudcacheconsulting.com|(GMT-04:00) Eastern Daylight Time (America/New_York)|GMT-04:00
+08:05:03.0 (761838)|EXECUTION_STARTED
+08:05:03.0 (771316)|CODE_UNIT_STARTED|[EXTERNAL]|apex://LMSCourseController/ACTION$getDashboardStats
+08:05:03.0 (2241743)|CODE_UNIT_STARTED|[EXTERNAL]|01pEc00000w5hao|LMSCourseController.getDashboardStats()
+08:05:03.0 (2546145)|HEAP_ALLOCATE|[95]|Bytes:3
+08:05:03.0 (2638841)|HEAP_ALLOCATE|[100]|Bytes:152
+08:05:03.0 (2658975)|HEAP_ALLOCATE|[417]|Bytes:408
+08:05:03.0 (2673753)|HEAP_ALLOCATE|[430]|Bytes:408
+08:05:03.0 (2695239)|HEAP_ALLOCATE|[317]|Bytes:6
+08:05:03.0 (2706800)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:40
+08:05:03.0 (2714718)|METHOD_ENTRY|[1]|01pEc00000w5hao|LMSCourseController.LMSCourseController()
+08:05:03.0 (2719918)|STATEMENT_EXECUTE|[1]
+08:05:03.0 (2725609)|STATEMENT_EXECUTE|[1]
+08:05:03.0 (2745053)|HEAP_ALLOCATE|[68]|Bytes:5
+08:05:03.0 (2770189)|HEAP_ALLOCATE|[74]|Bytes:5
+08:05:03.0 (2774800)|HEAP_ALLOCATE|[82]|Bytes:7
+08:05:03.0 (2937431)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:5
+08:05:03.0 (2948175)|METHOD_EXIT|[1]|LMSCourseController
+08:05:03.0 (2957988)|HEAP_ALLOCATE|[5]|Bytes:5
+08:05:03.0 (2960835)|STATEMENT_EXECUTE|[4]
+08:05:03.0 (2961647)|STATEMENT_EXECUTE|[5]
+08:05:03.0 (2975998)|HEAP_ALLOCATE|[5]|Bytes:4
+08:05:03.0 (2987844)|VARIABLE_SCOPE_BEGIN|[5]|stats|Map<String,ANY>|true|false
+08:05:03.0 (3041831)|VARIABLE_ASSIGNMENT|[5]|stats|{}|0x753c2cbd
+08:05:03.0 (3045893)|STATEMENT_EXECUTE|[6]
+08:05:03.0 (3047720)|HEAP_ALLOCATE|[6]|Bytes:16
+08:05:03.0 (3050026)|HEAP_ALLOCATE|[6]|Bytes:62
+08:05:03.0 (3054752)|HEAP_ALLOCATE|[6]|Bytes:4
+08:05:03.0 (5405389)|SOQL_EXECUTE_BEGIN|[6]|Aggregations:0|SELECT COUNT() FROM LMS_Course__c WHERE Is_Published__c = TRUE
+08:05:03.0 (20767977)|SOQL_EXECUTE_EXPLAIN|[6]|TableScan on LMS_Course__c : [], cardinality: 1, sobjectCardinality: 4, relativeCost 1.65
+08:05:03.0 (20794647)|SOQL_EXECUTE_END|[6]|Rows:4
+08:05:03.0 (20838172)|HEAP_ALLOCATE|[6]|Bytes:4
+08:05:03.0 (20879126)|HEAP_ALLOCATE|[6]|Bytes:4
+08:05:03.0 (20913606)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:-4
+08:05:03.0 (20923960)|STATEMENT_EXECUTE|[7]
+08:05:03.0 (20932458)|HEAP_ALLOCATE|[7]|Bytes:14
+08:05:03.0 (20936166)|HEAP_ALLOCATE|[7]|Bytes:67
+08:05:03.0 (20955418)|HEAP_ALLOCATE|[7]|Bytes:4
+08:05:03.0 (22157859)|SOQL_EXECUTE_BEGIN|[7]|Aggregations:0|SELECT COUNT() FROM LMS_Enrolment__c WHERE Status__c != 'Withdrawn'
+08:05:03.0 (47112264)|SOQL_EXECUTE_EXPLAIN|[7]|TableScan on LMS_Enrolment__c : [], cardinality: 1, sobjectCardinality: 2, relativeCost 0.65
+08:05:03.0 (47138033)|SOQL_EXECUTE_END|[7]|Rows:2
+08:05:03.0 (47176519)|HEAP_ALLOCATE|[7]|Bytes:4
+08:05:03.0 (47213874)|HEAP_ALLOCATE|[7]|Bytes:4
+08:05:03.0 (47240186)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:-4
+08:05:03.0 (47248670)|STATEMENT_EXECUTE|[8]
+08:05:03.0 (47256935)|HEAP_ALLOCATE|[8]|Bytes:14
+08:05:03.0 (47260130)|HEAP_ALLOCATE|[8]|Bytes:61
+08:05:03.0 (47275080)|HEAP_ALLOCATE|[8]|Bytes:4
+08:05:03.0 (56722464)|SOQL_EXECUTE_BEGIN|[8]|Aggregations:0|SELECT COUNT() FROM LMS_Question__c WHERE Is_Active__c = TRUE
+08:05:03.0 (66977531)|SOQL_EXECUTE_EXPLAIN|[8]|TableScan on LMS_Question__c : [], cardinality: 3, sobjectCardinality: 5, relativeCost 0.983
+08:05:03.0 (67002637)|SOQL_EXECUTE_END|[8]|Rows:5
+08:05:03.0 (67036395)|HEAP_ALLOCATE|[8]|Bytes:4
+08:05:03.0 (67068856)|HEAP_ALLOCATE|[8]|Bytes:4
+08:05:03.0 (67094327)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:-4
+08:05:03.0 (67103020)|STATEMENT_EXECUTE|[9]
+08:05:03.0 (67111142)|HEAP_ALLOCATE|[9]|Bytes:20
+08:05:03.0 (67114132)|HEAP_ALLOCATE|[9]|Bytes:40
+08:05:03.0 (67128859)|HEAP_ALLOCATE|[9]|Bytes:4
+08:05:03.0 (72487971)|SOQL_EXECUTE_BEGIN|[9]|Aggregations:0|SELECT COUNT() FROM LMS_Certification__c
+08:05:03.0 (83234753)|SOQL_EXECUTE_EXPLAIN|[9]|TableScan on LMS_Certification__c : [], cardinality: 1, sobjectCardinality: 1, relativeCost 0.65
+08:05:03.0 (83260481)|SOQL_EXECUTE_END|[9]|Rows:0
+08:05:03.0 (83294732)|HEAP_ALLOCATE|[9]|Bytes:4
+08:05:03.0 (83334359)|HEAP_ALLOCATE|[9]|Bytes:4
+08:05:03.0 (83362302)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:-4
+08:05:03.0 (83370562)|STATEMENT_EXECUTE|[10]
+08:05:03.0 (83378488)|HEAP_ALLOCATE|[10]|Bytes:14
+08:05:03.0 (83381806)|HEAP_ALLOCATE|[10]|Bytes:82
+08:05:03.0 (83401978)|HEAP_ALLOCATE|[10]|Bytes:4
+08:05:03.0 (84869401)|SOQL_EXECUTE_BEGIN|[10]|Aggregations:0|SELECT COUNT() FROM LMS_Quiz_Attempt__c WHERE Grading_Status__c = 'Pending Review'
+08:05:03.0 (94292120)|SOQL_EXECUTE_EXPLAIN|[10]|TableScan on LMS_Quiz_Attempt__c : [], cardinality: 0, sobjectCardinality: 1, relativeCost 0
+08:05:03.0 (94323472)|SOQL_EXECUTE_END|[10]|Rows:1
+08:05:03.0 (94363129)|HEAP_ALLOCATE|[10]|Bytes:4
+08:05:03.0 (94402788)|HEAP_ALLOCATE|[10]|Bytes:4
+08:05:03.0 (94433308)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:-4
+08:05:03.0 (94443441)|STATEMENT_EXECUTE|[11]
+08:05:03.0 (94451015)|HEAP_ALLOCATE|[11]|Bytes:36
+08:05:03.0 (94469313)|HEAP_ALLOCATE|[11]|Bytes:4
+08:05:03.0 (94688379)|SOQL_EXECUTE_BEGIN|[11]|Aggregations:0|SELECT COUNT() FROM LMS_Enrolment__c
+08:05:03.0 (99752489)|SOQL_EXECUTE_EXPLAIN|[11]|TableScan on LMS_Enrolment__c : [], cardinality: 1, sobjectCardinality: 2, relativeCost 0.65
+08:05:03.0 (99777559)|SOQL_EXECUTE_END|[11]|Rows:2
+08:05:03.0 (99812223)|HEAP_ALLOCATE|[11]|Bytes:4
+08:05:03.0 (99834688)|VARIABLE_SCOPE_BEGIN|[11]|total|Integer|false|false
+08:05:03.0 (99842642)|HEAP_ALLOCATE|[11]|Bytes:4
+08:05:03.0 (99861283)|VARIABLE_ASSIGNMENT|[11]|total|2
+08:05:03.0 (99865581)|STATEMENT_EXECUTE|[12]
+08:05:03.0 (99872861)|HEAP_ALLOCATE|[12]|Bytes:66
+08:05:03.0 (99896142)|HEAP_ALLOCATE|[12]|Bytes:4
+08:05:03.0 (100174123)|SOQL_EXECUTE_BEGIN|[12]|Aggregations:0|SELECT COUNT() FROM LMS_Enrolment__c WHERE Status__c = 'Certified'
+08:05:03.0 (106773632)|SOQL_EXECUTE_EXPLAIN|[12]|TableScan on LMS_Enrolment__c : [], cardinality: 0, sobjectCardinality: 2, relativeCost 0
+08:05:03.0 (106800967)|SOQL_EXECUTE_END|[12]|Rows:0
+08:05:03.0 (106838234)|HEAP_ALLOCATE|[12]|Bytes:4
+08:05:03.0 (106860903)|VARIABLE_SCOPE_BEGIN|[12]|completed|Integer|false|false
+08:05:03.0 (106868496)|HEAP_ALLOCATE|[12]|Bytes:4
+08:05:03.0 (106886600)|VARIABLE_ASSIGNMENT|[12]|completed|0
+08:05:03.0 (106890691)|STATEMENT_EXECUTE|[13]
+08:05:03.0 (106899309)|HEAP_ALLOCATE|[13]|Bytes:14
+08:05:03.0 (106909864)|HEAP_ALLOCATE|[13]|Bytes:5
+08:05:03.0 (106967437)|HEAP_ALLOCATE|[13]|Bytes:28
+08:05:03.0 (106988129)|HEAP_ALLOCATE|[13]|Bytes:28
+08:05:03.0 (106990110)|HEAP_ALLOCATE|[13]|Bytes:28
+08:05:03.0 (107058622)|HEAP_ALLOCATE|[13]|Bytes:28
+08:05:03.0 (107061126)|HEAP_ALLOCATE|[13]|Bytes:28
+08:05:03.0 (107069193)|HEAP_ALLOCATE|[13]|Bytes:28
+08:05:03.0 (107070726)|HEAP_ALLOCATE|[13]|Bytes:28
+08:05:03.0 (107082843)|HEAP_ALLOCATE|[13]|Bytes:28
+08:05:03.0 (107084448)|HEAP_ALLOCATE|[13]|Bytes:28
+08:05:03.0 (107151118)|VARIABLE_SCOPE_BEGIN|[2]|System.Math.E|Double|false|true
+08:05:03.0 (107154747)|VARIABLE_SCOPE_BEGIN|[3]|System.Math.PI|Double|false|true
+08:05:03.0 (107169373)|HEAP_ALLOCATE|[13]|Bytes:206
+08:05:03.0 (107184208)|SYSTEM_METHOD_ENTRY|[1]|Math.Math()
+08:05:03.0 (107186282)|STATEMENT_EXECUTE|[1]
+08:05:03.0 (109243390)|SYSTEM_METHOD_EXIT|[1]|Math
+08:05:03.0 (109273902)|METHOD_ENTRY|[13]||System.Math.roundToLong(Decimal)
+08:05:03.0 (109392861)|METHOD_EXIT|[13]||System.Math.roundToLong(Decimal)
+08:05:03.0 (109424070)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:-4
+08:05:03.0 (109430034)|STATEMENT_EXECUTE|[14]
+08:05:03.109 (109486804)|CUMULATIVE_LIMIT_USAGE
+08:05:03.109 (109486804)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 7 out of 100
+  Number of query rows: 7 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 0
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+08:05:03.109 (109486804)|TOTAL_EMAIL_RECIPIENTS_QUEUED|0
+08:05:03.109 (109486804)|STATIC_VARIABLE_LIST|
+  int:BYTES:0
+  int:BYTES:0
+  int:BYTES:0
+  byte[]:DigitOnes:0
+  byte[]:DigitTens:0
+  Boolean:FALSE:0
+  int:MAX_EXPONENT:0
+  double:MAX_VALUE:0
+  int:MAX_VALUE:0
+  long:MAX_VALUE:0
+  int:MIN_EXPONENT:0
+  double:MIN_NORMAL:0
+  double:MIN_VALUE:0
+  int:MIN_VALUE:0
+  long:MIN_VALUE:0
+  double:NEGATIVE_INFINITY:0
+  double:NaN:0
+  double:POSITIVE_INFINITY:0
+  int:PRECISION:0
+  int:SIZE:0
+  int:SIZE:0
+  int:SIZE:0
+  Boolean:TRUE:0
+  String:_sfdcAdditionalCodeLocations:0
+  String:_sfdcAdditionalCodeLocations:0
+  Double:_static_E:0
+  Double:_static_PI:0
+  char[]:digits:0
+  long:serialVersionUID:0
+  long:serialVersionUID:0
+  long:serialVersionUID:0
+  long:serialVersionUID:0
+
+08:05:03.109 (109486804)|CUMULATIVE_LIMIT_USAGE_END
+
+08:05:03.0 (109579081)|CODE_UNIT_FINISHED|LMSCourseController.getDashboardStats()
+08:05:03.109 (109598865)|CUMULATIVE_PROFILING_BEGIN
+08:05:03.109 (109598865)|CUMULATIVE_PROFILING|SOQL operations|
+Class.LMSCourseController.getDashboardStats: line 7, column 1: [SELECT COUNT() FROM LMS_Enrolment__c WHERE Status__c != 'Withdrawn']: executed 2 times in 27 ms
+Class.LMSCourseController.getDashboardStats: line 8, column 1: [SELECT COUNT() FROM LMS_Question__c WHERE Is_Active__c = true]: executed 2 times in 20 ms
+Class.LMSCourseController.getDashboardStats: line 6, column 1: [SELECT COUNT() FROM LMS_Course__c WHERE Is_Published__c = true]: executed 2 times in 18 ms
+Class.LMSCourseController.getDashboardStats: line 9, column 1: [SELECT COUNT() FROM LMS_Certification__c]: executed 2 times in 16 ms
+Class.LMSCourseController.getDashboardStats: line 10, column 1: [SELECT COUNT() FROM LMS_Quiz_Attempt__c WHERE Grading_Status__c = 'Pending Review']: executed 2 times in 11 ms
+Class.LMSCourseController.getDashboardStats: line 12, column 1: [SELECT COUNT() FROM LMS_Enrolment__c WHERE Status__c = 'Certified']: executed 1 time in 7 ms
+Class.LMSCourseController.getDashboardStats: line 11, column 1: [SELECT COUNT() FROM LMS_Enrolment__c]: executed 1 time in 5 ms
+
+08:05:03.109 (109598865)|CUMULATIVE_PROFILING|No profiling information for SOSL operations
+08:05:03.109 (109598865)|CUMULATIVE_PROFILING|No profiling information for DML operations
+08:05:03.109 (109598865)|CUMULATIVE_PROFILING|method invocations|
+External entry point: public static Map<String,ANY> getDashboardStats(): executed 1 time in 107 ms
+Class.LMSCourseController.getDashboardStats: line 13, column 1: public Decimal multiply(Decimal): executed 4 times in 0 ms
+
+08:05:03.109 (109598865)|CUMULATIVE_PROFILING_END
+08:05:03.0 (109832713)|CODE_UNIT_FINISHED|apex://LMSCourseController/ACTION$getDashboardStats
+08:05:03.0 (109838689)|EXECUTION_FINISHED

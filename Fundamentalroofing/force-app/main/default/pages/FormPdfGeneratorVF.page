@@ -1,0 +1,24 @@
+<apex:page controller="FormPdfGeneratorVFController" renderAs="pdf"  applyBodyTag="false" showHeader="false" standardStylesheets="false">
+<table style="width:100%; border-bottom:1px solid #ccc;margin-top: -30px;">
+    <tr>
+        <td style="width:80%; vertical-align:middle;">
+            <img src="{!URLFOR($Resource.Roofinglogo)}" style="height:100px; width:100px margin-right:15px; float:left;" />
+            <div style="margin-top: 30px;text-align: center;">
+                <div style="font-size:23px; font-weight:bold; ">Fundamental Roofing LLC</div>
+            <div style="font-size:15px; font-weight:bold;">{!formTitle} </div>
+            </div>
+            
+        </td>
+        <td style="width:30%; text-align:right; font-size:12px;">
+            <div style="margin-top: -10px;">
+            {!formattedDate}
+            </div>
+        </td>
+    </tr>
+</table>
+    
+    <div class="body-content">
+        <apex:outputText escape="false" value="{!formHtml}" />
+    </div>
+
+</apex:page>

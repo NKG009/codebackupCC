@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "d0a2ac93-02ec-4785-b8f3-de52c7a6e3d8",
+  "appPageId" : "e5e20351-b2eb-40ea-a61a-a58569864f9e",
+  "configurationTags" : [ ],
+  "devName" : "Expediting__c",
+  "id" : "048550ca-606f-41d8-9fe7-f093f224a5f5",
+  "label" : "Expediting",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-expediting",
+  "type" : "route",
+  "urlPrefix" : "expediting"
+}

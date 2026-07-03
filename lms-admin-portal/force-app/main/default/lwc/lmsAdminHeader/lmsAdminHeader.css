@@ -1,0 +1,24 @@
+.header {
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0 2rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+.header__title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #16325c;
+    margin: 0;
+}
+.header__right { display: flex; align-items: center; gap: 1rem; }
+.header__user {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.875rem;
+    color: #54698d;
+}

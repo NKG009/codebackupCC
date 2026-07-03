@@ -1,0 +1,52 @@
+.outer-container {
+    background-color: #dcdcdc;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container {
+    width: 350px;
+}
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    color: #888;
+}
+
+lightning-input {
+    --slds-c-input-radius-border: 4px;
+}
+
+lightning-input input {
+    padding-left: 40px !important;
+    height: 45px;
+    background-color: white;
+}
+
+.signup-button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.signup-button .slds-button {
+    width: 100%;
+    height: 45px;
+    font-size: 16px;
+}
+
+.error-message {
+    margin-top: 12px;
+    color: red;
+    text-align: center;
+}

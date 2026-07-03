@@ -1,0 +1,16 @@
+<template>
+    <template if:true={isVisible}>
+        <div class={overlayClass}>
+            <div class="spinner-wrap">
+                <div class="spinner">
+                    <div class="spinner__ring spinner__ring--1"></div>
+                    <div class="spinner__ring spinner__ring--2"></div>
+                    <div class="spinner__ring spinner__ring--3"></div>
+                </div>
+                <template if:true={label}>
+                    <span class="spinner__label">{label}</span>
+                </template>
+            </div>
+        </div>
+    </template>
+</template>

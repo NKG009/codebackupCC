@@ -1,0 +1,51 @@
+.scrollable-section{
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #d8dde6;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+.logo-container {
+    text-align: center;
+}
+
+.logo {
+    max-width: 200px;
+    height: auto;
+}
+/* File input ka default text ("No file chosen") hide karna */
+input[type="file"] {
+    color: transparent;      /* text ko transparent kar deta hai */
+    width: 120px;            /* sirf button jitna width */
+}
+
+input[type="file"]::-webkit-file-upload-text {
+    visibility: hidden;      /* Chrome, Edge, Safari mein "No file chosen" hat jaayega */
+}
+
+input[type="file"]::file-selector-button {
+    visibility: visible;     /* Button visible rahega */
+}
+/* Chrome, Edge, Safari (WebKit browsers) */
+input[type="file"]::file-selector-button {
+    content: "Browse File";        /* new label */
+    font-size: 14px;
+    background: #0176d3;           /* Salesforce blue */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+/* Firefox (uses different pseudo-element) */
+input[type="file"]::-moz-file-upload-button {
+    content: "Browse File";
+    font-size: 14px;
+    background: #0176d3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+}

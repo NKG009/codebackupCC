@@ -1,0 +1,39 @@
+<template>
+    <div class="container">
+
+        <!-- ON THE WATER SECTION -->
+        <div class="section">
+            <div class="section-header">
+                <h2>🚢 On The Water Orders</h2>
+            </div>
+            <template if:true={showEtaTable}>
+                <lightning-datatable key-field="ROWNO" data={etaInventory} columns={etaColumns} class="styled-table"
+                    hide-checkbox-column></lightning-datatable>
+            </template>
+            <template if:false={showEtaTable}>
+                <div class="slds-text-color_error slds-p-around_medium">
+                    {etaMessage}
+                </div>
+            </template>
+
+        </div>
+
+        <!-- RESTOCK SECTION -->
+        <div class="section">
+            <div class="section-header">
+                <h2>📦 Restock Orders</h2>
+            </div>
+            <template if:true={showRestockTable}>
+                <lightning-datatable key-field="ROWNO" data={restockData} columns={restockColumns} class="styled-table"
+                    hide-checkbox-column></lightning-datatable>
+            </template>
+
+            <template if:false={showRestockTable}>
+                <div class="slds-text-color_error slds-p-around_medium">
+                    {restockMessage}
+                </div>
+            </template>
+        </div>
+
+    </div>
+</template>

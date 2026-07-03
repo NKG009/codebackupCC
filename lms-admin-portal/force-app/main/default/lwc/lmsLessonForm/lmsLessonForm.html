@@ -1,0 +1,187 @@
+<template>
+    <div class="form-page">
+        
+
+
+        <!-- Header -->
+        <div class="form-page__header">
+            <lightning-button label="Back" icon-name="utility:chevronleft" onclick={handleBack}></lightning-button>
+            <h2>{formTitle}</h2>
+            <div class="form-page__actions">
+                <lightning-button label="Cancel" onclick={handleBack}></lightning-button>
+                <lightning-button label="Save lesson" variant="brand" onclick={handleSave} disabled={isSaving}></lightning-button>
+            </div>
+        </div>
+
+        <!-- Basic fields — name, quiz, test-out only -->
+        <div class="form-section">
+            <div class="form-grid">
+                <lightning-input label="Lesson name" value={lesson.Name} onchange={handleField} data-field="Name" required></lightning-input>
+                <lightning-combobox label="Lesson quiz (optional)" placeholder="None" options={quizOptions} value={lesson.Quiz__c} onchange={handleQuizChange}></lightning-combobox>
+            </div>
+            <div class="checkbox-row">
+                <lightning-input type="checkbox" label="Allow test-out (learner can skip by passing the quiz)" checked={lesson.Allow_Test_Out__c} onchange={handleTestOutToggle}></lightning-input>
+            </div>
+            <template if:true={lesson.Allow_Test_Out__c}>
+                <template if:false={lesson.Quiz__c}>
+                    <div class="warn-hint">
+                        <lightning-icon icon-name="utility:warning" size="x-small"></lightning-icon>
+                        <span>Test-out requires a quiz. Select one above.</span>
+                    </div>
+                </template>
+            </template>
+        </div>
+
+        <!-- Content type selector -->
+        <div class="form-section">
+            <div class="section-label">Content types <span class="section-hint">Select all that apply — each selected type adds a content section below</span></div>
+            <div class="type-toggles">
+                <template for:each={typeOptions} for:item="t">
+                    <button key={t.value} class={t.cssClass} onclick={handleTypeToggle} data-type={t.value}>
+                        <lightning-icon icon-name={t.icon} size="x-small"></lightning-icon>
+                        <span>{t.label}</span>
+                        <template if:true={t.selected}>
+                            <lightning-icon icon-name="utility:check" size="x-small" class="type-check"></lightning-icon>
+                        </template>
+                    </button>
+                </template>
+            </div>
+            <template if:true={hasNoTypes}>
+                <div class="warn-hint">
+                    <lightning-icon icon-name="utility:warning" size="x-small"></lightning-icon>
+                    <span>Select at least one content type to build this lesson.</span>
+                </div>
+            </template>
+        </div>
+
+        <!-- VIDEO section — includes duration since duration is specific to video content -->
+        <template if:true={showVideo}>
+            <div class="form-section content-section">
+                <div class="content-section__header">
+                    <lightning-icon icon-name="utility:video" size="x-small"></lightning-icon>
+                    <span>Video</span>
+                </div>
+                <div class="form-grid">
+                    <lightning-input
+                        label="Video URL"
+                        value={lesson.Content_URL__c}
+                        onchange={handleField}
+                        data-field="Content_URL__c"
+                        placeholder="https://www.youtube.com/watch?v=..."
+                        class="form-grid--wide">
+                    </lightning-input>
+                    <lightning-input
+                        label="Duration (minutes)"
+                        type="number"
+                        min="0"
+                        value={lesson.Duration_Mins__c}
+                        onchange={handleField}
+                        data-field="Duration_Mins__c">
+                    </lightning-input>
+                </div>
+                <div class="url-hint">
+                    <lightning-icon icon-name="utility:info" size="x-small"></lightning-icon>
+                    <span>Supports YouTube, Vimeo, and direct video URLs. The learner portal will embed the video.</span>
+                </div>
+            </div>
+        </template>
+
+        <!-- TEXT section -->
+        <template if:true={showText}>
+            <div class="form-section content-section">
+                <div class="content-section__header">
+                    <lightning-icon icon-name="utility:text" size="x-small"></lightning-icon>
+                    <span>Text content</span>
+                </div>
+                <lightning-textarea
+                    label="Body text"
+                    value={lesson.Body_Text__c}
+                    onchange={handleField}
+                    data-field="Body_Text__c"
+                    max-length="32768"
+                    placeholder="Enter lesson text content here...">
+                </lightning-textarea>
+            </div>
+        </template>
+
+        <!-- PDF section -->
+        <template if:true={showPDF}>
+            <div class="form-section content-section">
+                <div class="content-section__header">
+                    <lightning-icon icon-name="utility:pdf_ext" size="x-small"></lightning-icon>
+                    <span>PDF document</span>
+                </div>
+                <lightning-input
+                    label="PDF URL (or upload below)"
+                    value={lesson.Content_URL__c}
+                    onchange={handleField}
+                    data-field="Content_URL__c"
+                    placeholder="https://...">
+                </lightning-input>
+                <c-lms-content-uploader
+                    label="Or upload a PDF"
+                    accept=".pdf"
+                    record-id={recordId}
+                    onuploaded={handleUploaded}>
+                </c-lms-content-uploader>
+            </div>
+        </template>
+
+        <!-- KNOWLEDGE ARTICLE section -->
+        <template if:true={showKnowledge}>
+            <div class="form-section content-section">
+                <div class="content-section__header">
+                    <lightning-icon icon-name="utility:knowledge_base" size="x-small"></lightning-icon>
+                    <span>Knowledge article</span>
+                </div>
+
+                <!-- If article already selected show it -->
+                <template if:true={hasArticleSelected}>
+                    <div class="ka-selected">
+                        <lightning-icon icon-name="utility:knowledge_base" size="x-small"></lightning-icon>
+                        <span class="ka-selected__title">{selectedArticleTitle}</span>
+                        <template if:true={isResolvingUrl}>
+                            <span class="ka-resolving">Generating public link...</span>
+                        </template>
+                        <template if:false={isResolvingUrl}>
+                            <template if:true={lesson.Knowledge_Article_URL__c}>
+                                <a href={lesson.Knowledge_Article_URL__c} target="_blank" class="ka-link">View public link</a>
+                            </template>
+                        </template>
+                        <button class="ka-clear" onclick={clearArticle}>Change</button>
+                    </div>
+                </template>
+
+                <!-- Article search -->
+                <template if:false={hasArticleSelected}>
+                    <div class="ka-search">
+                        <lightning-input
+                            type="search"
+                            label="Search published Knowledge Articles"
+                            value={kaSearch}
+                            onchange={handleKaSearch}
+                            placeholder="Type article title...">
+                        </lightning-input>
+                        <template if:true={kaSearchLoading}>
+                            <div class="ka-loading">Searching...</div>
+                        </template>
+                        <template if:true={showKaResults}>
+                            <div class="ka-results">
+                                <template for:each={kaResults} for:item="article">
+                                    <button key={article.Id} class="ka-result-row" onclick={handleArticleSelect} data-id={article.Id} data-title={article.Title}>
+                                        <span class="ka-result__title">{article.Title}</span>
+                                        <span class="ka-result__num">{article.ArticleNumber}</span>
+                                    </button>
+                                </template>
+                            </div>
+                        </template>
+                    </div>
+                    <div class="url-hint">
+                        <lightning-icon icon-name="utility:info" size="x-small"></lightning-icon>
+                        <span>Only published articles appear in search. Selecting an article generates and saves its public distribution link automatically.</span>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,36 @@
+<template>
+    <div class="modal-backdrop">
+        <div class="modal modal--wide">
+            <div class="modal__header">
+                <div class="modal__header-info">
+                    <h3>{enrolment.learnerName}</h3>
+                    <span class="modal__subtitle">{enrolment.courseName}</span>
+                </div>
+                <c-lms-status-badge label={enrolment.Status__c} variant="status"></c-lms-status-badge>
+                <button class="modal__close" onclick={handleClose}>✕</button>
+            </div>
+            <div class="modal__body">
+                <div class="progress-stats">
+                    <div class="pstat"><span class="pstat__val">{completedCount}</span><span class="pstat__lbl">Lessons done</span></div>
+                    <div class="pstat"><span class="pstat__val">{totalCount}</span><span class="pstat__lbl">Total lessons</span></div>
+                    <div class="pstat"><span class="pstat__val">{enrolment.Overall_Score__c}%</span><span class="pstat__lbl">Overall score</span></div>
+                    <div class="pstat"><span class="pstat__val">{enrolment.formattedEnrol}</span><span class="pstat__lbl">Enrolled</span></div>
+                </div>
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar"><div class="progress-bar__fill" style={progressStyle}></div></div>
+                    <span class="progress-pct">{progressPct}%</span>
+                </div>
+                <div class="lesson-progress-list">
+                    <template for:each={lessonProgress} for:item="lp">
+                        <div key={lp.Id} class="lp-row">
+                            <lightning-icon icon-name={lp.icon} size="x-small" class={lp.iconClass}></lightning-icon>
+                            <span class="lp-name">{lp.lessonName}</span>
+                            <span class="lp-via">{lp.Completed_Via__c}</span>
+                            <span class="lp-date">{lp.formattedDate}</span>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

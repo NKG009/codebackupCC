@@ -1,0 +1,13 @@
+<template>
+    <div class="cert-card">
+        <div class="cert-card__badge">
+            <lightning-icon icon-name="utility:ribbon" size="medium"></lightning-icon>
+        </div>
+        <div class="cert-card__body">
+            <span class="cert-card__learner">{cert.Learner__r.Name}</span>
+            <span class="cert-card__course">{cert.LMS_Course__r.Name}</span>
+            <span class="cert-card__num">{cert.Certificate_Number__c}</span>
+            <span class="cert-card__date">Issued {cert.formattedDate}</span>
+        </div>
+    </div>
+</template>

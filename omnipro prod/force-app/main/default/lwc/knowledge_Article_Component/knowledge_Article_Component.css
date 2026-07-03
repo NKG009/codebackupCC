@@ -1,0 +1,130 @@
+.tree-container {
+    margin: 1em;
+}
+.tree ul {
+    list-style-type: none;
+}
+.tree_label {
+    cursor: pointer;
+    font-weight: bold;
+    position: relative;
+}
+.tree_label::before {
+    content: '>';
+    position: absolute;
+    left: -1.5em;
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
+}
+.expanded .tree_label::before {
+    transform: rotate(0);
+}
+
+.slds-card {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.slds-card__footer {
+    text-align: center;
+}
+
+/* .slds-button_icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+} */
+.slds-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1000;
+}
+
+
+.slds-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001; 
+}
+
+
+.slds-vertical-nav__section_label {
+    text-align: center;
+}
+
+
+
+
+:host{
+
+    --slds-c-button-neutral-color-border: #ffffff !important;
+    --slds-c-button-neutral-color-background-hover: transparent !important;
+    --slds-c-button-neutral-color-border-hover:  transparent !important;
+    --slds-c-button-shadow-focus: transparent !important;
+   
+   
+}
+
+.slds-tree__item.slds-is-hovered, .slds-tree__item:hover{
+    background:  #ffffff !important;
+}
+
+
+.slds-button {
+    color: black; 
+}
+
+
+
+.slds-button__icon_small, .slds-button__icon--small {
+    width: var(--lwc-squareIconSmallContent, 0.75rem) !important;
+    height: var(--lwc-squareIconSmallContent, 0.75rem) !important;
+    fill: var(--slds-c-icon-color-foreground, currentColor) !important;
+    color:#000000 !important;
+}
+
+
+.slds-button__icon {
+    color: white;
+}
+
+
+.slds-table thead th {
+
+    color: black;
+}
+
+
+.slds-nav-vertical__item.slds-is-active .slds-nav-vertical__action {
+    font-weight: bold;
+    /* box-shadow: inset 2px 0 0 var(--lwc-brandPrimary, #088756); */
+    background: white;
+}
+
+
+.slds-nav-vertical__action {
+    box-shadow: inset 0 0 0 var(--lwc-brandPrimary, #088756) !important;
+}
+
+
+.slds-resizable__divider {
+
+    height: 0% !important;
+
+}
+
+.main-container {
+    min-height: 65vh; 
+    display: flex;
+    flex-direction: column;
+}
+
+.slds-grid {
+    flex: 1; 
+}

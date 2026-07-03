@@ -1,0 +1,6 @@
+({
+    data:[] ,
+	helperMethod : function() {
+		
+	}
+})

@@ -1,0 +1,576 @@
+<template>
+    <lightning-card title="Work Order and Contract Form">
+        
+        <div class="slds-p-around_medium">
+
+            <!-- 1. Company Info -->
+            <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Company Info</h2>
+                <p><b>Address:</b> 3010 Lyndon B. Johnson FWY STE 1200, Dallas TX 75234</p>
+                <p><b>Phone:</b> (214)-254-9969 | <b>Email:</b> fundamentalroofingllc@gmail.com</p>
+                <lightning-input type="date" label="Date" value={today}></lightning-input>
+            </div>
+
+           <!-- Homeowner Info -->
+<div class="slds-box slds-m-bottom_medium">
+    <h2 class="slds-text-heading_small slds-m-bottom_small">Homeowner Info</h2>
+    <div class="slds-grid slds-gutters slds-wrap">
+        <lightning-input class="slds-col slds-size_1-of-2" label="First Name"></lightning-input>
+        <lightning-input class="slds-col slds-size_1-of-2" label="Last Name"></lightning-input>
+        <lightning-input class="slds-col slds-size_1-of-2" type="tel" label="Phone"></lightning-input>
+        <lightning-input class="slds-col slds-size_1-of-2" type="email" label="Email"></lightning-input>
+        <lightning-input class="slds-col slds-size_1-of-2" label="Street Address"></lightning-input>
+        <lightning-input class="slds-col slds-size_1-of-2" label="City"></lightning-input>
+        <lightning-input class="slds-col slds-size_1-of-2" label="State"></lightning-input>
+        <lightning-input class="slds-col slds-size_1-of-2" label="Zip Code"></lightning-input>
+    </div>
+</div>
+<div class="slds-box slds-m-bottom_medium">
+    <h2 class="slds-text-heading_small slds-m-bottom_small">Fundamental Roofing Rep</h2>
+    <div class="slds-grid slds-gutters slds-wrap">
+       <lightning-input class="slds-col slds-size_1-of-2" 
+                 label="First Name" 
+                 value={repFirstName} 
+                 onchange={handleRepFirstNameChange}></lightning-input>
+
+<lightning-input class="slds-col slds-size_1-of-2" 
+                 label="Last Name" 
+                 value={repLastName} 
+                 onchange={handleRepLastNameChange}></lightning-input>
+    </div>
+</div>
+
+
+<!-- Insurance Info -->
+<div class="slds-box slds-m-bottom_medium">
+    <h2 class="slds-text-heading_small slds-m-bottom_small">Insurance Info</h2>
+    <div class="slds-grid slds-gutters slds-wrap">
+        <lightning-input class="slds-col slds-size_1-of-2" label="Insurance Carrier"></lightning-input>
+        <lightning-input class="slds-col slds-size_1-of-2" label="Claim Number"></lightning-input>
+        <lightning-input class="slds-col slds-size_1-of-2" label="Policy Number"></lightning-input>
+    </div>
+</div>
+
+
+            <!-- 3. Roofing System Specs -->
+            <div class="slds-box slds-m-bottom_medium">
+    <h2 class="slds-text-heading_small slds-m-bottom_small">Roofing System Specifications</h2>
+    
+    
+    <div class="slds-grid slds-wrap slds-gutters">
+
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-combobox 
+                label="Manufacturer" 
+                options={manufacturerOptions} 
+                placeholder="Select Manufacturer" 
+                value={selectedManufacturer}
+                onchange={handleManufacturerChange}>
+            </lightning-combobox>
+        </div>
+
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-combobox 
+                label="Series" 
+                options={seriesOptions} 
+                placeholder="Select Series" 
+                value={selectedSeries}
+                onchange={handleSeriesChange} 
+                disabled={isSeriesDisabled}>
+            </lightning-combobox>
+        </div>
+
+       <div class="slds-col slds-size_1-of-3">
+        <template if:true={isOtherColorSelected}>
+            <lightning-input 
+                type="text" 
+                label="Specify Other Color" 
+                value={otherColor} 
+                onchange={handleOtherColorChange}>
+            </lightning-input>
+        </template>
+        <template if:false={isOtherColorSelected}>
+            <lightning-combobox 
+                label="Color" 
+                options={colorOptions} 
+                placeholder="Select Color" 
+                value={selectedColor}
+                onchange={handleColorChange} 
+                disabled={isColorDisabled}>
+            </lightning-combobox>
+        </template>
+    </div>
+</div>
+
+    <lightning-combobox label="Initial Warranty" options={initialWarrantyOptions}></lightning-combobox>
+    <lightning-combobox label="Full Warranty" options={fullWarrantyOptions}></lightning-combobox>
+    <lightning-combobox label="Decking" options={deckingOptions}></lightning-combobox>
+    <lightning-combobox label="Underlayment" options={underlaymentOptions}></lightning-combobox>
+<div class="slds-grid slds-wrap slds-gutters">
+    <div class={dripEdgeClass}>
+        <lightning-combobox 
+            label="Drip Edge"
+            options={dripEdgeOptions}
+            placeholder="Select Drip Edge"
+            value={selectedDripEdge}
+            onchange={handleDripEdgeChange}>
+        </lightning-combobox>
+    </div>
+
+    <template if:true={isDripEdgeColorVisible}>
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-combobox 
+                label="Drip Edge Color"
+                options={colorOptions}
+                placeholder="Select Color"
+                value={dripEdgeColor}
+                onchange={handleDripEdgeColorChange}>
+            </lightning-combobox>
+        </div>
+    </template>
+</div>
+    <lightning-combobox label="Fasteners" options={fastenerOptions}></lightning-combobox>
+<div class="slds-grid slds-wrap slds-gutters">
+
+    <div class="slds-col slds-size_1-of-2">
+        <lightning-combobox
+            label="Ventilation"
+            options={ventilationOptions}
+            value={selectedVentilation}
+            placeholder="Select Ventilation"
+            onchange={handleVentilationChange}>
+        </lightning-combobox>
+    </div>
+
+    <div class="slds-col slds-size_1-of-2">
+        <lightning-combobox
+            label="Color"
+            options={colorOptions}
+            value={ventilationColor}
+            placeholder="Select Color"
+            onchange={handleVentilationColorChange}>
+        </lightning-combobox>
+    </div>
+</div>
+    <lightning-combobox label="Valley" options={valleyOptions}></lightning-combobox>
+    
+    <lightning-combobox label="Ridge" options={ridgeOptions}></lightning-combobox>
+<div class="slds-grid slds-gutters">
+    
+
+    <div class="slds-col">
+        <lightning-combobox
+            label="Plumbing Vent"
+            options={plumbingVentOptions}
+            value={selectedPlumbingVent}
+            placeholder="Select Plumbing Vent"
+            onchange={handlePlumbingVentChange}>
+        </lightning-combobox>
+    </div>
+    <div class="slds-col">
+        <lightning-combobox
+            label="Color"
+            options={colorOptions}
+            value={selectedColor}
+            placeholder="Select Color"
+            onchange={handleColorChange}>
+        </lightning-combobox>
+    </div>
+</div>
+    <lightning-combobox label="HVAC" options={hvacOptions}></lightning-combobox>
+    <lightning-combobox label="Flashing" options={flashingOptions}></lightning-combobox>
+</div>
+
+            <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Work Order</h2>
+    <div class="slds-grid slds-wrap slds-gutters">
+    <div class={roofTypeClass}>
+        <lightning-combobox 
+            label="Roof Type"
+            value={selectedRoofType} 
+            options={roofTypeOptions} 
+            onchange={handleRoofTypeChange}>
+        </lightning-combobox>
+    </div>
+
+    <template if:true={isOtherRoofType}>
+        <div class={otherRoofTypeClass}>
+            <lightning-input 
+                type="text" 
+                label="Other Roof Type" 
+                value={otherRoofType} 
+                onchange={handleOtherRoofTypeChange}>
+            </lightning-input>
+        </div>
+    </template>
+</div>
+
+  
+<div class="slds-grid slds-wrap slds-gutters">
+    <div class={layerClass}>
+        <lightning-combobox 
+            label="Layer"
+            value={selectedLayer} 
+            options={layerOptions} 
+            onchange={handleLayerChange}>
+        </lightning-combobox>
+    </div>
+    <template if:true={isOtherLayer}>
+        <div class={otherLayerClass}>
+            <lightning-input 
+                type="text" 
+                label="Other Layer" 
+                value={otherLayer} 
+                onchange={handleOtherLayerChange}>
+            </lightning-input>
+        </div>
+    </template>
+
+    <div class={pitchClass}>
+        <lightning-combobox 
+            label="Pitch"
+            value={selectedPitch} 
+            options={pitchOptions} 
+            onchange={handlePitchChange}>
+        </lightning-combobox>
+    </div>
+    <template if:true={isOtherPitch}>
+        <div class={otherPitchClass}>
+            <lightning-input 
+                type="text" 
+                label="Other Pitch" 
+                value={otherPitch} 
+                onchange={handleOtherPitchChange}>
+            </lightning-input>
+        </div>
+    </template>
+
+    <div class={storyClass}>
+        <lightning-combobox 
+            label="Story"
+            value={selectedStory} 
+            options={storyOptions} 
+            onchange={handleStoryChange}>
+        </lightning-combobox>
+    </div>
+    <template if:true={isOtherStory}>
+        <div class={otherStoryClass}>
+            <lightning-input 
+                type="text" 
+                label="Other Story" 
+                value={otherStory} 
+                onchange={handleOtherStoryChange}>
+            </lightning-input>
+        </div>
+    </template>
+</div>
+
+<lightning-dual-listbox
+    name="AdditionalWork"
+    label="Additional Work"
+    source-label="Available Options"
+    selected-label="Selected Options"
+    options={additionalWorkOptions}
+    value={selectedAdditionalWork}
+    onchange={handleAdditionalWorkChange}>
+</lightning-dual-listbox>
+    <!--<div class="slds-form-element">
+        <label class="slds-form-element__label">{label}</label>
+        <div class="slds-combobox_container">
+            <div class={dropdownClass} data-id="dropdown">
+                <div class="slds-combobox__form-element" role="none">
+                    <div class="slds-combobox__input slds-input_faux" onclick={toggleDropdown}>
+    <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center slds-size_1-of-1">
+        <span class="slds-truncate">
+            {selectedValuesLabel}
+        </span>
+        <lightning-icon 
+                                icon-name="utility:chevrondown" 
+                                size="x-small" 
+                                class="custom-chevron">
+                            </lightning-icon>
+       
+    </div>
+</div>
+
+                </div>
+
+                <div if:true={isDropdownOpen} class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid">
+                    <ul class="slds-listbox slds-listbox_vertical" role="listbox">
+                        <template for:each={options} for:item="opt">
+                            <li key={opt.value} role="presentation" class="slds-listbox__item">
+                            <div class="slds-media slds-media_small slds-media_center slds-listbox__option slds-listbox__option_plain" role="option">
+                                    <input type="checkbox" 
+                                           data-value={opt.value} 
+                                           checked={opt.selected}
+                                           onchange={handleSelection} />
+                                    <label class="slds-truncate slds-p-left_small">{opt.label}</label>
+                                </div>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+
+            </div>
+
+            <!-- 5. Financials -->
+<div class="slds-box slds-m-bottom_medium">
+    <h2 class="slds-text-heading_small slds-m-bottom_small">Financials</h2>
+
+<lightning-input type="number" label="RCV + Tax or Cash Total"
+    value={rcvTax} onchange={handleRcvChange} step="0.01"></lightning-input>
+    <template for:each={secondaryRCVs} for:item="rcv">
+        <div key={rcv.id} class="rcv-row">
+            <lightning-input
+                class="rcv-input"
+                type="number"
+                label="Secondary Structure RCV"
+                value={rcv.value}
+                data-id={rcv.id}
+                data-field="secondaryRCVs"
+                onchange={handleChange}
+                step="0.01">
+            </lightning-input>
+            <template if:true={rcv.isLast}>
+                <lightning-button-icon 
+                    icon-name="utility:add"
+                    alternative-text="Add"
+                    onclick={addField}
+                    data-field="secondaryRCVs"
+                    step="0.01">
+                </lightning-button-icon>
+            </template>
+        </div>
+    </template>
+
+<lightning-input type="number" label="RCV + Secondary Structure RCV"
+    value={rcvWithSecondary} readonly step="0.01"></lightning-input>
+    <template for:each={lnrPerInsurance} for:item="item">
+        <div key={item.id} class="rcv-row">
+            <lightning-input
+                class="rcv-input"
+                type="number"
+                label="Less Non-Recoverable (Per Insurance)"
+                value={item.value}
+                data-id={item.id}
+                data-field="lnrPerInsurance"
+                onchange={handleChange}
+                step="0.01">
+            </lightning-input>
+            <template if:true={item.isLast}>
+                <lightning-button-icon 
+                    icon-name="utility:add"
+                    alternative-text="Add"
+                    onclick={addField}
+                    data-field="lnrPerInsurance"
+                    step="0.01">
+                </lightning-button-icon>
+            </template>
+        </div>
+    </template>
+<template for:each={lnrWorkNotCompleted} for:item="item">
+        <div key={item.id} class="rcv-row">
+            <lightning-input
+                class="rcv-input"
+                type="number"
+                label="Less Non-Recoverable (Work Not Completed)"
+                value={item.value}
+                data-id={item.id}
+                data-field="lnrWorkNotCompleted"
+                onchange={handleChange}
+                step="0.01">
+            </lightning-input>
+            <template if:true={item.isLast}>
+                <lightning-button-icon 
+                    icon-name="utility:add"
+                    alternative-text="Add"
+                    onclick={addField}
+                    data-field="lnrWorkNotCompleted"
+                    step="0.01">
+                </lightning-button-icon>
+            </template>
+        </div>
+    </template>
+<lightning-input type="number" label="Less Non-Recoverable Total"
+    value={lnrTotal} readonly step="0.01"></lightning-input>
+<lightning-input type="number" label="RCV + Tax Less Non-Recoverable"
+    value={rcvLessLnr} step="0.01" readonly></lightning-input>
+    <template for:each={acvWorkNotCompleted} for:item="item">
+        <div key={item.id} class="rcv-row">
+            <lightning-input class="rcv-input"
+                type="number"
+                label="ACV of Work Not Completed"
+                value={item.value}
+                data-id={item.id}
+                data-field="acvWorkNotCompleted"
+                onchange={handleChange}
+                step="0.01">
+            </lightning-input>
+            <template if:true={item.isLast}>
+                <lightning-button-icon 
+                    icon-name="utility:add"
+                    alternative-text="Add"
+                    onclick={addField}
+                    data-field="acvWorkNotCompleted"
+                    step="0.01">
+                </lightning-button-icon>
+            </template>
+        </div>
+    </template>
+    <lightning-input type="number" label="Total ACV of Work Not Completed" value={acvTotal} step="0.01"></lightning-input>
+<lightning-input 
+    type="number" 
+    label="Deductible (Per Insurance)" 
+    value={deductible}
+    onchange={handleDeductibleChange}
+    data-field="deductible"
+    step="0.01">
+</lightning-input>
+    <lightning-input type="number" label="Deductible Owed (Less ACV of Work Not Completed)" value={deductibleOwed} readonly step="0.01"></lightning-input>
+<lightning-input 
+    type="number" 
+    label="Main Dwelling ACV Check"
+    value={mainDwellingACVCheck}
+    data-field="mainDwellingACVCheck"
+    onchange={handleChange}
+    step="0.01">
+</lightning-input><template for:each={secondaryStructureACV} for:item="item">
+    <div key={item.id} class="rcv-row">
+        <lightning-input
+            class="rcv-input"
+            type="number"
+            label="Secondary Structure ACV Check"
+            value={item.value}
+            data-id={item.id}
+            data-field="secondaryStructureACV"
+            onchange={handleChange}
+            step="0.01">
+        </lightning-input>
+        <template if:true={item.isLast}>
+            <lightning-button-icon 
+                icon-name="utility:add"
+                alternative-text="Add"
+                onclick={addField}
+                data-field="secondaryStructureACV"
+                step="0.01">
+            </lightning-button-icon>
+        </template>
+    </div>
+</template>
+
+<lightning-input 
+    type="number" 
+    label="Recoverable Depreciation Main Dwelling"
+    value={recoverableDepMain}
+    data-field="recoverableDepMain"
+    onchange={handleChange}
+    step="0.01">
+</lightning-input>
+<lightning-input 
+    type="number" 
+    label="Recoverable Depreciation Secondary Structure"
+    value={recoverableDepSecondary}
+    data-field="recoverableDepSecondary"
+    onchange={handleChange}
+    step="0.01">
+</lightning-input>
+    <lightning-input type="number" label="Less Recoverable Depreciation Secondary Structure Work Not Completed"  step="0.01"></lightning-input>
+
+    <lightning-input type="number" label="Total Recoverable Depreciation of Work Not Completed" value={totalRecDepWNC} step="0.01" readonly></lightning-input>
+<template for:each={additionalWork} for:item="item">
+        <div key={item.id} class="rcv-row">
+            <lightning-input
+                class="rcv-input"
+                type="text"
+                label="Additional Work"
+                value={item.value}
+                data-id={item.id}
+                data-field="additionalWork"
+                onchange={handleChange}
+                step="0.01">
+            </lightning-input>
+            <template if:true={item.isLast}>
+                <lightning-button-icon 
+                    icon-name="utility:add"
+                    alternative-text="Add"
+                    onclick={addField}
+                    data-field="additionalWork"
+                    step="0.01">
+                </lightning-button-icon>
+            </template>
+        </div>
+    </template>
+<lightning-input type="number" label="Total Additional Work"
+    value={additionalWorkTotal}  readonly step="0.01"></lightning-input>   
+<lightning-input 
+    type="number" 
+    label="Permit" 
+    value={permit} 
+    data-field="permit"
+    onchange={handleChange} 
+    step="0.01">
+</lightning-input>
+<lightning-input type="number" label="Customer Total" value={customerTotal} readonly step="0.01"></lightning-input>
+
+    <hr class="slds-m-vertical_medium"/>
+
+    <h3 class="slds-text-heading_small slds-m-bottom_small">Payment Schedule</h3>
+<lightning-input 
+    type="number" 
+    label="First Check" 
+    value={firstCheck}
+    data-field="firstCheck"
+    onchange={handleChange}
+    step="0.01">
+</lightning-input>
+
+<lightning-input 
+    type="number" 
+    label="Second Check" 
+    value={secondCheck}
+    data-field="secondCheck"
+    onchange={handleChange}
+    step="0.01">
+</lightning-input>
+
+<lightning-input 
+    type="number" 
+    label="Deductible" 
+    value={deductible}
+    data-field="deductible"
+    onchange={handleDeductibleChange}
+    step="0.01">
+</lightning-input>   
+ <lightning-input type="number" label="Additional Work" value={additionalWorkTotal} onchange={handleChange} step="0.01"></lightning-input>
+<lightning-input type="number" label="Total To Be Collected" value={totalToBeCollected} readonly step="0.01"></lightning-input>
+</div>
+
+            <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Notes</h2>
+                <lightning-textarea label="Additional Notes"></lightning-textarea>
+            </div>
+
+<div class="slds-box svlds-m-bottom_medium">
+    <h2 class="slds-text-heading_small slds-m-bottom_small"></h2>
+    
+    <div class="slds-grid slds-gutters slds-m-bottom_small">
+        <lightning-input class="slds-col slds-size_1-of-2" label="Client Signature"></lightning-input>
+        <lightning-input class="slds-col slds-size_1-of-2" type="date" label="Date"></lightning-input>
+    </div>
+    
+    <div class="slds-grid slds-gutters">
+        <lightning-input class="slds-col slds-size_1-of-2" label="Contractor Signature"></lightning-input>
+        <lightning-input class="slds-col slds-size_1-of-2" type="date" label="Date"></lightning-input>
+    </div>
+</div>
+
+            <div class="slds-m-top_medium">
+                <lightning-button variant="brand" label="Save" onclick={handleSave}></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,1 @@
+trigger ConversationTriggerForLead on Lead (after insert) { smagicinteract.TriggerUtility.updateConversations(JSON.serialize(Trigger.New)); }

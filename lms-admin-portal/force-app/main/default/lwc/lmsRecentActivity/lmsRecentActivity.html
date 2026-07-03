@@ -1,0 +1,19 @@
+<template>
+    <div class="widget">
+        <div class="widget__header"><span>Recent activity</span></div>
+        <div class="widget__body">
+            <template for:each={activities} for:item="a">
+                <div key={a.Id} class="activity-row">
+                    <div class="activity-dot" style={a.dotStyle}></div>
+                    <div class="activity-content">
+                        <span class="activity-text">{a.text}</span>
+                        <span class="activity-time">{a.timeAgo}</span>
+                    </div>
+                </div>
+            </template>
+            <template if:false={hasActivities}>
+                <div class="empty">No recent activity.</div>
+            </template>
+        </div>
+    </div>
+</template>

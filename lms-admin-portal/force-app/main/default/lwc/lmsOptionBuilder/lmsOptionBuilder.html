@@ -1,0 +1,45 @@
+<template>
+    <div class="option-builder">
+        <div class="option-builder__header">
+            <span>Answer options</span>
+            <span class="option-builder__hint">
+                Select the radio to mark the correct answer
+            </span>
+        </div>
+
+        <template for:each={options} for:item="opt">
+            <div key={opt.key} class="option-row">
+
+                <input
+                    type="radio"
+                    name="correct"
+                    value={opt.key}
+                    checked={opt.isCorrect}
+                    onchange={handleCorrect}
+                    class="option-radio"
+                    aria-label={opt.ariaLabel}
+                />
+
+                <span class="option-key">{opt.key}.</span>
+
+                <lightning-input
+                    label=""
+                    value={opt.value}
+                    placeholder={opt.placeholder}
+                    onchange={handleText}
+                    data-key={opt.key}
+                    class="option-input">
+                </lightning-input>
+
+                <template if:true={opt.isCorrect}>
+                    <lightning-icon
+                        icon-name="utility:check"
+                        size="x-small"
+                        class="correct-icon">
+                    </lightning-icon>
+                </template>
+
+            </div>
+        </template>
+    </div>
+</template>

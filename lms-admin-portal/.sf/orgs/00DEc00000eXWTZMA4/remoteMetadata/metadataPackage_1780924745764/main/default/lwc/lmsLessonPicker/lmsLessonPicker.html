@@ -1,0 +1,57 @@
+<template>
+    <div class="modal-backdrop">
+        <div class="modal">
+            <div class="modal__header">
+                <h3>Add lesson</h3>
+                <button class="modal__close" onclick={handleClose}>✕</button>
+            </div>
+            <div class="modal__tabs">
+    <button class={existingTabClass} onclick={showExisting}>
+        Add existing
+    </button>
+
+    <button class={newTabClass} onclick={showNew}>
+        Create new
+    </button>
+</div>
+            <div class="modal__body">
+                <template if:true={isExisting}>
+                    <div class="search-area">
+                        <lightning-input type="search" label="Search lesson library" value={searchTerm} onchange={handleSearch} placeholder="Type to search..."></lightning-input>
+                    </div>
+                    <template if:true={isLoading}>
+                        <lightning-spinner alternative-text="Searching" size="small"></lightning-spinner>
+                    </template>
+                    <div class="results-list">
+                        <template for:each={results} for:item="lesson">
+                            <div key={lesson.Id} class={lesson.cssClass} onclick={handleSelect} data-id={lesson.Id}>
+                                <div class="result-left">
+                                    <span class="result-name">{lesson.Name}</span>
+                                    <span class="result-meta">{lesson.Content_Type__c} · {lesson.Duration_Mins__c} min</span>
+                                </div>
+                                <template if:true={lesson.selected}>
+                                    <lightning-icon icon-name="utility:check" size="x-small" class="result-check"></lightning-icon>
+                                </template>
+                            </div>
+                        </template>
+                        <template if:true={noResults}>
+                            <div class="no-results">No matching lessons found in the library.</div>
+                        </template>
+                    </div>
+                </template>
+                <template if:true={isNew}>
+                    <div class="inline-form">
+                        <lightning-input label="Lesson name" value={newLesson.Name} onchange={handleNewField} data-field="Name" required></lightning-input>
+                        <lightning-combobox label="Content type" value={newLesson.Content_Type__c} options={typeOptions} onchange={handleNewField} data-field="Content_Type__c"></lightning-combobox>
+                        <lightning-input label="Content URL" value={newLesson.Content_URL__c} onchange={handleNewField} data-field="Content_URL__c"></lightning-input>
+                        <lightning-input label="Duration (minutes)" type="number" value={newLesson.Duration_Mins__c} onchange={handleNewField} data-field="Duration_Mins__c"></lightning-input>
+                    </div>
+                </template>
+            </div>
+            <div class="modal__footer">
+                <lightning-button label="Cancel" onclick={handleClose}></lightning-button>
+                <lightning-button label={addLabel} variant="brand" onclick={handleAdd} disabled={cannotAdd}></lightning-button>
+            </div>
+        </div>
+    </div>
+</template>

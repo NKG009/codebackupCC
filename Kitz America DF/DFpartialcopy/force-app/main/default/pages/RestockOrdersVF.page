@@ -1,0 +1,27 @@
+<apex:page sidebar="false" showHeader="false" lightningStylesheets="true"  controller="restockOrdersAndETAController">
+
+<apex:slds />
+<apex:includeLightning />
+
+<div id="restockContainer"></div>
+
+<script>
+    window.onload = function() {
+         const quoteId = "{!JSENCODE(quoteId)}";
+         const materialNumber = "{!JSENCODE(materialNumber)}";
+        
+        console.log('Quote Id:', quoteId);
+            console.log('Material Number:', materialNumber);
+        
+        $Lightning.use("c:restockOrdersAndETAApp", function() {
+            $Lightning.createComponent(
+                "c:restockOrdersAndETA",
+                { quoteId: quoteId,
+                  materialNumber: materialNumber},
+                "restockContainer"
+            );
+        });
+    }
+</script>
+
+</apex:page>

@@ -1,0 +1,118 @@
+66.0 APEX_CODE,FINEST;APEX_PROFILING,FINE;CALLOUT,INFO;DATA_ACCESS,INFO;DB,FINEST;NBA,INFO;SYSTEM,DEBUG;VALIDATION,INFO;VISUALFORCE,FINER;WAVE,INFO;WORKFLOW,FINE
+09:08:29.0 (914106)|USER_INFO|[EXTERNAL]|005Ec00000ZXoEn|nikhil.gaurav@cloudcacheconsulting.com|(GMT-04:00) Eastern Daylight Time (America/New_York)|GMT-04:00
+09:08:29.0 (954698)|EXECUTION_STARTED
+09:08:29.0 (977887)|CODE_UNIT_STARTED|[EXTERNAL]|apex://LMSQuizController/ACTION$getQuizDetail
+09:08:29.0 (3868564)|CODE_UNIT_STARTED|[EXTERNAL]|01pEc00000wx8LQ|LMSQuizController.getQuizDetail(Id)
+09:08:29.0 (4207374)|HEAP_ALLOCATE|[95]|Bytes:3
+09:08:29.0 (4326979)|HEAP_ALLOCATE|[100]|Bytes:152
+09:08:29.0 (4346741)|HEAP_ALLOCATE|[417]|Bytes:408
+09:08:29.0 (4365204)|HEAP_ALLOCATE|[430]|Bytes:408
+09:08:29.0 (4396290)|HEAP_ALLOCATE|[317]|Bytes:6
+09:08:29.0 (4407375)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:34
+09:08:29.0 (4424066)|METHOD_ENTRY|[1]|01pEc00000wx8LQ|LMSQuizController.LMSQuizController()
+09:08:29.0 (4438730)|STATEMENT_EXECUTE|[1]
+09:08:29.0 (4455179)|STATEMENT_EXECUTE|[1]
+09:08:29.0 (4481401)|HEAP_ALLOCATE|[68]|Bytes:5
+09:08:29.0 (4511115)|HEAP_ALLOCATE|[74]|Bytes:5
+09:08:29.0 (4518095)|HEAP_ALLOCATE|[82]|Bytes:7
+09:08:29.0 (4837818)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:5
+09:08:29.0 (4864878)|METHOD_EXIT|[1]|LMSQuizController
+09:08:29.0 (4878797)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+09:08:29.0 (4892497)|VARIABLE_SCOPE_BEGIN|[29]|quizId|Id|false|false
+09:08:29.0 (5177731)|VARIABLE_ASSIGNMENT|[29]|quizId|"a87Ec000000BK6fIAG"
+09:08:29.0 (5204475)|HEAP_ALLOCATE|[30]|Bytes:5
+09:08:29.0 (5209811)|STATEMENT_EXECUTE|[29]
+09:08:29.0 (5212676)|STATEMENT_EXECUTE|[30]
+09:08:29.0 (5214236)|STATEMENT_EXECUTE|[31]
+09:08:29.0 (5217357)|HEAP_ALLOCATE|[31]|Bytes:78
+09:08:29.0 (5241101)|HEAP_ALLOCATE|[31]|Bytes:4
+09:08:29.0 (5260028)|HEAP_ALLOCATE|[31]|Bytes:7
+09:08:29.0 (7118582)|SOQL_EXECUTE_BEGIN|[31]|Aggregations:0|SELECT Id, Name, Passing_Score__c FROM LMS_Quiz__c WHERE Id = :tmpVar1 LIMIT 1
+09:08:29.0 (29612046)|SOQL_EXECUTE_EXPLAIN|[31]|Index on LMS_Quiz__c : [Id], cardinality: 1, sobjectCardinality: 1, relativeCost 1
+09:08:29.0 (29626615)|SOQL_EXECUTE_END|[31]|Rows:1
+09:08:29.0 (29655718)|HEAP_ALLOCATE|[31]|Bytes:8
+09:08:29.0 (29679730)|HEAP_ALLOCATE|[31]|Bytes:43
+09:08:29.0 (29837596)|HEAP_ALLOCATE|[31]|Bytes:8
+09:08:29.0 (29860510)|HEAP_ALLOCATE|[31]|Bytes:37
+09:08:29.0 (29925348)|HEAP_ALLOCATE|[31]|Bytes:12
+09:08:29.0 (29932079)|VARIABLE_SCOPE_BEGIN|[31]|quiz|LMS_Quiz__c|true|false
+09:08:29.0 (30009741)|VARIABLE_ASSIGNMENT|[31]|quiz|{"Id":"a87Ec000000BK6fIAG","Name":"Quiz 1"}|0x6ee79bd2
+09:08:29.0 (30017892)|STATEMENT_EXECUTE|[32]
+09:08:29.0 (30020200)|HEAP_ALLOCATE|[32]|Bytes:268
+09:08:29.0 (30035456)|HEAP_ALLOCATE|[32]|Bytes:4
+09:08:29.0 (33033929)|SOQL_EXECUTE_BEGIN|[32]|Aggregations:0|SELECT Id, Sequence_Number__c, Points_Override__c, LMS_Question__c, LMS_Question__r.Question_Text__c, LMS_Question__r.Question_Type__c, LMS_Question__r.Default_Points__c FROM LMS_Quiz_Question__c WHERE LMS_Quiz__c = :tmpVar1 ORDER BY Sequence_Number__c ASC NULLS FIRST
+09:08:29.0 (47553747)|SOQL_EXECUTE_EXPLAIN|[32]|TableScan on LMS_Quiz_Question__c : [], cardinality: 1, sobjectCardinality: 1, relativeCost 0.65
+09:08:29.0 (47566664)|SOQL_EXECUTE_END|[32]|Rows:1
+09:08:29.0 (47589359)|HEAP_ALLOCATE|[32]|Bytes:8
+09:08:29.0 (47607501)|HEAP_ALLOCATE|[32]|Bytes:29
+09:08:29.0 (47713304)|HEAP_ALLOCATE|[32]|Bytes:8
+09:08:29.0 (47735481)|VARIABLE_SCOPE_BEGIN|[32]|junctions|List<LMS_Quiz_Question__c>|true|false
+09:08:29.0 (47804584)|VARIABLE_ASSIGNMENT|[32]|junctions|[{"Id":"a8BEc0000028d4fMAA"}]|0x29cdacda
+09:08:29.0 (47811801)|STATEMENT_EXECUTE|[37]
+09:08:29.0 (47826188)|HEAP_ALLOCATE|[37]|Bytes:4
+09:08:29.0 (47840212)|HEAP_ALLOCATE|[37]|Bytes:4
+09:08:29.0 (47943917)|HEAP_ALLOCATE|[37]|Bytes:9
+09:08:29.48 (48020600)|CUMULATIVE_LIMIT_USAGE
+09:08:29.48 (48020600)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 2 out of 100
+  Number of query rows: 2 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 0
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+09:08:29.48 (48020600)|TOTAL_EMAIL_RECIPIENTS_QUEUED|0
+09:08:29.48 (48020600)|STATIC_VARIABLE_LIST|
+  int:BYTES:0
+  int:BYTES:0
+  byte[]:DigitOnes:0
+  byte[]:DigitTens:0
+  Boolean:FALSE:0
+  int:MAX_EXPONENT:0
+  double:MAX_VALUE:0
+  int:MAX_VALUE:0
+  int:MIN_EXPONENT:0
+  double:MIN_NORMAL:0
+  double:MIN_VALUE:0
+  int:MIN_VALUE:0
+  double:NEGATIVE_INFINITY:0
+  double:NaN:0
+  double:POSITIVE_INFINITY:0
+  int:PRECISION:0
+  int:SIZE:0
+  int:SIZE:0
+  Boolean:TRUE:0
+  String:_sfdcAdditionalCodeLocations:0
+  char[]:digits:0
+  long:serialVersionUID:0
+  long:serialVersionUID:0
+  long:serialVersionUID:0
+
+09:08:29.48 (48020600)|CUMULATIVE_LIMIT_USAGE_END
+
+09:08:29.0 (50617617)|CODE_UNIT_FINISHED|LMSQuizController.getQuizDetail(Id)
+09:08:29.50 (50674410)|CUMULATIVE_PROFILING_BEGIN
+09:08:29.50 (50674410)|CUMULATIVE_PROFILING|SOQL operations|
+Class.LMSQuizController.getQuizDetail: line 31, column 1: [SELECT Id, Name, Passing_Score__c FROM LMS_Quiz__c WHERE Id = :quizId LIMIT 1]: executed 1 time in 25 ms
+Class.LMSQuizController.getQuizDetail: line 32, column 1: [
+            SELECT Id, Sequence_Number__c, Points_Override__c,
+                   LMS_Question__c, LMS_Question__r.Question_Text__c, LMS_Question__r.Question_Type__c, LMS_Question__r.Default_Points__c
+            FROM LMS_Quiz_Question__c WHERE LMS_Quiz__c = :quizId ORDER BY Sequence_Number__c ASC
+        ]: executed 1 time in 18 ms
+
+09:08:29.50 (50674410)|CUMULATIVE_PROFILING|No profiling information for SOSL operations
+09:08:29.50 (50674410)|CUMULATIVE_PROFILING|No profiling information for DML operations
+09:08:29.50 (50674410)|CUMULATIVE_PROFILING|method invocations|
+External entry point: public static Map<String,ANY> getQuizDetail(Id): executed 1 time in 44 ms
+Class.LMSQuizController.getQuizDetail: line 37, column 1: global public Object put(Object, Object): executed 2 times in 0 ms
+
+09:08:29.50 (50674410)|CUMULATIVE_PROFILING_END
+09:08:29.0 (51084663)|CODE_UNIT_FINISHED|apex://LMSQuizController/ACTION$getQuizDetail
+09:08:29.0 (51115567)|EXECUTION_FINISHED

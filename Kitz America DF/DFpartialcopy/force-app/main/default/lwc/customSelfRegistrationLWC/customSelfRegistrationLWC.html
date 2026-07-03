@@ -1,0 +1,78 @@
+<template>
+    <div class="outer-container">
+        <div class="form-container">
+
+            <!-- First Name -->
+            <div class="input-wrapper">
+                <lightning-input type="text"
+                                 variant="label-hidden"
+                                 placeholder="First Name"
+                                 required
+                                 data-field="firstName"
+                                 onchange={handleChange}>
+                </lightning-input>
+            </div>
+
+            <!-- Last Name -->
+            <div class="input-wrapper">
+                <lightning-input type="text"
+                                 variant="label-hidden"
+                                 placeholder="Last Name"
+                                 required
+                                 data-field="lastName"
+                                 onchange={handleChange}>
+                </lightning-input>
+            </div>
+
+            <!-- Email -->
+            <div class="input-wrapper">
+              
+                <lightning-input type="email"
+                                 variant="label-hidden"
+                                 placeholder="Email"
+                                 required
+                                 data-field="email"
+                                 onchange={handleChange}>
+                </lightning-input>
+            </div>
+
+            <!-- Phone -->
+            <div class="input-wrapper">
+              
+                <lightning-input type="text"
+                                 variant="label-hidden"
+                                 placeholder="Phone"
+                                 required
+                                 data-field="phone"
+                                 onchange={handleChange}>
+                </lightning-input>
+            </div>
+
+            <!-- Branch Address -->
+            <div class="input-wrapper">
+                
+                <lightning-input type="text"
+                                 variant="label-hidden"
+                                 placeholder="Branch Address"
+                                 required
+                                 data-field="branchAddress"
+                                 onchange={handleChange}>
+                </lightning-input>
+            </div>
+
+
+            <lightning-button label="Sign Up"
+                              variant="brand"
+                              class="signup-button"
+                              onclick={handleRegister}>
+            </lightning-button>
+
+            <template if:true={errorMessage}>
+                <div class="error-message">
+                    {errorMessage}
+                </div>
+            </template>
+
+        </div>
+    </div>
+</template>

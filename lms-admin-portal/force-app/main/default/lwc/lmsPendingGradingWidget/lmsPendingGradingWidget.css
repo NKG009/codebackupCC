@@ -1,0 +1,11 @@
+.widget { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+.widget__header { padding: .75rem 1rem; font-size: 13px; font-weight: 700; color: #16325c; border-bottom: 1px solid #f3f4f6; display: flex; align-items: center; gap: .5rem; }
+.header-count { background: #ef4444; color: #fff; font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 10px; }
+.widget__body { padding: .5rem 1rem 1rem; }
+.pending-row { display: flex; align-items: center; gap: .625rem; padding: .5rem 0; border-bottom: 1px solid #f9fafb; }
+.pending-row:last-child { border-bottom: none; }
+.pending-info { flex: 1; }
+.pending-learner { display: block; font-size: 12px; font-weight: 600; color: #111827; }
+.pending-course { display: block; font-size: 11px; color: #6b7280; }
+.pending-date { font-size: 11px; color: #9ca3af; white-space: nowrap; }
+.empty { text-align: center; padding: 1rem; color: #9ca3af; display: flex; flex-direction: column; align-items: center; gap: .375rem; font-size: 12px; }

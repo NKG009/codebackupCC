@@ -1,0 +1,89 @@
+<template>
+    <template if:true={isloading}>
+        <div class="slds-align_absolute-center">
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+    </template>
+    <lightning-card title="Fundamental Roofing LLC - Repairman Checklist" icon-name="custom:custom63">
+        <div class="slds-p-around_medium">
+        
+            <lightning-input type="date" label="Date" value={date}></lightning-input>
+        
+        
+            <!-- Address Section -->
+            <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Install Address</h2>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Street Address" value={clientAddress} onchange={handleInputChange}
+                        data-field="clientAddress" name="street"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="City" value={clientCity} onchange={handleInputChange}
+                        data-field="clientCity" name="city"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="State" value={clientState} onchange={handleInputChange}
+                        data-field="clientState"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Zip Code" value={clientZipCode} onchange={handleInputChange}
+                        data-field="clientZipCode"></lightning-input>
+                </div>
+            </div>
+
+
+            <!-- Rate Includes Section -->
+           
+
+             <section class="slds-box slds-m-bottom_medium">
+                <h3 class="slds-text-heading_small slds-m-bottom_small">Inspection Checklist:</h3>
+                <template for:each={inspectionYield} for:item="inspectionfield">
+                    <div key={inspectionfield.id} class=" slds-m-vertical_x-small">
+                        <lightning-input type="checkbox" label={inspectionfield.value} data-id={inspectionfield.id}
+                            onchange={handleInspectionFieldChange}>
+                        </lightning-input>
+            
+                        <lightning-file-upload name="fileUploader" data-id={inspectionfield.id} tabindex="-1"
+                            onuploadfinished={handleFileUpload} multiple>
+                        </lightning-file-upload>
+                    </div>
+                </template>
+                <template if:true={inspectionYield.isfileuploaded}>
+                    <template for:each={inspectionYield.photoBlocks} for:item="block">
+                        <div key={block.id} class="slds-box slds-m-bottom_medium">
+                            <img src={block.fileurl} alt={block.filename} width="200" />
+                        </div>
+                    </template>
+                </template>
+            </section>
+
+
+            <!-- Signature Section -->
+             <section class="slds-box slds-m-bottom_medium">
+                <h3 class="slds-text-heading_small slds-m-bottom_small">Fundamental Repair Signature</h3>
+                <div style="height: 100px; border: 1px solid #d8dde6; background-color: #f4f6f9;">
+<lightning-textarea 
+                    label="">
+                </lightning-textarea>                </div>
+            </section>
+
+            <!-- Email Section -->
+            <section class="slds-box slds-m-bottom_medium">
+                <lightning-input 
+                    type="email" 
+                    label="Email" 
+                    value="Fundamentalroofingllc@gmail.com" 
+                    placeholder="example@example.com">
+                </lightning-input>
+            </section>
+            <section class="slds-box slds-m-bottom_medium">
+
+            <lightning-textarea 
+            name="notes"
+            label="Add Notes"
+            placeholder="Enter your notes here..."
+            value={notes}
+            onchange={handleNotesChange}>
+        </lightning-textarea>
+        </section>
+
+            <!-- Buttons -->
+                <lightning-button variant="brand" label="Save" onclick={handleSave}></lightning-button>
+
+        </div>
+    </lightning-card>
+</template>

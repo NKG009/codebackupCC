@@ -1,0 +1,95 @@
+<template>
+    <div class="reviewer">
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading answers"></lightning-spinner>
+        </template>
+        <template if:false={isLoading}>
+            <div class="reviewer__header">
+                <div class="reviewer__meta">
+                    <span class="reviewer__learner">{attempt.learnerName}</span>
+                    <span class="reviewer__course">{attempt.courseName} — {attempt.quizName}</span>
+                    <span class="reviewer__date">{attempt.formattedDate}</span>
+                </div>
+                <div class="reviewer__score">
+                    <span class="score-label">Score</span>
+                    <span class="score-value">{attempt.Score__c}%</span>
+                </div>
+            </div>
+
+            <div class="answers-list">
+                <template for:each={answers} for:item="answer">
+                    <div key={answer.Id} class={answer.cssClass}>
+                        <div class="answer-block__qtext">{answer.questionText}</div>
+                        <div class="answer-block__qtype">{answer.questionType}</div>
+
+                        <div class="answer-block__response">
+                            <span class="answer-block__label">Learner response</span>
+                            <div class="answer-block__text">{answer.Learner_Response__c}</div>
+                            <template if:true={answer.hasUpload}>
+                                <a href={answer.uploadUrl} target="_blank" class="answer-block__file">
+                                    <lightning-icon icon-name="utility:attach" size="x-small"></lightning-icon>
+                                    View submitted file
+                                </a>
+                            </template>
+                        </div>
+
+                        <template if:true={answer.needsGrading}>
+                            <div class="answer-block__grading">
+                                <div class="grading-row">
+                                    <lightning-input
+                                        type="number"
+                                        label="Points awarded"
+                                        min="0"
+                                        max={answer.maxPoints}
+                                        value={answer.Points_Awarded__c}
+                                        onchange={handlePointsChange}
+                                        data-id={answer.Id}>
+                                    </lightning-input>
+                                    <lightning-radio-group
+                                        label="Mark as"
+                                        options={gradingOptions}
+                                        value={answer.isCorrectStr}
+                                        onchange={handleIsCorrect}
+                                        data-id={answer.Id}
+                                        type="radio">
+                                    </lightning-radio-group>
+                                </div>
+                                <lightning-textarea
+                                    label="Instructor comment (visible to learner)"
+                                    value={answer.Instructor_Comment__c}
+                                    onchange={handleComment}
+                                    data-id={answer.Id}
+                                    max-length="5000">
+                                </lightning-textarea>
+                            </div>
+                        </template>
+
+                        <template if:true={answer.hasLearnerFeedback}>
+                            <div class="answer-block__feedback">
+                                <lightning-icon icon-name="utility:warning" size="x-small"></lightning-icon>
+                                <span>Learner flagged: {answer.Learner_Feedback__c}</span>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+            </div>
+
+            <div class="reviewer__footer">
+                <lightning-button
+                    label="Save grades"
+                    variant="brand"
+                    onclick={handleSaveGrades}
+                    disabled={isSaving}>
+                </lightning-button>
+                <template if:true={canCertify}>
+                    <lightning-button
+                        label="Save and issue certification"
+                        variant="success"
+                        onclick={handleCertify}
+                        disabled={isSaving}>
+                    </lightning-button>
+                </template>
+            </div>
+        </template>
+    </div>
+</template>

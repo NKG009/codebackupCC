@@ -1,0 +1,9 @@
+.option-builder { border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+.option-builder__header { display: flex; justify-content: space-between; align-items: center; background: #f9fafb; padding: .5rem .875rem; font-size: 12px; font-weight: 600; color: #16325c; border-bottom: 1px solid #e5e7eb; }
+.option-builder__hint { font-weight: 400; font-size: 11px; color: #9ca3af; }
+.option-row { display: flex; align-items: center; gap: .5rem; padding: .5rem .875rem; border-bottom: 1px solid #f3f4f6; }
+.option-row:last-child { border-bottom: none; }
+.option-radio { width: 15px; height: 15px; accent-color: #059669; flex-shrink: 0; cursor: pointer; }
+.option-key { font-weight: 700; font-size: 13px; color: #374151; min-width: 18px; }
+.option-input { flex: 1; }
+.correct-icon { color: #059669; flex-shrink: 0; }

@@ -1,0 +1,80 @@
+<template>
+    <div class="shell">
+        <c-lms-admin-nav
+            current-page={currentPage}
+            onnavigate={handleNavigate}>
+        </c-lms-admin-nav>
+        <div class="shell__main">
+            <c-lms-admin-header
+                page-title={pageTitle}
+                username={currentUser.Name}>
+            </c-lms-admin-header>
+            <div class="shell__content">
+                <template if:true={isPage.dashboard}>
+                    <c-lms-dashboard-stats></c-lms-dashboard-stats>
+                    <div class="dashboard-grid">
+                        <c-lms-pending-grading-widget></c-lms-pending-grading-widget>
+                        <c-lms-publish-queue></c-lms-publish-queue>
+                        <c-lms-recent-activity></c-lms-recent-activity>
+                    </div>
+                </template>
+                <template if:true={isPage.courses}>
+                    <c-lms-course-list onnavigate={handleNavigate}></c-lms-course-list>
+                </template>
+                <template if:true={isPage.courseForm}>
+                    <c-lms-course-form
+                        record-id={selectedId}
+                        onback={handleBack}
+                        onsaved={handleSaved}>
+                    </c-lms-course-form>
+                </template>
+                <template if:true={isPage.lessons}>
+                    <c-lms-lesson-list onnavigate={handleNavigate}></c-lms-lesson-list>
+                </template>
+                <template if:true={isPage.lessonForm}>
+                    <c-lms-lesson-form
+                        record-id={selectedId}
+                        onback={handleBack}
+                        onsaved={handleSaved}>
+                    </c-lms-lesson-form>
+                </template>
+                <template if:true={isPage.questions}>
+                    <c-lms-question-list onnavigate={handleNavigate}></c-lms-question-list>
+                </template>
+                <template if:true={isPage.questionForm}>
+                    <c-lms-question-form
+                        record-id={selectedId}
+                        onback={handleBack}
+                        onsaved={handleSaved}>
+                    </c-lms-question-form>
+                </template>
+                <template if:true={isPage.quizzes}>
+                    <c-lms-quiz-list onnavigate={handleNavigate}></c-lms-quiz-list>
+                </template>
+                <template if:true={isPage.quizForm}>
+                    <c-lms-quiz-form
+                        record-id={selectedId}
+                        onback={handleBack}
+                        onsaved={handleSaved}>
+                    </c-lms-quiz-form>
+                </template>
+                <template if:true={isPage.grading}>
+                    <c-lms-grading-queue></c-lms-grading-queue>
+                </template>
+                <template if:true={isPage.enrolments}>
+                    <c-lms-enrolment-list onnavigate={handleNavigate}></c-lms-enrolment-list>
+                </template>
+                <template if:true={isPage.users}>
+                    <c-lms-user-list></c-lms-user-list>
+                </template>
+            </div>
+        </div>
+        <template if:true={showToast}>
+            <c-lms-toast-notification
+                message={toastMessage}
+                variant={toastVariant}
+                onclose={handleToastClose}>
+            </c-lms-toast-notification>
+        </template>
+    </div>
+</template>

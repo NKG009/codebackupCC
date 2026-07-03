@@ -1,0 +1,67 @@
+Portal V2 Changes I Did:
+
+vfpage:
+compliancePDF
+
+LWC:
+   created
+Portalv2mycandidate
+portalv2joborder
+portalV2VMSClientJobOrder
+portalV2MyCandidatesDetailpage
+PortalV2MyjoborderDetailPage
+4widgetcomponents 
+vmsjoborderresponse
+
+ changes
+navigationmenu
+sidebar
+dashboard
+
+
+
+
+
+Apex
+Portalv2mycandidatecontroller      PortalV2MyCandidatesControllerTest
+portalv2jobordercontroller     PortalV2MyJobOrdersControllerTest
+portalV2VMSClientJobOrdercontroller  portalV2VMSClientJobOrdercontrollerTest
+vmsjoborderresponse ,batchclasstopublishsifts and its schedularclass    VMSJobOrderResponseControllerTest
+
+
+changes:
+contacttriggerhandler modification 
+Flow:
+Job Order Cancellation
+
+Object:
+Candidate & all its fields (OWD Setting)
+job order details history & all its field
+
+Subject_Client_Query__c new picklist values added on case 
+Supplementary Cancellation Reason new picklist field with value and field dependency added on job order
+job order comment (OWD Setting)  [not needed anymore]
+
+
+page layout for contact - recordtype candidate
+compact layout contact for 2ndtier candidate
+pagelayout portalv2Candidate
+ 
+pagelayout portal v2joborder
+picklist values- portal type ,reason for submission
+
+Community:
+pages- My Candidate,My Job Order,Person Record pages,Job Order Record page 
+navigation items :My Candidate , My Job Order, + other tabs for vms client and vms supplier
+
+
+
+OWD
+job order comment -extrenal public read write [not needed anymore ]
+
+
+
+post deployment:
+
+assign page layout and compact layout for contact and job order
+disable feed tracking for contact

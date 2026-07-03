@@ -1,0 +1,56 @@
+<aura:component controller="PropertyManagerData" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"  access="global" >
+	
+    <aura:attribute name="recordId" type="string" />
+    <aura:attribute name="fname" type="String" />
+    <aura:attribute name="ftname" type="Object" />
+    <aura:attribute name="lname" type="String" />
+    <aura:attribute name="propertytreeExternalcontactid" type="String" />
+     <aura:attribute name="accData" type="Object" />
+    <aura:attribute name="coData" type="Object" />
+   <aura:attribute name="myrecordId" type="String"/>
+    <aura:attribute name="accountId" type="String"/>
+    <aura:attribute name="Account" type="list"/>
+     <aura:attribute name="AccountRecord" type="Object" default="{'sobjectType':'Account', 'Property_Office_Agent__c' : ''}"/>
+    <aura:attribute name="Contact" type="Object"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="AccountContactRelation" type="Object"/>
+    <aura:attribute name="rawdata" type="list"/>
+    <aura:attribute name="acclist" type="list"/>
+   
+    <aura:attribute name="Columns" type="List"/>
+
+      
+    
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}"/>
+    
+  
+     <table class="slds-table slds-table--bordered slds-table--striped">
+        <thead>
+            <tr>
+                <th scope="col"><span class="slds-truncate">First Name</span></th>
+                <th scope="col"><span class="slds-truncate">Last Name</span></th>
+                <th scope="col"><span class="slds-truncate">Roles</span></th>
+                <th scope="col"><span class="slds-truncate">External ID</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.Account}" var="conData">
+               
+                <tr>
+                    <td>{!conData.FName}</td>
+                    <td>{!conData.LName}</td>
+                    <td>{!conData.Roles}</td>
+                    <td>{!conData.ExtId}</td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+     
+    
+
+    	 
+        <lightning:button variant="brand" label="Update" title="Update" onclick="{!c.updateAcc}" class="slds-float_right"/>
+          
+
+   
+</aura:component>

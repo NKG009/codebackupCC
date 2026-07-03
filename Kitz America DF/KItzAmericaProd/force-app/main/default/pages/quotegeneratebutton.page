@@ -1,0 +1,17 @@
+<apex:page standardController="Apttus_Proposal__Proposal__c" extensions="excel_document_generation_button">
+    <apex:includeScript value="/soap/ajax/30.0/connection.js"/>
+    <apex:form >
+        <apex:pageBlock >
+	<apex:pageMessage severity="info" summary="Please ensure your system has Microsoft Excel and X-author for excel plugin installed before clicking the Generate button" />
+   
+    	
+        <apex:outputPanel >
+            <div style="text-align: center">
+                <apex:commandButton action="{!redirect}" value="Generate" />
+              	<apex:commandButton action="{!cancel}" value="Cancel" immediate="true"/>
+            </div>
+        </apex:outputPanel>
+            
+            </apex:pageBlock>
+    </apex:form>
+</apex:page>

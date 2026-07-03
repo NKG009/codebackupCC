@@ -1,0 +1,48 @@
+{
+  "appPageId" : "e5e20351-b2eb-40ea-a61a-a58569864f9e",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "4eba84a0-cbc8-4326-88c9-7b039ae72cb9",
+  "label" : "NCR",
+  "regions" : [ {
+    "id" : "cf15454f-e177-4c35-8891-e55f0f0837d8",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"text-align:center; padding:30px 15px; background-color:#f9f9f9; border:1px solid #ddd; border-radius:8px; font-family:Arial, sans-serif; max-width:600px; margin:auto;\">\n  <div style=\"font-size:32px; color:#e60000; margin-bottom:10px;\">&#9881;</div>\n  <h2 style=\"color:#e60000; margin-bottom:10px;\">Component Design in Progress</h2>\n  <p style=\"color:#555; font-size:16px;\">\n    The page component design is currently in progress and will be available soon.\n  </p>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "4ebed0b5-b438-478b-8669-63e45eead6fc",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2f12acbb-20fc-4276-9116-e38509028580",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "8de0092b-e484-4c1a-90a3-d9ada8b9c137",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "NCR"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "7b57a194-ba80-4e0f-a044-66ed77724206",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "689f6e65-5575-4a1e-88d7-a94c3a557de0",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-ncr"
+}

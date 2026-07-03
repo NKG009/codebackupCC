@@ -1,0 +1,823 @@
+<template>
+    <lightning-card title="Material Order Form">
+        <div class="slds-p-around_medium">
+
+            <!-- File Upload -->
+            <div class="slds-m-bottom_medium">
+                <lightning-file-upload
+                    label="Front of Property"
+                    name="fileUploader"
+                    record-id={recordId}
+                    accept=".jpg,.png,.pdf"
+                    onuploadfinished={handleUploadFinished}>
+                </lightning-file-upload>
+            </div>
+<div class="slds-box slds-m-bottom_medium">
+                <div class="slds-grid slds-wrap slds-gutters">
+                                <lightning-input class="slds-col slds-size_1-of-2" type="email" label="Supplier Email" onchange={handleChange} name="email"></lightning-input>
+                </div>
+            </div>
+
+
+            <!-- Homeowner Info -->
+            <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Homeowner Info</h2>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <lightning-input class="slds-col slds-size_1-of-2" label="First Name" onchange={handleChange} name="firstName"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Last Name" onchange={handleChange} name="lastName"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" type="tel" label="Phone" onchange={handleChange} name="clientphone"></lightning-input>
+                </div>
+            </div>
+
+            <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Install Address</h2>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Street Address" onchange={handleChange} name="street"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="City" onchange={handleChange} name="city"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="State" onchange={handleChange} name="state"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Zip Code" onchange={handleChange} name="zip"></lightning-input>
+                </div>
+            </div>
+
+            <!-- Delivery Info -->
+<div class="slds-box slds-m-bottom_medium">
+<h2 class="slds-text-heading_small slds-m-bottom_small">Delivery Info</h2>
+<div class="slds-grid slds-wrap slds-gutters">
+<lightning-input class="slds-col slds-size_1-of-2" label="Delivery Location" onchange={handleChange} name="deliveryLocation"></lightning-input>
+<lightning-input class="slds-col slds-size_1-of-2" type="date" label="Delivery Date" onchange={handleChange} name="deliveryDate"></lightning-input>
+<lightning-input class="slds-col slds-size_1-of-2" type="time" label="Delivery Time" onchange={handleChange} name="deliveryTime"></lightning-input>
+</div>
+</div>
+
+
+<div class="slds-box slds-m-bottom_medium">
+<h2 class="slds-text-heading_small slds-m-bottom_small">Fundamental Roofing Rep</h2>
+<div class="slds-grid slds-wrap slds-gutters">
+<lightning-input class="slds-col slds-size_1-of-2" label="Company Rep" onchange={handleChange} name="companyRep"></lightning-input>
+<lightning-input class="slds-col slds-size_1-of-2" type="tel" label="Company Rep Phone" onchange={handleChange} name="companyRepPhone"></lightning-input>
+</div>
+</div>
+
+
+            <!-- Materials -->
+<!-- Materials Section -->
+<div class="slds-box slds-m-bottom_medium">
+    <h2 class="slds-text-heading_small slds-m-bottom_small">Materials</h2>
+
+    <!-- Shingle Section -->
+    <div class="slds-box slds-m-bottom_medium">
+        <div class="slds-grid slds-wrap slds-gutters">
+
+            <!-- Manufacturer -->
+            <div class="slds-col slds-size_1-of-4">
+                <lightning-combobox 
+                    label="Shingle Manufacturer" 
+                    options={manufacturerOptions} 
+                    placeholder="Select Manufacturer" 
+                    value={selectedManufacturer}
+                    onchange={handleManufacturerChange}>
+                </lightning-combobox>
+            </div>
+
+            <!-- Series -->
+            <div class="slds-col slds-size_1-of-4">
+                <lightning-combobox 
+                    label="Series" 
+                    options={seriesOptions} 
+                    placeholder="Select Series" 
+                    value={selectedSeries}
+                    onchange={handleSeriesChange} 
+                    disabled={isSeriesDisabled}>
+                </lightning-combobox>
+            </div>
+
+            <!-- Color -->
+            <div class="slds-col slds-size_1-of-4">
+                <template if:true={isOtherColorSelected}>
+                    <lightning-input 
+                        type="text" 
+                        label="Specify Other Color" 
+                        value={otherColor} 
+                        onchange={handleOtherColorChange}>
+                    </lightning-input>
+                </template>
+                <template if:false={isOtherColorSelected}>
+                    <lightning-combobox 
+                        label="Color" 
+                        options={colorOptions} 
+                        placeholder="Select Color" 
+                        value={selectedColor}
+                        onchange={handleColorChange} 
+                        disabled={isColorDisabled}>
+                    </lightning-combobox>
+                </template>
+            </div>
+
+            <!-- Quantity -->
+            <div class="slds-col slds-size_1-of-4">
+                <lightning-input
+                    type="number"
+                    name="shingleQuantity"
+                    label="Bundle"
+                    value={selectedQuantity}
+                    placeholder="Enter Bundle"
+                    onchange={handleQuantityChange}
+                    field-level-help="• Architectural (laminate) shingles: 3 bundles = 1 square (approx. 100 sq ft).
+for any non-standard shingle check with supply house before ordering*
+• Each bundle covers ~33.3 sq ft.
+• Weight: ~75–80 lbs per bundle.">
+                </lightning-input>
+            </div>
+        </div>
+    </div>
+
+    <!-- Starter Section -->
+    <div class="slds-box slds-m-bottom_medium">
+        <template for:each={shingleRows} for:item="row">
+            <div key={row.id} class="slds-grid slds-wrap slds-gutters slds-m-bottom_small">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-combobox
+                        label="Starter"
+                        placeholder="Select Starter"
+                        options={starterOptions}
+                        value={row.starterName}
+                        data-id={row.id}
+                        onchange={handleStarterChange}>
+                    </lightning-combobox>
+                </div>
+
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input 
+                        label="Bundle"
+                        placeholder="Enter Bundle"
+                        type="number"
+                        value={row.quantity}
+                        data-id={row.id}
+                        onchange={handleQuantityChange}
+                        field-level-help="• Starter Strip: 1 bundle = 100 linear ft.
+• Always round up — eaves, and rakes need continuous starter.">
+                    </lightning-input>
+                </div>
+
+                <!--<div class="slds-col slds-size_1-of-2">
+                    <lightning-combobox
+                        label="Bundle"
+                        placeholder="Select Bundle"
+                        options={bundleOptions} 
+                        value={row.bundle}
+                        data-id={row.id}
+                        onchange={handleBundleChange}
+                        field-level-help=" 1 bundle = 100 linear ft.">
+>
+                    </lightning-combobox>
+                </div>-->
+            </div>
+        </template>
+    </div>
+
+    <!-- Ridge Cap Section -->
+    <div class="slds-box slds-m-bottom_medium">
+    <template for:each={ridgeCapRows} for:item="row">
+        <div key={row.id} class="slds-grid slds-wrap slds-gutters slds-m-bottom_small">
+
+            <div class="slds-col slds-size_1-of-3">
+                <lightning-combobox
+                    label="Ridge Cap"
+                    options={ridgeOptions}
+                    value={row.selectedRidgeCap}
+                    placeholder="Select Ridge Cap"
+                    data-id={row.id}
+                    onchange={handleRidgeCapChange}>
+                </lightning-combobox>
+            </div>
+
+            <div class="slds-col slds-size_1-of-3">
+                <lightning-input
+                    type="number"
+                    label="Bundle"
+                    placeholder="Enter Bundle"
+                    value={row.quantity}
+                    data-id={row.id}
+                    onchange={handleRidgeQuantityChange}
+    field-level-help={row.helpText}>
+
+                </lightning-input>
+            </div>
+
+            <div class="slds-col slds-size_1-of-3">
+                <lightning-combobox
+                    label="Color"
+                    options={ridgeColorOptions}
+                    value={row.color}
+                    placeholder="Select Color"
+                    data-id={row.id}
+                    onchange={handleRidgeColorChange}>
+                </lightning-combobox>
+            </div>
+
+        </div>
+    </template>
+
+    <!-- Add Ridge Cap button -->
+    <!-- Add & Remove Ridge Cap buttons inline -->
+<!-- Add & Remove Ridge Cap buttons close together -->
+
+<div class="slds-m-top_small slds-grid">
+    <lightning-button label="Add Ridge Cap" onclick={handleAddRidgeCap}></lightning-button>
+    <lightning-button label="Remove Ridge Cap" onclick={handleRemoveRidgeCap} ></lightning-button>
+</div>
+
+</div>
+
+
+    <!-- Valley Section -->
+<div class="slds-box slds-m-bottom_medium">
+    <div class="slds-grid slds-wrap slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-combobox
+                label="Valley"
+                placeholder="Select Valley "
+                options={valleyOptions}
+                value={selectedValley}
+                onchange={handleValleyChange}>
+            </lightning-combobox>
+        </div>
+
+        <!-- Quantity as Input -->
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-input
+                type="number"
+                label="Roll"
+                placeholder="Enter Roll"
+                value={selectedValleyQty}
+                onchange={handleValleyQtyChange}
+                field-level-help={valleyHelpText}>
+            </lightning-input>
+        </div>
+
+        <!--<div class="slds-col slds-size_1-of-3">
+            <lightning-combobox
+                label="Roll"
+                placeholder="Select Roll"
+                options={valleyRollOptions}
+                value={selectedValleyRoll}
+                onchange={handleValleyRollChange}>
+            </lightning-combobox>
+        </div>-->
+    </div>
+</div>
+
+<!-- Underlayment Section -->
+<div class="slds-box slds-m-bottom_medium">
+    <div class="slds-grid slds-wrap slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-combobox
+                label="Underlayment"
+                placeholder="Select Underlayment"
+                options={underlaymentOptions}
+                value={selectedUnderlayment}
+                onchange={handleUnderlaymentChange}>
+            </lightning-combobox>
+        </div>
+
+        <!-- Quantity as Input -->
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-input
+                type="number"
+                label="Roll"
+                placeholder="Enter Roll"
+                value={selectedUnderlaymentQty}
+                onchange={handleUnderlaymentQtyChange}
+                field-level-help="• Standard roll: 1 roll = 10 squares (1,000 sq ft).
+• Always overlap per manufacturer specs (reduces actual coverage slightly).
+">
+
+            </lightning-input>
+        </div>
+
+        <!--<div class="slds-col slds-size_1-of-3">
+            <lightning-combobox
+                label="Roll"
+                placeholder="Select Roll"
+                options={underlaymentRollOptions}
+                value={selectedUnderlaymentRoll}
+                onchange={handleUnderlaymentRollChange}>
+            </lightning-combobox>
+        </div>-->
+    </div>
+</div>
+<!-- Ventilation Section -->
+    <div class="slds-box slds-m-bottom_medium">
+        <template for:each={ventilationRows} for:item="row">
+            <div key={row.id} class="slds-grid slds-wrap slds-gutters slds-m-bottom_small">
+
+                <!-- Ventilation Type -->
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-combobox
+                        name="type"
+                        label="Ventilation"
+                        options={ventilationTypeOptions}
+                        value={row.type}
+                        data-id={row.id}
+                        placeholder="Select Type"
+                        onchange={handleVentilationChange}>
+                    </lightning-combobox>
+                </div>
+
+                <!-- Quantity -->
+                <template if:true={row.showQuantity}>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input
+                            name="quantity"
+                            type="number"
+                            label="Quantity"
+                            value={row.quantity}
+                            data-id={row.id}
+                            placeholder="Enter Quantity"
+                            onchange={handleVentilationChange}
+                            field-level-help={row.helpText}>
+                        </lightning-input>
+                    </div>
+                </template>
+
+                <!-- Inches (only Dryer Vent) -->
+                <template if:true={row.isDryerVent}>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-combobox
+                            name="inches"
+                            label="Inches"
+                            options={ventilationSizeOptions}
+                            value={row.inches}
+                            data-id={row.id}
+                            placeholder="Select Inches"
+                            onchange={handleVentilationChange}
+                            field-level-help={row.helpText}>
+                        </lightning-combobox>
+                    </div>
+                </template>
+
+                <!-- Color -->
+                <template if:true={row.showColor}>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-combobox
+                            name="color"
+                            label="Color"
+                            options={ventilationColorOptions}
+                            value={row.color}
+                            data-id={row.id}
+                            placeholder="Select Color"
+                            onchange={handleVentilationChange}>
+                        </lightning-combobox>
+                    </div>
+                </template>
+
+                <!-- Brace (only Turbine) -->
+                <template if:true={row.showBrace}>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-combobox
+                            name="brace"
+                            label="Brace Size"
+                            options={braceOptions}
+                            value={row.brace}
+                            data-id={row.id}
+                            placeholder="Select"
+                            onchange={handleVentilationChange}
+                            field-level-help={row.helpText}>
+                        </lightning-combobox>
+                    </div>
+                </template>
+
+            </div>
+        </template>
+
+        <!-- Buttons -->
+        <div class="slds-m-top_small slds-grid">
+            <lightning-button label="Add Ventilation" onclick={handleAddVentilation}></lightning-button>
+            <lightning-button class="slds-m-left_small" label="Remove Ventilation" onclick={handleRemoveVentilation}></lightning-button>
+        </div>
+    </div>
+
+
+<!-- Drip Edge Section -->
+<div class="slds-box slds-m-bottom_medium">
+    <h1 class="slds-text-heading_small slds-m-bottom_small"></h1>
+    <div class="slds-grid slds-wrap slds-gutters">
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-combobox
+                label="Drip Edge"
+                placeholder="Select Drip Edge"
+                options={dripEdgeMaterialOptions}
+                value={selectedDripEdgeMaterial}
+                onchange={handleDripEdgeMaterialChange}>
+            </lightning-combobox>
+        </div>
+        
+
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-combobox
+    label="Color"
+    placeholder="Select Color"
+    options={dripEdgeColorOptions}
+    value={selectedDripEdgeColor}
+    onchange={handleDripEdgeColorChange}>
+</lightning-combobox>
+
+        </div>
+
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-input
+                type="number"
+                label="Piece"
+                placeholder="Enter Piece"
+                value={selectedDripEdgeQty}
+                onchange={handleDripEdgeQtyChange}
+                    field-level-help="• 1 stick = 10 linear ft. (2” x 2” is required by code)• Comes in bundles of 25 sticks. (Full bundles not required)• Order for all eaves + rakes.">
+
+            </lightning-input>
+        </div>
+    
+    </div>
+</div>
+
+<!-- Bullet Boot Section -->
+ <div class="slds-box slds-m-bottom_medium">
+        <template for:each={bulletBootRows} for:item="row">
+        <div key={row.id} class="slds-grid slds-wrap slds-gutters slds-m-bottom_small">
+
+                <!-- Size -->
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-combobox
+                        label="Bullet Boot"
+                        options={bulletBootSizeOptions}
+                        value={row.size}
+                        data-id={row.id}
+                        placeholder="Select Size"
+                        onchange={handleBulletBootChange}>
+                    </lightning-combobox>
+                </div>
+
+                <!-- Color -->
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-combobox
+                        label="Color"
+                        options={bulletBootColorOptions}
+                        value={row.color}
+                        data-id={row.id}
+                        placeholder="Select Color"
+                        onchange={handleBulletBootChange}>
+                    </lightning-combobox>
+                </div>
+
+                <!-- Quantity -->
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-input
+                        type="number"
+                        label="Piece"
+                        value={row.quantity}
+                        data-id={row.id}
+                        placeholder="Enter Piece"
+
+                        onchange={handleBulletBootChange}
+                            field-level-help="• Sold individually.• Sized by pipe diameter: 1.5”, 2”, 3”, 4”.• Always round up — extras are cheap insurance.">
+
+                    </lightning-input>
+                </div>
+
+               
+
+            </div>
+        </template>
+
+<div class="slds-m-top_small slds-grid">
+            <lightning-button label="Add Bullet Boot" onclick={handleAddBulletBoot}></lightning-button>
+                <lightning-button label="Remove Bullet Boot" onclick={handleRemoveBulletBoot}></lightning-button>
+
+        </div>
+ </div>
+
+<!-- 3-in-1 Section -->
+<div class="slds-box slds-m-bottom_medium">
+
+    <template for:each={threeInOneRows} for:item="row">
+        <div key={row.id} class="slds-grid slds-wrap slds-gutters slds-m-bottom_small">
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-combobox
+                    label="3-in-1"
+                    options={threeInOneOptions}
+                    value={row.type}
+                    data-id={row.id}
+                    placeholder="Select Type"
+                    onchange={handleThreeInOneChangeRow}>
+                </lightning-combobox>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input
+                    type="number"
+                    label="Piece"
+                    value={row.quantity}
+                    data-id={row.id}
+                    placeholder="Enter Piece"
+                    onchange={handleThreeInOneChangeRow}
+                        field-level-help="• Sold individually.• Standard size 3 ones cover any pipe vent size from 1.5 up to 3.• If you need a 4 pipe boot of the same style, that must be ordered separately.• Always round up — extras are cheap insurance.">
+
+                </lightning-input>
+            </div>
+          
+        </div>
+    </template>
+
+<div class="slds-m-top_small slds-grid">
+    <lightning-button label="Add 3-in-1" onclick={handleAddThreeInOne}></lightning-button>
+    <lightning-button label="Remove 3-in-1" onclick={handleRemoveThreeInOne} ></lightning-button>
+</div></div>
+
+<!-- Fasteners -->
+<div class="slds-box slds-m-bottom_medium">
+
+    <template for:each={fastenerRows} for:item="row">
+        <div key={row.id} class="slds-grid slds-wrap slds-gutters slds-m-bottom_small">
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-combobox
+                    label="Fastener"
+                    options={fastenerOptions}
+                    value={row.selectedFastener}
+                    data-id={row.id}
+                    placeholder="Select Fastener"
+                    onchange={handleFastenerChange}>
+                </lightning-combobox>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                
+<lightning-input
+    type="number"
+    label="Box/Bundle"
+    value={row.boxQty}
+    data-id={row.id}
+    onchange={handleFastenerQtyChange}
+ field-level-help={row.helpText}>
+    min="0">
+</lightning-input>
+
+            </div>
+        </div>
+    </template>
+
+    <div class="slds-m-top_small slds-grid">
+    <lightning-button label="Add Fastener" onclick={handleAddFastener}></lightning-button>
+    <lightning-button label="Remove Fastener" onclick={handleRemoveFastener}></lightning-button>
+</div>
+</div>
+
+<!-- Plastic Caps -->
+<div class="slds-box slds-m-bottom_medium">
+    <div class="slds-grid slds-wrap slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-combobox
+                label="Plastic Cap"
+                options={capOptions}
+                value={selectedCap}
+                placeholder="Select Cap"
+                onchange={handleCapChange}>
+            </lightning-combobox>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-input
+                label="Box"
+                type="number"
+                value={capQty}
+                placeholder="Select Boxes"
+                onchange={handleCapQtyChange}
+ field-level-help={capHelpText}>
+            </lightning-input>
+        </div>
+    </div>
+</div>
+
+<!-- Caulk / Sealants -->
+<div class="slds-box slds-m-bottom_medium">
+    <div class="slds-grid slds-wrap slds-gutters">
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-combobox
+                label="Caulk / Sealants"
+                options={sealantOptions}
+                value={selectedSealant}
+                placeholder="Select Sealant"
+                onchange={handleSealantChange}>
+            </lightning-combobox>
+        </div>
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-combobox
+                label="Color"
+                options={sealantColorOptions}
+                value={selectedSealantColor}
+                placeholder="Select Color"
+                onchange={handleSealantColorChange}>
+            </lightning-combobox>
+        </div>
+        <div class="slds-col slds-size_1-of-3">
+             <lightning-input
+                label="Tube"
+type="number"
+                value={sealantQty}
+                placeholder="Select Tube"
+                onchange={handleSealantQtyChange}
+                    field-level-help="• Sold per tube.• Rule of thumb: ~1 tube per 20–25 penetrations or 50–60 ft of flashing.">
+
+            </lightning-input>
+        </div>
+    </div>
+</div>
+
+<!-- Spray Paint -->
+<div class="slds-box slds-m-bottom_medium">
+    <h2 class="slds-text-heading_small slds-m-bottom_small"></h2>
+    <div class="slds-grid slds-wrap slds-gutters">
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-combobox
+                label="Spray Paint"
+                options={sprayOptions}
+                value={selectedSpray}
+                placeholder="Select Spray"
+                onchange={handleSprayChange}>
+            </lightning-combobox>
+        </div>
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-combobox
+            label="Color"
+    options={sprayColorOptions}
+    value={selectedSprayColor}
+    placeholder="Select Color"
+    onchange={handleSprayColorChange}
+    data-id="sprayColor">
+            </lightning-combobox>
+        </div>
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-input
+        type="number"
+                label="Can"
+                options={canOptions}
+                value={sprayQty}
+                placeholder="Select Can"
+                onchange={handleSprayQtyChange}
+                    field-level-help="• Sold per can.• Rule of thumb: ~3–4 cans per job (round up if needed; leftover paint can be stored and used for future jobs).">
+
+            </lightning-input>
+        </div>
+    </div>
+</div>
+<!-- Flashing -->
+<div class="slds-box slds-m-bottom_medium">
+
+    <template for:each={flashingRows} for:item="row">
+        <div key={row.id} class="slds-grid slds-wrap slds-gutters slds-m-bottom_small">
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-combobox
+                    label="Flashing"
+                    options={flashingOptions}
+                    value={row.selectedFlash}
+                    data-id={row.id}
+                    placeholder="Select Flash"
+                    onchange={handleFlashChange}>
+                </lightning-combobox>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input
+                type="number"
+                    label="Box"
+                    value={row.boxQty}
+                    data-id={row.id}
+                    placeholder="Select Box"
+                    onchange={handleFlashBoxChange}
+                        field-level-help="• 1 piece = 4” x 4” x 8” (standard).• Usually sold in bundles of 100 pieces (covers ~60 linear ft of wall).">
+
+                </lightning-input>
+            </div>
+        </div>
+    </template>
+
+   <div class="slds-m-top_small slds-grid">
+    <lightning-button label="Add Flashing" onclick={handleAddFlashing}></lightning-button>
+    <lightning-button label="Remove Flashing" onclick={handleRemoveFlashing} ></lightning-button>
+</div>
+</div>
+
+
+<!-- Spray Paint -->
+<div class="slds-box slds-m-bottom_medium">
+    <div class="slds-grid slds-wrap slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-combobox
+                label="Decking"
+                options={deckingOptions}
+                value={selectedDecking}
+                placeholder="Select Decking"
+                onchange={handleDeckingChange}>
+            </lightning-combobox>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-input
+            
+                type="number"
+                label="Quantity"
+                value={deckingQty}
+                placeholder="Enter Quantity"
+                min="0"
+                onchange={handleDeckingQtyChange}
+                    field-level-help="• Sold per piece. Each piece covers 32 square feet.• Rule of thumb:  Full Replacement: Order a minimum of 2 pieces for every job. Order 1 piece for every soft spot you notice while walking the roof in addition to the 2 piece minimum.  Full Replacement with redeck: Order 3 pieces per 1 square of roofing noted on tear-off and add 15%-20% waste quantity depending on complexity of roof (number of facets). 15 or more facets = 20% waste.">
+
+            </lightning-input>
+        </div>
+    </div>
+    <div class="slds-grid slds-wrap slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-combobox
+                label="Deck Clips / H Clips:"
+                options={deckingClipsOptions}
+                value={selectedDeckingClips}
+                placeholder="Select Decking Clips"
+                onchange={handleDeckingClipsChange}>
+            </lightning-combobox>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-input
+                type="number"
+                label="Quantity"
+                value={deckingClipsQty}
+                placeholder="Enter Quantity"
+                min="0"
+                onchange={handleDeckingClipsQtyChange}
+                    field-level-help="• Only used on redeck jobs.• Sold per box. 1 box = 250 clips.• Rule of thumb: ~1 box per 10 squares.">
+
+            </lightning-input>
+        </div>
+    </div>
+
+</div>
+<!-- Split Boot-->
+<div class="slds-box slds-m-bottom_medium">
+    <div class="slds-grid slds-wrap slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-combobox
+                label="Split Boot"
+                options={splitBootOptions}
+                value={selectedSplitBoot}
+                placeholder="Select Split Boot"
+                onchange={handleSplitBootChange}>
+            </lightning-combobox>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-input
+                label="Piece"
+                options={pieceSplitBootOptions}
+                value={pieceSplitBootQty}
+                placeholder="Select Piece"
+                onchange={handlePieceSplitBootChange}
+                    field-level-help="• Only used on jobs where an electrical mast is present.• Sold per piece.">
+
+            </lightning-input>
+        </div>
+    </div>
+</div>
+<!-- hvac-->
+ <div class="slds-box slds-m-bottom_medium">
+<template for:each={hvacRows} for:item="row">
+    <div key={row.id} class="slds-grid slds-wrap slds-gutters slds-m-bottom_small">
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-combobox
+                label="HVAC"
+                options={hvacOptions}
+                value={row.selectedHVAC}
+                data-id={row.id}
+                placeholder="Select HVAC"
+                onchange={handleHvacChange}>
+            </lightning-combobox>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-input
+                label="Piece"
+                type="number"
+                value={row.pieceQty}
+                data-id={row.id}
+                placeholder="Select Piece"
+                onchange={handleHvacPieceChange}
+                    field-level-help="• Sold per piece. • Most common sizes are 3” and 4”. Anything larger than 4” order a versa cap.• Rule of thumb: Standard 3” and 4” vent caps cannot be ordered at a roofing supply store. They can be purchased at a big box store.">
+
+            </lightning-input>
+        </div>
+    </div>
+</template>
+
+<div class="slds-m-top_small slds-grid">
+    <lightning-button label="Add HVAC" onclick={handleAddHvac}></lightning-button>
+    <lightning-button label="Remove HVAC" onclick={handleRemoveHvac} ></lightning-button>
+</div> </div>
+</div>
+
+
+            <!-- Submit Button -->
+            <div class="slds-m-top_medium">
+                <lightning-button variant="brand" label="Save" onclick={handleSubmit}></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

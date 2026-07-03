@@ -1,0 +1,58 @@
+{
+  "appPageId" : "e5e20351-b2eb-40ea-a61a-a58569864f9e",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "109d5701-e1b6-4726-a3e9-374a4d28188c",
+  "label" : "Home",
+  "regions" : [ {
+    "id" : "8e0baf8c-c2bf-4ffa-aa30-0abf69040e70",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: justify;\"><br></p><p style=\"text-align: justify;\"><span style=\"font-size: 20px;\">This portal provides secure access to a growing suite of online services, including inventory availability, MTRs, order status and the ability to download order acknowledgements.</span></p><p style=\"text-align: justify;\"><br></p><p style=\"text-align: justify;\"><span style=\"font-size: 20px;\">We value your feedback and are continuously working to enhance your online experience. To share comments or suggestions, please visit our </span><a href=\"https://forms.microsoft.com/r/8N8yz41kd4\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px;\">feedback page</a><span style=\"font-size: 20px;\">.</span></p><p style=\"text-align: justify;\"><br></p><p style=\"text-align: justify;\"><span style=\"font-size: 20px;\">If you encounter technical issues, please </span><strong style=\"font-size: 20px;\">contact </strong><span style=\"font-size: 20px; color: rgb(153, 51, 255);\">webmaster@kitz.com</span><span style=\"font-size: 20px;\">.</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "7d59da41-4107-484e-b26a-2663140f3e0f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8a968793-fb06-4f2b-8674-3fc7eee9ca89",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<!--iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/fNxjNFiwxiA?si=gWEJ47Gh_YNSp4v8&autoplay=1&mute=1\" ></iframe-->"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "b12dcbf3-2f04-4bd9-bb03-c4fa7ce2cd15",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2d36e6aa-b2e8-4a6b-adf9-d65a9fae9e1f",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "2d4acb06-383f-4877-b968-0244d4811d4e",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "58152d97-e848-4629-a8ca-9bc67a9568a5",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Home",
+  "type" : "view",
+  "viewType" : "home"
+}

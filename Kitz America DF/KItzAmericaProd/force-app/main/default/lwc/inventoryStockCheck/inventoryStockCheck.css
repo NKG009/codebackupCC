@@ -1,0 +1,72 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e0f2ff, #ffffff);
+    padding: 2rem;
+}
+
+.card {
+    width: 900px;
+    text-align: center;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #0070d2;
+    margin-bottom: 1.5rem;
+}
+
+.search-section {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* .search-input {
+    width: 250px;
+    flex: none;
+} */
+
+
+.search-input {
+    flex: 1;
+}
+
+.search-btn lightning-button {
+    --slds-c-button-brand-color-background: #0070d2;
+}
+
+.result-placeholder {
+    text-align: center;
+    color: #444;
+}
+
+.icon {
+    --slds-c-icon-color-foreground-default: #0070d2;
+    margin-bottom: 0.5rem;
+}
+
+.no-data-text {
+    font-size: 1rem;
+    opacity: 0.8;
+}

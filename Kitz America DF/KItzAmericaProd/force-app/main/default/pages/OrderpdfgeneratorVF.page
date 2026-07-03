@@ -1,0 +1,413 @@
+<apex:page controller="OrderpdfgeneratorVFController"
+           renderAs="pdf"
+           showHeader="false"
+           sidebar="false"
+           applyHtmlTag="false"
+           applyBodyTag="false">
+
+<head>
+<style type="text/css">
+
+/* ================= PAGE SETUP ================= */
+ @page :first {
+                @top-center {
+                    content: element(headercover);
+                } 
+                 @bottom-center {
+                   content: element(footercover);
+                }
+    			
+            }
+    
+ 
+    
+@page {
+     size: A4 landscape;
+    margin: 30mm 15mm 45mm 15mm;
+    
+     @top-center {
+        content: element(header ,first-except);}
+
+    @bottom-center {
+        content: element(footer,first-except);
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 10pt;
+}
+    
+    div.header {
+    position: running(header);
+    text-align: center;
+    margin-bottom: 20px; /* space below header */
+}
+
+/* ================= RUNNING FOOTER ================= */
+div.footer {
+    position: running(footer);
+    padding: 8px 0;
+    border-top: 2px solid #1a75bc;
+    border-bottom: 2px solid #1a75bc;
+}
+
+/* PAGE NUMBERS */
+.pagenumber:before { content: counter(page); }
+.pagecount:before { content: counter(pages); }
+
+/* ================= TABLES ================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    -fs-table-paginate: paginate;
+}
+
+th, td {
+    padding: 6px;
+    vertical-align: top;
+}
+
+
+
+
+/* ================= HELPERS ================= */
+.no-border td { border: none; }
+.right { text-align: right; }
+.center { text-align: center; }
+
+/* ================= IMAGES ================= */
+.footer-logo {
+    height: 20px;
+    width: 150px;
+    display: inline-block;
+}
+
+.header-img {
+    height: 50px;
+    width: auto;
+   
+    text-align: center;
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+}
+
+/* ================= PAGE BREAK ================= */
+.page-break {
+    page-break-after: always;
+}
+    
+    /* ================= MODERN TABLE ================= */
+table.line-items {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-top: 10px;
+}
+
+/* Header */
+table.line-items thead th {
+    background-color: #f3f6f9;
+    color: #333;
+    font-weight: bold;
+    border-bottom: 2px solid #1a75bc;
+    border-top: 2px solid #1a75bc;
+    padding: 8px 6px;
+    text-align: left;
+}
+
+/* Body cells */
+table.line-items tbody td {
+    border-bottom: 1px solid #ddd;
+    padding: 7px 6px;
+}
+
+/* Zebra striping (PDF safe) */
+table.line-items tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* Numeric alignment */
+table.line-items td.right {
+    text-align: right;
+}
+
+table.line-items td.center {
+    text-align: center;
+}
+
+/* Total row */
+table.line-items tr.total-row td {
+    border-top: 2px solid #1a75bc;
+    font-weight: bold;
+    background-color: #f3f6f9;
+}
+
+
+</style>
+</head>
+
+<body>
+    
+    <div class="header">
+        <img class="header-img"
+             src="https://d6g0000083thseam.file.force.com/servlet/servlet.ImageServer?id=015VH00000MVDCP&oid=00D6g0000083THs&v=header"/>
+        <div><b>Order Acknowledgement</b></div>
+    </div>
+    
+    <div class="headercover"><div style="text-align: center;"><h1><b>Order Acknowledgement</b> </h1></div></div>
+
+<!-- ================= FOOTER ================= -->
+  <div class="footercover"></div> 
+<div class="footer">
+    <table class="no-border">
+        <tr>
+            <td width="25%">
+                <img class="footer-logo"
+                     src="https://d6g0000083thseam.file.force.com/servlet/servlet.ImageServer?id=015VH00000MVDCP&oid=00D6g0000083THs&v=footer" style="height:35px; width:100px"/>
+            </td>
+            <td class="center" width="50%">
+               KITZ CORPORATION OF AMERICA<br/>
+                12855 S. Kirkwood Rd. #200, Stafford, TX 77477<br/>
+                <span style="font-size:8pt;color:#555;">
+                    Page <span class="pagenumber"/> of <span class="pagecount"/>
+                </span>
+            </td>
+            <td class="right" width="25%">
+                800-772-0073<br/>
+                info@kitz.com
+            </td>
+        </tr>
+    </table>
+</div>
+    
+ 
+
+<!-- ================= COVER PAGE ================= -->
+<div class="page-break" >
+    <div style="margin-top:-50px;">
+    <img src="https://d6g0000083thseam.my.salesforce.com/servlet/servlet.ImageServer?id=015VH00000MVEwf&oid=00D6g0000083THs"
+         style="width:160px;"/> </div>
+
+    <div style="margin-top:30px;font-size:13pt;">
+        <table class="no-border">
+            <tr>
+                <td width="35%">
+                    <b>PO Number:</b><br/>
+                    <b>SAP Ord No.:</b><br/>
+                    <b>Presented to:</b><br/>
+                    <b>Prepared by:</b><br/>
+                    <b>Date:</b>
+                </td>
+                <td>
+                    {!ord.PoNumber}<br/>
+                    {!ord.ST_SAP_SO_Number__c}<br/>
+                    {!billToContact.Name}<br/>
+                    {!salesRep.Name}<br/>
+                    <apex:outputText value="{0,date,MMM d yyyy}">
+                        <apex:param value="{!ord.EffectiveDate}" />
+                    </apex:outputText>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="margin-top:115px; position:relative; width:100%;">
+
+    <img src="https://d6g0000083thseam.my.salesforce.com/servlet/servlet.ImageServer?id=015VH00000MVEq2&oid=00D6g0000083THs"
+         style="width:100%; height:auto;" />
+
+    <!-- Overlay Address -->
+    <div style="
+        position:absolute;
+        bottom:30px;
+        left:175px;
+        width:100%;
+        text-align:center;
+        font-size:11pt;
+        color:black;
+        letter-spacing:0.5px;
+    ">
+        12855 S. Kirkwood Rd. #200<br/>
+        Stafford, TX 77477, USA<br/>
+        kitzus-kca.com / joshf@kitz.com
+    </div>
+
+</div>
+
+</div>
+
+<!-- ================= HEADER ================= -->
+<!--img class="header-img"
+     src="https://d6g0000083thseam.file.force.com/servlet/servlet.ImageServer?id=015VH00000HJWOz&oid=00D6g0000083THs&v=header"/-->
+
+<!-- ================= ORDER INFO ================= -->
+    <table class="no-border" style="margin-bottom:15px; ">
+    <tr>
+        <td width="50%">
+            <b>Order requested by:</b> {!billToContact.Name}<br/>
+            {!billToContact.Email}<br/>
+            <b>Sales Rep:</b> {!salesRep.Name}<br/>
+            <b>Sales Rep Email:</b> {!salesRep.Email}<br/>
+            <!--{!ord.BillToName}<br/>
+            {!ord.BillToStreet}<br/>
+            {!ord.BillToCity}, {!ord.BillToState}<br/>
+            {!ord.BillToPostalCode}-->
+        </td>
+        <td width="50%">
+            <b>Date:</b> <apex:outputText value="{0,date,MMM d yyyy}">
+            <apex:param value="{!ord.EffectiveDate}" />
+            </apex:outputText><br/>
+            <b>PO Number:</b> {!ord.PoNumber}<br/>
+            <b>Order #:</b> {!ord.OrderNumber}<br/>
+            <b>SAP Ord No.:</b> {!ord.ST_SAP_SO_Number__c}<br/>
+            <!--b>Customer Reference:</b> {!ord.Customer_Reference__c}<br/-->
+            <b>Customer #:</b> {!ord.Ship_To_Account_Number__c}<br/>
+            <b>Total Weight (lb):</b>
+            <apex:outputText value="{0, number, ###,##0.00}">
+                <apex:param value="{!ord.Total_Weight_lb__c}" />
+            </apex:outputText>
+        </td>
+    </tr>
+</table>
+<br/>
+
+<!-- ================= LINE ITEMS ================= -->
+<table class="line-items">
+    <thead>
+        <tr>
+            <th style="width:5%">Line</th>
+            <th style="width:12%">Part #</th>
+            <th style="width:30%">Description</th>
+            <th style="width:22%">Notes</th>
+            <th style="width:6%" class="center">Qty</th>
+            <th style="width:12%" class="right">Unit Price</th>
+            <th style="width:13%" class="right">Extended</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <apex:repeat value="{!items}" var="li">
+            <tr style="page-break-inside:avoid;">
+                <td class="center">{!li.Line_Number_F__c}</td>
+                <td>{!li.Product2.Name}</td>
+                <td>{!li.Product_Description__c}</td>
+                <td>{!li.Notes_Est_Delivery__c}</td>
+                <td class="center">{!li.Quantity}</td>
+                <td class="right">
+                    <apex:outputText value="{0,number,currency}">
+                        <apex:param value="{!li.UnitPrice}"/>
+                    </apex:outputText>
+                </td>
+                <td class="right">
+                    <apex:outputText value="{0,number,currency}">
+                        <apex:param value="{!li.TotalPrice}"/>
+                    </apex:outputText>
+                </td>
+            </tr>
+        </apex:repeat>
+
+        <!-- TOTAL -->
+        <tr class="total-row">
+            <td colspan="5"></td>
+            <td class="right">Total</td>
+            <td class="right">
+                <apex:outputText value="{0,number,currency}">
+                    <apex:param value="{!ord.Total_Net_Price__c}"/>
+                </apex:outputText>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- ================= TERMS PAGE ================= -->
+<div style="page-break-before:always;">
+   <div style="font-size:7.75pt; line-height:1.15;">
+
+    <p>
+        <b>ACCEPTANCE</b><br/>
+        All quotations are for acceptance within 30 days from date of quotation unless extended in writing.
+        In the event a purchase order is placed after this time, the Seller’s company reserves the right
+        to requote prices of all valves offered. In the event of a partial award or adjustment in quoted
+        quantities, the Seller reserves the right to revise the offer or decline. Price and delivery may
+        be adjusted for specifications not known at time of quotation. All orders and contracts are subject
+        to credit approval and acceptance by KITZ.
+    </p>
+
+    <p>
+        <b>TESTING</b><br/>
+        Inspection/NDE beyond KITZ/KITZ Group companies’ standards are not included unless otherwise stated.
+        MTR/Hydro test reports will be available to the Buyer.
+    </p>
+
+    <p>
+        <b>FREIGHT</b><br/>
+        All materials will be shipped F.O.B. point of shipment – no freight allowance unless otherwise stated
+        and agreed upon with the Buyer.
+    </p>
+
+    <p>
+        <b>PRICES</b><br/>
+        There will be added to all prices quoted any sales, excise, or similar tax which Seller may be required
+        to collect on or in connection with the sale. Seller reserves the right to cancel any order in the event
+        that selling prices shall be established by Federal, State or other governmental regulation with respect
+        to the products covered by the order which shall be lower than the prices specified in the order.
+    </p>
+
+    <p>
+        <b>DEFERRED SHIPMENTS</b><br/>
+        If for any reason the Buyer desires to delay shipments more than 30 days after manufacturing or to place
+        a hold or to stop the order during the manufacturing cycle, the Seller’s company reserves the right to
+        consider the order cancelled and to invoke cancellation charges.
+    </p>
+
+    <p>
+        <b>CREDIT TERMS</b><br/>
+        As quoted. Overdue balances will be subject to 1½% service charge per month on such indebtedness.
+    </p>
+
+    <p>
+        <b>DELIVERIES</b><br/>
+        Shipments made to the Buyer shall at all times be subject to the approval of Seller’s Credit Department.
+        All schedules of shipments are estimated as closely as possible and Seller will use its best effort to
+        ship within the time schedule but does not guarantee to do so. Seller shall not be liable for any direct,
+        indirect, or consequential damage or loss caused by delay in delivery, regardless of the cause of delay.
+        Items offered from stock are subject to prior sale.
+    </p>
+
+    <p>
+        <b>CANCEL / RETURNS</b><br/>
+        Items are not subject to cancellation or return without prior arrangements made with the Seller.
+        Product considered for return must be in new, resalable condition and of current design.
+    </p>
+
+    <p>
+        <b>WARRANTY</b><br/>
+        Seller will replace without charge or refund the purchase price of products manufactured by Seller which
+        prove to be defective in material or workmanship, provided in each case that the product is properly
+        installed and is used in the service for which Seller recommends it and that written claim, specifying
+        the alleged defect, is presented to the Seller within one year from the date of shipment. For Copper
+        Alloy and Iron valves sold and installed in the U.S., the warranty is five years. Seller shall in no event
+        be responsible for claims of (A) labor, expenses, or other damages occasioned by defective parts or
+        products or for (B) consequential or secondary damages. The Warranty stated in this paragraph is in lieu
+        of all other warranties, either expressed or implied. With respect to warranties, this paragraph states
+        Buyer’s exclusive remedy and Seller’s exclusive liability.
+    </p>
+
+    <p>
+        <b>DESIGN</b><br/>
+        Because of a policy of continuous product improvement, Seller reserves the right to change design,
+        materials, or specifications without notice. There will be a charge for modifying an order after it has
+        been entered when such change or modification results in additional engineering or clerical work for
+        either KITZ or its suppliers.
+    </p>
+
+</div>
+
+</div>
+
+</body>
+</apex:page>

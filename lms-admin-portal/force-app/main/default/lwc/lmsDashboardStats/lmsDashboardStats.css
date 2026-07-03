@@ -1,0 +1,26 @@
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+}
+.stat-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.stat-card__value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #16325c;
+    line-height: 1;
+}
+.stat-card__label {
+    font-size: 0.8rem;
+    color: #54698d;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}

@@ -1,0 +1,55 @@
+{
+  "appPageId" : "e5e20351-b2eb-40ea-a61a-a58569864f9e",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "93193323-cd82-4aab-800d-66c034cbe002",
+  "label" : "Inventory Stock Check",
+  "regions" : [ {
+    "id" : "ad32a3b6-243d-4ad6-a8f6-c73224045534",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:inventoryStockCheck",
+      "id" : "3a0b1d7f-bf6f-4056-bcc3-af63e7f56636",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<!--div style=\"text-align:center; padding:30px 15px; background-color:#f9f9f9; border:1px solid #ddd; border-radius:8px; font-family:Arial, sans-serif; max-width:600px; margin:auto;\">\n  <div style=\"font-size:32px; color:#e60000; margin-bottom:10px;\">&#9881;</div>\n  <h2 style=\"color:#e60000; margin-bottom:10px;\">Component Design in Progress</h2>\n  <p style=\"color:#555; font-size:16px;\">\n    The page component design is currently in progress and will be available soon.\n  </p>\n</div-->\n\n\n<div style=\"text-align: center; color: red; font-weight: 600; \n            border: 1px solid red; padding: 12px; margin-top: 20px;\">\n    🚫 Sorry, you don’t have access to this page.<br/>\n    Please contact your system administrator to request access.\n\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "a3e4d2a3-0d75-4317-87b6-1edcea638a3d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "89dcf16e-e350-4992-9653-80e2275539c0",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "4713d87a-a457-402d-a562-e66bcf613c35",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Inventory Stock Check"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "e2a0f8d6-c99a-4a97-bf2d-91ec653d06c4",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "eae6f5df-17b2-41ba-8bee-d19ba4226bbc",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-inventory-stock-check"
+}

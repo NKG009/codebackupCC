@@ -1,0 +1,46 @@
+.THIS .tile {
+    cursor:pointer;
+    position: relative;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    height: 150px;
+    width: 100%;
+    margin: 1%;
+}
+.THIS .dummy {
+    cursor:pointer;
+    position: relative;
+    border-radius: 20px;
+    height: 150px;
+    width: 100%;
+    margin: 1%;
+    background-color: transparent;
+}
+.THIS .tile:hover {
+    background-color: #F8F8FF;
+}
+.THIS .tile img {
+    margin: 11% 22% auto;
+}
+.THIS .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.THIS .tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 12px;
+  padding: 5px 5px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.THIS .tooltip:hover .tooltiptext {
+  visibility: visible;
+}

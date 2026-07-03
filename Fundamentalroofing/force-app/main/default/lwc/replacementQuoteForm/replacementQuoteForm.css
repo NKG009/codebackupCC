@@ -1,0 +1,8 @@
+.custom-numbered-list {
+    list-style-type: decimal !important;
+    padding-left: 1.5rem; /* ensures numbers are visible */
+}
+
+.custom-numbered-list li {
+    margin-bottom: 0.75rem;
+}

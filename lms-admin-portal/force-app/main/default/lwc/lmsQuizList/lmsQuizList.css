@@ -1,0 +1,11 @@
+.list-page { display: flex; flex-direction: column; gap: 1rem; }
+.list-page__toolbar { display: flex; gap: .75rem; align-items: flex-end; background: #fff; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; }
+.list-page__search { flex: 1; }
+.list-table { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+.list-table__header { display: grid; grid-template-columns: 2fr .6fr .6fr .8fr .6fr; padding: .6rem 1rem; background: #f9fafb; font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: .05em; border-bottom: 1px solid #e5e7eb; gap: 1rem; }
+.list-table__row { display: grid; grid-template-columns: 2fr .6fr .6fr .8fr .6fr; padding: .7rem 1rem; border-bottom: 1px solid #f3f4f6; align-items: center; font-size: 13px; gap: 1rem; }
+.list-table__row:last-child { border-bottom: none; }
+.list-table__row:hover { background: #f9fafb; }
+.row-name { font-weight: 600; color: #16325c; }
+.row-muted { color: #9ca3af; font-size: 12px; }
+.row-actions { display: flex; gap: 4px; }

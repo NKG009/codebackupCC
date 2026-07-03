@@ -1,0 +1,85 @@
+<template>
+    <lightning-card title="Repair PIF Invoice" icon-name="standard:invoice">
+        <div class="slds-p-around_medium">
+
+            <!-- ========== HEADER INFO ========== -->
+            <div class="slds-box slds-theme_default slds-m-bottom_medium">
+                <p>3010 Lyndon B. Johnson FWY STE 1200, Dallas TX 75234</p>
+                <p>Phone: (214) 254-9969</p>
+            </div>
+                <h1 class="slds-text-heading_medium slds-text-align_center slds-m-top_small">PAID IN FULL</h1>
+
+            <!-- ========== INVOICE INFO SECTION ========== -->
+            <div class="slds-box slds-theme_default slds-m-bottom_medium">
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="Invoice Number" value={invoiceNumber} onchange={handleChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input type="date" label="Date" value={invoiceDate} onchange={handleChange}></lightning-input>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== CLIENT INFO SECTION ========== -->
+            <div class="slds-box slds-theme_default slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Client Information</h2>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="First Name" value={firstName} onchange={handleChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="Last Name" value={lastName} onchange={handleChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="Street Address" value={street1} onchange={handleChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="Street Address Line 2" value={street2} onchange={handleChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <lightning-input label="City" value={city} onchange={handleChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+    <lightning-input label="State" value={state} onchange={handleChange}></lightning-input>
+</div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <lightning-input label="Zip Code" value={zip} onchange={handleChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1">
+                        <lightning-input type="email" label="Client Email" value={email} onchange={handleChange}></lightning-input>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== INVOICE DETAILS SECTION ========== -->
+            <div class="slds-box slds-theme_default slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Invoice for Contracting Services:</h2>
+                <lightning-textarea label="Rate includes the following:" value={serviceDesc} onchange={handleChange}></lightning-textarea>
+            </div>
+
+            <!-- ========== FINANCIAL INFO SECTION ========== -->
+            <div class="slds-box slds-theme_default slds-m-bottom_medium">
+                        <lightning-input type="number" label="Cost including supplements & permit ($)" value={cost} onchange={handleAmountChange}></lightning-input>
+                        <lightning-input type="number" label="Amount paid to date ($)" value={paid} onchange={handleAmountChange}></lightning-input>
+                        <lightning-input type="number" label="Amount due now ($)" value={due} ></lightning-input>
+            </div>
+
+            <!-- ========== WARRANTY SECTION ========== -->
+            <div class="slds-box slds-theme_default slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Warranty</h2>
+                <p>
+                    <strong>2 year-warranty on repairs:</strong> Note: the warranty applies to the specific scope of work listed above and refers to the workmanship and materials only. 
+                    The warranty does not include misuse/abuse, wear and tear, changes to the structure by any other contractor or individual, additional damage due to weather-related events, or damage due to rodents or tree limbs.
+                </p>
+            </div>
+
+            <!-- ========== BUTTONS SECTION ========== -->
+            <div class="slds-box slds-theme_default slds-text-align_center">
+                <lightning-button variant="neutral" label="Save" class="slds-m-right_small"></lightning-button>
+                <lightning-button variant="brand" label="Submit"></lightning-button>
+            </div>
+
+        </div>
+    </lightning-card>
+</template>

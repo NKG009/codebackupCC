@@ -1,0 +1,13 @@
+.material-checklist-table input[type="checkbox"] {
+    transform: scale(1.2);
+}
+
+.material-checklist-table td {
+    text-align: center;
+}
+
+.material-checklist-table .left-col {
+    text-align: left;
+    font-weight: bold;
+    background-color: #F8F8F8; /* light grey */
+}

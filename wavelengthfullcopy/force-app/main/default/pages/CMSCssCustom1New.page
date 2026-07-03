@@ -1,0 +1,5395 @@
+<apex:page cache="true" standardstylesheets="false" showHeader="false" sideBar="false" contentType="text/css">
+    .no-p_left {
+        padding-left: 0px !important;
+    }
+
+    .no-p_right {
+        padding-right: 0px !important;
+    }
+
+    .no-p_top {
+        padding-top: 0px !important;
+    }
+
+    .no-p_bottom {
+        padding-bottom: 0px !important;
+    }
+
+    .no-p {
+        padding: 0px !important;
+    }
+
+    .no-m_left {
+        margin-left: 0px !important;
+    }
+
+    .no-m_right {
+        margin-right: 0px !important;
+    }
+
+    .no-m_top {
+        margin-top: 0px !important;
+    }
+
+    .no-m_bottom {
+        margin-bottom: 0px !important;
+    }
+
+    .no-m {
+        margin: 0px !important;
+    }
+
+    .hide {
+        display: none !important;
+    }
+
+    .no-border_radius {
+        border-radius: 0% !important;
+    }
+
+    ul,
+    menu,
+    dir {
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 0px;
+    }
+
+    body {
+        background: transparent !important;
+        font-size: 14px !important;
+        overflow-x: hidden !important;
+    }
+
+    body,
+    .container,
+    .scroller {
+        height: 100%;
+    }
+
+    .scroller {
+        overflow-y: scroll;
+    }
+
+    .scroller,
+    .scroller-inner {
+        position: relative;
+    }
+
+    .container {
+        position: relative;
+        overflow: hidden;
+        background: #34495e;
+    }
+
+    .float_left {
+        float: left !important;
+    }
+
+    .userInfo>li>a,
+    .userInfo>li>span {
+        color: whitesmoke !important;
+    }
+
+    .mp-level h2 {
+        color: white !important;
+        font-size: 16px;
+        line-height: 4;
+    }
+
+    .footer {
+        color: #000;
+        font-weight: lighter;
+        font-size: 15px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    button.navbar-default.navbar-toggle.pull-left {
+        margin-left: 1.25em !important;
+    }
+
+    nav.MenuBar {
+        min-height: 0px !important;
+        margin-bottom: 0px !important;
+    }
+
+    .leftside-section {
+        background-color: #f8f8f8;
+    }
+
+    .leftside-section,
+    .rightside-section {
+        height: 100vh !important;
+        overflow-y: auto;
+    }
+
+    @media (min-width: 768px) {
+        .col-sm-3_cus {
+            width: 20%;
+        }
+        .col-sm-9_cus {
+            width: 80%;
+        }
+        .col-sm-6_cus {
+            width: 60%;
+        }
+        .flexDiv {
+            display: block !important;
+            flex-direction: row !important;
+        }
+        .content {
+            max-width: 100% !important;
+        }
+        nav.MenuBar {
+            box-shadow: 0px 1px 0px 1px #34495e;
+        }
+        .pull-right {
+            float: none !important;
+        }
+        .tr-default-logo {
+            width: fit-content !important;
+            float: left;
+            clear: both;
+            padding-top: 10px;
+        }
+        .welcome-user, .welcome-user-InactiveLogo{
+            display: inline-flex !important;
+            position: unset !important;
+            right: 0 !important;
+        }
+        .welcome-user>span,
+        .welcome-user-InactiveLogo>span {
+            position: absolute;
+            right: 0;
+            top: 5px;
+        }
+        .infoDetails {
+            width: 70%;
+        }
+        .loggedInUserInfo {
+            flex-direction: row !important;
+            list-style: none !important;
+        }
+        .pcLoggedInUserInfo {
+            padding-top: 0em !important;
+            padding-bottom: 0em !important;
+        }
+        ul.loggedInUserInfo li {
+            padding-top: 1em !important;
+        }
+        .navbar-fixed-top .navbar-collapse {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .ApplicationProgress {
+            display: inline-flex;
+            float: right !important;
+        }
+        .order1 {
+            order: 2 !important;
+        }
+        .order2 {
+            order: 1 !important;
+        }
+        .topAlign {
+            margin-top: 0.6em;
+        }
+        .mobileIcon {
+            display: none !important;
+        }
+        #logoutButton {
+            display: block !important;
+        }
+        .topAlign span.text-right {
+            padding-top: 0em !important;
+        }
+        .title {
+            display: block !important;
+        }
+        .pcReachout {
+            display: block !important;
+        }
+        .mobileReachout {
+            display: none !important;
+        }
+        .reachoutSection {
+            bottom: 0.5em !important;
+            right: 0em !important;
+            width: 18em;
+        }
+        .reachoutLabel {
+            display: block;
+        }
+    }
+
+    .pcReachout {
+        display: none;
+    }
+
+    .mobileReachout {
+        display: block;
+        width: 3em !important;
+        height: 3em !important;
+        float: right;
+        margin-top: 0.5em !important;
+        margin-left: 0.5em !important;
+    }
+
+    .need_help {
+        position: absolute;
+        bottom: 0px;
+        /*background-color: rgba(225, 225, 225, 0.8);
+            border: 3px solid darkgrey;
+            border-radius: 0.5em;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            border-bottom-width: 0px;*/
+    }
+
+    .nonUserInfo:first-child {
+        padding-bottom: 0.5em;
+    }
+
+    .title {
+        display: none;
+    }
+
+    .mobileIcon {
+        display: block;
+        color: #34495e;
+        font-size: 1.5em;
+        background-color: #c6c6c6;
+        border: 1px solid #c6c6c6;
+        border-radius: 0.2em;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: 5px;
+    }
+
+    .mobileIcon i {
+        padding-left: 0.25em;
+    }
+
+    .topAlign span.text-right {
+        padding-top: 0.3em;
+    }
+
+    #logoutButton {
+        display: none;
+    }
+
+    .container {
+        background: transparent !important;
+    }
+
+    .welcome-user,
+    .welcome-user-InactiveLogo {
+        position: relative;
+        right: 1em;
+        width: 80% !important;
+        clear:both;
+    }
+    .welcome-user-InactiveLogo {
+        position: relative;
+        right: 1em;
+        width: 99% !important;
+        clear:both;
+    }
+    .welcome-user span,
+    .welcome-user-InactiveLogo span{
+        color: white !important;
+        width: -webkit-fill-available !important;
+        width: -moz-available !important;
+    }
+
+    .welcome-user span form,
+    .welcome-user-InactiveLogo span form
+    {
+        margin-top: 0em !important;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .welcome-user,
+        .welcome-user-InactiveLogo {
+            position: relative;
+            right: 1em;
+            width: 80% !important;
+            clear:both;
+        }
+        .welcome-user-InactiveLogo {
+            position: relative;
+            right: 1em;
+            width: 99% !important;
+            clear:both;
+        }
+        .welcome-user span,
+        .welcome-user-InactiveLogo span{
+            color: white !important;
+            width: -webkit-fill-available !important;
+            width: -moz-available !important;
+        }
+
+        .welcome-user span form,
+        .welcome-user-InactiveLogo span form
+        {
+            margin-top: 0em !important;
+        }
+    }
+
+    .infoDetails {
+        float: right !important;
+    }
+
+    .loggedInUserInfo {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        float: right;
+        margin-block-start: 0px !important;
+        margin-block-end: 0px !important;
+        padding-inline-start: 0px !important;
+    }
+
+    ul.loggedInUserInfo li {
+        padding-top: 0em;
+    }
+
+    ul.loggedInUserInfo li:first-child {
+        padding-top: 0.5em;
+    }
+
+    .Menu>li>a {
+        color: #34495e;
+    }
+
+    .mainMenuBar {
+        margin-top: 0.5em;
+    }
+
+    .subMenuBar a:hover,
+    .sidenav a:hover {
+        color: #34495e;
+    }
+
+    .subMenuBar a,
+    .sidenav a {
+        color: whitesmoke;
+    }
+
+    ul li,
+    ol li {
+        margin-left: 0px !important;
+    }
+
+    .subMenuBar {
+        padding-top: 2px;
+        background-color: #34495e !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+    }
+
+    .mobileSubMenuBar {
+        height: 100vh !important;
+        max-height: 100vh !important;
+        background-color: #FF00FF;
+    }
+
+    .mobileSubMenuBar.in {
+        top: 0;
+        position: absolute;
+    }
+
+    .overlayPanel {
+        background-color: rgba(52, 73, 94, .6);
+        width: 100%;
+        z-index: 2;
+        height: 100vh;
+        position: fixed;
+        top: 8%;
+        transition: 0.5s;
+    }
+
+    .sidenav {
+        height: 100%;
+        width: 80%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #336ca6;
+        overflow-x: hidden;
+        left: -80%;
+        transition: 0.5s;
+    }
+
+    .sidenav a {
+        display: block;
+        padding: 0.7em 1em 0.7em 1.8em;
+        outline: none;
+        box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
+        text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+        font-size: 1.25em;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .sidenav a:first-child {
+        box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2), inset 0 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    .menu_pushed {
+        left: 0%;
+    }
+
+    .icon_left_cus {
+        padding-right: 0.5em;
+    }
+
+    @media screen and (max-height: 450px) {
+        .sidenav {
+            padding-top: 15px;
+        }
+        .sidenav a {
+            font-size: 18px;
+        }
+    }
+
+    .main_panel {
+        position: relative;
+        left: 0%;
+        transition: 0.5s;
+    }
+
+    .menu_pusher {
+        position: relative;
+        left: 80%;
+    }
+
+    .fixed_position {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+    @keyframes smoothScroll {
+        0% {
+            transform: translateY(-40px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
+
+    .menuTitle {
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: 1em;
+        color: white !important;
+        margin: 0;
+        padding: 1em;
+    }
+
+    .fa {
+        display: inline-block;
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        padding-right: 0.5em;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .fa-phone:before {
+        content: "\f095";
+    }
+
+    .fa-envelope:before {
+        content: "\f0e0";
+    }
+
+    .icon a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .mp-menu_bg {
+        background: #336ca6;
+        height: 100% !important;
+    }
+
+    @font-face {
+        font-family: 'linecons';
+        src:url("{!URLFOR($Resource.FCMS__bootStrapFiles, '/fonts/linecons/linecons.eot')}");
+        src:url("{!URLFOR($Resource.FCMS__bootStrapFiles, '/fonts/linecons/linecons.eot?#iefix')}") format('embedded-opentype'),
+        url("{!URLFOR($Resource.FCMS__bootStrapFiles, '/fonts/linecons/linecons.woff')}") format('woff'),
+        url("{!URLFOR($Resource.FCMS__bootStrapFiles, '/fonts/linecons/linecons.ttf')}") format('truetype'),
+        url("{!URLFOR($Resource.FCMS__bootStrapFiles, '/fonts/linecons/linecons.svg#linecons')}") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .mp-menu ul li::before {
+        color: white;
+        line-height: 4;
+    }
+
+    .col-xs-12 {
+        padding: 1em;
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+
+    .btn-logout {
+        background-color: lightgrey !important;
+        color: #34495e !important;
+    }
+
+    .darkbg {
+        background-color: #34495e!important;
+        border-bottom: 2px solid #34495e;
+    }
+
+    .navbar-header {
+        width: 100% !important;
+    }
+
+    .sidebar-menu {
+        list-style: none !important;
+    }
+
+    .sidebar-menu li {
+        padding: 0.5em;
+        border-bottom: 0.1em solid #000;
+    }
+
+    .sidebar-menu li:not(.active):hover {
+        background-color: #e7e7e7;
+    }
+
+    .sidebar-menu li:not(.active):hover a {
+        color: #34495e !important;
+    }
+
+    .sidebar-menu li.active {
+        background-color: #34495e;
+        color: white;
+    }
+
+    .sidebar-menu li.active a {
+        color: #f8f8f8;
+    }
+
+    .sidebar-menu li a {
+        text-decoration: none;
+    }
+
+    .btn-default.reset {
+        background-color: #ccc !important;
+    }
+
+    .flexDiv {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .order1 {
+        order: 1;
+    }
+
+    .order2 {
+        order: 2;
+    }
+
+    .order3 {
+        order: 3;
+    }
+
+    .nav-sidebar li.title a {
+        background-color: #eee;
+        color: #34495e;
+        font-weight: bold;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .title i {
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        bottom: -10px;
+        font-size: 3em;
+        color: #eee;
+    }
+
+    .reachoutSection {
+        bottom: 0em;
+        right: 1.2em;
+        margin-left: auto;
+        margin-right: auto;
+        position: fixed;
+    }
+
+    .reachoutInfo {
+        display: none;
+        background-color: rgba(225, 225, 225, 0.8);
+        border: 3px solid darkgrey !important;
+        border-radius: 0.5em;
+        border-bottom-width: 0px;
+        color: #000;
+        font-weight: lighter;
+        font-size: 1.2em;
+        padding: 10px;
+        margin-bottom: -15px;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+    }
+
+    .reachoutInfo {
+        background: lightgrey !important;
+    }
+
+    .showReachoutInfo {
+        display: block;
+    }
+
+    .hideReachoutInfo {
+        display: none !important;
+    }
+
+    .reachoutIcon {
+        font-size: 1em;
+        width: 8.5em;
+        height: 2em;
+        background-color: #34495e;
+        border-radius: 12em;
+        color: #f8f8f8;
+        padding-left: 0.3em;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: default;
+    }
+
+    @media screen and (max-width:700px) {
+        .col-xs-12 {
+            padding-top: 0.1em;
+            padding-bottom: 0.1em;
+        }
+        .reachoutIcon {
+            position: relative;
+        }
+        .edit-job .col-xs-12 {
+            padding: 0 1em;
+        }
+    }
+    .edit-job label.no-padding {
+        padding-right: 0.5rem !important;
+    }
+    .job-detail label.no-padding {
+        padding-right: 0.5rem !important;
+    }
+    .reachoutIcon .fa-phone {
+        padding-left: 0.6em;
+        padding-top: 0.5em;
+        color: #f8f8f8;
+    }
+
+    .mobileReachout .fa-phone {
+        padding-left: 0.8em !important;
+        padding-top: 1em !important;
+    }
+
+    @media (min-width: 768px) {
+        .form-horizontal .control-label {
+            padding-top: 0px;
+            text-align: left;
+        }
+        .singleCheckbox {
+            float: right;
+        }
+        .globalCheckbox {
+            float: right;
+        }
+    }
+
+    .loginLabel,
+    .registerLabel,
+    .forgetPasswordLabel {
+        color: #003B81;
+    }
+    .loginFormFields.form-group {
+
+    }
+
+    .form-horizontal .control-label {
+        font-weight: normal;
+    }
+
+    .form-horizontal a:focus {
+        color: #34495e !important;
+    }
+
+    .btn-login:hover,
+    .btn-forget:hover,
+    .btn-register:hover {
+        background-color: #34495e;
+        color: white;
+    }
+
+    .btn-login,
+    .btn-forget,
+    .btn-register {
+        color: white;
+        font-weight: bold;
+    }
+
+    @font-face {
+        font-family: 'Conv_Helvetica-Condensed';
+        src: url({!URLFOR($Resource.FCMS__bootStrapFiles, '/fonts/helvetica/Helvetica-Condensed.eot')
+    }
+
+    );
+    src: local('?'),
+    url({!URLFOR($Resource.FCMS__bootStrapFiles, '/fonts/helvetica/Helvetica-Condensed.woff')
+    }
+    ) format('woff'),
+    url({!URLFOR($Resource.FCMS__bootStrapFiles, '/fonts/helvetica/Helvetica-Condensed.ttf')
+    }
+    ) format('truetype'),
+    url({!URLFOR($Resource.FCMS__bootStrapFiles, '/fonts/helvetica/Helvetica-Condensed.svg')
+    }
+    ) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+    }
+    iframe body {
+        color: #514F50;
+        font-family: Conv_Helvetica-Condensed;
+    }
+    .no-border {
+        border:0px solid transparent !important
+    }
+    .no-padding {
+        padding: 0px !important;
+    }
+    .no-p-left {
+        padding-left:0px !important;
+    }
+    .no-p-right {
+        padding-right:0px !important;
+    }
+    .no-p-top {
+        padding-top:0px !important;
+    }
+    .no-p-bottom {
+        padding-bottom:0px !important;
+    }
+    .no-margin {
+        margin: 0px !important;
+    }
+    .no-m-left {
+        margin-left:0px !important;
+    }
+    .no-m-right {
+        margin-right:0px !important;
+    }
+    .no-m-top {
+        margin-top:0px !important;
+    }
+    .no-m-bottom {
+        margin-bottom:0px !important;
+    }
+    .full-width {
+        width: 100% !important;
+    }
+    .form-horizontal .form-group {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+    .divider {
+        border-top: 1px solid #2196F3 !important;
+    }
+    .form-row {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -5px;
+        margin-left: -5px;
+    }
+    .container-background {
+        background: #f8f8f8!important;
+        padding: 3rem !important;
+        border-radius: 1rem !important;
+    }
+    .form-control {
+        background: #F1EFF0 !important;
+    }
+    .input-group .form-control {
+        position:initial !important;
+    }
+    .all-border {
+        border: 2px solid #d9edf7;
+        border-radius: 0.5em;
+    }
+    .form_search {
+        padding: 1em;
+    }
+    form {
+        margin-top: 1em !important;
+    }
+    .row {
+        margin-bottom: 1em;
+    }
+    @media (min-width: 768px) {
+        .searchCriteria {
+            width: 30em;
+        }
+        .multiPicklist {
+            margin-top: 1.5em;
+        }
+        .horizontal-list,
+        .pager-list {
+            display: flex;
+        }
+        .showPage {
+            width: auto;
+            float: unset !important;
+        }
+    }
+    @media screen and (max-width: 600px) {
+        .table {
+            border: 0;
+        }
+        .table thead {
+            border: none;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+        .table tr {
+            border-bottom: 3px solid #ddd;
+            display: block;
+            margin-bottom: .625em;
+        }
+        .table td {
+            padding-bottom: 2em !important;
+            border-bottom: 1px solid #ddd;
+            display: block !important;
+            font-size: .8em;
+            text-align: right;
+        }
+        .table td::before {
+            content: attr(data-label);
+            float: left;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .table td:last-child {
+            border-bottom: 0;
+        }
+        table.table.tableJobListSearch td,
+        table.table.tableJobList td {
+            text-align: left !important;
+        }
+        .tableJobList td::before {
+            float: unset !important;
+            padding-right: 1em !important;
+        }
+        .pager-list {
+            display: block;
+        }
+    }
+    .jobalert-page-button {
+        text-align: center;
+    }
+    .job-alert-list {
+        margin-top: 0.5em;
+    }
+    .wellCus {
+        background-color: #a7cddf !important;
+        margin-bottom: 0.75em !important;
+    }
+    table tr:nth-of-type(even) {
+        background: transparent !important;
+    }
+    input[type="file"] {
+        width: fit-content !important;
+        font-size: inherit !important;
+    }
+    .sfdc_richtext {
+        color: #000;
+        font-family: 'Arial',
+        'Helvetica',
+        sans-serif;
+        margin: 0px;
+        padding: 0px;
+    }
+    .sfdc_richtext body,
+    .sfdc_richtext div,
+    .sfdc_richtext dl,
+    .sfdc_richtext dt,
+    .sfdc_richtext dd,
+    .sfdc_richtext ul,
+    .sfdc_richtext ol,
+    .sfdc_richtext li,
+    .sfdc_richtext h1,
+    .sfdc_richtext h2,
+    .sfdc_richtext h3,
+    .sfdc_richtext h4,
+    .sfdc_richtext h5,
+    .sfdc_richtext h6,
+    .sfdc_richtext pre,
+    .sfdc_richtext form,
+    .sfdc_richtext fieldset,
+    .sfdc_richtext input,
+    .sfdc_richtext textarea,
+    .sfdc_richtext p,
+    .sfdc_richtext blockquote,
+    .sfdc_richtext th,
+    .sfdc_richtext td {
+        margin: 0;
+        padding: 0;
+    }
+    .sfdc_richtext table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    .sfdc_richtext fieldset,
+    .sfdc_richtext img {
+        border: 0;
+    }
+    .sfdc_richtext caption,
+    .sfdc_richtext code,
+    .sfdc_richtext dfn {
+        font-style: normal;
+        font-weight: normal;
+    }
+    .sfdc_richtext em,
+    .sfdc_richtext cite,
+    .sfdc_richtext var,
+    .sfdc_richtext dfn,
+    .sfdc_richtext address {
+        font-style: italic;
+    }
+    .sfdc_richtext strong {
+        font-weight: bold;
+    }
+    .sfdc_richtext ol,
+    .sfdc_richtext ul {
+        list-style: none;
+    }
+    .sfdc_richtext h1,
+    .sfdc_richtext h2,
+    .sfdc_richtext h3,
+    .sfdc_richtext h4,
+    .sfdc_richtext h5,
+    .sfdc_richtext h6 {
+        display: block;
+        font-weight: bold;
+        margin: 1em 0;
+    }
+    .sfdc_richtext h1 {
+        font-size: 138.5%;
+    }
+    .sfdc_richtext h2 {
+        font-size: 123.1%;
+        color: black;
+    }
+    .sfdc_richtext h3 {
+        font-size: 108%;
+    }
+    .sfdc_richtext h4 {
+        font-size: 100%;
+    }
+    .sfdc_richtext h5 {
+        font-size: 92%;
+    }
+    .sfdc_richtext h6 {
+        font-size: 84%;
+    }
+    .sfdc_richtext q:before,
+    .sfdc_richtext q:after {
+        content: '"';
+    }
+    .sfdc_richtext abbr,
+    .sfdc_richtext acronym {
+        border: 0;
+        border-bottom: 1px dotted #000;
+        cursor: help;
+    }
+    .sfdc_richtext blockquote,
+    .sfdc_richtext ul,
+    .sfdc_richtext ol,
+    .sfdc_richtext dl {
+        margin: 1em;
+        margin-left: 40px;
+    }
+    .sfdc_richtext ol li {
+        list-style: decimal outside;
+    }
+    .sfdc_richtext ul li {
+        list-style: disc outside;
+    }
+    .sfdc_richtext dl dd {
+        margin-left: 1em;
+    }
+    .sfdc_richtext th,
+    .sfdc_richtext td {
+        border: 1px solid #000;
+        padding: .5em;
+    }
+    .sfdc_richtext th {
+        font-weight: bold;
+        text-align: center;
+        font-style: normal;
+    }
+    .sfdc_richtext caption {
+        margin-bottom: .5em;
+        text-align: center;
+    }
+    .sfdc_richtext p,
+    .sfdc_richtext fieldset,
+    .sfdc_richtext table {
+        margin-bottom: 1em;
+    }
+    .jumbotron-gutter {
+        padding: 25px 30px !important;
+    }
+    .list {
+        list-style: none;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 0px;
+    }
+    .horizontal-list {
+        display: flex;
+    }
+    .pagination_gutter {
+        padding: 0 0.5em !important;
+    }
+    .indeed-apply-button {
+        color: #333 !important;
+    }
+    .indeed-apply-button:hover,
+    .linkedIn {
+        text-decoration: none !important;
+    }
+    .htmlDetailElementTable {
+        width: 100% !important;
+        border: 0px !important;
+    }
+    .showPage {
+        width: fit-content;
+        float: left;
+    }
+    .m_img {
+        width:10em;
+        height:2.5em;
+    }
+    .topPaddingCus {
+        padding-top: 1em !important;
+    }
+    .cusMargin {
+        margin:0 8px 0px 0px !importants;
+    }
+    .cusfont {
+        font-size: 14px !important;
+    }
+    .panel-body_container {
+        padding: 1em 1em;
+    }
+    .text-decoration_none {
+        text-decoration: none !important;
+    }
+    .bEditBlock input,
+    textarea {
+        margin-bottom: 10px;
+    }
+    .dateOnlyInput input {
+        width: 100%;
+    }
+    .pillSection {
+        height: auto !important;
+    }
+    .pill__remove {
+        cursor: pointer;
+        float: right;
+        font-size: 1.2em;
+        font-weight: 800;
+        vertical-align: top;
+    }
+    .pillsList {
+        border: 1px solid lightgray;
+        background-color: white;
+        padding: 0.75em;
+        border-radius: 0.3em;
+        width: 10em;
+        vertical-align: middle;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+    .selectList {
+        list-style: none !important;
+        margin-block-start: 0px !important;
+        margin-block-end: 0px !important;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 0px !important;
+    }
+    .pillLabel {
+        padding-left: 0.5em;
+    }
+    abbr {
+        border-bottom: 0px solid transparent !important;
+        text-decoration: none !important;
+    }
+    .nav.nav-matrix {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: stretch;
+    }
+    .nav.nav-matrix li a {
+        display:flex !important;
+        align-items:center;
+        flex-grow:1;
+    }
+    .mp-back {
+        background: rgba(0,
+        0,
+        0,
+        0.1);
+        outline: none;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        display: block;
+        font-size: 0.8em;
+        padding: 1em;
+        position: relative;
+        box-shadow: inset 0 1px rgba(0,
+        0,
+        0,
+        0.1);
+        -webkit-transition: background 0.3s;
+        -moz-transition: background 0.3s;
+        transition: background 0.3s;
+    }
+    .mp-back::after {
+        content: "";
+        position: absolute;
+        height: 0;
+        width: -1px;
+        left: 90%;
+        top: 21px;
+        border: 6px solid transparent;
+        border-left: 8px solid #0e2f44;
+    }
+    .btn-register:hover,
+    .btn-register {
+        background: #34495e !important;
+    }
+    .btn-forget:hover,
+    .btn-forget {
+        background: #34495e !important;
+        color:white !important;
+    }
+    .btn-login:hover,
+    .btn-login {
+        background: #34495e !important;
+        color:#fff !important;
+    }
+    @media screen and (min-width:750px) {
+        .container-fluid.m-height {
+            height:550px;
+        }
+    }
+    @media screen and (max-width:40rem) {
+        .container-fluid.m-height {
+            height:510px !important;
+        }
+    }
+    .btn {
+        display: inline-block !important;
+        padding: 6px 12px !important;
+        margin-bottom: 0 !important;
+        font-size: 14px !important;
+        font-weight: 400 !important;
+        line-height: 1.42857143 !important;
+        text-align: center !important;
+        white-space: nowrap !important;
+        vertical-align: middle !important;
+        -ms-touch-action: manipulation !important;
+        touch-action: manipulation !important;
+        cursor: pointer !important;
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+        user-select: none !important;
+        background-image: none !important;
+        border-radius: 4px !important;
+    }
+    <!-- -- -- -- -- -- -- -- -- -- -- -- -- CP Old CSS -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->@font-face {
+        font-family: 'Conv_Helvetica-Condensed';
+        src: url({!URLFOR($Resource.TRGTFCMS__helvatica, '/fonts/Helvetica-Condensed.eot')
+            }
+    );
+    src: local('?'),
+    url({!URLFOR($Resource.TRGTFCMS__helvatica, '/fonts/Helvetica-Condensed.woff')
+            }
+    ) format('woff'),
+    url({!URLFOR($Resource.TRGTFCMS__helvatica, '/fonts/Helvetica-Condensed.ttf')
+            }
+    ) format('truetype'),
+    url({!URLFOR($Resource.TRGTFCMS__helvatica, '/fonts/Helvetica-Condensed.svg')
+            }
+    ) format('svg');
+
+    }
+    .form-group {
+        margin-bottom: 1em;
+    }
+    @media (min-width: 768px) {
+        .form-group {
+            //margin-bottom: 3.5em;
+        }
+    }
+    .applicationStatusGlobalCheckbox {
+        display: none;
+    }
+    .well {
+        background-color: unset;
+    }
+    .height-fit-content {
+        height: fit-content;
+        height: -moz-fit-content;
+        height: -o-fit-content;
+        height: -ms-fit-content;
+    }
+    .messageTable {
+        background-color: transparent !important;
+        border:0px solid transparent !important;
+    }
+    .requiredinput {
+        background: white !important;
+        outline: 0;
+        border-color: #800000;
+        background-color: #fff;
+        -webkit-box-shadow: 0 0 3px #0070D2;
+        box-shadow: 0 0 3px #800000;
+    }
+    .requiredBlockForLabel::before {
+        content: "*";
+        color: red;
+    }
+    .row {
+        max-width: none !important;
+    }
+    .btn-default {
+        background-color: #d4d4d !important;
+    }
+
+    /*******************************************************************************************/
+    .timesheetScope .timeSheetHeader,
+    .timesheetScope2 .timeSheetHeader {
+        background-color: ##11B9E6 !important;
+        width: 100% !important;
+        z-index: 9999 !important;
+    }
+    .timesheetScope .popupcomments,
+    .timesheetScope2 .popupcomments {
+        width: 245px;
+    }
+    .timesheetScope .slds-theme__shade-cus,
+    .timesheetScope2 .slds-theme__shade-cus {
+        background-color: #e9ecf1 !important;
+        border-radius: 0.3rem !important;
+    }
+    .timesheetScope .weektextcolor,
+    .timesheetScope2 .weektextcolor {
+        color: white !important;
+    }
+    .timesheetScope .cardColor,
+    .timesheetScope2 .cardColor {
+        background: white !important;
+    }
+    .timesheetScope .slds-form-element__label,
+    .timesheetScope label,
+    .timesheetScope b,
+    .timesheetScope2 .slds-form-element__label,
+    .timesheetScope2 label,
+    .timesheetScope2 b {
+        color: black !important;
+    }
+    .timesheetScope .slds-form-element__control,
+    .timesheetScope a,
+    .timesheetScope2 .slds-form-element__control,
+    .timesheetScope2 a {
+        color: black !important;
+    }
+    .timesheetScope .bodybackground,
+    .timesheetScope body,
+    .timesheetScope2 .bodybackground,
+    .timesheetScope2 body {
+        background: #f4f6f9 !important;
+    }
+    .timesheetScope .addTimeSheetButton,
+    .timesheetScope2 .addTimeSheetButton {
+        line-height: 1rem !important;
+        background: white !important;
+        width: 100% !important;
+    }
+    .timesheetScope .addAttachementButton,
+    .timesheetScope2 .addAttachementButton {
+        line-height: 1rem !important;
+        background: white !important;
+        width: 100% !important;
+    }
+    .timesheetScope .saveButton,
+    .timesheetScope2 .saveButton {
+        line-height: 1rem !important;
+        background: #42b0ef !important;
+        width: 100% !important;
+    }
+    .timesheetScope .submitButton,
+    .timesheetScope2 .submitButton {
+        color: white !important;
+        line-height: 1rem !important;
+        width: 100% !important;
+        background: #04858E !important;
+    }
+    .addExpenseButton {
+        line-height: 1rem !important;
+        width: 100% !important;
+        background: white !important;
+    }
+    .approveExpensesButton {
+        line-height: 1rem !important;
+        background: white !important;
+        width: 100% !important;
+    }
+    .timesheetScope .approveTimesheetButton,
+    .timesheetScope2 .approveTimesheetButton {
+        line-height: 1rem !important;
+        background: white !important;
+        width: 100% !important;
+    }
+    .submitExpensesButton {
+        line-height: 1rem !important;
+        background: white !important;
+        width: 100% !important;
+    }
+    .timesheetScope .submitTimesheetButton,
+    .timesheetScope2 .submitTimesheetButton {
+        line-height: 1rem !important;
+        background: white !important;
+        width: 100% !important;
+    }
+
+    /**************************** Extra Css for Phase1 starts*********************************/
+    .timesheetScope .backgroundcolor.mobileview {
+        background: white !important;
+    }
+    @media only screen and (max-width: 40em) {
+        .timesheetScope2 .backgroundcolor.mobileview {
+            background: white !important;
+        }
+        .timesheetScope .clabel {
+            min-width: 66px !important;
+        }
+        .timesheetApprovalScope2 .mbllabel {
+            text-align:-webkit-center !important;
+            max-width:30px !important;
+        }
+        .timesheetApprovalScope .trDiv.trDiv1,
+        .timesheetApprovalScope2 .trDiv.trDiv1 {
+            margin-left:-0.8rem !important;
+            width:108% !important;
+        }
+    }
+
+    /**************************** Extra Css for Phase1 starts*********************************/
+
+    /*  {
+        font-family: sans-serif !important;
+        }
+        */
+    @media only screen and (max-width: 40em) {
+        /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+        .timesheetScope2 .timesheetRow.slds-scope .slds-size_1-of-7 .slds-scope .slds-form-element .slds-scope .slds-form-element__label,
+        .timesheetScope .timesheetRow.slds-scope .slds-size_1-of-7 .slds-scope .slds-form-element .slds-scope .slds-form-element__label {
+            width: 62% ! important;
+            text-align: center ! important;
+            padding: 0 10px ! important;
+            font-size: 10px ! important;
+        }
+        .timesheetRow.slds-scope .slds-size_1-of-7 .slds-scope .slds-form-element .slds-scope .slds-input {
+            border: 1px solid rgb(217,
+            219,
+            221);
+            width: 95%;
+            font-size: 10px;
+            padding: 2px;
+        }
+        .timesheetRow.slds-scope .slds-p-left--large {
+            padding-top: 1.5rem;
+            padding-left: 7px ! important;
+            background: #d8edff;
+        }
+        .timesheetRow.slds-scope .slds-p-left--small {
+            padding-left: 0px ! important;
+            padding-right: 0px ! important;
+        }
+        .timesheetScope2 .timesheetRow.slds-scope .slds-input,
+        .timesheetScope .timesheetRow.slds-scope .slds-input {
+            font-size: 10px;
+            padding: 0px;
+            text-align: center;
+            border: 1px solid rgb(217,
+            219,
+            221);
+            width: 77%;
+        }
+        .timesheetRow.slds-scope .slds-input:focus::-webkit-input-placeholder {
+            opacity: 0;
+        }
+        .slds-col.slds-size_1-of-7.slds-medium-size_1-of-8.slds-large-size_1-of-8 .slds-form-element label {
+            font-size: 10px;
+            padding-right: 19px;
+        }
+        ul.mbh li {
+            width: 100%
+        }
+        .slds-input.timesheetinput {
+            text-align: left ! important;
+        }
+        .slds-input.timesheetinput.dayOfWeek {
+            text-align: center ! important;
+        }
+    }
+
+    /**********Timesheet Internal CSS starts**********/
+    .timesheetScope2 .slds-form-element__label,
+    .timesheetScope .slds-form-element__label {
+        min-width: 62px;
+    }
+    .timesheetScope2 .slds-align--absolute-center,
+    .timesheetScope .slds-align--absolute-center {
+        margin: 0px !important;
+    }
+    .timesheetScope2 .slds-p-left--large,
+    .timesheetScope .slds-p-left--large {
+        background: #fff !important;
+    }
+    .timesheetScope2 .timeSheetHeader,
+    .timesheetScope .timeSheetHeader {
+        background-color: #11B9E6;
+        width: 100%;
+        z-index: 9999;
+    }
+    .timesheetScope2 .buttonAddExp,
+    .timesheetScope .buttonAddExp {
+        //padding: inherit;
+        width: 100%;
+        height: 2.5rem;
+    }
+    .timesheetScope .projectList {
+        padding-left: 4px;
+    }
+    .timesheetScope2 .projectList {
+        padding-left: 0px;
+    }
+    .timesheetScope .taskList {
+        padding-left: 4px;
+    }
+    timesheetScope2 .taskList {
+        padding-left: 0px;
+    }
+    .timesheetScope2 .slds-input:active,
+    .timesheetScope2 .slds-input:focus,
+    .timesheetScope .slds-input:active,
+    .timesheetScope .slds-input:focus {
+        outline: 0 !important;
+        border-color: #d9dce0 !important;
+        background-color: #fff !important;
+        box-shadow: none !important;
+    }
+    .timesheetScope2 .slds-button--brand[disabled],
+    .timesheetScope2 .slds-button_brand[disabled],
+    .timesheetScope .slds-button--brand[disabled],
+    .timesheetScope .slds-button_brand[disabled] {
+        background: dodgerblue !important;
+        border-color: transparent !important;
+        color: #fff !important;
+    }
+    .timesheetScope2 .hideinpc,
+    .timesheetScope .hideinpc {
+        display: none !important;
+    }
+    .timesheetScope2 .slds-theme__shade-cus,
+    .timesheetScope .slds-theme__shade-cus {
+        background-color: #e9ecf1;
+        border-radius: 0.3rem;
+    }
+    .timesheetScope2 .slds-notify,
+    .timesheetScope .slds-notify {
+        min-width: 18rem !important;
+    }
+    .timesheetScope2 .msgIcon,
+    .timesheetScope .msgIcon,
+    .timesheetApprovalScope2 .msgIcon,
+    .timesheetApprovalScope .msgIcon,
+    .expensesScope2 .msgIcon,
+    .expensesScope .msgIcon,
+    .expensesScope .msgIcon,
+    .expensesApprovalScope2 .msgIcon,
+    .expensesApprovalScope .msgIcon {
+        display: none;
+    }
+    .timesheetScope2 .message,
+    .timesheetScope .message,
+    .timesheetApprovalScope2 .message,
+    .timesheetApprovalScope .message,
+    .expensesScope2 .message,
+    .expensesScope .message,
+    .expensesApprovalScope2 .message,
+    .expensesApprovalScope .message {
+        border-radius: 0;
+        background-image: linear-gradient(45deg,
+        rgba(0,
+        0,
+        0,
+        0.025) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(0,
+        0,
+        0,
+        0.025) 50%,
+        rgba(0,
+        0,
+        0,
+        0.025) 75%,
+        transparent 75%,
+        transparent);
+        background-size: 64px 64px;
+        font: 300 1em "Salesforce Sans",
+        Arial,
+        sans-serif;
+        margin: 4px 0px;
+    }
+    timesheetScope2 timesheetScope timesheetApprovalScope2 timesheetApprovalScope expensesScope2 expensesScope expensesApprovalScope2 expensesApprovalScope .message td {
+        text-align: center !important;
+    }
+    timesheetScope2 timesheetScope timesheetApprovalScope2 timesheetApprovalScope expensesScope2 expensesScope expensesApprovalScope2 expensesApprovalScope.messageCell h4 {
+        display: none !important;
+    }
+    .timesheetScope2 .message.errorM3 td,
+    .timesheetScope .message.errorM3 td,
+    .timesheetApprovalScope2 .message.errorM3 td,
+    .timesheetApprovalScope .message.errorM3 td,
+    .expensesScope2 .message.errorM3 td,
+    .expensesScope .message.errorM3 td,
+    .expensesApprovalScope2 .message.errorM3 td,
+    .expensesApprovalScope .message.errorM3 td,
+    .timesheetScope2 .message.infoM3 td,
+    .timesheetScope .message.infoM3 td,
+    .timesheetApprovalScope2 .message.infoM3 td,
+    .timesheetApprovalScope .message.infoM3 td,
+    .expensesScope2 .message.infoM3 td,
+    .expensesScope .message.infoM3 td,
+    .expensesApprovalScope2 .message.infoM3 td,
+    .expensesApprovalScope .message.infoM3 td,
+    .timesheetScope2 .message.errorM3 td span,
+    .timesheetScope .message.errorM3 td span,
+    .timesheetApprovalScope2 .message.errorM3 td span,
+    .timesheetApprovalScope .message.errorM3 td span,
+    .expensesScope2 .message.errorM3 td span,
+    .expensesScope .message.errorM3 td span,
+    .expensesApprovalScope2 .message.errorM3 td span,
+    .expensesApprovalScope .message.errorM3 td span,
+    .timesheetScope2 .message.infoM3 td span,
+    .timesheetScope .message.infoM3 td span,
+    .timesheetApprovalScope2 .message.infoM3 td span,
+    .timesheetApprovalScope .message.infoM3 td span,
+    .expensesScope2 .message.infoM3 td span,
+    .expensesScope .message.infoM3 td span,
+    .expensesApprovalScope2 .message.infoM3 td span,
+    .expensesApprovalScope .message.infoM3 td span {
+        color: white !important;
+    }
+    .timesheetScope2 .message.warningM3 td,
+    .timesheetScope .message.warningM3 td,
+    .timesheetApprovalScope2 .message.warningM3 td,
+    .timesheetApprovalScope .message.warningM3 td,
+    .expensesScope2 .message.warningM3 td,
+    .expensesScope .message.warningM3 td,
+    .expensesApprovalScope2 .message.warningM3 td,
+    .expensesApprovalScope .message.warningM3 td,
+    .timesheetScope2 .message.warningM3 td span,
+    .timesheetScope .message.warningM3 td span,
+    .timesheetApprovalScope2 .message.warningM3 td span,
+    .timesheetApprovalScope .message.warningM3 td span,
+    .expensesScope2 .message.warningM3 td span,
+    .expensesScope .message.warningM3 td span,
+    .expensesApprovalScope2 .message.warningM3 td span,
+    .expensesApprovalScope .message.warningM3 td span {
+        color: #16325c !important;
+    }
+    .timesheetScope2 .message.errorM3,
+    .timesheetScope .message.errorM3,
+    .timesheetApprovalScope2 .message.errorM3,
+    .timesheetApprovalScope .message.errorM3,
+    .expensesScope2 .message.errorM3,
+    .expensesScope .message.errorM3,
+    .expensesApprovalScope2 .message.errorM3,
+    .expensesApprovalScope .message.errorM3 {
+        background-color: #c23934;
+    }
+    .timesheetScope2 .message.infoM3,
+    .timesheetScope .message.infoM3,
+    .timesheetApprovalScope2 .message.infoM3,
+    .timesheetApprovalScope .message.infoM3,
+    .expensesScope2 .message.infoM3,
+    .expensesScope .message.infoM3,
+    .expensesApprovalScope2 .message.infoM3,
+    .expensesApprovalScope .message.infoM3 {
+        background-color: darkgreen;
+    }
+    .timesheetScope2 .message.warningM3,
+    .timesheetScope .message.warningM3,
+    .timesheetApprovalScope2 .message.warningM3,
+    .timesheetApprovalScope .message.warningM3,
+    .expensesScope2 .message.warningM3,
+    .expensesScope .message.warningM3,
+    .expensesApprovalScope2 .message.warningM3,
+    .expensesApprovalScope .message.warningM3 {
+        background-color: #ffb75d;
+    }
+    .timeStatus {
+        display: none;
+    }
+    .timesheetScope2 .slds-input,
+    .timesheetScope .slds-input {
+        border: none;
+        border-right: 1px solid rgb(217,
+        219,
+        221);
+        width: 77%;
+        padding: 4px;
+    }
+    .timesheetScope2 .slds-select[multiple] option,
+    .timesheetScope2 .slds-select[size] option,
+    .timesheetScope .slds-select[multiple] option,
+    .timesheetScope .slds-select[size] option {
+        padding: .5rem;
+        color: black;
+    }
+    .timesheetScope2 .slds-select:active,
+    .timesheetScope2 .slds-select:focus,
+    .timesheetScope .slds-select:active,
+    .timesheetScope .slds-select:focus {
+        background-color: none !important;
+        box-shadow: none !important;
+        outline: 0px !important;
+        border-right: 1px solid rgb(217,
+        219,
+        221);
+    }
+    .timesheetScope2 select,
+    .timesheetScope select {
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        background: url({!URLFOR ($Asset.slds, '/assets/icons/utility/chevronright_60.png')
+            }
+    ) no-repeat 98%;
+    background-size: 15px !important;
+    outline:0;
+    border: none !important;
+
+    }
+    .timesheetScope2 option,
+    .timesheetScope option {
+        font-weight: normal !important;
+        display: block !important;
+        white-space: pre !important;
+        min-height: 2.2em !important;
+        padding: 0px 2px 1px !important;
+    }
+    .timesheetScope2 .wrap-text-cus,
+    .timesheetScope .wrap-text-cus {
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+        -webkit-hyphens: auto !important;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        white-space: normal !important;
+        overflow: hidden;
+        position: relative;
+        max-height: 3.65625rem;
+    }
+    .timesheetScope2 .series4Props,
+    .timesheetScope .series4Props {
+        left: 2.5em !important;
+    }
+    .timesheetScope2 .series5Props,
+    .timesheetScope .series5Props {
+        left: 5em !important;
+    }
+    .timesheetScope2 .series6Props,
+    .timesheetScope .series6Props {
+        left: 7em !important;
+    }
+    .timesheetScope2 .seriesXProps,
+    .timesheetScope .seriesXProps {
+        left: 6em !important;
+    }
+    .timesheetScope2 .popupcomments_sun,
+    .timesheetScope .popupcomments_sun,
+    .timesheetScope2 .popupcomments_sat,
+    .timesheetScope .popupcomments_sat,
+    .timesheetScope2 .popupcomments_fri,
+    .timesheetScope .popupcomments_fri {
+        right: 1.2em !important;
+        margin-top: 10px !important;
+    }
+    @media (max-width: 48rem) {
+        .timesheetScope2 .tablecenter {
+            text-align:center !important;
+        }
+        .timesheetScope2 .slds-max-medium-table--stacked-horizontal td:before,
+        .timesheetScope2 .slds-max-medium-table--stacked-horizontal th:before,
+        .timesheetScope2 .slds-max-medium-table_stacked-horizontal td:before,
+        .timesheetScope2 .slds-max-medium-table_stacked-horizontal th:before,
+        .timesheetScope2 .slds-max-medium-table--stacked-horizontal td:before,
+        .timesheetScope2 .slds-max-medium-table--stacked-horizontal th:before,
+        .timesheetScope2 .slds-max-medium-table_stacked-horizontal td:before,
+        .timesheetScope2 .slds-max-medium-table_stacked-horizontal th:before {
+            font-size: .6rem !important;
+        }
+        .timesheetScope2 .slds-form-element__label,
+        .timesheetScope .slds-form-element__label {
+            min-width: 38px !important;
+        }
+        .timesheetScope .slds-form-element__label {
+            min-width: 38px !important;
+            max-width:38px !important;
+        }
+        .timesheetScope2 .pcOldview,
+        .timesheetScope .pcOldview {
+            display: grid !important;
+        }
+    }
+    @media (width: 320px) {
+        .timesheetScope2 .popupcomments,
+        .timesheetScope .popupcomments {
+            right: 0em !important;
+        }
+        .timesheetScope2 .mobileHeighChanger,
+        .timesheetScope .mobileHeighChanger {
+            padding-top: 5px;
+        }
+        .timesheetScope2 .mobilePadding,
+        .timesheetScope .mobilePadding {
+            padding-top: 8px !important;
+        }
+    }
+    @media (width: 360px) {
+        .timesheetScope2 .popupcomments,
+        .timesheetScope .popupcomments {
+            right: 0em !important;
+        }
+        .timesheetScope2 .mobileHeighChanger,
+        .timesheetScope .mobileHeighChanger {
+            padding-top: 5px;
+        }
+        .timesheetScope2 .mobilePadding,
+        .timesheetScope .mobilePadding {
+            padding-top: 8px !important;
+        }
+    }
+    @media (width: 375px) {
+        .timesheetScope2 .popupcomments,
+        .timesheetScope .popupcomments {
+            right: 0em !important;
+        }
+        .timesheetScope2 .mobileHeighChanger,
+        .timesheetScope .mobileHeighChanger {
+            padding-top: 5px;
+        }
+        .timesheetScope2 .mobilePadding,
+        .timesheetScope .mobilePadding {
+            padding-top: 8px !important;
+        }
+    }
+    @media (width: 411px) {
+        .timesheetScope2 .popupcomments,
+        .timesheetScope .popupcomments {
+            right: 0em !important;
+        }
+        .timesheetScope2 .mobileHeighChanger,
+        .timesheetScope .mobileHeighChanger {
+            padding-top: 5px;
+        }
+        .timesheetScope2 .mobilePadding,
+        .timesheetScope .mobilePadding {
+            padding-top: 8px !important;
+        }
+    }
+    @media (width: 414px) {
+        .timesheetScope2 .popupcomments,
+        .timesheetScope .popupcomments {
+            right: 0em !important;
+        }
+        .timesheetScope2 .mobileHeighChanger,
+        .timesheetScope .mobileHeighChanger {
+            padding-top: 5px;
+        }
+        .timesheetScope2 .mobilePadding,
+        .timesheetScope .mobilePadding {
+            padding-top: 8px !important;
+        }
+    }
+    @media only screen and (max-width: 40em) {
+        .timesheetScope2 .mobilePadding,
+        .timesheetScope .mobilePadding {
+            padding-top: 8px !important;
+        }
+    }
+    .timesheetScope2 .slds-textarea,
+    .timesheetScope .slds-textarea {
+        height: 90px;
+        resize: none;
+    }
+    .timesheetScope2 .hideinmbl,
+    .timesheetScope .hideinmbl {
+        display: none;
+    }
+    .timesheetScope2 .mobileview,
+    .timesheetScope .mobileview {
+        border: 1px solid #d8dde6;
+    }
+    .timesheetScope2 .pcview,
+    .timesheetScope .pcview {
+        border: none;
+        background: #f4f6f9 !important;
+    }
+    .timesheetScope2 .total,
+    .timesheetScope .total {
+        display: none;
+    }
+    .timesheetScope2 .slds-icon_container,
+    .timesheetScope .slds-icon_container {
+        display: none;
+    }
+    .timesheetScope2 .mobileGrid,
+    .timesheetScope .mobileGrid {
+        display: block !important;
+    }
+    .timesheetScope2 .pcOldview,
+    .timesheetScope .pcOldview {
+        display: flex;
+        padding-bottom: 10px;
+    }
+
+    /**********Timesheet Internal CSS Ends***********/
+
+    /********** Timesheet 2nd design starts *********/
+    .timesheetScope2 .slds-button_neutral {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+    .timesheetScope2 .slds-text-heading_small {
+        font-size: 0.85rem !important;
+    }
+    .timesheetScope2 label.labelClass.slds-form-element__label {
+        display: none !important;
+    }
+    .timesheetScope2 .slds-textarea {
+        width: 77% !important;
+        max-height: 3rem !important;
+    }
+    .timesheetScope2 .slds-select.select1 {
+        width: 85% !important;
+    }
+    .timesheetScope2 .slds-card__footer {
+        text-align: left !important;
+    }
+    @media only screen and (max-width: 700px) {
+        .timesheetScope2 .icon1 {
+            padding-left:0.5rem !important;
+        }
+        .timesheetScope2.colWidth {
+            width: 15% !important;
+        }
+        .timesheetScope2 .timesheetRow.slds-scope .slds-input {
+            width: 95%;
+            font-size: 0.73rem !important;
+        }
+        .timesheetScope2 .slds-textarea {
+            width: 95% !important;
+            max-height: 3rem !important;
+        }
+        .timesheetScope2 .slds-input {
+            width: 95% !important;
+            font-size: 0.73rem !important;
+        }
+        .timesheetScope2 .slds-input[disabled] {
+            width: 95%;
+        }
+        .timesheetScope2 #btns-div {
+            text-align: -webkit-center !important;
+        }
+        .timesheetScope2 label.labelClass.slds-form-element__label {
+            display: flex !important;
+            text-align: -webkit-center;
+            max-width:30px !important;
+        }
+        .timesheetScope2 .slds-form-element.element1 {
+            text-align: -webkit-center;
+        }
+        .timesheetScope2 .slds-select.select1 {
+            width: 100% !important;
+        }
+        .timesheetScope2 .mobileGrid {
+            display: grid !important;
+        }
+        .timesheetScope2 .slds-form-element__label {
+            //max-width : 10px !important;
+            min-width: 8px !important;
+        }
+        .timesheetScope2.total {
+            display: none !important;
+        }
+        .timesheetScope2 .slds-border--bottom {
+            border-bottom: 1px solid #d8dde6 !important;
+        }
+        .timesheetScope2 .slds-input[disabled] {
+            min-width: 35px !important;
+            font-size: 0.66rem !important;
+        }
+        .timesheetScope2 .slds-input {
+            min-width: 35px !important;
+            font-size: 0.66rem !important;
+        }
+        .timesheetScope2 select {
+            background: url({!URLFOR ($Asset.slds, '/assets/icons/utility/chevronright_60.png')
+            }
+        ) no-repeat 98% !important;
+    }
+
+    }
+    .timesheetScope2 .slds-border--bottom {
+        border-bottom: none !important;
+    }
+    @media only screen and (max-width: 48em) {
+        .timesheetScope2 .colWidth {
+            width: 15% !important;
+        }
+        .timesheetScope2 .timesheetRow .slds-scope .slds-input {
+            width: 95% !important;
+            font-size: 0.73rem !important;
+        }
+        .timesheetScope2 .slds-textarea {
+            width: 95% !important;
+            max-height: 3rem !important;
+        }
+        .timesheetScope2 .clabel {
+            font-weight: 500 !important;
+            min-width: 66px !important;
+            //width:15px !important;
+            //text-align:right !important;
+        }
+        .timesheetScope2 .slds-select.selectwidth {
+            //background-color:#11B9E6 !important;
+        }
+    }
+    @media screen and (min-width: 750px) {
+        .timesheetScope2 input[type=checkbox],
+        .slds-scope input[type=radio] {
+            height: 1cm !important;
+            margin-left: 1.3rem !important;
+        }
+        .timesheetScope2 .slds-form-element__control.selectSymbol {
+            display: inline-flex !important;
+        }
+        .timesheetScope2 .clabel {
+            font-weight: 500 !important;
+            min-width: 20px !important;
+            width: 21px !important;
+            text-align: right !important;
+        }
+        .timesheetScope2 .clabelcontainer {
+            padding-left: 0.5rem !important;
+        }
+        .timesheetScope2 .slds-checkbox_toggle {
+            width: 20% !important;
+        }
+        .timesheetScope2 .hideinnew {
+            display: none !important;
+        }
+        .timesheetScope2 .newlabel {
+            padding-left: 1rem !important;
+        }
+        .timesheetScope2 .slds-input.timesheetinput.dayOfWeek[disabled] {
+            text-align: -webkit-center !important;
+        }
+        .timesheetScope2 .slds-input.timesheetinput.dayOfWeek {
+            text-align: -webkit-center !important;
+        }
+        .timesheetScope2 .slds-input[disabled] {
+            text-align: -webkit-center !important;
+        }
+        .timesheetScope2 .slds-input.timesheetinput {
+            text-align: left !important;
+            max-height: 20px;
+        }
+        .timesheetScope2 .nopadding.slds-p-bottom--medium {
+            padding-bottom: 0.2rem !important;
+        }
+        .timesheetScope2 .nopadding.slds-card__body {
+            padding-bottom: 0.2rem !important;
+        }
+        .timesheetScope2 .nopadding {
+            padding-bottom: 0rem !important;
+        }
+        .timesheetScope2 .slds-p-left--x-large {
+            padding-left: 1rem !important;
+        }
+        .timesheetScope2 .column.slds-p-left--x-large {
+            padding-left: 1rem !important;
+        }
+        .timesheetScope2 .showpadding {
+            padding-bottom: 1rem !important;
+        }
+        .timesheetScope2 .spanPadding {
+            padding-top: 0.4rem !important;
+        }
+        .timesheetScope2 .slds-large-size_1-of-8 {
+            width: 12.5% !important;
+        }
+        .timesheetScope2 #travelTracking1 #travelTracking2 {
+            width: 50% !important;
+        }
+        .timesheetScope2 #travelTracking3 {
+            width: 20% !important;
+            padding-top: 1.5rem !important;
+        }
+        .timesheetScope2 .slds-size_2-of-4 {
+            width: 10% !important;
+        }
+        .timesheetScope2 .labeluniqu {
+            min-width: 20px !important;
+            width: 20px !important;
+            text-align: right !important;
+        }
+        .timesheetScope2 .slds-input {
+            border: 1px solid #d8dde6 !important;
+        }
+        .timesheetScope2 .slds-input[disabled] {
+            border: none ! important;
+        }
+        .timesheetScope2 .labelmargin1 {
+            //margin-left: -3% !important;
+        }
+        .timesheetScope2 .labelmargin5 {
+            //margin-left: -8% !important;
+        }
+        .timesheetScope2 .labelmargin2 {
+            //margin-left: -5% !important;
+        }
+        .timesheetScope2 .labelmargin3 {
+            //margin-left: -6% !important;
+        }
+        .timesheetScope2 .labelmargin4 {
+            //margin-left: -7% !important;
+        }
+        .timesheetScope2 .labelmargin-1 {
+            margin-left: 5px !important;
+        }
+        .timesheetScope2 .labelmargin0 {
+            margin-left: 2px !important;
+        }
+        .timesheetScope2 .labelmargin6 {
+            margin-left: -20% !important;
+        }
+        .timesheetScope2 .labelmargin7 {
+            padding-top: 0.5em;
+        }
+        .timesheetScope2 .label8 {
+            padding-top: 0.5em;
+        }
+        .timesheetScope2 .pcOldview {
+            width: 30%;
+        }
+        .timesheetScope2 .grid1 {
+            min-width: 70%;
+            width: 70% !important;
+        }
+        .timesheetScope2 .slds-input {
+            border: unset;
+        }
+        .timesheetScope2 .label5 {
+            //min-width:100px !important;
+        }
+        .timesheetScope2 .slds-form-element__label {
+            //min-width:100% !important;
+            //padding-left: 2px;
+            //text-align: -webkit-center;
+        }
+        .timesheetScope2 .slds-size_1-of-11 {
+            //width:116px !important;
+        }
+        .timesheetScope2 .slds-border--bottom,
+        .timesheetScope2 .slds-border_bottom {
+            border-bottom: none !important;
+        }
+        .timesheetScope2 .slds-icon__container,
+        .timesheetScope2 .slds-icon_container {
+            display: inline-block !important;
+            margin-top: 10px !important;
+            padding-left: 0rem !important;
+        }
+        .timesheetScope2 .select1 {
+            float: left !important;
+        }
+        .timesheetScope2 .total {
+            display: block !important;
+        }
+        .timesheetScope2 .label1 {
+            font-weight: 700 !important;
+            font-size: 13px !important;
+            color: #54698d !important
+        }
+        .timesheetScope2 .mobileGrid {
+            display: flex !important;
+        }
+        .timesheetScope2 .hideinmbl {
+            display: block !important;
+        }
+        .timesheetScope2 .hideinmbl1 {
+            display: block !important;
+        }
+        .timesheetScope2 .slds-p-left--small,
+        .timesheetScope2 .slds-p-left_small {
+            padding-left: 0rem !important;
+        }
+        .timesheetScope2 .label2 {
+            padding-left: 7px !important;
+        }
+        .timesheetScope2 .label3 {
+            //width: 150px !importnat;
+        }
+        .timesheetScope2 .slds-form-element__control {
+            //min-width: 100px !important;
+        }
+        .timesheetScope2 .pcview {
+            border: 1px solid #d8dde6 !important;
+            background: white !important;
+        }
+        .timesheetScope2 select {
+            background: none !important;
+        }
+        .timesheetScope2 .mobileview {
+            border: none !important;
+            max-height: 27px !important;
+            width: 105% !important;
+        }
+        .timesheetScope2 .slds-p-bottom--medium {
+            padding-bottom: 2rem !important;
+        }
+        .timesheetScope2 .slds-col {
+            width: Calc(100%/10);
+            min-width: 10%;
+        }
+        label .timesheetScope2 .slds-col {
+            min-width: 50%;
+        }
+        .timesheetScope2 .slds-form-element__label {
+            color: #54698d !important;
+            //margin-left:3px;
+            //max-width: 62px !important;
+        }
+    }
+    @media only screen and (min-width: 1200px) {
+        .timesheetScope2 .slds-large-size_1-of-8 {
+            width: 12.5% !important;
+        }
+        .timesheetScope2 #travelTracking3 {
+            width: 12.5% !important;
+            padding-top: 1.5rem !important;
+        }
+        .timesheetScope2 .slds-size_2-of-4 {
+            width: 12.5% !important;
+        }
+        .timesheetScope2 .slds-form-element__label {
+            //margin-left:11px !important;
+        }
+        .timesheetScope2 .labelmargin1 {
+            margin-left: 14px !important;
+        }
+        .timesheetScope2 .labelmargin2 {
+            margin-left: 12px !important;
+        }
+        .timesheetScope2 .labelmargin3 {
+            margin-left: 10px !important;
+        }
+        .timesheetScope2 .labelmargin4 {
+            margin-left: 8px !important;
+        }
+        .timesheetScope2 .labelmargin-1 {
+            margin-left: 15px !important;
+        }
+        .timesheetScope2 .labelmargin0 {
+            margin-left: 13px !important;
+        }
+        .timesheetScope2 .labelmargin5 {
+            margin-left: 5px !important;
+        }
+        .timesheetScope2 .labelmargin7 {
+            margin-left: 5px !important;
+        }
+    }
+    @media only screen and (max-width: 40em) {
+        .applicationStatusGlobalCheckbox {
+            display: block;
+            font-weight: bold;
+        }
+        .timesheetScope2 .slds-input {
+            width: 95%;
+        }
+        .timesheetScope2 #btns-div {
+            //width:70% !important;
+            //margin-left:15% !important;
+            text-align: -webkit-center !important;
+        }
+        .timesheetScope2 .hideinpc {
+            display: block !important;
+        }
+        .timesheetScope2 .hideinmbl {
+            display: none !important;
+        }
+        .timesheetScope2 .hideinmbl1 {
+            display: none !important;
+        }
+        .timesheetScope2 .mobileGrid {
+            display: grid !important;
+        }
+        .timesheetScope2 .pcview {
+            border: none !important;
+        }
+        .timesheetScope2 .mobileview {
+            border: 1px solid #d8dde6 !important;
+        }
+    }
+    .timesheetScope2 .label01 {
+        white-space: nowrap !important;
+    }
+
+    /********** Timesheet 2nd design ends *********/
+
+    /********** Timesheet Approval Internal CSS starts ***********/
+    .timesheetApprovalScope2 .slds-textarea.slds-is-disabled,
+    .timesheetApprovalScope2 .slds-textarea[disabled],
+    .timesheetApprovalScope .slds-textarea.slds-is-disabled,
+    .timesheetApprovalScope .slds-textarea[disabled] {
+        background-color: #fff !important;
+    }
+    @media only screen and (max-width: 600px) {
+        .timesheetApprovalScope2 .center,
+        .timesheetApprovalScope .center {
+            display: inline-table;
+        }
+        .timesheetApprovalScope2 .trDiv,
+        .timesheetApprovalScope .trDiv {
+            padding-left: 0.2rem !important;
+        }
+    }
+    .timesheetApprovalScope2 .slds-textarea[disabled],
+    .timesheetApprovalScope .slds-textarea[disabled] {
+        border: none !important;
+    }
+    .timesheetApprovalScope2 .timeSheetHeader,
+    .timesheetApprovalScope .timeSheetHeader {
+        background-color: #11B9E6;
+        width: 100% !important;
+        z-index: 9999 !important;
+    }
+    .timesheetApprovalScope .slds-border--bottom,
+    .timesheetApprovalScope2 .slds-border--bottom {
+        min-height: 4rem !important;
+        text-align: left !important;
+    }
+    .timesheetApprovalScope .buttonAddExp,
+    .timesheetApprovalScope2 .buttonAddExp {
+        padding: inherit;
+        width: 100%;
+        height: 2.5rem;
+    }
+    .timesheetApprovalScope .slds-input:active,
+    .timesheetApprovalScope .slds-input:focus,
+    .timesheetApprovalScope2 .slds-input:active,
+    .timesheetApprovalScope2 .slds-input:focus {
+        outline: 0 !important;
+        border-color: #d9dce0 !important;
+        background-color: #fff !important;
+        box-shadow: none !important;
+    }
+    .timesheetApprovalScope .slds-button--brand[disabled],
+    .timesheetApprovalScope .slds-button_brand[disabled],
+    .timesheetApprovalScope2 .slds-button--brand[disabled],
+    .timesheetApprovalScope2 .slds-button_brand[disabled] {
+        background: dodgerblue !important;
+        border-color: transparent !important;
+        color: #fff !important;
+    }
+    .timesheetApprovalScope .hideinold,
+    .timesheetApprovalScope2 .hideinold {
+        display: none;
+    }
+    .timesheetApprovalScope .slds-theme__shade-cus,
+    .timesheetApprovalScope2 .slds-theme__shade-cus {
+        background-color: #e9ecf1;
+        border-radius: 0.3rem;
+    }
+    .timesheetApprovalScope .totalDiv,
+    .timesheetApprovalScope2 .totalDiv {
+        display: none !important;
+    }
+    .timesheetApprovalScope .slds-notify,
+    .timesheetApprovalScope2 .slds-notify {
+        min-width: 18rem !important;
+    }
+    .timesheetApprovalScope .timeStatus,
+    .timesheetApprovalScope2 .timeStatus {
+        display: none;
+    }
+    .timesheetApprovalScope .slds-input,
+    .timesheetApprovalScope2 .slds-input {
+        border: none;
+        border-right: white;
+        width: 77%;
+        padding: 0px;
+    }
+    .timesheetApprovalScope .slds-select[multiple] option,
+    .timesheetApprovalScope .slds-select[size] option,
+    .timesheetApprovalScope2 .slds-select[multiple] option,
+    .timesheetApprovalScope2 .slds-select[size] option {
+        padding: .5rem;
+        color: black;
+    }
+    .timesheetApprovalScope .slds-select:active,
+    .timesheetApprovalScope .slds-select:focus,
+    .timesheetApprovalScope2 .slds-select:active,
+    .timesheetApprovalScope2 .slds-select:focus {
+        background-color: none !important;
+        box-shadow: none !important;
+        outline: 0px !important;
+        border-right: 1px solid rgb(217,
+        219,
+        221);
+    }
+    .timesheetApprovalScope2 select,
+    .timesheetApprovalScope select {
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        background: url({!URLFOR ($Asset.slds, '/assets/icons/utility/chevronright_60.png')
+            }
+    ) no-repeat 98%;
+    background-size: 15px !important;
+    outline:0;
+    border: none !important;
+
+    }
+    .timesheetApprovalScope2 option,
+    .timesheetApprovalScope option {
+        font-weight: normal !important;
+        display: block !important;
+        white-space: pre !important;
+        min-height: 2.2em !important;
+        padding: 0px 2px 1px !important;
+    }
+    .timesheetApprovalScope .slds-form-element,
+    .timesheetApprovalScope2 .slds-form-element {
+        position: relative;
+        text-align: left;
+    }
+    .timesheetApprovalScope .wrap-text-cus,
+    .timesheetApprovalScope2 .wrap-text-cus {
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+        -webkit-hyphens: auto !important;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        white-space: normal !important;
+        overflow: hidden;
+        position: relative;
+        max-height: 3.65625rem;
+    }
+    .timesheetApprovalScope .popupcomments_sun .slds-card,
+    .timesheetApprovalScope .popupcomments_sat .slds-card,
+    .timesheetApprovalScope2 .popupcomments_sun .slds-card,
+    .timesheetApprovalScope2 .popupcomments_sat .slds-card,
+    .timesheetApprovalScope .popupcomments_fri .slds-card,
+    .timesheetApprovalScope2 .popupcomments_fri .slds-card,
+    {
+        right: 1.2em !important;
+        margin-top: 10px !important;
+    }
+    .timesheetApprovalScope .series4Props,
+    .timesheetApprovalScope2 .series4Props {
+        left: 2.5em !important;
+    }
+    .timesheetApprovalScope .series5Props,
+    .timesheetApprovalScope2 .series5Props {
+        left: 5em !important;
+    }
+    .timesheetApprovalScope .series6Props,
+    .timesheetApprovalScope2 .series6Props {
+        left: 7em !important;
+    }
+    .timesheetApprovalScope .seriesXProps,
+    .timesheetApprovalScope2 .seriesXProps {
+        left: 6em !important;
+    }
+    @media (max-width: 48em) {
+        .timesheetApprovalScope .slds-max-medium-table--stacked-horizontal td:before,
+        .timesheetApprovalScope .slds-max-medium-table--stacked-horizontal th:before,
+        .timesheetApprovalScope .slds-max-medium-table_stacked-horizontal td:before,
+        .timesheetApprovalScope .slds-max-medium-table_stacked-horizontal th:before,
+        {
+            .timesheetApprovalScope2 .slds-max-medium-table--stacked-horizontal td:before,
+            .timesheetApprovalScope2.slds-max-medium-table--stacked-horizontal th:before,
+            .timesheetApprovalScope2 .slds-max-medium-table_stacked-horizontal td:before,
+            .timesheetApprovalScope2 .slds-max-medium-table_stacked-horizontal th:before font-size: .6rem !important;
+        }
+    }
+    .timesheetApprovalScope .slds-form-element.status1 {
+        width:85% !important;
+    }
+    .timesheetApprovalScope .displayinmbl,
+    .timesheetApprovalScope2 .displayinmbl,
+    .timesheetApprovalScope2 .displayinmbl1,
+    .timesheetApprovalScope .displayinmbl1 {
+        display: none !important;
+    }
+    @media (width: 320px) {
+        .timesheetApprovalScope .popupcomments .slds-card,
+        .timesheetApprovalScope2 .popupcomments .slds-card {
+            left: 2.5em !important;
+            right: 0em !important;
+            margin-top: 28px !important;
+        }
+    }
+    @media (width: 360px) {
+        .timesheetApprovalScope .popupcomments .slds-card,
+        .timesheetApprovalScope2 .popupcomments .slds-card {
+            left: 5em !important;
+            right: 0em !important;
+            margin-top: 28px !important;
+        }
+    }
+    @media (width: 375px) {
+        .timesheetApprovalScope .popupcomments .slds-card,
+        .timesheetApprovalScope2 .popupcomments .slds-card {
+            left: 6em !important;
+            right: 0em !important;
+            margin-top: 28px !important;
+        }
+    }
+    @media (width: 411px) {
+        .timesheetApprovalScope .popupcomments .slds-card,
+        .timesheetApprovalScope2 .popupcomments .slds-card {
+            left: 7em !important;
+            right: 0em !important;
+            margin-top: 28px !important;
+        }
+    }
+    @media (width: 414px) {
+        .timesheetApprovalScope .popupcomments .slds-card,
+        .timesheetApprovalScope2 .popupcomments .slds-card {
+            left: 7em !important;
+            right: 0em !important;
+            margin-top: 28px !important;
+        }
+    }
+
+    /********** Timesheet Approval Internal CSS ends ***********/
+
+    /********** Timesheet Approval External CSS starts ***********/
+    .timesheetApprovalScope2 .slds-form-element__label {
+        color:#54698d !important;
+    }
+    .timesheetApprovalScope2 .tsApprovalStatusRowCls {
+        width:80%;
+    }
+    @media screen and (min-width: 750px) {
+        .timesheetApprovalScope2 .flexdiv.flexdiv1 {
+            min-height:2rem !important;
+        }
+        .timesheetApprovalScope2 .card1 {
+            width: 215px !important;
+        }
+        .timesheetApprovalScope2 .area {
+            width: 180px !important;
+        }
+        .timesheetApprovalScope2 .labelCustom {
+            //margin-right:5px !important;
+            font-weight: 600;
+            font-size: 13px !important;
+            text-align: left !important;
+        }
+        .timesheetApprovalScope2 .flexdiv {
+            display: flex !important;
+            height: 1cm !important;
+            min-height: 3rem !important;
+        }
+        .timesheetApprovalScope2 .slds-large-size_4-of-12 {
+            width: 14% !important;
+        }
+        .timesheetApprovalScope2 .slds-form-element__label {
+            min-width: 55px !important;
+            //text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .timesheetApprovalScope2 .slds-p-top--medium {
+            padding-top: 0px !important;
+        }
+        .timesheetApprovalScope2 .trDiv {
+            width: 45% !important;
+        }
+        .timesheetApprovalScope2 .totalDiv {}
+        .timesheetApprovalScope2 .pcwidth {
+            width: 55% !important;
+            padding-top: 0.3rem !important;
+        }
+        .timesheetApprovalScope2 .slds-border--bottom {
+            border-bottom: none !important;
+        }
+        .timesheetApprovalScope2 .slds-card {
+            border: none !important;
+        }
+        .timesheetApprovalScope2 .slds-button {
+            border: 1px solid #d8dde6 !important;
+        }
+        .timesheetApprovalScope2 #headerTotal {
+            padding-bottom: 1rem !important;
+        }
+        .timesheetApprovalScope2 .slds-p-left--x-large {
+            padding-top: 0.5rem !important;
+        }
+        .timesheetApprovalScope2 .manualCheckbox {
+            right: 0px !important;
+            position: inherit !important;
+        }
+        .timesheetApprovalScope2 .hideinpc {
+            display: none !important;
+        }
+        .timesheetApprovalScope2 .slds-p-around_medium {
+            padding: 0rem !important;
+        }
+        .timesheetApprovalScope2 .slds-form-element {
+            overflow: hidden;
+            width: 90%;
+            white-space: nowrap;
+        }
+        .timesheetApprovalScope2 .hideinold {
+            display: grid !important;
+        }
+        .timesheetApprovalScope2 .hideinnew {
+            display: none !important;
+        }
+        .timesheetApprovalScope2 .labelClass {
+            font-size: 13px;
+            font-weight: 600;
+            color: #54698d;
+        }
+        .timesheetApprovalScope2 .slds-form-element1 {
+            overflow: visible !important;
+        }
+        .timesheetApprovalScope2 .slds-medium-size_1-of-7 {
+            width: 12.5% !important;
+        }
+        .timesheetApprovalScope2 .label1 {
+            margin-left: 5px !important;
+        }
+    }
+    @media screen and (min-width: 1100px) {
+        .timesheetApprovalScope2 .slds-form-element1 {
+            margin-left: -25px !important;
+        }
+    }
+    @media screen and (max-width: 40rem) {
+        .timesheetApprovalScope2 .icon {
+            margin-left:0.7rem !important;
+        }
+        .timesheetApprovalScope2 .displayinmbl.icon2 {
+            padding-left:0.6rem !important;
+        }
+        .timesheetApprovalScope2 .displayinmbl {
+            display: block !important;
+        }
+        .timesheetApprovalScope2 .hideinmbl {
+            display: none !important;
+        }
+        .timesheetApprovalScope2 .btn-wrap {
+            width: 60% !important;
+        }
+        .timesheetApprovalScope2 .tablecenter {
+            text-align:center !important;
+        }
+    }
+
+    /********** Timesheet Approval External CSS ends ***********/
+
+    /********** Expenses Internal CSS Starts ***********/
+    @media only screen and (max-width: 600px) {
+        .expensesScope .center,
+        .expensesScope2 .center {
+            display: inline-table;
+        }
+        .expensesScope .slds-tabs_default__link,
+        .expensesScope2 .slds-tabs_default__link {
+            line-height: 1.5rem !important;
+        }
+    }
+    .expensesScope .timeSheetHeader,
+    .expensesScope2 .timeSheetHeader {
+        background-color: #11B9E6 !important;
+        width: 100% !important;
+        z-index: 9999 !important;
+    }
+    .expensesScope td,
+    .expensesScope2 td {
+        border: none !important;
+    }
+    .expensesScope .slds-form-element__control>a,
+    .expensesScope .slds-align--absolute-right>a,
+    .expensesScope2 .slds-form-element__control>a,
+    .expensesScope2 .slds-align--absolute-right>a {
+        cursor: pointer;
+        color: blue !important;
+    }
+    .expensesScope .slds-input,
+    .expensesScope2 .slds-input {
+        border: none;
+        width: 100%;
+        padding: 0px;
+        line-height: unset;
+    }
+    .expensesScope .slds-select[multiple] option,
+    .expensesScope .slds-select[size] option,
+    .expensesScope2 .slds-select[multiple] option,
+    .expensesScope2 .slds-select[size] option {
+        padding: .5rem;
+        color: black;
+    }
+    .expensesScope .slds-select:active,
+    .expensesScope .slds-select:focus,
+    .expensesScope2 .slds-select:active,
+    .expensesScope2 .slds-select:focus {
+        background-color: none !important;
+        box-shadow: none !important;
+        outline: 0px !important;
+        border-color: transparent !important;
+    }
+    .expensesScope .displayinmbl,
+    .expensesScope2 .displayinmbl,
+    .expensesScope .displayinmbl1,
+    .expensesScope2 .displayinmbl1 {
+        display: none !important;
+    }
+    .expensesScope option,
+    .expensesScope2 option {
+        font-weight: normal !important;
+        display: block !important;
+        white-space: pre !important;
+        min-height: 2.2em !important;
+        padding: 0px 2px 1px !important;
+    }
+    .expensesScope .timeStatus,
+    .expensesScope2 .timeStatus {
+        display: none;
+    }
+    .expensesScope .slds-theme__shade-cus,
+    .expensesScope2 .slds-theme__shade-cus {
+        background-color: #e9ecf1;
+        border-radius: 0.3rem;
+    }
+    .expensesScope .slds-tabs--default__link,
+    .expensesScope .slds-tabs_default__link,
+    .expensesScope2 .slds-tabs--default__link,
+    .expensesScope2 .slds-tabs_default__link {
+        display: contents !important;
+    }
+    .expensesScope .slds-tabs--default__item,
+    .expensesScope .slds-tabs_default__item,
+    .expensesScope2 .slds-tabs--default__item,
+    .expensesScope2 .slds-tabs_default__item {
+        padding-bottom: 1rem;
+    }
+    .expensesScope2 .buttonSubmitExp,
+    .expensesScope .buttonSubmitExp {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+        height: 2.5rem !important;
+    }
+    .expensesScope .slds-align--absolute-right,
+    .expensesScope2 .slds-align--absolute-right {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: center;
+        justify-content: flex-end;
+        -ms-flex-line-pack: center;
+        align-content: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin: auto;
+    }
+    .expensesScope .slds-border--bottom,
+    .expensesScope .slds-border_bottom,
+    .expensesScope2 .slds-border--bottom,
+    .expensesScope2 .slds-border_bottom {
+        border-bottom: 1px solid #d8dde6 !important;
+        min-height: 4rem;
+        margin-right: 1.5rem !important;
+    }
+    .expensesScope .wrap-text-cus,
+    .expensesScope2 .wrap-text-cus {
+        width: 100% !important;
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+        -webkit-hyphens: auto !important;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        white-space: normal !important;
+        en;
+        position: relative;
+        height: 5rem !important;
+    }
+    .expensesScope .buttonAddExp,
+    .expensesScope2 .buttonAddExp {
+        //padding: inherit;
+        width: 100%;
+        height: 2.5rem;
+    }
+    .expensesScope .hideinold,
+    .expensesScope2 .hideinold {
+        display: none !important;
+    }
+    .expensesScope .hideinold1,
+    .expensesScope2 .hideinold1 {
+        display: none !important;
+    }
+    .expensesScope .hideinold2,
+    .expensesScope2 .hideinold2 {
+        display: none !important;
+    }
+    .expensesScope .hideinoldboth,
+    .expensesScope2 .hideinoldboth {
+        display: none !important;
+    }
+    .expensesScope .hideinoldboth1,
+    .expensesScope2 .hideinoldboth1 {
+        display: none !important;
+    }
+    .expensesScope .hideinphase1 {
+        display:none !important;
+    }
+    .expensesScope .hideinoldbothnew1,
+    .expensesScope2 .hideinoldbothnew1 {
+        display: none !important;
+    }
+
+    /********** Expenses Internal CSS Ends ***********/
+
+    /********** Expenses External CSS Start ***********/
+    .expensesScope2 .slds-section.slds-is-open .slds-section__content {
+        padding-top: 0rem !important;
+    }
+    .expensesScope2 .hideinold2 {
+        display: flex !important;
+    }
+    .expensesScope2 .hideinpc1 {
+        display: none !important;
+    }
+    .expensesScope2 .hideinoldboth {
+        display: flex !important;
+    }
+    .expensesScope2 .hideinoldbothnew {
+        display: none !important;
+    }
+    @media screen and (min-width:750px) {
+        .expensesScope2 .widthmin {
+            width:100% !important;
+        }
+        .expensesScope2 .slds-input:active,
+        .expensesScope2 .slds-input:focus {
+            box-shadow:none !important;
+        }
+    }
+    @media screen and (max-width:40rem) {
+        .expensesScope2 .tablecenter {
+            text-align:center !important;
+        }
+        .expensesScope2 .slds-tabs_default__item {
+            white-space:normal !important;
+        }
+        .expensesScope2 .slds-section.slds-is-open .slds-section__content {
+            padding-top: 0rem !important;
+        }
+        .expensesScope2 .hideinoldbothnew1 {
+            display: block !important;
+        }
+        .expensesScope2 .displayinmbl {
+            display: flex !important;
+        }
+        .expensesScope2 .displayinmbl1 {
+            display: flow-root !important;
+        }
+        .expensesScope2 .displayinmbl.icon {
+            padding-left:0.4rem !important;
+        }
+        .expensesScope2 .displayinmbl.icon1 {
+            padding-left:0.7rem !important;
+        }
+        .expensesScope2 .hideinmbl {
+            display: none !important;
+        }
+        .expensesScope2 .col8 {
+            width: 20% !important;
+        }
+        .expensesScope2 .noneborder {
+            border-bottom: none !important;
+        }
+        .expensesScope2 .paddingbottom3 {
+            display: none !important;
+        }
+    }
+    @media screen and (min-width:750px) {
+        .expensesScope2 .padding {
+            padding-left: 0.5rem !important;
+            margin-top: 0.6rem !important;
+        }
+        .expensesScope2 .slds-form-element__control.selectSymbol {
+            display: inline-flex !important;
+        }
+        .expensesScope2 .paddingbtm {
+            padding-bottom: 3rem !important;
+            min-height: 2.8rem !important;
+            padding-top: 0.5rem !important;
+        }
+        .expensesScope2 .paddingbottom3 {
+            padding-bottom: 1rem !important;
+        }
+        .expensesScope2 .slds-form-element__control.status {
+            min-width: 70px !important;
+        }
+        .expensesScope2 .comments {
+            border: 1px solid #d8dde6 !important;
+        }
+        .expensesScope2 .slds-large-size_6-of-12 {
+            ///width:13% !important;
+        }
+        .expensesScope2 .padding {
+            padding-left: 0.3rem !important;
+        }
+        .expensesScope2 .hideinoldboth1 {
+            display: flex !important;
+        }
+        .expensesScope2 .hideinold {
+            display: flex !important;
+        }
+        .expensesScope2 .customcard {
+            display: flex !important;
+        }
+        .expensesScope2 .btn1 {
+            border: 1px solid #d8dde6 !important;
+        }
+        .expensesScope2 .borderbottom {
+            border-bottom: 1px solid #d8dde6 !important;
+        }
+        .expensesScope2 .btn1:focus .btn1:active {
+            box-shadow: 0 0 3px #0070D2 !important;
+        }
+        .expensesScope2 .slds-button:focus {
+            box-shadow: none !important;
+        }
+        .expensesScope2 .slds-card {
+            border: none !important;
+            height: 2.4rem !important;
+        }
+        .expensesScope2 .headerheight {
+            height: 2.6rem !important;
+        }
+        .expensesScope2 .customwidth {
+            width: 100% !important;
+        }
+        .expensesScope2 .slds-col {
+            min-height: 1rem !important;
+            max-height: 2rem !important;
+            //max-width:50rem !important;
+        }
+        .expensesScope2 .heightMeasure {
+            0.5 rem !important;
+        }
+        .expensesScope2 .slds-border--bottom {
+            border-bottom: none !important;
+        }
+        .expensesScope2 .wrap-text-cus {
+            overflow: hidden !important;
+            white-space: nowrap;
+        }
+        .expensesScope2 .wrap-text-cus.nowrap {
+            white-space: initial !important;
+        }
+        .expensesScope2 .hideinpc {
+            display: none !important;
+        }
+        .expensesScope2 .paddingbottom {
+            padding-bottom: 3.1rem !important;
+        }
+        .expensesScope2 .paddingbottom1 {
+            padding-bottom: 3rem !important;
+        }
+        .expensesScope2 select {
+            background: none !important;
+        }
+        .expensesScope2 .maxwidth {
+            //max-width: 120px !important;
+            min-width:50px !important;
+        }
+        .expensesScope2 .widthPercent {
+            width:100% !important;
+        }
+        .expensesScope2 .label1 {
+            max-width: 170px !important;
+            width: 160px !important;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+        }
+        .expensesScope2 .slds-card+.slds-card {
+            margin-top: 0rem !important;
+        }
+        .expensesScope2 .slds-form-element__label {
+            font-size: 13px !important;
+            font-weight: 600 !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            //color:#54698d !important
+            //text-transform: uppercase !important;
+        }
+        .expensesScope2 .slds-form-element__label,
+        label,
+        b {
+            color: #54698d !important;
+        }
+        .expensesScope2 .hideinnew {
+            display: none !important;
+        }
+        .expensesScope2 .hideinold1 {
+            display: flex !important;
+        }
+        .expensesScope2 .slds-input {
+            min-height: 20px !important;
+            height: 0.9cm !important;
+            border: 1px solid #d8dde6 !important;
+            line-height: 1rem !important;
+        }
+        .expensesScope2 .slds-form-element__control.textarea1 {
+            max-height: 2.4rem !important;
+            height: 2.2rem !important;
+            line-height: 1rem !important;
+            min-width: 6rem !important;
+        }
+        .expensesScope2 .comments.slds-form-element__control.textarea1 {
+            min-width: 6rem !important;
+        }
+        .expensesScope2 .slds-form-element.fullwidth {
+            width:100%;
+        }
+        .expensesScope2 .slds-form-element.ellips {
+            white-space: nowrap;
+            overflow: hidden !important;
+            text-overflow: ellipsis;
+            width:100%;
+        }
+        .expensesScope2 .textarea1 {
+            height: 2.2rem !important;
+        }
+        .expensesScope2 .col1.col-dl {
+            width:20% !important;
+        }
+        .expensesScope2 .col1.col-dl1 {
+            width:12% !important;
+        }
+        .expensesScope2 .col1.col-dl2 {
+            width:22% !important;
+        }
+        .expensesScope2 .col1.col-d {
+            width:3% !important;
+        }
+        .expensesScope2 .col101.col-d1 {
+            width:4% !important;
+        }
+        .expensesScope2 .col1.col-c {
+            width:19% !important;
+        }
+        .expensesScope2 .col101.col-cn {
+            width:10% !important;
+        }
+        .expensesScope2 .col102.col-cn {
+            width:8% !important;
+        }
+        .expensesScope2 .col1.col-cn {
+            width:11% !important;
+        }
+        .expensesScope2 .col2.col-cn {
+            width:8% !important;
+        }
+        .expensesScope2 .col2.col-cm {
+            width:12% !important;
+        }
+        .expensesScope2 .col2.col-cn1 {
+            width:5% !important;
+        }
+        .expensesScope2 .col1 {
+            width: 7% !important;
+            max-width: 50rem !important;
+        }
+        .expensesScope2 .col101 {
+            width:1% !important;
+        }
+        .expensesScope2 .col6 {
+            width: 10% !important;
+            max-width: 50rem !important;
+        }
+        .expensesScope2 .col7 {
+            width: 10% !important;
+            max-width: 50rem !important;
+        }
+        .expensesScope2 .col2 {
+            width: 18% !important;
+            max-width: 50rem !important;
+        }
+        .expensesScope2 .col3 {
+            width: 13% !important;
+            max-width: 50rem !important;
+        }
+        .expensesScope2 .colwidth4 {
+            width:4% !important;
+        }
+        .expensesScope2 .col01 {
+            width: 3% !important;
+        }
+        .expensesScope2 .col101 {
+            width: 3% !important;
+        }
+        .expensesScope2 .col4 {
+            width: 16% !important;
+            max-width: 50rem !important;
+        }
+        .expensesScope2 .col5 {
+            width: 10% !important;
+            max-width: 50rem !important;
+        }
+        .expensesScope2 .col5-width {
+            width:100% !important;
+        }
+        .expensesScope2 .slds-form-element__control {
+            white-space: nowrap !important;
+            overflow: hidden !important;
+        }
+        .expensesScope2 .nopadding {
+            padding: none !important;
+            padding-top: 0px !important;
+            padding-bottom: 0px !important;
+        }
+        .expensesScope2 .card1 {
+            min-height: 2.8rem !important;
+            padding-top: 0.5rem !important;
+            padding-bottom: 0.5rem !important;
+        }
+        .expensesScope2 .card2 {
+            min-height: 2rem !important;
+            padding-top: 0.5rem !important;
+            padding-bottom: 0rem !important;
+        }
+        .expensesScope2 .slds-form-element__control {
+            max-height: 2.2rem !important;
+            min-width: 50px !important;
+        }
+        .expensesScope2 .card3 {
+            min-height: 2.8rem !important
+        }
+        .expensesScope2 #addFileLink {
+            border: 1px solid #d8dde6 !important;
+        }
+        .expensesScope2 #addFileLink:focus #addFileLink:active {
+            box-shadow: 0 0 3px #0070D2 !important;
+        }
+    }
+
+    /********** Expenses External CSS Start ***********/
+
+    /********** ExpensesApproval Internal CSS Start ***********/
+    .expensesApprovalScope .hideinold {
+        display: none;
+    }
+    @media only screen and (max-width: 600px) {
+        .expensesApprovalScope2 .center,
+        .expensesApprovalScope .center {
+            display: inline-table;
+        }
+        .expensesApprovalScope2 .trDiv,
+        .expensesApprovalScope .trDiv {
+            padding-left: 0.2rem !important;
+        }
+    }
+    .expensesApprovalScope2 .display,
+    .expensesApprovalScope .display {
+        display: none;
+    }
+    @media only screen and (max-width: 600px) {
+        .expensesApprovalScope2 .mobileBorder,
+        .expensesApprovalScope .mobileBorder {
+            border-bottom: none !important;
+        }
+    }
+    .expensesApprovalScope2 textarea,
+    .expensesApprovalScope textarea {
+        width: 100%;
+    }
+    .expensesApprovalScope2 .wrap-text-cus,
+    .expensesApprovalScope .wrap-text-cus {
+        width: 100% !important;
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+        -webkit-hyphens: auto !important;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        white-space: normal !important;
+        en;
+        position: relative;
+        height: 5rem !important;
+    }
+    .expensesApprovalScope2 .timeSheetHeader,
+    .expensesApprovalScope .timeSheetHeader {
+        background-color: #11B9E6;
+        width: 100% !important;
+        z-index: 9999 !important;
+    }
+    .expensesApprovalScope2 .slds-col,
+    .expensesApprovalScope .slds-col {
+        min-height: 5rem !important;
+    }
+    .expensesApprovalScope2 .slds-border--bottom,
+    .expensesApprovalScope .slds-border--bottom {
+        min-height: 4rem !important;
+        text-align: left !important;
+    }
+    .expensesApprovalScope2 .buttonAddExp,
+    .expensesApprovalScope .buttonAddExp {
+        padding: inherit;
+        width: 100%;
+        height: 2.5rem;
+    }
+    .expensesApprovalScope2 .slds-input:active,
+    .expensesApprovalScope2 .slds-input:focus,
+    .expensesApprovalScope .slds-input:active,
+    .expensesApprovalScope .slds-input:focus {
+        outline: 0 !important;
+        border-color: #d9dce0 !important;
+        background-color: #fff !important;
+        box-shadow: none !important;
+    }
+    .expensesApprovalScope2 .slds-button--brand[disabled],
+    .expensesApprovalScope2 .slds-button_brand[disabled],
+    .expensesApprovalScope .slds-button--brand[disabled],
+    .expensesApprovalScope .slds-button_brand[disabled] {
+        background: dodgerblue !important;
+        border-color: transparent !important;
+        color: #fff !important;
+    }
+    .expensesApprovalScope2 .slds-theme__shade-cus,
+    .expensesApprovalScope .slds-theme__shade-cus {
+        background-color: #e9ecf1;
+        border-radius: 0.3rem;
+    }
+    .expensesApprovalScope2 .slds-notify,
+    .expensesApprovalScope .slds-notify {
+        min-width: 18rem !important;
+    }
+    .expensesApprovalScope2 .displayinmbl,
+    .expensesApprovalScope .displayinmbl,
+    .expensesApprovalScope2 .displayinmbl1,
+    .expensesApprovalScope .displayinmbl1 {
+        display: none !important;
+    }
+    .expensesApprovalScope2 .timeStatus,
+    .expensesApprovalScope .timeStatus {
+        display: none;
+    }
+    .expensesApprovalScope2 .slds-input,
+    .expensesApprovalScope .slds-input {
+        border: none;
+        border-right: 1px solid rgb(217,
+        219,
+        221);
+        padding: 0px;
+        line-height: unset;
+    }
+    .expensesApprovalScope2 .slds-select[multiple] option,
+    .expensesApprovalScope2 .slds-select[size] option,
+    .expensesApprovalScope .slds-select[multiple] option,
+    .expensesApprovalScope .slds-select[size] option {
+        padding: .5rem;
+        color: black;
+    }
+    .expensesApprovalScope2 .slds-select:active,
+    .expensesApprovalScope2 .slds-select:focus,
+    .expensesApprovalScope .slds-select:active,
+    .expensesApprovalScope .slds-select:focus {
+        background-color: none !important;
+        box-shadow: none !important;
+        outline: 0px !important; //border-right: 1px solid rgb(217, 219, 221);
+    }
+    .expensesApprovalScope2 option,
+    .expensesApprovalScope option {
+        font-weight: normal !important;
+        display: block !important;
+        white-space: pre !important;
+        min-height: 2.2em !important;
+        padding: 0px 2px 1px !important;
+    }
+
+    /********** ExpensesApproval Internal CSS Ends ***********/
+
+    /********** ExpensesApproval External CSS Starts ***********/
+    @media only screen and (min-width: 750px) {
+        .expensesApprovalScope2 .approvalTimeSpan.approvalTimeSpan1 {
+            max-width:30px !important;
+            text-align: -webkit-center !important;
+            margin-left:0.2rem;
+        }
+        .expensesApprovalScope2 .approvalTimeSpan.approvalTimeSpan1.span1 {
+            margin-left:0.8rem;
+        }
+        .expensesApprovalScope2 .span {
+            text-align: -webkit-left;
+        }
+        .expensesApprovalScope2 .slds-p-top--medium {
+            padding-top: unset;
+        }
+        .expensesApprovalScope2 .display {
+            display: block !important;
+        }
+        .expensesApprovalScope2 .comments {
+            border: 1px solid #d8dde6 !important;
+        }
+        .expensesApprovalScope2 .slds-form-element__control {
+            line-height: 1rem !important;
+        }
+        .expensesApprovalScope2 .paddingbtm {
+            //padding-bottom:0.8rem !important;
+        }
+        .expensesApprovalScope2 .slds-large-size_1-of-2 {
+            //width:12% !important;
+        }
+        .expensesApprovalScope2 .slds-large-size_1-of-3 {
+            //width:12% !important;
+        }
+        .expensesApprovalScope2 .col1 {
+            width: 9% !important;
+        }
+        .expensesApprovalScope2 .col2 {
+            width: 20% !important;
+        }
+        .expensesApprovalScope2 .col3 {
+            width: 10% !important;
+        }
+        .expensesApprovalScope2 .clabel {
+            padding-top: 0.8rem !important;
+        }
+        .expensesApprovalScope2 textarea {
+            overflow: auto !important;
+            height: 2.1rem !important;
+            min-height: 18px !important;
+        }
+        .expensesApprovalScope2 .slds-has-bottom-magnet {
+            padding-bottom: 1rem !important;
+        }
+        .expensesApprovalScope2 .columnheight {
+            height: 5rem !important;
+        }
+        .expensesApprovalScope2 .slds-border_bottom {
+            border-bottom: none !important;
+        }
+        .expensesApprovalScope2 .slds-card {
+            border: none !important;
+        }
+        .expensesApprovalScope2 .slds-button {
+            border: 1px solid rgb(221,
+            219,
+            218) !important;
+        }
+        .expensesApprovalScope2 .hideinpc {
+            display: none !important;
+        }
+        .expensesApprovalScope2 .showborder {
+            border-bottom: 1px solid rgb(221,
+            219,
+            218) !important;
+        }
+        .expensesApprovalScope2 .hideinold {
+            display: grid !important;
+        }
+        .expensesApprovalScope2 .slds-scope .slds-p-top--medium {
+            padding-top: 0px !important;
+        }
+        .expensesApprovalScope2 .slds-p-around_medium {
+            padding: 0rem !important;
+        }
+        .expensesApprovalScope2 .slds-form-element__control {
+            overflow: hidden !important;
+            white-space: nowrap;
+        }
+        .expensesApprovalScope2 .slds-col {
+            min-height: 1rem !important;
+            max-height: 2rem !important;
+        }
+        .expensesApprovalScope2 .manualcheckbox {
+            padding-top: 0.5rem !important;
+        }
+        .expensesApprovalScope2 .customheight {
+            max-height: 2.1rem !important;
+            border-radius: 0.25rem;
+        }
+        .expensesApprovalScope2 .slds-form-element__label,
+        label,
+        b {
+            color: #54698d !important;
+        }
+        .expensesApprovalScope2 .slds-form-element__label {
+            font-size: 13px;
+            font-weight: 600;
+            max-width: 70px !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            margin-top: -5px !important;
+        }
+        .expensesApprovalScope2 .label1 {
+            max-width: 170px !important;
+            width: 160px !important;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+        }
+        .expensesApprovalScope2 .nopadding {
+            //padding-top: 0px !important;
+            //padding-left:0px !important;
+        }
+        .expensesApprovalScope2 .slds-input:active,
+        .expensesApprovalScope2 .slds-input:focus {
+            /*outline: auto !important;
+        height:1.5rem !important;
+        border-radius: .25rem !important;
+        outline-color: initial !important;
+        outline-style: initial !important;
+        outline-width: 0px !important;
+        box-shadow: 0 0 3px #0070D2 !important;
+        background-color: white;*/
+        }
+        .expensesApprovalScope2 .headerpadding {
+            padding-bottom: 0.2rem !important;
+        }
+    }
+    @media only screen and (max-width:40rem) {
+        .expensesApprovalScope2 .tablecenter {
+            text-align:center !important;
+        }
+        .expensesApprovalScope2 .displayinmbl.icon2 {
+            padding-left:0.4rem !important;
+        }
+        .expensesApprovalScope2 .displayinmbl.icon1 {
+            padding-left:0.8rem !important;
+        }
+        .expensesApprovalScope2 .display {
+            display: none;
+        }
+        .expensesApprovalScope2 .hideinmbl {
+            display: none !important;
+        }
+        .expensesApprovalScope2 .displayinmbl {
+            display: flex !important;
+        }
+        .expensesApprovalScope2 .displayinmbl1 {
+            display: flow-root !important;
+        }
+        .expensesApprovalScope2 .slds-button_icon-brand {
+            border: none !important;
+        }
+        .expensesApprovalScope2 .buttongrid {
+            width: 70% !important;
+        }
+        .expensesApprovalScope2 .hideinold {
+            display: none !important;
+        }
+    }
+
+    /********** ExpensesApproval External CSS Ends ***********/
+
+    /**********************************Internal CSS Starts*****************/
+    .app-status h3 {
+        font-size:19px !important;
+        padding-top:1rem !important;
+        padding-bottom:1rem !important;
+    }
+    @media only screen and (max-width: 710px) {
+        .app-status input.btn.withdraw {
+            width: 100% !important;
+        }
+        .app-status .withdrawWidth {
+            width:60% !important;
+        }
+        .app-status .resetWidth {
+            width:40% !important;
+        }
+    }
+
+    .app-status div.custom-style {
+        padding-bottom: 0.5em;
+        text-align: center;
+        display:flex;
+    }
+    .candidate-list .no-margin.top-margin {
+        margin-top:0.5rem !important;
+    }
+    .candidate-list .margin {
+        margin-bottom: 1em;
+    }
+    .candidate-list .hr-border {
+        border-top: 1px solid transparent;
+    }
+    .candidate-list .table-bordered>tbody>tr>td,
+    .candidate-list .table-bordered>tbody>tr>th,
+    .candidate-list .table-bordered>tfoot>tr>td,
+    .candidate-list .table-bordered>tfoot>tr>th,
+    .candidate-list .table-bordered>thead>tr>td,
+    .candidate-list .table-bordered>thead>tr>th {
+        min-height: 3rem;
+        word-break: break-word;
+        min-width: 10rem;
+    }
+    .candidate-list th.checkbox-column,
+    .candidate-list td.checkbox-column{
+        min-width: 2rem !important;
+        //width: 2rem !important;
+    }
+    .candidate-list-checkbox {
+        width: unset;
+    }
+    .candidate-list .form-control {
+        min-width: 6rem;
+    }
+    .candidate-list .pagination-sm.no-margin.vertical {
+        vertical-align:top !important;
+        padding-bottom: 1rem;
+    }
+    @media screen and (max-width: 700px) {
+        .candidate-list .table-bordered>tbody>tr>td {
+            max-width: 100%;
+        }
+        .candidate-list .horizontal-list.list_1 {
+            display: grid;
+        }
+        .candidate-list .horizontal-list.list_1.list_2 {
+            min-width: 10rem;
+        }
+        .candidate-list .form-control.list_1 {
+            max-width: 10rem !important;
+        }
+    }
+    @media screen and (max-width: 600px) {
+        .candidate-list .table td {
+            text-align: left !important;
+        }
+    }
+    .edit-job .req {
+        color: red;
+    }
+    .edit-job .alert {
+        margin: 0px 22px 10px 22px;
+        padding: 1rem 3rem;
+    }
+    .edit-job .errorlist {
+        padding-left: unset;
+    }
+    .edit-account .message .messageText {
+        margin-top:-1rem !important;
+    }
+    .edit-account .control-label {
+        white-space: normal;
+        word-break: break-word;
+    }
+    .edit-account .msgIcon {
+        display: none;
+    }
+    .btn.btn-primary {
+        color: #fff !important;
+        background-color: #337ab7 !important;
+        border-color: #2e6da4 !important;
+    }
+    .client-home .span-color {
+        color: rgb(255,
+        160,
+        122);
+    }
+    .client-home .panel-info {
+        background-color: #bce8f1;
+    }
+    .client-home .span-font {
+        font-size: 1em;
+    }
+    @media only screen and (max-width: 700px) {
+        .client-job-list .no-display {
+            display:block !important;
+        }
+        .client-job-list .text-align {
+            text-align: left !important;
+        }
+        .client-job-list .table-bordered>tbody>tr>td {
+            min-height:3.2rem !important;
+        }
+        .client-job-list .view-link {
+            float: left;
+        }
+    }
+    @media only screen and (max-width: 700px) {
+        .job-alert .modal-dialog {
+            width:95% !important;
+        }
+        .job-alert .table td {
+            text-align:left !important;
+        }
+        .job-alert .no-display {
+            display:block !important;
+        }
+    }
+    .job-alert .ja-padding {
+        padding-bottom: 2rem;
+    }
+    .job-alert .pill__remove {
+        padding-left: 1rem;
+        margin-top: -0.2rem;
+    }
+    .job-alert .pillsList {
+        width:auto !important;
+    }
+    .job-alert .table td {
+        font-family: Myriad Pro,
+        Calibri,
+        Verdana,
+        Geneva,
+        Arial,
+        Helvetica,
+        sans-serif !important;
+    }
+    .job-alert .table th {
+        font-family: Myriad Pro,
+        Calibri,
+        Verdana,
+        Geneva,
+        Arial,
+        Helvetica,
+        sans-serif !important;
+        font-size:17px !important;
+    }
+    @media only screen and (min-width: 750px) {
+        .job-alert .modal.in .modal-dialog {
+            transform: translate(0,
+            -80%) !important;
+        }
+        .job-alert .form-group.padding {
+            padding-bottom:0.1rem !important;
+        }
+        .job-alert .firstheader {
+            width:5% !important;
+        }
+        .job-alert .secondheader {
+            width:15% !important;
+        }
+        .job-alert .modal-dialog {
+            width:35% !important;
+            overflow:auto !important;
+            min-width:300px !important;
+            /*top:30em !important;*/
+        }
+        .job-alert label {
+            font-size:16px;
+        }
+        .job-alert .btn {
+            padding:6px 12px !important;
+        }
+        .job-alert .btn.btn-primary {
+            background:none !important;
+            color: #fff !important;
+            background-color: #337ab7 !important;
+            border-color: #2e6da4 !important;
+            font-weight: bold !important;
+            /*font-size:1.5rem !important;*/
+        }
+        .job-alert .btn.btn-default {
+            background:none !important;
+            font-weight: bold !important;
+            /*font-size:1.5rem !important;*/
+        }
+    }
+    .job-alert form {
+        font-family : Myriad Pro,
+        Calibri,
+        Verdana,
+        Geneva,
+        Arial,
+        Helvetica,
+        sans-serif !important;
+    }
+    .job-alert .modal-dialog {
+        top:10em !important;
+    }
+    .job-alert li {
+        display:flex !important;
+    }
+    .job-alert .multiPicklist {
+        padding-top:1rem;
+    }
+    .job-alert .form-control {
+        height:initial;
+    }
+
+    /*.referenceMandatoryCls::after {
+        content: "*"
+        color: red;
+        }*/
+    .job-application span.indeed-apply-widget.btn.btn-default.hideinmbl .indeed-apply-button-container .indeed-apply-status-not-applied {
+        border: none;
+    }
+    .job-application .loader {
+        position: absolute;
+        left: 55%;
+        top: 200px;
+        z-index: 1000;
+        margin: -75px 0 0 -75px;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 40px;
+        height: 40px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+    }
+    @media screen and (max-width: 600px) {
+        .job-application .loader {
+            position: absolute;
+            left: 65%;
+            top: 200px;
+            z-index: 1000;
+            margin: -75px 0 0 -75px;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 40px;
+            height: 40px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+    }
+    .job-application @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+    @media only screen and (max-width: 750px) {
+        .job-application .tdcenteralign {
+            text-align:center !important;
+            display:grid !important;
+        }
+        .job-application .btn.btn1 {
+            display:inline-table !important;
+        }
+        .job-application .errorM3 .msgIcon,
+        .errorMedium {
+            height:0px !important;
+        }
+    }
+    @media only screen and (max-width: 1000px) {
+        .job-application .hideInWeb {
+            display: none;
+        }
+    }
+    .job-application .btn.btn1 {
+        border:none !important;
+        border-color: none !important;
+    }
+    .job-application .alert {
+        padding: unset !important;
+    }
+    @media only screen and (min-width:750px) {
+        .job-application .hideinpc {
+            display:none !important;
+        }
+    }
+    @media only screen and (max-width:740px) {
+        .job-application .hideinmbl {
+            display:none !important;
+        }
+    }
+    .job-application a:focus,
+    .job-application a:hover {
+        text-decoration: none !important;
+    }
+    .job-application .customindeed {
+        padding: 0.6em !important;
+        background: orangered;
+        border-radius: 0.4rem;
+    }
+    .job-application .indeedlabel {
+        color:white !important;
+        background-image: -webkit-linear-gradient(top,
+        #FF6600,
+        #F14200) !important;
+        padding: 0.5rem;
+    }
+    .job-application .hide1 {
+        display:none;
+    }
+    .job-list-page a.maxwidth1 {
+        max-width:3rem !important;
+    }
+    .job-list-page .text-justify {
+        font-family:Myriad Pro,
+        Calibri,
+        Verdana,
+        Geneva,
+        Arial,
+        Helvetica,
+        sans-serif !important
+    }
+    .job-list-page .table>tbody>tr>td {
+        font-family:Myriad Pro,
+        Calibri,
+        Verdana,
+        Geneva,
+        Arial,
+        Helvetica,
+        sans-serif !important
+    }
+    .job-list-page .table.table1 tr:nth-of-type(even) {
+        background-color: #eee !important;
+    }
+    .job-list-page .jobSpecificationSec {
+        width: 25%;
+    }
+    .job-list-page .pagination-sm.no-margin.vertical {
+        vertical-align:top !important;
+    }
+    @media screen and (max-width: 700px) {
+        .job-list-page .text-justify.mobileVersion div {
+            border: 1px solid grey !important;
+        }
+        .job-list-page .mobiledisplay {
+            display:block !important;
+        }
+        .job-list-page select[size] {
+            max-width:12rem !important;
+        }
+        .job-list-page .horizontal-list {
+            display:grid !important;
+        }
+    }
+    .job-list-page .no-margin.top-margin {
+        margin-top:0.5rem !important;
+    }
+    @media screen and (max-width: 600px) {
+        .job-list-page .jobSpecificationSec {
+            width: 100% !important;
+            font-size: 1.2em;
+        }
+        .job-list-page .jobDescrtionScope {
+            /*line-height: 1.5em;
+                height: 3em;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;*/
+        }
+        .job-list-page .text-justify.mobileVersion {
+            overflow: hidden;
+            position: relative;
+            line-height: 1.2em;
+            max-height: 4.72em;
+            text-align: justify;
+            margin-right: -1em;
+            padding-right: 1em;
+        }
+        .job-list-page .text-justify.mobileVersion:before {
+            //content: '...';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        .job-list-page .text-justify.mobileVersion:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            width: 1em;
+            height: 1em;
+            margin-top: 0.2em;
+            //background: white;
+        }
+    }
+    .job-list-page .div-padding {
+        padding-bottom:0.5em;
+    }
+    .job-list-page .div-m-padding {
+        margin-bottom: 1em;
+    }
+    .job-list-page .hr-border {
+        border-top: 1px solid #2196F3;
+    }
+    .job-list-page .transparent-border {
+        border-top: 1px solid transparent;
+    }
+    .job-list-page .tr-background {
+        background:#fff !important;
+    }
+
+    /**********************Credentials CSS***************/
+    .credential-portal .skills-lists-holder {
+        float: left;
+        width: 95%;
+    }
+    .credential-section .row.full-width-row {
+        width: 100%;
+    }
+    .credential-form  h5.display-proper,
+    .credential-section h5.display-proper {
+        display: inline-flex;
+    }
+    .credential-portal .errorM4,
+    .credential-portal .errorM3,
+    .credential-portal .errorM2,
+    .credential-portal .errorS1 {
+        border: none;
+        background: white;
+    }
+    .credential-section td.messageCell ,.credential-portal td.messageCell {
+    text-align: center;
+    }
+    .credential-section .message.infoM3, .credential-portal .message.infoM3 {
+    color: green;
+    font-weight: 600;
+    }
+    .credential-section .message.errorM3, .credential-section .message.errorM3 h4,
+    .credential-portal .message.errorM3 , .credential-portal .message.errorM3 h4{
+    color: #c00;
+    font-weight: 600;
+    }
+    .credential-section .message.errorM3 .messageTable br,
+    .credential-portal .message.errorM3 .messageTable br{
+    display: none;
+    }
+    .credential-section .message.errorM3 .messageTable ul,
+    .credential-portal .message.errorM3 .messageTable ul{
+    text-align: center;
+    list-style: none;
+    font-weight: bold;
+    }
+    .credential-portal .skills-lists-holder-column {
+        float: left;
+        width: 285px;
+        min-height: 350px;
+    }
+    body.credential-portal {
+        overflow: hidden;
+    }
+    .credential-portal .skills-lists-holder h3 {
+        color: #4A0A6A;
+        font-size: 22px;
+        font-weight: 400;
+        letter-spacing: -1px;
+        line-height: 1.25em;
+    }
+    .credential-portal .skills-list-side {
+        margin-left: 5px;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    .credential-portal .skills-list-side li {
+        color: #7A7A7A;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: left;
+        list-style: none outside none;
+        margin-left: 10px;
+        margin-bottom: 5px;
+    }
+    .credential-portal .skills-list-side li a {
+        color: #7A7A7A;
+        text-decoration: underline;
+    }
+    .credential-portal .skills-list-side li img {
+        float: left;
+        margin-right: 10px;
+        margin-top: 4px;
+    }
+    .credential-portal .skillset-list-contant fieldset {
+        border: 1px solid #BBBBBB;
+        margin: 10px;
+        padding: 10px;
+        width: 93%;
+        float:left;
+    }
+    .credential-portal .side_radio_check {
+        float: left;
+        width: 50%;
+    }
+    .credential-portal .side_radio_check_list {
+        float: left;
+        width: 80%;
+    }
+    .credential-portal .side_radio_check_list p {
+        float: left;
+        width: 200px;
+    }
+    .credential-portal .side_radio_check_list table {
+        float:left;
+        width: 100px;
+        margin-bottom: 0;
+    }
+    .credential-portal .side_radio_check_list tr label {
+        display:none;
+    }
+    .credential-portal .side_radio_check_list tr td {
+        border-bottom: none;
+        padding: 0 2px 6px 5px;
+    }
+    .credential-portal .side_radio_check_list input[type="radio"] {
+        top:0;
+        margin-top: 5px;
+    }
+    .credential-portal p.list-radio-no {
+        float: right;
+        margin-right: 16.5px;
+        width: 137px;
+    }
+    .credential-portal .side_radio_check h1 {
+        border-bottom: 1px solid #DDDDDD;
+        clear: both;
+        color: #333333;
+        margin-bottom: 10px;
+        padding-bottom: 4px;
+        padding-left: 0;
+        padding-top: 0;
+        float: left;
+        width: 80%;
+        font-size: 21px;
+        font-weight: 400;
+    }
+    .credential-portal .skillset-list-contant legend strong {
+        padding: 0 5px;
+    }
+    .credential-portal .skill2-page-radio {
+        padding: 0;
+    }
+    .credential-portal .skill2-page-radio table tr td {
+        border-bottom: medium none;
+        float: left;
+        padding: 0;
+        width: 35px;
+    }
+    .credential-portal .skill2-radio-table {
+        float: left;
+        margin: 0;
+        width: 425px;
+    }
+    .credential-portal .skill2-radio-table tr td {
+        border-bottom: medium none;
+        float: left;
+        height: 25px;
+        width: 198px;
+    }
+    .credential-portal .skill2-radio-holder {
+        float:left;
+        width:99%;
+    }
+    .credential-portal .skill2-radio-table tr {
+        float: left;
+        height: 30px;
+        width: 100%;
+    }
+    .credential-portal .skill2-radio-holder h1 {
+        border-bottom: 1px solid #DDDDDD;
+        float:left;
+        color: #333333;
+        width: 95%;
+        font-size: 1.5em;
+    }
+    .credential-portal .skill-dec-p {
+        border: 1px solid #BBBBBB;
+        float: left;
+        margin: 10px;
+        padding: 10px;
+        width: 93%;
+    }
+    .credential-portal .skill-dec-p h3 {
+        color: #4A0A6A;
+        float: left;
+        font-size: 21px;
+        font-weight: 400;
+        letter-spacing: -1px;
+        line-height: 1.25em;
+        margin: 10px 10px 10px 0;
+        width: 100%;
+    }
+    .credential-portal .skill-dec-p p {
+        color: #7A7A7A;
+        float: left;
+        font-size: 15px;
+        line-height: 1.357em;
+        padding: 0 0 19px 5px;
+        width: 100%;
+    }
+    .credential-portal .addinfo-table-container {
+        float: left;
+        width: 100%;
+        margin:0px;
+    }
+    .credential-portal .addinfo-table-container tr td {
+        border-bottom: medium none;
+        padding: 0;
+    }
+    .credential-portal fieldset h4 {
+        color: #394246;
+        float: left;
+        font: 14px arial,
+        sans-serif;
+        letter-spacing: 0.5px;
+        padding: 0 0 5px;
+        text-align: left;
+        text-transform: uppercase;
+        width: 100%;
+    }
+    .credential-portal .addinfo-table-container tr trd label {
+        font-size:13px;
+    }
+    .credential-portal .skill-req .requiredInput {
+        float: left;
+        margin-top: 15px;
+        width: 215px;
+    }
+    .skill-req .requiredInput .field-text {
+        height:20px;
+        width: 200px;
+    }
+    .skill-req .field-label {
+        margin-top:15px;
+    }
+    .credential-portal #j_id0\:j_id5\:j_id6\:j_id8\:j_id35\:j_id128\:2\:SelectRadioID {
+        width:15%;
+    }
+    .credential-portal td {
+        padding:0!important;
+    }
+    .credential-portal input[type="radio"] {
+        margin-bottom: 20px;
+        margin-left:7px;
+    }
+    .credential-portal td.pbTitle {
+        width: 44%;
+        vertical-align: middle;
+    }
+    .credential-portal h2.mainTitle {
+        font-size: 20px ! important;
+    }
+    .credential-portal td.header {
+        font-weight: bold;
+        font-size: 15px;
+    }
+    .credential-portal .pbHeader table {
+        width: 100%!important;
+    }
+    .credential-portal table {
+        width:auto;
+    }
+    .credential-portal .pbBottomButtons table {
+        width:100%;
+    }
+    .credential-portal #colone td div {
+        margin-left: 10px;
+    }
+    .credential-portal #colone {
+        margin-bottom:20px
+    }
+    .credential-portal textarea:focus,
+    input:focus {
+        outline: none;
+    }
+    .credential-portal .col-sm-6 {
+        margin-bottom:0px!important;
+    }
+    .credential-portal h2.mainTitle {
+        font-size:22px!important;
+    }
+    .credential-portal input[type="text"] {
+        width: 18.5em!important;
+        padding-left:6px;
+    }
+    .credential-portal .row {
+        margin-bottom:8px;
+    }
+    .credential-portal span.dateFormat {
+        display: none;
+    }
+    .credential-portal label {
+        margin-left: 5px!important;
+        margin-bottom: 0px!important;
+    }
+    .credential-portal td.pbTitle {
+        width:100%;
+    }
+    .credential-portal .messageTable {
+        margin: 0 auto!important;
+        width: 100%!important;
+        text-align: center!important;
+        font-size: 16px!important;
+        font-weight: bold!important;
+        margin-bottom: 10px!important;
+    }
+    .credential-portal .col-sm-12 {
+        font-weight:bold;
+    }
+    .credential-portal input[type=file],
+    a {
+        font-weight: normal;
+    }
+    .credential-portal .required {
+        font-weight:normal!important;
+    }
+    .credential-portal input[type="text"],
+    textarea {
+        border:1px solid #AFACAC!important;
+    }
+    .credential-portal .messageText {
+        padding: 10px 0px;
+        height: auto;
+    }
+    .credential-portal .wrapper {
+        width:80%!important;
+    }
+    .credential-portal table.ui-datepicker-calendar tr td {
+        display: table-cell;
+    }
+
+    /***************************************CSS For Credential component*****************/
+    .credential-form label {
+        font-weight:normal;
+        margin-right:10px;
+    }
+    .credential-form body {
+        overflow-x:hidden;
+    }
+    .credential-form input[type=file] {
+        display: inline!important;
+    }
+    .credential-form .requiredInput .requiredBlock::before {
+        display: block;
+        content: "*";
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #c00;
+        position: relative;
+        margin-top: -2px;
+        left: -9px;
+    }
+    .credential-form .requiredInput {
+        display: flex;
+    }
+    .credential-form .required {
+        font-size: 14px;
+        font-weight: normal;
+        color: #c00;
+    }
+    .credential-form h2 {
+        margin-top:0px!important;
+    }
+    .credential-form .messageText {
+        padding: 10px 0px;
+    }
+    <!-- .bPageBlock .requiredInput .requiredBlock {
+        background-color: #F8F8F8;
+    }
+    -->.credential-form .requiredInput .requiredBlock {
+        background-color:transparent;
+        position: relative;
+        width: 3px;
+        top: 24px;
+        height:26px;
+        bottom: 1px;
+    }
+    .credential-form .pbBody {
+        margin-left: 8px;
+    }
+    .credential-form .wrapper {
+        width:80%!important;
+    }
+    .credential-form .ui-datepicker-calendar td {
+        display:table-cell!mportant;
+    }
+    .credential-form .table1 {
+        margin-left:8px;
+        width:100%;
+    }
+    @media only screen and (min-width:1px) and (max-width:800px) {
+        .credential-form .wrapper1 .container1 .center1 {
+            width:30%!important;
+        }
+        .credential-form .ui-datepicker-calendar td {
+            display:table-cell!mportant;
+        }
+        .credential-form textarea {
+            width:100%!important;
+        }
+        .credential-form input[type="text"] {
+            width:100%!important;
+        }
+        .credential-form table tr td {
+            display:inline;
+        }
+        .credential-form td.pbTitle {
+            width:100%!important;
+            text-align:left!important;
+            padding-right:0!important;
+        }
+        .credential-form .cms-default {
+            overflow:hidden;
+        }
+    }
+
+    /***********************************************CSS Portal Section*******************/
+    .credential-section label {
+        font-weight:normal;
+        margin-right:10px;
+    }
+    .credential-section input[type=file] {
+        display: inline!important;
+    }
+    .credential-section .requiredInput .requiredBlock::before {
+        display: block;
+        content: "*";
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #c00;
+        position: relative;
+        margin-top: -2px;
+        left: -9px;
+    }
+    .credential-section .required {
+        font-size: 14px;
+        font-weight: bold;
+        color: #c00;
+    }
+    .credential-section h2 {
+        margin-top:0px!important;
+    }
+    .credential-section .messageText {
+        padding: 10px 0px;
+    }
+    .credential-section .table1 {
+        margin-left:8px;
+        width:100%;
+    }
+    .credential-section .requiredInput .requiredBlock {
+        background-color:transparent;
+        position: relative;
+        width: 3px;
+        top: 24px;
+        height:26px;
+        bottom: 1px;
+    }
+    .credential-section .pbBody {
+        margin-left: 8px;
+    }
+    @media only screen and (min-width:1px) and (max-width:800px) {
+        .credential-section .wrapper1 .container1 .center1 {
+            width:30%!important;
+        }
+        .credential-section textarea {
+            width:100%!important;
+        }
+        .credential-section input[type="text"] {
+            width:100%!important;
+        }
+        .credential-section table tr td {
+            display:inline;
+        }
+        .credential-section .wrapper {
+            width:80%!important;
+        }
+        .credential-section td.pbTitle {
+            width:100%!important;
+            text-align:left!important;
+            padding-right:0!important;
+        }
+        .credential-section .welcome-user {
+            margin-bottom: 10px;
+            float:left;
+        }
+    }
+    @media screen and (max-width: 760px) {
+        .credential-section body {
+            overflow-x: hidden !important;
+        }
+        .credential-section ul.mbh li {
+            float: none!important;
+        }
+    }
+    .credential-section body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    .credential-section table.ui-datepicker-calendar tr td {
+        display: table-cell;
+    }
+    form.credential-section,
+    form.credential-form {
+        width: 100%;
+        margin: auto;
+    }
+    .credential-section .radio-button td,
+    .credential-form .radio-button td {
+        display: flex;
+    }
+    .credential-section input[type=radio],
+    .credential-form input[type=radio] {
+        margin: 2px 0 0;
+    }
+    /***********************************CP NEW *************************/
+    form.cp-view-candidate {
+        width: 97%;
+        margin: auto;
+    }
+    ul.list.full-width.pager-list.ul-padding {
+        padding-top: 1rem;
+    }
+    .job-list-page th.check-header {
+        width: 10px;
+    }
+    @media screen and(min-width: 750px) {
+        .app-status .tableAppStatus tr td:last-child {
+            text-align: center;
+        }
+    }
+    .col-xs-12.xs-padding {
+        padding-top: 0rem;
+        padding-bottom: 0rem;
+    }
+    .collapse.in.cust-padding {
+        padding-bottom: 0;
+    }
+    
+    
+    /**** New CSS - SK ****/
+    
+    @font-face{font-family:verdana;font-style:italic;font-weight:400;src:local('Verdana'),url(https://fonts.cdnfonts.com/s/26084/VERDANAI.woff) format('woff')}
+    
+    @font-face{font-family:georgia;font-style:normal;font-weight:400;src:local('Georgia'),url(https://fonts.cdnfonts.com/s/19225/Georgia-PersonalUse.woff) format('woff')}
+  
+    
+    /* cyrillic-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 100;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9C4kDNxMZdWfMOD5Vn9LjEYTLHdQ.woff2) format('woff2');
+      unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+    }
+    /* cyrillic */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 100;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9C4kDNxMZdWfMOD5Vn9LjNYTLHdQ.woff2) format('woff2');
+      unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+    /* greek-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 100;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9C4kDNxMZdWfMOD5Vn9LjFYTLHdQ.woff2) format('woff2');
+      unicode-range: U+1F00-1FFF;
+    }
+    /* greek */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 100;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9C4kDNxMZdWfMOD5Vn9LjKYTLHdQ.woff2) format('woff2');
+      unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+    }
+    /* vietnamese */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 100;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9C4kDNxMZdWfMOD5Vn9LjGYTLHdQ.woff2) format('woff2');
+      unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 100;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9C4kDNxMZdWfMOD5Vn9LjHYTLHdQ.woff2) format('woff2');
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 100;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9C4kDNxMZdWfMOD5Vn9LjJYTI.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* cyrillic-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 200;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnWKneSxf6TF0.woff2) format('woff2');
+      unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+    }
+    /* cyrillic */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 200;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnWKneQhf6TF0.woff2) format('woff2');
+      unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+    /* greek-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 200;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnWKneShf6TF0.woff2) format('woff2');
+      unicode-range: U+1F00-1FFF;
+    }
+    /* greek */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 200;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnWKneRRf6TF0.woff2) format('woff2');
+      unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+    }
+    /* vietnamese */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 200;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnWKneSRf6TF0.woff2) format('woff2');
+      unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 200;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnWKneSBf6TF0.woff2) format('woff2');
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 200;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnWKneRhf6.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* cyrillic-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 300;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnPKreSxf6TF0.woff2) format('woff2');
+      unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+    }
+    /* cyrillic */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 300;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnPKreQhf6TF0.woff2) format('woff2');
+      unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+    /* greek-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 300;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnPKreShf6TF0.woff2) format('woff2');
+      unicode-range: U+1F00-1FFF;
+    }
+    /* greek */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 300;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnPKreRRf6TF0.woff2) format('woff2');
+      unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+    }
+    /* vietnamese */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 300;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnPKreSRf6TF0.woff2) format('woff2');
+      unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 300;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnPKreSBf6TF0.woff2) format('woff2');
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 300;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnPKreRhf6.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* cyrillic-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9E4kDNxMZdWfMOD5VvmojLeTY.woff2) format('woff2');
+      unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+    }
+    /* cyrillic */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9E4kDNxMZdWfMOD5Vvk4jLeTY.woff2) format('woff2');
+      unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+    /* greek-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9E4kDNxMZdWfMOD5Vvm4jLeTY.woff2) format('woff2');
+      unicode-range: U+1F00-1FFF;
+    }
+    /* greek */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9E4kDNxMZdWfMOD5VvlIjLeTY.woff2) format('woff2');
+      unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+    }
+    /* vietnamese */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9E4kDNxMZdWfMOD5VvmIjLeTY.woff2) format('woff2');
+      unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9E4kDNxMZdWfMOD5VvmYjLeTY.woff2) format('woff2');
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9E4kDNxMZdWfMOD5Vvl4jL.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* cyrillic-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 500;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnZKveSxf6TF0.woff2) format('woff2');
+      unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+    }
+    /* cyrillic */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 500;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnZKveQhf6TF0.woff2) format('woff2');
+      unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+    /* greek-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 500;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnZKveShf6TF0.woff2) format('woff2');
+      unicode-range: U+1F00-1FFF;
+    }
+    /* greek */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 500;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnZKveRRf6TF0.woff2) format('woff2');
+      unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+    }
+    /* vietnamese */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 500;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnZKveSRf6TF0.woff2) format('woff2');
+      unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 500;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnZKveSBf6TF0.woff2) format('woff2');
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 500;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnZKveRhf6.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* cyrillic-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 600;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnSKzeSxf6TF0.woff2) format('woff2');
+      unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+    }
+    /* cyrillic */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 600;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnSKzeQhf6TF0.woff2) format('woff2');
+      unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+    /* greek-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 600;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnSKzeShf6TF0.woff2) format('woff2');
+      unicode-range: U+1F00-1FFF;
+    }
+    /* greek */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 600;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnSKzeRRf6TF0.woff2) format('woff2');
+      unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+    }
+    /* vietnamese */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 600;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnSKzeSRf6TF0.woff2) format('woff2');
+      unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 600;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnSKzeSBf6TF0.woff2) format('woff2');
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 600;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnSKzeRhf6.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* cyrillic-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 700;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnLK3eSxf6TF0.woff2) format('woff2');
+      unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+    }
+    /* cyrillic */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 700;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnLK3eQhf6TF0.woff2) format('woff2');
+      unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+    /* greek-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 700;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnLK3eShf6TF0.woff2) format('woff2');
+      unicode-range: U+1F00-1FFF;
+    }
+    /* greek */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 700;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnLK3eRRf6TF0.woff2) format('woff2');
+      unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+    }
+    /* vietnamese */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 700;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnLK3eSRf6TF0.woff2) format('woff2');
+      unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 700;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnLK3eSBf6TF0.woff2) format('woff2');
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 700;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnLK3eRhf6.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* cyrillic-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 800;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnMK7eSxf6TF0.woff2) format('woff2');
+      unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+    }
+    /* cyrillic */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 800;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnMK7eQhf6TF0.woff2) format('woff2');
+      unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+    /* greek-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 800;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnMK7eShf6TF0.woff2) format('woff2');
+      unicode-range: U+1F00-1FFF;
+    }
+    /* greek */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 800;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnMK7eRRf6TF0.woff2) format('woff2');
+      unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+    }
+    /* vietnamese */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 800;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnMK7eSRf6TF0.woff2) format('woff2');
+      unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 800;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnMK7eSBf6TF0.woff2) format('woff2');
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 800;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnMK7eRhf6.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* cyrillic-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 900;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnFK_eSxf6TF0.woff2) format('woff2');
+      unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+    }
+    /* cyrillic */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 900;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnFK_eQhf6TF0.woff2) format('woff2');
+      unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+    /* greek-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 900;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnFK_eShf6TF0.woff2) format('woff2');
+      unicode-range: U+1F00-1FFF;
+    }
+    /* greek */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 900;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnFK_eRRf6TF0.woff2) format('woff2');
+      unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+    }
+    /* vietnamese */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 900;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnFK_eSRf6TF0.woff2) format('woff2');
+      unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 900;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnFK_eSBf6TF0.woff2) format('woff2');
+      unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Fira Sans';
+      font-style: normal;
+      font-weight: 900;
+      src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnFK_eRhf6.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    html {
+        font-family: 'Verdana', sans-serif;
+    }
+    body {
+        font-family: 'Verdana', sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-family: 'Georgia', sans-serif;
+    }
+    p{
+        font-family: 'Verdana', sans-serif;
+    }
+    a{
+        font-family: 'Verdana', sans-serif;
+    }
+    span{
+        font-family: 'Verdana', sans-serif;
+    }
+    ul li{
+        font-family: 'Verdana', sans-serif;
+    }
+    table tr td{
+        font-family: 'Verdana', sans-serif;
+    }
+    label{
+        font-family: 'Verdana', sans-serif;
+    }
+    input{
+        font-family: 'Verdana', sans-serif;
+    }
+    button{
+        font-family: 'Verdana', sans-serif;
+    }
+    body .x-btn button, body .btn, body .btnImportant, body .btnDisabled, body .btnCancel, body .menuButton .menuButtonButton, body .menuButton .menuButtonMenu a, body .menuButton .menuButtonMenu input.theOption, h1, h2, h3, h4, h5, h6{
+        font-family: 'Verdana', sans-serif;
+    }
+    .job-list-page .jobDescrtionScope {
+        font-family: 'Verdana', sans-serif !important;
+    }
+    .tr-default-logo .svg-wave-logo .st0 {
+        fill: #006e88;
+    }
+    .tr-default-logo .svg-wave-logo .st1 {
+        fill: #62bbb0;
+    }
+    .tr-default-logo .svg-wave-logo{
+        width: 250px;
+    }
+    .darkbg {
+        background-color: #ffffff !important;
+        border-bottom: 2px solid #ffffff;
+        padding: 10px 20px;
+    }
+    .welcome-user{
+        width: 27% !important;
+        float: right;
+        position: absolute !important;
+        padding-right: 20px;
+        margin-top: 20px;
+    }
+    .pcLoggedInUserInfo a.retry1{
+        background: #033f3d;
+        color: #fff !important;
+        font-size: 16px;
+        padding: 10px 15px;
+        border-radius: 1.5rem;
+    }
+    .navbar-default {
+        background-color: #ffffff;
+        border-color: #ffffff;
+    }
+    .Menu.no-p{
+        margin-top: -20px !important;
+        margin-left: 3% !important;
+    }
+    .navbar-default .navbar-nav .active a, .navbar-default .navbar-nav .active a:hover, .navbar-default .navbar-nav .active a:focus{
+        background-color: #ffffff;
+        color: #d8b19c !important;
+    }
+    .jumbotron.jumbotron-gutter{
+        background: #099096;
+    }
+    .navbar-nav li a{
+        color: #033f3d !important;
+        font-size: 19px;
+        font-weight: 500;
+        background: #fff;
+        font-family: 'Georgia', sans-serif;
+        padding-right: 10px;
+    }
+    .navbar-default .navbar-nav .active a{
+        color: #033f3d !important;
+        background: #fff;
+    }
+    .jumbotron.jumbotron-gutter .list li{
+        color: #fff;
+        font-size: 20px;
+        font-family: 'Georgia', sans-serif;
+    }
+    .jumbotron.jumbotron-gutter .list a{
+        color: #fff;
+        font-size: 18px;
+        font-family: 'Georgia', sans-serif;
+    }
+    .jumbotron.jumbotron-gutter .list a b{
+        color: #d8b19c !important;
+    }
+    .tableJobListSearch .form-group label{
+        color: #25302f !important;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .tableJobListSearch .form-control{
+        background-color: #f7f8f8 !important;
+        border: 1px solid #f7f8f8;
+        border-radius: 999px;
+        box-shadow: 0px 6px 15px -8px #ababab;
+        color: #5b6564;
+        height: 40px;
+    }
+    .btn.btn-primary {
+        color: #fff !important;
+        background-color: #033f3d !important;
+        border-color: #033f3d !important;
+        font-size: 18px !important;
+        border-radius: 1.5rem !important;
+    }
+    body input.btn, body input.btnDisabled, body input.btnCancel {
+        padding: 4px 3px;
+        background-color: #ffffff !important;
+        background-image: none !important;
+        font-size: 18px !important;
+        color: #033f3d !important;
+        border-radius: 1.5rem !important;
+        border: 1px solid #033f3d;
+    }
+    .job-list-page .hr-border {
+        border-top: 1px solid #d8b19c;
+    }
+    .reachoutIcon {
+        font-size: 16px;
+        width: 9em;
+        height: 2em;
+        background-color: #033f3d;
+        border-radius: 12em;
+        color: #f8f8f8;
+        padding-left: 0;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: default;
+        font-weight: 500;
+    }
+    .reachoutInfo {
+        background: #d8b19c !important;
+        color: #033f3d !important;
+        font-weight: 500 !important;
+    }
+    .table-bordered thead tr td, .table-bordered thead tr th{
+        color: #fff;
+        background-color: #099096 !important;
+    }
+    .jobTitleList.inc{
+        color: #25302f;
+        font-size: 20px;
+        font-weight: 500;
+        font-family: 'Georgia', sans-serif;
+    }
+    .table-hover tbody tr:hover {
+        background-color: transparent;
+    }
+    .job-list-page .table.table1 tr:nth-of-type(even) {
+        background-color: #ecd8ce !important;
+    }
+    .job-list-page .tr-background {
+        background: #fff0 !important;
+    }
+    .table .table {
+        background-color: #fff0;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+    .expensesApprovalScope2 .slds-form-element__label, label, b {
+        color: #5b6564 !important;
+    }
+    .footer{
+        font-weight: 400;
+    }
+    .pagination .active a{
+        color: #25302f;
+        cursor: default;
+        background-color: #ecd8ce;
+        border-color: #ecd8ce;
+    }
+    .pagination li a{
+        color: #25302f;
+    }
+    .jobTitleMail b{
+        font-size: 22px;
+        font-family: 'Georgia', sans-serif;
+    }
+    .jobTitleMail div b{
+        font-size: 18px;
+    }
+    .well-sm{
+        color: #25302f;
+        font-size: 20px;
+        font-family: 'Georgia', sans-serif;
+    }
+    .well-sm span{
+        font-size: 20px;
+        font-family: 'Georgia', sans-serif;
+    }
+    lable.widthres b{
+        color: #25302f;
+        font-size: 17px;
+    }
+    .sfdc_richtext {
+        color: #5b6564;
+    }
+    .cusfont a{
+        color: #5b6564;
+    }
+    .job-application .well-sm.wellCus{
+        background: #099096 !important;
+        color: #fff;
+        font-weight: 500;
+    }
+    .job-application label{
+        color: #25302f !important;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea, select{
+        background-color: #f7f8f8 !important;
+        border: 1px solid #f7f8f8;
+        border-radius: 999px;
+        box-shadow: 0px 6px 15px -8px #ababab;
+        color: #5b6564;
+        height: 40px;
+    }
+    select.form-control{
+        background-color: #f7f8f8 !important;
+        border: 1px solid #f7f8f8;
+        border-radius: 999px;
+        box-shadow: 0px 6px 15px -8px #ababab;
+        color: #5b6564;
+        height: 40px;
+    }
+    .job-application .jobTitleList span{
+        font-size: 18px;
+        color: #25302f !important;
+    }
+    .alert-success {
+        color: #033f3d;
+        background-color: #ecd8ce;
+        border-color: #d6e9c6;
+    }
+    .message .messageText {
+        margin-left: 8px;
+        font-size: 18px;
+        line-height: 27px;
+        text-align: center;
+    }
+    .loginLabel{
+        color: #25302f;
+        font-size: 26px !important;
+        margin-left: -15px;
+        font-family: 'Georgia', sans-serif;
+    }
+    .input-group-addon{
+        background-color: #ecd8ce;
+        border: 1px solid #ecd8ce;
+    }
+    body input.btn-login{
+        background-color: #033f3d !important;
+        color: #fff !important;
+    }
+    body input.btn-login:hover{
+        background-color: #033f3d !important;
+        color: #fff !important;
+    }
+    .form-group a.retry {
+        color: #25302f !important;
+    }
+    body input.btn-forget{
+        background-color: #033f3d !important;
+        color: #fff !important;
+    }
+    body input.btn-forget:hover{
+        background-color: #033f3d !important;
+        color: #fff !important;
+    }
+    .keep-in-mind a.retry {
+        color: #25302f !important;
+        text-decoration: underline;
+    }
+    .forgetPasswordLabel {
+        color: #25302f;
+    }
+    #userInfo #welcome{
+        font-size: 18px;
+        color: #033f3d;
+        font-weight: 500;
+    }
+    .infoDetails {
+        width: 100%;
+    }
+    .loggedInUserInfo{
+        margin-top: -22px !important;
+    }
+    #logoutButton .btn-logout{
+        background-color: #033f3d !important;
+        color: #fff !important;
+        font-size: 16px !important;
+    }
+    .well-sm.wellCus {
+        background-color: #099096 !important;
+        margin-bottom: 0.75em !important;
+        color: #fff !important;
+    }
+    label.control-label{
+        color: #25302f !important;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .nocolor span{
+        font-size: 16px;
+    }
+    .title_ja{
+        margin: 10px 0px !important;
+    }
+    .tr-default-logo svg .st3.icon{
+        fill: #d0e3e2;
+    }
+    .job-application table{
+        border-collapse: unset;
+        padding: 0px;
+        border: none;
+        margin: 0px;
+    }
+    .container-fluid.job-application{
+        width: 98%;
+    }
+    .job-application .alert-success{
+          display: none !important;
+    }
+    .job-application .application_thankyou{
+        color: #033f3d;
+        background-color: #ecd8ce;
+        margin-bottom: 0px;
+        font-size: 19px;
+        padding: 20px 20px 10px 20px;
+        font-weight: bold;
+    }
+    .job-application .application_thankyou1{
+        color: #033f3d;
+        background-color: #ecd8ce;
+        margin-bottom: 0px;
+        font-size: 19px;
+        padding: 0px 20px 20px 20px;
+        font-weight: bold;
+    }
+    .job-application .application_thankyou_heading{
+        display: block;
+        color: #033f3d;
+        background-color: #ecd8ce;
+        margin-bottom: 0px;
+        padding-top: 15px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+    .job-application .search_btn{
+        margin-top: 20px !important;
+    }
+    .sidenav{
+        background-color: #099096;
+    }
+    .sfdc_richtext p, .sfdc_richtext fieldset, .sfdc_richtext table{
+        font-size: 14px !important;
+    }
+    .sfdc_richtext p strong, .sfdc_richtext fieldset strong, .sfdc_richtext table strong{
+        font-size: 15px !important;
+    }
+    .sfdc_richtext p em, .sfdc_richtext fieldset em, .sfdc_richtext table em{
+        font-size: 14px !important;
+    }
+    .sfdc_richtext ol li, .sfdc_richtext ul li{
+        font-size: 15px !important;
+    }
+    .sfdc_richtext h1{
+        font-size: 18px !important;
+    }
+    .sfdc_richtext h2{
+        font-size: 17px !important;
+    }
+    .sfdc_richtext h3{
+        font-size: 17px !important;
+    }
+     .sfdc_richtext h4{
+        font-size: 15px !important;
+    }
+     .sfdc_richtext h5{
+        font-size: 15px !important;
+    }
+     .sfdc_richtext h6{
+        font-size: 14px !important;
+    }
+    .jobapp_desc{
+        clear: both;
+        line-height: 25px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #000;
+    }
+    
+    
+    @media only screen and (max-width: 600px) {
+      .welcome-user {
+        width: 100% !important;
+        float: right;
+        position: absolute !important;
+        padding-right: 20px;
+        margin-top: 80px;
+    }
+    .fixed_position {
+    position: relative;
+    }
+    .content.no-p{
+    margin-top: 3.5em !important;
+    }
+    .navbar-header button.navbar-default.navbar-toggle.pull-left{
+        margin-left: -25px !important;
+    }
+    .tableJobList td::before{
+        display: none;
+    }
+    
+}
+     @media only screen and (min-width: 1450px){
+        .navbar-nav li a{
+            font-size: 22px;
+        }
+    }
+    @media only screen and (min-width: 1600px){
+        .navbar-nav li a{
+            font-size: 25px;
+        }
+    }
+</apex:page>

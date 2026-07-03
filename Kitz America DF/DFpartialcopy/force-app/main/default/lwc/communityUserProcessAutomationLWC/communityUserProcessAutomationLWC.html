@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Community User Process Automation" icon-name="custom:custom63">
+         <p>{pageRefdata}</p>
+        <template if:true={isLoading}>
+            <div class="spinner-container">
+                <lightning-spinner 
+                    alternative-text="Loading" 
+                    size="medium"
+                    data-text={helpText}
+                    class="loader">
+                </lightning-spinner>
+            </div>
+        </template>
+
+    </lightning-card>
+</template>

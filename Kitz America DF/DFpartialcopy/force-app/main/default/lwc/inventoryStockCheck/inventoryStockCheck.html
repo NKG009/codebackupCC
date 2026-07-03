@@ -1,0 +1,159 @@
+<template>
+    <div class="container">
+        <div class="card glass">
+            <h1 class="title">📦 Inventory Stock Check</h1>
+
+            <div class="search-section">
+                <lightning-input
+                    type="text"
+                    label="Search for Inventory"
+                    placeholder="Enter Part No."
+                    class="search-input"
+                    value={searchKey}
+                    onchange={handleInputChange}>
+                </lightning-input>
+
+                <lightning-button
+                    label="Search"
+                    variant="brand"
+                    class="search-btn"
+                    onclick={handleSearch}>
+                </lightning-button>
+            </div>
+
+            
+
+             <template if:true={data.length}>
+                <div class="datatablemain" style="height:500px; max-height:800px;overflow: auto">
+                <lightning-datatable
+
+                    key-field="productId"
+
+                    data={data}
+
+                    columns={columns}
+
+                    onrowaction={handleRowAction}
+
+                    hide-checkbox-column>
+
+                </lightning-datatable>
+                </div>
+            </template>
+            <template if:false={data.length}>
+                <div class="result-placeholder">
+                <lightning-icon icon-name="utility:warning" size="large" class="icon"></lightning-icon>
+                <p class="no-data-text">No data yet — try searching for a product!</p>
+            </div>
+            </template>
+        </div>
+    </div>
+
+     <!-- MODAL -->
+
+    <template if:true={isModalOpen}>
+    <section role="dialog" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container modal-large">
+
+            <!-- HEADER -->
+            <header class="slds-modal__header modal-header">
+                <h2 class="slds-text-heading_medium">
+                    📦 Inventory Availability
+                </h2>
+            </header>
+
+            <!-- BODY -->
+            <div class="slds-modal__content slds-p-around_medium modal-body">
+
+                <div class="slds-grid slds-gutters">
+
+                    <!-- LEFT TABLE : LOCATION STOCK -->
+                    <div class="slds-col slds-size_1-of-2">
+                        <div class="table-card spinner-container">
+                            <h3 class="table-title">📍 Location Availability</h3>
+                            <template if:true={isLocationDataEmpty}>
+                                <lightning-icon icon-name="utility:info" size="small" class="icon"></lightning-icon>
+                                <span>No location data available.</span>
+                            </template>
+                            <template if:false={isLocationDataEmpty}>
+                            <template if:true={locationSpinnerboolean}>
+                                <lightning-spinner alternative-text="Loading" size="medium" data-text={helpText} class="section-spinner">
+                                </lightning-spinner>
+                            </template>
+                            <template if:false={locationSpinnerboolean}>
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>Location</th>
+                                        <th class="text-right">Available</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={locationData} for:item="loc">
+                                        <tr key={loc.location}>
+                                            <td>{loc.location}</td>
+                                            <td class="text-right">{loc.qty}</td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                                <tfoot>
+                                    <tr class="total-row">
+                                        <td>Total</td>
+                                        <td class="text-right">{totalQty}</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            </template>
+                            </template>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT TABLE : PRODUCT DETAILS -->
+                    <div class="slds-col slds-size_1-of-2">
+                        <div class="table-card">
+                            <h3 class="table-title">📦 Product Details</h3>
+
+                            <table class="custom-table">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Case</strong></td>
+                                        <td>{productDetails.caseLbs} Lbs</td>
+                                        <td>{productDetails.caseKgs} Kgs</td>
+                                        <td>{productDetails.caseQty}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Box</strong></td>
+                                        <td>{productDetails.boxLbs} Lbs</td>
+                                        <td>{productDetails.boxKgs} Kgs</td>
+                                        <td>{productDetails.boxQty}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Unit</strong></td>
+                                        <td>{productDetails.unitLbs} Lbs</td>
+                                        <td>{productDetails.unitKgs} Kgs</td>
+                                        <td>{productDetails.unitQty}</td>
+                                    </tr>
+                                    <tr class="highlight-row">
+                                        <td><strong>Country</strong></td>
+                                        <td colspan="3">{productDetails.country}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="slds-modal__footer">
+                <lightning-button label="Close" onclick={closeModal}></lightning-button>
+            </footer>
+
+        </div>
+    </section>
+
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>
+
+</template>

@@ -1,0 +1,93 @@
+66.0 APEX_CODE,FINEST;APEX_PROFILING,FINE;CALLOUT,INFO;DATA_ACCESS,INFO;DB,FINEST;NBA,INFO;SYSTEM,DEBUG;VALIDATION,INFO;VISUALFORCE,FINER;WAVE,INFO;WORKFLOW,FINE
+03:47:53.0 (969754)|USER_INFO|[EXTERNAL]|005Ec00000ZXoEn|nikhil.gaurav@cloudcacheconsulting.com|(GMT-04:00) Eastern Daylight Time (America/New_York)|GMT-04:00
+03:47:53.0 (1008447)|EXECUTION_STARTED
+03:47:53.0 (1020427)|CODE_UNIT_STARTED|[EXTERNAL]|apex://LMSCourseController/ACTION$getCourseList
+03:47:53.0 (1840363)|CODE_UNIT_STARTED|[EXTERNAL]|01pEc00000w5hao|LMSCourseController.getCourseList()
+03:47:53.0 (2250528)|HEAP_ALLOCATE|[95]|Bytes:3
+03:47:53.0 (2374590)|HEAP_ALLOCATE|[100]|Bytes:152
+03:47:53.0 (2392735)|HEAP_ALLOCATE|[417]|Bytes:408
+03:47:53.0 (2410398)|HEAP_ALLOCATE|[430]|Bytes:408
+03:47:53.0 (2463290)|HEAP_ALLOCATE|[317]|Bytes:6
+03:47:53.0 (2478669)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:36
+03:47:53.0 (2501772)|METHOD_ENTRY|[1]|01pEc00000w5hao|LMSCourseController.LMSCourseController()
+03:47:53.0 (2514196)|STATEMENT_EXECUTE|[1]
+03:47:53.0 (2525623)|STATEMENT_EXECUTE|[1]
+03:47:53.0 (2567418)|HEAP_ALLOCATE|[68]|Bytes:5
+03:47:53.0 (2610084)|HEAP_ALLOCATE|[74]|Bytes:5
+03:47:53.0 (2617139)|HEAP_ALLOCATE|[82]|Bytes:7
+03:47:53.0 (2843428)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:5
+03:47:53.0 (2861788)|METHOD_EXIT|[1]|LMSCourseController
+03:47:53.0 (2876725)|HEAP_ALLOCATE|[19]|Bytes:5
+03:47:53.0 (2879903)|STATEMENT_EXECUTE|[18]
+03:47:53.0 (2881227)|STATEMENT_EXECUTE|[19]
+03:47:53.0 (2883981)|HEAP_ALLOCATE|[19]|Bytes:212
+03:47:53.0 (2908110)|HEAP_ALLOCATE|[19]|Bytes:4
+03:47:53.0 (8580172)|SOQL_EXECUTE_BEGIN|[19]|Aggregations:2|SELECT Id, Name, Course_Code__c, Category__c, Is_Published__c, Start_Date__c, End_Date__c, (SELECT Id FROM LMS_Enrolments__r), (SELECT Id FROM LMS_Course_Class__r) FROM LMS_Course__c ORDER BY Name ASC NULLS FIRST
+03:47:53.0 (66237642)|SOQL_EXECUTE_EXPLAIN|[19]|TableScan on LMS_Course__c : [], cardinality: 4, sobjectCardinality: 4, relativeCost 3.6
+03:47:53.0 (66260014)|SOQL_EXECUTE_END|[19]|Rows:4
+03:47:53.0 (66328185)|HEAP_ALLOCATE|[19]|Bytes:20
+03:47:53.0 (66378269)|HEAP_ALLOCATE|[19]|Bytes:590
+03:47:53.0 (66460541)|HEAP_ALLOCATE|[19]|Bytes:20
+03:47:53.66 (66573054)|CUMULATIVE_LIMIT_USAGE
+03:47:53.66 (66573054)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 6 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 0
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+03:47:53.66 (66573054)|TOTAL_EMAIL_RECIPIENTS_QUEUED|0
+03:47:53.66 (66573054)|STATIC_VARIABLE_LIST|
+  int:BYTES:0
+  int:BYTES:0
+  byte[]:DigitOnes:0
+  byte[]:DigitTens:0
+  Boolean:FALSE:0
+  int:MAX_EXPONENT:0
+  double:MAX_VALUE:0
+  int:MAX_VALUE:0
+  int:MIN_EXPONENT:0
+  double:MIN_NORMAL:0
+  double:MIN_VALUE:0
+  int:MIN_VALUE:0
+  double:NEGATIVE_INFINITY:0
+  double:NaN:0
+  double:POSITIVE_INFINITY:0
+  int:PRECISION:0
+  int:SIZE:0
+  int:SIZE:0
+  Boolean:TRUE:0
+  String:_sfdcAdditionalCodeLocations:0
+  char[]:digits:0
+  long:serialVersionUID:0
+  long:serialVersionUID:0
+  long:serialVersionUID:0
+
+03:47:53.66 (66573054)|CUMULATIVE_LIMIT_USAGE_END
+
+03:47:53.0 (69323890)|CODE_UNIT_FINISHED|LMSCourseController.getCourseList()
+03:47:53.69 (69354935)|CUMULATIVE_PROFILING_BEGIN
+03:47:53.69 (69354935)|CUMULATIVE_PROFILING|SOQL operations|
+Class.LMSCourseController.getCourseList: line 19, column 1: [
+            SELECT Id, Name, Course_Code__c, Category__c, Is_Published__c, Start_Date__c, End_Date__c,
+                   (SELECT Id FROM LMS_Enrolments__r),
+                   (SELECT Id FROM LMS_Course_Class__r)
+            FROM LMS_Course__c ORDER BY Name ASC
+        ]: executed 1 time in 63 ms
+
+03:47:53.69 (69354935)|CUMULATIVE_PROFILING|No profiling information for SOSL operations
+03:47:53.69 (69354935)|CUMULATIVE_PROFILING|No profiling information for DML operations
+03:47:53.69 (69354935)|CUMULATIVE_PROFILING|method invocations|
+External entry point: public static List<LMS_Course__c> getCourseList(): executed 1 time in 64 ms
+
+03:47:53.69 (69354935)|CUMULATIVE_PROFILING_END
+03:47:53.0 (69691192)|CODE_UNIT_FINISHED|apex://LMSCourseController/ACTION$getCourseList
+03:47:53.0 (69698332)|EXECUTION_FINISHED

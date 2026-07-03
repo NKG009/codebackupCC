@@ -1,0 +1,55 @@
+<template>
+    <div class="container">
+        <template if:false={isSuccess}>
+            <lightning-card class="contact-card">
+                <div class="logo-container slds-m-bottom_medium">
+    <img src={logoUrl} alt="Company Logo" class="logo" />
+</div>
+
+                <header class="card-header">
+                    <h2 class="card-title">Agent Referral Form</h2>
+                </header>
+
+                <div class="slds-p-around_medium">
+                    <template if:true={error}>
+                        <p class="error-message">{error}</p>
+                    </template>
+
+                    <!-- Contact Info -->
+                    <lightning-input label="First Name" value={firstName} data-id="firstName" onchange={handleInputChange}></lightning-input>
+                    <lightning-input label="Last Name" value={lastName} data-id="lastName" onchange={handleInputChange}></lightning-input>
+                    <lightning-input label="Email" value={email} data-id="email" onchange={handleInputChange}></lightning-input>
+                    <lightning-input label="Phone" value={phone} data-id="phone" onchange={handleInputChange}></lightning-input>
+                    <!--<lightning-input label="Company" value={company} data-id="company" onchange={handleInputChange}></lightning-input>-->
+
+                    <!-- Address Fields -->
+                    <lightning-textarea label="Street" value={street} data-id="street" onchange={handleInputChange}></lightning-textarea>
+                    <lightning-input label="City" value={city} data-id="city" onchange={handleInputChange}></lightning-input>
+                    <lightning-input label="State/Province" value={state} data-id="state" onchange={handleInputChange}></lightning-input>
+                                        <lightning-input label="Country" value={country} data-id="country" onchange={handleInputChange}></lightning-input>
+
+                    <lightning-input label="Zip/Postal Code" value={zip} data-id="zip" onchange={handleInputChange}></lightning-input>
+
+<lightning-button variant="brand" label="Submit" class="submit-btn" onclick={handleSubmit}></lightning-button>
+                </div>
+            </lightning-card>
+        </template>
+
+<template if:true={isSuccess}>
+    <lightning-card class="success-card">
+        <p class="success-message slds-text-heading_large slds-text-align_center slds-text-color_success">
+            Your contact request has been submitted successfully!
+        </p>
+
+        <!-- Show generated UTM link -->
+       <!--<template if:true={utmLink}>
+            <p class="slds-m-top_small slds-text-align_center">
+                Share this link for tracking: 
+                <a href={utmLink} target="_blank">{utmLink}</a>
+            </p>
+        </template>-->
+    </lightning-card>
+</template>
+
+    </div>
+</template>

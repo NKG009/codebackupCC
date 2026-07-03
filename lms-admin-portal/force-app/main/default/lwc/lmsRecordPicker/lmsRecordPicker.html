@@ -1,0 +1,33 @@
+<template>
+    <div class="picker">
+        <label class="picker__label">{label}</label>
+        <template if:false={selectedRecord}>
+            <div class="picker__search">
+                <lightning-input
+                    type="search"
+                    placeholder="Search..."
+                    value={searchTerm}
+                    onchange={handleSearch}
+                    label="">
+                </lightning-input>
+                <template if:true={hasResults}>
+                    <ul class="picker__results">
+                        <template for:each={results} for:item="result">
+                            <li key={result.Id}>
+                                <button onclick={handleSelect} data-id={result.Id} data-name={result.Name}>
+                                    {result.Name}
+                                </button>
+                            </li>
+                        </template>
+                    </ul>
+                </template>
+            </div>
+        </template>
+        <template if:true={selectedRecord}>
+            <div class="picker__selected">
+                <span>{selectedRecord.Name}</span>
+                <button onclick={handleClear} class="picker__clear">✕ Clear</button>
+            </div>
+        </template>
+    </div>
+</template>

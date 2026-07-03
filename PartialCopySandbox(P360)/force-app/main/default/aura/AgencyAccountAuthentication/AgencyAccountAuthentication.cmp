@@ -1,0 +1,30 @@
+<aura:component controller="AgencyAccountAuthenticationController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,lightning:isUrlAddressable,force:lightningQuickAction,force:hasRecordId" access="global" >
+   <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="recordId" type="Id" />
+   <!-- <article class="slds-card">
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class=" slds-modal_small">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <h1 id="Authentication" class="slds-modal__title slds-hyphenate" tabindex="-1"> Authentication</h1>
+                </div >
+                
+                <lightning:recordEditForm aura:id="Agency form 1" objectApiName="Agency_Integration_Info__c">
+                    <lightning:messages />
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <span>
+                            
+                            <lightning:inputField fieldName="Agency_Account__c" />
+                            <button class="slds-m-top_small slds-hidden  " Id="create" type="submit" label="Create new" />
+                                </span>
+                        </div>
+                    </div>
+                </lightning:recordEditForm>
+                <div class="slds-modal__footer">
+                    <lightning:button variant="brand" label="Click to Authenticate" title="Click to Authenticate" onclick="{!c.oauth}" />
+                </div>
+            </div>
+        </section>
+    </article> -->
+</aura:component>

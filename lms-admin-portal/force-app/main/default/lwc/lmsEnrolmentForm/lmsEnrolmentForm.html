@@ -1,0 +1,33 @@
+<template>
+    <div class="modal-backdrop">
+        <div class="modal">
+            <div class="modal__header">
+                <h3>Enrol learner</h3>
+                <button class="modal__close" onclick={handleClose}>✕</button>
+            </div>
+            <div class="modal__body">
+                <lightning-input label="Search learner" type="search" value={learnerSearch} onchange={handleLearnerSearch} placeholder="Type name..."></lightning-input>
+                <template if:true={learnerResults.length}>
+                    <ul class="results-list">
+                        <template for:each={learnerResults} for:item="u">
+                            <li key={u.Id}><button onclick={handleSelectLearner} data-id={u.Id} data-name={u.Name} class={u.cssClass}>{u.Name}</button></li>
+                        </template>
+                    </ul>
+                </template>
+                <template if:true={selectedLearnerName}>
+                    <div class="selected-pill">
+                        <lightning-icon icon-name="utility:user" size="x-small"></lightning-icon>
+                        {selectedLearnerName}
+                        <button onclick={clearLearner} class="pill-clear">✕</button>
+                    </div>
+                </template>
+                <lightning-combobox label="Course" options={courseOptions} value={enrolment.LMS_Course__c} onchange={handleCourseSelect} placeholder="Select a course" required></lightning-combobox>
+                <lightning-input label="Enrolment date" type="date" value={enrolment.Enrolment_Date__c} onchange={handleField} data-field="Enrolment_Date__c"></lightning-input>
+            </div>
+            <div class="modal__footer">
+                <lightning-button label="Cancel" onclick={handleClose}></lightning-button>
+                <lightning-button label="Enrol" variant="brand" onclick={handleSave} disabled={cannotSave}></lightning-button>
+            </div>
+        </div>
+    </div>
+</template>

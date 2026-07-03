@@ -1,0 +1,214 @@
+<template>
+    <template if:true={isloading}>
+        <div class="slds-align_absolute-center">
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+    </template>
+    <lightning-card title="Fundamental Roofing LLC - Repair Quote">
+        <div class="slds-p-around_medium">
+
+            <!-- File Upload -->
+            <div class="slds-m-bottom_medium">
+                <lightning-file-upload
+                    label="Front of Property"
+                    name="fileUploader"
+                    accept=".jpg,.png,.pdf"
+                    onuploadfinished={handleFileUpload}>
+                </lightning-file-upload>
+                <template if:true={frontphoto.isfileuploaded}>
+                        <img src={frontphoto.fileurl} alt={frontphoto.filename} width="200" />
+                </template>
+            </div>
+
+            <!-- Homeowner Info -->
+            <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Homeowner Info</h2>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <lightning-input class="slds-col slds-size_1-of-2" label="First Name" value={clientFirstName} onchange={handleInputChange}
+                        data-field="clientFirstName"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Last Name" value={clientLastName} onchange={handleInputChange}
+                        data-field="clientLastName"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" type="tel" label="Phone" value={clientPhone}
+                        onchange={handleInputChange} data-field="clientPhone"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" type="email" label="Email" value={clientEmail} onchange={handleInputChange}
+                        data-field="clientEmail"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Street Address" value={clientAddress} onchange={handleInputChange}
+                        data-field="clientAddress">></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="City" value={clientCity} onchange={handleInputChange}
+                        data-field="clientCity"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="State" value={clientState} onchange={handleInputChange}
+                        data-field="clientState"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Zip Code"  value={clientZipCode} onchange={handleInputChange}
+                        data-field="clientZipCode"></lightning-input>
+                </div>
+            </div>
+
+            <!-- Service Boxes -->
+            <div class="slds-grid slds-wrap slds-gutters">
+                <template for:each={services} for:item="service">
+                    <div key={service.id} class="slds-col slds-size_1-of-3">
+                        <div class="slds-box slds-theme_default slds-p-around_small service-box">
+
+                            <!-- Checkbox + Details Vertical Stack -->
+                            <div class="slds-grid slds-grid_vertical-align-start">
+                                <div class="slds-m-right_small slds-m-top_x-small">
+                                    <lightning-input type="checkbox"
+                                        checked={service.selected}
+                                        data-id={service.id}
+                                        onchange={handleServiceSelection}>
+                                    </lightning-input>
+                                </div>
+
+                                <div class="slds-grid slds-grid_vertical slds-has-flexi-truncate">
+    <!-- Name -->
+   <!-- <div class="slds-text-heading_small">{service.name}</div>-->
+
+
+    <!-- Name -->
+<template if:true={service.isNewItem}>
+    <lightning-input type="text" label="Name"
+        value={service.name}
+        data-id={service.id}
+        data-field="name"
+        onchange={handleOtherFieldChange}
+        class="slds-m-bottom_x-small">
+    </lightning-input>
+</template>
+<template if:false={service.isNewItem}>
+    <div class="slds-text-heading_small">{service.name}</div>
+</template>
+
+
+    <!-- Unit Description -->
+    <template if:true={service.isNewItem}>
+        <lightning-input type="text" label="Notes"
+        placeholder="Enter notes"
+            value={service.unit}
+            data-id={service.id}
+            onchange={handleOtherFieldChange}
+            class="slds-m-bottom_x-small">
+        </lightning-input>
+    </template>
+    <template if:false={service.isNewItem}>
+        <div class="slds-text-color_weak slds-m-bottom_x-small">
+            {service.unit}
+        </div>
+    </template>
+
+    <!-- Price -->
+    <template if:true={service.isNewItem}>
+        <lightning-input type="number" label="Price"
+        placeholder="Enter price"
+            value={service.price}
+            data-id={service.id}
+            onchange={handleOtherFieldChange}
+            class="slds-m-bottom_x-small">
+        </lightning-input>
+    </template>
+    <template if:false={service.isNewItem}>
+        <div class="slds-text-color_brand slds-text-heading_small">
+            ${service.price}
+        </div>
+    </template>
+
+    <!-- Quantity -->
+    <lightning-input type="number" label="Quantity"
+    placeholder="Enter Quantity"
+        value={service.quantity} min="1"
+        data-id={service.id} onchange={handleQuantityChange}>
+    </lightning-input>
+</div>
+
+                            </div>
+                            <template if:true={service.isNewItem}>
+                                <lightning-button variant="neutral" label="+" title="Add More"
+                                        onclick={handleAddOther} class="slds-m-top_small">
+                                </lightning-button>
+                            </template>
+
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <div class="slds-m-top_medium">
+    <div class="slds-text-heading_small slds-m-top_small">
+                    <div class="slds-m-bottom_medium">
+
+        Total Cost: ${totalCost}
+                    </div>
+    </div>
+            <div class="slds-m-bottom_medium">
+
+    <lightning-input type="number" label="Discount (%)" value={discountPercent} min="0" max="100"
+        onchange={handleDiscountChange}>
+    </lightning-input>
+
+    <lightning-input type="text" label="Discount Reason" value={discountReason}
+        onchange={handleDiscountReasonChange}>
+    </lightning-input>
+            </div>
+    <div class="slds-text-heading_small slds-m-top_small">
+                    <div class="slds-m-bottom_medium">
+
+        Net Total: ${netTotal}
+                    </div>
+    </div>
+</div>
+
+
+<section class="slds-box slds-m-bottom_medium">
+                <h3 class="slds-text-heading_small slds-m-bottom_small">Payment Instructions</h3>
+                <p><strong>Zelle Payments To:</strong> Fundamentalroofingllc@gmail.com</p>
+                <p><strong>Venmo Payments To:</strong> @Neil-Martin-1967</p>
+                <p><strong>Send Check To:</strong> Fundamental Roofing, 9902 Glenshee Drive, Rowlett, TX 75089</p>
+                <p><strong>Credit Card Payments:</strong> Call 214-254-9969 (8AM-8PM Monday-Saturday)</p>
+            </section>
+
+
+          
+            <!-- Save Button -->
+             <div class="slds-m-around_medium slds-grid slds-grid_align-end">
+                    <lightning-button variant="brand" label="Save & Exit" class="slds-m-right_small" disabled={IsPDFGenerated}
+                        onclick={handleSave}>
+                    </lightning-button>
+                    <lightning-button variant="brand" label="Save & Generate PDF" disabled={IsPDFGenerated}
+                        onclick={generatepdfconfirmconfirmation}>
+                    </lightning-button>
+                </div>
+
+        </div>
+    </lightning-card>
+    <template if:true={showConfirmation}>
+                    <!-- Modal/Popup Box LWC starts here -->
+                    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                        aria-describedby="modal-content-id-2" class="slds-modal slds-fade-in-open">
+                        <div class="slds-modal__container">
+                            <!-- Modal/Popup Box LWC header here -->
+                            <header class="slds-modal__header">
+                                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close"
+                                    onclick={closeModal}>
+                                    <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                        size="small"></lightning-icon>
+                                    <span class="slds-assistive-text">Close</span>
+                                </button>
+                                <h2 class="slds-text-heading_medium slds-hyphenate"> Alert!</h2>
+                            </header>
+                            <!-- Modal/Popup Box LWC body starts here -->
+                            <div class="slds-modal__content slds-p-around_medium modalBody">
+                                <p>Are you sure you want to generate the PDF?</p>
+                                <p>Once you generate the PDF, you will not be able to edit the form.</p>
+                            </div>
+                            <!-- Modal/Popup Box LWC footer starts here -->
+                            <footer class="slds-modal__footer">
+                                <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+                
+                                <button class="slds-button slds-button_brand" onclick={handleSave}
+                                    title="Okay">Okay</button>
+                
+                            </footer>
+                        </div>
+                    </section>
+                    <div class="slds-backdrop slds-backdrop_open"></div>
+                </template>
+</template>

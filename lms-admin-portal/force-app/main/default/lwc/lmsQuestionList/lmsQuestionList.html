@@ -1,0 +1,41 @@
+<template>
+    <div class="list-page">
+       
+
+        <div class="list-page__toolbar">
+            <lightning-input type="search" label="" placeholder="Search questions..." value={searchTerm} onchange={handleSearch} class="list-page__search"></lightning-input>
+            <lightning-combobox label="" placeholder="All types" options={typeOptions} value={filterType} onchange={handleTypeFilter}></lightning-combobox>
+            <lightning-combobox label="" placeholder="All categories" options={categoryOptions} value={filterCategory} onchange={handleCategoryFilter}></lightning-combobox>
+            <lightning-combobox label="" placeholder="Active only" options={statusOptions} value={filterActive} onchange={handleStatusFilter}></lightning-combobox>
+            <lightning-button label="New question" icon-name="utility:add" variant="brand" onclick={handleNew}></lightning-button>
+        </div>
+        <div class="question-count">{filteredCount} questions</div>
+
+        <template if:false={isLoading}>
+            <div class="q-list">
+                <template for:each={filteredQuestions} for:item="q">
+                    <div key={q.Id} class="q-row">
+                        <div class="q-row__left">
+                            <c-lms-status-badge label={q.Question_Type__c} variant="qtype"></c-lms-status-badge>
+                            <template if:true={q.Question_Category__c}>
+                                <c-lms-status-badge label={q.Question_Category__c} variant="category"></c-lms-status-badge>
+                            </template>
+                            <span class="q-text">{q.shortText}</span>
+                        </div>
+                        <div class="q-row__right">
+                            <span class="q-pts">{q.Default_Points__c} pt</span>
+                            <template if:false={q.Is_Active__c}><span class="q-archived">archived</span></template>
+                            <lightning-button-icon icon-name="utility:edit" alternative-text="Edit" onclick={handleEdit} data-id={q.Id}></lightning-button-icon>
+                            <lightning-button-icon icon-name="utility:copy" alternative-text="Duplicate" onclick={handleDuplicate} data-id={q.Id}></lightning-button-icon>
+                        </div>
+                    </div>
+                </template>
+                <template if:false={hasQuestions}>
+                    <div class="empty-state">
+                        <p>No questions match your filter. <button onclick={clearFilters} class="link-btn">Clear filters</button></p>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </div>
+</template>

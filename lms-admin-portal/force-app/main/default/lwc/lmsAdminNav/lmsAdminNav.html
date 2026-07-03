@@ -1,0 +1,24 @@
+<template>
+    <nav class="nav">
+        <div class="nav__logo">
+            <span class="nav__logo-icon">🎓</span>
+            <span class="nav__logo-text">LMS Admin</span>
+        </div>
+        <ul class="nav__list">
+            <template for:each={navItems} for:item="item">
+                <li key={item.page} class={item.cssClass}>
+                    <button class="nav__btn" onclick={handleClick} data-page={item.page} title={item.label}>
+                        <lightning-icon icon-name={item.icon} size="x-small" class="nav__icon"></lightning-icon>
+                        <span class="nav__label">{item.label}</span>
+                        <template if:true={item.badge}>
+                            <span class="nav__badge">{item.badge}</span>
+                        </template>
+                    </button>
+                </li>
+            </template>
+        </ul>
+        <div class="nav__footer">
+            <span class="nav__version">v1.0</span>
+        </div>
+    </nav>
+</template>

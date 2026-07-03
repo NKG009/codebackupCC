@@ -1,0 +1,1 @@
+trigger ConversationTriggerForServiceAppointment on ServiceAppointment (after insert) { smagicinteract.TriggerUtility.updateConversations(JSON.serialize(Trigger.New)); }

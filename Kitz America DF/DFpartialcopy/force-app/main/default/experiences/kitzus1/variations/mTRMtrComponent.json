@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "03204887-21bb-490a-bf95-3de208539703",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "dcdf5b3c-9963-4b7a-8e9d-66b4e74f7b0b",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "MTR_mtr_Component",
+  "id" : "5358f02f-e38c-4842-9bf7-7a80017699c4",
+  "type" : "experienceVariation"
+}

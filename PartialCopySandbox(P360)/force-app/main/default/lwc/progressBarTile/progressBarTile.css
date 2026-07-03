@@ -1,0 +1,7 @@
+.slds-progress-bar{
+    height: var(--custom-progressBarHeight);
+}
+
+.custom-progress-bar{
+    background: var(--custom-progressBarColor);
+}

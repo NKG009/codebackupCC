@@ -1,0 +1,19 @@
+<template>
+    <div class="widget">
+        <div class="widget__header">Draft courses</div>
+        <div class="widget__body">
+            <template for:each={draftCourses} for:item="course">
+                <div key={course.Id} class="draft-row">
+                    <div class="draft-info">
+                        <span class="draft-name">{course.Name}</span>
+                        <span class="draft-code">{course.Course_Code__c}</span>
+                    </div>
+                    <c-lms-publish-toggle record-id={course.Id} is-published={course.Is_Published__c} onpublishchange={handlePublishChange}></c-lms-publish-toggle>
+                </div>
+            </template>
+            <template if:false={hasDrafts}>
+                <div class="empty">All courses are published.</div>
+            </template>
+        </div>
+    </div>
+</template>

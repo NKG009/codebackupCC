@@ -1,0 +1,182 @@
+<template>
+    <div class="form-page">
+        <div class="form-page__header">
+            <lightning-button
+                label="Back to courses"
+                icon-name="utility:chevronleft"
+                onclick={handleBack}>
+            </lightning-button>
+            <h2>{formTitle}</h2>
+            <div class="form-page__actions">
+                <lightning-button label="Cancel" onclick={handleBack}></lightning-button>
+                <lightning-button
+                    label="Save course"
+                    variant="brand"
+                    onclick={handleSave}
+                    disabled={isSaving}>
+                </lightning-button>
+            </div>
+        </div>
+
+        <div class="form-tabs">
+            <button class={detailsTabClass} onclick={showDetails} data-tab="details">Details</button>
+            <button class={structureTabClass} onclick={showStructure} data-tab="structure">Structure (Classes & Lessons)</button>
+            <button class={quizTabClass} onclick={showQuiz} data-tab="quiz">Final quiz / test-out</button>
+            <button class={settingsTabClass} onclick={showSettings} data-tab="settings">Settings & certification</button>
+        </div>
+
+        <!-- DETAILS TAB -->
+        <template if:true={isTab.details}>
+            <div class="form-section">
+                <div class="form-grid">
+                    <lightning-input label="Course name" value={course.Name} onchange={handleField} data-field="Name" required></lightning-input>
+                    <lightning-input label="Course code" value={course.Course_Code__c} onchange={handleField} data-field="Course_Code__c"></lightning-input>
+                    <lightning-combobox label="Category" value={course.Category__c} options={categoryOptions} onchange={handleField} data-field="Category__c"></lightning-combobox>
+                    <lightning-input label="Total credits" type="number" value={course.Total_Credits__c} onchange={handleField} data-field="Total_Credits__c"></lightning-input>
+                    <lightning-input label="Start date" type="date" value={course.Start_Date__c} onchange={handleField} data-field="Start_Date__c"></lightning-input>
+                    <lightning-input label="End date" type="date" value={course.End_Date__c} onchange={handleField} data-field="End_Date__c"></lightning-input>
+                </div>
+                <lightning-textarea label="Description" value={course.Description__c} onchange={handleField} data-field="Description__c" max-length="5000"></lightning-textarea>
+                <div class="form-section__checkbox-row">
+                    <lightning-input type="checkbox" label="Requires approval to enrol" checked={course.Requires_Approval__c}
+                        onchange={handleApprovalToggle} data-field="Requires_Approval__c">
+                    </lightning-input>
+                    <p class="field-hint">When enabled, learner enrolment requests will be set to "Pending Approval" until an admin
+                        approves them. By default all courses are open to enrol.</p>
+                </div>
+
+            </div>
+        </template>
+
+        <!-- STRUCTURE TAB -->
+        <template if:true={isTab.structure}>
+            <div class="structure-layout">
+                <div class="structure-layout__left">
+                    <div class="structure-header">
+                        <span>Course structure</span>
+                        <div class="structure-header__actions">
+                            <lightning-button label="Add class" icon-name="utility:add" onclick={handleAddClass} size="small"></lightning-button>
+                            <lightning-button label="Add lesson directly" icon-name="utility:add" onclick={handleAddLessonDirect} size="small"></lightning-button>
+                        </div>
+                    </div>
+
+                    <!-- Classes with nested lessons -->
+                    <template for:each={classes} for:item="cls">
+                        <div key={cls.Id} class="class-card">
+                            <div class="class-card__header">
+                                <lightning-icon icon-name="utility:folder" size="x-small"></lightning-icon>
+                                <span class="class-card__name">{cls.Name}</span>
+                                <div class="class-card__actions">
+                                    <lightning-button-icon icon-name="utility:add" onclick={handleAddLessonToClass} data-class-id={cls.Id} alternative-text="Add lesson to class" size="small"></lightning-button-icon>
+                                    <lightning-button-icon icon-name="utility:edit" onclick={handleEditClass} data-id={cls.Id} alternative-text="Edit class" size="small"></lightning-button-icon>
+                                    <lightning-button-icon icon-name="utility:delete" onclick={handleRemoveClass} data-id={cls.junctionId} alternative-text="Remove class" size="small"></lightning-button-icon>
+                                </div>
+                            </div>
+                            <template for:each={cls.lessons} for:item="lesson">
+                                <div key={lesson.Id} class="lesson-row">
+                                    <lightning-icon icon-name="utility:video" size="x-small"></lightning-icon>
+                                    <span>{lesson.LMS_Lesson__r.Name}</span>
+                                    <span class="lesson-row__type">{lesson.LMS_Lesson__r.Content_Type__c}</span>
+                                    <span class="lesson-row__duration">{lesson.LMS_Lesson__r.Duration_Mins__c} min</span>
+                                    <lightning-button-icon icon-name="utility:delete" onclick={handleRemoveLesson} data-id={lesson.Id} alternative-text="Remove" size="small"></lightning-button-icon>
+                                </div>
+                            </template>
+                            <template if:false={cls.hasLessons}>
+                                <div class="lesson-row lesson-row--empty">No lessons — add one above</div>
+                            </template>
+                        </div>
+                    </template>
+
+                    <!-- Direct lessons (no class) -->
+                    <template if:true={hasDirectLessons}>
+                        <div class="class-card class-card--flat">
+                            <div class="class-card__header">
+                                <lightning-icon icon-name="utility:list" size="x-small"></lightning-icon>
+                                <span class="class-card__name">Standalone lessons (no class)</span>
+                            </div>
+                            <template for:each={directLessons} for:item="lesson">
+                                <div key={lesson.Id} class="lesson-row">
+                                    <lightning-icon icon-name="utility:video" size="x-small"></lightning-icon>
+                                    <span>{lesson.LMS_Lesson__r.Name}</span>
+                                    <span class="lesson-row__type">{lesson.LMS_Lesson__r.Content_Type__c}</span>
+                                    <span class="lesson-row__duration">{lesson.LMS_Lesson__r.Duration_Mins__c} min</span>
+                                    <lightning-button-icon icon-name="utility:delete" onclick={handleRemoveDirectLesson} data-id={lesson.Id} alternative-text="Remove" size="small"></lightning-button-icon>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Lesson picker modal -->
+            <template if:true={showLessonPicker}>
+                <c-lms-lesson-picker
+                    context-class-id={pickerClassId}
+                    course-id={recordId}
+                    onlessonselected={handleLessonSelected}
+                    onclose={handlePickerClose}>
+                </c-lms-lesson-picker>
+            </template>
+
+            <!-- Class form modal -->
+            <template if:true={showClassForm}>
+                <c-lms-class-builder
+                    record-id={editingClassId}
+                    course-id={recordId}
+                    onsaved={handleClassSaved}
+                    onclose={handleClassFormClose}>
+                </c-lms-class-builder>
+            </template>
+        </template>
+
+        <!-- QUIZ / TEST-OUT TAB -->
+        <template if:true={isTab.quiz}>
+            <div class="form-section">
+                <p class="tab-hint">Attach a final quiz to allow course-level test-out (Trailhead model). Learners who pass skip all classes and lessons.</p>
+                <lightning-input
+                    label="Allow course-level test-out"
+                    type="checkbox"
+                    checked={course.allowTestOut}
+                    onchange={handleTestOutToggle}>
+                </lightning-input>
+                <template if:true={course.allowTestOut}>
+                    <c-lms-record-picker
+                        label="Final quiz"
+                        object-api-name="LMS_Quiz__c"
+                        value={course.Final_Quiz__c}
+                        onrecordselected={handleFinalQuizSelect}>
+                    </c-lms-record-picker>
+                </template>
+            </div>
+        </template>
+
+        <!-- SETTINGS TAB -->
+        <template if:true={isTab.settings}>
+            <div class="form-section">
+                <div class="form-grid">
+                    <lightning-input
+                        label="Passing threshold (%)"
+                        type="number"
+                        min="0"
+                        max="100"
+                        value={course.Passing_Threshold__c}
+                        onchange={handleField}
+                        data-field="Passing_Threshold__c">
+                    </lightning-input>
+                </div>
+                <lightning-input
+                    label="Enable certification on completion"
+                    type="checkbox"
+                    checked={course.Is_Certification__c}
+                    onchange={handleCertToggle}>
+                </lightning-input>
+                <lightning-input
+                    label="Publish course (visible to learners)"
+                    type="checkbox"
+                    checked={course.Is_Published__c}
+                    onchange={handlePublishToggle}>
+                </lightning-input>
+            </div>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,28 @@
+<template>
+    <div class="modal-backdrop">
+        <div class="modal modal--wide">
+            <div class="modal__header">
+                <h3>{lesson.Name}</h3>
+                <c-lms-status-badge label={lesson.Content_Type__c} variant="type"></c-lms-status-badge>
+                <button class="modal__close" onclick={handleClose}>✕</button>
+            </div>
+            <div class="modal__body">
+                <template if:true={isVideo}>
+                    <div class="video-wrap">
+                        <iframe src={embedUrl} allowfullscreen title="Lesson video"></iframe>
+                    </div>
+                </template>
+                <template if:false={isVideo}>
+                    <div class="content-link">
+                        <lightning-icon icon-name="utility:open" size="small"></lightning-icon>
+                        <a href={lesson.Content_URL__c} target="_blank">Open content in new tab</a>
+                    </div>
+                </template>
+                <div class="preview-meta">
+                    <span>Duration: {lesson.Duration_Mins__c} min</span>
+                    <template if:true={lesson.Allow_Test_Out__c}><span class="testout-tag">Test-out enabled</span></template>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

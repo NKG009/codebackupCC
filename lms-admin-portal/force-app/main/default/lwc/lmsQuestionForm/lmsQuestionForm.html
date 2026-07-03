@@ -1,0 +1,58 @@
+<template>
+    <div class="form-page">
+        <div class="form-page__header">
+            <lightning-button label="Back to question bank" icon-name="utility:chevronleft" onclick={handleBack}></lightning-button>
+            <h2>{formTitle}</h2>
+            <div class="form-page__actions">
+                <lightning-button label="Cancel" onclick={handleBack}></lightning-button>
+                <lightning-button label="Save question" variant="brand" onclick={handleSave} disabled={isSaving}></lightning-button>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-grid">
+                <lightning-combobox label="Question type" value={question.Question_Type__c} options={typeOptions} onchange={handleTypeChange} required></lightning-combobox>
+                <lightning-combobox label="Category" value={question.Question_Category__c} options={categoryOptions} onchange={handleCategoryChange} placeholder="Select category"></lightning-combobox>
+                <lightning-input label="Default points" type="number" min="1" value={question.Default_Points__c} onchange={handleField} data-field="Default_Points__c"></lightning-input>
+            </div>
+
+            <lightning-textarea label="Question text" value={question.Question_Text__c} onchange={handleField} data-field="Question_Text__c" max-length="10000" required></lightning-textarea>
+
+            <template if:true={isMCQ}>
+                <div class="options-builder">
+                    <div class="options-builder__header">
+                        <span>Answer options</span>
+                        <span class="options-hint">Mark the correct answer with the radio button</span>
+                    </div>
+                    <template for:each={mcqOptions} for:item="opt">
+                        <div key={opt.key} class="option-row">
+                            <lightning-input type="radio" label="" name="correctAnswer" value={opt.key} checked={opt.isCorrect} onchange={handleCorrectAnswer}></lightning-input>
+                            <span class="option-row__label">{opt.key}.</span>
+                            <lightning-input label="" value={opt.value} onchange={handleOptionText} data-key={opt.key} class="option-row__input"></lightning-input>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <template if:true={isTrueFalse}>
+                <div class="tf-section">
+                    <span class="field-label">Correct answer</span>
+                    <lightning-radio-group options={tfOptions} value={question.Correct_Answer__c} onchange={handleField} data-field="Correct_Answer__c" type="radio"></lightning-radio-group>
+                </div>
+            </template>
+
+            <template if:true={isOpenOrUpload}>
+                <div class="open-hint">
+                    <lightning-icon icon-name="utility:info" size="x-small"></lightning-icon>
+                    <span>
+                        <template if:true={isOpenEnded}>Open-ended questions require instructor grading. Certifications are held until graded.</template>
+                        <template if:true={isUpload}>Upload questions require file submission and instructor review.</template>
+                    </span>
+                </div>
+            </template>
+
+            <lightning-textarea label="Explanation (shown to learner after grading)" value={question.Explanation__c} onchange={handleField} data-field="Explanation__c" max-length="5000"></lightning-textarea>
+            <lightning-input label="Active (uncheck to archive)" type="checkbox" checked={question.Is_Active__c} onchange={handleActiveToggle}></lightning-input>
+        </div>
+    </div>
+</template>

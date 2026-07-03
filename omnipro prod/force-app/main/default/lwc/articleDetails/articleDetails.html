@@ -1,0 +1,56 @@
+<template>
+    
+    <div class="custom-container">
+       
+       
+   
+        <!-- <div>
+            <lightning-breadcrumbs style="margin-left: 50px; margin-bottom:25px;">
+                <lightning-breadcrumb label="Home" href="https://omniproireland2--omniprodev.sandbox.my.site.com/helpcenter/s/">
+                </lightning-breadcrumb>
+                <lightning-breadcrumb label={topicName} href={TopicUrl}>
+                </lightning-breadcrumb>
+                <lightning-breadcrumb label={articleName} href="">
+                </lightning-breadcrumb>
+            </lightning-breadcrumbs>
+        </div> -->
+
+        <div class="polaroid">
+            <c-document-preview-modal url={docURL} file-extension={fileExtension}></c-document-preview-modal>
+            <template if:true={articleDetails}>
+              
+                <template if:true={questionHtml}>
+                    <section class="custom-question">
+                        <div class="container">
+                            <lightning-formatted-rich-text class="text" value={questionHtml}></lightning-formatted-rich-text>
+                        </div>
+                    </section>
+                </template>
+        
+               
+                <template if:true={answerHtml}>
+                    <section class="custom-answer">
+                        <div class="container">
+                            <lightning-formatted-rich-text class="text" value={answerHtml}></lightning-formatted-rich-text>
+                        </div>
+                    </section>
+                </template>
+        
+               
+                <template if:false={hasContent}>
+                    <section class="custom-no-content">
+                        <div class="container left-alignment">
+                            <h2 class="title" style="font-size: 16px; font-weight: bold;">{articleName}</h2>
+                            <a href="javascript:void(0);" onclick={handleOpenDocument}>Open Document</a>
+                        </div>
+                    </section>
+                </template>
+                
+            </template>
+        </div>
+        
+
+       
+        
+    </div>
+</template>

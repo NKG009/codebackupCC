@@ -1,0 +1,11 @@
+<template>
+    <div class="stats-grid">
+        <template for:each={stats} for:item="stat">
+            <div key={stat.label} class="stat-card">
+                <lightning-icon icon-name={stat.icon} size="small" class="stat-card__icon"></lightning-icon>
+                <div class="stat-card__value">{stat.value}</div>
+                <div class="stat-card__label">{stat.label}</div>
+            </div>
+        </template>
+    </div>
+</template>

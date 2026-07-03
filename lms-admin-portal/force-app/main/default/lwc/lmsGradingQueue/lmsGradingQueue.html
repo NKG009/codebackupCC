@@ -1,0 +1,59 @@
+<template>
+    <div class="grading-page">
+        <div class="grading-toolbar">
+            <lightning-combobox
+                label="Filter by course"
+                options={courseOptions}
+                value={filterCourse}
+                onchange={handleCourseFilter}
+                placeholder="All courses">
+            </lightning-combobox>
+            <lightning-combobox
+                label="Status"
+                options={statusOptions}
+                value={filterStatus}
+                onchange={handleStatusFilter}>
+            </lightning-combobox>
+            <span class="grading-toolbar__count">{pendingCount} pending</span>
+        </div>
+
+        <div class="grading-layout">
+            <!-- Left: attempt list -->
+            <div class="attempt-list">
+                <template for:each={filteredAttempts} for:item="attempt">
+                    <button key={attempt.Id} class={attempt.cssClass} onclick={handleSelectAttempt} data-id={attempt.Id}>
+                        <div class="attempt-card__top">
+                            <span class="attempt-card__learner">{attempt.learnerName}</span>
+                            <span class="attempt-card__status">{attempt.Grading_Status__c}</span>
+                        </div>
+                        <div class="attempt-card__course">{attempt.courseName}</div>
+                        <div class="attempt-card__quiz">{attempt.quizName}</div>
+                        <div class="attempt-card__date">{attempt.formattedDate}</div>
+                    </button>
+                </template>
+                <template if:false={hasAttempts}>
+                    <div class="empty-queue">
+                        <lightning-icon icon-name="utility:check" size="medium"></lightning-icon>
+                        <p>All caught up! No pending submissions.</p>
+                    </div>
+                </template>
+            </div>
+
+            <!-- Right: answer reviewer -->
+            <div class="answer-panel">
+                <template if:true={selectedAttemptId}>
+                    <c-lms-answer-reviewer
+                        attempt-id={selectedAttemptId}
+                        ongraded={handleGraded}>
+                    </c-lms-answer-reviewer>
+                </template>
+                <template if:false={selectedAttemptId}>
+                    <div class="answer-panel__empty">
+                        <lightning-icon icon-name="utility:side_panel_open" size="large"></lightning-icon>
+                        <p>Select a submission from the left to review it</p>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

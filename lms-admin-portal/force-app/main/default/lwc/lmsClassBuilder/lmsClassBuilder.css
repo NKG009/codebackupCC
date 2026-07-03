@@ -1,0 +1,11 @@
+.modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.45); display: flex; align-items: center; justify-content: center; z-index: 9000; }
+.modal { background: #fff; border-radius: 10px; width: 480px; max-width: 95vw; }
+.modal__header { padding: 1.125rem 1.25rem .75rem; display: flex; align-items: center; border-bottom: 1px solid #e5e7eb; }
+.modal__header h3 { flex: 1; margin: 0; font-size: 15px; font-weight: 700; color: #16325c; }
+.modal__close { background: none; border: none; font-size: 1rem; cursor: pointer; color: #6b7280; padding: 2px 6px; border-radius: 4px; }
+.modal__body { padding: 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
+.modal__footer { padding: .875rem 1.25rem; border-top: 1px solid #e5e7eb; display: flex; gap: .5rem; justify-content: flex-end; }
+.user-results { list-style: none; margin: 0; padding: 0; border: 1px solid #e5e7eb; border-radius: 6px; overflow: hidden; }
+.user-results li button { display: block; width: 100%; padding: .5rem .75rem; text-align: left; font-size: 13px; border: none; background: none; cursor: pointer; border-bottom: 1px solid #f3f4f6; color: #111827; }
+.user-results li:last-child button { border-bottom: none; }
+.user-results li button:hover { background: #f0f7ff; }

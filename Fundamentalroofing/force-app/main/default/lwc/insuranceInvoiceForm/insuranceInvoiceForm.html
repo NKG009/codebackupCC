@@ -1,0 +1,243 @@
+<template>
+    <lightning-card title="Insurance Invoice" icon-name="standard:account">
+        <div class="slds-p-around_medium">
+
+            <!-- 1. Company Info Block -->
+            <div class="slds-box slds-m-bottom_medium">
+                <p>3010 LBJ Fwy, STE 1200, Dallas TX 75234</p>
+                <p>Phone: 214-254-9969 | Email: FundamentalroofingLLC@gmail.com</p>
+            </div>
+
+            <!-- 2. Invoice Details Block -->
+            <div class="slds-box slds-m-bottom_medium">
+                <h3 class="slds-text-heading_medium">Invoice Details</h3>
+                <lightning-input type="date" label="Date" value={date} onchange={handleChange}></lightning-input>
+                <lightning-input type="text" label="Customer Name" value={customerName} onchange={handleChange}></lightning-input>
+                
+            </div>
+
+             <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Billing Address</h2>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Street Address" onchange={handleChange} name="street"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="City" onchange={handleChange} name="city"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="State" onchange={handleChange} name="state"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Zip Code" onchange={handleChange} name="zip"></lightning-input>
+                </div>
+            </div>
+             <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Install Address</h2>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Street Address" onchange={handleChange} name="street"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="City" onchange={handleChange} name="city"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="State" onchange={handleChange} name="state"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Zip Code" onchange={handleChange} name="zip"></lightning-input>
+                </div>
+            </div>
+
+            <!-- 3. Policy Info Block -->
+            <div class="slds-box slds-m-bottom_medium">
+                <h3  class="slds-text-heading_medium">Policy Information</h3 >
+                <lightning-input type="text" label="Claim Number" value={claimNumber} onchange={handleChange}></lightning-input>
+                <lightning-input type="text" label="Policy Number" value={policyNumber} onchange={handleChange}></lightning-input>
+                <lightning-input type="number" label="Replacement Cost ($)" value={replacementCost} onchange={handleChange}></lightning-input>
+<lightning-input type="number" label="Net Claim ($)" value={netClaim} disabled></lightning-input>
+                <lightning-input type="number" label="Additional Payment ($)" value={additionalPayment} onchange={handleChange}></lightning-input>
+                <lightning-input type="number" label="Deductible ($)" value={deductible} onchange={handleChange}></lightning-input>
+<lightning-input type="number" label="Recoverable Depreciation ($)" value={recoverableDep} disabled></lightning-input>
+<lightning-input type="number" label="RCV Less Non-Recoverable ($)" value={rcvLessNonRec} disabled></lightning-input>
+                                <lightning-input type="number" label="Less Non-Recoverable ($)" value={lessNonRec} onchange={handleChange}></lightning-input>
+
+<lightning-input type="number" label="First Check ($)" value={firstCheck} onchange={handleChange}></lightning-input>
+                <lightning-input type="number" label="Total ACV of Work Not Completed ($)" value={totalAcvNotCompleted} onchange={handleChange}></lightning-input>
+                <lightning-input type="number" label="Less Depreciation Of Work Not Completed ($)" value={lessDepNotCompleted} onchange={handleChange}></lightning-input>
+                <lightning-textarea label="Description of Work Not Completed" value={descWorkNotCompleted} onchange={handleChange}></lightning-textarea>
+            </div>
+
+            <!-- 4. Other Charges Block -->
+            <div class="slds-box slds-m-bottom_medium">
+                <lightning-input type="number" label="Permit ($)" value={permit} onchange={handleChange}></lightning-input>
+                <lightning-input type="number" label="Supplement ($)" value={supplement} onchange={handleChange}></lightning-input>
+                <lightning-textarea label="Supplement Explanation" value={supplementExplanation} onchange={handleChange}></lightning-textarea>
+<lightning-input type="number" label="Total Amount Due ($)" value={totalAmountDue} disabled></lightning-input>
+            </div>
+
+            <!-- 5. Photo Upload Block -->
+            <div class="slds-box slds-m-bottom_medium">
+                <template for:each={photoBlocks} for:item="block">
+                    <div key={block.id} class="slds-box slds-m-bottom_small">
+
+                        <!-- Label -->
+                        <p class="slds-text-title_bold">Photo Of:</p>
+
+                        <!-- Radio Group -->
+                        <lightning-radio-group
+                            name={block.id}
+                            options={photoOptions}
+                            value={block.filename}
+                            data-id={block.id}
+                            onchange={handlePhotoChange}>
+                        </lightning-radio-group>
+
+                        <!-- File Upload / Preview -->
+                        <template if:false={block.isfileuploaded}>
+                            <lightning-file-upload
+                                name="fileUploader"
+                                accept=".jpg,.jpeg,.png"
+                                data-id={block.id}
+                                record-id={recordId}
+                                onuploadfinished={handleFileUpload}>
+                            </lightning-file-upload>
+                        </template>
+
+                        <template if:true={block.isfileuploaded}>
+                            <img src={block.fileurl} alt={block.filename} width="200" class="slds-m-top_small"/>
+                        </template>
+ <!-- Add / Remove Buttons -->
+            <div class="slds-m-top_small">
+                <lightning-button
+                    label="Add More"
+                    icon-name="utility:add"
+                    variant="neutral"
+                    onclick={handleAddPhotoBlock}
+                    class="slds-m-right_small">
+                </lightning-button>
+
+                <lightning-button
+                    label="Remove"
+                    icon-name="utility:delete"
+                    variant="destructive"
+                    data-id={block.id}
+                    onclick={handleRemovePhotoBlock}>
+                </lightning-button>
+            </div>
+                    </div>
+                </template>
+            </div>
+
+           <div class="slds-box slds-m-around_medium">
+
+    <h2 class="slds-text-heading_small slds-m-bottom_small">Roofing Work Checklist</h2>
+
+    <ol class="slds-m-left_large slds-list_vertical slds-has-dividers_around-space">
+
+        <!-- Item 5a -->
+        <li>
+            <lightning-input class="slds-m-vertical_x-small"
+                type="checkbox"
+                label="Inspect Progress & Quality – Ensure work meets project standards."
+                data-id="5a"
+                onchange={handleCheckboxChange}>
+            </lightning-input>
+        </li>
+
+        <!-- Item 5b -->
+        <li>
+            <lightning-input class="slds-m-vertical_x-small"
+                type="checkbox"
+                label="Clean Up Thoroughly – Make final walkthrough before consulting homeowner to make sure debris is removed, nails are picked up, and in general the site is clean."
+                data-id="5b"
+                onchange={handleCheckboxChange}>
+            </lightning-input>
+        </li>
+
+        <!-- Item 6 -->
+        <li>
+            <lightning-input class="slds-m-vertical_x-small"
+                type="checkbox"
+                label="Confirm customer is satisfied with installation and cleanup."
+                data-id="6"
+                onchange={handleCheckboxChange}>
+            </lightning-input>
+        </li>
+
+        <!-- Item 8 -->
+        <li>
+            <lightning-input class="slds-m-vertical_x-small"
+                type="checkbox"
+                label="Complete attic safety checks for HVAC / water heater."
+                data-id="8"
+                onchange={handleCheckboxChange}>
+            </lightning-input>
+        </li>
+
+        <!-- Item 9 -->
+        <li>
+            <lightning-input class="slds-m-vertical_x-small"
+                type="checkbox"
+                label="Collect & photograph first insurance check & deductible"
+                data-id="9"
+                onchange={handleCheckboxChange}>
+            </lightning-input>
+        </li>
+
+        <!-- Item 10 -->
+        <li>
+            <lightning-input class="slds-m-vertical_x-small"
+                type="checkbox"
+                label="Collect signed certificate of completion from customer."
+                data-id="10"
+                onchange={handleCheckboxChange}>
+            </lightning-input>
+        </li>
+
+        <!-- Item 12 -->
+        <li>
+            <lightning-input class="slds-m-vertical_x-small"
+                type="checkbox"
+                label="Take Photos in spaces below (ONLY APPLICABLE TO CASH JOBS)"
+                data-id="12"
+                onchange={handleCheckboxChange}>
+            </lightning-input>
+        </li>
+
+        <!-- Item 11 -->
+        <li>
+            <lightning-input class="slds-m-vertical_x-small"
+                type="checkbox"
+                label="One day installation based on size and complexity of roof."
+                data-id="11a"
+                onchange={handleCheckboxChange}>
+            </lightning-input>
+
+            <lightning-input class="slds-m-vertical_x-small"
+                type="checkbox"
+                label="Two day installation based on size and complexity of roof."
+                data-id="11b"
+                onchange={handleCheckboxChange}>
+            </lightning-input>
+
+            <lightning-input class="slds-m-vertical_x-small"
+                type="checkbox"
+                label="Three day installation based on size and complexity of roof."
+                data-id="11c"
+                onchange={handleCheckboxChange}>
+            </lightning-input>
+
+            <lightning-input class="slds-m-vertical_x-small"
+                type="checkbox"
+                label="Other"
+                data-id="11d"
+                onchange={handleCheckboxChange}>
+            </lightning-input>
+
+            <template if:true={isItem11Other}>
+                <lightning-input class="slds-m-vertical_x-small"
+                    type="text"
+                    label="Please specify"
+                    value={item11OtherText}
+                    onchange={handleCheckboxChange}>
+                </lightning-input>
+            </template>
+        </li>
+
+    </ol>
+
+</div>
+
+            <!-- 6. Actions Block -->
+                <lightning-button variant="brand" label="Submit" onclick={handleSubmit}></lightning-button>
+
+        </div>
+    </lightning-card>
+</template>

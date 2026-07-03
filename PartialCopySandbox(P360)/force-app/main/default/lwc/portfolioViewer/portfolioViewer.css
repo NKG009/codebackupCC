@@ -1,0 +1,34 @@
+.header-label{
+    font-size: var(--header-font-size);
+    font-family: var(--header-font-family);
+    font-weight: bold;
+    color: var(--header-font-color);
+}
+
+.custom-label{
+    font-size: var(--label-font-size);
+    font-family: var(--label-font-family);
+    font-weight: bold;
+    color: var(--label-font-color);
+}
+
+.team-label{
+    font-size: var(--team-font-size);
+    font-family: var(--team-font-family);
+    font-weight: bold;
+    color: var(--team-font-color);
+}
+
+.custom-percent{
+    font-size: var(--label-font-size);
+    font-family: var(--label-font-family);
+    font-weight: bold;
+    color: var(--percent-color);
+}
+
+.team-percent{
+    font-size: var(--team-font-size);
+    font-family: var(--team-font-family);
+    font-weight: bold;
+    color: var(--team-percent-color);
+}

@@ -1,0 +1,52 @@
+<template>
+    <lightning-card title="Repair Material Order Form">
+        <div class="slds-p-around_medium">
+
+            
+
+            <!-- Supplier Email -->
+            <div class="slds-box slds-m-bottom_medium">
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <lightning-input class="slds-col slds-size_1-of-2" type="email" label="Supplier Email" onchange={handleChange} name="email"></lightning-input>
+                </div>
+            </div>
+
+            <!-- Homeowner Info -->
+            <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Client Name</h2>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <lightning-input class="slds-col slds-size_1-of-2" label="First Name" onchange={handleChange} name="firstName"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Last Name" onchange={handleChange} name="lastName"></lightning-input>
+                </div>
+            </div>
+
+            <!-- Install Address -->
+            <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Client Address</h2>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Street Address" onchange={handleChange} name="street"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="City" onchange={handleChange} name="city"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="State" onchange={handleChange} name="state"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Zip Code" onchange={handleChange} name="zip"></lightning-input>
+                </div>
+            </div>
+
+            <div class="slds-box slds-m-bottom_medium">
+       <lightning-input
+    class="slds-col slds-size_1-of-2"
+    type="date"
+    label="Date"
+    name="date"
+    value={todayDate}  
+    onchange={handleChange}>
+</lightning-input>
+            </div>
+
+            <!-- Notes Field -->
+            <div class="slds-box slds-m-bottom_medium">
+                <lightning-textarea class="slds-col slds-size_1-of-1" label="Requested Material and Quantity: " onchange={handleChange} name="notes"></lightning-textarea>
+            </div>
+
+        </div>
+    </lightning-card>
+</template>

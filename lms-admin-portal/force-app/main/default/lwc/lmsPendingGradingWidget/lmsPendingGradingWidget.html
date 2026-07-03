@@ -1,0 +1,28 @@
+<template>
+    <div class="widget">
+        <div class="widget__header">
+            <span>Pending grading</span>
+            <template if:true={pendingCount}>
+                <span class="header-count">{pendingCount}</span>
+            </template>
+        </div>
+        <div class="widget__body">
+            <template for:each={pendingItems} for:item="item">
+                <div key={item.Id} class="pending-row">
+                    <div class="pending-info">
+                        <span class="pending-learner">{item.learnerName}</span>
+                        <span class="pending-course">{item.courseName}</span>
+                    </div>
+                    <c-lms-status-badge label={item.questionType} variant="qtype"></c-lms-status-badge>
+                    <span class="pending-date">{item.formattedDate}</span>
+                </div>
+            </template>
+            <template if:false={hasPending}>
+                <div class="empty">
+                    <lightning-icon icon-name="utility:check" size="small"></lightning-icon>
+                    <p>All caught up!</p>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

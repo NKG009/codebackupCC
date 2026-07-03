@@ -1,0 +1,14 @@
+<template>
+    <div class="page-header">
+        <div class="page-header__left">
+            <template if:true={showBack}>
+                <lightning-button icon-name="utility:chevronleft" label="" onclick={handleBack} class="back-btn"></lightning-button>
+            </template>
+            <div>
+                <h2 class="page-header__title">{title}</h2>
+                <template if:true={subtitle}><span class="page-header__sub">{subtitle}</span></template>
+            </div>
+        </div>
+        <div class="page-header__actions"><slot></slot></div>
+    </div>
+</template>

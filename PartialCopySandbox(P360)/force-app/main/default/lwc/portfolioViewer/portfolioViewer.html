@@ -1,0 +1,101 @@
+<template>
+
+    <div class="slds-box"> 
+
+        <div class="header-label slds-p-vertical_x-small">
+            {header}
+        </div>   
+
+        <lightning-layout 
+            multiple-rows="true">    
+
+            <lightning-layout-item 
+                size="12" 
+                large-device-size="12"
+                medium-device-size="12"
+                small-device-size="12"
+                padding="around-small">
+
+                <template if:true={portfolio}>
+                    <div class="custom-label slds-p-vertical_x-small">
+                        {title} <span class="custom-percent">{portfolio.percentage}%</span>
+                    </div>                    
+                    <c-progress-bar-tile 
+                        value={portfolio.percentage} 
+                        size="large"
+                        bar-color={progressBarColor}
+                        bar-height={progressBarHeight}
+                    ></c-progress-bar-tile>  
+                </template>                
+            </lightning-layout-item>           
+                        
+            <lightning-layout-item 
+                size="12" 
+                large-device-size="12"
+                medium-device-size="12"
+                small-device-size="12"
+                padding="around-small">
+                <template if:true={portfolio}>
+                    <div class="custom-label slds-p-vertical_x-small">
+                        {agencyTitle} <span class="custom-percent">{portfolio.teamPercentage}%</span>
+                    </div>   
+                    <c-progress-bar-tile 
+                        value={portfolio.teamPercentage} 
+                        size="large"
+                        bar-color={agencyProgressBarColor}
+                        bar-height={agencyProgressBarHeight}
+                    ></c-progress-bar-tile>  
+                </template>                
+            </lightning-layout-item>   
+
+            <template if:true={portfolio}>           
+                
+                <lightning-layout-item
+                    size="12" 
+                    large-device-size="12"
+                    medium-device-size="12"
+                    small-device-size="12"
+                    padding="around-small">               
+                    
+                    <div class="custom-label slds-p-vertical_x-small">
+                        {teamTitle} 
+                    </div> 
+
+                    <lightning-layout 
+                        multiple-rows="true">   
+
+                        <template for:each={portfolio.myPortfolioList} for:item="team">
+
+                            <lightning-layout-item
+                                key={team.name}
+                                size="12" 
+                                large-device-size="12"
+                                medium-device-size="12"
+                                small-device-size="12"
+                                padding="around-small">  
+
+                                <div class="team-label">
+                                    {team.name} <span class="team-percent">{team.percentage}%</span>
+                                </div>       
+                                <c-progress-bar-tile
+                                    value={team.percentage}
+                                    size="large"
+                                    bar-color={teamProgressBarColor}
+                                    bar-height={teamProgressBarHeight}
+                                ></c-progress-bar-tile>
+                                                                
+                            </lightning-layout-item> 
+
+                        </template>
+
+                    </lightning-layout>   
+
+                </lightning-layout-item> 
+
+            </template>      
+
+        </lightning-layout>   
+ 
+    </div>
+
+</template>

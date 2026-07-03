@@ -1,0 +1,28 @@
+<template>
+    <div class="list-page">
+        <div class="list-page__toolbar">
+            <lightning-input type="search" label="" placeholder="Search users..." value={searchTerm} onchange={handleSearch} class="list-page__search"></lightning-input>
+            <lightning-combobox label="" placeholder="All roles" options={roleOptions} value={filterRole} onchange={handleRoleFilter}></lightning-combobox>
+        </div>
+        <div class="user-grid">
+            <template for:each={filteredUsers} for:item="u">
+                <div key={u.Id} class="user-card">
+                    <div class="user-card__avatar">{u.initials}</div>
+                    <div class="user-card__info">
+                        <span class="user-card__name">{u.Name}</span>
+                        <span class="user-card__email">{u.Email}</span>
+                        <c-lms-status-badge label={u.lmsRole} variant="role"></c-lms-status-badge>
+                    </div>
+                    <div class="user-card__stats">
+                        <span class="user-stat">{u.enrolCount} courses</span>
+                        <span class="user-stat">{u.certCount} certs</span>
+                    </div>
+                    <lightning-button-icon icon-name="utility:settings" alternative-text="Manage role" onclick={handleManageRole} data-id={u.Id} title="Manage role"></lightning-button-icon>
+                </div>
+            </template>
+        </div>
+        <template if:true={showRoleAssigner}>
+            <c-lms-user-role-assigner user-id={selectedUserId} onclose={handleRoleClose} onsaved={handleRoleSaved}></c-lms-user-role-assigner>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,143 @@
+<template>
+    <lightning-card title="Certainteed Shingle Warranty">
+        <div class="slds-p-around_medium">
+
+            
+
+            <!-- Supplier Email -->
+            <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Client Email:</h2>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <lightning-input class="slds-col slds-size_1-of-2" type="email" onchange={handleChange} name="email"></lightning-input>
+                </div>
+                <div class="hint">example@example.com</div>
+            </div>
+
+            <!-- Install Address -->
+            <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Client Address:</h2>
+                <div>
+                    <lightning-input onchange={handleChange} name="street"></lightning-input>
+                    <div class="hint">Street Address</div>
+                    <lightning-input onchange={handleChange} name="street"></lightning-input>
+                    <div class="hint">Street Address Line 2</div>
+                </div>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <lightning-input class="slds-col slds-size_1-of-2" onchange={handleChange} name="city"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" onchange={handleChange} name="state"></lightning-input>
+                </div>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-size_1-of-2">City</div>
+                    <div class="slds-col slds-size_1-of-2">State</div>
+                </div>
+                <div>
+                    <lightning-input onchange={handleChange} name="zip"></lightning-input>
+                    <div class="hint">Zip Code</div>
+                </div>
+                
+            </div>
+
+            <div class="slds-box slds-m-bottom_medium">
+                <h4 class="slds-text-heading_small slds-m-bottom_small">Labor Warranty:</h4><hr>
+                <div class="slds-p-around_medium slds-text-align_left">
+
+                    <p>
+                        <strong>
+                            Fundamental Roofing truly enjoyed the opportunity working with you during your recent home repairs. 
+                            It is an honor to have been chosen as your contractor for your roofing needs. 
+                            Your business is much appreciated, and we will do our very best to continue to meet your expectations.
+                        </strong>
+                    </p>
+
+                    <br />
+
+                    <p>
+                        Fundamental Roofing LLC warrants all labor performed at the above-mentioned job site, in accordance with 
+                        the contract, drawings, specifications, alterations and additions thereto, for a period of 
+                        <strong><u> Life (Lifetime Warranty) from date of installation.</u></strong>
+                    </p>
+
+                    <br />
+
+                    <p>This warranty does <strong><u>NOT</u></strong> include:</p>
+
+                    <ul class="custom-bullets">
+                        <li>Normal wear and tear</li>
+                        <li>Rodent damage</li>
+                        <li>Damages due to lack or maintenance</li>
+                        <li>Damage from tree limbs</li>
+                        <li>Wind and/or hail damage</li>
+                        <li>Alterations to the roof by any other party</li>
+                        <li>And/or product abuse</li>
+                    </ul>
+
+                    <br />
+
+                    <p>
+                        Under this warranty, Fundamental Roofing LLC will be provided the opportunity to have one of its representatives 
+                        assess any damage identified to be caused by Fundamental Roofing LLC employees or subcontractors and/or material 
+                        installed by us. If said damage is judged to be the fault of Fundamental Roofing LLC workmanship and/or material, 
+                        we will, at no cost to the homeowner, repair or replace defective material or quality issues with the installation.
+                    </p>
+
+                    <br />
+
+                    <p>
+                        The above applies to all except a pitch up to 4/12 which carries only a 2-year warranty for labor and repairs. 
+                        If you have any questions, please contact us at 214-254-9969. This warranty has a one-time free transfer 
+                        to a new homeowner. The warranty becomes in effect when the account is paid in full.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="slds-box slds-m-bottom_medium">
+                <h4 class="slds-text-heading_small slds-m-bottom_small">CertainTeed Shingle Warranty:</h4><hr><br>
+                <div class="slds-p-around_medium" align="center">
+                    <iframe 
+                        src={pdfUrl} 
+                        width="75%" 
+                        height="900px" 
+                        style="border: none;">
+                    </iframe>
+                </div>
+            </div>
+
+
+            <div class="slds-m-top_medium" style="display: flex; justify-content: center; gap: 1rem;">
+        
+                <!-- Save Button: Black font, no background, square corners -->
+                <button 
+                    onclick={handleSave}
+                    style="
+                        color: black; 
+                        background-color: transparent; 
+                        border: 1px solid black; 
+                        padding: 0.5rem 1rem; 
+                        border-radius: 0; 
+                        font-size: 1rem; 
+                        cursor: pointer;">
+                    Save
+                </button>
+
+                <!-- Submit Button: White font, parrot green background, square corners -->
+                <button 
+                    onclick={handleSubmit}
+                    style="
+                        color: white; 
+                        background-color: #00cc66; 
+                        border: 1px solid #00cc66; 
+                        padding: 0.5rem 1rem; 
+                        border-radius: 0; 
+                        font-size: 1rem; 
+                        cursor: pointer;">
+                    Submit
+                </button>
+
+            </div>
+
+
+
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,14 @@
+<template>
+    <ul class="sequencer">
+        <template for:each={items} for:item="item">
+            <li key={item.id} class="seq-row">
+                <span class="seq-num">{item.seq}</span>
+                <span class="seq-label">{item.label}</span>
+                <div class="seq-btns">
+                    <button onclick={moveUp} data-id={item.id} disabled={item.isFirst} title="Move up">↑</button>
+                    <button onclick={moveDown} data-id={item.id} disabled={item.isLast} title="Move down">↓</button>
+                </div>
+            </li>
+        </template>
+    </ul>
+</template>

@@ -1,0 +1,23 @@
+<aura:component controller="IntegrationCtrl" implements="forceCommunity:availableForAllPageTypes" access="global" >
+    
+    <aura:attribute name="cbaseURL" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col dummy"></div>
+        <div class="slds-col tile" data-id="Property Tree" onclick="{!c.navigateToIntegration}">
+            <img class="center" style="margin:32px auto" src="{!v.cbaseURL +'/file-asset/property_tree'}"/><!--property_tree-->
+        </div>
+        <div class="slds-col tile" data-id="Property Me" onclick="{!c.navigateToIntegration}">
+            <img class="center" style="margin:52px auto" src="{!v.cbaseURL +'/file-asset/PropertyMe_Logo_Pos_RGB1'}"/><!--propertyme3cb0ba855c1028821467c7041-->
+        </div>
+        <div class="slds-col dummy"></div>
+        <!--
+        <div class="slds-col tile" data-id="Console Cloud" onclick="{!c.navigateToIntegration}">
+            <img class="center" style="margin:37px auto" src="{!v.cbaseURL +'/file-asset/consolecloud?v=1'}"/>
+        </div>
+        <div class="slds-col tile" data-id="Vault" onclick="{!c.navigateToIntegration}">
+            <img class="center" style="margin:57px auto" src="{!v.cbaseURL +'/file-asset/VaultREfinalscaled_1?v=1'}"/>
+        </div>-->
+    </div>
+</aura:component>

@@ -1,0 +1,2 @@
+.cert-trigger { display: inline-flex; }
+.confirm-inline { display: flex; align-items: center; gap: .5rem; background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: .5rem .75rem; font-size: 13px; color: #15803d; }

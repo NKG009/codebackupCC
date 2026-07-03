@@ -1,0 +1,12 @@
+.col-2design{
+    display: block;
+}
+.col-2design .slds-col{
+width: 50%;
+float: left;
+margin: 5px 0px;
+}
+.footer_sec{
+    clear: both;
+    padding-top: 30px !important;
+}

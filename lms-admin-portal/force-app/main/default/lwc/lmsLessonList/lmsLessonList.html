@@ -1,0 +1,81 @@
+<template>
+    <div class="list-page">
+        
+
+        <div class="list-page__toolbar">
+            <lightning-input type="search" label="" placeholder="Search lessons..." value={searchTerm} onchange={handleSearch} class="list-page__search"></lightning-input>
+            <lightning-combobox label="" placeholder="All types" options={typeOptions} value={filterType} onchange={handleTypeFilter}></lightning-combobox>
+            <span class="lesson-count">{lessonCount} lessons</span>
+            <lightning-button label="New lesson" icon-name="utility:add" variant="brand" onclick={handleNew}></lightning-button>
+        </div>
+
+        <template if:false={isLoading}>
+            <template if:true={hasLessons}>
+                <div class="list-table">
+                    <div class="list-table__header">
+                        <span>Lesson name</span>
+                        <span>Content types</span>
+                        <span>Duration</span>
+                        <span>Quiz</span>
+                        <span>Test-out</span>
+                        <span>Actions</span>
+                    </div>
+                    <template for:each={filteredLessons} for:item="lesson">
+                        <div key={lesson.Id} class="list-table__row">
+
+                            <!-- Name -->
+                            <span class="row-name">{lesson.Name}</span>
+
+                            <!-- Content type badges — one per type -->
+                            <div class="type-badges">
+                                <template for:each={lesson.typeBadges} for:item="badge">
+                                    <c-lms-status-badge key={badge.key} label={badge.label} variant="type"></c-lms-status-badge>
+                                </template>
+                                <template if:false={lesson.typeBadges.length}>
+                                    <span class="row-muted">—</span>
+                                </template>
+                            </div>
+
+                            <!-- Duration -->
+                            <span class="row-muted">{lesson.durationDisplay}</span>
+
+                            <!-- Quiz -->
+                            <span class="row-muted">{lesson.quizName}</span>
+
+                            <!-- Test-out -->
+                            <template if:true={lesson.Allow_Test_Out__c}>
+                                <lightning-icon icon-name="utility:check" size="x-small" class="icon-ok"></lightning-icon>
+                            </template>
+                            <template if:false={lesson.Allow_Test_Out__c}>
+                                <span class="row-muted">—</span>
+                            </template>
+
+                            <!-- Actions -->
+                            <div class="row-actions">
+                                <lightning-button-icon icon-name="utility:edit" alternative-text="Edit" onclick={handleEdit} data-id={lesson.Id}></lightning-button-icon>
+                                <lightning-button-icon icon-name="utility:delete" alternative-text="Delete" onclick={handleDelete} data-id={lesson.Id}></lightning-button-icon>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <template if:false={hasLessons}>
+                <div class="empty-state">
+                    <lightning-icon icon-name="utility:video" size="large"></lightning-icon>
+                    <p>No lessons found. Create your first lesson to add it to the library.</p>
+                    <lightning-button label="New lesson" variant="brand" onclick={handleNew}></lightning-button>
+                </div>
+            </template>
+        </template>
+
+        <template if:true={showConfirm}>
+            <c-lms-confirm-modal
+                title="Delete lesson?"
+                message="This removes the lesson from the library and all courses that reference it."
+                onconfirm={confirmDelete}
+                oncancel={cancelDelete}>
+            </c-lms-confirm-modal>
+        </template>
+    </div>
+</template>

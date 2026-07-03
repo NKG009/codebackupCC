@@ -1,0 +1,7 @@
+.cert-card { display: flex; align-items: center; gap: 1rem; background: linear-gradient(135deg,#16325c 0%,#1589ee 100%); border-radius: 10px; padding: 1rem 1.25rem; color: #fff; }
+.cert-card__badge { background: rgba(255,255,255,.15); border-radius: 8px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.cert-card__body { display: flex; flex-direction: column; gap: 2px; }
+.cert-card__learner { font-size: 15px; font-weight: 700; }
+.cert-card__course { font-size: 13px; opacity: .85; }
+.cert-card__num { font-size: 11px; font-family: monospace; opacity: .7; }
+.cert-card__date { font-size: 11px; opacity: .7; }

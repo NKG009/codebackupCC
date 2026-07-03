@@ -1,0 +1,15 @@
+<template>
+    <div class="uploader">
+        <label class="uploader__label">{label}</label>
+        <template if:false={uploadedUrl}>
+            <lightning-file-upload name="fileUploader" accept={accept} record-id={recordId} onuploadfinished={handleUpload} multiple="false"></lightning-file-upload>
+        </template>
+        <template if:true={uploadedUrl}>
+            <div class="uploader__file">
+                <lightning-icon icon-name="utility:attach" size="x-small"></lightning-icon>
+                <span>{fileName}</span>
+                <button onclick={clearFile} class="uploader__clear">Remove</button>
+            </div>
+        </template>
+    </div>
+</template>

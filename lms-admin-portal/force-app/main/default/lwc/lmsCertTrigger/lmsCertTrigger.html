@@ -1,0 +1,14 @@
+<template>
+    <div class="cert-trigger">
+        <template if:false={showConfirm}>
+            <lightning-button label="Issue certification" icon-name="utility:ribbon" variant="success" onclick={handleClick} disabled={disabled}></lightning-button>
+        </template>
+        <template if:true={showConfirm}>
+            <div class="confirm-inline">
+                <span>Issue certification to {learnerName}?</span>
+                <lightning-button label="Confirm" variant="success" onclick={handleConfirm}></lightning-button>
+                <lightning-button label="Cancel" onclick={handleCancel}></lightning-button>
+            </div>
+        </template>
+    </div>
+</template>

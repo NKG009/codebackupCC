@@ -1,0 +1,195 @@
+<!-- /*Author : Priyanka
+ * Case link :https://targetrecruit.atlassian.net/browse/WAVE-66
+ * LWC :extendPlacementComponent
+ * Controller  : ChangeRequestController
+ */ -->
+<template>
+    <div class="slds-p-around_large slds-p-left_xl">
+        <lightning-card lwc:if={placementData}>
+            <strong>
+                <h1 class="slds-text-heading_medium slds-text-align_center">Placement Change Request</h1>
+            </strong>
+            <br />
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <strong><label class="slds-form-element__label">Previous Placement: </label></strong>
+                    <a href={previousPlacementUrl} target="_blank">{placementData.Name}</a>
+                </div>
+            </div>
+        </lightning-card>
+        <lightning-card lwc:if={placementData}>
+            <div class="slds-grid slds-gutters col-2design">
+                <div class="slds-col">
+                    <strong><label class="slds-form-element__label">Candidate: </label><br /></strong>
+                    <a href={previousPlacementCandidate} target="_blank">
+                        {candidateName}
+                    </a>
+                </div>
+                <div class="slds-col">
+                    <strong><label class="slds-form-element__label">Account: </label></strong><br />
+                    <a href={previousPlacementAccount} target="_blank">{employerName}</a>
+                </div>
+                <div class="slds-col">
+                    <strong><label class="slds-form-element__label">Job Title: </label></strong><br />
+                    <lightning-formatted-text value={placementData.AVTRRT__Job_Title__c}></lightning-formatted-text>
+                </div>
+                <div class="slds-col">
+                    <strong><label class="slds-form-element__label">Job Applicant: </label></strong><br />
+                    <a href={previousPlacementJobApp} target="_blank">{applicationName}</a>
+                </div>
+                <div class="slds-col">
+                    <strong><label class="slds-form-element__label">Existing Placement Start Date:
+                        </label></strong><br />
+                    <lightning-formatted-text value={placementData.AVTRRT__Start_Date__c}></lightning-formatted-text>
+                </div>
+                <div class="slds-col">
+                    <strong><label class="slds-form-element__label">Existing Placement End Date: </label></strong><br />
+                    <lightning-formatted-text value={placementData.AVTRRT__End_Date__c}></lightning-formatted-text>
+                </div>
+                <div class="slds-col">
+                    <strong><label class="slds-form-element__label">Effective/New Start Date: </label></strong><br />
+                    <input type="date" id="date-input" class="slds-input slds-size_medium" value={selectedStartDate}
+                        onchange={handleStartDateChange} />
+                </div>
+                <div class="slds-col">
+                    <strong><label class="slds-form-element__label">Effective/New End Date: </label></strong><br />
+                    <input type="date" id="date-input1" class="slds-input slds-size_medium" value={selectedEndDate}
+                        onchange={handleEndDateChange} />
+                </div>
+                <div class="slds-col">
+                    <strong><label class="slds-form-element__label">Job Number: </label></strong><br />
+                    <a href={previousPlacementJob} target="_blank">{placementData.AVTRRT__Job__r.Name}</a>
+                </div>
+
+                <div class="slds-col" style="height:50px;">
+                    <strong><label class="slds-form-element__label"> </label></strong><br />
+                    <a href="#" target="_blank"></a>
+                </div>
+                <div class="slds-col" style="width:100%;">
+                    <p style="background: #ededed;font-size: 16px;font-weight: 500;padding: 10px;border-radius: 5px;">
+                        Financial Information</p>
+                </div>
+                <div class="slds-col" style="width:100%;">
+                    <p style="margin-bottom: 15px;">Check <a
+                            href="https://waveint.sharepoint.com/recruitment/Shared%20Documents/Forms/AllItems.aspx?id=%2Frecruitment%2FShared%20Documents%2FApps%20%26%20Database%2FTargetRecruit%2FRate%20Card%20Calculators&p=true&ga=1"
+                            target="_blank"> Locum Rate Calculators</a> and Current Account Margin % before saving to
+                        ensure placement financials are accurate </p>
+                </div>
+                <div class="slds-col">
+                    <lightning-input name="Pay Rate" label="Pay Rate" value={placementData.AVTRRT__Pay_Rate__c}
+                        data-id={placementData.id} data-field="AVTRRT__Pay_Rate__c"
+                        onchange={handlePlacementFieldsChange} class="small-input"></lightning-input>
+                </div>
+                <div class="slds-col">
+                    <lightning-input name="External ID" label="External ID" value={placementData.AVTRRT__External_ID__c}
+                        class="small-input" onchange={handlePlacementFieldsChange} data-id={placementData.id}
+                        data-field="AVTRRT__External_ID__c"></lightning-input>
+                </div>
+                <div class="slds-col">
+                    <lightning-combobox name="Pay Type" label="Pay Type" value={placementData.AVTRRT__Pay_Type__c}
+                        placeholder="--None--" data-id={placementData.id} data-field="AVTRRT__Pay_Type__c"
+                        options={payTypeValues} onchange={handlePlacementFieldsChange}>
+                    </lightning-combobox>
+                </div>
+                <div class="slds-col">
+                    <lightning-record-edit-form object-api-name="AVTRRT__Placement__c" record-id={recordId}>
+                        <lightning-messages></lightning-messages>
+                        <lightning-input-field field-name="Billing_Contact__c" label="Billing Contact"
+                            data-id={placementData.id} data-field="Billing_Contact__c"
+                            onchange={handlePlacementFieldsChange} class="small-input">
+                        </lightning-input-field>
+                    </lightning-record-edit-form>
+                </div>
+                <div class="slds-col">
+                    <lightning-combobox name="Rate Type" label="Rate Type" value={placementData.Rate_Type__c}
+                        placeholder="--None--" data-id={placementData.id} data-field="Rate_Type__c"
+                        options={rateTypeValues} onchange={handlePlacementFieldsChange}>
+                    </lightning-combobox>
+                </div>
+                <div class="slds-col">
+                    <lightning-input name="Margin $" label="Margin $" value={placementData.Margin__c}
+                        data-id={placementData.id} data-field="Margin__c" onchange={handlePlacementFieldsChange}
+                        class="small-input"></lightning-input>
+                </div>
+                <div class="slds-col">
+                    <template if:true={showInsurances}>
+                        <lightning-input name="Insurances" label="Insurances" value={placementData.Insurances__c}
+                            data-id={placementData.id} data-field="Insurances__c" onchange={handlePlacementFieldsChange}
+                            class="small-input"></lightning-input>
+                    </template>
+                </div>
+                <div class="slds-col">
+                    <template if:true={showInsurances}>
+                        <lightning-input name="Workers Comp" label="Workers Comp" value={placementData.Workers_Comp__c}
+                            data-id={placementData.id} data-field="Workers_Comp__c"
+                            onchange={handlePlacementFieldsChange} class="small-input"></lightning-input>
+                    </template>
+                </div>
+                <div class="slds-col">
+                    <template if:true={showPayRollTax}>
+
+                        <lightning-input name="Payroll Tax" label="Payroll Tax" value={placementData.Payroll_Tax__c}
+                            data-id={placementData.id} data-field="Payroll_Tax__c"
+                            onchange={handlePlacementFieldsChange} class="small-input"></lightning-input>
+                    </template>
+                </div>
+                <div class="slds-col">
+                    <template if:true={showGNC}>
+                        <lightning-input name="GNC $" label="GNC $" value={placementData.GNC__c}
+                            data-id={placementData.id} data-field="GNC__c" onchange={handlePlacementFieldsChange}
+                            class="small-input"></lightning-input>
+                    </template>
+                </div>
+
+                <!-- <div class="slds-col">
+                    <lightning-input name="Forecast Placement Value" label="Forecast Placement Value"
+                    data-id={placementData.id} data-field="Forecast_Placement_Value__c" onchange={handlePlacementFieldsChange} value={placementData.Forecast_Placement_Value__c} class="small-input"></lightning-input>
+                </div>  -->
+                <div class="slds-col">
+                    <lightning-input name="Number of units" label="Number of units" data-id={placementData.id}
+                        data-field="Number_of_units__c" onchange={handlePlacementFieldsChange}
+                        value={placementData.Number_of_units__c} class="small-input"></lightning-input>
+                </div>
+                <div class="slds-col">
+                    <lightning-input name="Superannuation" label="Superannuation" data-id={placementData.id}
+                        data-field="Superannuation__c" onchange={handlePlacementFieldsChange}
+                        value={placementData.Superannuation__c} class="small-input"></lightning-input>
+                </div>
+                <div class="slds-col" style="height:70px;">
+                    <strong><label class="slds-form-element__label"> </label></strong><br />
+                    <a href="#" target="_blank"></a>
+                </div>
+                <!--<div class="slds-col">
+                    <input type="checkbox" name="options" id="extensionCheckbox" checked={isSelectedExtensionCB}
+                        onclick={handleExtensionCheckbox} />
+                    <label class="slds-checkbox__label" for="extensionCheckbox">
+                        <span class="slds-checkbox_faux"></span> &nbsp;
+                        <strong><span class="slds-form-element__label">Extension</span></strong>
+                    </label>
+                </div>
+                 <div class="slds-col">
+                    <input type="checkbox" name="options" id="rateChangeCheckbox" checked={isSelectedRateChangeCB}
+                        onclick={handleRateChangeCheckbox} />
+                    <label class="slds-checkbox__label" for="rateChangeCheckbox">
+                        <span class="slds-checkbox_faux"></span>&nbsp;
+                        <strong><span class="slds-form-element__label">Rate Change</span></strong>
+                    </label>
+                </div> -->
+            </div>
+            <br />
+            <!-- Submit and Cancel button-->
+            <div class="footer_sec">
+                <label class="slds-form-element__label slds-text-heading_small">Do you want to create an extension for
+                    this placement?</label>
+                <template if:true={showSpinner}>
+                    <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                </template>
+                <strong><lightning-button label="SAVE" variant="brand" onclick={handleSubmit} icon-name="utility:save"
+                        disabled={isSaveButtonClicked}></lightning-button></strong>&nbsp;&nbsp;
+
+                <strong><lightning-button label="CANCEL" variant="destructive" onclick={closeAction}
+                        icon-name="utility:close"></lightning-button></strong>
+            </div>
+        </lightning-card>
+    </div>
+</template>

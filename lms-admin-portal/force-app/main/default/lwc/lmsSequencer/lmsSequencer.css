@@ -1,0 +1,8 @@
+.sequencer { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.seq-row { display: flex; align-items: center; gap: .625rem; padding: .5rem .625rem; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; font-size: 13px; }
+.seq-num { background: #e5e7eb; color: #374151; font-size: 11px; font-weight: 700; width: 22px; height: 22px; border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.seq-label { flex: 1; color: #111827; }
+.seq-btns { display: flex; gap: 2px; }
+.seq-btns button { background: #fff; border: 1px solid #e5e7eb; border-radius: 4px; width: 24px; height: 24px; cursor: pointer; font-size: 12px; color: #374151; display: flex; align-items: center; justify-content: center; }
+.seq-btns button:disabled { opacity: .3; cursor: default; }
+.seq-btns button:hover:not(:disabled) { background: #eff6ff; border-color: #93c5fd; }

@@ -1,0 +1,106 @@
+/* ── Overlay variants ──────────────────────────────────────────────────────── */
+.spinner-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+}
+
+/* Full-screen dark backdrop */
+.spinner-overlay--overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+/* Covers only the parent container — parent must have position: relative */
+.spinner-overlay--inline {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: inherit;
+}
+
+/* Inline block, no backdrop */
+.spinner-overlay--local {
+    position: relative;
+    padding: 1rem;
+}
+
+/* ── Spinner wrap (centres ring + label) ───────────────────────────────────── */
+.spinner-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* ── Spinning rings ────────────────────────────────────────────────────────── */
+.spinner {
+    position: relative;
+    width: 44px;
+    height: 44px;
+}
+
+.spinner__ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    animation: lms-spin 1s linear infinite;
+}
+
+.spinner__ring--1 {
+    border-top-color: #0070d2;
+    animation-duration: 0.9s;
+}
+
+.spinner__ring--2 {
+    inset: 6px;
+    border-top-color: #1589ee;
+    animation-duration: 0.7s;
+    animation-direction: reverse;
+}
+
+.spinner__ring--3 {
+    inset: 12px;
+    border-top-color: #54a0e8;
+    animation-duration: 0.5s;
+}
+
+/* Smaller ring for local/inline variant */
+.spinner-overlay--local .spinner,
+.spinner-overlay--inline .spinner {
+    width: 32px;
+    height: 32px;
+}
+
+.spinner-overlay--local .spinner__ring,
+.spinner-overlay--inline .spinner__ring {
+    border-width: 2px;
+}
+
+.spinner-overlay--local .spinner__ring--2 { inset: 5px; }
+.spinner-overlay--local .spinner__ring--3 { inset: 10px; }
+.spinner-overlay--inline .spinner__ring--2 { inset: 5px; }
+.spinner-overlay--inline .spinner__ring--3 { inset: 10px; }
+
+/* ── Label ─────────────────────────────────────────────────────────────────── */
+.spinner__label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.02em;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+.spinner-overlay--inline .spinner__label,
+.spinner-overlay--local .spinner__label {
+    color: #16325c;
+    text-shadow: none;
+}
+
+/* ── Keyframes ─────────────────────────────────────────────────────────────── */
+@keyframes lms-spin {
+    to { transform: rotate(360deg); }
+}

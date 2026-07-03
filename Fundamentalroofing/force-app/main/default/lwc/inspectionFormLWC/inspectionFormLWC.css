@@ -1,0 +1,9 @@
+.custom-card .slds-card__header-title {
+    text-align: center;
+    width: 100%;
+}
+
+.horizontal-radio .slds-radio {
+    display: inline-block !important;
+    margin-right: 1rem;
+}

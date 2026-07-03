@@ -1,0 +1,20 @@
+<template>
+    <div class="comment-panel">
+        <lightning-textarea
+            label="Instructor comment"
+            value={comment}
+            onchange={handleChange}
+            placeholder="Leave feedback for the learner..."
+            max-length="5000">
+        </lightning-textarea>
+
+        <div class="comment-panel__actions">
+            <lightning-button
+                label="Save comment"
+                variant="brand"
+                onclick={handleSave}
+                disabled={isSaveDisabled}>
+            </lightning-button>
+        </div>
+    </div>
+</template>

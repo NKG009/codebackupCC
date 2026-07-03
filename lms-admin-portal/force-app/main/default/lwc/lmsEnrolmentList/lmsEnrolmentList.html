@@ -1,0 +1,48 @@
+<template>
+    <div class="list-page">
+       
+
+        <div class="list-page__toolbar">
+            <lightning-input type="search" label="" placeholder="Search by learner or course..." value={searchTerm} onchange={handleSearch} class="list-page__search"></lightning-input>
+            <lightning-combobox label="" placeholder="All statuses" options={statusOptions} value={filterStatus} onchange={handleStatusFilter}></lightning-combobox>
+            <lightning-combobox label="" placeholder="All courses" options={courseOptions} value={filterCourse} onchange={handleCourseFilter}></lightning-combobox>
+            <lightning-button label="Enrol learner" icon-name="utility:add" variant="brand" onclick={handleNew}></lightning-button>
+        </div>
+
+        <div class="list-table">
+            <div class="list-table__header"><span>Learner</span><span>Course</span><span>Status</span><span>Enrolled</span><span>Score</span><span>Actions</span></div>
+            <template if:false={isLoading}>
+                <template for:each={filteredEnrolments} for:item="e">
+                    <div key={e.Id} class="list-table__row">
+                        <span class="row-name">{e.learnerName}</span>
+                        <span class="row-secondary">{e.courseName}</span>
+                        <c-lms-status-badge label={e.Status__c} variant="status"></c-lms-status-badge>
+                        <span class="row-muted">{e.formattedDate}</span>
+                        <span class="row-muted">{e.scoreDisplay}</span>
+                        <div class="row-actions">
+                            <template if:true={e.isPendingApproval}>
+                                <lightning-button
+                                    label="Approve"
+                                    variant="success"
+                                    icon-name="utility:check"
+                                    onclick={handleApprove}
+                                    data-id={e.Id}
+                                    class="approve-btn">
+                                </lightning-button>
+                            </template>
+                            <lightning-button-icon icon-name="utility:preview" alternative-text="View progress" onclick={handleViewProgress} data-id={e.Id}></lightning-button-icon>
+                            <lightning-button-icon icon-name="utility:delete" alternative-text="Withdraw" onclick={handleWithdraw} data-id={e.Id}></lightning-button-icon>
+                        </div>
+                    </div>
+                </template>
+            </template>
+        </div>
+
+        <template if:true={showEnrolForm}>
+            <c-lms-enrolment-form onclose={handleFormClose} onsaved={handleFormSaved}></c-lms-enrolment-form>
+        </template>
+        <template if:true={showProgress}>
+            <c-lms-progress-tracker enrolment-id={progressEnrolId} onclose={handleProgressClose}></c-lms-progress-tracker>
+        </template>
+    </div>
+</template>

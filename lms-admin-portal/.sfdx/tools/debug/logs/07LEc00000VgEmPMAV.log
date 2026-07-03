@@ -1,0 +1,148 @@
+67.0 APEX_CODE,FINEST;APEX_PROFILING,FINE;CALLOUT,INFO;DATA_ACCESS,INFO;DB,FINEST;NBA,INFO;SYSTEM,DEBUG;VALIDATION,INFO;VISUALFORCE,FINER;WAVE,INFO;WORKFLOW,FINE
+08:06:04.1 (1378124)|USER_INFO|[EXTERNAL]|005Ec00000ZXoEn|nikhil.gaurav@cloudcacheconsulting.com|(GMT-04:00) Eastern Daylight Time (America/New_York)|GMT-04:00
+08:06:04.1 (1418386)|EXECUTION_STARTED
+08:06:04.1 (1430914)|CODE_UNIT_STARTED|[EXTERNAL]|apex://LMSQuizController/ACTION$getQuizOptions
+08:06:04.1 (2750032)|CODE_UNIT_STARTED|[EXTERNAL]|01pEc00000wx8LQ|LMSQuizController.getQuizOptions()
+08:06:04.1 (3077700)|HEAP_ALLOCATE|[95]|Bytes:3
+08:06:04.1 (3157814)|HEAP_ALLOCATE|[100]|Bytes:152
+08:06:04.1 (3173324)|HEAP_ALLOCATE|[417]|Bytes:408
+08:06:04.1 (3184017)|HEAP_ALLOCATE|[430]|Bytes:408
+08:06:04.1 (3204240)|HEAP_ALLOCATE|[317]|Bytes:6
+08:06:04.1 (3214740)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:35
+08:06:04.1 (3225123)|METHOD_ENTRY|[1]|01pEc00000wx8LQ|LMSQuizController.LMSQuizController()
+08:06:04.1 (3229494)|STATEMENT_EXECUTE|[1]
+08:06:04.1 (3235707)|STATEMENT_EXECUTE|[1]
+08:06:04.1 (3256137)|HEAP_ALLOCATE|[68]|Bytes:5
+08:06:04.1 (3281275)|HEAP_ALLOCATE|[74]|Bytes:5
+08:06:04.1 (3285715)|HEAP_ALLOCATE|[82]|Bytes:7
+08:06:04.1 (3539816)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:5
+08:06:04.1 (3552211)|METHOD_EXIT|[1]|LMSQuizController
+08:06:04.1 (3564144)|HEAP_ALLOCATE|[110]|Bytes:5
+08:06:04.1 (3566864)|STATEMENT_EXECUTE|[109]
+08:06:04.1 (3568124)|STATEMENT_EXECUTE|[110]
+08:06:04.1 (3590941)|HEAP_ALLOCATE|[110]|Bytes:4
+08:06:04.1 (3631005)|VARIABLE_SCOPE_BEGIN|[110]|opts|List<Map<String,ANY>>|true|false
+08:06:04.1 (3678025)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+08:06:04.1 (3721435)|VARIABLE_ASSIGNMENT|[110]|opts|[]|0x33d92bd9
+08:06:04.1 (3727572)|HEAP_ALLOCATE|[111]|Bytes:62
+08:06:04.1 (3742509)|HEAP_ALLOCATE|[111]|Bytes:4
+08:06:04.1 (4965415)|SOQL_EXECUTE_BEGIN|[111]|Aggregations:0|SELECT Id, Name FROM LMS_Quiz__c ORDER BY Name ASC NULLS FIRST
+08:06:04.1 (15113500)|SOQL_EXECUTE_EXPLAIN|[111]|Index on ApexExecutionOverlayAction : [ScopeId], cardinality: 0, sobjectCardinality: 3, relativeCost 0
+08:06:04.1 (15129970)|SOQL_EXECUTE_END|[111]|Rows:3
+08:06:04.1 (15157718)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:16
+08:06:04.1 (15426691)|HEAP_ALLOCATE|[111]|Bytes:54
+08:06:04.1 (15433611)|HEAP_ALLOCATE|[111]|Bytes:8
+08:06:04.1 (15448509)|SYSTEM_METHOD_ENTRY|[7]|QueryLocatorIterator.QueryLocatorIterator()
+08:06:04.1 (15452011)|STATEMENT_EXECUTE|[7]
+08:06:04.1 (15463411)|SYSTEM_METHOD_EXIT|[7]|QueryLocatorIterator
+08:06:04.1 (15470801)|HEAP_ALLOCATE|[111]|Bytes:28
+08:06:04.1 (15568862)|HEAP_ALLOCATE|[111]|Bytes:16
+08:06:04.1 (15578551)|HEAP_ALLOCATE|[111]|Bytes:8
+08:06:04.1 (15580401)|HEAP_ALLOCATE|[111]|Bytes:8
+08:06:04.1 (15585158)|VARIABLE_SCOPE_BEGIN|[15]|this|Database.QueryLocatorIterator|true|false
+08:06:04.1 (15631040)|VARIABLE_ASSIGNMENT|[15]|this|{}|0x691a3f4d
+08:06:04.1 (15635297)|VARIABLE_SCOPE_BEGIN|[15]|values|List<SObject>|true|false
+08:06:04.1 (15734377)|VARIABLE_ASSIGNMENT|[15]|values|[{"Id":"a87Ec000000BK6fIAG","Name":"Quiz 1"},{"Id":"a87Ec000000BVZxIAO","Name":"Quiz for Salesforce  (5 more) ..."},{"Id":"a87Ec000000BcBdIAK","Name":"Testing Quiz"}]|0x39e9e9d4
+08:06:04.1 (15739188)|VARIABLE_SCOPE_BEGIN|[15]|ql|Database.QueryLocator|true|false
+08:06:04.1 (15750814)|VARIABLE_ASSIGNMENT|[15]|ql|{"query":"SELECT Id, Name FROM (42 more) ..."}|0x719eadb6
+08:06:04.1 (15753884)|VARIABLE_SCOPE_BEGIN|[15]|totalNumRecords|Integer|false|false
+08:06:04.1 (15760477)|VARIABLE_ASSIGNMENT|[15]|totalNumRecords|3
+08:06:04.1 (15763164)|VARIABLE_SCOPE_BEGIN|[15]|queryMoreSize|Integer|false|false
+08:06:04.1 (15766889)|VARIABLE_ASSIGNMENT|[15]|queryMoreSize|49997
+08:06:04.1 (17525584)|HEAP_ALLOCATE|[111]|Bytes:28
+08:06:04.1 (17572000)|METHOD_ENTRY|[111]||Database.QueryLocatorIterator.hasNext()
+08:06:04.1 (17680646)|METHOD_EXIT|[111]||Database.QueryLocatorIterator.hasNext()
+08:06:04.1 (17712937)|METHOD_ENTRY|[111]||Database.QueryLocatorIterator.next()
+08:06:04.1 (17785459)|METHOD_EXIT|[111]||Database.QueryLocatorIterator.next()
+08:06:04.1 (17793839)|VARIABLE_SCOPE_BEGIN|[111]|q|LMS_Quiz__c|true|false
+08:06:04.1 (17903129)|VARIABLE_ASSIGNMENT|[111]|q|{"Id":"a87Ec000000BK6fIAG","Name":"Quiz 1"}|0x7447a29c
+08:06:04.1 (17909137)|STATEMENT_EXECUTE|[112]
+08:06:04.1 (17931424)|HEAP_ALLOCATE|[112]|Bytes:4
+08:06:04.1 (17942295)|HEAP_ALLOCATE|[112]|Bytes:5
+08:06:04.1 (18029927)|HEAP_ALLOCATE|[112]|Bytes:5
+08:06:04.1 (18064369)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+08:06:04.1 (18073473)|METHOD_ENTRY|[111]||Database.QueryLocatorIterator.hasNext()
+08:06:04.1 (18085790)|METHOD_EXIT|[111]||Database.QueryLocatorIterator.hasNext()
+08:06:04.1 (18088072)|METHOD_ENTRY|[111]||Database.QueryLocatorIterator.next()
+08:06:04.1 (18129491)|METHOD_EXIT|[111]||Database.QueryLocatorIterator.next()
+08:06:04.1 (18132808)|VARIABLE_SCOPE_BEGIN|[111]|q|LMS_Quiz__c|true|false
+08:06:04.1 (18152051)|VARIABLE_ASSIGNMENT|[111]|q|{"Id":"a87Ec000000BVZxIAO","Name":"Quiz for Salesforce  (5 more) ..."}|0x70b052bf
+08:06:04.1 (18155299)|STATEMENT_EXECUTE|[112]
+08:06:04.1 (18161293)|HEAP_ALLOCATE|[112]|Bytes:4
+08:06:04.1 (18182562)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+08:06:04.1 (18187046)|METHOD_ENTRY|[111]||Database.QueryLocatorIterator.hasNext()
+08:06:04.1 (18196131)|METHOD_EXIT|[111]||Database.QueryLocatorIterator.hasNext()
+08:06:04.1 (18198255)|METHOD_ENTRY|[111]||Database.QueryLocatorIterator.next()
+08:06:04.1 (18236367)|METHOD_EXIT|[111]||Database.QueryLocatorIterator.next()
+08:06:04.1 (18238889)|VARIABLE_SCOPE_BEGIN|[111]|q|LMS_Quiz__c|true|false
+08:06:04.1 (18253298)|VARIABLE_ASSIGNMENT|[111]|q|{"Id":"a87Ec000000BcBdIAK","Name":"Testing Quiz"}|0x3d538ed5
+08:06:04.1 (18256342)|STATEMENT_EXECUTE|[112]
+08:06:04.1 (18260036)|HEAP_ALLOCATE|[112]|Bytes:4
+08:06:04.1 (18271807)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+08:06:04.1 (18275680)|METHOD_ENTRY|[111]||Database.QueryLocatorIterator.hasNext()
+08:06:04.1 (18282519)|METHOD_EXIT|[111]||Database.QueryLocatorIterator.hasNext()
+08:06:04.1 (18287275)|VARIABLE_ASSIGNMENT|[111]|q|null|
+08:06:04.1 (18310402)|STATEMENT_EXECUTE|[113]
+08:06:04.18 (18376624)|CUMULATIVE_LIMIT_USAGE
+08:06:04.18 (18376624)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 3 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 0
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+08:06:04.18 (18376624)|TOTAL_EMAIL_RECIPIENTS_QUEUED|0
+08:06:04.18 (18376624)|STATIC_VARIABLE_LIST|
+  int:BYTES:0
+  int:BYTES:0
+  byte[]:DigitOnes:0
+  byte[]:DigitTens:0
+  Boolean:FALSE:0
+  int:MAX_EXPONENT:0
+  double:MAX_VALUE:0
+  int:MAX_VALUE:0
+  int:MIN_EXPONENT:0
+  double:MIN_NORMAL:0
+  double:MIN_VALUE:0
+  int:MIN_VALUE:0
+  double:NEGATIVE_INFINITY:0
+  double:NaN:0
+  double:POSITIVE_INFINITY:0
+  int:PRECISION:0
+  int:SIZE:0
+  int:SIZE:0
+  Boolean:TRUE:0
+  String:__sfdcParameterizedTypes:0
+  String:_sfdcAdditionalCodeLocations:0
+  String:_sfdcAdditionalCodeLocations:0
+  String:_sfdcAdditionalCodeLocations:0
+  char[]:digits:0
+  long:serialVersionUID:0
+  long:serialVersionUID:0
+  long:serialVersionUID:0
+
+08:06:04.18 (18376624)|CUMULATIVE_LIMIT_USAGE_END
+
+08:06:04.1 (18487631)|CODE_UNIT_FINISHED|LMSQuizController.getQuizOptions()
+08:06:04.18 (18524193)|CUMULATIVE_PROFILING_BEGIN
+08:06:04.18 (18524193)|CUMULATIVE_PROFILING|SOQL operations|
+Class.LMSQuizController.getQuizOptions: line 111, column 1: [SELECT Id, Name FROM LMS_Quiz__c ORDER BY Name ASC]: executed 9 times in 14 ms
+
+08:06:04.18 (18524193)|CUMULATIVE_PROFILING|No profiling information for SOSL operations
+08:06:04.18 (18524193)|CUMULATIVE_PROFILING|No profiling information for DML operations
+08:06:04.18 (18524193)|CUMULATIVE_PROFILING|method invocations|
+External entry point: public static List<Map<String,ANY>> getQuizOptions(): executed 1 time in 15 ms
+Class.LMSQuizController.getQuizOptions: line 112, column 1: global public Object put(Object, Object): executed 9 times in 0 ms
+Class.LMSQuizController.getQuizOptions: line 110, column 1: global public List<Map<String,ANY>>(): executed 1 time in 0 ms
+
+08:06:04.18 (18524193)|CUMULATIVE_PROFILING_END
+08:06:04.1 (18865174)|CODE_UNIT_FINISHED|apex://LMSQuizController/ACTION$getQuizOptions
+08:06:04.1 (18873250)|EXECUTION_FINISHED

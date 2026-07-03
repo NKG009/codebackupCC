@@ -1,0 +1,33 @@
+.picklist-container {
+    display: flex;
+    gap: 1rem; /* space between items */
+    flex-wrap: wrap; /* wraps to next line if screen too small */
+}
+
+.picklist-container lightning-combobox,
+.picklist-container lightning-input {
+    flex: 1; /* makes them share available space evenly */
+    min-width: 200px; /* prevents them from becoming too small */
+}
+.rcv-row {
+    display: flex;
+    align-items: flex-end; /* aligns button with bottom of input */
+    gap: 8px;
+    width: 100%;
+}
+
+.rcv-input {
+    flex-grow: 1; /* input full width lega */
+}
+
+.add-btn {
+    margin-bottom: 0.3rem; /* thoda neeche align karne ke liye */
+}
+.slds-combobox__input lightning-icon {
+    position: relative;
+    top: -1px; /* try -1 or -2 until it's visually perfect */
+}
+.custom-chevron svg path {
+    fill: black;   /* force fill black */
+    stroke: black; /* optional for outline */
+}

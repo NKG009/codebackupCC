@@ -1,0 +1,8 @@
+<template>
+    <div class="filter-bar">
+        <lightning-combobox label="" placeholder="All types" options={typeOptions} value={qtype} onchange={handleType}></lightning-combobox>
+        <lightning-input type="search" label="" placeholder="Search..." value={search} onchange={handleSearch}></lightning-input>
+        <lightning-input type="checkbox" label="Active only" checked={activeOnly} onchange={handleActive}></lightning-input>
+        <lightning-button label="Clear" onclick={handleClear} class="clear-btn"></lightning-button>
+    </div>
+</template>

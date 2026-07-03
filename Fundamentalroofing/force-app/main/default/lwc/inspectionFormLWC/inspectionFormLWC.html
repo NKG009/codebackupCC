@@ -1,0 +1,522 @@
+<template>
+    <template if:true={isloading}>
+        <div class="slds-align_absolute-center">
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+    </template>
+
+    <template if:false={loadform}>
+        <div class="slds-m-around_medium">
+            <!-- Horizontal Radio Group -->
+            <lightning-radio-group name="radioGroup" label="Select Inspection Form Type :" variant="label-inline"
+                class="slds-m-top_medium horizontal-radio" options={formTypeOptions} value={formType} type="radio"
+                onchange={handleFormChange} required>
+            </lightning-radio-group>
+
+            <!-- Align button to right -->
+            <div class="slds-m-top_medium slds-text-align_right">
+                <lightning-button variant="brand" label="Next" onclick={getFormdetails}>
+                </lightning-button>
+            </div>
+        </div>
+
+    </template>
+
+    <template if:true={loadform}>
+        <lightning-card title={formTitle} class="custom-card">
+
+            <div class="slds-p-around_medium">
+
+                <section class="slds-m-top_medium">
+                    <h3>Front Of Property</h3>
+                    <lightning-file-upload label="Upload Image" data-name="Front Of Property"
+                        onuploadfinished={handleFileUpload}></lightning-file-upload>
+                    <template if:true={frontphoto.isfileuploaded}>
+                        <img src={frontphoto.fileurl} alt={frontphoto.filename} width="200" />
+                    </template>
+                </section>
+
+
+                <section>
+                    <lightning-input label="Client Address" value={clientAddress} onchange={handleInputChange}
+                        data-field="clientAddress"></lightning-input>
+                    <lightning-input label="City" value={clientCity} onchange={handleInputChange}
+                        data-field="clientCity"></lightning-input>
+                    <lightning-input label="State" value={clientState} onchange={handleInputChange}
+                        data-field="clientState"></lightning-input>
+                    <lightning-input label="Zip Code" value={clientZipCode} onchange={handleInputChange}
+                        data-field="clientZipCode"></lightning-input>
+                    <lightning-input label="Client Name" value={clientName} onchange={handleInputChange}
+                        data-field="clientName"></lightning-input>
+                    <lightning-input type="email" label="Client Email" value={clientEmail} onchange={handleInputChange}
+                        data-field="clientEmail"></lightning-input>
+                    <lightning-input label="Inspector Name" value={inspectorName} onchange={handleInputChange}
+                        data-field="inspectorName"></lightning-input>
+                    <lightning-input type="tel" label="Inspector Phone" value={inspectorPhone}
+                        onchange={handleInputChange} data-field="inspectorPhone"></lightning-input>
+                    <lightning-input type="date" label="Inspection Date" value={inspectionDate}
+                        onchange={handleInputChange} data-field="inspectionDate"></lightning-input>
+                </section>
+
+                <section class="slds-m-top_medium">
+                    <h3><strong>Disclaimer</strong></h3>
+                    <p>
+                        The above named requested an evaluation of the roofing system for the referenced address.
+                        Our evaluation will take into consideration the overall condition of the roofing system,
+                        its design and expected performance over time. We cannot be liable for determining insurability.
+                        This falls under the purview of a qualified underwriter. If the property is under contract,
+                        we recommend the buyer contact their insurance carrier and request an inspection by an
+                        underwriter
+                        to determine whether or not the roof is insurable prior to the end of the option period if
+                        possible
+                        or at least prior to closing.
+                    </p>
+                </section>
+                <section class="slds-m-top_medium">
+                    <h3><strong>General Property Description:</strong></h3>
+                    <c-mutli-select-picklist onselectionchange={selectionchangeeventhandler} picklistlabel="Property Type:" values={propertytypeOptions} picklistfieldname="propertytypeOptions"></c-mutli-select-picklist>
+                     <template if:true={isPropertyTypeOther}>
+                            <lightning-input type="text" placeholder="Please specify..." value={propertyTypeOther}
+                                data-field="propertyTypeOther" onchange={handleInputChange}>
+                            </lightning-input>
+                        </template>
+                    <!--p><strong>Property Type:</strong></p>
+                    <div class="slds-grid slds-wrap slds-m-top_small">
+                        <lightning-combobox name="propertyType" value={propertyType} data-field="propertyType"
+                            options={propertytypeOptions} onchange={handleInputChange}>
+                        </lightning-combobox>
+                       
+                    </div-->
+                </section>
+
+                <section class="slds-m-top_medium">
+                    <c-mutli-select-picklist onselectionchange={selectionchangeeventhandler} picklistlabel="Type of Roof Covering:" values={roofCoveringOptions} picklistfieldname="roofCoveringOptions"></c-mutli-select-picklist>
+                    <template if:true={isRoofCoveringOther}>
+                        <lightning-input type="text" placeholder="Please specify..." value={roofCoveringOther}
+                            data-field="roofCoveringOther" onchange={handleInputChange}>
+                        </lightning-input>
+                    </template>
+                    <!--h3><strong>Type of Roof Covering:</strong></h3>
+                    <lightning-combobox name="roofCovering" value={roofCovering} data-field="roofCovering"
+                        options={roofCoveringOptions} onchange={handleInputChange}>
+                    </lightning-combobox-->
+                    
+                </section>
+
+                <!--section to appear when its reapair form-->
+                <template if:true={isRepairForm}>
+                    <section>
+                        <h3><strong>The roof appears to be approximately:</strong></h3>
+                        <lightning-combobox name="roofAge" value={roofAge} data-field="roofAge" options={roofAgeOptions}
+                            onchange={handleInputChange}>
+                        </lightning-combobox>
+                    </section>
+
+
+                    <section class="slds-m-top_medium">
+                        <h3><strong>The underlayment</strong></h3>
+                        <lightning-combobox name="underlayment" value={underlayment} data-field="underlayment"
+                            options={underlaymentOptions} onchange={handleInputChange}>
+                        </lightning-combobox>
+                    </section>
+
+                    <section class="slds-m-top_medium">
+                        <h3><strong>Layer(s) of shingles installed</strong></h3>
+                        <lightning-combobox name="layersOfShingles" value={layersOfShingles}
+                            data-field="layersOfShingles" options={layerShinglesOptions} onchange={handleInputChange}>
+                        </lightning-combobox>
+                    </section>
+                </template>
+
+                <div class="slds-m-top_medium">
+                     <c-mutli-select-picklist onselectionchange={selectionchangeeventhandler} picklistlabel="Intake Ventilation:" values={intakeVentilationOptions} picklistfieldname="intakeVentilationOptions"></c-mutli-select-picklist>
+                    <!--h3 class="slds-text-heading_small">Intake Ventilation:</h3>
+                    <lightning-combobox name="intakeVentilation" value={intakeVentilation}
+                        data-field="intakeVentilation" options={intakeVentilationOptions} onchange={handleInputChange}>
+                    </lightning-combobox-->
+                    <template if:true={isIntakeVentilationOther}>
+                        <lightning-input type="text" placeholder="Please specify..." value={intakeVentilationOther}
+                            data-field="intakeVentilationOther" onchange={handleInputChange}>
+                        </lightning-input>
+                    </template>
+                </div>
+
+                <div class="slds-m-top_medium">
+                     <c-mutli-select-picklist onselectionchange={selectionchangeeventhandler} picklistlabel="Exhaust Ventilation:" values={exhaustVentilationOptions} picklistfieldname="exhaustVentilationOptions"></c-mutli-select-picklist>
+                    <!--h3 class="slds-text-heading_small">Exhaust Ventilation:</h3>
+                    <lightning-combobox name="exhaustVentilation" value={exhaustVentilation}
+                        data-field="exhaustVentilation" options={exhaustVentilationOptions}
+                        onchange={handleInputChange}>
+                    </lightning-combobox-->
+                    <template if:true={isExhaustVentilationOther}>
+                        <lightning-input type="text" placeholder="Please specify..." value={exhaustVentilationOther}
+                            data-field="exhaustVentilationOther" onchange={handleInputChange}>
+                        </lightning-input>
+                    </template>
+                </div>
+                <!--section to appear when its reapair form-->
+                <template if:true={isRepairForm}>
+                    <section class="slds-m-top_medium">
+                        <h3><strong>Ventilation appears to be:</strong></h3>
+                        <lightning-combobox name="ventilation" value={ventilation} data-field="ventilation"
+                            options={ventilationOptions} onchange={handleInputChange}>
+                        </lightning-combobox>
+                    </section>
+
+                    <section class="slds-m-top_medium">
+                        <h3><strong>Pipe Jacks appear to be:</strong></h3>
+                        <lightning-combobox name="pipeJacks" value={pipeJacks} data-field="pipeJacks"
+                            options={pipeJacksventStackchimneyOptions} onchange={handleInputChange}>
+                        </lightning-combobox>
+                    </section>
+                    <section class="slds-m-top_medium">
+                        <h3><strong>Vent Stack(s) appear to be:</strong></h3>
+                        <lightning-combobox name="ventStacks" value={ventStacks} data-field="ventStacks"
+                            options={pipeJacksventStackchimneyOptions} onchange={handleInputChange}>
+                        </lightning-combobox>
+
+                    </section>
+                    <section class="slds-m-top_medium">
+                        <h3><strong>Chimney(s) appear to be:</strong></h3>
+                        <lightning-combobox name="chimneys" value={chimneys} data-field="chimneys"
+                            options={pipeJacksventStackchimneyOptions} onchange={handleInputChange}>
+                        </lightning-combobox>
+                    </section>
+                </template>
+                <section class="slds-m-top_medium">
+                     <c-mutli-select-picklist onselectionchange={selectionchangeeventhandler} picklistlabel="Roof Observed From:" values={roofObservedFromOptions} picklistfieldname="roofObservedFromOptions"></c-mutli-select-picklist>
+                    <!--h3><strong>Roof Observed From:</strong></h3>
+                    <lightning-combobox name="roofObservedFrom" value={roofObservedFrom} data-field="roofObservedFrom"
+                        options={roofObservedFromOptions} onchange={handleInputChange}>
+                    </lightning-combobox-->
+                    <template if:true={isRoofObservedFromOther}>
+                        <lightning-input type="text" placeholder="Please specify..." value={roofObservedFromOther}
+                            data-field="roofObservedFromOther" onchange={handleInputChange}>
+                        </lightning-input>
+                    </template>
+                </section>
+
+                <section class="slds-m-top_medium">
+                    <c-mutli-select-picklist onselectionchange={selectionchangeeventhandler} picklistlabel="Roof Pitch:" values={roofPitchOptions} picklistfieldname="roofPitchOptions"></c-mutli-select-picklist>
+                    <!--h3><strong>Predominant Roof Pitch:</strong></h3>
+                    <lightning-combobox name="roofPitch" value={roofPitch} data-field="roofPitch"
+                        options={roofPitchOptions} onchange={handleInputChange}>
+                    </lightning-combobox-->
+                    <template if:true={isRoofPitchOther}>
+                        <lightning-input type="text" placeholder="Please specify..." value={roofPitchOther}
+                            data-field="roofPitchOther" onchange={handleInputChange}>
+                        </lightning-input>
+                    </template>
+                </section>
+                <!-- Inspection Notes Section -->
+                <div class="slds-m-top_medium">
+                    <h3 class="slds-text-heading_small">Inspection:</h3>
+                    <p><strong>The inspection yielded the following results:</strong></p>
+                    <template for:each={inspectionYield} for:item="inspectionfield">
+                        <div key={inspectionfield.id} class=" slds-m-vertical_x-small">
+                            <lightning-input label={inspectionfield.id} data-id={inspectionfield.id} value={inspectionfield.value}
+                                onchange={handleInspectionFieldChange}>
+                            </lightning-input>
+                            <lightning-button-icon icon-name="utility:delete" variant="bare" alternative-text="Delete"
+                                data-id={inspectionfield.id} onclick={removeInspectionField}></lightning-button-icon>
+                        </div>
+                    </template>
+                    <lightning-button label="+ inspection Item" onclick={addInspectionField} class="slds-m-top_medium">
+                    </lightning-button>
+                
+                    <!--lightning-textarea label="The inspection yielded the following results:" name="inspectionNotes"
+                        data-field="inspectionNotes" placeholder="Enter detailed inspection notes here..." value={inspectionNotes}
+                        onchange={handleInputChange} class="slds-m-top_small" style="min-height: 150px;">
+                    </lightning-textarea-->
+                </div>
+
+                <div class="slds-m-top_medium">
+                    <h3 class="slds-text-heading_small"><strong>Conclusions & Recommendations:</strong></h3>
+                    <p><strong>Based upon my visual inspection, these are my findings:</strong></p>
+                </div>
+
+                <!-- this section to appear for pass form-->
+                <template if:true={isPassForm}>
+                    <!--lightning-input type="checkbox"
+                        label="This roof passes our quality standard for performance. There are no repairs necessary as any deficiencies notated herein are cosmetic in nature and do not require remedy. This roof should continue to function as intended and shed water."
+                        data-field="roofPassesStandard" checked={roofPassesStandard} onchange={handleInputChange}>
+                    </lightning-input>
+
+                    <lightning-input type="checkbox"
+                        label="I do not believe there is significant enough storm damage, physical defects or installation issues on the roof, to warrant a full replacement, nor do I perceive any reason for immediate, or even intermediate, leak concerns."
+                        data-field="roofNoReplacementNeeded" checked={roofNoReplacementNeeded}
+                        onchange={handleInputChange}>
+                    </lightning-input>
+
+                    <lightning-input type="checkbox"
+                        label="I do recommend regular inspections of the roof to ensure components are not deteriorating to the point they will allow water to infiltrate the home. I also recommend a thorough inspection by a qualified roofing professional after any significant storm event."
+                        data-field="roofRegularInspection" checked={roofRegularInspection} onchange={handleInputChange}>
+                    </lightning-input>
+
+                    <lightning-input type="checkbox" label="Other" data-field="passRecOther" checked={passRecOther}
+                        onchange={handleInputChange}>
+                    </lightning-input>
+
+                    <template if:true={formData.roofOther}>
+                        <lightning-input type="text" placeholder="Please specify" value={passRecOtherText}
+                            data-field="passRecOtherText" onchange={handleInputChange}>
+                        </lightning-input>
+                    </template-->
+                    <div class="slds-m-bottom_medium">
+                        <lightning-formatted-rich-text value={passRecommendation.instructions}></lightning-formatted-rich-text>
+                        <lightning-input type="text" placeholder="Other..." value={passRecommendation.Other} data-field="Other"
+                            onchange={handleInputChange}>
+                        </lightning-input>
+                    </div>
+                    <section>
+                        <h3 class="slds-text-heading_small">Assuming no major weather events, this roof is expected to
+                            last another:
+                        </h3>
+                        <lightning-combobox name="roofLife" value={roofLife} options={roofAgeOptions}
+                            data-field="roofLife" onchange={handleInputChange}>
+                        </lightning-combobox>
+                    </section>
+                </template>
+
+                <!--section to appear when its reapair form-->
+                <template if:true={isRepairForm}>
+                    <lightning-input type="checkbox"
+                        label="This roof will require repairs to meet our standard for quality performance. These repairs should allow the roof to continue to function as intended and shed water."
+                        name="roofRequiresRepairs" data-field="roofRequiresRepairs" checked={roofRequiresRepairs}
+                        onchange={handleInputChange}>
+                    </lightning-input>
+
+
+
+                    <div class="slds-m-top_medium slds-m-bottom_small">
+                        <h3 class="slds-text-heading_small slds-text-title_bold">Itemized list of Repairs   </h3>
+                    </div>
+
+                    <template for:each={repairs} for:item="item">
+                        <div key={item.id} class="slds-grid slds-gutters slds-p-around_x-small slds-border_bottom">
+                            <template if:true={item.isNewItem}>
+                                <lightning-button-icon icon-name="utility:delete" variant="bare" alternative-text="Delete" data-id={item.id}
+                                onclick={removerepairitemblock}></lightning-button-icon>
+                            <div class="slds-col slds-size_3-of-6"><lightning-input type="text"  value={item.name} placeholder="Enter Item Name"
+                                    data-id={item.id} data-field="name" onchange={handleOtherRepairFieldChange} class="slds-m-bottom_x-small">
+                                </lightning-input></div>
+                            <div class="slds-col slds-size_1-of-6"><lightning-input type="number" placeholder="Enter Price" formatter="currency" 
+                                    value={item.price} data-id={item.id} data-field="price" onchange={handleOtherRepairFieldChange} class="slds-m-bottom_x-small">
+                                </lightning-input></div>
+                            </template>
+                            <template if:false={item.isNewItem}>
+                            <div class="slds-col slds-size_3-of-6"><span class="slds-text-heading_small">{item.name}</span><br><span class="slds-text-color_weak slds-m-bottom_x-small">{item.unit}</span></div>
+                            <div class="slds-col slds-size_1-of-6">${item.price}</div>
+                            </template>
+                            <div class="slds-col slds-size_1-of-6">
+                                <lightning-input type="number" value={item.quantity} data-id={item.id}
+                                    onchange={handleQuantityChange}>
+                                </lightning-input>
+                            </div>
+                            <div class="slds-col slds-size_1-of-6">${item.total}</div>
+                            
+                        </div>
+                    </template>
+                    <lightning-button label="+ Add Repair Item" onclick={addrepairitemblock} class="slds-m-top_medium">
+                        </lightning-button>
+                    <div class="slds-text-align_right slds-m-top_small">
+                        <b>Grand Total: ${grandTotal}</b>
+                    </div>
+
+
+                    <section class="slds-m-top_medium">
+                        <lightning-textarea label="Notes" value={notes} onchange={handleInputChange}
+                            data-field="notes"></lightning-textarea>
+
+                    </section>
+                    <section>
+                        <h3 class="slds-text-heading_small">With the recommended repairs, we would estimate the roof has
+                            a
+                            remaining life expectancy of approximately:</h3>
+                        <lightning-combobox name="roofLife" value={roofLife} options={roofAgeOptions}
+                            data-field="roofLife" onchange={handleInputChange}>
+                        </lightning-combobox>
+                    </section>
+                </template>
+                
+                <!--section to appear when its full insurance form-->
+                <template if:true={isInsuranceForm}>
+                    <div class="slds-m-bottom_medium">
+                       <lightning-formatted-rich-text value= {insuranceRecommendation.instructions} ></lightning-formatted-rich-text>
+                       <lightning-input type="text" placeholder="Other instruction..." value={insuranceRecommendation.Other} data-field="Other"
+                            onchange={handleInputChange}>
+                        </lightning-input>
+                    </div>
+                    
+                    <div class="slds-m-bottom_medium">
+                        <lightning-input type="date" label="Date of Loss" value={insuranceRecommendation.dateOfLoss} data-field="dateOfLoss"
+                            onchange={handleInputChange}>
+                        </lightning-input>
+                    </div>
+                
+                </template>
+
+                <!--section to appear when its full cash form-->
+                <template if:true={isCashForm}>
+                    <div class="slds-p-around_medium">
+                        <h2 class="slds-text-heading_small "><strong>Shingle Line:</strong></h2>
+                        <div class="slds-m-bottom_small slds-col slds-size_1-of-2">
+                            <lightning-combobox name="lineManufacturer" options={manufacturerOptions}
+                                value={cashRecommendation.shingleLine.manufacturer} onchange={handleManufacturerChange}>
+                            </lightning-combobox>
+                        </div>
+                        <div class="slds-m-bottom_small slds-col slds-size_1-of-2">
+                            <lightning-combobox name="lineSeries" options={lineSeriesOptions} value={cashRecommendation.shingleLine.series}
+                                onchange={handleLineSeriesChange} >
+                            </lightning-combobox>
+                        </div>
+                    
+                        <h2 class="slds-text-heading_small"><strong>Color:</strong></h2>
+                        <div class="slds-m-bottom_small slds-col slds-size_1-of-2 ">
+                            <lightning-combobox name="colorManufacturer" options={manufacturerOptions}
+                                value={cashRecommendation.shingleColor.manufacturer} onchange={handleManufacturerChange}>
+                            </lightning-combobox>
+                        </div>
+                        <div class="slds-m-bottom_small slds-col slds-size_1-of-2 ">
+                            <lightning-combobox name="colorOptions" options={colorOptions} value={cashRecommendation.shingleColor.color}
+                                onchange={handleColorChange}>
+                            </lightning-combobox>
+                        </div>
+                        <template for:each={cashRecommendation.formFields} for:item="field">
+                            <div key={field.id} class=" slds-m-vertical_x-small">
+                        
+                                <!--div class="slds-col slds-size_1-of-12 slds-align-middle">
+                                    <strong>{field.id}.</strong>
+                                </div>
+                                <div class="slds-col slds-size_11-of-12"-->
+                                    <template if:true={field.isPicklist}>
+                                        <lightning-combobox label={field.id} data-id={field.id} options={field.options} value={field.value}
+                                            onchange={handleFormFieldChange}  >
+                                        </lightning-combobox>
+                                    </template>
+                                    <template if:false={field.isPicklist}>
+                                        <lightning-input label={field.id} data-id={field.id} value={field.value} onchange={handleFormFieldChange}>
+                                        </lightning-input>
+                                        <template if:true={field.isother}>
+                                            <lightning-button-icon icon-name="utility:delete" variant="bare" alternative-text="Delete" data-id={field.id}
+                                                onclick={removeField}></lightning-button-icon>
+                                        </template>
+                                    </template>
+                               
+                            </div>
+                        </template>
+                        <lightning-button label="+ Add Item" onclick={addField} class="slds-m-top_medium">
+                        </lightning-button>
+                
+                        <lightning-input type="number" label="Squares:" value={cashRecommendation.Squares} data-field="Squares"
+                            onchange={handleCashRecommendationInputChange}>
+                        </lightning-input>
+
+                        <lightning-input type="number" label="Base Rate:" value={cashRecommendation.BaseRate} data-field="BaseRate"
+                            onchange={handleCashRecommendationInputChange}>
+                        </lightning-input>
+                
+                        <lightning-input type="text" label="Steep Roof Charge:" value={cashRecommendation.SteepRoofCharge} data-field="SteepRoofCharge"
+                            onchange={handleCashRecommendationInputChange}>
+                        </lightning-input>
+                
+                        <lightning-input type="text" label="Two Story Charge:" value={cashRecommendation.TwoStoryCharge} data-field="TwoStoryCharge"
+                            onchange={handleCashRecommendationInputChange}>
+                        </lightning-input>
+                
+                        <lightning-input type="number" label="Total:" value={cashRecommendation.Total} onchange={handleCashRecommendationInputChange} data-field="Total">
+                        </lightning-input>
+                
+                        <lightning-input type="date" label="Date of Loss:" value={cashRecommendation.DateOfLoss}
+                            onchange={handleCashRecommendationInputChange} data-field="DateOfLoss">
+                        </lightning-input>
+                    </div>
+                </template>
+                <section class="slds-m-top_medium">
+                    <h3><strong></strong></h3>
+                    <p>
+                        The photographs that follow are intended to be a representative sample of the kind of flaws that
+                        exist at the property. This is not an exhaustive cataloging of every imperfection needing
+                        addressed:
+                    </p>
+                </section>
+                
+                
+                <div class="slds-p-around_medium">
+                    <template for:each={photoBlocks} for:item="block">
+                        <div key={block.id} class="slds-box slds-m-bottom_medium">
+                
+                            <p class="slds-text-title_bold">Photo Of:</p>
+                            <lightning-radio-group name={block.id} options={photoOptions} value={block.filename} data-id={block.id}
+                                onchange={handlePhotoChange}>
+                            </lightning-radio-group>
+                            <template if:true={block.isOtherSelected}>
+                                <lightning-input placeholder="please specify here ...." value={block.valOther} data-id={block.id}
+                                    onchange={handlePhotoblockOtherChange} class="slds-m-top_small"></lightning-input>
+                            </template>
+                
+                            <template if:false={block.isfileuploaded}>
+                                <lightning-file-upload name="fileUploader" data-id={block.id} tabindex="-1" onuploadfinished={handleFileUpload}>
+                                </lightning-file-upload>
+                            </template>
+                            <template if:true={block.isfileuploaded}>
+                                <img src={block.fileurl} alt={block.filename} width="200" />
+                            </template>
+                
+                
+                
+                            <lightning-button variant="destructive-text" label="Remove" class="slds-m-top_small" data-id={block.id}
+                                onclick={removeBlock}>
+                            </lightning-button>
+                        </div>
+                    </template>
+                
+                    <lightning-button variant="brand-outline" icon-name="utility:add" label="Add Another" onclick={addBlock}>
+                    </lightning-button>
+                </div>
+                
+                
+                <div class="slds-m-around_medium slds-grid slds-grid_align-end">
+                    <lightning-button variant="brand" label="Save & Exit" class="slds-m-right_small" disabled={IsPDFGenerated}
+                        onclick={handleSave}>
+                    </lightning-button>
+                    <lightning-button variant="brand" label="Save & Generate PDF" disabled={IsPDFGenerated}
+                        onclick={generatepdfconfirmconfirmation}>
+                    </lightning-button>
+                </div>
+                </div>
+                </lightning-card>
+                </template>
+                <template if:true={showConfirmation}>
+                    <!-- Modal/Popup Box LWC starts here -->
+                    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                        aria-describedby="modal-content-id-2" class="slds-modal slds-fade-in-open">
+                        <div class="slds-modal__container">
+                            <!-- Modal/Popup Box LWC header here -->
+                            <header class="slds-modal__header">
+                                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close"
+                                    onclick={closeModal}>
+                                    <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                        size="small"></lightning-icon>
+                                    <span class="slds-assistive-text">Close</span>
+                                </button>
+                                <h2 class="slds-text-heading_medium slds-hyphenate"> Alert!</h2>
+                            </header>
+                            <!-- Modal/Popup Box LWC body starts here -->
+                            <div class="slds-modal__content slds-p-around_medium modalBody">
+                                <p>Are you sure you want to generate the PDF?</p>
+                                <p>Once you generate the PDF, you will not be able to edit the form.</p>
+                            </div>
+                            <!-- Modal/Popup Box LWC footer starts here -->
+                            <footer class="slds-modal__footer">
+                                <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+                
+                                <button class="slds-button slds-button_brand" onclick={handleSave}
+                                    title="Okay">Okay</button>
+                
+                            </footer>
+                        </div>
+                    </section>
+                    <div class="slds-backdrop slds-backdrop_open"></div>
+                </template>
+                </template>

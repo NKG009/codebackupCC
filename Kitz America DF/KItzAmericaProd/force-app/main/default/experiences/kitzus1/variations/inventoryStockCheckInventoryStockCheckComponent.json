@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "2bc468f1-1cb6-493c-a6e1-bfd9ee21e9ea",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "3a0b1d7f-bf6f-4056-bcc3-af63e7f56636",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Inventory_Stock_Check_inventoryStockCheck_Component",
+  "id" : "ea596e0d-63aa-490c-8314-7d35a02a6b07",
+  "type" : "experienceVariation"
+}

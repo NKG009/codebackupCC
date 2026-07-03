@@ -1,0 +1,2 @@
+.comment-panel { display: flex; flex-direction: column; gap: .625rem; }
+.comment-panel__actions { display: flex; justify-content: flex-end; }

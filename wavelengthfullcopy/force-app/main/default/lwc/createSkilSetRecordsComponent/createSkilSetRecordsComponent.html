@@ -1,0 +1,143 @@
+<!--Author :Priyanka 
+    CaseLink : https://targetrecruit.atlassian.net/browse/WAVE-303
+    https://targetrecruit.atlassian.net/browse/WAVE-302
+-->
+<template>
+
+    <lightning-modal-header label="Add/Update Job Attribute">
+        <lightning-tabset>
+           <!-- <lightning-tab label=""> -->
+            <br /> <br />
+                <div>
+                   <!-- <lightning-button label="Add SkillSet" variant="brand"
+                        onclick={addSkillSetHandler}></lightning-button> -->
+                    <br /> 
+                    <template if:true={addSkillSet}> 
+                        <div class="slds-p-around_medium">
+                            <div class="slds-grid slds-wrap">
+                                <!-- <div class="slds-col input-spacing" style="padding-right:20px;width: 33%;">
+                                    <lightning-input label="Name" value={name} onchange={handleNameChange}
+                                        class="small-input"></lightning-input>
+                                </div> -->
+                                <div class="slds-col input-spacing" style="padding-right:20px;width: 33%;">
+                                    <lightning-combobox name="Category" label="Category" value={category}
+                                        placeholder="--None--" options={controllingOptions}
+                                        required={requiredField} onchange={handleControllingChange}>
+                                    </lightning-combobox>
+                                </div>
+                                <div class="slds-col input-spacing" style="padding-right:20px;width: 33%;">
+                                    <lightning-combobox name="Specialty" label="Specialty" value={Specialty}
+                                        placeholder="--None--" options={dependentOptions}
+                                        data-id="specialtyCombobox" onchange={handleDependentChange}>
+                                    </lightning-combobox>
+                                </div>
+                                <!--  <div class="error-message" if:true={showError}>
+                                    Please select a Specialty.
+                                </div>-->
+                                <div class="slds-col input-spacing" style="padding-right:20px;width: 50%;">
+                                    <lightning-combobox name="Seniority" label="Seniority" value={seniority}
+                                        placeholder="--None--" options={dependentOptions2}
+                                        data-id="seniorityCombobox" onchange={handleDependentChange2}>
+                                    </lightning-combobox>
+                                </div>
+                                <div class="slds-col input-spacing" style="padding-right:20px;width: 50%;">
+                                    <lightning-combobox name="Sub_Specialty" label="Sub Specialty"
+                                        placeholder="--None--" value={Sub_Specialty}
+                                        options={subSpecialitydependentOptions} onchange={handleSubSpecialty}
+                                        data-id="subSpecialityCombobox" class="small-input"></lightning-combobox>
+                                </div>
+                                <div class="slds-col-6 input-spacing" style="padding-right:20px;width: 50%;">
+                                    <lightning-combobox name="Employment Preference" label="Employment Preference"
+                                        placeholder="--None--" value={employmentPreferenceValue}
+                                        options={employmentdependentOptions} onchange={handleEmploymentPreferenceValue}
+                                        data-id="employmentCombobox" class="small-input"></lightning-combobox>
+                                </div>
+
+                            </div>
+                            <br /><br />
+                            <lightning-button-group>
+                                <lightning-button variant="brand" label="Save" icon-name="utility:save" title="Save"
+                                    onclick={handleSaveSkillSet} class="slds-m-left_x-small"></lightning-button>
+                             <lightning-button label="Cancel" title="Cancel" onclick={handleCancel}
+                                    class="slds-m-left_x-small"></lightning-button> 
+                            </lightning-button-group>
+                        </div>
+                   </template>
+
+
+                    <!--edit button-->
+
+
+                    <template if:true={editSkillSet}>
+                        <div class="slds-p-around_medium">
+                            <div class="slds-grid slds-wrap">
+                              <!--  <div class="slds-col input-spacing" style="padding-right:20px;width: 33%;">
+                                    <lightning-input label="Name" value={selectedSkillSetRow.Name}
+                                        onchange={handleFieldChange} data-field="Name"
+                                        class="small-input"></lightning-input>
+                                </div>-->
+
+                                <lightning-combobox name="Category" style="padding-right:20px;width: 50%;"
+                                    label="Category" value={selectedSkillSetRow.Category__c}
+                                    placeholder="-None--" options={controllingOptions} data-field="Category__c"
+                                    required={requiredField} onchange={handleFieldChange}>
+                                </lightning-combobox>
+                                <lightning-combobox name="Specialty" style="padding-right:20px;width: 50%;"
+                                    label="Specialty" value={selectedSkillSetRow.Specialty__c}
+                                    placeholder="-None--" options={dependentOptions} data-field="Specialty__c"
+                                    onchange={handleFieldChange}>
+                                </lightning-combobox>
+                                <lightning-combobox name="Seniority" style="padding-right:20px;width: 50%;"
+                                    label="Seniority" value={selectedSkillSetRow.Seniority__c}
+                                    placeholder="-None--" options={dependentOptions2} data-field="Seniority__c"
+                                    onchange={handleFieldChange}>
+                                </lightning-combobox>
+
+                                <div class="slds-col input-spacing" style="padding-right:20px;width: 50%;">
+                                    <lightning-combobox name="Sub_Specialty" label="Sub_Specialty"
+                                        placeholder="-None--" value={selectedSkillSetRow.Sub_Specialty__c}
+                                        options={subSpecialitydependentOptions} onchange={handleFieldChange}
+                                        data-field="Sub_Specialty__c" class="small-input"></lightning-combobox>
+                                </div>
+                                <div class="slds-col-8 input-spacing" style="padding-right:20px;width: 50%;">
+                                    <lightning-combobox name="Employment Preference" label="Employment Preference"
+                                        placeholder="--None--" value={selectedSkillSetRow.Employment_Preference__c}
+                                        options={employmentdependentOptions} onchange={handleFieldChange}
+                                        data-field="Employment_Preference__c" class="small-input"></lightning-combobox>
+                                </div>
+
+                            </div>
+                            <br /><br />
+                            <lightning-button-group>
+                                <lightning-button variant="brand" label="Update" icon-name="utility:save"
+                                    title="Save" onclick={handleUpdateSkillSet}
+                                    class="slds-m-left_x-small"></lightning-button>
+                               <lightning-button label="Cancel" title="Cancel" onclick={handleCancel}
+                                    class="slds-m-left_x-small"></lightning-button> 
+                            </lightning-button-group>
+                        </div>
+                    </template>
+                    <!--editttt end-->
+
+                    <template if:true={skillSetDataAvailable}>
+                        <div data-id="myForm">
+                            <div class="slds-box color_red" style="height: 350px;">
+                                <lightning-datatable key-field="Id" data={skillSetRecords} columns={columns}
+                                    hide-checkbox-column onrowaction={handleRowAction}></lightning-datatable>
+                            </div>
+                            <br />
+                        </div>
+                    </template>
+                    <template if:false={skillSetDataAvailable}>
+                        <div class="slds-box" style="height: 351px;">
+                            <div>No Records Found</div>
+                        </div>
+                    </template>
+                    <lightning-button label="Cancel" title="Cancel" onclick={handleCancelButton}
+                        class="slds-m-left_x-small"></lightning-button>
+
+                </div>
+            <!--</lightning-tab> -->
+        </lightning-tabset>
+    </lightning-modal-header>
+</template>

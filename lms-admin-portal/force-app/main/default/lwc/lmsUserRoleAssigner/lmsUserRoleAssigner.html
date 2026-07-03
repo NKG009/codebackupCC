@@ -1,0 +1,31 @@
+<template>
+    <div class="modal-backdrop">
+        <div class="modal">
+            <div class="modal__header">
+                <h3>Manage role — {user.Name}</h3>
+                <button class="modal__close" onclick={handleClose}>✕</button>
+            </div>
+            <div class="modal__body">
+                <p class="role-hint">Roles are enforced via Salesforce Permission Sets. Changing a role here updates the LMS_Role__c field and re-assigns permission sets.</p>
+                <div class="role-options">
+                    <template for:each={roleOptions} for:item="role">
+                        <button key={role.value} class={role.cssClass} onclick={handleRoleSelect} data-value={role.value}>
+                            <div class="role-option__top">
+                                <lightning-icon icon-name={role.icon} size="small"></lightning-icon>
+                                <span class="role-option__label">{role.label}</span>
+                                <template if:true={role.selected}>
+                                    <lightning-icon icon-name="utility:check" size="x-small" class="role-option__check"></lightning-icon>
+                                </template>
+                            </div>
+                            <p class="role-option__desc">{role.description}</p>
+                        </button>
+                    </template>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <lightning-button label="Cancel" onclick={handleClose}></lightning-button>
+                <lightning-button label="Save role" variant="brand" onclick={handleSave} disabled={isSaving}></lightning-button>
+            </div>
+        </div>
+    </div>
+</template>

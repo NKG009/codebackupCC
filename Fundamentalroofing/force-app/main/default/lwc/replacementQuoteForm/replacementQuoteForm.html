@@ -1,0 +1,268 @@
+<template>
+    <lightning-card title="Replacement Quote">
+        <div class="slds-p-around_medium">
+
+            <!-- Quote Info -->
+            <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small"></h2>
+                <lightning-input type="date" label="Date" value={quoteDate}></lightning-input>
+            </div>
+
+             <!-- Homeowner Info -->
+            <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Homeowner Info</h2>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <lightning-input class="slds-col slds-size_1-of-2" label="First Name"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Last Name"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" type="tel" label="Phone"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" type="email" label="Email"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Street Address"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="City"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="State"></lightning-input>
+                    <lightning-input class="slds-col slds-size_1-of-2" label="Zip Code"></lightning-input>
+                </div>
+            </div>
+
+            <!-- Rate Basis & Color -->
+            <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small"></h2>
+                <lightning-input label="Rate Basis (includes hip & ridge, starter, and waste factor)" value={rateBasis}></lightning-input>
+<!-- Flex container -->
+    <div class="slds-grid slds-wrap slds-gutters">
+
+        <!-- Manufacturer -->
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-combobox 
+                label="Manufacturer" 
+                options={manufacturerOptions} 
+                placeholder="Select Manufacturer" 
+                value={selectedManufacturer}
+                onchange={handleManufacturerChange}>
+            </lightning-combobox>
+        </div>
+
+        <!-- Series -->
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-combobox 
+                label="Series" 
+                options={seriesOptions} 
+                placeholder="Select Series" 
+                value={selectedSeries}
+                onchange={handleSeriesChange} 
+                disabled={isSeriesDisabled}>
+            </lightning-combobox>
+        </div>
+
+        <!-- Color -->
+       <div class="slds-col slds-size_1-of-3">
+        <template if:true={isOtherColorSelected}>
+            <lightning-input 
+                type="text" 
+                label="Specify Other Color" 
+                value={otherColor} 
+                onchange={handleOtherColorChange}>
+            </lightning-input>
+        </template>
+        <template if:false={isOtherColorSelected}>
+            <lightning-combobox 
+                label="Color" 
+                options={colorOptions} 
+                placeholder="Select Color" 
+                value={selectedColor}
+                onchange={handleColorChange} 
+                disabled={isColorDisabled}>
+            </lightning-combobox>
+        </template>
+    </div>
+</div>
+            </div>
+
+            <!-- Rates Include Section -->
+            <div class="slds-box slds-m-bottom_medium">
+    <h2 class="slds-text-heading_small slds-m-bottom_small">Rates Include the Following</h2>
+    <ol class="slds-m-left_large custom-numbered-list">
+
+        <!-- Item 1 -->
+        <li>
+            <lightning-input class="slds-m-vertical_x-small"
+                value="Material delivery, tear off / haul off of existing shingles and permit fee."
+                data-id="1" onchange={handleRateChange}>
+            </lightning-input>
+        </li>
+
+        <!-- Item 2 -->
+        <li>
+            <lightning-input class="slds-m-vertical_x-small"
+                value="Cover landscaping, windows, and HVAC to protect from falling debris."
+                data-id="2" onchange={handleRateChange}>
+            </lightning-input>
+        </li>
+
+        <!-- Item 3 (Radio Group) -->
+        <li>
+            <lightning-radio-group
+                name="item3"
+                options={item3Options}
+                value={item3Value}
+                type="radio"
+                onchange={handleRadioChange}>
+            </lightning-radio-group>
+        </li>
+
+        <!-- Item 4 -->
+        <li>
+            <lightning-input class="slds-m-vertical_x-small"
+                value="Installation of new synthetic underlayment"
+                data-id="4"
+                onchange={handleRateChange}>
+            </lightning-input>
+        </li>
+
+        <!-- Item 5 (Checkboxes) -->
+        <li>
+            <div class="slds-grid slds-wrap slds-gutters slds-m-vertical_x-small">
+                <lightning-input class="slds-col slds-size_1-of-1"
+                    type="checkbox"
+                    label="Install self-adhesive ice and water shield in valley areas and around penetrations."
+                    checked={item5First}
+                    data-id="5a"
+                    onchange={handleCheckboxChange}>
+                </lightning-input>
+
+                <lightning-input class="slds-col slds-size_1-of-1"
+                    type="checkbox"
+                    label='Install "W" metal valley in a close color match to shingle and install ice and water shield around penetrations.'
+                    checked={item5Second}
+                    data-id="5b"
+                    onchange={handleCheckboxChange}>
+                </lightning-input>
+            </div>
+        </li>
+
+        <!-- Item 6 -->
+        <li>
+            <lightning-input class="slds-m-vertical_x-small"
+                value="Install starter shingles on all rakes and eaves."
+                data-id="6" onchange={handleRateChange}>
+            </lightning-input>
+        </li>
+
+        <!-- Item 7 (Radio Group) -->
+        <li>
+            <lightning-radio-group
+                name="item7"
+                options={item7Options}
+                value={item7Value}
+                type="radio"
+                onchange={handleRadioChange}>
+            </lightning-radio-group>
+        </li>
+
+        <!-- Item 8 -->
+        <li>
+            <lightning-input class="slds-m-vertical_x-small"
+                value="Replace all pipe jacks, vent stack caps, and ventilation."
+                data-id="8" onchange={handleRateChange}>
+            </lightning-input>
+        </li>
+
+        <!-- Item 9 -->
+        <li>
+            <lightning-input class="slds-m-vertical_x-small"
+                value="Paint all roof penetrations with rust inhibiting paint if not factory colored."
+                data-id="9" onchange={handleRateChange}>
+            </lightning-input>
+        </li>
+
+        <!-- Item 10 -->
+        <li>
+            <lightning-input class="slds-m-vertical_x-small"
+                value="All incidentals consistent with the installation of a composition asphalt roof."
+                data-id="10" onchange={handleRateChange}>
+            </lightning-input>
+        </li>
+
+       <!-- Item 11 (Radio Group) -->
+<li>
+    <lightning-radio-group
+        name="item11"
+        options={item11Options}
+        value={item11Value}
+        onchange={handleRadioChange}>
+    </lightning-radio-group>
+
+    <template if:true={isItem11Other}>
+        <lightning-input type="text"
+            label="Please specify"
+            value={item11OtherText}
+            onchange={handleItem11OtherChange}>
+        </lightning-input>
+    </template>
+</li>
+
+
+        <!-- Item 12 -->
+        <li>
+            <lightning-input class="slds-m-vertical_x-small"
+                value="Complete clean up of all roofing material from the job site. Including the use of magnet around the full structure to remove fallen nails."
+                data-id="12" onchange={handleRateChange}>
+            </lightning-input>
+        </li>
+
+        <!-- Item 13 -->
+        <li>
+            <lightning-input class="slds-m-vertical_x-small"
+                value="Lifetime transferrable labor warranty. Full applicable manufacturer's warranty on the roofing system."
+                data-id="13" onchange={handleRateChange}>
+            </lightning-input>
+        </li>
+
+
+<!-- Dynamic Items Section -->
+<template for:each={dynamicItems} for:item="item" for:index="index">
+    <li key={item.id}>
+        <div class="list-item-content">
+            <lightning-input class="slds-m-vertical_x-small"
+                value={item.value}
+                data-id={item.id}
+                onchange={handleDynamicItemChange}>
+            </lightning-input>
+            <!--<lightning-button-icon
+                icon-name="utility:close"
+                alternative-text="Remove"
+                onclick={handleRemoveDynamicItem}
+                data-id={item.id}
+                class="slds-m-left_small">
+            </lightning-button-icon>-->
+        </div>
+    </li>
+</template>
+
+<!-- Add More Button -->
+<li>
+    <lightning-button variant="neutral"
+        label="+ Add More"
+        title="Add another item"
+        onclick={handleAddDynamicItem}>
+    </lightning-button>
+</li>
+</ol>
+
+            </div>
+
+            <!-- Cost & Notes -->
+            <div class="slds-box slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Cost & Notes</h2>
+                <lightning-input type="number" label="Cost ($)" value={cost} step="0.01"></lightning-input>
+                <lightning-textarea class="slds-m-top_small" label="Notes" value={notes}></lightning-textarea>
+            </div>
+
+            <!-- Save & Review -->
+            <div class="slds-m-top_medium slds-align_absolute-center">
+                <lightning-button variant="brand" label="Save" onclick={handleSave}></lightning-button>
+                <lightning-button class="slds-m-left_small" variant="neutral" label="Review Form" onclick={handleReview}></lightning-button>
+            </div>
+
+        </div>
+    </lightning-card>
+</template>

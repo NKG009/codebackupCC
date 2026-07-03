@@ -1,0 +1,395 @@
+<apex:page standardcontroller="Product2" extensions="ProductInvetoryExt" showHeader="false">
+    <apex:form >
+        <apex:slds />
+        <apex:pageMessages />
+        <apex:pageBlock title="Warehouse Details">
+            
+            <div id="spinner" class="demo-only demo-only demo-only_viewport demo--inverse" style="height:6rem; z-index:1000; position: fixed;">
+                <div class="slds-spinner_container slds-is-fixed">
+                    <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                        <span class="slds-assistive-text">Loading</span>
+                        <div class="slds-spinner__dot-a"></div>
+                        <div class="slds-spinner__dot-b"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <apex:outputPanel id="mainPanel">
+                
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered"><br/>
+                    <thead>                       
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Product Name">Product Name</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Material Number">Material Number</div>
+                            </th>
+                            
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        
+                        <tr class="slds-hint-parent">
+                            <td data-label="">
+                                <div class="slds-truncate" title="Product Name">
+                                    <apex:outputText value="{!Prod.Name}"></apex:outputText>
+                                </div>
+                            </td>
+                            
+                            <td data-label="">
+                                <div class="slds-truncate" title="Material Number">
+                                    <apex:outputText value="{!Prod.APTS_Material_Num__c}"></apex:outputText>
+                                </div>
+                            </td>                            
+                            
+                        </tr>
+                        
+                    </tbody>
+                    
+                </table>                
+                <br/>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                    
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="WH Name">WH Name</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Wh No">WH No</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="WH Location">WH Location</div>
+                            </th>
+                            
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Avail Qnty">Avail Qnty</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        
+                        <apex:repeat value="{!WHlst}" var="wh">
+                            <tr class="slds-hint-parent">
+                                <td data-label="">
+                                    <div class="slds-truncate" title="WH Name">
+                                        <apex:outputText value="{!wh.WAREHOUSE_NAME}"></apex:outputText>                                                   
+                                    </div>
+                                </td>
+                                
+                                <td data-label="">
+                                    <div class="slds-truncate" title="WH No">
+                                        <apex:outputText value="{!wh.LGORT}"></apex:outputText>
+                                    </div>
+                                </td>
+                                
+                                <td data-label="">
+                                    <div class="slds-truncate" title="WH Location">
+                                        <apex:outputText value="{!wh.WAREHOUSE_LOC}"></apex:outputText>
+                                    </div>
+                                </td>
+                                
+                                <td data-label="">
+                                    <div class="slds-truncate" title="Avail Qnty">
+                                        <apex:outputText value="{!wh.QTY}"></apex:outputText>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                        </apex:repeat>
+                        
+                    </tbody>
+                    
+                </table>
+                <br/>
+                
+                <apex:commandLink action="{!getMockDataForRestockOrderAndETA}" value="Restock Orders AND ETA" /><br/>
+                <apex:outputText value="No Restock Orders data found" style="color:red;" rendered="{!restockmsg}"/><br/>  
+                
+                
+                <table id="restoreTable" class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                    <thead>
+                        
+                        <tr class="slds-line-height_reset">
+                            <th colspan="4" style="color:black"> Restock Orders </th>
+                            <th> </th>
+                            <th colspan="2" style="color:black"> ETA </th>
+                        </tr>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="PO #">PO #</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Line #">Line #</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Qnty">Qnty</div>
+                            </th>
+                            
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="ETA Date">ETA Date</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title=""></div>
+                            </th>
+                            
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Qty">Qty</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="ETA Date2">ETA Date</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        
+                        <apex:repeat value="{!Restocklst}" var="restock">
+                            <tr class="slds-hint-parent">
+                                <td data-label="">
+                                    <div class="slds-truncate" title="PO #">
+                                        <apex:outputText value="{!restock.PO_NUMBER}"></apex:outputText>
+                                    </div>
+                                </td>
+                                
+                                <td data-label="">
+                                    <div class="slds-truncate" title="Line #">
+                                        <apex:outputText value="{!restock.LINE_NUMBER}"></apex:outputText>
+                                    </div>
+                                </td>
+                                
+                                <td data-label="">
+                                    <div class="slds-truncate" title="Qnty">
+                                        <apex:outputText value="{!restock.REC_REQD_QTY_ALT_UOM}"></apex:outputText>
+                                    </div>
+                                </td>
+                                
+                                <td data-label="">
+                                    <div class="slds-truncate" title="ETA Date">
+                                        <apex:outputText value="{!restock.AVAIL_DATE}"></apex:outputText>
+                                    </div>
+                                </td>
+                                <td data-label="">
+                                                
+                                </td>
+                                <td data-label="">
+                                    <div class="slds-truncate" title="Qty">
+                                        <apex:outputText value="{!restock.ETA_REC_REQD_QTY_ALT_UOM}"></apex:outputText>
+                                    </div>
+                                </td>
+                                <td data-label="">
+                                    <div class="slds-truncate" title="ETA Date2">
+                                         <apex:outputText value="{!restock.ETA_AVAIL_DATE}"></apex:outputText>
+                                    </div>
+                                </td>                                
+                                <td data-label="">
+                                    
+                                </td>
+                                
+                                
+                            </tr>
+                            
+                        </apex:repeat>
+                   <!--     <apex:repeat value="{!ETAlst}" var="ETA">
+                            <td data-label="">
+                                <div class="slds-truncate" title="Qty">
+                                    <apex:outputText value="{!ETA.REC_REQD_QTY_ALT_UOM}"></apex:outputText>
+                                </div>
+                            </td>
+                            <td data-label="">
+                                <div class="slds-truncate" title="ETA Date2">
+                                    <apex:outputText value="{!ETA.AVAIL_DATE}"></apex:outputText>
+                                </div>
+                            </td>
+                        </apex:repeat> -->
+                        
+                    </tbody>
+                    
+                </table>
+                
+                <br/>               
+                
+                <apex:commandLink action="{!getMockDataForIndentETA}" id="showIndentETA" value="Indent ETA" />
+                
+                <table id="indentETATable" class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered"><br/>
+                    <apex:outputText value="No Indent ETA data found" style="color:red;" rendered="{!Indentmsg}"/><br/>
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th colspan="6" style="color:black"> Indent ETA </th>
+                        </tr>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Sold To">Sold To</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Cust PO #">Cust PO #</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Line">Line</div>
+                            </th>
+                            
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Order Qnty">Order Qnty</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="In Transit">In Transit</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Delivery Date">Delivery Date</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        
+                        <apex:repeat value="{!Indentlst}" var="indentEta">
+                            <tr class="slds-hint-parent">
+                                <td data-label="">
+                                    <div class="slds-truncate" title="Sold To">
+                                        <apex:outputText value="{!indentEta.VBAK_KUNNR}"></apex:outputText>
+                                    </div>
+                                </td>
+                                
+                                <td data-label="">
+                                    <div class="slds-truncate" title="Cust PO #">
+                                        <apex:outputText value="{!indentEta.VBAK_BSTNK}"></apex:outputText>
+                                    </div>
+                                </td>
+                                
+                                <td data-label="">
+                                    <div class="slds-truncate" title="Line">
+                                        <apex:outputText value="{!indentEta.VBAP_POSEX}"></apex:outputText>
+                                    </div>
+                                </td>
+                                
+                                <td data-label="">
+                                    <div class="slds-truncate" title="Order Qnty">
+                                        <apex:outputText value="{!indentEta.ORDER_QTY}"></apex:outputText>
+                                    </div>
+                                </td>
+                                
+                                <td data-label="">
+                                    <div class="slds-truncate" title="In Transit">
+                                        <apex:outputText value="{!indentEta.DELIVERY_QTY}"></apex:outputText>
+                                    </div>
+                                </td>
+                                
+                                <td data-label="">
+                                    <div class="slds-truncate" title="Delivery Date">
+                                        <apex:outputText value="{!indentEta.LIKP_WADAT}"></apex:outputText>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                        </apex:repeat>
+                        
+                    </tbody>
+                    
+                </table>
+                <br/>
+                
+                <apex:commandLink action="{!getMockDataForAllocation}" id="showAllocation" value="Allocation" />
+                <table id="allocationTable" class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered"><br/>
+                    <apex:outputText value="No Allocation data found" style="color:red;" rendered="{!Allocationmsg}"/><br/>
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th colspan="5" style="color:black"> Allocation </th>
+                        </tr>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Sold To">Sold To</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Sold To Name">Sold To Name</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="PO #">PO #</div>
+                            </th>
+                            
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Qnty">Qnty</div>
+                            </th>
+                            
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Expected Delivery">Expected Delivery</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        
+                        <apex:repeat value="{!Allocationlst}" var="allocation">
+                            <tr class="slds-hint-parent">
+                                <td data-label="">
+                                    <div class="slds-truncate" title="Sold To">
+                                        <apex:outputText value="{!allocation.SOLD_TO}"></apex:outputText>
+                                    </div>
+                                </td>
+                                
+                                <td data-label="">
+                                    <div class="slds-truncate" title="Sold To Name">
+                                        <apex:outputText value="{!allocation.SOLD_TO_NAME}"></apex:outputText>
+                                    </div>
+                                </td>
+                                
+                                <td data-label="">
+                                    <div class="slds-truncate" title="PO #">
+                                        <apex:outputText value="{!allocation.CUST_PO}"></apex:outputText>
+                                    </div>
+                                </td>
+                                
+                                <td data-label="">
+                                    <div class="slds-truncate" title="Qnty">
+                                        <apex:outputText value="{!allocation.ORDER_QTY}"></apex:outputText>
+                                    </div>
+                                </td>
+                                
+                                
+                                <td data-label="">
+                                    <div class="slds-truncate" title="Expected Delivery">
+                                        <apex:outputText value="{!allocation.DELIVERY_DATE}"></apex:outputText>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                        </apex:repeat>
+                        
+                    </tbody>
+                    
+                </table>                
+                
+            </apex:outputPanel>
+            
+            <div class="slds-panel__header slds-panel__header_custom slds-text-heading_small slds-truncate"/>
+            <center>        
+                <apex:commandButton value="Close" action="{!close}" style="margin-top: 6px"/>
+            </center>    
+            
+        </apex:pageBlock>
+    </apex:form>
+    <script>
+    window.onload = function(){
+        setTimeout(function(){
+            let spinnerElement = document.getElementById('spinner');
+            spinnerElement.classList.add('slds-hide');
+            
+        }, 1500);
+        if(localStorage.getItem("hasCalledRestore") === null){
+            $("#restoreTable").hide();
+            // localStorage.setItem("hasCalledRestore", true);
+            console.log('----' +localStorage.getItem("hasCalledRestore"));
+        }
+        if(localStorage.getItem("hasCalledIndent") === null){
+            $("#indentETATable").hide();
+            
+        }
+        if(localStorage.getItem("hasCalledAllocation") === null){
+            $("#allocationTable").hide();
+            //  localStorage.setItem("hasCalledAllocation", true);
+        }
+    }; 
+    </script>
+</apex:page>

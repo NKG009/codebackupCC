@@ -1,0 +1,28 @@
+<apex:page standardController="AVTRRT__Job_Applicant__c" extensions="ManualPayPackageEmailTemplateButtonClass" action="{!UpdateYes}" standardStylesheets="false"  applyHtmlTag="false" showHeader="false">
+    <!-- https://targetrecruit.atlassian.net/browse/UPP-46 -->  
+    <style>
+        .container {
+        position: relative;
+        text-align: center;
+        color: white;
+        }
+        
+        .top-left {
+        position: absolute;
+        margin: 0 auto;
+        left: 50px;
+        width:99%;
+        Font-size: 25px;
+        }
+    </style>
+    
+    <div class="container">
+        <img src="/resource/1703278565000/ManualPayPackageEmailTemplateButtonPageLogo" alt="" style="width:15%;"/>
+        <div class="top-left" style="text-align:center">
+            <apex:outputPanel rendered="{!If(thankYouMessage == false, false, true)}" style="text-align:center;color:#29ABE2">              
+                <apex:pageMessages />
+            </apex:outputPanel>
+        </div>
+    </div>
+    
+</apex:page>

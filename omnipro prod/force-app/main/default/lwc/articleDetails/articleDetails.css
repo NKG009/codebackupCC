@@ -1,0 +1,46 @@
+.custom-container {
+    padding: 1rem;
+    min-height: 65vh;
+}
+
+/* 
+.custom-question {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+
+.custom-question div {
+    font-size: 32px; 
+    font-weight: bold; 
+    line-height: 1.2;
+}
+
+
+.custom-answer {
+    margin-left: 2rem;
+    text-align: left;
+}
+
+
+.custom-answer div {
+    font-size: 18px; 
+    line-height: 1.5; 
+} */
+
+
+
+.polaroid {
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    margin: 0 auto; 
+    padding: 10px; 
+    background: #fff; 
+    border-radius: 8px; 
+}
+
+.container {
+    padding: 10px;
+}

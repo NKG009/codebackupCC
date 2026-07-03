@@ -1,0 +1,39 @@
+.list-page { position: relative; }
+.list-page__toolbar { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.list-page__search { flex: 1; min-width: 200px; }
+.lesson-count { font-size: 12px; color: #6b7280; white-space: nowrap; }
+
+.list-table { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+.list-table__header {
+    display: grid;
+    grid-template-columns: 2fr 2fr 80px 1fr 70px 90px;
+    gap: .75rem;
+    padding: .625rem 1rem;
+    background: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 11px;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+.list-table__row {
+    display: grid;
+    grid-template-columns: 2fr 2fr 80px 1fr 70px 90px;
+    gap: .75rem;
+    padding: .75rem 1rem;
+    border-bottom: 1px solid #f3f4f6;
+    align-items: center;
+}
+.list-table__row:last-child { border-bottom: none; }
+.list-table__row:hover { background: #f9fafb; }
+
+.row-name { font-size: 13px; font-weight: 600; color: #111827; }
+.row-muted { font-size: 12px; color: #9ca3af; }
+.row-actions { display: flex; gap: .25rem; }
+.icon-ok { color: #059669; }
+
+/* Multiple type badges in one cell */
+.type-badges { display: flex; flex-wrap: wrap; gap: .25rem; }
+
+.empty-state { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 3rem; text-align: center; color: #6b7280; }

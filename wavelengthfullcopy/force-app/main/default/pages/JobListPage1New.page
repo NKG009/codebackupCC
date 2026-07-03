@@ -1,0 +1,864 @@
+<apex:page controller="JobListViewComponentController1" title="{!$Label.TRGTFCMS__Job_List_Page}"
+		standardstylesheets="true" showHeader="false" sideBar="false" cache="false" action="{!init}"
+		language="{!selectLanguage}" id="page">
+	
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport"
+				content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+		<meta name="keywords" content="{!metaKeywords}" id="keywords"/>
+
+		<apex:stylesheet value="{!URLFOR($Resource.TRGTFCMS__Bootstrap_3_4_1, '/css/bootstrap.min.css')}"/>
+		<apex:includeScript value="{!URLFOR($Resource.TRGTFCMS__Jquery_3_6_0)}"/>
+		<apex:includeScript value="{!URLFOR($Resource.TRGTFCMS__Bootstrap_3_4_1, '/js/bootstrap.min.js')}"/>
+
+		<apex:includeScript value="{!$Resource.TRGTFCMS__LinkedIn}"/>
+		
+		<script type="text/javascript">
+			function fixId(myid) {
+				return '#' + myid.replace(new RegExp("(:|\\.)", "g"), '\\\$1');
+			}
+			
+			function CreateBookmarkLink(a) {
+				title = document.title;
+				url = document.location;
+				try {
+					// Internet Explorer
+					window.external.AddFavorite(url, title);
+				} catch (e) {
+					try {
+						// Mozilla
+						window.sidebar.addPanel(title, url, "");
+					} catch (e) {
+						// Opera
+						if (typeof (opera) == "object") {
+							a.rel = "sidebar";
+							a.title = title;
+							a.url = url;
+							return true;
+						} else {
+							// Unknown
+							alert('Press Ctrl-D to add page to your bookmarks');
+						}
+					}
+				}
+				return false;
+			}
+			
+			function linkedinCompany() {
+				new LinkedIn.CompanyInsiderPopup("acumen", " {!JSENCODE(org.Name)}");
+			}
+			
+			function apply() {
+				var otherPagesSelectedJobIds = '{!selectedJobsPagination}'.split(';').filter(Boolean);
+				
+				var $checkedCheckboxes = $('.tableJobList input[type="checkbox"]:checked:enabled');
+				var currentPageSelectedJobIds = [];
+				$checkedCheckboxes.each(function (index) {
+					currentPageSelectedJobIds.push($checkedCheckboxes.eq(index).attr('jobId'));
+				});
+				
+				var allSelectedJobIds = otherPagesSelectedJobIds.concat(currentPageSelectedJobIds);
+				if (allSelectedJobIds.length == 0) {
+					alert('{!$Label.AVTRRT__Please_select_at_least_one_job}');
+					return;
+				}
+				
+				window.open(
+						'/apex/FCMS__CMSLayout?jobSite={!JSENCODE($CurrentPage.parameters.jobSite)}' +
+						'&p={!if($CurrentPage.parameters.p == null,'',JSENCODE($CurrentPage.parameters.p))}' +
+						'&page=JobApplicationPage&sessionId={!if($CurrentPage.parameters.sessionId == null, '',JSENCODE($CurrentPage.parameters.sessionId))}' +
+						'&source={!JSENCODE($CurrentPage.parameters.source)}&jobIds='
+						+ allSelectedJobIds.join(';'), '_parent');
+			}
+		</script>
+		
+		<style type="text/css">
+			<apex:outputText value="{!cmsCssCustom}"/>
+		</style>
+	</head>
+	
+	<div class="container-fluid job-list-page" id="container">
+		<!--        <div id="messages"><apex:pageMessages id="msg" /></div>-->
+		<apex:outputPanel layout="none" rendered="{!errorParam}">
+			<apex:form id="form">
+				<div class="jumbotron jumbotron-gutter">
+					<div class="row div-padding">
+						<div class="col-md-12">
+							<ul class="horizontal-list list">
+								<li class="no-margin">
+									<a title="{!$Label.TRGTFCMS__Add_to_favorites}"
+											onclick="CreateBookmarkLink(this)"
+											href="javascript:void(0);">
+										{!$Label.TRGTFCMS__Save_this_page_to_your_favorites}
+									</a>
+								</li>
+								<li class="no-margin">
+									<a title="{!$Label.TRGTFCMS__Add_to_favorites}"
+											onclick="CreateBookmarkLink()"
+											href="javascript:void(0);">
+										<apex:image url="{!URLFOR($Resource.TRGTFCMS__favorites_add)}"/>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-12">
+							<apex:outputPanel layout="none"
+									rendered="{!if($CurrentPage.parameters.p == 'Candidate',true,false)}">
+								<ul class="list">
+									<li class="no-margin div-padding">
+										{!$Label.TRGTFCMS__Thank_you_for_your_interest_in_applying_for_a_job_with_us}
+									</li>
+									<li class="no-margin div-padding">
+										{!$Label.TRGTFCMS__If_you_prefer_you_can_simply}
+										<apex:outputLink value="/apex/FCMS__CMSLayout"
+												styleClass="jobTitleList" target="_parent">
+											<apex:param name="page" value="JobApplicationPage"/>
+											<apex:param name="sessionId"
+													value="{!if($CurrentPage.parameters.sessionId==null,'',$CurrentPage.parameters.sessionId)}"/>
+											<apex:param name="jobSite"
+													value="{!$CurrentPage.parameters.jobSite}"/>
+											<apex:param name="p"
+													value="{!if($CurrentPage.parameters.p==null,'',$CurrentPage.parameters.p)}"/>
+											<apex:param name="source"
+													value="{!if($CurrentPage.parameters.source==null,'',$CurrentPage.parameters.source)}"/>
+											<b>
+												{!$Label.TRGTFCMS__Apply}
+											</b>
+										</apex:outputLink>
+										{!$Label.TRGTFCMS__for_general_consideration}
+									</li>
+								</ul>
+							</apex:outputPanel>
+							<apex:outputPanel layout="none"
+									rendered="{!if($CurrentPage.parameters.p == 'Vendor Profile',true,false)}">
+								<ul class="list">
+									<li class="no-margin div-padding">
+										{!$Label.TRGTFCMS__Thank_you_for_your_interest_in_submitting_candidates_for_a_job_with_us}
+									</li>
+									<li class="no-margin div-padding">
+										{!$Label.TRGTFCMS__If_you_prefer_you_can_simply}
+										<apex:outputLink value="/apex/FCMS__CMSLayout"
+												styleClass="jobTitleList" target="_blank">
+											<apex:param name="page" value="JobApplicationPage"/>
+											<apex:param name="sessionId"
+													value="{!if($CurrentPage.parameters.sessionId==null,'',$CurrentPage.parameters.sessionId)}"/>
+											<apex:param name="jobSite"
+													value="{!$CurrentPage.parameters.jobSite}"/>
+											<apex:param name="p"
+													value="{!if($CurrentPage.parameters.p==null,'',$CurrentPage.parameters.p)}"/>
+											<apex:param name="source"
+													value="{!if($CurrentPage.parameters.source==null,'',$CurrentPage.parameters.source)}"/>
+											<b>
+												{!$Label.TRGTFCMS__Submit_Candidates}
+											</b>
+										</apex:outputLink>
+										{!$Label.TRGTFCMS__for_general_consideration}
+									</li>
+								</ul>
+							</apex:outputPanel>
+						</div>
+					</div>
+				</div>
+				<hr class="no-m-top hr-border"/>
+				
+				<div class="row">
+					<div class="col-md-12">
+						<table class="table tableJobListSearch">
+							<tr>
+								<td colspan="4" class="no-border">
+									<div class="form-group">
+										<apex:outputLabel styleClass="col-sm-12 no-p-left control-label text-left"
+												for="search-keywords"
+												value="{!$Label.TRGTFCMS__Keywords_double_dot}"/>
+										<div class="col-sm-12 no-p-left no-p-right">
+											<apex:inputText value="{!jobSearch}"
+													styleClass="form-control all-border-radius cusMargin"
+													id="search-keywords"/>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="no-border">
+									<div class="form-group">
+										<label class="col-sm-12 no-p-left control-label text-left"
+												for="job-title">
+											{!$Label.TRGTFCMS__Job_Title}:
+										</label>
+										<div class="col-sm-12 no-p-left no-p-right">
+											<apex:inputField required="false"
+													value="{!job.AVTRRT__Job_Title__c}"
+													styleClass="form-control all-border-radius"/>
+										</div>
+									</div>
+								</td>
+								<td class="no-border">
+									<div class="form-group">
+										<label class="col-sm-12 no-p-left control-label text-left"
+												for="job-category">
+											{!$Label.TRGTFCMS__Job_Category_double_dot}
+										</label>
+										<div class="col-sm-12 no-p-left no-p-right">
+											<apex:inputField value="{!job.AVTRRT__Job_Category__c}"
+													styleClass="form-control all-border-radius"/>
+										</div>
+									</div>
+								</td>
+								<td class="no-border">
+									<div class="form-group">
+										<label class="col-sm-12 no-p-left control-label text-left"
+												for="experience">
+											{!$Label.TRGTFCMS__Experience}:
+										</label>
+										<div class="col-sm-12 no-p-left no-p-right">
+											<apex:inputField value="{!job.AVTRRT__Experience__c}"
+													styleClass="form-control all-border-radius"/>
+										</div>
+									</div>
+								</td>
+								<td class="no-border">
+									<div class="form-group">
+										<label class="col-sm-12 no-p-left control-label text-left"
+												for="job-term">
+											{!$Label.TRGTFCMS__Job_Term_double_dot}
+										</label>
+										<div class="col-sm-12 no-p-left no-p-right">
+											<apex:inputField value="{!job.AVTRRT__Job_Term__c}"
+													styleClass="form-control all-border-radius"/>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr style="display: {!IF(enableGeoCoding, 'table-row','none')}">
+								<!--<td class="no-border" colspan="2">
+									<div class="form-group">
+									<apex:outputPanel layout="none">
+										<label class="col-sm-12 no-p-left control-label text-left"
+												for="job-title">
+											{!$Label.Use_my_current_location}
+										</label>
+										<div class="col-sm-12 no-p-left no-p-right">
+											<apex:inputCheckbox value="{!useMyCurrentLocation}"
+													styleClass="field-checkbox"/>
+										</div>
+									</apex:outputPanel>
+									</div>
+								</td>-->
+								<td class="no-border">
+									<div class="form-group">
+										<apex:outputPanel layout="none">
+											<label class="col-sm-12 no-p-left control-label text-left"
+													for="job-title">
+												Country Code
+											</label>
+											<div class="col-sm-12 no-p-left no-p-right">
+												<apex:selectList size="1"
+														multiSelect="false"
+														value="{!selectedCountry}"
+														styleClass="form-control all-border-radius">
+													<apex:selectOptions value="{!availableCountryCodes}">
+													</apex:selectOptions>
+												</apex:selectList>
+											</div>
+										</apex:outputPanel>
+									</div>
+								</td>
+								<td class="no-border">
+									<div class="form-group">
+										<apex:outputPanel layout="none">
+											<label class="col-sm-12 no-p-left control-label text-left"
+													for="job-title">
+												Zip Code
+											</label>
+											<div class="col-sm-12 no-p-left no-p-right">
+												<apex:inputText value="{!zipCode}"
+														styleClass="form-control all-border-radius"/>
+											</div>
+										</apex:outputPanel>
+									</div>
+								</td>
+								<td class="no-border">
+									<div class="form-group">
+										<apex:outputPanel layout="none">
+											<label class="col-sm-12 no-p-left control-label text-left"
+													for="job-title">
+												Radius
+											</label>
+											<div class="col-sm-12 no-p-left no-p-right">
+												<apex:inputText value="{!radius}"
+														styleClass="form-control all-border-radius"/>
+											</div>
+										</apex:outputPanel>
+									</div>
+								</td>
+							</tr>
+						</table>
+						<div class="row">
+							<div class="col-md-12 text-center">
+								<apex:commandButton styleClass="btn btn-primary" action="{!search}"
+										value="{!$Label.TRGTFCMS__Search_Jobs}"/>
+								<apex:commandButton styleClass="btn btn-default"
+										onclick="window.location.href = '{!JSENCODE(currentUrlJobListPage)}';return false;"
+										value="{!$Label.TRGTFCMS__Reset}"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</apex:form>
+			<apex:form id="form1">
+				<apex:inputHidden id="selectedJobs" value="{!selectedJobsPagination}"/>
+				<apex:inputHidden id="jobIdsPerPage" value="{!jobIdsPerPage}"/>
+				<apex:inputHidden id="selectedPageSize" value="{!selectedPageSize}"/>
+				
+				<div class="search-result">
+					<div class="row">
+						<div class="col-md-12">
+							<div id="messages">
+								<apex:pageMessages id="msg"/>
+							</div>
+							<script>
+								$('.infoM3').addClass('alert alert-success');
+								$('.errorM3').addClass('alert alert-danger');
+							</script>
+							<apex:outputPanel rendered="{!showJobError}" layout="none"><p/>
+								<div class="alert alert-danger alert-dismissible fade in">
+									<a href="#" class="close" data-dismiss="alert"
+											aria-label="close">
+										&times;
+									</a>
+									<strong>Error! </strong>
+									{!$label.TRGTFCMS__No_Jobs_found_Please_change_your_search_criteria}.
+								</div>
+							</apex:outputPanel>
+						</div>
+					</div>
+					
+					<apex:outputPanel layout="none" rendered="{!showApplyButton}">
+						<hr class="hr-border"/>
+						<div class="row">
+							<div class="col-md-12 text-center">
+								<div id="afterInsertPaging">
+									<apex:outputPanel layout="none"
+											rendered="{!if($CurrentPage.parameters.p == 'Vendor Profile',true,false)}">
+										<apex:outputLink onclick="apply(); return false;">
+											<input type="button" class="btn btn-primary"
+													value="{!$Label.TRGTFCMS__Submit_Candidates}"/>
+										</apex:outputLink>
+									</apex:outputPanel>
+									<apex:outputPanel layout="none"
+											rendered="{!if($CurrentPage.parameters.p == 'Candidate',true,false)}">
+										<apex:outputLink onclick="apply(); return false;">
+											<input type="button" class="btn btn-primary"
+													value="{!$Label.TRGTFCMS__Apply_for_Selected_Jobs}"/>
+										</apex:outputLink>
+									</apex:outputPanel>
+									<input class="btn btn-default" type="reset"/>
+								</div>
+							</div>
+						</div>
+						<hr class="no-m-bottom transparent-border"/>
+					</apex:outputPanel>
+					
+					<apex:outputPanel layout="none" rendered="{!showApplyButton}">
+						<apex:outputPanel layout="none" rendered="{!isShowPagination}"
+								id="paginationblock">
+							<div class="row div-m-padding">
+								<div class="col-md-12">
+									<ul class="list full-width pager-list">
+										<li class="no-margin pagination_gutter top-margin">
+											{!$label.TRGTFCMS__Page} #:&nbsp;{!pageNumber}
+											{!$label.TRGTFCMS__out_of} {!pageSizeList.size}
+										</li>
+										<li class="no-margin pagination_gutter">
+											<ul class="pagination pagination-sm no-margin vertical">
+												<li class="no-margin {!if(disablePreviousButton == true, 'disabled', '')}">
+													<apex:commandLink target="_self"
+															rendered="{!!disablePreviousButton}"
+															action="{!pageChanged}">
+														<apex:param name="PreviousPage"
+																value="Previous"/>
+														{!$Label.TRGTFCMS__Previous}
+													</apex:commandLink>
+													<apex:commandLink rendered="{!disablePreviousButton}"
+															onClick="return false;">
+														{!$Label.TRGTFCMS__Previous}
+													</apex:commandLink>
+												</li>
+												<apex:variable value="{!1}" var="index"/>
+												<apex:variable value="{!1}" var="indexing"/>
+												<apex:repeat value="{!numbersPage}" var="Page">
+													<li class="no-margin  {!if(pageNumber == Page, 'active', '')}">
+														<apex:commandLink value="{!Page}"
+																styleClass="empty maxwidth1"
+																target="_self"
+																action="{!pageChanged}">
+															<apex:param name="pageNumber"
+																	value="{!Page}"/>
+															<apex:param name="countJob"
+																	value="{!countJobForPage}"/>
+														</apex:commandLink>
+													</li>
+													<apex:outputPanel rendered="{!IF((index/5 == 1 && indexing != numbersPage.size),true,false)}"
+															layout="none">
+														<span class="mobiledisplay"
+																style="display:none">
+														</span>
+														<apex:variable value="{!0}" var="index"/>
+													</apex:outputPanel>
+													<apex:variable value="{!index+1}" var="index"/>
+													<apex:variable value="{!indexing+1}"
+															var="indexing"/>
+												</apex:repeat>
+												<li class="no-margin{!if(disableNextButton == true, ' disabled', '')}">
+													<apex:commandLink target="_self"
+															rendered="{!!disableNextButton}"
+															action="{!pageChanged}">
+														<apex:param name="nextPage"
+																value="nextPage"/>
+														{!$Label.TRGTFCMS__Next}
+													</apex:commandLink>
+													<apex:commandLink rendered="{!disableNextButton}"
+															onClick="return false;">
+														{!$Label.TRGTFCMS__Next}
+													</apex:commandLink>
+												</li>
+											</ul>
+										</li>
+										<li class="no-margin pagination_gutter showPage">
+											<ul class="horizontal-list list">
+												<li class="no-margin  top-margin">{!$label.TRGTFCMS__Show_Page}
+													:&nbsp;
+												</li>
+												<li class="no-margin">
+													<apex:selectList value="{!selectedPageTop}"
+															size="1"
+															styleClass="form-control">
+														<apex:selectOptions value="{!pages}">
+														</apex:selectoptions>
+														<apex:actionSupport event="onchange"
+																action="{!selectedPageNumberTop}"/>
+													</apex:selectList>
+												</li>
+											</ul>
+										</li>
+										<li class="no-margin pagination_gutter">
+											<ul class="horizontal-list list">
+												<li class="no-margin  top-margin">
+													{!$label.TRGTFCMS__Records_per_Page}:&nbsp;
+												</li>
+												<li class="no-margin">
+													<apex:selectList value="{!selectedPageSizeTop}"
+															size="1"
+															styleClass="form-control select1">
+														<apex:selectOptions value="{!pageCountSizeList}">
+														</apex:selectoptions>
+														<apex:actionSupport event="onchange"
+																action="{!selectedPageCountRecordTop}"/>
+													</apex:selectList>
+												</li>
+											</ul>
+										</li>
+										<li class="no-margin pagination_gutter  top-margin">
+											<b><span class="total-count">
+													{!$Label.TRGTFCMS__Total_count}
+													: {!totalCountRecords}
+												</span></b>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</apex:outputPanel>
+						
+						<table class="table table1 table-hover table-bordered tableJobList"
+								cellspacing="0"
+								summary="{!$Label.TRGTFCMS__Search_Result_of_the_jobs}">
+							<thead>
+							<tr class="active">
+								<th scope="col" abbr="cbox" class="check-header">
+									<apex:inputCheckBox value="{!jobCheckBox1}" id="mainCheckBox"
+											onclick="applyCheckBoxClick(this)"/>
+								</th>
+								<th>JOBS</th>
+								<!--<th scope="col" abbr="Job Title">
+									{!$label.TRGTFCMS__Job_Title}
+								</th>
+								<th scope="col" abbr="Description"
+										style="width:300px;">
+									{!$label.TRGTFCMS__Description}
+								</th>
+								<th scope="col" abbr="Description">
+									{!$label.TRGTFCMS__Category}
+								</th>
+								<th scope="col" abbr="Description">
+									{!$label.TRGTFCMS__City}
+								</th>
+								<th scope="col" abbr="Description">
+									{!$label.TRGTFCMS__State}
+								</th>
+								<th scope="col" abbr="Description">
+									{!$label.TRGTFCMS__Term}
+								</th>-->
+							</tr>
+							</thead>
+							<tbody>
+							<apex:repeat value="{!searchedJobBeanListOfList1}"
+									var="searchedJob" id="repeat1">
+								<apex:repeat value="{!searchedJob}" var="job1" id="repeat2">
+									<tr class="{!job1.oddEvenCssClass} tr">
+										<td class="td" data-label="">
+											<apex:inputCheckBox value="{!job1.checkBox}"
+													disabled="{!job1.jobAppliedBefore}"
+													styleclass="linkCheckBox" id="checkBox"
+													html-jobId="{!job1.jobObject.Id}"
+													onclick="checkForJobAlreadySelected(this,'{!job1.jobObject.Id}')"/>
+										</td>
+										<td class="td" data-label="{!$Label.TRGTFCMS__Job_Title}">
+											<apex:outputLink value="/apex/FCMS__CMSLayout"
+													styleClass="jobTitleList inc" target="_parent">
+												<apex:param name="jobIds"
+														value="{!job1.jobObject.Id}"/>
+												<apex:param name="page" value="JobDetailPage"/>
+												<apex:param name="sessionId"
+														value="{!$CurrentPage.parameters.sessionId}"/>
+												<apex:param name="jobSite"
+														value="{!$CurrentPage.parameters.jobSite}"/>
+												<apex:param name="p"
+														value="{!$CurrentPage.parameters.p}"/>
+												<apex:param name="source"
+														value="{!$CurrentPage.parameters.source}"/>
+												{!job1.jobObject.AVTRRT__Job_Title__c}<br/>
+											</apex:outputLink>
+											<table class="table table2 bg-transparent autoWidth
+                                                            tableJobList">
+												<tr
+														class="no-border nobackground tr-background">
+													<apex:variable value="{!1}" var="size"/>
+													<apex:repeat value="{!fieldLabels}" var="field">
+														
+														<td class="no-border no-m no-p jobSpecificationSec">
+															<span>
+																<b>{!field}: </b>
+															</span>
+															<span>
+																{!job1.jobObject[fieldsAndLabelsToDisplay[field]]}
+															</span>
+														</td>
+														
+														<!--<td class="no-border no-m no-p jobSpecificationSec">
+															<span style="">
+																<b>Job Term:</b>
+															</span>
+															{!job1.jobObject.AVTRRT__Job_Term__c}
+														</td>
+														<td class="no-border no-m no-p jobSpecificationSec">
+															<span style="">
+																<b>Pay Unit:</b>
+															</span>
+															<span>{!job1.jobObject.AVTRRT__Job_City__c}
+															</span>
+														</td>
+														<td class="no-border no-m no-p jobSpecificationSec">
+															<span style="">
+																<b>Job Category:</b>
+															</span>
+															<span>
+															{!job1.jobObject.AVTRRT__Job_Category__c}
+															</span>
+														</td>-->
+														<apex:outputPanel rendered="{!IF(size/4==1,true,false)}">
+															<script>document.write('</tr><tr class="no-border tr-background" >');</script>
+															<apex:variable value="{!0}" var="size"/>
+														</apex:outputPanel>
+														
+														<apex:variable value="{!size+1}"
+																var="size"/>
+													</apex:repeat>
+												</tr>
+											</table>
+											<!-- <div class="text-justify full-width jobDescrtionScope mobileVersion">
+												{!job1.jobObject.AVTRRT__Job_Summary__c}
+											</div> -->
+											<apex:outputText value="{!job1.jobObject.AVTRRT__Job_Summary__c}"
+													styleClass="text-justify full-width jobDescrtionScope mobileVersion">
+											
+											</apex:outputText>
+										</td>
+										<!--<td class="td" data-label="{!$Label.trgtfcms__description}">
+											<p>{!job1.jobObject.AVTRRT__Job_Summary__c}</p>
+										</td>
+										<td class="td" data-label="{!$Label.trgtfcms__category}">
+											{!job1.jobObject.AVTRRT__Job_Category__c}
+										</td>
+										<td class="td" data-label="{!$Label.trgtfcms__city}">
+											{!job1.jobObject.AVTRRT__Job_City__c}
+										</td>
+										<td class="td" data-label="{!$Label.trgtfcms__state}">
+											{!job1.jobObject.AVTRRT__State__c}
+										</td>
+										<td class="td" data-label="{!$Label.trgtfcms__term}">
+											{!job1.jobObject.AVTRRT__Job_Term__c}
+										</td>-->
+									</tr>
+								</apex:repeat>
+							</apex:repeat>
+							</tbody>
+						</table>
+						
+						<apex:outputPanel layout="none" rendered="{!isShowPagination}">
+							<div class="row div-m-padding">
+								<div class="col-md-12">
+									<ul class="list full-width pager-list">
+										<li class="no-margin pagination_gutter  top-margin">
+											{!$label.TRGTFCMS__Page} #:&nbsp;{!pageNumber}
+											{!$label.TRGTFCMS__out_of} {!pageSizeList.size}
+										</li>
+										<li class="no-margin pagination_gutter">
+											<ul class="pagination pagination-sm no-margin vertical">
+												<li
+														class="no-margin {!if(disablePreviousButton == true, 'disabled', '')}">
+													<apex:commandLink target="_self"
+															rendered="{!!disablePreviousButton}"
+															action="{!pageChanged}">
+														<apex:param name="PreviousPage"
+																value="Previous"/>
+														{!$Label.TRGTFCMS__Previous}
+													</apex:commandLink>
+													<apex:commandLink rendered="{!disablePreviousButton}"
+															onClick="return false;">
+														{!$Label.TRGTFCMS__Previous}
+													</apex:commandLink>
+												</li>
+												<apex:variable value="{!1}" var="index"/>
+												<apex:variable value="{!1}" var="indexing"/>
+												<apex:repeat value="{!numbersPage}" var="Page">
+													<li class="no-margin  {!if(pageNumber == Page, 'active', '')}">
+														<apex:commandLink value="{!Page}"
+																styleClass="empty maxwidth1"
+																target="_self"
+																action="{!pageChanged}">
+															<apex:param name="pageNumber"
+																	value="{!Page}"/>
+															<apex:param name="countJob"
+																	value="{!countJobForPage}"/>
+														</apex:commandLink>
+													</li>
+													<apex:outputPanel rendered="{!IF((index/5 == 1 && indexing != numbersPage.size),true,false)}"
+															layout="none">
+														<span class="mobiledisplay"
+																style="display:none">
+														</span>
+														<apex:variable value="{!0}" var="index"/>
+													</apex:outputPanel>
+													<apex:variable value="{!index+1}" var="index"/>
+													<apex:variable value="{!indexing+1}"
+															var="indexing"/>
+												</apex:repeat>
+												<li class="no-margin{!if(disableNextButton == true, ' disabled', '')}">
+													<apex:commandLink rendered="{!!disableNextButton}"
+															target="_self" action="{!pageChanged}">
+														<apex:param name="nextPage"
+																value="nextPage"/>
+														{!$Label.TRGTFCMS__Next}
+													</apex:commandLink>
+													<apex:commandLink rendered="{!disableNextButton}"
+															onClick="return false;">
+														{!$Label.TRGTFCMS__Next}
+													</apex:commandLink>
+												</li>
+											</ul>
+										</li>
+										<li class="no-margin pagination_gutter showPage">
+											<ul class="horizontal-list list">
+												<li class="no-margin  top-margin">
+													{!$label.TRGTFCMS__Show_Page}:&nbsp;
+												</li>
+												<li class="no-margin">
+													<apex:selectList value="{!selectedPage}"
+															size="1"
+															styleClass="form-control">
+														<apex:selectOptions value="{!pages}">
+														</apex:selectoptions>
+														<apex:actionSupport event="onchange"
+																action="{!selectedPageNumber}"/>
+													</apex:selectList>
+												</li>
+											</ul>
+										</li>
+										<li class="no-margin pagination_gutter">
+											<ul class="horizontal-list list">
+												<li class="no-margin top-margin">
+													{!$label.TRGTFCMS__Records_per_Page}:&nbsp;
+												</li>
+												<li class="no-margin">
+													<apex:selectList id="selectList2"
+															value="{!selectedPageSize}" size="1"
+															styleClass="form-control select1">
+														<apex:selectOptions value="{!pageCountSizeList}">
+														</apex:selectoptions>
+														<apex:actionSupport event="onchange"
+																action="{!selectedPageCountRecord}"/>
+													</apex:selectList>
+												</li>
+											</ul>
+										</li>
+										<li class="no-margin pagination_gutter top-margin">
+											<b><span class="total-count ">
+													{!$Label.TRGTFCMS__Total_count}
+													: {!totalCountRecords}
+												</span></b>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</apex:outputPanel>
+						
+						<hr class="hr-border"/>
+						<div class="row">
+							<div class="col-md-12 text-center">
+								<div id="afterInsertPaging">
+									<apex:outputPanel layout="none"
+											rendered="{!if($CurrentPage.parameters.p == 'Vendor Profile',true,false)}">
+										<apex:outputLink onclick="apply(); return false;">
+											<input type="button" class="btn btn-primary"
+													value="{!$Label.TRGTFCMS__Submit_Candidates}"/>
+										</apex:outputLink>
+									</apex:outputPanel>
+									<apex:outputPanel layout="none"
+											rendered="{!if($CurrentPage.parameters.p == 'Candidate',true,false)}">
+										<apex:outputLink onclick="apply(); return false;">
+											<input type="button" class="btn btn-primary"
+													value="{!$Label.TRGTFCMS__Apply_for_Selected_Jobs}"/>
+										</apex:outputLink>
+									</apex:outputPanel>
+									<input class="btn btn-default" type="reset"/>
+								</div>
+							</div>
+						</div>
+						<hr class="no-m-bottom transparent-border"/>
+					</apex:outputPanel>
+				</div>
+				<input type="hidden" Id="JobId" value=""/>
+			</apex:form>
+		</apex:outputPanel>
+		
+		<script>
+			$(document).ready(function () {
+				var pageNumber = '{!pageNumber}';
+				$('.empty').each(function () {
+					
+					if ($(this).text() === pageNumber) {
+						$(this).addClass('lightLinkPage');
+					}
+				});
+				var paging = $('#paging').clone(true);
+				$('#afterInsertPaging').after(paging);
+				window.scrollTo(0, 0);
+				parent.scrollTo(0, 0);
+			});
+			
+			function goToThisJob(id) {
+				document.getElementById(JobId).value = id;
+				alert(document.getElementById('JobId').value);
+				return true;
+			}
+			
+			function applyCheckBoxClick(inputCheck) {
+				checkId = inputCheck.id;
+				var checkIdList = checkId.split(':');
+				size = checkIdList.length;
+				
+				checkName = checkIdList[size - 1];
+				//checkName1 = ':'+checkName;
+				baseIdPart = checkId.replace(checkName, '');
+				
+				var i = 0;
+				var j = 0;
+				if (inputCheck.checked == true) {
+					
+					while (document.getElementById(baseIdPart + 'repeat1:' + i + ':repeat2:' + j + ':checkBox')) {
+						if (document.getElementById(baseIdPart + 'repeat1:' + i + ':repeat2:' + j + ':checkBox').disabled == false) {
+							document.getElementById(baseIdPart + 'repeat1:' + i + ':repeat2:' + j + ':checkBox').checked = true;
+						}
+						j++;
+						if (j == 999) {
+							i++;
+							j = 0;
+						}
+					}
+					
+				} else {
+					while (document.getElementById(baseIdPart + 'repeat1:' + i + ':repeat2:' + j + ':checkBox')) {
+						if (document.getElementById(baseIdPart + 'repeat1:' + i + ':repeat2:' + j + ':checkBox').disabled == false) {
+							document.getElementById(baseIdPart + 'repeat1:' + i + ':repeat2:' + j + ':checkBox').checked = false;
+						}
+						j++;
+						if (j == 999) {
+							i++;
+							j = 0;
+						}
+					}
+					var selecJobs = document.getElementById('{!$Component.page.form1.selectedJobs}').value;
+					var jobs = new Array();
+					jobs = selecJobs.split(';');
+					
+					//alert(jobs[1]);
+					var jobsList = document.getElementById('{!$Component.page.form1.jobIdsPerPage}').value;
+					var jobListArray = new Array();
+					jobsListArray = jobsList.split(';');
+					//alert(jobsListArray[1]);
+					
+					for (var i = 0; i < jobs.length; i++) {
+						for (var j = 0; j < jobsListArray.length; j++) {
+							if (jobsListArray[j] === jobs[i]) {
+								
+								selecJobs = selecJobs.replace(jobs[i], "");
+								selecJobs = selecJobs.replace(';', "");
+							}
+							
+						}
+						
+					}
+					//alert(selecJobs);
+					document.getElementById('{!$Component.page.form1.selectedJobs}').value = selecJobs;
+					
+				}
+			}
+			
+			function checkForJobAlreadySelected(inputCheck, jobId) {
+				
+				if (inputCheck.checked == false) {
+					var selecJobs = document.getElementById('{!$Component.page.form1.selectedJobs}').value;
+					if (selecJobs.length != 0) {
+						//alert(selecJobs);
+						selecJobs = selecJobs.replace(jobId + ';', "");
+						document.getElementById('{!$Component.page.form1.selectedJobs}').value = selecJobs;
+						//alert(selecJobs);
+					}
+					
+				}
+				
+			}
+			
+			function autoResizeIframe() {
+				var iframesEle = window.parent.document.getElementsByTagName('Iframe');
+				for (var i = 0; i < iframesEle.length; i++) {
+					var newHeight;
+					
+					if (iframesEle[i].contentDocument) {
+						newHeight = iframesEle[i].contentDocument.documentElement.scrollHeight + 200 + 'px'; //FF 3.0.11, Opera 9.63, and Chrome
+					} else {
+						newHeight = iframesEle[i].contentWindow.document.body.scrollHeight + 200 + 'px'; //IE6, IE7 and Chrome
+					}
+					iframesEle[i].style.height = newHeight;
+					iframesEle[i].parentNode.parentNode.style.height = newHeight;
+				}
+			}
+			
+			autoResizeIframe();
+		</script>
+	</div>
+</apex:page>

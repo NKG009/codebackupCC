@@ -1,0 +1,47 @@
+<template>
+    <div class="modal-backdrop">
+        <div class="modal">
+            <div class="modal__header">
+                <h3>{title}</h3>
+                <button class="modal__close" onclick={handleClose}>✕</button>
+            </div>
+            <div class="modal__body">
+                <lightning-input
+                    label="Class name"
+                    value={cls.Name}
+                    onchange={handleField}
+                    data-field="Name"
+                    required>
+                </lightning-input>
+                <lightning-input
+                    label="Class code"
+                    value={cls.Class_Code__c}
+                    onchange={handleField}
+                    data-field="Class_Code__c"
+                    placeholder="e.g. BP-001-C1">
+                </lightning-input>
+                <lightning-textarea
+                    label="Description"
+                    value={cls.Description__c}
+                    onchange={handleField}
+                    data-field="Description__c">
+                </lightning-textarea>
+                <lightning-input
+                    type="checkbox"
+                    label="Published"
+                    checked={cls.Is_Published__c}
+                    onchange={handlePublishToggle}>
+                </lightning-input>
+            </div>
+            <div class="modal__footer">
+                <lightning-button label="Cancel" onclick={handleClose}></lightning-button>
+                <lightning-button
+                    label="Save class"
+                    variant="brand"
+                    onclick={handleSave}
+                    disabled={isSaving}>
+                </lightning-button>
+            </div>
+        </div>
+    </div>
+</template>

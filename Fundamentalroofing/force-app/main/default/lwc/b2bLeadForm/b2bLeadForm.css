@@ -1,0 +1,63 @@
+.container {
+    max-width: 550px;
+    margin: 50px auto;
+    text-align: left; 
+}
+
+.contact-card {
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    padding: 20px;
+    background-color: #ffffff; 
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #0070d2;
+}
+.submit-btn {
+    display: block;     
+    width: fit-content;   
+    padding: 10px 30px;
+    margin: 25px auto 0;  
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+.submit-btn:hover {
+    background-color: #005fb2;
+    border-color: #005fb2;
+}
+
+.error-message {
+    color: #d32f2f;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.success-message {
+    padding: 30px;
+    font-weight: bold;
+}
+/* Make all labels bold */
+.contact-card .slds-form-element__label {
+    font-weight: 700;  /* Bold */
+    color: #333;       /* Optional: slightly darker for contrast */
+}
+
+.logo-container {
+    text-align: center;
+}
+
+.logo {
+    max-width: 200px;
+    height: auto;
+}

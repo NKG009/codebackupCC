@@ -1,0 +1,23 @@
+<template>
+    <template if:true={featuredTopics}>
+        <lightning-tabset class="custom-tabs">
+            <lightning-tab label="OMNIHUB TOOLKITS"></lightning-tab>
+            <div class="slds-grid slds-wrap custom-grid">
+                <template for:each={featuredTopics} for:item="topic">
+                    <div key={topic.value} class="grid-column">
+                        <div class="image-container">
+                            <img 
+                                src={topic.image}
+                                onclick={handleClick}
+                                data-id={topic.value}
+                                data-name={topic.label}
+                                class="image-hover-effect"
+                            />
+                            <div class="hover-label">{topic.label}</div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </lightning-tabset>
+    </template>
+</template>

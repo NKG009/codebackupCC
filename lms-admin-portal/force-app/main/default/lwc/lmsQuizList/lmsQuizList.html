@@ -1,0 +1,29 @@
+<template>
+    <div class="list-page">
+        <div class="list-page__toolbar">
+            <lightning-input type="search" label="" placeholder="Search quizzes..." value={searchTerm} onchange={handleSearch} class="list-page__search"></lightning-input>
+            <lightning-button label="New quiz" icon-name="utility:add" variant="brand" onclick={handleNew}></lightning-button>
+        </div>
+        <template if:true={isLoading}><lightning-spinner alternative-text="Loading"></lightning-spinner></template>
+        <template if:false={isLoading}>
+            <div class="list-table">
+                <div class="list-table__header"><span>Quiz name</span><span>Pass %</span><span>Questions</span><span>Used in</span><span>Actions</span></div>
+                <template for:each={filteredQuizzes} for:item="quiz">
+                    <div key={quiz.Id} class="list-table__row">
+                        <span class="row-name">{quiz.Name}</span>
+                        <span class="row-muted">{quiz.Passing_Score__c}%</span>
+                        <span class="row-muted">{quiz.questionCount}</span>
+                        <span class="row-muted">{quiz.usageCount} places</span>
+                        <div class="row-actions">
+                            <lightning-button-icon icon-name="utility:edit" alternative-text="Edit" onclick={handleEdit} data-id={quiz.Id}></lightning-button-icon>
+                            <lightning-button-icon icon-name="utility:delete" alternative-text="Delete" onclick={handleDelete} data-id={quiz.Id}></lightning-button-icon>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </template>
+        <template if:true={showConfirm}>
+            <c-lms-confirm-modal title="Delete quiz?" message="This removes the quiz and all its question associations. Attempt history is preserved." onconfirm={confirmDelete} oncancel={cancelDelete}></c-lms-confirm-modal>
+        </template>
+    </div>
+</template>

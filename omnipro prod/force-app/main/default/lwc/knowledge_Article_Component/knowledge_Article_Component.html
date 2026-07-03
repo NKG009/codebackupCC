@@ -1,0 +1,61 @@
+<template>
+    <div class="main-container">
+        <c-document-preview-modal url={docURL} file-extension={fileExtension}></c-document-preview-modal>
+
+
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12 slds-p-around_small">
+                <template if:true={featuredTopics}>
+                    <lightning-vertical-navigation>
+                        <lightning-vertical-navigation-section label="All Topics">
+                            <template for:each={featuredTopics} for:item="topic">
+                                <lightning-vertical-navigation-item 
+                                    key={topic.value}
+                                    label={topic.label} 
+                                    data-id={topic.value} 
+                                    data-name={topic.label} 
+                                    title={topic.label} 
+                                    onclick={handleTopicClick}>
+                                </lightning-vertical-navigation-item>
+                            </template>
+                        </lightning-vertical-navigation-section>
+                    </lightning-vertical-navigation>
+                </template>
+                
+            </div>
+
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_8-of-12 slds-p-around_small">
+                <!-- <div>
+                    <lightning-breadcrumbs>
+                        <lightning-breadcrumb label="Home" href="https://omniproireland2--omniprodev.sandbox.my.site.com/helpcenter/s/">
+                        </lightning-breadcrumb>
+                        <lightning-breadcrumb label={topicParentName} href="">
+                        </lightning-breadcrumb>
+                    </lightning-breadcrumbs>
+                </div> -->
+
+                <template if:true={gridData.length}>
+                    <div class="slds-p-around_medium lgc-bg">
+                        <lightning-tree-grid 
+                            hide-checkbox-column="true"
+                            columns={gridColumns}
+                            data={gridData}
+                            key-field="id"
+                            expanded-rows={gridExpandedRows}
+                            is-loading={gridLoadingState}
+                            onrowaction={handleRowToggle}>
+                        </lightning-tree-grid>
+                    </div>
+                </template>
+                <!-- onclick ={handleRowToggle} -->
+
+                <template if:true={gridLoadingState}>
+                    <div class="slds-align_absolute-center slds-m-top_medium">
+                        <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+  
+</template>

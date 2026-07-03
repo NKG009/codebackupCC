@@ -1,0 +1,7 @@
+<template>
+    <div class="settings-panel">
+        <lightning-input label="Passing score (%)" type="number" min="0" max="100" value={settings.Passing_Score__c} onchange={handleField} data-field="Passing_Score__c"></lightning-input>
+        <lightning-input label="Max retake attempts (0 = unlimited)" type="number" min="0" value={settings.Max_Retakes__c} onchange={handleField} data-field="Max_Retakes__c"></lightning-input>
+        <lightning-button label="Save settings" variant="brand" onclick={handleSave}></lightning-button>
+    </div>
+</template>

@@ -1,0 +1,73 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e0f2ff, #ffffff);
+    padding: 2rem;
+}
+
+.card {
+    width: 1200px;
+    /*max-width: 900px;*/
+    text-align: center;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #0070d2;
+    margin-bottom: 1.5rem;
+}
+
+.search-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.search-input {
+    flex: 1;
+    min-width: 200px;
+}
+
+.search-btn {
+    align-self: flex-end;
+}
+
+.result-placeholder {
+    text-align: center;
+    color: #444;
+}
+
+.icon {
+    --slds-c-icon-color-foreground-default: #0070d2;
+    margin-bottom: 0.5rem;
+}
+
+.no-data-text {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.datatable {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}

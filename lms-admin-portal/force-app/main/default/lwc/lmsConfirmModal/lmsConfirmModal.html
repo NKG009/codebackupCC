@@ -1,0 +1,16 @@
+<template>
+    <div class="modal-backdrop">
+        <div class="modal">
+            <div class="modal__header">
+                <h3>{title}</h3>
+            </div>
+            <div class="modal__body">
+                <p>{message}</p>
+            </div>
+            <div class="modal__footer">
+                <lightning-button label="Cancel" onclick={handleCancel}></lightning-button>
+                <lightning-button label="Confirm" variant="destructive" onclick={handleConfirm}></lightning-button>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,1 @@
+<apex:page controller="WIPortalXMLFeedController" action="{!init}" showHeader="false" sidebar="false" contentType="application/xml" standardStylesheets="false" cache="false">{!output}</apex:page>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Portfolio Viewer</masterLabel>
+    <description>Let's the community user view his portfolio</description>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>  
+    </targets>
+
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage,lightning__AppPage,lightning__HomePage,lightningCommunity__Default">
+            <property name="defaultUsrId" label="User ID" type="String" />
+
+            <property name="header" label="Header" type="String"/>
+            <property name="headerFontSize" label="Header Font Size" type="String"/>
+            <property name="headerFontColor" label="Header Font Color" type="String"/>
+            <property name="headerFontFamily" label="Header Font Family" type="String"/>
+
+            <property name="title" label="Title" type="String"/>
+            <property name="agencyTitle" label="Agency Title" type="String"/>
+            <property name="teamTitle" label="Team Title" type="String"/>                 
+
+            <property name="labelFontSize" label="Label Font Size" type="String"/>
+            <property name="labelFontColor" label="Label Font Color" type="String"/>
+            <property name="labelFontFamily" label="Label Font Family" type="String"/>
+            <property name="labelPercentColor" label="Label Percent Color" type="String"/>
+
+            <property name="progressBarColor" label="Progress Bar Color" type="String"/>
+            <property name="progressBarHeight" label="Progress Bar Height" type="String"/>
+
+            <property name="agencyProgressBarColor" label="Agency Progress Bar Color" type="String"/>
+            <property name="agencyProgressBarHeight" label="Agency Progress Bar Height" type="String"/>   
+
+            <property name="teamLabelFontSize" label="Team Label Font Size" type="String"/>
+            <property name="teamLabelFontColor" label="Team Font Color" type="String"/>
+            <property name="teamLabelFontFamily" label="Team Label Font Family" type="String"/>
+            <property name="teamLabelPercentColor" label="Team Percent Color" type="String"/>
+
+            <property name="teamProgressBarColor" label="Team Progress Bar Color" type="String"/>
+            <property name="teamProgressBarHeight" label="Team Progress Bar Height" type="String"/>
+ 
+        </targetConfig>
+    </targetConfigs>
+
+</LightningComponentBundle>

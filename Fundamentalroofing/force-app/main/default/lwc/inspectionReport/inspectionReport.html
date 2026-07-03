@@ -1,0 +1,338 @@
+<template>
+    <lightning-card title="Fundamental Roofing LLC Field Inspection">
+        <div class="slds-p-around_medium">
+
+            <!-- Front Of Property Images -->
+            <section class="slds-m-top_medium">
+                <h3>Front Of Property</h3>
+                <input type="file" accept="image/*" multiple data-type="front" onchange={handleFileChange} />
+                <div class="slds-grid slds-wrap slds-m-top_small">
+                    <template for:each={frontImages} for:item="img">
+                        <div key={img.id} class="slds-m-right_small slds-m-bottom_small">
+                            <img src={img.url} alt="Front Property Image" style="width:100px; height:100px; object-fit:contain; border:1px solid #ccc;" />
+                        </div>
+                    </template>
+                </div>
+            </section>
+
+           
+            <!-- Client & Property Info -->
+            <section>
+                <lightning-input label="Client Address" value={streetAddress} onchange={handleInputChange} data-field="streetAddress"></lightning-input>
+                <lightning-input label="City" value={city} onchange={handleInputChange} data-field="city"></lightning-input>
+                <lightning-input label="State" options={stateOptions} value={state} onchange={handleInputChange} data-field="state"></lightning-input>
+                <!--<lightning-combobox label="State" options={stateOptions} value={state} onchange={handleInputChange} data-field="state"></lightning-combobox>-->
+                <lightning-input label="Zip Code" value={zipCode} onchange={handleInputChange} data-field="zipCode"></lightning-input>
+                <lightning-input label="Client Name" value={clientName} onchange={handleInputChange} data-field="clientName"></lightning-input>
+                <lightning-input label="Client Email" value={clientEmail} onchange={handleInputChange} data-field="clientEmail"></lightning-input>
+                <lightning-input label="Inspector Name" value={inspectorName} onchange={handleInputChange} data-field="inspectorName"></lightning-input>
+                <lightning-input type="date" label="Inspection Date" value={inspectionDate} onchange={handleInputChange} data-field="inspectionDate"></lightning-input>
+            </section>
+
+            <!-- Disclaimer -->
+            <section class="slds-m-top_medium">
+                <h3><strong>Disclaimer</strong></h3>
+                <p>
+                    The above named requested an evaluation of the roofing system for the referenced address. 
+                    Our evaluation will take into consideration the overall condition of the roofing system, 
+                    its design and expected performance over time. We cannot be liable for determining insurability. 
+                    This falls under the purview of a qualified underwriter. If the property is under contract, 
+                    we recommend the buyer contact their insurance carrier and request an inspection by an underwriter 
+                    to determine whether or not the roof is insurable prior to the end of the option period if possible 
+                    or at least prior to closing.
+                </p>
+            </section>
+<!-- General Property Description -->
+<section class="slds-m-top_medium">
+    <h3><strong>General Property Description:</strong></h3>
+    <p><strong>Property Type:</strong></p>
+
+    <div class="slds-grid slds-wrap slds-m-top_small">
+        <lightning-input type="checkbox" label="1 Story" data-field="propertyType" value="1 Story" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="2 Story" data-field="propertyType" value="2 Story" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="3 Story" data-field="propertyType" value="3 Story" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="3+ Story" data-field="propertyType" value="3+ Story" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Detached" data-field="propertyType" value="Detached" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Attached" data-field="propertyType" value="Attached" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Hip & Ridge" data-field="propertyType" value="Hip & Ridge" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Gable & Ridge" data-field="propertyType" value="Gable & Ridge" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Flat" data-field="propertyType" value="Flat" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Other" data-field="propertyType" value="Other" onchange={handleInputChange}></lightning-input>
+    </div>
+</section>
+<!-- Type of Roof Covering -->
+<section class="slds-m-top_medium">
+    <h3><strong>Type of Roof Covering:</strong></h3>
+    <div class="slds-grid slds-wrap slds-m-top_small">
+        <lightning-input type="checkbox" label="3-Tab Composition Asphalt Shingles" data-field="roofCovering" value="3-Tab Composition Asphalt Shingles" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Laminated Composition Asphalt Shingles" data-field="roofCovering" value="Laminated Composition Asphalt Shingles" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="High Profile Hip and Ridge" data-field="roofCovering" value="High Profile Hip and Ridge" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Modified Bitumen (Commercial Grade Granulated Roll Roofing)" data-field="roofCovering" value="Modified Bitumen (Commercial Grade Granulated Roll Roofing)" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="TPO" data-field="roofCovering" value="TPO" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="PVC" data-field="roofCovering" value="PVC" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="EPDM" data-field="roofCovering" value="EPDM" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Standing Seam" data-field="roofCovering" value="Standing Seam" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="R-Panel / U-Panel Metal" data-field="roofCovering" value="R-Panel / U-Panel Metal" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Concrete Tile" data-field="roofCovering" value="Concrete Tile" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Clay Tile" data-field="roofCovering" value="Clay Tile" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Slate" data-field="roofCovering" value="Slate" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Synthetic Tile" data-field="roofCovering" value="Synthetic Tile" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Other" data-field="roofCovering" value="Other" onchange={handleInputChange}></lightning-input>
+    </div>
+</section>
+<section>
+<lightning-combobox
+    name="roofAge"
+    label="The roof appears to be approximately"
+    value={roofAge}
+    placeholder="Please Select"
+    options={roofAgeOptions}
+    onchange={handleInputChange}>
+</lightning-combobox>
+</section>
+<section class="slds-m-top_medium">
+    <h3><strong>The underlayment</strong></h3>
+    <div class="slds-grid slds-wrap slds-m-top_small">
+        <lightning-input type="checkbox" label="is installed correctly over the drip edge at the eaves" data-field="underlayment" value="is installed correctly over the drip edge at the eaves" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="is installed incorrectly over the drip edge at the eaves" data-field="underlayment" value="is installed incorrectly over the drip edge at the eaves" onchange={handleInputChange}></lightning-input>
+    </div>
+</section>
+<section class="slds-m-top_medium">
+    <h3><strong>Layer(s) of shingles installed</strong></h3>
+    <div class="slds-grid slds-wrap slds-m-top_small">
+        <lightning-input type="checkbox" label="1" data-field="layerShingles" value="1" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="2" data-field="layerShingles" value="2" onchange={handleInputChange}></lightning-input>
+            <lightning-input type="checkbox" label="3" data-field="layerShingles" value="3" onchange={handleInputChange}></lightning-input>
+
+    </div>
+</section>
+
+
+<!-- Intake Ventilation Section -->
+<div class="slds-m-top_medium">
+    <h3 class="slds-text-heading_small">Intake Ventilation:</h3>
+    <div class="slds-grid slds-wrap slds-m-top_small">
+        <lightning-input type="checkbox" label="No Ventilation Observed" value="No Ventilation Observed" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Soffit Vents" value="Soffit Vents" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Ventilated Soffit" value="Ventilated Soffit" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Eave Vent" value="Eave Vent" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Gable End Vents" value="Gable End Vents" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Other" value="Other" onchange={handleInputChange}></lightning-input>
+    </div>
+</div>
+
+<!-- Exhaust Ventilation Section -->
+<div class="slds-m-top_medium">
+    <h3 class="slds-text-heading_small">Exhaust Ventilation:</h3>
+    <div class="slds-grid slds-wrap slds-m-top_small">
+        <lightning-input type="checkbox" label="No Exhaust Ventilation Observed" value="No Exhaust Ventilation Observed" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Gable End Vents" value="Gable End Vents" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Ridge Vents" value="Ridge Vents" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Low-Profile Box Vents" value="Low-Profile Box Vents" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Static Domes" value="Static Domes" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Turbines" value="Turbines" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Power Attic Fans" value="Power Attic Fans" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Solar Power Vents" value="Solar Power Vents" onchange={handleInputChange}></lightning-input>
+    </div>
+</div>
+
+<section class="slds-m-top_medium">
+    <h3><strong>Ventilation appears to be:</strong></h3>
+    <div class="slds-grid slds-wrap slds-m-top_small">
+        <lightning-input type="checkbox" label="Adequate (The roof ventialtion system appears to be working as intended)" data-field="ventilation" value="Adequate (The roof ventialtion system appears to be working as intended)" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Marginal (See suggested notes for additional improvements)" data-field="ventilation" value="Marginal (See suggested notes for additional improvements)" onchange={handleInputChange}></lightning-input>
+            <lightning-input type="checkbox" label="Inadequate (See inspection notes for required repairs)" data-field="ventilation" value="Inadequate (See inspection notes for required repairs)" onchange={handleInputChange}></lightning-input>
+
+    </div>
+</section>
+
+<section class="slds-m-top_medium">
+    <h3><strong>Pipe Jacks appear to be:</strong></h3>
+    <div class="slds-grid slds-wrap slds-m-top_small">
+        <lightning-input type="checkbox" label="Functional" data-field="pipeJacks" value="Functional" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Need repair(See inspection notes for required repairs)" data-field="pipeJacks" value="Need repair(See inspection notes for required repairs)" onchange={handleInputChange}></lightning-input>
+    </div>
+</section>
+<section class="slds-m-top_medium">
+    <h3><strong>Vent Stack(s) appear to be:</strong></h3>
+    <div class="slds-grid slds-wrap slds-m-top_small">
+         <lightning-input type="checkbox" label="Functional" data-field="ventStack" value="Functional" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="In need of repair(See inspection notes for required repairs)" data-field="ventStack" value="In need of repair(See inspection notes for required repairs)" onchange={handleInputChange}></lightning-input>
+    </div>
+</section>
+<section class="slds-m-top_medium">
+    <h3><strong>Chimney(s) appear to be:</strong></h3>
+    <div class="slds-grid slds-wrap slds-m-top_small">
+       <lightning-input type="checkbox" label="Functional" data-field="chimney" value="Functional" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="In need of repair(See inspection notes for required repairs)" data-field="chimney" value="In need of repair(See inspection notes for required repairs)" onchange={handleInputChange}></lightning-input>
+    </div>
+</section>
+<section class="slds-m-top_medium">
+    <h3><strong>Roof Observed From:</strong></h3>
+    <div class="slds-grid slds-wrap slds-m-top_small">
+        <lightning-input type="checkbox" label="Roof - accessed with ladder" data-field="roofObserved" value="Roof - accessed with ladder" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="Roof - accessed with ladder AT EAVES" data-field="roofObserved" value="Roof - accessed with ladder AT EAVES" onchange={handleInputChange}></lightning-input>
+            <lightning-input type="checkbox" label="Drone" data-field="roofObserved" value="Drone" onchange={handleInputChange}></lightning-input>
+            <lightning-input type="checkbox" label="Ground" data-field="roofObserved" value="Ground" onchange={handleInputChange}></lightning-input>
+            <lightning-input type="checkbox" label="Other" data-field="roofObserved" value="Other" onchange={handleInputChange}></lightning-input>
+
+    </div>
+</section>
+<section class="slds-m-top_medium">
+    <h3><strong>Predominant Roof Pitch:</strong></h3>
+    <div class="slds-grid slds-wrap slds-m-top_small">
+        <lightning-input type="checkbox" label="0-2" data-field="roofPitch" value="0-2" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="checkbox" label="2-4" data-field="roofPitch" value="2-4" onchange={handleInputChange}></lightning-input>
+            <lightning-input type="checkbox" label="4-7" data-field="roofPitch" value="4-7" onchange={handleInputChange}></lightning-input>
+            <lightning-input type="checkbox" label="7-9" data-field="roofPitch" value="7-9" onchange={handleInputChange}></lightning-input>
+            <lightning-input type="checkbox" label="9-12" data-field="roofPitch" value="9-12" onchange={handleInputChange}></lightning-input>
+            <lightning-input type="checkbox" label="12+" data-field="roofPitch" value="12+" onchange={handleInputChange}></lightning-input>
+            <lightning-input type="checkbox" label="Other" data-field="roofPitch" value="Other" onchange={handleInputChange}></lightning-input>
+
+    </div>
+</section>
+<!-- Inspection Notes Section -->
+<div class="slds-m-top_medium">
+    <h3 class="slds-text-heading_small">Inspection:</h3>
+    <p>The inspection yielded the following results:</p>
+
+    <lightning-textarea
+        label=""
+        name="inspectionNotes"
+        data-field="inspectionNotes"
+        placeholder="Enter detailed inspection notes here..."
+        onchange={handleInputChange}
+        class="slds-m-top_small"
+        style="min-height: 150px;">
+    </lightning-textarea>
+</div>
+<!-- Conclusions & Recommendations Section -->
+<div class="slds-m-top_medium">
+    <h3 class="slds-text-heading_small">Conclusions & Recommendations:</h3>
+    <p>Based upon my visual inspection, these are my findings:</p>
+
+    <lightning-input 
+        type="checkbox" 
+        label="This roof will require repairs to meet our standard for quality performance. These repairs should allow the roof to continue to function as intended and shed water." 
+        name="conclusion1" 
+        data-field="conclusion1"
+        onchange={handleInputChange}>
+    </lightning-input>
+</div>
+
+
+<div class="slds-m-top_medium slds-m-bottom_small">
+    <h3 class="slds-text-heading_small slds-text-title_bold">Itemized list of Repairs</h3>
+</div>
+
+            <!-- Repairs Section -->
+            <template for:each={repairs} for:item="item">
+    <div key={item.id} class="slds-grid slds-gutters slds-p-around_x-small slds-border_bottom">
+        <div class="slds-col slds-size_3-of-6">{item.name}</div>
+        <div class="slds-col slds-size_1-of-6">${item.price}</div>
+        <div class="slds-col slds-size_1-of-6">
+            <lightning-input 
+                type="number" 
+                value={item.quantity} 
+                data-id={item.id} 
+                onchange={handleQuantityChange}>
+            </lightning-input>
+        </div>
+        <div class="slds-col slds-size_1-of-6">${item.total}</div>
+    </div>
+</template>
+
+<div class="slds-text-align_right slds-m-top_small">
+    <b>Grand Total: ${grandTotal}</b>
+</div>
+
+
+            <!-- Notes Section -->
+            <section class="slds-m-top_medium">
+                <lightning-textarea label="Notes" value={observations} onchange={handleInputChange} data-field="observations"></lightning-textarea>
+                
+            </section>
+<section>
+<lightning-combobox
+    name="roofAge"
+    label="With the recommended repairs, we would estimate the roof has a remaining life expectancy of approximately:"
+    value={roofAge}
+    placeholder="Please Select"
+    options={roofAgeOptions}
+    onchange={handleInputChange}>
+</lightning-combobox>
+</section>
+<section class="slds-m-top_medium">
+                <h3><strong></strong></h3>
+                <p>
+                   The photographs that follow are intended to be a representative sample of the kind of flaws that exist at the property. This is not an exhaustive cataloging of every imperfection needing addressed:
+                </p>
+            </section>
+            
+            <!-- Dynamic Photo Blocks -->
+            <template for:each={photoBlocks} for:item="block">
+    <div key={block.id} class="photo-upload-block slds-m-bottom_small">
+        <p>Photo Of:</p>
+
+        <!-- Loop through photo types -->
+        <template for:each={photoTypes} for:item="type">
+            <div key={type.value} class="slds-m-bottom_xx-small">
+                <label>
+                    <input type="checkbox" 
+                           data-block-id={block.id} 
+                           data-value={type.value} 
+                           onchange={handleCheckboxChange} />
+                    {type.label}
+                </label>
+
+                <!-- Show text input ONLY for 'Other' and if checked -->
+          <template if:true={block.showOtherInput}>
+            <template if:true={type.isOther}>
+                <lightning-input
+                    label="Please type another option here"
+                    data-block-id={block.id}
+                    value={block.otherName}
+                    onchange={handleOtherNameChange}>
+                </lightning-input>
+            </template>
+        </template>
+
+            </div>
+        </template>
+
+        <!-- File Upload -->
+        <div class="slds-m-top_xx-small">
+    <label></label><br>
+    <input type="file" data-block-id={block.id} onchange={handleFileChange}>
+</div>
+
+
+        <!-- Preview -->
+        <template if:true={block.fileUrl}>
+            <p><strong>{block.labels}</strong></p>
+            <img src={block.fileUrl} alt={block.altText} style="width:150px;margin:5px;" />
+        </template>
+
+        <hr class="slds-m-top_medium"/>
+    </div>
+</template>
+
+            <!-- Submit Button -->
+            <div class="slds-m-top_medium">
+                <lightning-button label="Submit & Generate PDF" variant="brand" onclick={generateAndUploadPdf} disabled={isButtonDisabled}></lightning-button>
+            </div>
+
+            <!-- Status Messages -->
+            <template if:true={isLoading}>
+                <p>Processing... Please wait.</p>
+            </template>
+            <template if:true={uploadSuccess}>
+                <p style="color:green;">PDF uploaded successfully!</p>
+            </template>
+            <template if:true={uploadError}>
+                <p style="color:red;">Error uploading PDF: {uploadErrorMessage}</p>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

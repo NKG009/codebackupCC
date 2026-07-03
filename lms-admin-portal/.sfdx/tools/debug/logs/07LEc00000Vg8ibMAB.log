@@ -1,0 +1,89 @@
+67.0 APEX_CODE,FINEST;APEX_PROFILING,FINE;CALLOUT,INFO;DATA_ACCESS,INFO;DB,FINEST;NBA,INFO;SYSTEM,DEBUG;VALIDATION,INFO;VISUALFORCE,FINER;WAVE,INFO;WORKFLOW,FINE
+07:53:08.0 (715407)|USER_INFO|[EXTERNAL]|005Ec00000ZXoEn|nikhil.gaurav@cloudcacheconsulting.com|(GMT-04:00) Eastern Daylight Time (America/New_York)|GMT-04:00
+07:53:08.0 (750322)|EXECUTION_STARTED
+07:53:08.0 (758004)|CODE_UNIT_STARTED|[EXTERNAL]|apex://LMSLessonController/ACTION$getLessonList
+07:53:08.0 (2286336)|CODE_UNIT_STARTED|[EXTERNAL]|01pEc00000xQ1ZZ|LMSLessonController.getLessonList()
+07:53:08.0 (5283513)|HEAP_ALLOCATE|[95]|Bytes:3
+07:53:08.0 (5387074)|HEAP_ALLOCATE|[100]|Bytes:152
+07:53:08.0 (5404215)|HEAP_ALLOCATE|[417]|Bytes:408
+07:53:08.0 (5419136)|HEAP_ALLOCATE|[430]|Bytes:408
+07:53:08.0 (5443544)|HEAP_ALLOCATE|[317]|Bytes:6
+07:53:08.0 (5454173)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:34
+07:53:08.0 (5462081)|METHOD_ENTRY|[1]|01pEc00000xQ1ZZ|LMSLessonController.LMSLessonController()
+07:53:08.0 (5466523)|STATEMENT_EXECUTE|[1]
+07:53:08.0 (5472333)|STATEMENT_EXECUTE|[1]
+07:53:08.0 (5490786)|HEAP_ALLOCATE|[68]|Bytes:5
+07:53:08.0 (5520452)|HEAP_ALLOCATE|[74]|Bytes:5
+07:53:08.0 (5525176)|HEAP_ALLOCATE|[82]|Bytes:7
+07:53:08.0 (5741709)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:5
+07:53:08.0 (5752011)|METHOD_EXIT|[1]|LMSLessonController
+07:53:08.0 (5761112)|HEAP_ALLOCATE|[5]|Bytes:5
+07:53:08.0 (5763530)|STATEMENT_EXECUTE|[4]
+07:53:08.0 (5764473)|STATEMENT_EXECUTE|[5]
+07:53:08.0 (5783317)|HEAP_ALLOCATE|[5]|Bytes:167
+07:53:08.0 (5800458)|HEAP_ALLOCATE|[5]|Bytes:4
+07:53:08.0 (11072529)|SOQL_EXECUTE_BEGIN|[5]|Aggregations:0|SELECT Id, Name, Content_Type__c, Content_URL__c, Duration_Mins__c, Allow_Test_Out__c, Quiz__c, Quiz__r.Name FROM LMS_Lesson__c ORDER BY Name ASC NULLS FIRST LIMIT 500
+07:53:08.0 (27428850)|SOQL_EXECUTE_EXPLAIN|[5]|TableScan on LMS_Lesson__c : [], cardinality: 12, sobjectCardinality: 12, relativeCost 3.267
+07:53:08.0 (27446925)|SOQL_EXECUTE_END|[5]|Rows:13
+07:53:08.0 (27472008)|HEAP_ALLOCATE|[5]|Bytes:56
+07:53:08.0 (27515277)|HEAP_ALLOCATE|[5]|Bytes:2120
+07:53:08.0 (27571217)|HEAP_ALLOCATE|[5]|Bytes:56
+07:53:08.27 (27652365)|CUMULATIVE_LIMIT_USAGE
+07:53:08.27 (27652365)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 13 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 150
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+07:53:08.27 (27652365)|TOTAL_EMAIL_RECIPIENTS_QUEUED|0
+07:53:08.27 (27652365)|STATIC_VARIABLE_LIST|
+  int:BYTES:0
+  int:BYTES:0
+  byte[]:DigitOnes:0
+  byte[]:DigitTens:0
+  Boolean:FALSE:0
+  int:MAX_EXPONENT:0
+  double:MAX_VALUE:0
+  int:MAX_VALUE:0
+  int:MIN_EXPONENT:0
+  double:MIN_NORMAL:0
+  double:MIN_VALUE:0
+  int:MIN_VALUE:0
+  double:NEGATIVE_INFINITY:0
+  double:NaN:0
+  double:POSITIVE_INFINITY:0
+  int:PRECISION:0
+  int:SIZE:0
+  int:SIZE:0
+  Boolean:TRUE:0
+  String:_sfdcAdditionalCodeLocations:0
+  char[]:digits:0
+  long:serialVersionUID:0
+  long:serialVersionUID:0
+  long:serialVersionUID:0
+
+07:53:08.27 (27652365)|CUMULATIVE_LIMIT_USAGE_END
+
+07:53:08.0 (29707943)|CODE_UNIT_FINISHED|LMSLessonController.getLessonList()
+07:53:08.29 (29742728)|CUMULATIVE_PROFILING_BEGIN
+07:53:08.29 (29742728)|CUMULATIVE_PROFILING|SOQL operations|
+Class.LMSLessonController.getLessonList: line 5, column 1: [SELECT Id, Name, Content_Type__c, Content_URL__c, Duration_Mins__c, Allow_Test_Out__c, Quiz__c, Quiz__r.Name
+                FROM LMS_Lesson__c ORDER BY Name ASC LIMIT 500]: executed 1 time in 22 ms
+
+07:53:08.29 (29742728)|CUMULATIVE_PROFILING|No profiling information for SOSL operations
+07:53:08.29 (29742728)|CUMULATIVE_PROFILING|No profiling information for DML operations
+07:53:08.29 (29742728)|CUMULATIVE_PROFILING|method invocations|
+External entry point: public static List<LMS_Lesson__c> getLessonList(): executed 1 time in 23 ms
+
+07:53:08.29 (29742728)|CUMULATIVE_PROFILING_END
+07:53:08.0 (30186052)|CODE_UNIT_FINISHED|apex://LMSLessonController/ACTION$getLessonList
+07:53:08.0 (30194937)|EXECUTION_FINISHED

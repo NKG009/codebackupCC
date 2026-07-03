@@ -1,0 +1,306 @@
+<template>
+    <div class="container">
+        <div class="card glass">
+        <h1 class="title"><span style="padding: .5rem;"><lightning-icon icon-name="utility:truck" size="large" class="icon"></lightning-icon></span> 
+            <span>Expediting</span></h1>
+            <div class="search-row">
+                <lightning-input type="text" label="Purchase Order #" variant="label-hidden"
+                    placeholder="Enter Purchase Order Number" class="search-input" onchange={handleInputChange}>
+                </lightning-input>
+                <template lwc:if={isAdmin}>
+                    <lightning-input type="text" label="Customer" variant="label-hidden" placeholder="Enter Customer Number" value={custno}
+                        class="search-input" onchange={handleInputChange}>
+                    </lightning-input> 
+
+                    <lightning-button label="Customer Search" variant="neutral" class="search-btn" onclick={openCustomerModal}>
+                    </lightning-button>
+                </template>
+            </div>
+            <div class="search-row">
+                <lightning-button label="Search" variant="brand" class="search-btn" disabled={issearchDisabled}
+                    onclick={handleSearch}>
+                </lightning-button>
+            </div>
+            
+            <template if:true={showFilterBar}>
+                <div class="slds-grid slds-grid_align-end slds-p-vertical_x-small filter-links">
+                    <a href="javascript:void(0);" onclick={handleFilterAll} class="slds-p-horizontal_small">Show All Items</a>
+                    <a href="javascript:void(0);" onclick={handleFilterOpen} class="slds-p-horizontal_small">Show Open Items</a>
+                    <a href="javascript:void(0);" onclick={handleFilterClosed} class="slds-p-horizontal_small">Show Closed Items</a>
+                </div>
+            </template>
+            <template if:true={isLoading}>
+                <div class="spinner-container">
+                    <div class="slds-is-relative">
+                        <lightning-spinner alternative-text="Loading" ></lightning-spinner>
+                    </div>
+                </div>
+            </template>
+            <template if:true={dwnldAck}>
+                <div class="pdfcontainer">
+                    <div if:true={loadingpdf} class="slds-is-relative">
+                        <lightning-spinner alternative-text="Loading PDF" size="medium"></lightning-spinner>
+                    </div>
+                    <div if:true={errorMessagepdf} class="error-message slds-m-around_medium">
+                        {errorMessagepdf}
+                    </div>
+                    <iframe
+                        class="pdfjs-iframe"
+                        lwc:dom="manual"
+                        style="width:100%;height:80vh;border:none;"
+                    ></iframe>
+                    <!--
+                    <iframe
+                        class="pdfjs-iframe"
+                        onload={handleIframeLoad} 
+                        src={viewerUrl}
+                        style="width:100%;height:80vh;border:none;"
+                    ></iframe>-->
+                    <!--
+                    <div class="wrapperiframe">
+                        <iframe src={viewerUrl} onload={onLoad}></iframe>
+                    </div>-->
+                </div>
+            </template>
+            
+            <template if:true={hasOrders}>
+                <!--<div class="slds-grid slds-grid_align-end slds-p-vertical_x-small filter-links">
+                    <a href="javascript:void(0);" onclick={handleFilterAll} class="slds-p-horizontal_small">Show All Items</a>
+                    <a href="javascript:void(0);" onclick={handleFilterOpen} class="slds-p-horizontal_small">Show Open Items</a>
+                    <a href="javascript:void(0);" onclick={handleFilterClosed} class="slds-p-horizontal_small">Show Closed Items</a>
+                </div>-->
+            <!--<template if:true={Expeditingdata.length}>-->
+                <div class="header-container slds-p-around_x-small">
+                    <div class="slds-grid slds-wrap custom-header-bar">
+                        <div class="slds-col slds-size_1-of-2 slds-p-left_small">
+                            <span class="header-text">PO Number: {poNoOut}</span>
+                        </div>
+                        
+                        <div class="slds-col slds-size_1-of-2 slds-text-align_left slds-p-right_small">
+                            <span class="header-text">{customerNameOut}</span>
+                        </div>
+                    </div>
+                    <div class="sub-bar"></div>
+                </div>
+
+                <div class="slds-p-horizontal_small">
+                    
+                          <lightning-accordion allow-multiple-sections-open>
+                            <template for:each={Expeditingdata} for:item="order">
+                                <lightning-accordion-section 
+                                    key={order.orderNumber} 
+                                    name={order.orderNumber} 
+                                    label={order.displayLabel}>
+                                    <div class="slds-m-around_small">
+                                        <!--<lightning-button-group>-->
+                                            <lightning-button label="Download Order Ack"  variant="brand" onclick={loadPdf} icon-name="utility:save" data-id={order.orderNumber}></lightning-button>
+                                            <!--<lightning-button label="Tracking" variant="brand"  class="slds-m-left_small" icon-name="utility:transport_heavy_truck"></lightning-button>-->
+                                        <!--</lightning-button-group>-->
+                                    </div>
+                                    <div class="table-container slds-scrollable_x">
+                                        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                                            <thead>
+                                                <tr class="slds-line-height_reset">
+                                                    <th scope="col">Line No</th>
+                                                    <th scope="col">Size</th>
+                                                    <th scope="col">Figure No</th>
+                                                    <th scope="col">MFG Number</th>
+                                                    <th scope="col">Ship From</th>
+                                                    <th scope="col">Order Qty</th>
+                                                    <th scope="col">InTransit Qty</th>
+                                                    <th scope="col">Open Qty</th>
+                                                    <th scope="col">Invoice Qty</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <template for:each={order.orderItems} for:item="item">
+                                                    <tr key={item.mfgNumber} class="slds-hint-parent">
+                                                        <td>{item.lineNo}</td>
+                                                        <td>{item.size}</td>
+                                                        <td>{item.figNo}</td>
+                                                        <!--<td>{item.mfgNumber}</td>-->
+                                                        <td>
+                                                            <a href={item.mfgPdfUrl} 
+                                                                target="_blank" 
+                                                                class="mfg-link"
+                                                                title="View MTR Report">
+                                                                {item.mfgNumber}
+                                                            </a>    
+                                                        </td>
+                                                        <td>{item.shippingFrom}</td>
+                                                        <td>{item.orderQty}</td>
+                                                        <td>{item.inTransitQty}</td>
+                                                        <td>{item.openQty}</td>
+                                                        <td>{item.invoiceQty}</td>
+                                                        <td>
+                                                            <!--<span class="slds-badge slds-theme_success">{item.status}</span>-->
+                                                            <span class={item.statusClass}>{item.status}</span>
+                                                            
+                                                        </td>
+                                                        <td>{item.statusDate}</td>
+                                                    </tr>
+                                                </template>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </lightning-accordion-section>
+                            </template>
+                        </lightning-accordion>  
+                    <!--</template>
+                    <template lwc:else>
+                        <div class="slds-illustration slds-illustration_small">
+                            <div class="slds-text-longform">
+                                <h3 class="slds-text-heading_medium">No Data Found</h3>
+                                <p class="slds-text-body_regular">No matching records for the criteria entered...</p>
+                            </div>
+                        </div>
+                    </template>-->
+                    
+                </div>
+                
+                <!--
+                <div class="datatablemain" style="height:500px; max-height:800px;overflow: auto">
+                    <lightning-datatable key-field="rowNumber" data={Expeditingdata} columns={expColumns}
+                        hide-checkbox-column="true" class="datatable">
+                    </lightning-datatable>
+                </div>-->
+            </template>
+
+            <template if:true={showNoDataFound}>
+                <div class="result-placeholder">
+                    <lightning-icon icon-name="utility:warning" size="large" class="icon"></lightning-icon>
+                    <p class="no-data-text">{warningMessage}</p>
+                </div>
+            </template>
+
+
+            <!--p class="no-data-text">
+                    <lightning-icon icon-name="utility:warning" size="large" class="icon"></lightning-icon>
+                Expediting feature is under development. Please check back soon.
+            </p-->
+        </div>
+    </div>
+    <!-- MODAL CUSTOMER SEARCH -->
+   <template if:true={isCustomerModalOpen}>
+        <section role="dialog" class="slds-modal slds-fade-in-open custom-modal">
+            <div class="slds-modal__container modal-large">
+
+                <!-- HEADER -->
+                <header class="slds-modal__header modal-header">
+                    <h2 class="slds-text-heading_medium">
+                        🔎 Customer Search
+                    </h2>
+                </header>
+
+                <!-- BODY -->
+                <div class="slds-modal__content slds-p-around_medium modal-body">
+
+                    <div class="slds-grid slds-gutters">
+
+                        <div class="slds-col">
+                            <lightning-input
+                                type="text"
+                                label="Customer ID"
+                                value={customerId}
+                                onchange={handleCustomerIdChange}
+                                disabled={isCustomerIdDisabled}>
+                            </lightning-input>
+                        </div>
+
+                        <div class="slds-col">
+                            <lightning-input
+                                type="text"
+                                label="Customer Name"
+                                value={customerName}
+                                onchange={handleCustomerNameChange}
+                                disabled={isCustomerNameDisabled}>
+                            </lightning-input>
+                        </div>
+
+                    </div>
+
+                    <div class="slds-align_absolute-center">
+                        <lightning-button
+                            label="Search"
+                            variant="brand"
+                            class="slds-m-top_medium"
+                            onclick={handleCustomerSearch}
+                            disabled={isCustomerSearchDisabled}>
+                        </lightning-button>
+                    </div>
+
+                    <template if:true={isCustomerSearchLoading}>
+                        <div class="spinner-container">
+                            <div class="slds-is-relative">
+                                <lightning-spinner alternative-text="Loading" ></lightning-spinner>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!-- Datatable -->
+                    <template if:true={customerData.length}>
+                        <div class="datatable-wrapper slds-m-top_medium">
+                            <lightning-datatable
+                                key-field="CustomerID"
+                                data={customerData}
+                                columns={customerColumns}
+                                onrowaction={handleRowAction}
+                                hide-checkbox-column>
+                            </lightning-datatable>
+                        </div>
+                    </template>
+
+                </div>
+
+                <!-- FOOTER -->
+                <footer class="slds-modal__footer modal-footer">
+                    <lightning-button label="Close" onclick={closeCustomerModal}></lightning-button>
+                </footer>
+
+            </div>
+        </section>
+
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+    <!-- MODAL OPEN PDF -->
+    <template if:false={ispdfModalOpen}>
+        <template if:true={showPDFModalloadingSpinner}>
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+        </template>
+        </template>
+        <template if:true={ispdfModalOpen}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class={modalClass}>
+                <div class="slds-modal__container">
+                    <template if:true={showPDFModalloadingSpinner}>
+                        <lightning-spinner alternative-text="Loading"></lightning-spinner>
+                    </template>
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closepdfModal}>
+                            <lightning-icon icon-name="utility:close" size="medium">
+                            </lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Order Ack</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <div if:true={errorMessagepdf} class="error-message slds-m-around_medium">
+                            {errorMessagepdf}
+                        </div>
+                        <iframe
+                            class="pdfjs-iframe"
+                            lwc:dom="manual"
+                            style="width:100%;height:80vh;border:none;"
+                        ></iframe>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning-button label="Close" variant="neutral" onclick={closepdfModal}></lightning-button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <lightning-button label="Save" variant="brand" onclick={handlepdfSave}></lightning-button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+</template>

@@ -1,0 +1,9 @@
+.widget { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+.widget__header { padding: .75rem 1rem; font-size: 13px; font-weight: 700; color: #16325c; border-bottom: 1px solid #f3f4f6; }
+.widget__body { padding: .5rem 1rem 1rem; }
+.draft-row { display: flex; align-items: center; gap: .75rem; padding: .5rem 0; border-bottom: 1px solid #f9fafb; }
+.draft-row:last-child { border-bottom: none; }
+.draft-info { flex: 1; }
+.draft-name { font-size: 12px; font-weight: 600; color: #111827; display: block; }
+.draft-code { font-size: 11px; color: #9ca3af; }
+.empty { font-size: 12px; color: #9ca3af; text-align: center; padding: 1rem; }

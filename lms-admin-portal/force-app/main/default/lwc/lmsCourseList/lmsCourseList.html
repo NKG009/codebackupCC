@@ -1,0 +1,105 @@
+<template>
+    <div class="list-page">
+        <div class="list-page__toolbar">
+            <lightning-input
+                type="search"
+                placeholder="Search courses..."
+                value={searchTerm}
+                onchange={handleSearch}
+                class="list-page__search">
+            </lightning-input>
+            <lightning-combobox
+                label=""
+                placeholder="All categories"
+                options={categoryOptions}
+                value={filterCategory}
+                onchange={handleCategoryFilter}>
+            </lightning-combobox>
+            <lightning-combobox
+                label=""
+                placeholder="All statuses"
+                options={statusOptions}
+                value={filterStatus}
+                onchange={handleStatusFilter}>
+            </lightning-combobox>
+            <lightning-button
+                label="New course"
+                icon-name="utility:add"
+                variant="brand"
+                onclick={handleNew}>
+            </lightning-button>
+        </div>
+
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading courses"></lightning-spinner>
+        </template>
+
+        <template if:false={isLoading}>
+            <template if:true={hasCourses}>
+                <div class="course-table">
+                    <div class="course-table__header">
+                        <span>Course</span>
+                        <span>Category</span>
+                        <span>Classes</span>
+                        <span>Enrolled</span>
+                        <span>Status</span>
+                        <span>Actions</span>
+                    </div>
+                    <template for:each={filteredCourses} for:item="course">
+                        <div key={course.Id} class="course-table__row">
+                            <div class="course-table__name">
+                                <span class="course-name">{course.Name}</span>
+                                <span class="course-code">{course.Course_Code__c}</span>
+                            </div>
+                            <span>{course.Category__c}</span>
+                            <span>{course.classCount}</span>
+                            <span>{course.enrolmentCount}</span>
+                            <c-lms-publish-toggle
+                                record-id={course.Id}
+                                is-published={course.Is_Published__c}
+                                onpublishchange={handlePublishChange}>
+                            </c-lms-publish-toggle>
+                            <div class="course-table__actions">
+                                <lightning-button-icon
+                                    icon-name="utility:edit"
+                                    alternative-text="Edit"
+                                    onclick={handleEdit}
+                                    data-id={course.Id}>
+                                </lightning-button-icon>
+                                <lightning-button-icon
+                                    icon-name="utility:open"
+                                    alternative-text="View classes"
+                                    onclick={handleOpenClasses}
+                                    data-id={course.Id}>
+                                </lightning-button-icon>
+                                <lightning-button-icon
+                                    icon-name="utility:delete"
+                                    alternative-text="Delete"
+                                    onclick={handleDelete}
+                                    data-id={course.Id}
+                                    class="action-delete">
+                                </lightning-button-icon>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+            <template if:false={hasCourses}>
+                <div class="empty-state">
+                    <lightning-icon icon-name="utility:knowledge_base" size="large"></lightning-icon>
+                    <p>No courses found. Create your first course to get started.</p>
+                    <lightning-button label="Create course" variant="brand" onclick={handleNew}></lightning-button>
+                </div>
+            </template>
+        </template>
+
+        <template if:true={showConfirm}>
+            <c-lms-confirm-modal
+                title="Delete course?"
+                message="This will remove the course and all its class associations. Lesson content will not be deleted."
+                onconfirm={confirmDelete}
+                oncancel={cancelDelete}>
+            </c-lms-confirm-modal>
+        </template>
+    </div>
+</template>

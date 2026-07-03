@@ -1,0 +1,64 @@
+<template>
+    <div class="adder-panel" style="position:relative">
+     
+        <div class="adder-panel__header">
+            <span>Questions in this quiz ({questionCount})</span>
+            <div class="adder-panel__actions">
+                <lightning-input type="search" label="" placeholder="Search question bank..." value={bankSearch} onchange={handleBankSearch} class="adder-panel__search"></lightning-input>
+                <lightning-combobox label="" placeholder="All categories" options={categoryOptions} value={bankCategory} onchange={handleBankCategory} class="adder-panel__category"></lightning-combobox>
+            </div>
+        </div>
+        <div class="adder-layout">
+            <!-- Current questions in quiz -->
+            <div class="current-questions">
+                <div class="panel-label">Quiz order</div>
+                <template if:true={hasQuestions}>
+                    <template for:each={questions} for:item="q">
+                        <div key={q.Id} class="quiz-q-row">
+                            <span class="quiz-q-seq">{q.Sequence_Number__c}</span>
+                            <div class="quiz-q-body">
+                                <span class="quiz-q-text">{q.shortText}</span>
+                                <div class="quiz-q-meta">
+                                    <c-lms-status-badge label={q.questionType} variant="qtype"></c-lms-status-badge>
+                                    <template if:true={q.questionCategory}>
+                                        <c-lms-status-badge label={q.questionCategory} variant="category"></c-lms-status-badge>
+                                    </template>
+                                    <lightning-input type="number" label="" value={q.pointsValue} min="0" class="pts-input" onchange={handlePointsOverride} data-id={q.Id} placeholder="pts"></lightning-input>
+                                    <span class="pts-label">pts</span>
+                                </div>
+                            </div>
+                            <lightning-button-icon icon-name="utility:delete" alternative-text="Remove" onclick={handleRemoveQuestion} data-id={q.junctionId} size="small"></lightning-button-icon>
+                        </div>
+                    </template>
+                </template>
+                <template if:false={hasQuestions}>
+                    <div class="empty-q">No questions yet. Add from the bank →</div>
+                </template>
+            </div>
+            <!-- Question bank -->
+            <div class="question-bank">
+                <div class="panel-label">Question bank</div>
+                <template if:true={isBankLoading}>
+                    <div class="empty-q">Loading...</div>
+                </template>
+                <template if:false={isBankLoading}>
+                    <template for:each={bankResults} for:item="bq">
+                        <div key={bq.Id} class="bank-row">
+                            <div class="bank-row__body">
+                                <c-lms-status-badge label={bq.Question_Type__c} variant="qtype"></c-lms-status-badge>
+                                <template if:true={bq.Question_Category__c}>
+                                    <c-lms-status-badge label={bq.Question_Category__c} variant="category"></c-lms-status-badge>
+                                </template>
+                                <span class="bank-row__text">{bq.shortText}</span>
+                            </div>
+                            <lightning-button-icon icon-name="utility:add" alternative-text="Add to quiz" onclick={handleAddQuestion} data-id={bq.Id} size="small"></lightning-button-icon>
+                        </div>
+                    </template>
+                    <template if:true={noBankResults}>
+                        <div class="empty-q">No results. Try a different search or category.</div>
+                    </template>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,92 @@
+66.0 APEX_CODE,FINEST;APEX_PROFILING,FINE;CALLOUT,INFO;DATA_ACCESS,INFO;DB,FINEST;NBA,INFO;SYSTEM,DEBUG;VALIDATION,INFO;VISUALFORCE,FINER;WAVE,INFO;WORKFLOW,FINE
+09:06:59.0 (185294)|USER_INFO|[EXTERNAL]|005Ec00000ZXoEn|nikhil.gaurav@cloudcacheconsulting.com|(GMT-04:00) Eastern Daylight Time (America/New_York)|GMT-04:00
+09:06:59.0 (226116)|EXECUTION_STARTED
+09:06:59.0 (247723)|CODE_UNIT_STARTED|[EXTERNAL]|apex://LMSQuizController/ACTION$getQuizList
+09:06:59.0 (1251543)|CODE_UNIT_STARTED|[EXTERNAL]|01pEc00000wx8LQ|LMSQuizController.getQuizList()
+09:06:59.0 (1535119)|HEAP_ALLOCATE|[95]|Bytes:3
+09:06:59.0 (1612842)|HEAP_ALLOCATE|[100]|Bytes:152
+09:06:59.0 (1627485)|HEAP_ALLOCATE|[417]|Bytes:408
+09:06:59.0 (1638211)|HEAP_ALLOCATE|[430]|Bytes:408
+09:06:59.0 (1658123)|HEAP_ALLOCATE|[317]|Bytes:6
+09:06:59.0 (1668041)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:34
+09:06:59.0 (1678019)|METHOD_ENTRY|[1]|01pEc00000wx8LQ|LMSQuizController.LMSQuizController()
+09:06:59.0 (1681964)|STATEMENT_EXECUTE|[1]
+09:06:59.0 (1686383)|STATEMENT_EXECUTE|[1]
+09:06:59.0 (1705753)|HEAP_ALLOCATE|[68]|Bytes:5
+09:06:59.0 (1731008)|HEAP_ALLOCATE|[74]|Bytes:5
+09:06:59.0 (1735636)|HEAP_ALLOCATE|[82]|Bytes:7
+09:06:59.0 (1926567)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:5
+09:06:59.0 (1937556)|METHOD_EXIT|[1]|LMSQuizController
+09:06:59.0 (1948355)|HEAP_ALLOCATE|[62]|Bytes:5
+09:06:59.0 (1950415)|STATEMENT_EXECUTE|[61]
+09:06:59.0 (1951310)|STATEMENT_EXECUTE|[62]
+09:06:59.0 (1953732)|HEAP_ALLOCATE|[62]|Bytes:187
+09:06:59.0 (1969327)|HEAP_ALLOCATE|[62]|Bytes:4
+09:06:59.0 (5767015)|SOQL_EXECUTE_BEGIN|[62]|Aggregations:3|SELECT Id, Name, Passing_Score__c, (SELECT Id FROM LMS_Quiz_Question__r), (SELECT Id FROM Lessons__r), (SELECT Id FROM Courses__r) FROM LMS_Quiz__c ORDER BY Name ASC NULLS FIRST LIMIT 500
+09:06:59.0 (71582484)|SOQL_EXECUTE_EXPLAIN|[62]|TableScan on LMS_Quiz__c : [], cardinality: 1, sobjectCardinality: 1, relativeCost 0.65
+09:06:59.0 (71603268)|SOQL_EXECUTE_END|[62]|Rows:1
+09:06:59.0 (71653516)|HEAP_ALLOCATE|[62]|Bytes:8
+09:06:59.0 (71687299)|HEAP_ALLOCATE|[62]|Bytes:129
+09:06:59.0 (71761377)|HEAP_ALLOCATE|[62]|Bytes:8
+09:06:59.71 (71864407)|CUMULATIVE_LIMIT_USAGE
+09:06:59.71 (71864407)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 2 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 0
+  Number of Publish Immediate DML: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+09:06:59.71 (71864407)|TOTAL_EMAIL_RECIPIENTS_QUEUED|0
+09:06:59.71 (71864407)|STATIC_VARIABLE_LIST|
+  int:BYTES:0
+  int:BYTES:0
+  byte[]:DigitOnes:0
+  byte[]:DigitTens:0
+  Boolean:FALSE:0
+  int:MAX_EXPONENT:0
+  double:MAX_VALUE:0
+  int:MAX_VALUE:0
+  int:MIN_EXPONENT:0
+  double:MIN_NORMAL:0
+  double:MIN_VALUE:0
+  int:MIN_VALUE:0
+  double:NEGATIVE_INFINITY:0
+  double:NaN:0
+  double:POSITIVE_INFINITY:0
+  int:PRECISION:0
+  int:SIZE:0
+  int:SIZE:0
+  Boolean:TRUE:0
+  String:_sfdcAdditionalCodeLocations:0
+  char[]:digits:0
+  long:serialVersionUID:0
+  long:serialVersionUID:0
+  long:serialVersionUID:0
+
+09:06:59.71 (71864407)|CUMULATIVE_LIMIT_USAGE_END
+
+09:06:59.0 (74590070)|CODE_UNIT_FINISHED|LMSQuizController.getQuizList()
+09:06:59.74 (74629872)|CUMULATIVE_PROFILING_BEGIN
+09:06:59.74 (74629872)|CUMULATIVE_PROFILING|SOQL operations|
+Class.LMSQuizController.getQuizList: line 62, column 1: [SELECT Id, Name, Passing_Score__c,
+                       (SELECT Id FROM LMS_Quiz_Question__r),
+                       (SELECT Id FROM Lessons__r),
+                       (SELECT Id FROM Courses__r)
+                FROM LMS_Quiz__c ORDER BY Name ASC LIMIT 500]: executed 1 time in 70 ms
+
+09:06:59.74 (74629872)|CUMULATIVE_PROFILING|No profiling information for SOSL operations
+09:06:59.74 (74629872)|CUMULATIVE_PROFILING|No profiling information for DML operations
+09:06:59.74 (74629872)|CUMULATIVE_PROFILING|method invocations|
+External entry point: public static List<LMS_Quiz__c> getQuizList(): executed 1 time in 70 ms
+
+09:06:59.74 (74629872)|CUMULATIVE_PROFILING_END
+09:06:59.0 (74853150)|CODE_UNIT_FINISHED|apex://LMSQuizController/ACTION$getQuizList
+09:06:59.0 (74860292)|EXECUTION_FINISHED

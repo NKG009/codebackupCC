@@ -1,0 +1,27 @@
+<template>
+    <div class="form-page">
+        <div class="form-page__header">
+            <lightning-button label="Back" icon-name="utility:chevronleft" onclick={handleBack}></lightning-button>
+            <h2>{formTitle}</h2>
+            <div class="form-page__actions">
+                <lightning-button label="Cancel" onclick={handleBack}></lightning-button>
+                <lightning-button label="Save quiz" variant="brand" onclick={handleSave} disabled={isSaving}></lightning-button>
+            </div>
+        </div>
+        <div class="form-section">
+            <div class="form-grid">
+                <lightning-input label="Quiz name" value={quiz.Name} onchange={handleField} data-field="Name" required></lightning-input>
+                <lightning-input label="Passing score (%)" type="number" min="0" max="100" value={quiz.Passing_Score__c} onchange={handleField} data-field="Passing_Score__c"></lightning-input>
+            </div>
+        </div>
+        <template if:true={recordId}>
+            <c-lms-quiz-question-adder quiz-id={recordId} onchanged={handleQuestionsChanged}></c-lms-quiz-question-adder>
+        </template>
+        <template if:false={recordId}>
+            <div class="save-hint">
+                <lightning-icon icon-name="utility:info" size="x-small"></lightning-icon>
+                <span>Save the quiz first to add questions.</span>
+            </div>
+        </template>
+    </div>
+</template>
