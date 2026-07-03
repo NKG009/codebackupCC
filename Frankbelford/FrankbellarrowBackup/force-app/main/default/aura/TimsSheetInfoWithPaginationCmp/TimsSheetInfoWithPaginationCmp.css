@@ -1,0 +1,40 @@
+.THIS .Detailsbutton{
+    color : white;
+     background-color: #009ee3;
+    border-color: #009ee3;
+}
+.THIS .Detailsbutton:hover{
+    color : white;
+     background-color: #377d9b;
+    border-color: #377d9b;
+}
+.THIS .headingfont{
+   font-family: Arial;
+	font-size: 15px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 26.4px;
+    color : #009ee3;
+  border-bottom: 1px solid darkgray ;
+    border-top: 1px solid darkgray ;
+    
+}
+.THIS .headingfontpopup{
+   font-family: Arial;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+color : #009ee3;
+    
+}
+.THIS .Backbutton{
+    color : white;
+     background-color: #6f6f6e;
+    border-color: #6f6f6e;
+}
+.THIS .Backbutton:hover{
+    color : white;
+     background-color: #99998e;
+    border-color: #99998e;
+}

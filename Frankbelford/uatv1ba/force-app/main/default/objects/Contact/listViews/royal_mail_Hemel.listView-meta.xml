@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>royal_mail_Hemel</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>AL1,AL10,AL2,AL3,AL4,AL5,AL6,AL7,AL8,AL9,HA6,HP1,HP16,HP2,HP23,HP3,HP4,HP5,HP6,HP7,HP8,LU1,LU2,LU3,LU4,LU5,LU6,LU7</value>
+    </filters>
+    <filters>
+        <field>sirenum__Last_Timesheet__c</field>
+        <operation>lessThan</operation>
+        <value>12/9/2022</value>
+    </filters>
+    <filters>
+        <field>Compliance_Status__c</field>
+        <operation>equals</operation>
+        <value>compliant</value>
+    </filters>
+    <filters>
+        <field>Brand__c</field>
+        <operation>equals</operation>
+        <value>Blue Arrow</value>
+    </filters>
+    <filters>
+        <field>sirenum__Last_Timesheet__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>includes</operation>
+        <value>Retail,Warehouse</value>
+    </filters>
+    <label>royal mail Hemel</label>
+</ListView>

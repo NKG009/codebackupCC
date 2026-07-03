@@ -1,0 +1,46 @@
+{
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "e20f5645-1a9a-4397-a992-6c640ad5c998",
+  "label" : "My Preferred Workers",
+  "regions" : [ {
+    "id" : "c2e186db-d24d-4dc3-b195-b8f9a6def463",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2MyPreferredWorkersListView",
+      "id" : "ba8cc06d-3c8b-401e-a0f5-286cab51c5b9",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f65282c0-1347-4e00-aaab-790f83b9948f",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "07c41804-1770-4d67-9262-afaa731cba37",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My Preferred Workers"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "ccf35d13-a0c7-44a0-a8bb-14b745de169b",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5059a307-5bb9-4fbc-8c0c-25e9254e288e",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-my-preferred-workers"
+}

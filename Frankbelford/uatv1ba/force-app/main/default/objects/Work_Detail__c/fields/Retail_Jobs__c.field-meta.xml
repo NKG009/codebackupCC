@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Retail_Jobs__c</fullName>
+    <label>Retail Jobs</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Care Worker</fullName>
+                <default>false</default>
+                <label>Care Worker</label>
+            </value>
+            <value>
+                <fullName>Cashier</fullName>
+                <default>false</default>
+                <label>Cashier</label>
+            </value>
+            <value>
+                <fullName>Merchandiser</fullName>
+                <default>false</default>
+                <label>Merchandiser</label>
+            </value>
+            <value>
+                <fullName>Retail Staff</fullName>
+                <default>false</default>
+                <label>Retail Staff</label>
+            </value>
+            <value>
+                <fullName>Shelf Replenishment</fullName>
+                <default>false</default>
+                <label>Shelf Replenishment</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

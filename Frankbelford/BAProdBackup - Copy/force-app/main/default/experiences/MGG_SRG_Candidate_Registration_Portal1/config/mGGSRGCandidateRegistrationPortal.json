@@ -1,0 +1,36 @@
+{
+  "forgotPasswordRouteId" : "d0ed992b-0d66-4c4d-b77e-e58cb83c3bd0",
+  "isAvailableToGuests" : false,
+  "isFilteredComponentsView" : false,
+  "isProgressiveRenderingEnabled" : false,
+  "loginAppPageId" : "899cec5e-9860-4cce-89e9-2afb28e6d75d",
+  "mainAppPageId" : "e0144204-5519-49a2-bcac-6c7764700bfa",
+  "preferredDomain" : "application.ttlaboratoryjobs.com",
+  "selfRegistrationRouteId" : "513a20db-e0fb-4979-a4ac-e5722216364b",
+  "trustedSitesForScript" : [ {
+    "id" : "e62d087e-c332-4f8e-b162-1de79f0793d7",
+    "isActive" : true,
+    "trustedSiteName" : "*Q Branch S3 Bucket*",
+    "trustedSiteUrl" : "https://qbranch-sydney.s3-ap-southeast-2.amazonaws.com/",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "4fe45de8-e480-4bcd-9b2e-8e6205128e79",
+    "isActive" : true,
+    "trustedSiteName" : "Salesforce",
+    "trustedSiteUrl" : "https://impellam--c.um5.visual.force.com/",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "e61b59be-695b-4358-89f9-769628390508",
+    "isActive" : true,
+    "trustedSiteName" : "Salesforce domain",
+    "trustedSiteUrl" : "https://impellam.lightning.force.com/",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "a2a147af-0cbf-45d6-8a2e-543e4d28309d",
+    "isActive" : true,
+    "trustedSiteName" : "Luna Domain",
+    "trustedSiteUrl" : "https://ttlaboratoryjobs.com",
+    "type" : "trustedSitesForScripts"
+  } ],
+  "type" : "site"
+}

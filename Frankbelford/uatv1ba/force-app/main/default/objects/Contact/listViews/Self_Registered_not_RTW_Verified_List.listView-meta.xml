@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Self_Registered_not_RTW_Verified_List</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Registration_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Registration_Status__c</field>
+        <operation>equals</operation>
+        <value>Complete</value>
+    </filters>
+    <filters>
+        <field>PORTW_Completed__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <label>Self-Registered not RTW Verified List</label>
+</ListView>

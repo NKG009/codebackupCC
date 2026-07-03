@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "974f5d48-cf86-4e1d-9460-eb86722ad198",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "c9abd8c4-7af0-409f-893a-c7b16236a21d",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Hour_Submission_Portal_V2_Hour_Submission_Component",
+  "id" : "7bc541b4-2d7c-4d18-b620-4afc1189dba2",
+  "type" : "experienceVariation"
+}

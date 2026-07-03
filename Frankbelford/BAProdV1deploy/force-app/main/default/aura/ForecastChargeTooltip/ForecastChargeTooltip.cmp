@@ -1,0 +1,28 @@
+<aura:component >
+  <!-- <aura:attribute name="text" type="String" required="true"/> -->
+  <aura:attribute name="forecastview" type="Boolean" default="false"/>
+  <aura:attribute name="forecastvalue" type="Decimal" />
+  <div class="slds-form-element__icon">
+    <a href="javascript:void(0);" class="slds-form-element__icon slds-align-middle" 
+       onclick="{!c.handleOnClick}"
+      onmouseout="{!c.handleMouseLeave}"
+      onmouseover="{!c.handleMouseEnter}"
+      tabindex="-1">
+     <button type="button" class="tooltip-btn" data-toggle="tooltip" data-placement="right" ><img src="{!$Resource.ImpellamPortal+'/ImpellamPortal/assets/img/tooltip-icon.png'}" alt="tooltip-icon"/></button>
+     <span class="slds-assistive-text">Help</span>
+	</a>    
+    <div aura:id="divHelp" class="slds-popover_full-width slds-popover_tooltip ms-help-popup-in-header slds-hide"
+      role="tooltip" aria-live="polite">
+        <aura:if isTrue="{!v.forecastview}">
+            <div class="slds-popover__body ms-help-popup-body testSize">
+                Estimated charge for this candidate is £{!v.forecastvalue}
+            </div>   
+            <aura:set attribute="else">
+                <div class="slds-popover__body ms-help-popup-body testSize">
+                    Estimated charge for this shifts is £ {!v.forecastvalue}
+                </div>
+            </aura:set>
+        </aura:if>
+    </div>
+  </div>
+</aura:component>

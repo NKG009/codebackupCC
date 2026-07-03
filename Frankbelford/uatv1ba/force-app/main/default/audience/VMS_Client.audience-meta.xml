@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Audience xmlns="http://soap.sforce.com/2006/04/metadata">
+    <audienceName>VMS Client</audienceName>
+    <container>Client Portal V2</container>
+    <criteria>
+        <criterion>
+            <criteriaNumber>1</criteriaNumber>
+            <criterionValue>
+                <entityField>Contact.$Contact.VMS_Client_Contact__c</entityField>
+                <entityType>User</entityType>
+                <fieldValue>true</fieldValue>
+            </criterionValue>
+            <operator>Equal</operator>
+            <type>FieldBased</type>
+        </criterion>
+    </criteria>
+    <formulaFilterType>AllCriteriaMatch</formulaFilterType>
+    <isDefaultAudience>false</isDefaultAudience>
+    <targets>
+        <target>
+            <groupName>75cb11be-1c02-4d8a-bdd9-7707fd283579$#$d2525e71-cb1d-4127-ae88-590687cf3ca9</groupName>
+            <priority>1</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>Job_Order_vms_Client_portalV2VMSClientJobOrder_Component</targetValue>
+        </target>
+        <target>
+            <groupName>9c347b5a-f277-480e-bb38-c5bfeac4fa93$#$8623feac-7335-4da5-a0d0-f95e453d33bb</groupName>
+            <priority>1</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>My_Shifts_Vms_Client_portalV2MyShiftsVmsClient_Component</targetValue>
+        </target>
+        <target>
+            <groupName>85901d1c-1c22-4bf0-9826-895ba42f49bf$#$53a853bc-d0dc-4e03-9f40-69b63db919a4</groupName>
+            <priority>1</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>Shift_Approval_vms_portalV2ShiftApprovelVMSClient_Component</targetValue>
+        </target>
+        <target>
+            <groupName>726d4677-6856-4f83-a788-9266e1d71bb6$#$224f6fe6-4bf1-4cde-bc52-9fa4246f6aec</groupName>
+            <priority>1</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>Timesheets_VMS_client_portalV2MyTimesheetVmsClient_Component</targetValue>
+        </target>
+    </targets>
+</Audience>

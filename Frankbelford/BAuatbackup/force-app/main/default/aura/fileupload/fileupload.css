@@ -1,0 +1,56 @@
+.THIS .slds-form-element__label{
+    font-size: 18px !important;
+}
+.THIS .clsButton{
+    width: 156px !important;
+    height: 35px !important;
+    font-size: 16px !important; 
+    font-weight: bold !important;
+
+}
+
+.THIS .cssinputLable{
+    font-size: large;
+    font-weight: 900;
+    color: #00AAE3;
+}
+.THIS .cssInputFileClass{
+    font-size: 14px!important;
+    color: white;
+    font-weight: bold !important;
+    content : 'Select Image'!important;
+}
+.THIS .slds-file-selector__dropzone{
+   
+    height: 37px !important;
+}
+.THIS .slds-file-selector__body{
+        font-size: 20px !important;
+}
+.THIS .slds-file-selector_files .slds-file-selector__button
+{
+        line-height: 30px;
+    	max-height:34px;
+    	margin-top:0px;
+    	content : 'Select Image'!important;
+}
+.THIS .slds-file-selector__dropzone .slds-file-selector__button .slds-button__icon{ /*For the icon*/
+   
+}
+/*To override the text, you'll need to set the size of the current text to 0 and to add some content to the before selector of the button*/
+.THIS .slds-file-selector__dropzone .slds-file-selector__button{
+    font-size: 0;
+}
+.THIS .slds-file-selector__dropzone .slds-file-selector__button:after{
+    content: 'Select Image';
+    font-size:  1.75rem;
+    color: #39bded;
+   
+}
+.THIS .slds-file-selector__button{
+    color: blue;
+    cursor: pointer;
+}
+.THIS .slds-file-selector__text{
+    display:none;
+}

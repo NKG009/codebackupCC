@@ -1,0 +1,68 @@
+{
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "1835b369-cf59-432d-a446-3fd9963ec5dc",
+  "label" : "Approved Shifts",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "204383d5-5767-4baf-bb45-4d333ae718f8",
+          "columns" : [ {
+            "UUID" : "c067d3e7-67de-45fd-9613-7c1939f6ec17",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "204383d5-5767-4baf-bb45-4d333ae718f8",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:ClientComApprovedShiftsCmp",
+          "id" : "946dd9c7-4f8a-4546-bdca-829f920081c7",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "c067d3e7-67de-45fd-9613-7c1939f6ec17",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2607ccba-b3a2-405c-bdff-66633731bbbf",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Approved Shifts"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "8dc45850-0553-4792-baaf-def8559e3cec",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d743052f-8c01-46e6-a224-e35231cfd1cd",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-approved-shifts"
+}

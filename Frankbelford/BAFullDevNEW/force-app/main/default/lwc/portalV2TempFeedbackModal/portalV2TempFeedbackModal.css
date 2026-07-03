@@ -1,0 +1,8 @@
+.table__min-height {
+  min-height: 400px;
+}
+
+.column__left-justified {
+  justify-content: flex-start;
+  align-items: center;
+}

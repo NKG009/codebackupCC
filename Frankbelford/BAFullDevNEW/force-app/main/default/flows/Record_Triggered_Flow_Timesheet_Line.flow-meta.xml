@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Albert_Bartlett</name>
+        <label>Albert Bartlett?</label>
+        <locationX>612</locationX>
+        <locationY>486</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Outcome</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Account.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>001Pv00000fHlNyIAK</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Code_from_P1_to_D2</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Bypass_flow</name>
+        <label>Bypass flow</label>
+        <locationX>992</locationX>
+        <locationY>201</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Bypass_flow1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Bypass_Flows__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Account</targetReference>
+            </connector>
+            <label>Bypass flow1</label>
+        </rules>
+    </decisions>
+    <description>PT1-1445 - EDI Mapping for Albert Bartlett</description>
+    <environments>Default</environments>
+    <interviewLabel>Record Triggered Flow - Timesheet Line {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Record Triggered Flow - Timesheet Line EDI Rate Code Update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Account</name>
+        <label>Get Account</label>
+        <locationX>619</locationX>
+        <locationY>322</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Albert_Bartlett</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.sirenum__Shift__r.IP_Account__r.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Code_from_P1_to_D2</name>
+        <label>Update Code from P1 to D2</label>
+        <locationX>622</locationX>
+        <locationY>670</locationY>
+        <inputAssignments>
+            <field>sirenum__Code__c</field>
+            <value>
+                <stringValue>D2</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>492</locationX>
+        <locationY>47</locationY>
+        <connector>
+            <targetReference>Bypass_flow</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>sirenum__RateType__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Overtime</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>IP_PayrollPresentedRateCode__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>P1</stringValue>
+            </value>
+        </filters>
+        <object>sirenum__Timesheet_Line__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

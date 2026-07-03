@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "a54af84c-41f0-4b67-af80-e6dd01aa3f0a",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "954ae70f-878b-496b-b5e0-0ba56c475d23",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "My_Shifts_Portal_V2_My_Shifts_Component",
+  "id" : "cdb89915-05d1-49a0-ab5c-935f71e363c7",
+  "type" : "experienceVariation"
+}

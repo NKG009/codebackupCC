@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "24b4b514-c256-477a-8fc6-002c66db8696",
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "configurationTags" : [ ],
+  "devName" : "Current_Shifts__c",
+  "id" : "0cf677af-cc30-45c8-b867-2c79007ac48c",
+  "label" : "Current Shifts",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-current-shifts",
+  "type" : "route",
+  "urlPrefix" : "current-shifts"
+}

@@ -1,0 +1,39 @@
+{
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "c665f615-de90-44a1-9da1-61dd6a6aeef6",
+  "label" : "Person Related List",
+  "regions" : [ {
+    "id" : "4ef28d80-36a4-4b82-89df-20ebac33b4cb",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customTitle" : "",
+        "parentRecordId" : "{!recordId}",
+        "relatedListName" : "{!relationshipApiName}",
+        "showBreadCrumbs" : true,
+        "showCustomTitle" : false,
+        "showManualRefreshButton" : true,
+        "showRowNumbers" : true
+      },
+      "componentName" : "forceCommunity:relatedList",
+      "id" : "bbc13db3-b9fd-42fe-9d8a-e3b11c574454",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ee9b03ee-6a5a-44a5-b502-cd467535ac4a",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "25f6e3f4-e7ee-4369-9719-216591dd52f9",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "relatedlist-003"
+}

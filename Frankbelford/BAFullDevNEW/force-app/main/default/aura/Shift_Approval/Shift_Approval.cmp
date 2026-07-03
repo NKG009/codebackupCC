@@ -1,0 +1,50 @@
+<aura:component controller="ShiftApprovalTile" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction" access="global" >
+
+    <ltng:require scripts="{!$Resource.Chart}" afterScriptsLoaded="{!c.ctr}"/>
+
+    <aura:attribute name="baseURL" type="String" />
+    <aura:attribute name="site" type="String" default="{!v.site}" />
+    <aura:attribute name="contact" type="String"/>
+    <aura:attribute name="startDate" type="Date"/>
+    <aura:attribute name="endDate" type="Date"/>
+    <aura:attribute name="shifts" type="List"/>
+    <aura:attribute name="shiftsRequiringApproval" type="String"/>
+    <aura:attribute name="shiftsApproved" type="String"/>
+    <aura:attribute name="totalShifts" type="String"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.site}" action="{!c.reInit}" />
+
+    <div class="ElementDetail" style="margin-top:80px;">
+        <br></br>
+        <div class="ElementDetail__pic-section">
+            <canvas aura:id="barChart" id="barChart" />
+        </div>
+        <div class="ElementDetail__content-section">
+            <div class="ElementDetail__table ElementDetail__table2">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td><a href="" class="nonavlUser aclass" title="Shifts Requiring Approval" style="cursor: default; !important;"> SHIFTS REQUIRING APPROVAL</a></td>
+                        <td>{!v.shiftsRequiringApproval}</td>
+                        <!--<td>{!v.site}</td>-->
+                    </tr>
+                    <br></br>
+                    <tr>
+                        <td><a href="" class="avlUser aclass" title="Shifts Approved" style="cursor: default; !important;"> SHIFTS APPROVED</a></td>
+                        <td>{!v.shiftsApproved}</td>
+                    </tr>
+                    <br></br>
+                    <tr>
+                        <td><a class="constUser aclass" title="Total Shifts" style="cursor: default; !important;"> TOTAL SHIFTS</a></td>
+                        <td>{!v.totalShifts}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div><br/>
+    <lightning:button class="query-btn" label="View All" title="View All" onclick="{! c.handleClick }"/>
+
+
+</aura:component>

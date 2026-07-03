@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Batch_Type__c</fullName>
+    <label>Batch Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>IKEA</fullName>
+                <default>false</default>
+                <label>IKEA</label>
+            </value>
+            <value>
+                <fullName>Capita</fullName>
+                <default>false</default>
+                <label>Capita</label>
+            </value>
+            <value>
+                <fullName>Beeline</fullName>
+                <default>false</default>
+                <label>Beeline</label>
+            </value>
+            <value>
+                <fullName>Generic</fullName>
+                <default>false</default>
+                <label>Generic</label>
+            </value>
+            <value>
+                <fullName>Shop Direct</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Shop Direct</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

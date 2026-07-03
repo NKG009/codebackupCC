@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_field_display</fullName>
+    <active>true</active>
+    <description>Show error if contact does not have any paye type profile record</description>
+    <errorConditionFormula>AND(IP_ActivePAYEPayProfiles__c=0, IP_LTDCount__c=0 ,OR(ISCHANGED(Reason_for_Leaving1__c),ISCHANGED(Reason_for_P45__c ),ISCHANGED( P45_Date_by_Head_Office__c),ISCHANGED( IP_WorkerLeavingDate__c),ISCHANGED(P45_Requested__c) ))</errorConditionFormula>
+    <errorMessage>You do not have any PAYE profile</errorMessage>
+</ValidationRule>

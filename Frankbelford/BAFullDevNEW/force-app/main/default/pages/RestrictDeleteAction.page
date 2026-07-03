@@ -1,0 +1,17 @@
+<apex:page sidebar="false" lightningStylesheets="true" standardController="sirenum__Sirenum_Condition_Membership__c" action="{!deletemethod}" extensions="RestrictDeleteActionController">
+
+<apex:form >
+<apex:pageMessages />
+
+
+<apex:outputPanel >
+<!--<script> 
+ window.location.href = '/{!JObroleID}';
+ 
+</script>-->
+</apex:outputPanel>
+
+  <apex:commandButton style="margin-left:20px;" value="Back" id="recordSubmit" rendered="{!check}" action="{!move}"/>
+</apex:form>
+
+</apex:page>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "c61b50d8-8aaf-49fc-8c5c-3b5a74518669",
+  "appPageId" : "b2fa95b0-e567-41d6-a9bd-0d8201b2a4b0",
+  "configurationTags" : [ ],
+  "devName" : "My_Contact_Details__c",
+  "id" : "b09828db-9ba3-4f58-b007-4f82798beea2",
+  "label" : "My Contact Details",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-my-contact-details",
+  "type" : "route",
+  "urlPrefix" : "my-contact-details"
+}

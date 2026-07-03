@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "a515d9d9-0aad-40c0-9966-9c0290236200",
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "configurationTags" : [ ],
+  "devName" : "Pending_Booking__c",
+  "id" : "ff6622aa-ba5e-4221-bb1f-4e64a33400da",
+  "label" : "Pending Booking",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-pending-booking",
+  "type" : "route",
+  "urlPrefix" : "pending-booking"
+}

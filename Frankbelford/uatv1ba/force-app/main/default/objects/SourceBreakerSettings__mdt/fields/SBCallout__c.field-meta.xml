@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SBCallout__c</fullName>
+    <description>The URL to callout to SourceBreaker, allowing for PDF version of CV to be attached the any parsed Candidate records.</description>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>The URL for SourceBreaker, notifies that new record has been created/updated via CV parser. If changed, note this URL must also be added to Remote Site Settings</inlineHelpText>
+    <label>SB Notice</label>
+    <required>true</required>
+    <type>Url</type>
+</CustomField>

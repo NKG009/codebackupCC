@@ -1,0 +1,165 @@
+<!-- RateInformation -->
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,lightning:isUrlAddressable"
+                access="global" controller="RateInfoController" description="ClientComRateInfoCmp">
+
+    <ltng:require styles="{! $Resource.DataTables + '/DataTables/media/css/jquery.dataTables.min.css'}"
+    />
+
+    <ltng:require styles="{!join(',',
+                          $Resource.assetsTest+'/assets/css/jquery-ui.css',
+ 						  $Resource.webUI+'/assets/css/all.css',
+                          $Resource.webUI+'/assets/css/fontawesome.css',
+                          $Resource.webUI+'/assets/css/fontawesome.min.css',
+                          $Resource.webUI+'/assets/css/dataTables.bootstrap.min.css',
+                          $Resource.webUI+'/assets/css/responsive.bootstrap.min.css',
+                          $Resource.Tjcss2+'/assets/css/main.css',
+                          $Resource.Tjcss2+'/assets/css/custom.css'
+                          )
+                          }"
+                  scripts="{!join(',',
+                           $Resource.Tjcss2+'/assets/js/main.min.js',
+                           $Resource.Tjcss2+'/assets/js/zoom.js',
+                           $Resource.webUI+'/assets/js/custom.js'
+                           
+                           )}"
+    />
+
+    <aura:attribute type="boolean" name="checkparam" default="false" />
+    <aura:attribute type="boolean" name="checkCompetencies" default="false" />
+    <aura:attribute name="siteList" type="List" access="global"/>
+    <aura:attribute name="candidateNameList" type="List" access="global"/>
+    <aura:attribute name="selectedSite" type="String"/>
+
+    <aura:attribute name="ratecardList" type="List" access="global"/>
+    <aura:attribute name="jobSiteList" type="List" access="global"/>
+    <aura:attribute type="List" name="allshifts" />
+    <aura:attribute type="List" name="shifts" />
+    <aura:attribute name="selectedRating" type="String"/>
+
+    <aura:attribute name="selectedjobrole" type="String"/>
+    <aura:attribute name="Regular" type="String" default="Regular"/>
+    <aura:attribute name="SHour" type="String" default="00:00"/>
+    <aura:attribute name="EHour" type="String" default="00:00"/>
+
+    <aura:attribute name="Name" type="String"/>
+    <aura:attribute type="Integer" name="pageNumber" default="1" />
+    <aura:attribute type="Integer" name="maxPage" default="1" />
+    <!--  <aura:handler name="change"	value="{!v.pageNumber}"	action="{!c.renderPage}" /> -->
+    <aura:attribute name="listpage" type="List"  />
+    <aura:attribute name="RateLine" type="List"  />
+    <aura:attribute name="RateModifier" type="List"  />
+    <aura:attribute name="page" type="integer"/>
+    <aura:attribute name="pages" type="integer"/>
+    <aura:attribute name="total" type="integer"/>
+    <aura:attribute type="List"    name="currentList" />
+    <aura:attribute name="isOpenCancel" type="boolean" default="false"/>
+    <aura:attribute name="CompetenciesList" type="List" access="global"/>
+    <aura:attribute name="phoneNumber" type="string" access="global"/>
+    <aura:attribute name="emailAdd" type="string" access="global"/>
+    <aura:attribute name="userInfo" type="User" access="global"/>
+    <aura:attribute name="defaultSiteID" type="String" access="global"/>
+    <aura:attribute type="boolean" name="checkSearch" default="false"  access="global"/>
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    <aura:attribute name="site" type="String" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:ClientCommunityThemeEvent" action="{!c.onChangeSiteVal}"/>
+
+            <div class="timesheet-section__right-part">
+                <ol class="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="javascript:void(0)" onclick="{!c.dashboardNavigate}" title="Dashboard">Dashboard</a></li>
+                        <li>My Rates &amp; Costs</li>
+                        <li class="active">Rate Information</li>
+                    </ol>
+                </ol>
+                <div class="search-section vacancies-section overtimechargerate" >
+                    <p class="para">View your rate information for specific Job roles</p>
+                    <form class="row">
+                        <div class="col-sm-12">
+                            <label class="global-label">Job Role</label>
+                            <lightning:select name="jobRoleSelect" label="" aura:id="jobRoleId" onchange="{! c.jobChanged }"  tabindex = "-98">
+                                <aura:iteration items="{!v.jobSiteList}" var="item">
+                                    <option text="{!item.label}" value="{!item.value}"/>
+                                </aura:iteration>
+                            </lightning:select>
+
+                        </div>
+                        <!--Adding for Space between Job Role and Start Date-->
+                        <div  class="col-sm-12"><label></label></div>
+                        <div  class="col-sm-12"><label></label></div>
+                        <div class="col-sm-12">
+                            <label class="global-label mainLoginInput" style="margin-bottom:1.0rem!important">Rate Card Name</label>
+
+                            <lightning:select name="ratecardSelect" label="" aura:id="ratecardId" onchange="{! c.rateChanged }"   tabindex = "-98">
+                                <aura:iteration items="{!v.ratecardList}" var="item">
+                                    <option text="{!item.label}" value="{!item.value}"/>
+                                </aura:iteration>
+                            </lightning:select>
+
+                        </div>
+                        <div  class="col-sm-12"><label></label></div>
+                        <div  class="col-sm-12"><label></label></div>
+                        <div  class="col-sm-12"><label></label></div>
+
+                        <table id="tableId" class="searchDetail_table tableput table-hide" cellspacing="0" width="100%">
+                            <div class="hide2" id="overlay">
+                                <img src="{!$Resource.Loadingimage}"  width="120" height="100" alt=""/>
+                            </div>
+                            <thead>
+                            <tr style="height: 35px;">
+                                <th class="centeralign ">Rate Name</th>
+                                <th class="centeralign ">Code</th>
+                                <th class="centeralign ">Day</th>
+                                <th class="centeralign  ">Start Hour</th>
+                                <th class="centeralign ">End Hour</th>
+                                <th class="centeralign ">Pre/Post AWR</th>
+                                <th class="centeralign ">Charge Rate</th>
+                                <th class="centeralign ">Overtime Charge Rate</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <aura:iteration items="{!v.RateModifier}" var="shift" >
+                                <tr>  <td id="col1" class="centeralign1 delcel">{!shift.StandardRateName}</td>
+                                    <td id="col2" class="centeralign1 delcel">{!shift.Code}</td>
+                                    <td id="col3" class="centeralign1 delcel">{!shift.Day}</td>
+
+                                    <td id="col4" class="centeralign1 delcel">{!shift.StartHour}</td>
+
+
+                                    <td id="col5" class="centeralign1 delcel">{!shift.EndHour}</td>
+
+
+
+                                    <!--    <aura:iteration items="{!shift.rateModifierInfo}" var="shiftobj" >-->
+                                    <td class="centeralign1 ">{!shift.RateName}</td>
+                                    <td class="centeralign1 ">{!shift.ChargeRate}</td>
+                                    <td class="centeralign1 ">{!shift.OvertimchargeRate}</td>
+
+                                    <!--       </aura:iteration>  -->
+                                </tr>
+                            </aura:iteration>
+                            </tbody>
+                        </table>
+
+
+                    </form>
+                </div>
+<!--
+
+                <footer>
+                    <div class="row">
+                        <div class="col-sm-6"><p> &copy; Blue Arrow, All rights reserved 2019.</p></div>
+                        <div class="col-sm-6"><p>Regd Address:  800 The Boulevard, Capability Green, Luton, Bedfordshire, LU1 3BA. Company No. 00641659</p></div>
+                    </div>
+                </footer>
+-->
+            </div>
+<!--
+        </div>
+    </div>
+
+    </body>
+-->
+</aura:component>

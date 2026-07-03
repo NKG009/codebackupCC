@@ -1,0 +1,60 @@
+.THIS .helpicon{
+    color :	#FFFFFF;
+    
+}
+.THIS .checkwidth
+{
+    width:150px;
+}
+.THIS .selectsitewidth
+{
+    width:130px;
+}
+.THIS .textclass{
+     font-family: Arial;
+}
+.THIS .slds-checkbox_faux
+{
+     border:solid #a8cd1b 1px;
+}
+.THIS .Selectwidth
+{
+    width:155px;
+}
+.THIS .helppos{
+      position: absolute;
+}
+.THIS .ClearButton{
+    color : white;
+     background-color: #A9A9A9	;
+    border-color: #A9A9A9	;
+}
+.THIS .ClearButton:hover{
+    color : white;
+     background-color: #bcb8b8;
+    border-color: #bcb8b8;
+}
+.THIS .SearchButton{
+    color : white;
+     background-color: #a8cd1b;
+    border-color: #a8cd1b;
+    width:80px;
+}
+.THIS .SearchButton:hover{
+    color : white;
+     background-color: #96aa4b;
+    border-color: #96aa4b;
+}
+
+.THIS .ApproveAllButton{
+   color : white;
+     background-color: #a8cd1b;
+    border-color: #a8cd1b;
+    width: 120px;
+  
+}
+.THIS .ApproveAllButton:hover{
+    color : white;
+     background-color: #96aa4b;
+    border-color: #96aa4b;
+}

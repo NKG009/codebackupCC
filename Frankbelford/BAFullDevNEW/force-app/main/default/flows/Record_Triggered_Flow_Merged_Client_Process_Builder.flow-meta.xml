@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Bypass_flow</name>
+        <label>Bypass flow</label>
+        <locationX>1231</locationX>
+        <locationY>171</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Bypass_flow1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Bypass_Flows__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Site_and_Contact_on_Client_Required_Criteria</targetReference>
+            </connector>
+            <label>Bypass flow1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Drivers_Negligence_Updated</name>
+        <label>Drivers Negligence Updated</label>
+        <locationX>937</locationX>
+        <locationY>979</locationY>
+        <defaultConnector>
+            <targetReference>SLN</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>True4</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>DriversNegligenceUpdatedFormula</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Checked</targetReference>
+            </connector>
+            <label>True4</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Site_and_Contact_on_Client_Req_and_Extra_Criteria</name>
+        <label>Site and Contact on Client Req and Extra Criteria</label>
+        <locationX>890</locationX>
+        <locationY>588</locationY>
+        <defaultConnector>
+            <targetReference>Site_with_Contact_on_Client_Address_Extra_and_Req</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>True1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SiteandContactonClientReqandExtraCriteriaFormula</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Site_and_Contact_on_Client_Req_and_Extra</targetReference>
+            </connector>
+            <label>True1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Site_and_Contact_on_Client_Required_Criteria</name>
+        <label>Site and Contact on Client Required Criteria</label>
+        <locationX>887</locationX>
+        <locationY>386</locationY>
+        <defaultConnector>
+            <targetReference>Site_and_Contact_on_Client_Req_and_Extra_Criteria</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SiteandContactonClientRequiredCriteriaFormula</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Site_and_Contact_on_Client_Required_Field_Update</targetReference>
+            </connector>
+            <label>True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Site_with_Contact_on_Client_Address_Extra_and_Req</name>
+        <label>Site with Contact on Client Address Extra and Req</label>
+        <locationX>937</locationX>
+        <locationY>791</locationY>
+        <defaultConnector>
+            <targetReference>Drivers_Negligence_Updated</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>True3</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SitewithContactonClientAddressExtraFormula</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Site_with_Contact_on_Client_Address_Extra</targetReference>
+            </connector>
+            <label>True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>SLN</name>
+        <label>SLN</label>
+        <locationX>939</locationX>
+        <locationY>1213</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>True5</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.GlobalClientName__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_SLN</targetReference>
+            </connector>
+            <label>True</label>
+        </rules>
+    </decisions>
+    <description>This flow will be replacing the following process builder:
+https://bluearrowgroup--migration.sandbox.my.salesforce-setup.com/lightning/setup/ProcessAutomation/home</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>DriversNegligenceUpdatedFormula</name>
+        <dataType>Boolean</dataType>
+        <expression>ISCHANGED({!$Record.Drivers_Negligence__c} ) || ISNEW()&amp;&amp;
+(NOT((ISCHANGED({!$Record.IP_ClientLastPassedToTempest__c}) || ISCHANGED({!$Record.IP_ClientAddressLastPassedToTempest__c}) ||
+ISCHANGED({!$Record.GUID_Site__c} ))))</expression>
+    </formulas>
+    <formulas>
+        <name>DriversNegligenceUpdatedFormula11</name>
+        <dataType>String</dataType>
+        <expression>&quot;Driver&apos;s Negligence Field Checked on&quot; + &quot; &quot; + TEXT( NOW() )</expression>
+    </formulas>
+    <formulas>
+        <name>SiteandContactonClientReqandExtraCriteriaFormula</name>
+        <dataType>Boolean</dataType>
+        <expression>(ISCHANGED({!$Record.IP_ClientIDLegacy__c}) || 
+ISCHANGED({!$Record.IP_TempestDepartment__c}) ||
+ISCHANGED({!$Record.IP_PublicSector__c}) ||
+ISCHANGED({!$Record.IP_TempestDepartment__c} ) ||
+ISCHANGED({!$Record.Owner:User.IP_TempestDivision__c}) 
+)
+&amp;&amp; ISBLANK({!$Record.Missing_Site_Details__c})</expression>
+    </formulas>
+    <formulas>
+        <name>SiteandContactonClientRequiredCriteriaFormula</name>
+        <dataType>Boolean</dataType>
+        <expression>NOT(ISBLANK({!$Record.IP_TempestDepartment__c} ) )&amp;&amp;
+NOT(ISBLANK(TEXT({!$Record.IP_PublicSector__c} )))&amp;&amp;
+NOT(ISBLANK({!$Record.IP_TempestDivision__c} ))&amp;&amp;
+NOT( ISBLANK({!$Record.IP_ClientIDLegacy__c}))  &amp;&amp;
+NOT(ISBLANK({!$Record.Name}))&amp;&amp;
+NOT(ISBLANK({!$Record.sirenum__Street_Address__c}))&amp;&amp;
+(NOT(ISBLANK({!$Record.sirenum__City__c}))||
+NOT(ISBLANK({!$Record.sirenum__Postal_Code__c})))&amp;&amp;
+NOT(ISBLANK({!$Record.IP_ClientInvoiceName__c}))&amp;&amp;
+NOT(ISBLANK({!$Record.IP_InvoiceAddressStreet__c}))&amp;&amp;
+NOT(ISBLANK({!$Record.IP_InvoiceAddressCity__c}))&amp;&amp;
+NOT(ISBLANK({!$Record.IP_SalesLedgerNo__c}  ))&amp;&amp;
+NOT(ISBLANK({!$Record.IP_InvoiceContactText__c}))&amp;&amp;
+NOT(ISBLANK({!$Record.IP_MainContact__c}))&amp;&amp;
+ISBLANK({!$Record.Missing_Site_Details__c})&amp;&amp;
+NOT(ISBLANK({!$Record.Owners_Department__c} ))</expression>
+    </formulas>
+    <formulas>
+        <name>SitewithContactonClientAddressExtraFormula</name>
+        <dataType>Boolean</dataType>
+        <expression>(ISCHANGED({!$Record.Name} ) ||
+(ISCHANGED({!$Record.sirenum__Street_Address__c} ) &amp;&amp; NOT(PRIORVALUE({!$Record.sirenum__Street_Address__c}) = null)) ||
+(ISCHANGED({!$Record.sirenum__City__c} ) &amp;&amp; NOT(PRIORVALUE({!$Record.sirenum__City__c}) = null)) ||
+(ISCHANGED({!$Record.sirenum__County__c} ) &amp;&amp; NOT(PRIORVALUE({!$Record.sirenum__County__c}) = null)) ||
+(ISCHANGED({!$Record.sirenum__Postal_Code__c} ) &amp;&amp; NOT(PRIORVALUE({!$Record.sirenum__Postal_Code__c}) = null)) ||
+ISCHANGED({!$Record.IP_MainContact__c} ) ||
+ISCHANGED({!$Record.IP_InvoiceContactText__c}) ||
+ISCHANGED({!$Record.IP_InvoiceContactEmail__c}) ||
+ISCHANGED({!$Record.IP_InvoiceContactMobile__c} ) ||
+ISCHANGED({!$Record.IP_InvoiceContactPhone__c} )
+)&amp;&amp; ISBLANK({!$Record.Missing_Site_Details__c})</expression>
+    </formulas>
+    <interviewLabel>Record Triggered Flow - Merged Client Process Builder {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Record Triggered Flow - Merged Client Process Builder</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Checked</name>
+        <label>Checked</label>
+        <locationX>1251</locationX>
+        <locationY>1012</locationY>
+        <connector>
+            <targetReference>SLN</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Drivers_Negligence__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Drivers_Negligence_Updated__c</field>
+            <value>
+                <elementReference>DriversNegligenceUpdatedFormula11</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Site_and_Contact_on_Client_Req_and_Extra</name>
+        <label>Site and Contact on Client Req and Extra</label>
+        <locationX>1117</locationX>
+        <locationY>664</locationY>
+        <connector>
+            <targetReference>Site_with_Contact_on_Client_Address_Extra_and_Req</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IP_PassClientToTempest__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Prospect</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>IP_PassClientToTempest__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Site_and_Contact_on_Client_Required_Field_Update</name>
+        <label>Site and Contact on Client Required Field Update</label>
+        <locationX>1052</locationX>
+        <locationY>453</locationY>
+        <connector>
+            <targetReference>Site_and_Contact_on_Client_Req_and_Extra_Criteria</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IP_ClientLastPassedToTempest__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Prospect</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>IP_PassClientAddressToTempest__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IP_PassClientToTempest__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Site_with_Contact_on_Client_Address_Extra</name>
+        <label>Site with Contact on Client Address Extra</label>
+        <locationX>1192</locationX>
+        <locationY>840</locationY>
+        <connector>
+            <targetReference>Drivers_Negligence_Updated</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IP_ClientAddressLastPassedToTempest__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>IP_ClientLastPassedToTempest__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Prospect</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>IP_PassClientAddressToTempest__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IP_PassClientToTempest__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_SLN</name>
+        <label>Update SLN</label>
+        <locationX>1263</locationX>
+        <locationY>1220</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IP_ClientLastPassedToTempest__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>IP_SLNUpdateValue__c</field>
+            <value>
+                <elementReference>$Record__Prior.IP_SalesLedgerNo__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>756</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Bypass_flow</targetReference>
+        </connector>
+        <object>sirenum__Site__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>

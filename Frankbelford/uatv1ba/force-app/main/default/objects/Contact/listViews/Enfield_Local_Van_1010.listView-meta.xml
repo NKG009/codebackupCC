@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enfield_Local_Van_1010</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.ADDRESS1_ZIP</field>
+        <operation>startsWith</operation>
+        <value>EN2,EN6,EN4,N21,N14,EN7,EN1,EN9,N9,EN3,EN8</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>equals</operation>
+        <value>Driving,Manufacturing,Warehouse</value>
+    </filters>
+    <label>Enfield Local Van 1010</label>
+</ListView>

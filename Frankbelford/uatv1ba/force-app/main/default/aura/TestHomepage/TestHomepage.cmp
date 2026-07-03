@@ -1,0 +1,4 @@
+<aura:component implements="forceCommunity:themeLayout,flexipage:availableForAllPageTypes,lightning:isUrlAddressable" access="global" description="Sample Custom Theme Layout" >
+ 
+	The portal is currently down for essential maintenance, please try again later
+</aura:component>

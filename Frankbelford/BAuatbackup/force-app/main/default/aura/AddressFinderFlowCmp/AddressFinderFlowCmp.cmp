@@ -1,0 +1,21 @@
+<!--
+ - Created by mrahman on 2020-12-08.
+ -->
+
+<aura:component implements="lightning:availableForFlowScreens" description="AddressFinderFlowCmp" access="global">
+    <aura:attribute name="recordId" type="String" default="0034J00000EvOoq"/>
+    <aura:attribute name="showError" type="Boolean"/>
+    <aura:attribute name="canProceed" type="Boolean"/>
+    <aura:attribute name="msg" type="String"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:handler name="hasAddressEvent" event="c:addressFinderEvent" action="{! c.handleAddressEvent}"/>
+
+    <c:AddressFinderCmp recordId="{!v.recordId}"/>
+    <c:flowNavigationCmp availableActions="{!v.availableActions}"
+                         navigateFlowEvent="{!c.handleNavigate}"
+                         showError="{!v.showError}"
+                         canProceed="{!v.canProceed}"
+                         msg="{!v.msg}" />
+
+</aura:component>

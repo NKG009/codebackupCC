@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Request_References</fullName>
+    <availability>online</availability>
+    <description>Emails the candidate a survey to submit their references</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Request References</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)} 
+
+var result = sforce.connection.query(&quot;Select Id, Reference_Request_Sent__c From Contact where Id = &apos;{!Contact.Id}&apos; &quot;); 
+
+var records = result.getArray(&quot;records&quot;); 
+
+//alert ( records ); 
+
+records[0].Reference_Request_Sent__c = true; 
+result = sforce.connection.update(records); 
+
+window.location = window.location;</url>
+</WebLink>

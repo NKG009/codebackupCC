@@ -1,0 +1,55 @@
+{
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "3f24ab7f-344c-47de-ad5d-a451a3420601",
+  "label" : "Person Detail",
+  "regions" : [ {
+    "id" : "0745c0c2-2e5e-4cad-98d9-5546fb742f75",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "forceCommunity:recordHeadline",
+      "id" : "4e73100c-f261-447b-98a8-a4aa344254ef",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2MyCandidateDetailPage",
+      "id" : "27e0020b-40cf-444a-aad5-f6af68753f0a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e11cd43a-9bc4-48f0-aa89-6f92930629cd",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "701e3412-3586-4124-815b-a175171fe811",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "{!Record._Object}: {!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "34c38de6-34a9-4676-8e2c-be3723547f53",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7c3d7af9-1bda-44e5-bfae-9a94cb2aa19c",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-003"
+}

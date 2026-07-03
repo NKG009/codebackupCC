@@ -1,0 +1,32 @@
+.THIS .headingfont{
+   font-family: Arial;
+	font-size: 15px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 26.4px;
+    color : #009ee3;
+  border-bottom: 1px solid darkgray ;
+    border-top: 1px solid darkgray ;
+    
+}
+.THIS .Submitbutton{
+    color : white;
+     background-color: #a8cd1b;
+    border-color: #a8cd1b;
+}
+.THIS .Submitbutton:hover{
+    color : white;
+     background-color: #96aa4b;
+    border-color: #96aa4b;
+}
+.THIS .Backbutton{
+    color : white;
+     background-color: #6f6f6e;
+    border-color: #6f6f6e;
+}
+.THIS .Backbutton:hover{
+    color : white;
+     background-color: #99998e;
+    border-color: #99998e;
+}

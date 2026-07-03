@@ -1,0 +1,11 @@
+<apex:page id="page" showheader="false" cache="false" standardStylesheets="false" action="{!initAction}" >
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <p>
+            <iframe allowfullscreen="" frameborder="0" height="580" src="https://lms.cfs-api.com/v2/scorm/lms.aspx?token=676ec7ac-455d-44f5-853f-b6ab077f35bd&inline=1" width="1200"></iframe></p>
+    </body>
+</html>   
+</apex:page>

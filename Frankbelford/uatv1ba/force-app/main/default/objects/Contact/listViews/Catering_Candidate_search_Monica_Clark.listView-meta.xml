@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Catering_Candidate_search_Monica_Clark</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>includes</operation>
+        <value>Catering</value>
+    </filters>
+    <filters>
+        <field>Compliance_Status__c</field>
+        <operation>equals</operation>
+        <value>Compliant</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_CITY</field>
+        <operation>equals</operation>
+        <value>Manchester</value>
+    </filters>
+    <label>Catering Candidate search - Monica Clark</label>
+</ListView>

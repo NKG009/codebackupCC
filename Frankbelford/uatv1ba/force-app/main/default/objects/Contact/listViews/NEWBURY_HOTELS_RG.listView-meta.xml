@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NEWBURY_HOTELS_RG</fullName>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>FULL_NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Sub_Category__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>equals</operation>
+        <value>SP10,SP2,SP3,SP6,SP4,SP8,SP11,SP7</value>
+    </filters>
+    <label>NEWBURY - Andover - SP11, SP10</label>
+</ListView>

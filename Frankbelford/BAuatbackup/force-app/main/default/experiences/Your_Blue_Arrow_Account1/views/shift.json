@@ -1,0 +1,54 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "04ea0e97-ab19-4052-81a4-68807c39ded8",
+  "label" : "Shift",
+  "regions" : [ {
+    "id" : "1b221eb1-3c32-449c-8f0f-5421af800d35",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:ShiftToBeApproved",
+      "id" : "358863aa-108e-405b-80c7-b16937ab4783",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6e1735be-768b-43be-82aa-cbf4d3682281",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:HomeLayoutFooter",
+      "id" : "f93884c2-77ea-4dd9-a810-51c9e0616f29",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7402b47d-6b91-415e-a486-c402354b0bf4",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Shift"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "78f381b5-4975-4a68-99c9-75b51e6ce08b",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e10c2e11-de9c-4512-8a91-380696e5ad17",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-shift"
+}

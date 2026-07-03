@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_PreAWRWTRValue__c</fullName>
+    <inlineHelpText>The percentage used to calculate the WTR Charge (e.g. Holiday Accrual) for candidates working on 5 line invoicing clients but not yet reached parity.</inlineHelpText>
+    <label>Pre-WTR Charge Percentage</label>
+    <precision>6</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Percent</type>
+</CustomField>

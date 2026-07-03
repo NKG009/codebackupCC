@@ -1,0 +1,93 @@
+<apex:page lightningStylesheets="true" standardController="Account" tabstyle="Account"  extensions="create2ndTierAccountCusPage_Ext">
+    <div style="text-align:center;font-size: large;">New Account: 2nd Tier Supplier</div><br></br><br></br>
+      <apex:form >
+      <style>
+      .pbTitle{display:none;}
+      </style> 
+            <apex:pageMessages />
+        <apex:pageBlock mode="edit">
+            <apex:pageBlockButtons location="top" style="text-align:center;">
+                <apex:commandButton value="Save & Add Address" action="{!saveandredirect}" rendered="{!IF((displayduplicate = false),true,false)}"   styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Save & Add Address (Ignore Alert)" action="{!saveandredirectallowbypass}" rendered="{!IF(displayduplicate,true,false)}"  styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Cancel" action="{!cancelredirect}" immediate="true"/>
+                <!--<apex:commandButton value="Hide This SaveNew Command Button" style="visibility:hidden;" rendered="{! $User.UIThemeDisplayed == 'Theme4d' }"/>
+                <apex:commandButton value="Hide This Cancel Command Button" style="visibility:hidden;" rendered="{! $User.UIThemeDisplayed == 'Theme4d' }"/> -->
+            </apex:pageBlockButtons><br></br>
+            
+             <apex:outputPanel rendered="{!IF(displayduplicate,true,false)}" >
+             <font color="Crimson">
+             <br></br>
+            <center>  <b> <apex:outputText > {!countdup} Possible Duplicate Record Found </apex:outputText> </b> </center> <br></br> 
+             <center>  <b> <apex:outputText > You are creating a duplicate record. We recommend you use an existing record instead</apex:outputText> </b> </center> <br></br> 
+               </font>
+                <apex:pageblockTable value="{!ppList}" var="p">
+ 
+                    <apex:column headerValue="Name">
+                       <apex:outputLink value="/{!p.id}" target="_blank">
+                       {!p.Name}
+                       </apex:outputLink> 
+                       </apex:column>                   
+                    <apex:column headerValue="Owner">
+                       <apex:outputLink value="/{!p.Owner.id}" target="_blank">
+                       {!p.Owner.Name}
+                       </apex:outputLink>
+                       </apex:column>
+                      <apex:column value="{!p.LastModifieddate}" />
+               </apex:pageblockTable><br></br> <br></br> <br></br>
+                </apex:outputPanel>      
+            
+    <apex:pageBlockSection title="Account Edit" collapsible="false">
+        <apex:inputfield value="{!accRec.IP_Business_Type__c}" required="True"/>
+        <apex:outputtext label="Account Record Type" value="{!recType}"/>
+    </apex:pageBlockSection>    
+    <apex:pageBlockSection title="Account Information" collapsible="false">
+        <apex:inputfield value="{!accRec.Name}" required="True"/>
+        <apex:inputfield value="{!accRec.TR1__Status__c}"/>
+        <apex:outputtext label="Account Owner" value="{!$User.FirstName&' '&$User.LastName}"/> 
+        <apex:inputfield value="{!accRec.Managed_Account__c}"/>
+        <apex:inputfield value="{!accRec.phone}"/>
+        <apex:inputfield value="{!accRec.IP_CompetencyRestriction__c}"/>
+        <apex:inputfield value="{!accRec.Fax}"/>
+        <apex:inputfield value="{!accRec.IP_NationalAccountName__c}"/>
+        <apex:inputfield value="{!accRec.Website}"/>
+        <apex:inputfield value="{!accRec.IP_NationalAccountID__c}"/>
+        <apex:inputfield value="{!accRec.Description}"/>
+        <apex:inputfield value="{!accRec.IP_SupplierReference__c}"/>
+        <apex:inputfield value="{!accRec.IP_CompanyRegistrationNo__c }"/>
+        <apex:inputfield value="{!accRec.ParentId}"/>
+    <!--    <apex:inputfield value="{!accRec.BillingStreet}"  />
+        <apex:inputfield value="{!accRec.ShippingStreet}" />
+        <apex:inputfield value="{!accRec.BillingCity}"  />
+        <apex:inputfield value="{!accRec.ShippingCity}" />
+        <apex:inputfield value="{!accRec.BillingPostalCode}" />
+        <apex:inputfield value="{!accRec.ShippingPostalCode}" />
+        <apex:inputfield value="{!accRec.BillingState}" />
+        <apex:inputfield value="{!accRec.ShippingState}" />
+        <apex:inputfield value="{!accRec.BillingCountry}" />
+        <apex:inputfield value="{!accRec.ShippingCountry}" /> -->
+    </apex:pageBlockSection>
+    <apex:pageBlockSection title="Payroll & Billing" collapsible="false">
+        <apex:inputfield label="Invoice Type" value="{!accRec.IP_InvoicingMethod__c}"/> 
+        <apex:inputfield value="{!accRec.Invoice_PO_Number_Format__c}"  label="Invoice PO Number Format"/> 
+        <apex:inputfield value="{!accRec.IP_PreAWRWTRValue__c}"/>
+        <apex:inputfield value="{!accRec.Do_Not_Allow_Job_Roles_to_be_Created__c}"/>
+        <apex:inputfield value="{!accRec.IP_PostAWRWTRValue__c}"/>
+        <apex:inputfield value="{!accRec.Do_Not_Allow_Sites_to_be_created__c}"/>
+        <apex:inputfield value="{!accRec.IP_PublicSectorSupplierOrClient__c}"/>
+        <apex:outputLabel ></apex:outputLabel>
+        <apex:inputfield value="{!accRec.IP_Small_Business_Evidence_Provided__c}"/>
+    </apex:pageBlockSection>
+    <apex:pageBlockSection title="Contract of Business" collapsible="false">
+        <apex:inputfield value="{!accRec.IP_Perm_Contractual_Terms__c}"/>
+        <apex:inputfield value="{!accRec.IP_Temp_Contractual_Terms__c}"/>
+        <apex:inputfield value="{!accRec.IP_Perm_Non_Standard_Terms_Details__c}"/>
+        <apex:inputfield value="{!accRec.IP_Temp_Non_Standard_Terms_Details__c}"/>
+    </apex:pageBlockSection>
+    <apex:pageBlockButtons location="bottom" style="text-align:center;">
+            <apex:commandButton value="Save & Add Address" action="{!saveandredirect}" rendered="{!IF((displayduplicate = false),true,false)}"   styleClass="slds-vf-button_brand"/>
+            <apex:commandButton value="Save & Add Address (Ignore Alert)" action="{!saveandredirectallowbypass}" rendered="{!IF(displayduplicate,true,false)}"  styleClass="slds-vf-button_brand"/>
+            <apex:commandButton value="Cancel" action="{!cancelredirect}" immediate="true"/>
+        </apex:pageBlockButtons><br></br>
+</apex:pageBlock> 
+</apex:form>
+</apex:page>

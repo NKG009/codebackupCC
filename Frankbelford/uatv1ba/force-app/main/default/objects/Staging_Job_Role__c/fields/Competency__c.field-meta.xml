@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competency__c</fullName>
+    <label>Competency</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>DBS Basic</fullName>
+                <default>false</default>
+                <label>DBS Basic</label>
+            </value>
+            <value>
+                <fullName>DBS Enhanced: Adult Workforce</fullName>
+                <default>false</default>
+                <label>DBS Enhanced: Adult Workforce</label>
+            </value>
+            <value>
+                <fullName>DBS Enhanced: Child &amp; Adult Workforce</fullName>
+                <default>false</default>
+                <label>DBS Enhanced: Child &amp; Adult Workforce</label>
+            </value>
+            <value>
+                <fullName>DBS Enhanced: Child Workforce</fullName>
+                <default>false</default>
+                <label>DBS Enhanced: Child Workforce</label>
+            </value>
+            <value>
+                <fullName>DBS - Standard Check</fullName>
+                <default>false</default>
+                <label>DBS - Standard Check</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

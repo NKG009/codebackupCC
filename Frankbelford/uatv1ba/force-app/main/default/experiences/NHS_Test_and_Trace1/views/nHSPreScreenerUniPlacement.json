@@ -1,0 +1,59 @@
+{
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "123e290b-928c-4a43-ab78-cc07cb5f682f",
+  "label" : "NHS - Pre Screener - Uni - Placement",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><span style=\"background-color: rgb(255, 255, 255);\"><img class=\"sfdcCbImage\" src=\"{!contentAsset.NHS_Test_and_Trace_logo_L_Blue.1}\" style=\"width: 299.438px; height: 117.609px;\" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img class=\"sfdcCbImage\" src=\"{!contentAsset.HMGovernment.1}\" style=\"width: 401.531px; height: 146.797px;\" /></span></p>\n<p><br /></p>\n<p>&nbsp;</p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "29c5ebd7-b0cf-4de5-944a-db5a5cd31f91",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5822805c-cae4-441f-93dc-562b9f87233f",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "NHS_Pre_Screener_Uni_Placement"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "f4a2b730-220d-4628-833f-3dd00df1884b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ad2ffbe3-d448-479e-b5e4-f86b8d02757e",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "6268f88c-6cb9-47a8-b6df-930b2df1cf18",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "NHS - Pre Screener - Uni - Placement"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "1f9e7cb2-cd68-449c-bb3d-73ccfbc21cc2",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2f05102b-04a0-41a7-9b80-ebb47ea9f041",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-nhs-pre-screener-uni-placement"
+}

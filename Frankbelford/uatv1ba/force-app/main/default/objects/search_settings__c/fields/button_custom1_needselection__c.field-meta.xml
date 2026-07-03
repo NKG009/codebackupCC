@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>button_custom1_needselection__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>If select (Checked), the button will only work if 1 or more contacts are selected from the search results.
+
+If not selected (unchecked), the button will perform the action even if there are not contacts selected from the search results.</description>
+    <inlineHelpText>If select (Checked), the button will only work if 1 or more contacts are selected from the search results.
+
+If not selected (unchecked), the button will perform the action even if there are not contacts selected from the search results.</inlineHelpText>
+    <label>Button Custom1 NeedSelection</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

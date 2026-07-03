@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Royal_Mail_11052023_Van_Driver</fullName>
+    <columns>Candidate__c</columns>
+    <columns>Question_1__c</columns>
+    <columns>Question_2__c</columns>
+    <columns>Question_3__c</columns>
+    <columns>Question_4__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Campaign__c</field>
+        <operation>equals</operation>
+        <value>Royal Mail 11052023 Van Driver</value>
+    </filters>
+    <label>Royal Mail 11052023 Van Driver</label>
+</ListView>

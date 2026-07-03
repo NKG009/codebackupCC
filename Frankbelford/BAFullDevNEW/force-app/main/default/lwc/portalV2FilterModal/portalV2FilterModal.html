@@ -1,0 +1,100 @@
+<template>
+  <div class="card__size">
+    <lightning-card title="Filter column">
+      <lightning-button-icon
+        icon-name="utility:close"
+        alternative-text="Close"
+        title="Close"
+        onclick={closeHandler}
+        variant="bare"
+        slot="actions"
+      ></lightning-button-icon>
+      <div class="slds-var-p-around_small" style="height: 20rem">
+        <lightning-input
+          type="text"
+          label="Search"
+          placeholder="Enter filter term..."
+          class="slds-var-p-horizontal_xx-small"
+          value={searchTerm}
+          onchange={filterArrayByTerm}
+          data-id="searchBar"
+        ></lightning-input>
+        <div class="slds-var-p-top_x-small table-height">
+          <table
+            class="slds-table slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table_bordered"
+          >
+            <thead>
+              <tr class="slds-line-height_reset header__row">
+                <th
+                  class="slds-text-align_right"
+                  scope="col"
+                  style="width: 3.25rem"
+                >
+                  <span id="column-group-header" class="slds-assistive-text"
+                    >Choose a row</span
+                  >
+                  <div class="slds-th__action_form">
+                    <div class="slds-checkbox">
+                      <lightning-input
+                        label="Select All"
+                        type="checkbox"
+                        variant="label-hidden"
+                        data-id="all__checkbox"
+                        onchange={handleAllRowsSelected}
+                      ></lightning-input>
+                    </div>
+                  </div>
+                </th>
+                <th scope="col" class="table__header">
+                  <p>{columnLabel}</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <template for:each={filterData} for:item="filter">
+                <tr key={filter.valueToDisplay}>
+                  <td>
+                    <template if:true={filter.isChecked}>
+                      <lightning-input
+                        variant="label-hidden"
+                        label="Select"
+                        type="checkbox"
+                        data-filter={filter.valueToDisplay}
+                        onchange={handleRowSelected}
+                        checked
+                      ></lightning-input>
+                    </template>
+                    <template if:false={filter.isChecked}>
+                      <lightning-input
+                        variant="label-hidden"
+                        label="Select"
+                        type="checkbox"
+                        data-filter={filter.valueToDisplay}
+                        onchange={handleRowSelected}
+                      ></lightning-input>
+                    </template>
+                  </td>
+                  <td class="slds-truncate">{filter.valueToDisplay}</td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div slot="footer">
+        <lightning-button
+          label="Reset filter"
+          variant="brand-outline"
+          onclick={clearFilter}
+          class="slds-var-m-horizontal_x-small"
+        ></lightning-button>
+        <lightning-button
+          label="Apply"
+          variant="brand"
+          onclick={applyFilter}
+          class="slds-var-m-horizontal_x-small"
+        ></lightning-button>
+      </div>
+    </lightning-card>
+  </div>
+</template>

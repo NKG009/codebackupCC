@@ -1,0 +1,17 @@
+<template>
+    <!-- base container to replace using body (css found in base) -->
+    <div class="portal__container">
+        <!-- navigation -->
+        <nav>
+            <slot name="navigation"></slot>
+        </nav>
+        <!-- content -->
+        <main>
+            <slot></slot>
+        </main>
+        <!-- sidebar -->
+        <section class="sidecontent">
+            <slot name="sidebar"></slot>
+        </section>
+    </div>
+</template>

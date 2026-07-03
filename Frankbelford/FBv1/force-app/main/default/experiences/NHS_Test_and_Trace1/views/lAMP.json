@@ -1,0 +1,59 @@
+{
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "21eb7bf9-89c9-47f0-a379-88b757bdd55e",
+  "label" : "LAMP",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.NHS_Test_and_Trace_logo_L_Blue.1}\" style=\"width: 299.438px; height: 117.609px;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.HMGovernment.1}\" style=\"width: 401.531px; height: 146.797px;\"></p>\n<p>&nbsp;</p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "c9799b38-df19-4080-96db-110673af90bd",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2933c12d-2653-4690-a70b-51c7b7a6d860",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "NHS_Lamp_Talent_Pool"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "48044781-ceb9-4ed0-922a-c92a952e466f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5352c0a5-7c6d-425c-8c02-cbae534d1276",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "b8a995e2-2453-47a2-b3b6-4e28e72f110f",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "LAMP"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "452d34b2-5cf6-4bd4-9d96-bb015e230cfa",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "747c6799-51f6-4c24-b1d2-e2c80fe0ea84",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-lamp"
+}

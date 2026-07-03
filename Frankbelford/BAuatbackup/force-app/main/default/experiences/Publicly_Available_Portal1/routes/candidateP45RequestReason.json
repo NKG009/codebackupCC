@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "465f41e5-62ef-4428-87e3-d9c4c64bb864",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "Candidate_p45_request_reason__c",
+  "id" : "168a6f4a-00ec-4c05-87c0-579dbb8a8025",
+  "label" : "Candidate p45 request reason",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-candidate-p45-request-reason",
+  "type" : "route",
+  "urlPrefix" : "candidate-p45-request-reason"
+}

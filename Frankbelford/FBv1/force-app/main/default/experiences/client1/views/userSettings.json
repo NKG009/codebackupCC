@@ -1,0 +1,51 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "c2a38607-cebb-4f12-8c06-09b976fa60a7",
+  "label" : "User Settings",
+  "regions" : [ {
+    "id" : "5fec6048-bc56-4259-81a6-f2cb3334c94f",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "hideConnectedSources" : true,
+        "hideEmailNotificationSettings" : true,
+        "id" : "{!userId}"
+      },
+      "componentName" : "forceCommunity:userSettings",
+      "id" : "12beae55-1011-40b8-b9f3-0b94ed6075bf",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7c0ade8c-780a-451d-9fd3-b665b96c87b2",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:BackButtonMySettings",
+      "id" : "dd493a90-a8e3-4e49-b36b-2671eb40fd58",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c5e0758a-b8db-4aca-8bff-a4cad49ab827",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "id" : "59159034-9279-4fc4-9e4b-94e30ef98f12",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "b193c282-38e3-4b89-8fdc-c727e44c8ca8",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "BaeIvxdmVNAi846Z78i1VuYgMbv85a",
+  "type" : "view",
+  "viewType" : "usersettings"
+}

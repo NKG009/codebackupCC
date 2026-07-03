@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>m5__Number_Dialed__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The telephone number dialed.</description>
+    <label>Number Dialed</label>
+    <required>false</required>
+    <type>Phone</type>
+</CustomField>

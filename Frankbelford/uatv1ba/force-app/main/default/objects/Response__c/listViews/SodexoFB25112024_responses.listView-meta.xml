@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SodexoFB25112024_responses</fullName>
+    <columns>NAME</columns>
+    <columns>Candidate__c</columns>
+    <columns>Question_1__c</columns>
+    <columns>Question_2__c</columns>
+    <columns>Question_3__c</columns>
+    <columns>Question_4__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RecruiterBot__c</field>
+        <operation>equals</operation>
+        <value>SodexoFB25112024</value>
+    </filters>
+    <label>SodexoFB25112024 responses</label>
+</ListView>

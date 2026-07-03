@@ -1,0 +1,59 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "48972c18-95d2-40b8-a2f8-62cdb8151958",
+  "label" : "Manage My Data",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><strong style=\"font-size: 48px; color: rgb(161, 0, 0);\">Alert!</strong></p><p style=\"text-align: center;\"><span style=\"font-size: 26px; color: rgb(136, 136, 136);\">The process below will fully delete your profile from our system and you will no longer be able to work with Blue Arrow </span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "921e3842-2c3e-4305-aa19-a9ae1539a835",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "073e09b5-a737-4355-abd4-da6a686c04c2",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "Candidate_Portal_Deletion_Request"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "e7ebb990-32b2-4a91-a290-97569b06d1ee",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1c54e603-42e1-4123-a728-f21a4b06a13c",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "bb90fa15-521f-4e00-93d9-cd35cfe424a9",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Manage My Data"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "e18762ed-a1bf-46d0-a2de-a044fb120aa9",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "508372d5-528d-49ea-87ac-736267278fa1",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-managemydata"
+}

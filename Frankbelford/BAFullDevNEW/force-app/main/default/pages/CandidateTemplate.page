@@ -1,0 +1,395 @@
+<apex:page standardController="sirenum__Placement__c" applyBodyTag="false" applyHtmlTag="false" extensions="Candtemplatedata" showHeader="false" sidebar="false" renderAs="pdf" action="{!createtask}">
+
+    <html>
+    <head>
+        <style>
+                @page {
+                size:portrait;
+                margin-left: 0.8cm;
+                margin-right: 0.8cm;
+                margin-top: 1cm;
+                margin-bottom: 0.1cm;
+                size: 8.27in 11.2in;
+                }
+        </style>
+    </head>
+    <div>
+        <table >
+            <tr>
+                <td style="width:450px;vertical-align:top;">
+                    <!--<apex:image url="{!logoUrl}" width="134" height="25"/>-->
+                    <apex:image url="{!logoUrl}"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+                <td style="text-align:right;width:600px">
+                    {!customsitename}<br></br>
+                    {!branchstreet}<br></br>
+                    {!branchcity}<br></br>
+                    {!branchCounty}<br></br>
+                    {!branchCountry}<br></br>
+                    {!branchpostal}
+                </td>
+            </tr>
+        </table><br></br>
+        <table style="width:710px;">
+            <tr>
+                <td style="width:550px;">
+                    <b>Private and Confidential</b><br></br>
+                    {!sirenum__Placement__c.sirenum__Contact__r.name}<br></br>
+                    {!sirenum__Placement__c.sirenum__Contact__r.MailingStreet}<br></br>
+                    {!sirenum__Placement__c.sirenum__Contact__r.MailingPostalCode}<br></br>
+                    {!sirenum__Placement__c.sirenum__Contact__r.MailingCity}<br></br>
+                    {!sirenum__Placement__c.sirenum__Contact__r.MailingState}<br></br>
+                    {!sirenum__Placement__c.sirenum__Contact__r.MailingCountry}
+                </td>
+                <td style="text-align:right;vertical-align:top;width:400px;">
+                    Phone : {!branchphone}<br></br>
+                    Email : {!branchemail}
+                </td>
+            </tr>
+        </table>
+    </div> <br></br><br></br>
+    Date : <apex:outputText value="{0, date, MMMM d','  yyyy}">
+        <apex:param value="{!Today()}" />
+    </apex:outputText>
+
+    <br></br><br></br>
+    <div>
+        Dear {!sirenum__Placement__c.sirenum__Contact__r.firstname} </div> <br></br>
+    <div>
+        Confirmation of temporary assignment at:  <br></br>
+        {!Sitename} <br></br>
+        {!sirenum__Placement__c.sirenum__Site__r.sirenum__Street_Address__c}<br></br>
+        {!sirenum__Placement__c.sirenum__Site__r.sirenum__City__c} <br></br>
+        {!sirenum__Placement__c.sirenum__Site__r.sirenum__County__c} <br></br>
+        {!sirenum__Placement__c.sirenum__Site__r.sirenum__Country__c} <br></br>
+        {!sirenum__Placement__c.sirenum__Site__r.sirenum__Postal_Code__c} <br></br>
+        <br></br>Starting on: {!Shiftstart} <br></br>
+        As {!sirenum__Placement__c.sirenum__Job_Role__r.sirenum__Job_Type__r.name}<br></br>
+
+    </div><br></br>
+    Initial Hours of work : <br></br><br></br>
+
+
+    <apex:dataTable value="{!shifts}" style="width:500px;text-align:center" border="2" var="shift" id="theTable">
+        <apex:column >
+            <apex:facet name="header">Day</apex:facet>
+            <apex:outputText value="{0, date, EEEEEE}">
+                <apex:param value="{!shift.sirenum__Scheduled_Start_Time__c}" />
+            </apex:outputText>
+
+        </apex:column>
+        <apex:column >
+            <apex:facet name="header">Start Time</apex:facet>
+            <apex:outputField value="{!shift.sirenum__Scheduled_Start_Time__c}"/>
+        </apex:column>
+        <apex:column >
+            <apex:facet name="header">End Time</apex:facet>
+            <apex:outputField value="{!shift.sirenum__Scheduled_End_Time__c}"/>
+        </apex:column>
+    </apex:dataTable>
+    <br></br><br></br>
+
+    <b>Job Description:</b> {!sirenum__Placement__c.sirenum__Job_Role__r.IP_Job_Description__c}<br></br><br></br>
+    <b>Personal Protective Equipment:</b> {!sirenum__Placement__c.sirenum__Job_Role__r.IP_Personal_Protective_Equipment__c}<br></br><br></br>
+    <b>Notified Health and Safety Risks:</b> {!sirenum__Placement__c.sirenum__Job_Role__r.IP_Notified_Health_Safety_Risks__c}<br></br><br></br>
+    <b>Special Induction:</b> {!sirenum__Placement__c.sirenum__Job_Role__r.IP_Special_Induction__c}
+
+    <br></br><br></br><br></br>
+
+    <apex:pageBlock rendered="{!sirenum__Placement__c.sirenum__Rota__r.name != 'Office'}">
+        Please take any personal protective equipment as previously advised.
+    </apex:pageBlock><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+
+
+    <apex:pageblock rendered = "{!ratelines.size>0}">
+        The table below outlines pay rate(s) that are applicable to this assignment. Note that pay rates may vary depending on time and date of the shift and other factors. Should the pay rate applicable to your shifts change, we will confirm accordingly.
+        <br></br><br></br><br></br>
+        <apex:pageblocktable value="{!ratelines}" style="width:650px;text-align:center" border="2" var="rate" id="theTable1">
+            <apex:column headerValue="Rate Name">
+
+                <apex:outputText >{!rate.sirenum__Standard_Rate_Name__c}</apex:outputText>
+
+            </apex:column>
+            <apex:column headerValue="Day Type">
+                <apex:outputText >{!rate.sirenum__Day_Type__c}</apex:outputText>
+            </apex:column>
+            <apex:column headerValue="Start Hour">
+                <apex:outputText rendered="{!IF(rate.sirenum__Start_Hour__c != null,TRUE,FALSE)}">{!rate.sirenum__Start_Hour__c}</apex:outputText>
+                <apex:outputText rendered="{!IF(rate.sirenum__Start_Hour__c == null,TRUE,FALSE)}">00:00</apex:outputText>
+
+            </apex:column>
+            <apex:column headerValue="End Hour">
+
+                <apex:outputText rendered="{!IF(rate.sirenum__End_Hour__c!= null,TRUE,FALSE)}">{!rate.sirenum__End_Hour__c}</apex:outputText>
+                <apex:outputText rendered="{!IF(rate.sirenum__End_Hour__c == null,TRUE,FALSE)}">24:00</apex:outputText>
+            </apex:column>
+            <apex:column headerValue="Rate Modifier">
+                <apex:pageblocktable value="{!rate}" var="a1">
+                    <apex:column >
+                        <apex:outputText >Regular</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+
+
+                <apex:pageblocktable value="{!rate.sirenum__Rate_Modifiers__r}" var="rm">
+                    <apex:column >
+                        <apex:outputText rendered="{!rm.sirenum__Rate_Modifier_Type__r.Name !=null}">{!rm.sirenum__Rate_Modifier_Type__r.Name}</apex:outputText>
+                        <apex:outputText rendered="{!rm.sirenum__Rate_Modifier_Type__r.Name == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+            </apex:column>
+            <apex:column headerValue="Pay Rate">
+
+                <apex:pageblocktable value="{!rate}" var="b1">
+                    <apex:column >
+                        <apex:outputText rendered="{!b1.sirenum__Pay_Rate__c != null}">{!b1.sirenum__Pay_Rate__c}</apex:outputText>
+                        <apex:outputText rendered="{!b1.sirenum__Pay_Rate__c == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+
+                <apex:pageblocktable value="{!rate.sirenum__Rate_Modifiers__r}" var="rm1">
+                    <apex:column >
+                        <apex:outputText rendered="{!rm1.sirenum__Pay_Rate__c != null}">{!rm1.sirenum__Pay_Rate__c}</apex:outputText>
+                        <apex:outputText rendered="{!rm1.sirenum__Pay_Rate__c == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+            </apex:column>
+            <apex:column headerValue="Overtime Pay Rate">
+
+                <apex:pageblocktable value="{!rate}" var="c1">
+                    <apex:column >
+                        <apex:outputText rendered="{!c1.sirenum__Overtime_Pay_Rate__c != null}">{!c1.sirenum__Overtime_Pay_Rate__c}</apex:outputText>
+                        <apex:outputText rendered="{!c1.sirenum__Overtime_Pay_Rate__c == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+
+                <apex:pageblocktable value="{!rate.sirenum__Rate_Modifiers__r}" var="rm2">
+                    <apex:column >
+                        <apex:outputText rendered="{!rm2.sirenum__Overtime_Pay_Rate__c != null}">{!rm2.sirenum__Overtime_Pay_Rate__c}</apex:outputText>
+                        <apex:outputText rendered="{!rm2.sirenum__Overtime_Pay_Rate__c == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+            </apex:column>
+            <apex:column headerValue="Overtime 2xPay Rate">
+
+                <apex:pageblocktable value="{!rate}" var="d1">
+                    <apex:column >
+                        <apex:outputText rendered="{!d1.sirenum__Overtime_2x_Pay_Rate__c != null}">{!d1.sirenum__Overtime_2x_Pay_Rate__c}</apex:outputText>
+                        <apex:outputText rendered="{!d1.sirenum__Overtime_2x_Pay_Rate__c == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+
+                <apex:pageblocktable value="{!rate.sirenum__Rate_Modifiers__r}" var="rm3">
+                    <apex:column >
+                        <apex:outputText rendered="{!rm3.sirenum__Overtime_2x_Pay_Rate__c != null}">{!rm3.sirenum__Overtime_2x_Pay_Rate__c }</apex:outputText>
+                        <apex:outputText rendered="{!rm3.sirenum__Overtime_2x_Pay_Rate__c == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+            </apex:column>
+
+        </apex:pageblocktable>
+        <br></br><br></br>
+    </apex:pageblock>
+
+    <apex:pageblock rendered = "{!rate2.size>0}">
+
+        The table below outlines pay rate(s) that are applicable to this assignment. Note that pay rates may vary depending on time and date of the shift and other factors. Should the pay rate applicable to your shifts change, we will confirm accordingly.
+        <br></br><br></br><br></br>
+
+        Pre AWR
+
+        <br></br><br></br>
+
+        <apex:pageblocktable value="{!rate2}" style="width:650px;text-align:center" border="2" var="rate12" id="theTable1">
+            <apex:column headerValue="Rate Name">
+
+                <apex:outputText >{!rate12.sirenum__Standard_Rate_Name__c}</apex:outputText>
+
+            </apex:column>
+            <apex:column headerValue="Day Type">
+                <apex:outputText >{!rate12.sirenum__Day_Type__c}</apex:outputText>
+            </apex:column>
+            <apex:column headerValue="Start Hour">
+                <apex:outputText rendered="{!IF(rate12.sirenum__Start_Hour__c != null,TRUE,FALSE)}">{!rate12.sirenum__Start_Hour__c}</apex:outputText>
+                <apex:outputText rendered="{!IF(rate12.sirenum__Start_Hour__c == null,TRUE,FALSE)}">00:00</apex:outputText>
+
+            </apex:column>
+            <apex:column headerValue="End Hour">
+
+                <apex:outputText rendered="{!IF(rate12.sirenum__End_Hour__c!= null,TRUE,FALSE)}">{!rate12.sirenum__End_Hour__c}</apex:outputText>
+                <apex:outputText rendered="{!IF(rate12.sirenum__End_Hour__c == null,TRUE,FALSE)}">24:00</apex:outputText>
+            </apex:column>
+            <apex:column headerValue="Rate Modifier">
+
+                <apex:pageblocktable value="{!rate12}" var="ratep">
+                    <apex:column >
+                        <apex:outputText >Regular</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+
+                <apex:pageblocktable value="{!rate12.sirenum__Rate_Modifiers__r}" var="rm1">
+                    <apex:column >
+                        <apex:outputText rendered="{!rm1.sirenum__Rate_Modifier_Type__r.Name!=null}">{!rm1.sirenum__Rate_Modifier_Type__r.Name}</apex:outputText>
+                        <apex:outputText rendered="{!rm1.sirenum__Rate_Modifier_Type__r.Name == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+            </apex:column>
+            <apex:column headerValue="Pay Rate">
+
+                <apex:pageblocktable value="{!rate12}" var="ratep1">
+                    <apex:column >
+                        <apex:outputText rendered="{!ratep1.sirenum__Pay_Rate__c!=null}">{!ratep1.sirenum__Pay_Rate__c}</apex:outputText>
+                        <apex:outputText rendered="{!ratep1.sirenum__Pay_Rate__c == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+
+                <apex:pageblocktable value="{!rate12.sirenum__Rate_Modifiers__r}" var="rm2">
+                    <apex:column >
+                        <apex:outputText rendered="{!rm2.sirenum__Pay_Rate__c != null}">{!rm2.sirenum__Pay_Rate__c}</apex:outputText>
+                        <apex:outputText rendered="{!rm2.sirenum__Pay_Rate__c == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+            </apex:column>
+            <apex:column headerValue="Overtime Pay Rate">
+
+                <apex:pageblocktable value="{!rate12}" var="ratep2">
+                    <apex:column >
+                        <apex:outputText rendered="{!ratep2.sirenum__Overtime_Pay_Rate__c != null}">{!ratep2.sirenum__Overtime_Pay_Rate__c}</apex:outputText>
+                        <apex:outputText rendered="{!ratep2.sirenum__Overtime_Pay_Rate__c == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+
+                <apex:pageblocktable value="{!rate12.sirenum__Rate_Modifiers__r}" var="rm3">
+                    <apex:column >
+                        <apex:outputText rendered="{!rm3.sirenum__Overtime_Pay_Rate__c != null}">{!rm3.sirenum__Overtime_Pay_Rate__c}</apex:outputText>
+                        <apex:outputText rendered="{!rm3.sirenum__Overtime_Pay_Rate__c == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+            </apex:column>
+            <apex:column headerValue="Overtime 2xPay Rate">
+
+                <apex:pageblocktable value="{!rate12}" var="ratep3">
+                    <apex:column >
+                        <apex:outputText rendered="{!ratep3.sirenum__Overtime_2x_Pay_Rate__c != null}">{!ratep3.sirenum__Overtime_2x_Pay_Rate__c }</apex:outputText>
+                        <apex:outputText rendered="{ratep3.sirenum__Overtime_2x_Pay_Rate__c == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+
+                <apex:pageblocktable value="{!rate12.sirenum__Rate_Modifiers__r}" var="rm4">
+                    <apex:column >
+                        <apex:outputText rendered="{!rm4.sirenum__Overtime_2x_Pay_Rate__c != null}">{!rm4.sirenum__Overtime_2x_Pay_Rate__c}</apex:outputText>
+                        <apex:outputText rendered="{rm4.sirenum__Overtime_2x_Pay_Rate__c == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+            </apex:column>
+
+        </apex:pageblocktable>
+        <br></br><br></br>
+    </apex:pageblock>
+
+
+    <apex:pageblock rendered = "{!rate1.size>0}">
+
+        Post AWR
+
+        <br></br><br></br>
+
+        <apex:pageblocktable value="{!rate1}" style="width:650px;text-align:center" border="2" var="rate11" id="theTable1">
+            <apex:column headerValue="Rate Name">
+
+                <apex:outputText >{!rate11.sirenum__Standard_Rate_Name__c}</apex:outputText>
+
+            </apex:column>
+            <apex:column headerValue="Day Type">
+                <apex:outputText >{!rate11.sirenum__Day_Type__c}</apex:outputText>
+            </apex:column>
+            <apex:column headerValue="Start Hour">
+                <apex:outputText rendered="{!IF(rate11.sirenum__Start_Hour__c != null,TRUE,FALSE)}">{!rate11.sirenum__Start_Hour__c}</apex:outputText>
+                <apex:outputText rendered="{!IF(rate11.sirenum__Start_Hour__c == null,TRUE,FALSE)}">00:00</apex:outputText>
+
+            </apex:column>
+            <apex:column headerValue="End Hour">
+
+                <apex:outputText rendered="{!IF(rate11.sirenum__End_Hour__c!= null,TRUE,FALSE)}">{!rate11.sirenum__End_Hour__c}</apex:outputText>
+                <apex:outputText rendered="{!IF(rate11.sirenum__End_Hour__c == null,TRUE,FALSE)}">24:00</apex:outputText>
+            </apex:column>
+            <apex:column headerValue="Rate Modifier">
+
+                <apex:pageblocktable value="{!rate11}" var="a">
+                    <apex:column >
+                        <apex:outputText >Regular</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+
+                <apex:pageblocktable value="{!rate11.sirenum__Rate_Modifiers__r}" var="rm1">
+                    <apex:column >
+                        <apex:outputText rendered="{!rm1.sirenum__Rate_Modifier_Type__r.Name != null}">{!rm1.sirenum__Rate_Modifier_Type__r.Name}</apex:outputText>
+                        <apex:outputText rendered="{!rm1.sirenum__Rate_Modifier_Type__r.Name == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+            </apex:column>
+            <apex:column headerValue="Pay Rate">
+
+                <apex:pageblocktable value="{!rate11}" var="b">
+                    <apex:column >
+                        <apex:outputText rendered="{!b.sirenum__Pay_Rate__c != null}">{!b.sirenum__Pay_Rate__c}</apex:outputText>
+                        <apex:outputText rendered="{!b.sirenum__Pay_Rate__c == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+
+                <apex:pageblocktable value="{!rate11.sirenum__Rate_Modifiers__r}" var="rm2">
+                    <apex:column >
+                        <apex:outputText rendered="{!rm2.sirenum__Pay_Rate__c != null}">{!rm2.sirenum__Pay_Rate__c}</apex:outputText>
+                        <apex:outputText rendered="{!rm2.sirenum__Pay_Rate__c == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+            </apex:column>
+            <apex:column headerValue="Overtime Pay Rate">
+
+                <apex:pageblocktable value="{!rate11}" var="c">
+                    <apex:column >
+                        <apex:outputText rendered="{!c.sirenum__Overtime_Pay_Rate__c != null}">{!c.sirenum__Overtime_Pay_Rate__c}</apex:outputText>
+                        <apex:outputText rendered="{!c.sirenum__Overtime_Pay_Rate__c == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+
+                <apex:pageblocktable value="{!rate11.sirenum__Rate_Modifiers__r}" var="rm3">
+                    <apex:column >
+                        <apex:outputText rendered="{!rm3.sirenum__Overtime_Pay_Rate__c != null}">{!rm3.sirenum__Overtime_Pay_Rate__c}</apex:outputText>
+                        <apex:outputText rendered="{!rm3.sirenum__Overtime_Pay_Rate__c == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+            </apex:column>
+            <apex:column headerValue="Overtime 2xPay Rate">
+
+                <apex:pageblocktable value="{!rate11}" var="d">
+                    <apex:column >
+                        <apex:outputText rendered="{!d.sirenum__Overtime_2x_Pay_Rate__c != null}">{!d.sirenum__Overtime_2x_Pay_Rate__c}</apex:outputText>
+                        <apex:outputText rendered="{!d.sirenum__Overtime_2x_Pay_Rate__c == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+
+                <apex:pageblocktable value="{!rate11.sirenum__Rate_Modifiers__r}" var="rm4">
+                    <apex:column >
+                        <apex:outputText rendered="{!rm4.sirenum__Overtime_2x_Pay_Rate__c !=null}">{!rm4.sirenum__Overtime_2x_Pay_Rate__c }</apex:outputText>
+                        <apex:outputText rendered="{!rm4.sirenum__Overtime_2x_Pay_Rate__c == null}">-</apex:outputText>
+                    </apex:column>
+                </apex:pageblocktable>
+            </apex:column>
+
+        </apex:pageblocktable>
+        <br></br><br></br>
+    </apex:pageblock>
+
+
+    If you have any queries regarding your assignment please feel free to contact me on the above phone number.<br></br><br></br>
+
+    Yours sincerely <br></br><br></br>
+
+    {!sirenum__Placement__c.IP_Consultant1LookupSplitShare__r.name}<br></br>
+    {!branchemail}
+
+
+    </html>
+</apex:page>

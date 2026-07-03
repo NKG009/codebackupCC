@@ -1,0 +1,59 @@
+{
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "e5b0fbd5-96f9-4a45-9cd5-c182e9dacafa",
+  "label" : "SRG",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" src=\"{!contentAsset.NHS_Test_and_Trace_logo_L_Blue.1}\" style=\"width: 299.438px; height: 117.609px;\" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img class=\"sfdcCbImage\" src=\"{!contentAsset.HMGovernment.1}\" style=\"width: 401.531px; height: 146.797px;\" /></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "5edd861b-c89e-4b18-856d-953b963b549e",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d057542c-653a-4e09-ac0c-f8bab510ca87",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"Brand\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"SRG\"}]",
+        "flowName" : "NHS_Response_Creation"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "0ad9e8b2-701d-45c9-9ed1-c0c48819f437",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6f3ab890-dafa-4798-8e38-00d61dd60a4e",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "40a2c988-c3dc-44a7-b23e-490c334c77b4",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "SRG"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "32f76e08-4119-4aa9-89d9-2fb9840d10e5",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "78daf9dd-a106-45d6-8902-5b8cdb4b3ef3",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-srg"
+}

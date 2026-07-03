@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_PublicSectorSupplierOrClient__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>If client provides evidence that they are small business and are out of scope for IR35 un-check this box</inlineHelpText>
+    <label>IR35 In Scope?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

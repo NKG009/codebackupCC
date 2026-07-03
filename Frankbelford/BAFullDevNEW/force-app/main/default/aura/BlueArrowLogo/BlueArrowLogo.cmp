@@ -1,0 +1,5 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction" access="global"  >
+	<div style="height:110px;" class="slds-align_absolute-center">
+                           <img src="{!$Resource.Blue_Arrow_logo}"/>    
+                        </div>
+</aura:component>

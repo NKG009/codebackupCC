@@ -1,0 +1,78 @@
+.THIS .myCustomClass{ 
+    text-align: center;
+    width: 100px;
+}
+
+.THIS .table .break th{
+    
+     word-wrap:break-word;
+    width:100px;
+}
+
+.THIS .header{
+    font-weight:bold;
+    text-decoration:Underline;
+}
+
+.THIS .detailbutton{
+    
+    height:25px;
+    color: #FFFFFF;
+    
+}
+.THIS .headingfont{
+   font-family: Arial;
+	font-size: 15px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 26.4px;
+    color : #009ee3;
+  
+    
+}
+.THIS .Querybutton{
+    color : white;
+     background-color: #e50b7e;
+    border-color: #e50b7e;
+}
+.THIS .Querybutton:hover{
+    color : white;
+     background-color: #d65399;
+    border-color: #d65399;
+}
+.THIS .Detailsbutton{
+    color : white;
+     background-color: #009ee3;
+    border-color: #009ee3;
+}
+.THIS .Detailsbutton:hover{
+    color : white;
+     background-color: #377d9b;
+    border-color: #377d9b;
+}
+.THIS .Backbutton{
+    color : white;
+     background-color: #6f6f6e;
+    border-color: #6f6f6e;
+}
+.THIS .Backbutton:hover{
+    color : white;
+     background-color: #99998e;
+    border-color: #99998e;
+}
+.THIS .Submitbutton{
+    color : white;
+     background-color: #a8cd1b;
+    border-color: #a8cd1b;
+}
+.THIS .Submitbutton:hover{
+    color : white;
+     background-color: #96aa4b;
+    border-color: #96aa4b;
+}
+.THIS .headingdetails{
+     font-family: Arial;
+     color : #009ee3;
+    
+}

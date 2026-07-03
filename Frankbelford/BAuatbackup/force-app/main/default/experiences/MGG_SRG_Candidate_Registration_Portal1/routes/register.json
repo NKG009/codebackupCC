@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "c8edcdc7-5b6d-4944-afda-4ccb7e48016e",
+  "appPageId" : "899cec5e-9860-4cce-89e9-2afb28e6d75d",
+  "configurationTags" : [ ],
+  "devName" : "Register",
+  "id" : "513a20db-e0fb-4979-a4ac-e5722216364b",
+  "label" : "Register",
+  "routeType" : "self-register",
+  "type" : "route",
+  "urlPrefix" : "SelfRegister"
+}

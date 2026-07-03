@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "123e290b-928c-4a43-ab78-cc07cb5f682f",
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "configurationTags" : [ ],
+  "devName" : "NHS_Pre_Screener_Placement__c",
+  "id" : "7647bfc6-7027-425d-9772-9e7a3ad6d7ef",
+  "label" : "NHS - Pre Screener - Uni - Placement",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-nhs-pre-screener-uni-placement",
+  "type" : "route",
+  "urlPrefix" : "nhs-pre-screener-uni-placement"
+}

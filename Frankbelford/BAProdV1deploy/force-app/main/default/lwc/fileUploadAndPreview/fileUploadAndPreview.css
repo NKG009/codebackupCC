@@ -1,0 +1,21 @@
+.file-list {
+        margin-top: 1rem;
+    }
+    .file-item {
+        display: flex;
+        align-items: center;
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        background: #f4f6f9;
+        border-radius: 0.25rem;
+    }
+    .file-icon {
+        margin-right: 0.5rem;
+    }
+    .file-name {
+        flex-grow: 1;
+        margin-right: 0.5rem;
+    }
+    .view-btn, .delete-btn {
+        margin-left: 0.25rem;
+    }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Nigel_Morton_O2_Candidates</fullName>
+    <columns>IP_WorkerStartDate__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>IP_MailingAddressLine1__c</columns>
+    <columns>IP_MailingAddressLine2__c</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>CONTACT.ADDRESS2_COUNTRY</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>Owner__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>nmort</value>
+    </filters>
+    <label>Nigel Morton O2 Candidates</label>
+</ListView>

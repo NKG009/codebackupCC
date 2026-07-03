@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Liverpool_Amanda_Project</fullName>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>Skills__c</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>Owner__c</columns>
+    <columns>Person_Status__c</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>WA7,WA8,WA4,CW8,CW7,WA6,CH1,CW10,CW1</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Pending</value>
+    </filters>
+    <filters>
+        <field>Skills__c</field>
+        <operation>equals</operation>
+        <value>Picker/Packer,Production Operative,Warehouse Operative</value>
+    </filters>
+    <label>Liverpool - Amanda Project</label>
+    <sharedTo>
+        <role>Blue_Arrow_Liverpool</role>
+    </sharedTo>
+</ListView>

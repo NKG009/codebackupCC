@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "b97e011f-ba8b-4932-9cb1-e46ecdf605aa",
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "configurationTags" : [ ],
+  "devName" : "Shift_Vacancy_Request__c",
+  "id" : "f62140b3-4e1b-44eb-a48e-b33bdad91a60",
+  "label" : "Shift Vacancy Request",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-testnewvacancy",
+  "type" : "route",
+  "urlPrefix" : "testnewvacancy"
+}

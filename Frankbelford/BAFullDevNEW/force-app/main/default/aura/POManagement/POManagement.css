@@ -1,0 +1,140 @@
+.THIS .dataTables_wrapper table thead th:nth-child(-n+4):after{
+        display:none;
+    }
+.THIS .dashboard-section__leftNav > li ul{
+    right: -23rem !important;
+}
+   .THIS .uiheight{
+    height:20px;
+    width:20px;
+}
+   .THIS .btnClass{
+    width: 150px;
+    margin-left: 40px;
+    margin-top: 6px;
+}
+.THIS .dashboard-section__leftNav div:hover{
+    background-color:#fff;
+    color:#00aae3;
+    outline:2px solid !important;
+}
+.THIS .dashboard-section__leftNav--timesheets li:hover{
+    background-color:#fff;
+    color:#00aae3;
+}
+.THIS .dashboard-section__leftNav--timesheets li:hover a{
+    color : #00aae3 !important;
+}
+.THIS .dashboard-section__leftNav--vacancies li:hover{
+    background-color:#fff;
+    color:#00aae3;
+}
+.THIS .dashboard-section__leftNav--vacancies li:hover a{
+    color:#00aae3;
+}
+.THIS .dashboard-section__leftNav--temp li:hover{
+    background-color:#fff;
+    color:#00aae3
+}
+.THIS .dashboard-section__leftNav--temp li:hover a{
+   color:#00aae3;
+}
+.THIS .dashboard-section__leftNav ul li a{
+    color:#fff;
+    font-size:1.6rem;
+    padding-top:1rem;
+    padding-bottom:1rem;
+ }
+.THIS .imag
+    {
+        background-image:url('/profilephoto/005/T');
+        width:48px;
+        height:50px;
+    } 
+.THIS #overlay {
+position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #F6F6F6;opacity:0.88;
+    text-align: center;
+    padding-top: 30%;
+    
+}
+.THIS #overlay img {
+    position: fixed;
+
+}
+.THIS .helpicon{
+    color :	#FFFFFF;
+    
+}
+   .THIS .centeralign{
+    text-align:center;
+}
+.THIS .slds-form-element__label{
+    color: #000000;
+    font-weight: bold;
+    font-size: initial;
+    padding-bottom: 10px;
+    margin-top: -10px;
+}
+.THIS.selectrole {
+    width: 100%;
+    height: 5rem;
+    padding: 15px 10px;
+    padding-right: 25px;
+    z-index: 1;
+    background-color: transparent !important;
+    outline: none !important;
+    border: 1px solid #d7d7d7;
+    margin-bottom: 1.5rem;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: "DINPro";
+    font-color:#333333;
+    font-size:14px;
+}
+
+.THIS .selectrole {
+    width: 100%;
+    height: 5rem;
+    padding: 15px 10px;
+    padding-right: 25px;
+    z-index: 1;
+    background-color: transparent !important;
+    outline: none !important;
+    border: 1px solid #d7d7d7;
+    margin-bottom: 1.5rem;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: "DINPro";
+    color:#333333;
+    font-color:#333333;
+    font-size:14px;
+}
+.THIS .spins::after {
+    position: absolute;
+    content: 'Please wait while loading';
+    width: 100%;
+    text-align: center;
+    top: calc(50% + 3em);
+    font-weight: bold;
+    font: 18px arial, sans-serif;
+}
+.THIS .uiheight{
+    height:20px;
+    width:20px;
+    cursor:pointer;
+}
+.THIS .custom-checkbox.shift-checkbox{
+    margin-top:10px !important;
+    margin-left:-10px !important;
+    cursor: default !important;
+}
+.THIS .hlink:hover {
+    text-decoration: underline;
+}

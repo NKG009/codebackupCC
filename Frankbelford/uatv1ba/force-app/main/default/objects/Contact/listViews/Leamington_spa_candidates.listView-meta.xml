@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Leamington_spa_candidates</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>CV1,CV2,CV3,CV4,CV5,CV6,CV7,CV8,CV9,CV10,CV11,CV12,CV13,CV21,CV22,CV23,CV31,CV32,CV33,CV34,CV35,CV36,CV37,CV47,B49,B50,B95,B94,B93,B92,NN11</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>equals</operation>
+        <value>Technical,Industrial</value>
+    </filters>
+    <filters>
+        <field>sirenum__Last_Timesheet__c</field>
+        <operation>lessThan</operation>
+        <value>3/1/2021</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Inactive</value>
+    </filters>
+    <label>Leamington spa candidates</label>
+    <sharedTo>
+        <role>Blue_Arrow_Labs</role>
+    </sharedTo>
+</ListView>

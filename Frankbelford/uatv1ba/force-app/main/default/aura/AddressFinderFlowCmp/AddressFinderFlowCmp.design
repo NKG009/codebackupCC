@@ -1,0 +1,7 @@
+<!--
+ - Created by mrahman on 2020-12-08.
+ -->
+
+<design:component label="Address Finder For Flow">
+    <design:attribute name="recordId" label="Salesforce RecordId"/>
+</design:component>

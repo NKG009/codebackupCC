@@ -1,0 +1,61 @@
+@import "c/portalV2MyShiftsCSSLibrary";
+@import "c/portalV2CSSLibrary";
+
+.caret-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.main__header {
+  font-size: 2vw;
+  -webkit-text-stroke: 0.5px #01618c;
+}
+
+.flex__row {
+  flex-direction: row;
+}
+
+.table__container {
+  max-height: 60vh;
+  min-height: 40vh;
+  overflow-y: auto;
+}
+
+.table__header__actionbar {
+  justify-content: space-between;
+  padding: 0.5rem 0 0.5rem 0;
+}
+.table__footer__actionbar {
+  padding: 0.5rem 0 0.5rem 0;
+  background-color: var(--grey-bg);
+}
+
+.table__footer__actionbar > * {
+  justify-content: space-between;
+}
+
+.brand__button__radius {
+  border-radius: 50px;
+}
+
+.small__gap {
+  gap: 0.25em;
+}
+
+.site-switcher-container {
+  width: 15em;
+  padding-inline: 1em;
+}
+
+:host {
+  --sds-c-checkbox-color-background-checked: #029de4;
+  --sds-c-checkbox-mark-color-foreground: #ffffff;
+  --sds-c-button-brand-color-background: #029de4;
+  --sds-c-button-brand-color-background-hover: #029de4;
+  --sds-c-button-brand-color-border: #029de4;
+  --sds-c-button-brand-color-border-hover: #029de4;
+  --sds-c-button-outline-brand-color-border: #029de4;
+  --grey-bg: #f9f9f9;
+}

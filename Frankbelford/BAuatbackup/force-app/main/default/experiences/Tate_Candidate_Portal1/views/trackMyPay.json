@@ -1,0 +1,46 @@
+{
+  "appPageId" : "b2fa95b0-e567-41d6-a9bd-0d8201b2a4b0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "7e2f8228-c4d1-4c79-a35f-4605a87b79c0",
+  "label" : "Track My Pay",
+  "regions" : [ {
+    "id" : "2c2e492e-94fa-45e5-85ab-c1d528cce6ff",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:TrackMyPay",
+      "id" : "66ca35bd-fa48-42a5-aee8-f6b1afc5832b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7cf90539-1a67-4fdd-9e66-563265fac098",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "82f59878-3646-4c5a-9447-a38c8c2dff74",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Track My Pay"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "9aa895c6-4474-4679-9e48-2d759631b7e3",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ecadbed7-d6d9-4bf2-bb7d-c3f4504d79b4",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-track-my-pay"
+}

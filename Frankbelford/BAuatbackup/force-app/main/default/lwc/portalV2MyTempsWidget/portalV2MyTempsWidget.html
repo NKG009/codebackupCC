@@ -1,0 +1,51 @@
+<template>
+  <div class="card">
+    <!-- Loading -->
+    <div
+      if:true={loading}
+      class="full-height slds-size_1-of-1 slds-align_absolute-center"
+    >
+      <div class="spinner">
+        <lightning-spinner
+          alternative-text="Loading"
+          size="large"
+        ></lightning-spinner>
+      </div>
+    </div>
+    <!-- Body -->
+    <div
+      if:false={loading}
+      class="
+        slds-var-m-horizontal_x-large
+        slds-grid slds-grid_vertical
+        grid_align-vertical-spread
+        full-height
+      "
+    >
+      <div class="top-bar">
+        <h2 class="header-text slds-var-p-top_large font-dark-grey">
+          My Workers
+        </h2>
+      </div>
+      <div class="scrollable-datatable">
+        <lightning-datatable
+          key-field="id"
+          columns={columns}
+          data={shiftData}
+          hide-checkbox-column
+          resize-column-disabled
+        ></lightning-datatable>
+      </div>
+      <div class="slds-grid slds-grid_align-end slds-var-m-bottom_large">
+        <div class="slds-grid">
+          <lightning-button
+            variant="brand"
+            class="slds-align-bottom"
+            label="View all workers"
+            onclick={navigate}
+          ></lightning-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

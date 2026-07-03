@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "557ab0c9-bfea-4ac3-88ac-914bd9455593",
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "configurationTags" : [ ],
+  "devName" : "University2022__c",
+  "id" : "75ba072e-fe0f-46ae-b1ab-111a172b326a",
+  "label" : "University2022",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-university2022",
+  "type" : "route",
+  "urlPrefix" : "university2022"
+}

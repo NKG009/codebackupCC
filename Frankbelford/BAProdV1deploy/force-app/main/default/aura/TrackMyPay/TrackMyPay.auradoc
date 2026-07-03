@@ -1,0 +1,9 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+	<aura:example name="ExampleName" ref="exampleComponentName" label="Label">
+		Example Description
+        <!--pagination: https://gist.github.com/brianmfear/66488eb80292c7151f616ebe7d1b0a18 
+			https://webkul.com/blog/forceshowtoast-in-lightning/
+			-->
+	</aura:example>
+</aura:documentation>

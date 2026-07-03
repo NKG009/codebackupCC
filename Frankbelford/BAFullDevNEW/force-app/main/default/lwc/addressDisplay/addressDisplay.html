@@ -1,0 +1,51 @@
+<template>
+    <template if:true={isEditMode}>
+        <template if:true={locationSection}>
+            <lightning-input label="Street Address" value={locStreet} onchange={handleChange} data-id="locStreet">
+            </lightning-input>
+            <lightning-input label="City" value={locCity} onchange={handleChange} data-id="locCity"></lightning-input>
+            <lightning-input label="County" value={locCounty} onchange={handleChange} data-id="locCounty">
+            </lightning-input>
+            <lightning-input label="Postal Code" value={locPostalCode} onchange={handleChange} data-id="locPostalCode">
+            </lightning-input>
+            <lightning-input label="Country" value={locCountry} onchange={handleChange} data-id="locCountry">
+            </lightning-input>
+            <lightning-button variant="base" label="Update" onclick={updateRecord}></lightning-button>
+        </template>
+        <template if:true={invoiceSection}>
+            <lightning-input label="Street Address" value={incStreet} onchange={handleChange} data-id="incStreet">
+            </lightning-input>
+            <lightning-input label="City" value={incCity} onchange={handleChange} data-id="incCity"></lightning-input>
+            <lightning-input label="County" value={incCounty} onchange={handleChange} data-id="incCounty">
+            </lightning-input>
+            <lightning-input label="Postal Code" value={incPostalCode} onchange={handleChange} data-id="incPostalCode">
+            </lightning-input>
+            <lightning-input label="Country" value={incCountry} onchange={handleChange} data-id="incCountry">
+            </lightning-input>
+            <lightning-button variant="base" label="Update" onclick={updateInvoiceAddressRecord}></lightning-button>
+        </template>
+
+    </template>
+
+    <template if:false={isEditMode}>
+        <template if:true={locationSection}>
+            <p><strong>Site Location Address</strong></p>
+            <p>{locStreet}</p>
+            <p>{locCity}</p>
+            <p>{locCounty}</p>
+            <p>{locPostalCode}</p>
+            <p>{locCountry}</p>
+            <lightning-button variant="base" label="Edit" onclick={toggleEdit}></lightning-button>
+        </template>
+
+        <template if:true={invoiceSection}>
+            <p><strong>Site Invoice Address</strong></p>
+            <p>{incStreet}</p>
+            <p>{incCity}</p>
+            <p>{incCounty}</p>
+            <p>{incPostalCode}</p>
+            <p>{incCountry}</p>
+            <lightning-button variant="base" label="Edit" onclick={toggleEdit}></lightning-button>
+        </template>
+    </template>
+</template>

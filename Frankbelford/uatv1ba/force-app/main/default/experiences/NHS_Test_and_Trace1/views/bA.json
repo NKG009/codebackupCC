@@ -1,0 +1,59 @@
+{
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "62df4ed7-6707-47d3-9788-b77bda52dc32",
+  "label" : "BA",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" src=\"{!contentAsset.NHS_Test_and_Trace_logo_L_Blue.1}\" style=\"width: 299.438px; height: 117.609px;\" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img class=\"sfdcCbImage\" src=\"{!contentAsset.HMGovernment.1}\" style=\"width: 401.531px; height: 146.797px;\" /></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "5dd3fa61-6901-420d-8e02-872186a118d8",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "94bc767f-cc70-4922-b104-e4c2919ac3ca",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"Brand\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"Blue Arrow\"},{\"label\":\"URL\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!Job}\"}]",
+        "flowName" : "NHS_Response_Creation"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "b06b33a4-9e4d-481b-944f-d8b7bcc60d18",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d10260d9-4240-42f0-8e29-1bc2887e4916",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "6aff4363-605e-46a5-a8f4-b2fcac4317fc",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "BA"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "0e2d117a-287c-4971-9576-655c698d1237",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6222b47b-d8cd-47cd-8016-ca1ed92a09d9",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-ba"
+}

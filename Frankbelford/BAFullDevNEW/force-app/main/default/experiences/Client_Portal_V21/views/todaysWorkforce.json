@@ -1,0 +1,46 @@
+{
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "48421466-16b5-41b2-bd0f-21a11041c308",
+  "label" : "Todays Workforce",
+  "regions" : [ {
+    "id" : "24a6a52c-859c-4c5b-8c32-66480bd326d9",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2CandidateCheckIn",
+      "id" : "642c6ef5-eadf-403b-b7f2-7dcd6f18a258",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c4f9403e-8192-4cd4-b6be-885164e00004",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "ec5f8b1a-b957-4ccc-98db-8384b289dc68",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Todays Workforce"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "e2585aba-bf39-4e06-8cae-226ae42c1f5a",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b0d0a57f-399c-40f6-9f8f-fe499dcdc6f0",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-todays-workforce"
+}

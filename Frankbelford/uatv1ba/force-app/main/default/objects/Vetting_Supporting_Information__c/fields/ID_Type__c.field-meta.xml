@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ID_Type__c</fullName>
+    <label>ID Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>ID_Group__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Adoption certificate</fullName>
+                <default>false</default>
+                <label>Adoption certificate</label>
+            </value>
+            <value>
+                <fullName>Bank or building society account opening confirmation letter</fullName>
+                <default>false</default>
+                <label>Bank or building society account opening confirmation letter</label>
+            </value>
+            <value>
+                <fullName>Bank or building society statement</fullName>
+                <default>false</default>
+                <label>Bank or building society statement</label>
+            </value>
+            <value>
+                <fullName>Benefit statement, for example Child Benefit, Pension</fullName>
+                <default>false</default>
+                <label>Benefit statement, for example Child Benefit, Pension</label>
+            </value>
+            <value>
+                <fullName>Biometric residence permit</fullName>
+                <default>false</default>
+                <label>Biometric residence permit</label>
+            </value>
+            <value>
+                <fullName>Birth certificate - issued after time of birth</fullName>
+                <default>false</default>
+                <label>Birth certificate - issued after time of birth</label>
+            </value>
+            <value>
+                <fullName>Birth certificate - issued within 12 months of birth</fullName>
+                <default>false</default>
+                <label>Birth certificate - issued within 12 months of birth</label>
+            </value>
+            <value>
+                <fullName>Cards carrying the PASS accreditation logo</fullName>
+                <default>false</default>
+                <label>Cards carrying the PASS accreditation logo</label>
+            </value>
+            <value>
+                <fullName>Central or local government, government agency, or local council document giving entitlement</fullName>
+                <default>false</default>
+                <label>Central or local government, government agency, or local council document giving entitlement</label>
+            </value>
+            <value>
+                <fullName>Council Tax statement</fullName>
+                <default>false</default>
+                <label>Council Tax statement</label>
+            </value>
+            <value>
+                <fullName>Credit card statement</fullName>
+                <default>false</default>
+                <label>Credit card statement</label>
+            </value>
+            <value>
+                <fullName>Current driving licence (full or provisional) - paper version (if issued before 1998)</fullName>
+                <default>false</default>
+                <label>Current driving licence (full or provisional) - paper version (if issued before 1998)</label>
+            </value>
+            <value>
+                <fullName>Current driving licence photocard - (full or provisional)</fullName>
+                <default>false</default>
+                <label>Current driving licence photocard - (full or provisional)</label>
+            </value>
+            <value>
+                <fullName>EEA National ID card</fullName>
+                <default>false</default>
+                <label>EEA National ID card</label>
+            </value>
+            <value>
+                <fullName>Financial statement, for example pension or endowment</fullName>
+                <default>false</default>
+                <label>Financial statement, for example pension or endowment</label>
+            </value>
+            <value>
+                <fullName>Firearms licence</fullName>
+                <default>false</default>
+                <label>Firearms licence</label>
+            </value>
+            <value>
+                <fullName>HM Forces ID card</fullName>
+                <default>false</default>
+                <label>HM Forces ID card</label>
+            </value>
+            <value>
+                <fullName>Immigration document, visa or work permit</fullName>
+                <default>false</default>
+                <label>Immigration document, visa or work permit</label>
+            </value>
+            <value>
+                <fullName>Irish Passport Card</fullName>
+                <default>false</default>
+                <label>Irish Passport Card</label>
+            </value>
+            <value>
+                <fullName>Letter from head teacher or college principal</fullName>
+                <default>false</default>
+                <label>Letter from head teacher or college principal</label>
+            </value>
+            <value>
+                <fullName>Letter of sponsorship from future employment provider</fullName>
+                <default>false</default>
+                <label>Letter of sponsorship from future employment provider</label>
+            </value>
+            <value>
+                <fullName>Marriage/civil partnership certificate</fullName>
+                <default>false</default>
+                <label>Marriage/civil partnership certificate</label>
+            </value>
+            <value>
+                <fullName>Mortgage statement</fullName>
+                <default>false</default>
+                <label>Mortgage statement</label>
+            </value>
+            <value>
+                <fullName>P45 or P60 statement</fullName>
+                <default>false</default>
+                <label>P45 or P60 statement</label>
+            </value>
+            <value>
+                <fullName>Passport</fullName>
+                <default>false</default>
+                <label>Passport</label>
+            </value>
+            <value>
+                <fullName>Utility bill</fullName>
+                <default>false</default>
+                <label>Utility bill</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Group 1: Primary identity documents</controllingFieldValue>
+            <valueName>Adoption certificate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 1: Primary identity documents</controllingFieldValue>
+            <valueName>Biometric residence permit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 1: Primary identity documents</controllingFieldValue>
+            <valueName>Birth certificate - issued within 12 months of birth</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 1: Primary identity documents</controllingFieldValue>
+            <controllingFieldValue>Group 2a: Trusted government documents</controllingFieldValue>
+            <valueName>Current driving licence photocard - (full or provisional)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 1: Primary identity documents</controllingFieldValue>
+            <valueName>Passport</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2a: Trusted government documents</controllingFieldValue>
+            <valueName>Birth certificate - issued after time of birth</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2a: Trusted government documents</controllingFieldValue>
+            <valueName>Current driving licence (full or provisional) - paper version (if issued before 1998)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2a: Trusted government documents</controllingFieldValue>
+            <valueName>Firearms licence</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2a: Trusted government documents</controllingFieldValue>
+            <valueName>HM Forces ID card</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2a: Trusted government documents</controllingFieldValue>
+            <valueName>Immigration document, visa or work permit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2a: Trusted government documents</controllingFieldValue>
+            <valueName>Marriage/civil partnership certificate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2b: Financial and social history documents</controllingFieldValue>
+            <valueName>Bank or building society account opening confirmation letter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2b: Financial and social history documents</controllingFieldValue>
+            <valueName>Bank or building society statement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2b: Financial and social history documents</controllingFieldValue>
+            <valueName>Benefit statement, for example Child Benefit, Pension</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2b: Financial and social history documents</controllingFieldValue>
+            <valueName>Cards carrying the PASS accreditation logo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2b: Financial and social history documents</controllingFieldValue>
+            <valueName>Central or local government, government agency, or local council document giving entitlement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2b: Financial and social history documents</controllingFieldValue>
+            <valueName>Council Tax statement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2b: Financial and social history documents</controllingFieldValue>
+            <valueName>Credit card statement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2b: Financial and social history documents</controllingFieldValue>
+            <valueName>EEA National ID card</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2b: Financial and social history documents</controllingFieldValue>
+            <valueName>Financial statement, for example pension or endowment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2b: Financial and social history documents</controllingFieldValue>
+            <valueName>Irish Passport Card</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2b: Financial and social history documents</controllingFieldValue>
+            <valueName>Letter from head teacher or college principal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2b: Financial and social history documents</controllingFieldValue>
+            <valueName>Letter of sponsorship from future employment provider</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2b: Financial and social history documents</controllingFieldValue>
+            <valueName>Mortgage statement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2b: Financial and social history documents</controllingFieldValue>
+            <valueName>P45 or P60 statement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Group 2b: Financial and social history documents</controllingFieldValue>
+            <valueName>Utility bill</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

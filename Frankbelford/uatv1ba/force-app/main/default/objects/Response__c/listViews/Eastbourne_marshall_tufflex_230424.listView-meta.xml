@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eastbourne_marshall_tufflex_230424</fullName>
+    <columns>NAME</columns>
+    <columns>Candidate__c</columns>
+    <columns>Question_1__c</columns>
+    <columns>Question_2__c</columns>
+    <columns>Question_3__c</columns>
+    <columns>Question_4__c</columns>
+    <columns>Question_5__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RecruiterBot__c</field>
+        <operation>contains</operation>
+        <value>marshall-tufflex</value>
+    </filters>
+    <label>Eastbourne - marshall tufflex 230424</label>
+</ListView>

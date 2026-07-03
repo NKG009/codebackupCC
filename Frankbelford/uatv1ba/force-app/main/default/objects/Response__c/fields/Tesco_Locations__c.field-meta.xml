@@ -1,0 +1,1215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tesco_Locations__c</fullName>
+    <label>Tesco Location</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Tesco_Job_Role__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Addlestone Extra, Addlestone</fullName>
+                <default>false</default>
+                <label>Addlestone Extra, Addlestone</label>
+            </value>
+            <value>
+                <fullName>Amersham</fullName>
+                <default>false</default>
+                <label>Amersham</label>
+            </value>
+            <value>
+                <fullName>Andover Extra, Andover</fullName>
+                <default>false</default>
+                <label>Andover Extra, Andover</label>
+            </value>
+            <value>
+                <fullName>Barnstaple</fullName>
+                <default>false</default>
+                <label>Barnstaple</label>
+            </value>
+            <value>
+                <fullName>Barnstaple Extra, Barnstaple</fullName>
+                <default>false</default>
+                <label>Barnstaple Extra, Barnstaple</label>
+            </value>
+            <value>
+                <fullName>Barry</fullName>
+                <default>false</default>
+                <label>Barry</label>
+            </value>
+            <value>
+                <fullName>Batley Extra, Batley</fullName>
+                <default>false</default>
+                <label>Batley Extra, Batley</label>
+            </value>
+            <value>
+                <fullName>Berkhamsted Metro, Berkhamsted</fullName>
+                <default>false</default>
+                <label>Berkhamsted Metro, Berkhamsted</label>
+            </value>
+            <value>
+                <fullName>Bideford</fullName>
+                <default>false</default>
+                <label>Bideford</label>
+            </value>
+            <value>
+                <fullName>Bishop Auckland Extra, Bishop Auckland</fullName>
+                <default>false</default>
+                <label>Bishop Auckland Extra, Bishop Auckland</label>
+            </value>
+            <value>
+                <fullName>Blackburn</fullName>
+                <default>false</default>
+                <label>Blackburn</label>
+            </value>
+            <value>
+                <fullName>Blackpool Clifton Extra, Blackpool</fullName>
+                <default>false</default>
+                <label>Blackpool Clifton Extra, Blackpool</label>
+            </value>
+            <value>
+                <fullName>Boston</fullName>
+                <default>false</default>
+                <label>Boston</label>
+            </value>
+            <value>
+                <fullName>Bourne</fullName>
+                <default>false</default>
+                <label>Bourne</label>
+            </value>
+            <value>
+                <fullName>Bradford Extra, Bradford</fullName>
+                <default>false</default>
+                <label>Bradford Extra, Bradford</label>
+            </value>
+            <value>
+                <fullName>Bradley Stoke Extra, Bristol</fullName>
+                <default>false</default>
+                <label>Bradley Stoke Extra, Bristol</label>
+            </value>
+            <value>
+                <fullName>Braintree Great Notley, Braintree</fullName>
+                <default>false</default>
+                <label>Braintree Great Notley, Braintree</label>
+            </value>
+            <value>
+                <fullName>Braintree Market Place, Braintree</fullName>
+                <default>false</default>
+                <label>Braintree Market Place, Braintree</label>
+            </value>
+            <value>
+                <fullName>Bridgend Extra, Bridgend</fullName>
+                <default>false</default>
+                <label>Bridgend Extra, Bridgend</label>
+            </value>
+            <value>
+                <fullName>Bristol Eastville Extra, Bristol</fullName>
+                <default>false</default>
+                <label>Bristol Eastville Extra, Bristol</label>
+            </value>
+            <value>
+                <fullName>Brooklands Extra, Weybridge</fullName>
+                <default>false</default>
+                <label>Brooklands Extra, Weybridge</label>
+            </value>
+            <value>
+                <fullName>Burnley Extra, Burley</fullName>
+                <default>false</default>
+                <label>Burnley Extra, Burley</label>
+            </value>
+            <value>
+                <fullName>Bursledon Towers Extra, Southampton</fullName>
+                <default>false</default>
+                <label>Bursledon Towers Extra, Southampton</label>
+            </value>
+            <value>
+                <fullName>Bury</fullName>
+                <default>false</default>
+                <label>Bury</label>
+            </value>
+            <value>
+                <fullName>Cardiff Extra, Cardiff</fullName>
+                <default>false</default>
+                <label>Cardiff Extra, Cardiff</label>
+            </value>
+            <value>
+                <fullName>Carmarthen Extra, Carmarthenshire</fullName>
+                <default>false</default>
+                <label>Carmarthen Extra, Carmarthenshire</label>
+            </value>
+            <value>
+                <fullName>Chelmsford Princes Road, Chelmsford</fullName>
+                <default>false</default>
+                <label>Chelmsford Princes Road, Chelmsford</label>
+            </value>
+            <value>
+                <fullName>Chelmsford Springfield Road, Chelmsford</fullName>
+                <default>false</default>
+                <label>Chelmsford Springfield Road, Chelmsford</label>
+            </value>
+            <value>
+                <fullName>Cheshunt</fullName>
+                <default>false</default>
+                <label>Cheshunt</label>
+            </value>
+            <value>
+                <fullName>Chorley Extra, Chorley</fullName>
+                <default>false</default>
+                <label>Chorley Extra, Chorley</label>
+            </value>
+            <value>
+                <fullName>Cleckheaton</fullName>
+                <default>false</default>
+                <label>Cleckheaton</label>
+            </value>
+            <value>
+                <fullName>Colney Hatch Extra, North London</fullName>
+                <default>false</default>
+                <label>Colney Hatch Extra, North London</label>
+            </value>
+            <value>
+                <fullName>Corby Oakley Road, Corby</fullName>
+                <default>false</default>
+                <label>Corby Oakley Road, Corby</label>
+            </value>
+            <value>
+                <fullName>Crediton</fullName>
+                <default>false</default>
+                <label>Crediton</label>
+            </value>
+            <value>
+                <fullName>Cullompton</fullName>
+                <default>false</default>
+                <label>Cullompton</label>
+            </value>
+            <value>
+                <fullName>Culverhouse Cross Extra, Cardiff</fullName>
+                <default>false</default>
+                <label>Culverhouse Cross Extra, Cardiff</label>
+            </value>
+            <value>
+                <fullName>Dingwall Mart Road, Dingwall</fullName>
+                <default>false</default>
+                <label>Dingwall Mart Road, Dingwall</label>
+            </value>
+            <value>
+                <fullName>Durham Extra, Durham</fullName>
+                <default>false</default>
+                <label>Durham Extra, Durham</label>
+            </value>
+            <value>
+                <fullName>Ebbw Vale, Glynebwy</fullName>
+                <default>false</default>
+                <label>Ebbw Vale, Glynebwy</label>
+            </value>
+            <value>
+                <fullName>Egham</fullName>
+                <default>false</default>
+                <label>Egham</label>
+            </value>
+            <value>
+                <fullName>Ely, Cambridgeshire</fullName>
+                <default>false</default>
+                <label>Ely, Cambridgeshire</label>
+            </value>
+            <value>
+                <fullName>Eston Cleveland Extra, Middlesbrough</fullName>
+                <default>false</default>
+                <label>Eston Cleveland Extra, Middlesbrough</label>
+            </value>
+            <value>
+                <fullName>Exeter Value Extra, Exeter</fullName>
+                <default>false</default>
+                <label>Exeter Value Extra, Exeter</label>
+            </value>
+            <value>
+                <fullName>Exmouth</fullName>
+                <default>false</default>
+                <label>Exmouth</label>
+            </value>
+            <value>
+                <fullName>Feltham Dukes Green, Feltham</fullName>
+                <default>false</default>
+                <label>Feltham Dukes Green, Feltham</label>
+            </value>
+            <value>
+                <fullName>Fraserburgh</fullName>
+                <default>false</default>
+                <label>Fraserburgh</label>
+            </value>
+            <value>
+                <fullName>Gateshead Trinity Square Extra, Gateshead</fullName>
+                <default>false</default>
+                <label>Gateshead Trinity Square Extra, Gateshead</label>
+            </value>
+            <value>
+                <fullName>Gillingham Kent Extra, Kent</fullName>
+                <default>false</default>
+                <label>Gillingham Kent Extra, Kent</label>
+            </value>
+            <value>
+                <fullName>Hammersmith</fullName>
+                <default>false</default>
+                <label>Hammersmith</label>
+            </value>
+            <value>
+                <fullName>Haslingden</fullName>
+                <default>false</default>
+                <label>Haslingden</label>
+            </value>
+            <value>
+                <fullName>Hatfield Extra, Hatfield</fullName>
+                <default>false</default>
+                <label>Hatfield Extra, Hatfield</label>
+            </value>
+            <value>
+                <fullName>Hereford</fullName>
+                <default>false</default>
+                <label>Hereford</label>
+            </value>
+            <value>
+                <fullName>Hertford</fullName>
+                <default>false</default>
+                <label>Hertford</label>
+            </value>
+            <value>
+                <fullName>High Wycombe</fullName>
+                <default>false</default>
+                <label>High Wycombe</label>
+            </value>
+            <value>
+                <fullName>Horwich</fullName>
+                <default>false</default>
+                <label>Horwich</label>
+            </value>
+            <value>
+                <fullName>Huddersfield</fullName>
+                <default>false</default>
+                <label>Huddersfield</label>
+            </value>
+            <value>
+                <fullName>Huntly, Aberdeenshire</fullName>
+                <default>false</default>
+                <label>Huntly, Aberdeenshire</label>
+            </value>
+            <value>
+                <fullName>Ingleby Barwick</fullName>
+                <default>false</default>
+                <label>Ingleby Barwick</label>
+            </value>
+            <value>
+                <fullName>Keith Moss Street, Keith</fullName>
+                <default>false</default>
+                <label>Keith Moss Street, Keith</label>
+            </value>
+            <value>
+                <fullName>Kettering Extra, Kettering</fullName>
+                <default>false</default>
+                <label>Kettering Extra, Kettering</label>
+            </value>
+            <value>
+                <fullName>Kidderminster</fullName>
+                <default>false</default>
+                <label>Kidderminster</label>
+            </value>
+            <value>
+                <fullName>Kirkwall</fullName>
+                <default>false</default>
+                <label>Kirkwall</label>
+            </value>
+            <value>
+                <fullName>Lee Mill Extra, Ivybridge</fullName>
+                <default>false</default>
+                <label>Lee Mill Extra, Ivybridge</label>
+            </value>
+            <value>
+                <fullName>Leighton Buzzard</fullName>
+                <default>false</default>
+                <label>Leighton Buzzard</label>
+            </value>
+            <value>
+                <fullName>Lerwick, Shetland</fullName>
+                <default>false</default>
+                <label>Lerwick, Shetland</label>
+            </value>
+            <value>
+                <fullName>Lesmahagow</fullName>
+                <default>false</default>
+                <label>Lesmahagow</label>
+            </value>
+            <value>
+                <fullName>Leyland</fullName>
+                <default>false</default>
+                <label>Leyland</label>
+            </value>
+            <value>
+                <fullName>Leyland Extra, Leyland</fullName>
+                <default>false</default>
+                <label>Leyland Extra, Leyland</label>
+            </value>
+            <value>
+                <fullName>Leyton</fullName>
+                <default>false</default>
+                <label>Leyton</label>
+            </value>
+            <value>
+                <fullName>Llandrindod Wells, Powys</fullName>
+                <default>false</default>
+                <label>Llandrindod Wells, Powys</label>
+            </value>
+            <value>
+                <fullName>Market Deeping, Peterborough</fullName>
+                <default>false</default>
+                <label>Market Deeping, Peterborough</label>
+            </value>
+            <value>
+                <fullName>Midsomer Norton, Bristol</fullName>
+                <default>false</default>
+                <label>Midsomer Norton, Bristol</label>
+            </value>
+            <value>
+                <fullName>Milton, Cambridge</fullName>
+                <default>false</default>
+                <label>Milton, Cambridge</label>
+            </value>
+            <value>
+                <fullName>Milton Keynes Bletchley Extra, Milton Keynes</fullName>
+                <default>false</default>
+                <label>Milton Keynes Bletchley Extra, Milton Keynes</label>
+            </value>
+            <value>
+                <fullName>Milton Keynes Kingston Extra, Milton Keynes</fullName>
+                <default>false</default>
+                <label>Milton Keynes Kingston Extra, Milton Keynes</label>
+            </value>
+            <value>
+                <fullName>Milton Keynes Wolverton, Milton Keynes</fullName>
+                <default>false</default>
+                <label>Milton Keynes Wolverton, Milton Keynes</label>
+            </value>
+            <value>
+                <fullName>Neath Abbey, Neath</fullName>
+                <default>false</default>
+                <label>Neath Abbey, Neath</label>
+            </value>
+            <value>
+                <fullName>Newcastle Upon Tyne Extra, Newcastle Upon Tyne</fullName>
+                <default>false</default>
+                <label>Newcastle Upon Tyne Extra, Newcastle Upon Tyne</label>
+            </value>
+            <value>
+                <fullName>Newport Gwent Extra, Newport</fullName>
+                <default>false</default>
+                <label>Newport Gwent Extra, Newport</label>
+            </value>
+            <value>
+                <fullName>Newport Spytty Extra, Newport</fullName>
+                <default>false</default>
+                <label>Newport Spytty Extra, Newport</label>
+            </value>
+            <value>
+                <fullName>Newton Abbot</fullName>
+                <default>false</default>
+                <label>Newton Abbot</label>
+            </value>
+            <value>
+                <fullName>Newtown Cattle Market, Newtown</fullName>
+                <default>false</default>
+                <label>Newtown Cattle Market, Newtown</label>
+            </value>
+            <value>
+                <fullName>Northallerton East Road, Northallerton</fullName>
+                <default>false</default>
+                <label>Northallerton East Road, Northallerton</label>
+            </value>
+            <value>
+                <fullName>North Shields Extra, North Shields</fullName>
+                <default>false</default>
+                <label>North Shields Extra, North Shields</label>
+            </value>
+            <value>
+                <fullName>Oban</fullName>
+                <default>false</default>
+                <label>Oban</label>
+            </value>
+            <value>
+                <fullName>Oldham Chadderton, Oldham</fullName>
+                <default>false</default>
+                <label>Oldham Chadderton, Oldham</label>
+            </value>
+            <value>
+                <fullName>Orpington Extra, Orpington</fullName>
+                <default>false</default>
+                <label>Orpington Extra, Orpington</label>
+            </value>
+            <value>
+                <fullName>Plymouth Roborough Extra, Plymouth</fullName>
+                <default>false</default>
+                <label>Plymouth Roborough Extra, Plymouth</label>
+            </value>
+            <value>
+                <fullName>Plymouth Transit Way, Plymouth</fullName>
+                <default>false</default>
+                <label>Plymouth Transit Way, Plymouth</label>
+            </value>
+            <value>
+                <fullName>Pontypridd Extra, Pontypridd</fullName>
+                <default>false</default>
+                <label>Pontypridd Extra, Pontypridd</label>
+            </value>
+            <value>
+                <fullName>Port Talbot</fullName>
+                <default>false</default>
+                <label>Port Talbot</label>
+            </value>
+            <value>
+                <fullName>Potters Bar</fullName>
+                <default>false</default>
+                <label>Potters Bar</label>
+            </value>
+            <value>
+                <fullName>Prestatyn</fullName>
+                <default>false</default>
+                <label>Prestatyn</label>
+            </value>
+            <value>
+                <fullName>Purley Extra, Purley</fullName>
+                <default>false</default>
+                <label>Purley Extra, Purley</label>
+            </value>
+            <value>
+                <fullName>Rainham Extra, Rainham</fullName>
+                <default>false</default>
+                <label>Rainham Extra, Rainham</label>
+            </value>
+            <value>
+                <fullName>Ramsey, Huntingdon</fullName>
+                <default>false</default>
+                <label>Ramsey, Huntingdon</label>
+            </value>
+            <value>
+                <fullName>Redditch Extra, Redditch</fullName>
+                <default>false</default>
+                <label>Redditch Extra, Redditch</label>
+            </value>
+            <value>
+                <fullName>Risca Extra, Risca</fullName>
+                <default>false</default>
+                <label>Risca Extra, Risca</label>
+            </value>
+            <value>
+                <fullName>Rochdale</fullName>
+                <default>false</default>
+                <label>Rochdale</label>
+            </value>
+            <value>
+                <fullName>Seaton</fullName>
+                <default>false</default>
+                <label>Seaton</label>
+            </value>
+            <value>
+                <fullName>Shepton Mallet</fullName>
+                <default>false</default>
+                <label>Shepton Mallet</label>
+            </value>
+            <value>
+                <fullName>Slough Wellington Extra, Slough</fullName>
+                <default>false</default>
+                <label>Slough Wellington Extra, Slough</label>
+            </value>
+            <value>
+                <fullName>Stevenage Extra, Stevenage</fullName>
+                <default>false</default>
+                <label>Stevenage Extra, Stevenage</label>
+            </value>
+            <value>
+                <fullName>Stockton Extra, Stockton</fullName>
+                <default>false</default>
+                <label>Stockton Extra, Stockton</label>
+            </value>
+            <value>
+                <fullName>Stourbridge Extra, Stourbridge</fullName>
+                <default>false</default>
+                <label>Stourbridge Extra, Stourbridge</label>
+            </value>
+            <value>
+                <fullName>Stourport</fullName>
+                <default>false</default>
+                <label>Stourport</label>
+            </value>
+            <value>
+                <fullName>Streatham Extra, Streatham</fullName>
+                <default>false</default>
+                <label>Streatham Extra, Streatham</label>
+            </value>
+            <value>
+                <fullName>Sunbury Extra, Sunbury</fullName>
+                <default>false</default>
+                <label>Sunbury Extra, Sunbury</label>
+            </value>
+            <value>
+                <fullName>Sunderland Retail Park Extra, Sunderland</fullName>
+                <default>false</default>
+                <label>Sunderland Retail Park Extra, Sunderland</label>
+            </value>
+            <value>
+                <fullName>Swansea Extra, Swansea</fullName>
+                <default>false</default>
+                <label>Swansea Extra, Swansea</label>
+            </value>
+            <value>
+                <fullName>Swansea Llansamlet Extra, Swansea</fullName>
+                <default>false</default>
+                <label>Swansea Llansamlet Extra, Swansea</label>
+            </value>
+            <value>
+                <fullName>Swansea Marina, Swansea</fullName>
+                <default>false</default>
+                <label>Swansea Marina, Swansea</label>
+            </value>
+            <value>
+                <fullName>Talbot Green Extra, Pontyclun</fullName>
+                <default>false</default>
+                <label>Talbot Green Extra, Pontyclun</label>
+            </value>
+            <value>
+                <fullName>Thirsk</fullName>
+                <default>false</default>
+                <label>Thirsk</label>
+            </value>
+            <value>
+                <fullName>Thornton Heath</fullName>
+                <default>false</default>
+                <label>Thornton Heath</label>
+            </value>
+            <value>
+                <fullName>Tiverton Blundells, Tiverton</fullName>
+                <default>false</default>
+                <label>Tiverton Blundells, Tiverton</label>
+            </value>
+            <value>
+                <fullName>Tring</fullName>
+                <default>false</default>
+                <label>Tring</label>
+            </value>
+            <value>
+                <fullName>Trowbridge Extra, Trowbridge</fullName>
+                <default>false</default>
+                <label>Trowbridge Extra, Trowbridge</label>
+            </value>
+            <value>
+                <fullName>Waltham Abbey</fullName>
+                <default>false</default>
+                <label>Waltham Abbey</label>
+            </value>
+            <value>
+                <fullName>Ware</fullName>
+                <default>false</default>
+                <label>Ware</label>
+            </value>
+            <value>
+                <fullName>Warwick</fullName>
+                <default>false</default>
+                <label>Warwick</label>
+            </value>
+            <value>
+                <fullName>Welling</fullName>
+                <default>false</default>
+                <label>Welling</label>
+            </value>
+            <value>
+                <fullName>Welshpool</fullName>
+                <default>false</default>
+                <label>Welshpool</label>
+            </value>
+            <value>
+                <fullName>Wembley Extra, Wembley</fullName>
+                <default>false</default>
+                <label>Wembley Extra, Wembley</label>
+            </value>
+            <value>
+                <fullName>Whiteley</fullName>
+                <default>false</default>
+                <label>Whiteley</label>
+            </value>
+            <value>
+                <fullName>Wick</fullName>
+                <default>false</default>
+                <label>Wick</label>
+            </value>
+            <value>
+                <fullName>Wisbech Extra, Wisbech</fullName>
+                <default>false</default>
+                <label>Wisbech Extra, Wisbech</label>
+            </value>
+            <value>
+                <fullName>Woolwich Extra, Woolwich</fullName>
+                <default>false</default>
+                <label>Woolwich Extra, Woolwich</label>
+            </value>
+            <value>
+                <fullName>Worcester</fullName>
+                <default>false</default>
+                <label>Worcester</label>
+            </value>
+            <value>
+                <fullName>Yate Extra, Bristol</fullName>
+                <default>false</default>
+                <label>Yate Extra, Bristol</label>
+            </value>
+            <value>
+                <fullName>Yeovil Extra, Yeovil</fullName>
+                <default>false</default>
+                <label>Yeovil Extra, Yeovil</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <controllingFieldValue>Team Leader</controllingFieldValue>
+            <valueName>Batley Extra, Batley</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Bishop Auckland Extra, Bishop Auckland</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Blackburn</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Blackpool Clifton Extra, Blackpool</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Bradford Extra, Bradford</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Bridgend Extra, Bridgend</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Burnley Extra, Burley</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <controllingFieldValue>Team Leader</controllingFieldValue>
+            <valueName>Bury</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <controllingFieldValue>Team Leader</controllingFieldValue>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Cardiff Extra, Cardiff</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Chorley Extra, Chorley</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Cleckheaton</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <controllingFieldValue>Team Leader</controllingFieldValue>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Culverhouse Cross Extra, Cardiff</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <controllingFieldValue>Team Leader</controllingFieldValue>
+            <valueName>Durham Extra, Durham</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Ebbw Vale, Glynebwy</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Eston Cleveland Extra, Middlesbrough</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <controllingFieldValue>Team Leader</controllingFieldValue>
+            <valueName>Gateshead Trinity Square Extra, Gateshead</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Haslingden</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <controllingFieldValue>Team Leader</controllingFieldValue>
+            <valueName>Hereford</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <controllingFieldValue>Team Leader</controllingFieldValue>
+            <valueName>Horwich</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Huddersfield</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Ingleby Barwick</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Kidderminster</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Leyland Extra, Leyland</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Neath Abbey, Neath</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <controllingFieldValue>Team Leader</controllingFieldValue>
+            <valueName>Newcastle Upon Tyne Extra, Newcastle Upon Tyne</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Newport Gwent Extra, Newport</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <controllingFieldValue>Team Leader</controllingFieldValue>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Newport Spytty Extra, Newport</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Northallerton East Road, Northallerton</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>North Shields Extra, North Shields</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Oldham Chadderton, Oldham</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Pontypridd Extra, Pontypridd</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Port Talbot</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <controllingFieldValue>Team Leader</controllingFieldValue>
+            <valueName>Risca Extra, Risca</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Rochdale</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <controllingFieldValue>Team Leader</controllingFieldValue>
+            <valueName>Stockton Extra, Stockton</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <controllingFieldValue>Team Leader</controllingFieldValue>
+            <valueName>Sunderland Retail Park Extra, Sunderland</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <controllingFieldValue>Team Leader</controllingFieldValue>
+            <valueName>Swansea Extra, Swansea</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <controllingFieldValue>Team Leader</controllingFieldValue>
+            <valueName>Swansea Llansamlet Extra, Swansea</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <valueName>Talbot Green Extra, Pontyclun</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shelf Replenisher</controllingFieldValue>
+            <controllingFieldValue>Team Leader</controllingFieldValue>
+            <valueName>Worcester</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Addlestone Extra, Addlestone</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Barnstaple</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Barnstaple Extra, Barnstaple</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Barry</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Berkhamsted Metro, Berkhamsted</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Bideford</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Boston</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Bourne</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Brooklands Extra, Weybridge</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Carmarthen Extra, Carmarthenshire</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Corby Oakley Road, Corby</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Crediton</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Cullompton</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Dingwall Mart Road, Dingwall</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Ely, Cambridgeshire</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Exeter Value Extra, Exeter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Exmouth</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Fraserburgh</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Huntly, Aberdeenshire</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Keith Moss Street, Keith</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Kettering Extra, Kettering</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Kirkwall</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Lee Mill Extra, Ivybridge</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Lerwick, Shetland</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Lesmahagow</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Llandrindod Wells, Powys</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Market Deeping, Peterborough</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Midsomer Norton, Bristol</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Milton, Cambridge</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Newton Abbot</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Newtown Cattle Market, Newtown</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Oban</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Plymouth Roborough Extra, Plymouth</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Plymouth Transit Way, Plymouth</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Prestatyn</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Ramsey, Huntingdon</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Seaton</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Shepton Mallet</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Stourbridge Extra, Stourbridge</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Thirsk</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Tiverton Blundells, Tiverton</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Trowbridge Extra, Trowbridge</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Waltham Abbey</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Welshpool</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Wick</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Wisbech Extra, Wisbech</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FF Merchandiser</controllingFieldValue>
+            <valueName>Yeovil Extra, Yeovil</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Team Leader</controllingFieldValue>
+            <valueName>Leyland</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Team Leader</controllingFieldValue>
+            <valueName>Stourport</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Amersham</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Andover Extra, Andover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Bradley Stoke Extra, Bristol</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Braintree Great Notley, Braintree</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Braintree Market Place, Braintree</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Bristol Eastville Extra, Bristol</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Bursledon Towers Extra, Southampton</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Chelmsford Princes Road, Chelmsford</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Chelmsford Springfield Road, Chelmsford</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Cheshunt</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Colney Hatch Extra, North London</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Egham</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Feltham Dukes Green, Feltham</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Gillingham Kent Extra, Kent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Hammersmith</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Hatfield Extra, Hatfield</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Hertford</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>High Wycombe</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Leighton Buzzard</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Leyton</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Milton Keynes Bletchley Extra, Milton Keynes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Milton Keynes Kingston Extra, Milton Keynes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Milton Keynes Wolverton, Milton Keynes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Orpington Extra, Orpington</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Potters Bar</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Purley Extra, Purley</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Rainham Extra, Rainham</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Redditch Extra, Redditch</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Slough Wellington Extra, Slough</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Stevenage Extra, Stevenage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Streatham Extra, Streatham</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Sunbury Extra, Sunbury</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Swansea Marina, Swansea</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Thornton Heath</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Tring</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Ware</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Warwick</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Welling</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Wembley Extra, Wembley</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Whiteley</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Woolwich Extra, Woolwich</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Traffic Marshal</controllingFieldValue>
+            <valueName>Yate Extra, Bristol</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

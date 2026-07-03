@@ -1,0 +1,61 @@
+.THIS .red {
+    background-color: #df1503;
+}
+.THIS .amber {
+    background-color: #f18f01;
+}
+.THIS .green {
+    background-color: #00d102;
+}
+.THIS .button {
+    font-weight: bold;
+    background:none!important;
+    color:#009ee3;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: underline; 
+}
+.THIS .buttonRed {
+    font-weight: bold;
+    background:none!important;
+    color:red;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: underline; 
+}
+.THIS .slds-button:focus{
+    box-shadow:none;
+    outline:none;
+}
+
+.THIS .headingfont{
+    text-align:center;
+   font-family: Arial;
+	font-size: 15px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 26.4px;
+    color : #009ee3;
+  border-bottom: 1px solid darkgray ;
+    border-top: 1px solid darkgray ;
+    
+}
+.THIS .Centercolumn
+{
+    text-align:center; 
+}
+.THIS .Backbutton{
+    color : white;
+     background-color: #6f6f6e;
+    border-color: #6f6f6e;
+}
+.THIS .Backbutton:hover{
+    color : white;
+     background-color: #99998e;
+    border-color: #99998e;
+}

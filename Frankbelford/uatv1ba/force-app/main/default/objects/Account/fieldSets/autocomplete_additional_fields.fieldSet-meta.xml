@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>autocomplete_additional_fields</fullName>
+    <description>Sirenum Scheduler</description>
+    <displayedFields>
+        <field>Brand__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>autocomplete_additional_fields</label>
+</FieldSet>

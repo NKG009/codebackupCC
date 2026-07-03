@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fulfil_Client_Requirements__c</fullName>
+    <label>Fulfil Client Requirements</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Completion of check in calls</fullName>
+                <default>false</default>
+                <label>Completion of check in calls</label>
+            </value>
+            <value>
+                <fullName>Find Work/Shift invitation success</fullName>
+                <default>false</default>
+                <label>Find Work/Shift invitation success</label>
+            </value>
+            <value>
+                <fullName>Blue Arrow Candidate App/Portal engagement</fullName>
+                <default>false</default>
+                <label>Blue Arrow Candidate App/Portal engagement</label>
+            </value>
+            <value>
+                <fullName>Fulfilment efficiency</fullName>
+                <default>false</default>
+                <label>Fulfilment efficiency</label>
+            </value>
+            <value>
+                <fullName>Proactive scheduler management</fullName>
+                <default>false</default>
+                <label>Proactive scheduler management</label>
+            </value>
+            <value>
+                <fullName>Fulfilment %</fullName>
+                <default>false</default>
+                <label>Fulfilment %</label>
+            </value>
+            <value>
+                <fullName>Scheduler alert management</fullName>
+                <default>false</default>
+                <label>Scheduler alert management</label>
+            </value>
+            <value>
+                <fullName>Cancellation intelligence</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Cancellation intelligence</label>
+            </value>
+            <value>
+                <fullName>Effective use of shift invitations</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Effective use of shift invitations</label>
+            </value>
+            <value>
+                <fullName>Shift fulfilment automation</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Shift fulfilment automation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>8</visibleLines>
+</CustomField>

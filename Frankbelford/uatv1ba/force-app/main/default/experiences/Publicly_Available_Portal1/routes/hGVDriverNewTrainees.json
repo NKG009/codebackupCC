@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "c04a431d-09d1-4f7f-b145-eb68edfa0faf",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "HGV_Driver_New_Trainees__c",
+  "id" : "c6d590c8-eef4-4d3f-b856-95dbfaf41e78",
+  "label" : "HGV Driver - New Trainees",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-hgv-driver-new-trainees",
+  "type" : "route",
+  "urlPrefix" : "hgv-driver-new-trainees"
+}

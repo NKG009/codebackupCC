@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Allow_Pay_or_Charge_actions</name>
+        <label>Allow Pay or Charge actions</label>
+        <locationX>774</locationX>
+        <locationY>475</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Allow_charge__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Allow_pay__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Allow_charge__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Allow_pay__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Populate_Billable_hours</targetReference>
+            </connector>
+            <label>True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Bypass_flow</name>
+        <label>Bypass flow</label>
+        <locationX>600</locationX>
+        <locationY>359</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Bypass_flow1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Bypass_Flows__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Allow_Pay_or_Charge_actions</targetReference>
+            </connector>
+            <label>Bypass flow1</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>Payable_End_time_formula</name>
+        <dataType>DateTime</dataType>
+        <expression>If(ISBLANK({!$Record.sirenum__Billable_End_Time__c}), 
+IF(OR({!$Record.IP_CandidateApproved__c},
+{!$Record.Actuals_confirmed__c} ), 
+{!$Record.sirenum__Actual_End_Time__c},
+{!$Record.sirenum__Scheduled_End_Time__c} ), 
+{!$Record.sirenum__Billable_End_Time__c} )</expression>
+    </formulas>
+    <formulas>
+        <name>PayableStartTimeFormula</name>
+        <dataType>DateTime</dataType>
+        <expression>If(ISBLANK({!$Record.sirenum__Billable_Start_Time__c}), 
+IF(OR({!$Record.IP_CandidateApproved__c},
+{!$Record.Actuals_confirmed__c} ), 
+{!$Record.sirenum__Actual_Start_Time__c},
+{!$Record.sirenum__Scheduled_Start_Time__c} ), 
+{!$Record.sirenum__Billable_Start_Time__c} )</expression>
+    </formulas>
+    <interviewLabel>Record Triggered Flow - Auto Update Sector_Rota on Shift 4 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Record Triggered Flow - Auto Update Sector_Rota on Shift 4</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Populate_Billable_hours</name>
+        <label>Populate Billable hours</label>
+        <locationX>1208</locationX>
+        <locationY>588</locationY>
+        <inputAssignments>
+            <field>Approved_By__c</field>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>sirenum__Billable_End_Time__c</field>
+            <value>
+                <elementReference>Payable_End_time_formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>sirenum__Billable_Start_Time__c</field>
+            <value>
+                <elementReference>PayableStartTimeFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>549</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Bypass_flow</targetReference>
+        </connector>
+        <object>sirenum__Shift__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

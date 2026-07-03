@@ -1,0 +1,66 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "de4b2809-9996-467a-8361-a1398eb0ac4f",
+  "label" : "Contact Support",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"font-family: arial; font-size: 28px;\">Contact Us﻿</span></p><p style=\"text-align: center;\"><br></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "eaf77a5e-b5c5-435c-9ee7-d431690f6ff8",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "46bed9f3-6e50-48c0-9ba1-fab591a9a523",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:ContactUs",
+      "id" : "11c3e7b2-c3d1-437a-932f-f0ca01b54dae",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0d5ba472-370a-4155-98c1-8424fa7662ff",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"color: rgb(0, 0, 0);\">© Blue Arrow, All rights reserved 2018.</span></p><p style=\"text-align: center;\"><span style=\"color: rgb(0, 0, 0);\">Registered Address 800 The Boulevard, Capability Green, Luton, Bedfordshire, LU1 3BA. Company No. 00641659</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "0e48960c-de64-4cad-81c0-759c1d4927ba",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3dc73949-ec33-4167-97bc-3196aebd831d",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Contact Support"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "7900ba90-45ce-4127-87c5-6659f9c392df",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "72aab4a0-ca41-4eac-931f-13ec51a1074f",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "BaeIvxdmVNAi846Z78i1VuYgMbv85a",
+  "type" : "view",
+  "viewType" : "custom-contact-support"
+}

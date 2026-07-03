@@ -1,0 +1,80 @@
+{
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "62a8d5ce-40a3-4062-9d81-711001f5d084",
+  "label" : "Create New Booking",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "69af51c8-351a-4069-886b-145fb083169e",
+          "columns" : [ {
+            "UUID" : "b678e22e-0210-4429-8643-67ca825bc8fb",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "69af51c8-351a-4069-886b-145fb083169e",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "currentPage" : "Create New Booking"
+          },
+          "componentName" : "c:ClientComunityBreadcrumb",
+          "id" : "6e88f6e4-e6c0-4dde-9d93-1d3f90cf7360",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : {
+            "flowArguments" : "[]",
+            "flowName" : "Screen_Flow_Job_Order_Applications"
+          },
+          "componentName" : "forceCommunity:flowCommunity",
+          "id" : "1746c032-5c76-4988-8116-4f02c601d52b",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "b678e22e-0210-4429-8643-67ca825bc8fb",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ce16ff93-4bc5-4a53-8f2b-5ef012f7a2a7",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Create New Booking"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "7afb5f35-19f9-4dfa-a635-f8149f4f065d",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2189f9ea-9127-4a52-af43-475bbc1be4f3",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-create-new-booking"
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_of_candidates_for_Scotrail</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>Person_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>notContain</operation>
+        <value>DNU,DO NOT CONTACT,DO NOT USE</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_CITY</field>
+        <operation>equals</operation>
+        <value>Edinburgh</value>
+    </filters>
+    <filters>
+        <field>CONTACT.TITLE</field>
+        <operation>notContain</operation>
+        <value>chef</value>
+    </filters>
+    <filters>
+        <field>CONTACT.TITLE</field>
+        <operation>notContain</operation>
+        <value>warehouse</value>
+    </filters>
+    <filters>
+        <field>CONTACT.TITLE</field>
+        <operation>notContain</operation>
+        <value>Engineer</value>
+    </filters>
+    <filters>
+        <field>CONTACT.TITLE</field>
+        <operation>notContain</operation>
+        <value>HGV</value>
+    </filters>
+    <filters>
+        <field>sirenum__Last_Timesheet__c</field>
+        <operation>lessThan</operation>
+        <value>3/16/2023</value>
+    </filters>
+    <filters>
+        <field>CONTACT.TITLE</field>
+        <operation>contains</operation>
+        <value>customer,service</value>
+    </filters>
+    <label>Copy of candidates for Scotrail</label>
+</ListView>

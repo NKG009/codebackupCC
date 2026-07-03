@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hovis_Location_New__c</fullName>
+    <label>Hovis Location (New)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Hovis Avonmouth, Avonmouth Way, Avonmouth, Bristol, BS11 8DQ</fullName>
+                <default>false</default>
+                <label>Hovis Avonmouth, Avonmouth Way, Avonmouth, Bristol, BS11 8DQ</label>
+            </value>
+            <value>
+                <fullName>Hovis Belfast, Apollo Road, Belfast, BT12 6LP</fullName>
+                <default>false</default>
+                <label>Hovis Belfast, Apollo Road, Belfast, BT12 6LP</label>
+            </value>
+            <value>
+                <fullName>Hovis Forest Gate, Chaucer Road, London, E7 8NA</fullName>
+                <default>false</default>
+                <label>Hovis Forest Gate, Chaucer Road, London, E7 8NA</label>
+            </value>
+            <value>
+                <fullName>Hovis Nottingham, Main Road, Watnall, Nottingham, NG16 1HB</fullName>
+                <default>false</default>
+                <label>Hovis Nottingham, Main Road, Watnall, Nottingham, NG16 1HB</label>
+            </value>
+            <value>
+                <fullName>Hovis Bradford, Gain Lane, Thornbury, Bradford, BD3 7DX</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Hovis Bradford, Gain Lane, Thornbury, Bradford, BD3 7DX</label>
+            </value>
+            <value>
+                <fullName>Hovis Erith, Belmont Road, Erith, Kent, DA8 1JZ</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Hovis Erith, Belmont Road, Erith, Kent, DA8 1JZ</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

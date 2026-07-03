@@ -1,0 +1,28 @@
+<apex:page standardController="Account" lightningStylesheets="true">
+    <apex:pagemessages />
+    <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+        <apex:slds />
+    </apex:outputPanel>
+    <apex:form >
+        <apex:sectionHeader title="Account" subtitle="{!Account.Name}"/>
+        <apex:pageBlock title="Account Address" mode="edit">
+            <apex:pageblockButtons location="top">
+                <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+                    <apex:commandButton styleClass="slds-vf-button_neutral" style="visibility: hidden;" value="HideThis Command Button"/>
+                </apex:outputPanel>
+                <apex:commandButton value="Save" action="{!Save}" styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageblockButtons>
+            <apex:pageBlockSection title="Address Finder">
+                <pca:AddressFinder label="Billing" record="{!Account}" address="AccountBilling" />  
+                <pca:AddressFinder label="Shipping" record="{!Account}" address="AccountShipping" />                          
+            </apex:pageBlockSection>
+            <apex:pageblockButtons location="bottom">
+                <apex:commandButton value="Save" action="{!Save}" styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageblockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

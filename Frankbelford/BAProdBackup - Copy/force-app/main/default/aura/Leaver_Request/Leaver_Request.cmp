@@ -1,0 +1,83 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader"  access="global" 
+                controller="LeaverRequestControllerLightning">
+	
+    <!-- handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- atrributes -->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="Contact" type="Contact" />
+    <aura:attribute name="singleRec" type="sobject"/>
+    <aura:attribute name="selectedContactId" type="String" access="global"/>
+    <aura:attribute name="candidateSuppressed" type="Boolean"/>
+    <aura:attribute name="payProfileNotActive" type="Boolean"/>
+    <aura:attribute name="timesheetLinesList" type="List"/> 
+    <aura:attribute name="shiftsList" type="List"/>
+    <aura:attribute name="pendingPayroll" type="Boolean"/>
+	<aura:attribute name="pendingPayrollTimesheet" type="Boolean"/>
+	<aura:attribute name="activeShift" type="Boolean"/>
+    <aura:attribute name="timeresults" type="String[]" default="['']"/>
+    <aura:attribute name="shiftnames" type="String[]" default="['']" access="global"/>    
+    <aura:attribute name="openCaptureReasonforLeaving" type="Boolean"/> 
+	<aura:attribute name="openCandidateP45Action" type="Boolean"/>
+    
+    <aura:if isTrue="{!v.openCaptureReasonforLeaving}">
+        <c:CaptureReasonforLeaving  selectedContact="{!v.selectedContactId}"/>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.openCandidateP45Action}">
+        <c:CandidateP45Action  selectedContact="{!v.selectedContactId}"/>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.candidateSuppressed}">
+        <br/><br/><br/><br/>
+        <p style="font-size:15px;color:#1B5297;"><center>Candidate has been P45 suppressed. Please remove the Suppression Reason before making the leaver request.</center></p>
+        <br/><br/>
+    </aura:if>
+    
+     <aura:if isTrue="{!v.payProfileNotActive}">
+        <br/><br/><br/><br/>
+        <p style="font-size:15px;color:#1B5297;">
+            <center>Only candidates with active pay profile(s) are qualified for Leaver Request.</center>
+        </p>
+        <br/><br/>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.pendingPayroll}">
+        <br/><br/><br/><br/>
+        <p style="font-size:15px;color:#1B5297;">
+            <center>Candidate has the following timesheet(s) pending payroll. Please wait until the next payroll process has completed. <br/>Timesheet ID: 
+                <aura:iteration items="{!v.timeresults}" var="s">
+                        {!s}
+                 </aura:iteration><br/><br/>
+                Candidate has the following active shift(s). Please cancel or reassign shifts before making Leaver Request. <br/> 
+                <aura:iteration items="{!v.shiftnames}" var="s">
+                        {!s}
+                 </aura:iteration></center>
+        </p>
+        <br/><br/>
+    </aura:if>
+	
+	<aura:if isTrue="{!v.pendingPayrollTimesheet}">
+        <br/><br/><br/><br/>
+        <p style="font-size:15px;color:#1B5297;">
+            <center>Candidate has the following timesheet(s) pending payroll. Please wait until the next payroll process has completed.<br/>Timesheet ID: 
+                <aura:iteration items="{!v.timeresults}" var="s">
+                        {!s}
+                 </aura:iteration></center>
+        </p>
+        <br/><br/>
+    </aura:if>
+	
+	<aura:if isTrue="{!v.activeShift}">
+        <br/><br/>
+        <p style="font-size:15px;color:#1B5297;">
+            <center>Candidate has the following active shift(s). Please cancel or reassign shifts before making Leaver Request. 
+                <br/> <aura:iteration items="{!v.shiftnames}" var="s">
+                        {!s}
+                    </aura:iteration></center>
+        </p>
+        <br/><br/>
+    </aura:if>
+	
+</aura:component>

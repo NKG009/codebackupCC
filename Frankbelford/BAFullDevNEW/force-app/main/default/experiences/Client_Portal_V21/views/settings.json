@@ -1,0 +1,73 @@
+{
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "0c4bcd12-4b4e-4311-a5d7-c0f61ade6386",
+  "label" : "Settings",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div class=\"slds-var-p-top_x-large\"><h1 style=\"font-size: 2vw;\">Settings</h1></div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "a96df4cb-f858-49e6-b18f-0249523a1ee2",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "abb0789b-7d84-4c28-b4e8-4a30417dde40",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2SiteAssignment",
+      "id" : "50fcaa73-a7cd-44f0-95ee-dee8d828c78c",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1db246e8-56fe-4a14-ba8a-b0d78451de41",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2Settings",
+      "id" : "0bb37eca-4903-4312-8e03-7ab6563a95a6",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"display: flex; flex-direction: row; justify-content: space-between;\">\n    <p>© Blue Arrow, All rights reserved 2022.</p>\n    <p>Registered Address: 33 Soho Square, London, England, W1D 3QU. Company No: 641659</p>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "14130068-88f0-4197-8934-dd706fb783f5",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b05bf0b0-8003-496f-b580-32b27c127a16",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Settings"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "96c54344-5277-48dd-9a8c-198d515d84dd",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "954c4783-51ed-4190-92e4-37b50d66b830",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-settings"
+}

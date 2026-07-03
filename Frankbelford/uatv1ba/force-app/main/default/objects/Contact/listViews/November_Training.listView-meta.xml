@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>November_Training</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND (5 OR 6) AND 7 AND 8</booleanFilter>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>Last_Shift__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>includes</operation>
+        <value>Catering</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>AB,BT</value>
+    </filters>
+    <filters>
+        <field>CONTACT.TITLE</field>
+        <operation>contains</operation>
+        <value>chef</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>chef</value>
+    </filters>
+    <filters>
+        <field>sirenum__Last_Timesheet__c</field>
+        <operation>lessOrEqual</operation>
+        <value>11/1/2023</value>
+    </filters>
+    <filters>
+        <field>Last_Shift__c</field>
+        <operation>lessThan</operation>
+        <value>TODAY</value>
+    </filters>
+    <label>November Training</label>
+</ListView>

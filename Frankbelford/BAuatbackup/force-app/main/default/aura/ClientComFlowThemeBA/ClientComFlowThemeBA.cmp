@@ -1,0 +1,107 @@
+<!--
+ - Created by mrahman on 2020-08-21.
+ - extends="c:BlueBarComp"
+ -->
+
+<aura:component controller="SiteManagementComponentController"
+                implements="forceCommunity:themeLayout,lightning:isUrlAddressable"
+                access="global" description="ClientComFlowThemeBA">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=11" />-->
+    <ltng:require styles="{!join(',',
+
+                              $Resource.webUI+'/assets/css/all.css',
+                              $Resource.Tjcss2+'/assets/css/main.css',
+                              $Resource.Tjcss2+'/assets/css/custom.css',
+                              $Resource.export,
+                              $Resource.webUI+'/assets/css/fontawesome.css',
+                              $Resource.webUI+'/assets/css/fontawesome.min.css',
+                              $Resource.DataTables + '/DataTables/media/css/jquery.dataTables.min.css'
+                              )}"
+                  scripts="{!join(',',
+                               $Resource.Tjcss2+'/assets/js/main.min.js',
+                               $Resource.Tjcss2+'/assets/js/zoom.js',
+                               $Resource.webUI+'/assets/js/custom.js',
+                               $Resource.amchart+'/amcharts/amcharts.js',
+                               $Resource.amchart+'/amcharts/gauge.js',
+                               $Resource.amchart+'/amcharts/export.min.js',
+                               $Resource.amchart+'/amcharts/none.js',
+                               $Resource.amchart+'/amcharts/mdb.min.js',
+                               $Resource.amchart+'/amcharts/canvasjs.min.js',
+                               $Resource.jquery224,
+                               $Resource.DataTables + '/DataTables/media/js/jquery.dataTables.min.js'
+                               )}"
+                  afterScriptsLoaded="{!c.scriptsLoaded}"
+    />
+
+    <!-- attributes -->
+    <aura:attribute name="body" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="footer" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="breadcrumb" type="String" required="false"/>
+    <aura:attribute name="currentPage" type="String" required="false"/>
+
+    <aura:attribute name="userInfo" type="User" access="global"/>
+    <aura:attribute name="SiteInfo" type="sirenum__Site__c" access="global"/>
+    <aura:attribute name="siteList" type="List" access="global"/>
+    <aura:attribute name="site" type="String" />
+    <aura:attribute name="baseURL" type="String" />
+
+    <aura:registerEvent name="themeEvent" type="c:ClientCommunityThemeEvent"/>
+    <!-- handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+
+    <div class="container-fluid">
+        <!--    HEADER COMPONENT    -->
+        <nav class="headeNav">
+            <div class="visible-xs mobile-nav">
+                <img src="{!$Resource.Tjcss + '/assets/img/mobile-nav.png'}" alt="Mobile Icon" title="Click to slide"/>
+            </div>
+            <a href="" class="logo" title="BlueArrow">
+                <img src="{!$Resource.Tjcss + '/assets/img/impellam-logo-blue.png'}" alt="Impellam Logo" Title="Impellam"/>
+            </a>
+
+            <ul class="headeNav__right">
+                <li>
+                    <a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="hidden-xs hidden-sm">{!v.userInfo.Name}</span>
+                        <aura:if isTrue="{!v.userInfo.User_Image__c != null}">
+                            <img src="{!v.userInfo.User_Image__c}" alt=""/>
+                            <aura:set attribute="else">
+                                <img src="" class="imag" alt=""/>
+                            </aura:set>
+                        </aura:if>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="" onclick="{!c.myProfileNavigate}" title="My Profile">My Profile</a></li>
+                        <li><a href="" onclick="{!c.siteManagementNavigate}" title="Setting">Site Management</a></li>
+                        <li><a href="" onclick="{!c.logout}" title="Logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="col-sm-4 col-md-3 headeNav__selectpicker">
+                <ui:inputSelect aura:id="siteId" class="slselect" label="Site Name" change="{! c.publishSiteChanged }">
+                    <aura:iteration items="{!v.siteList}" var="item" >
+                        <option text="{!item.label}" value="{!item.value}" selected="{!item.selected}"/>
+                    </aura:iteration>
+                </ui:inputSelect>
+
+            </div>
+        </nav>
+        <!--    END OF HEADER COMPONENT    -->
+
+        <div class="dashboard-section container-fluid">
+            <c:BlueBarComp site="{!v.site}" />
+            <div class="dashboard-section__right-part row">
+                <div class="col-sm-12 col-xs-12">
+                    {!v.breadcrumb}
+                </div>
+                <div class="w-100">
+                    {!v.body}
+                </div>
+                <div class="col-sm-12 col-xs-12 col-md-12">
+                    <c:HomeLayoutFooter brand="Blue Arrow"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

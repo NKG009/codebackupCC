@@ -1,0 +1,79 @@
+<apex:component access="global" controller="DynamicUrl">
+<apex:attribute type="Boolean" name="eoql" description="test1"/>
+<apex:attribute type="Boolean" name="perm" description="test2"/>
+<apex:attribute type="Boolean" name="dec" description="test3"/>
+<apex:attribute type="Boolean" name="portw" description="test4"/>
+<apex:attribute type="String" name="concerts" description="test5" assignTo="{!record_Id}"/>
+<apex:attribute type="String" name="conname" description="test6"/>
+<style>
+.linkunderline{
+    text-decoration: none;
+    color: blue;
+}
+
+</style>
+ <html>
+<table BORDER="0" CELLSPACING="0" style="width:640px;height:730px;background-image:url('{!URLFOR($Resource.TemplatePics,'picsfolder/xlargebackground.jpg')}');">
+<tr >
+    <td style="vertical-align:top;text-align:right;height:140px;width:190px;">
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR4-1/c.aspx" id="theLink1"><apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic1.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR5-1/c.aspx" id="theLink2"><apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic2.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR6-1/c.aspx" id="theLink3"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic3.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR7-1/c.aspx" id="theLink4"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic4.jpg')}" /></apex:outputLink>
+   
+    </td>
+      <td style="text-align:right;vertical-align:middle;height:140px;width:460px;">
+     <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR8-1/c.aspx" id="theLink5"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/logo.png')}" /> </apex:outputLink>
+    </td>
+</tr>
+<tr style="width:650px;">
+<td colspan="2" style="vertical-align:top;">
+<table style="width:630px;">
+<tr style="height:45px;text-align:center;"><td style="text-align:center;">
+<font size="2" face="Arial" color="black"><b>Welcome to Blue Arrow...</b></font>
+</td>
+</tr>
+<tr style="height:200px;text-align:center;"><td style="text-align:left;vertical-align:top;">
+<div style="margin-left:30px;margin-right:10px;margin-top:-10px;">
+<font size="2" face="Arial" color="black">
+Hi {!conname},<br></br><br></br>
+Thank you for taking interest in one of our permanent roles that we are currently recruiting for. We are excited to be given the opportunity in finding you your next role.
+<br></br><br></br>
+In order for us to take the next steps in your application, please complete the links below to complete your registration:  
+<br></br><br></br>
+<div style="font-size:13px;">
+<apex:outputLink styleClass="linkunderline" rendered="{!perm = false}" value="{!ConsentFormURL}" 
+id="theLink01">• &nbsp;  Consent Form <br></br></apex:outputLink>
+<apex:outputLink styleClass="linkunderline" rendered="{!eoql = false}" value="{!EOQ}" 
+id="theLink02">• &nbsp;  Equal Opportunities Questionnaire <br></br></apex:outputLink>
+<apex:outputLink styleClass="linkunderline" rendered="{!portw = false}" value="{!RightToWork}" 
+id="theLink03">• &nbsp;  Proof of Right to Work<br></br></apex:outputLink>
+<apex:outputLink styleClass="linkunderline" value="{!DataConsent}" 
+id="theLink04">• &nbsp;  General Data Protection Regulation Consent<br></br></apex:outputLink>
+</div>
+<br></br> 
+
+We look forward to supporting you with your job search. 
+<br></br> <br></br> 
+
+Kind Regards<br></br>
+{!$User.FirstName}&nbsp;{!$User.LastName}
+</font>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<br></br>
+<br></br>
+<tr style="height:130px;">
+<td colspan="2" >
+<apex:image height="80px" width="250px" url="{!URLFOR($Resource.TemplatePics,'picsfolder/IIP_PLAT_19.jpg')}" />
+
+</td>
+
+</tr>
+</table>
+</html>
+</apex:component>

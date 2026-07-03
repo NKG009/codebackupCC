@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "913f1326-6b8c-46e0-878a-13c7bff266fd",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "My_Bank_Details_Connect__c",
+  "id" : "3c9ec36d-13e4-40ed-9799-9299ef3eb94b",
+  "label" : "My Bank Details Connect",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-my-bank-details-connect",
+  "type" : "route",
+  "urlPrefix" : "my-bank-details-connect"
+}

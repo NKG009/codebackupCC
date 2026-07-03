@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_GDPRContactedCandidate__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>System field that identifies if a candidate has been contacted under the definition of GDPR.</description>
+    <label>GDPR Contacted Candidate</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

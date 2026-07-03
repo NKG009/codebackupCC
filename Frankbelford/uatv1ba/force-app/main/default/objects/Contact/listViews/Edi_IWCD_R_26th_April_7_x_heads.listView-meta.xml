@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edi_IWCD_R_26th_April_7_x_heads</fullName>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>IP_PayrollStatus__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>notContain</operation>
+        <value>Availability</value>
+    </filters>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>equals</operation>
+        <value>1361</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>R 26th April</value>
+    </filters>
+    <label>18995-1 Edi IWCD R 26th April 7 x heads</label>
+</ListView>

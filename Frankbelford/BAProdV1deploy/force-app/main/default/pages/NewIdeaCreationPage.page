@@ -1,0 +1,28 @@
+<apex:page lightningStylesheets="true" Controller="NewIdeaCreationController">
+    <apex:form id="form">
+        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+            <apex:slds />
+        </apex:outputPanel>
+        <apex:pageBlock >           
+            <apex:pageBlockSection columns="1" title="Post an Idea">
+                <apex:inputField value="{!idea.IP_Headline__c}" required="true"/>
+                <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+                    <apex:inputtext style="width:750px;margin-left: 174px;" disabled="true" html-placeholder="Use the prompts below to share your amazing idea! Once submitted, remember to share on Viva Engage and get those votes in!"/>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+                    <center><apex:inputtext style="width:790px;margin-left: 430px;" disabled="true" html-placeholder="Use the prompts below to share your amazing idea! Once submitted, remember to share on Viva Engage and get those votes in!"/></center>
+                </apex:outputPanel>
+                <!--<apex:inputtext style="width:750px;margin-left: 174px;" disabled="true" html-placeholder="Use the prompts below to share your amazing idea! Once submitted, remember to share on Viva Engage and get those votes in!"/>-->
+                <apex:inputField id="description" value="{!idea.IP_Description__c}" required="true"/>
+                <!--<apex:inputField value="{!idea.IP_Category__c}" required="true"/>
+                <apex:inputField value="{!idea.Status__c}" required="true"/>-->                 
+            </apex:pageBlockSection>
+            <apex:pageblockButtons location="Bottom" >
+                <apex:commandButton action="{!Save}" value="Save Idea" styleClass="slds-vf-button_brand"/>
+                <apex:commandButton action="{!CancelIdea}" value="Cancel" immediate="true" />
+            </apex:pageblockButtons> 
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

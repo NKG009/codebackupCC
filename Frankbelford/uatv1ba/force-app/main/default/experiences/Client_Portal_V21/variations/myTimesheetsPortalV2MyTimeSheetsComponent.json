@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "fd2aa299-1272-40c5-ad20-f92cc49c5b26",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "7e717ced-c123-4b80-afd6-a9d3481bccbd",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "My_Timesheets_Portal_V2_My_TimeSheets_Component",
+  "id" : "2488279f-989e-4a5c-895a-ef493dae6902",
+  "type" : "experienceVariation"
+}

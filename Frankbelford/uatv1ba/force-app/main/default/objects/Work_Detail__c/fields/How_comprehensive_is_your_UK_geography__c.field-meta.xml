@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>How_comprehensive_is_your_UK_geography__c</fullName>
+    <label>Road Knowledge</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>National</fullName>
+                <default>false</default>
+                <label>National</label>
+            </value>
+            <value>
+                <fullName>County Specific</fullName>
+                <default>false</default>
+                <label>County Specific</label>
+            </value>
+            <value>
+                <fullName>Local</fullName>
+                <default>false</default>
+                <label>City Specific</label>
+            </value>
+            <value>
+                <fullName>SatNav Dependent</fullName>
+                <default>false</default>
+                <label>SatNav Dependent</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

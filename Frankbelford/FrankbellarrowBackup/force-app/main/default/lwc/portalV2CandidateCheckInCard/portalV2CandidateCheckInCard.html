@@ -1,0 +1,111 @@
+<template lwc:render-mode="light">
+  <div class="card-small colour-white">
+    <div class="grid-container">
+      <div class="confirmed-container grid-item">
+        <p>Confirmed:</p>
+        <div class="confirmed-check">
+          <template lwc:if={candidateConfirmedAttendance}>
+            <lightning-icon
+              icon-name="utility:check"
+              alternative-text="Confirmed"
+              title="Confirmed"
+              size="small"
+            ></lightning-icon>
+          </template>
+        </div>
+      </div>
+      <div class="candidate-name grid-item">
+        <h2 class={nameTextSize}>{candidateName}</h2>
+      </div>
+      <div class="started-text grid-item">
+        <p class="subtitle-text started-finished-text">Started</p>
+      </div>
+      <div class="finished-text grid-item">
+        <p class="subtitle-text started-finished-text">Finished</p>
+      </div>
+      <div class="started-icon grid-item">
+        <lightning-icon
+          icon-name={shiftStartedIcon}
+          alternative-text="Started"
+          title="Started"
+          class={shiftStartedIconClassList}
+          onclick={handleStartShiftClicked}
+          size={iconSize}
+        ></lightning-icon>
+        <template lwc:if={startModalOpen}>
+          <div class="finish-shift-modal-container">
+            <div class="modal-body-container triangle">
+              <h2 class={nameTextSize}>When did this person start?</h2>
+              <lightning-input
+                type="time"
+                name="input2"
+                variant="label-hidden"
+                value={startModalTimePrepopulatedValue}
+                onchange={handleStartTimeChange}
+                class="time-input"
+                timezone="Europe/London"
+              ></lightning-input>
+              <lightning-button
+                variant="brand"
+                label="Submit"
+                onclick={submitShiftChange}
+                class="submit-button"
+              ></lightning-button>
+            </div>
+          </div>
+        </template>
+      </div>
+      <div class="finished-icon grid-item">
+        <lightning-icon
+          icon-name={shiftFinishedIcon}
+          alternative-text="Finished"
+          title="Finished"
+          class={shiftFinishedIconClassList}
+          size={iconSize}
+          onclick={handleFinishShiftClicked}
+        ></lightning-icon>
+        <template lwc:if={endModalOpen}>
+          <div class="finish-shift-modal-container">
+            <div class="modal-body-container triangle">
+              <h2 class={nameTextSize}>When did this person finish?</h2>
+              <lightning-input
+                type="time"
+                name="input2"
+                variant="label-hidden"
+                value={finishModalTimePrepopulatedValue}
+                onchange={handleEndTimeChange}
+                class="time-input"
+              ></lightning-input>
+              <lightning-button
+                variant="brand"
+                label="Submit"
+                onclick={submitShiftChange}
+                class="submit-button"
+              ></lightning-button>
+            </div>
+          </div>
+        </template>
+      </div>
+      <div class="started-time grid-item">
+        <p class="time-display-text">
+          <lightning-formatted-date-time
+            value={timeShiftStarted}
+            hour="2-digit"
+            minute="2-digit"
+            time-zone="Europe/London"
+          ></lightning-formatted-date-time>
+        </p>
+      </div>
+      <div class="finished-time grid-item">
+        <p class="time-display-text">
+          <lightning-formatted-date-time
+            value={timeShiftFinished}
+            hour="2-digit"
+            minute="2-digit"
+            time-zone="Europe/London"
+          ></lightning-formatted-date-time>
+        </p>
+      </div>
+    </div>
+  </div>
+</template>

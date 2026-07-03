@@ -1,0 +1,49 @@
+{
+  "appPageId" : "b2fa95b0-e567-41d6-a9bd-0d8201b2a4b0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "b58c54ea-bf52-4d90-91f4-90b8873eb82e",
+  "label" : "My Bank Details",
+  "regions" : [ {
+    "id" : "0f63d006-fb07-4669-8f17-e666886f46c8",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[]",
+        "flowName" : "Candidate_Portal_Bank_Details"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "0922bd21-1c78-4bb6-a012-d220b17413cf",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4e62ba39-68ea-4d6b-9266-09631da435d5",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "63c0d306-6583-4558-b93f-d0f0edbd8c86",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My Bank Details"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "8606e2f2-2766-48b0-9b53-9dd233175a39",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9452affd-ec7a-4046-9716-7715eaaef424",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-my-bank-details"
+}

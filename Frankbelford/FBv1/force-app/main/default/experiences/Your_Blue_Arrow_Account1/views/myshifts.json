@@ -1,0 +1,46 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "69384224-1d1e-4568-8cea-ced870392e49",
+  "label" : "Myshifts",
+  "regions" : [ {
+    "id" : "cac29a27-02a6-4468-bee9-f006370612c1",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:MyShifts",
+      "id" : "8b0e8fc4-ea91-42e3-bf06-fbe09a7efd4a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0b7fb684-3744-4ab7-bd20-e0bf7d0ad95b",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "87d28bc3-de5d-486b-8ad8-8f8a65c4fea2",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Myshifts"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "00bb3c65-4b29-4a9f-be7b-0c64059f36cd",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a4d0560b-d259-4aa2-adc8-11d18fdef83f",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-myshifts"
+}

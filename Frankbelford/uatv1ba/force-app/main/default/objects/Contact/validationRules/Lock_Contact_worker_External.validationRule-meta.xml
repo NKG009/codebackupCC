@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lock_Contact_worker_External</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( NOT(ISBLANK( IP_LastPassedToTempest2ndTier__c )) &amp;&amp; 
+(
+
+ISCHANGED( IP_CandidateIDlegacy__c ) ||
+ISCHANGED( IP_WorkerStartDate__c ) ||
+ISCHANGED( IP_WorkerLeavingDate__c) 
+)
+,True,False)</errorConditionFormula>
+    <errorMessage>These fields can not be changed once the record has been passed to the back office :-
+Date of Birth
+Candidate ID
+Worker start date
+Consultant ID
+Worker Leaving date</errorMessage>
+</ValidationRule>

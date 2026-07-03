@@ -1,0 +1,98 @@
+<apex:page lightningStylesheets="true" controller="IdeaViewController" id="page">
+    <!--<apex:includeScript value="{!URLFOR($Resource.jquery, '/js/jquery.js')}"/>-->
+    <c:customrtf targetclass="mytextarea" rendered="true" toolbar="Visualforce"/>
+    <apex:form id="form">
+        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+            <apex:slds />
+        </apex:outputPanel>
+    <apex:actionfunction name="updateRecord" action="{!updateIdeaRecord}" rerender="rerenderVoteSection">
+        <apex:param value="ideadId" name="ideadId" assignTo="{!ideadIdValue}" id="idea"/>
+        <apex:param value="upvotedownvote" name="upvotedownvote" assignTo="{!upvotedownvote}" id="like"/>
+    </apex:actionfunction>
+    
+    <apex:pageMessages id="pbm"></apex:pageMessages>
+    <apex:outputPanel id="rerenderVoteSection">
+            <apex:repeat value="{!mapIdeaIdIdeaVotedRecords}" var="upVoteDownVote" >
+                <apex:pageBlock >
+                    <apex:pageBlockSection columns="5">
+                        <apex:outputPanel rendered="{!mapIdeaIdIdeaVotedRecords[upVoteDownVote].Idea_Comments__r.size = 0}">
+                            <apex:commandButton value="Upvote" onclick="ideaPointsAddedSubtracted('{!mapIdeaIdIdeaVotedRecords[upVoteDownVote].Id}','Upvote')" reRender="rerenderVoteSection,rerenderpointsection" styleClass="slds-vf-button_brand"/>
+                            <apex:commandButton value="Downvote" onclick="ideaPointsAddedSubtracted('{!mapIdeaIdIdeaVotedRecords[upVoteDownVote].Id}','Downvote')"  reRender="rerenderVoteSection,rerenderpointsection" styleClass="slds-vf-button_brand"/>
+                        </apex:outputPanel>
+                        
+                        <apex:outputPanel rendered="{!mapIdeaIdIdeaVotedRecords[upVoteDownVote].Idea_Comments__r.size > 0}">
+                            <apex:repeat value="{!mapIdeaIdIdeaVotedRecords[upVoteDownVote].Idea_Comments__r}" var="mapIdeaCommentRecord" >
+                                <apex:outputPanel rendered="{!IF(mapIdeaCommentRecord.Status__c=='Upvoted',true,false)}">
+                                    <apex:commandButton value="Upvoted" disabled="true"/>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!IF(mapIdeaCommentRecord.Status__c=='Downvoted',true,false)}">
+                                    <apex:commandButton value="Downvoted" disabled="true"/>
+                                </apex:outputPanel>
+                            </apex:repeat>                            
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!IF(mapIdeaTotalIdeaVotedRecords[upVoteDownVote] = 0 || mapIdeaTotalIdeaVotedRecords[upVoteDownVote] = 1,true,false)}">
+                            {!mapIdeaTotalIdeaVotedRecords[upVoteDownVote]} Vote
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!mapIdeaTotalIdeaVotedRecords[upVoteDownVote] > 1}">
+                            {!mapIdeaTotalIdeaVotedRecords[upVoteDownVote]} Votes
+                        </apex:outputPanel>
+                        
+                        <apex:outputText value="{!mapIdeaIdIdeaVotedRecords[upVoteDownVote].IP_Points__c} Points" />
+                        <apex:outputText value="{!mapIdeaIdIdeaVotedRecords[upVoteDownVote].Status__c}"/>
+                        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+                            <apex:commandButton value="Cancel" reRender="" action="{!CancelPage}" styleClass=""/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSection>                    
+                 </apex:pageBlock>
+            </apex:repeat>
+        </apex:outputPanel>
+        <apex:outputPanel id="rerenderIdeaSection">
+            <apex:repeat value="{!mapIdeaIdIdeaCommentRecords}" var="comment" >
+                <apex:pageBlock >
+                    <apex:pageBlockSection columns="1">                   
+                        <apex:outputText value="{!mapIdeaIdIdeaCommentRecords[comment].IP_Headline__c}" />
+                        <apex:outputText value="{!mapIdeaIdIdeaCommentRecords[comment].IP_Category__c}" />
+                        <apex:outputText value="{!mapIdeaIdIdeaCommentRecords[comment].IP_Description__c}" escape="false"/>
+                        <apex:pageBlockSectionItem >
+                            Great idea? Share a link to this page on Viva Engage for colleagues to vote   <apex:outputlink value="https://engage.cloud.microsoft/main/org/rssglobal.onmicrosoft.com/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiI0MjA4MjcyMTc5MyJ9/all">
+                            <!-- "/{!mapIdeaIdIdeaCommentRecords[comment].Id}"-->
+                      <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">Click here to visit Viva Engage <!--{!$Label.Salesforce_URL}-->
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }"> Click here to visit Viva Engage <!--{!$Label.LightningSalesforceURL}-->
+                            </apex:outputPanel>
+                            <!--{!mapIdeaIdIdeaCommentRecords[comment].Id}-->
+                            </apex:outputlink>
+            
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:outputText value="{!mapIdeaIdIdeaCommentRecords[comment].CreatedBy.Name}"/>
+                        <h2>Add Your Comment</h2>
+                        <apex:inputTextarea styleClass="mytextarea" richText="false" value="{!body}"  html-maxlength="10" />
+                        <!--<apex:inputtextarea richtext="false" value="{!body}" styleClass="ckeditor" id="Body"/>-->
+                        <apex:commandButton value="Comment" reRender="pbm" action="{!inserIdeaComment}" styleClass="slds-vf-button_brand"/>
+                        <apex:selectList value="{!selectedSorting}" multiselect="false" size="1" label="Sort By">
+                             <apex:actionSupport event="onchange" action="{!displayComments}" reRender="commentSection"/>
+                            <apex:selectOptions value="{!sortingOptions}"/>
+                        </apex:selectList>
+                        <h2>Comments ({!mapIdeaIdIdeaCommentRecords[comment].Idea_Comments__r.size})</h2>
+                        <apex:outputPanel rendered="{!mapIdeaIdIdeaCommentRecords[comment].Idea_Comments__r.size > 0}" id="commentSection">
+                            <table cellspacing="0" cellpadding="0">
+                                <apex:repeat value="{!mapIdeaIdIdeaCommentRecords[comment].Idea_Comments__r}" var="mapIdeaCommentRecord" >
+                                    <b><apex:outputText value="{!mapIdeaCommentRecord.User__r.Name} - " escape="false"/></b>
+                                    <apex:outputText value="{!mapIdeaCommentRecord.Comment__c}" escape="false"/><br/><br/>
+                                </apex:repeat>
+                            </table>
+                        </apex:outputPanel>                     
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+            </apex:repeat>
+        </apex:outputPanel>
+    </apex:form>
+    <script type="text/javascript">
+        function ideaPointsAddedSubtracted(ideadId,upvotedownvote){
+            updateRecord(ideadId,upvotedownvote);
+        }
+    </script>
+</apex:page>

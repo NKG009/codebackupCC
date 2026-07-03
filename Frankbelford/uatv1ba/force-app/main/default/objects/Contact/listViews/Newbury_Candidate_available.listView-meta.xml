@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Newbury_Candidate_available</fullName>
+    <columns>KID_Acknowledgement__c</columns>
+    <columns>KID_Document_Version__c</columns>
+    <columns>KID_Email_Date_Time__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Person_Status__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>Temp_Work__c</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Inactive,Pending</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>KID_Acknowledgement__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>FULL_NAME</field>
+        <operation>contains</operation>
+        <value>Paul John</value>
+    </filters>
+    <label>Newbury - Candidate available</label>
+    <sharedTo>
+        <role>Blue_Arrow_Newbury_Perm_hub</role>
+        <role>Blue_Arrow_Newbury_Temps</role>
+    </sharedTo>
+</ListView>

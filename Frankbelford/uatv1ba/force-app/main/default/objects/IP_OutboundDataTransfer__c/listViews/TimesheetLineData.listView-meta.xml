@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TimesheetLineData</fullName>
+    <columns>NAME</columns>
+    <columns>OBJECT_ID</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>IP_Passed__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>IP_TimesheetID__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IP_Passed__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>12/04/2024 06:00</value>
+    </filters>
+    <filters>
+        <field>IP_TransferType__c</field>
+        <operation>equals</operation>
+        <value>timesheet</value>
+    </filters>
+    <label>TimesheetLineData</label>
+</ListView>

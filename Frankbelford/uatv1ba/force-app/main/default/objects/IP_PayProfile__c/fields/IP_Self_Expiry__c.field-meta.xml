@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_Self_Expiry__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK(IP_Self_Bill_Expiry__c),&apos;&apos;,IF(CONTAINS(IP_Self_Bill_Expiry__c,&quot;00000000&quot;),IP_Self_Bill_Expiry__c,RIGHT(IP_Self_Bill_Expiry__c,2)+&apos;/&apos;+ MID(IP_Self_Bill_Expiry__c, 5, 2) +&apos;/&apos;+LEFT(IP_Self_Bill_Expiry__c,4)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Self Bill Expiry</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

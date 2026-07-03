@@ -1,0 +1,101 @@
+.THIS .dashboard-section__leftNav > li ul {
+  right: -23rem !important;
+}
+
+.THIS .background {
+  background-image: url(/resource/newimage) !important;
+  background-size: 32px;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+.THIS .dashboard-section__leftNav div:hover {
+  background-color: #fff;
+  color: #00aae3;
+  outline: 2px solid !important;
+}
+.THIS .dashboard-section__leftNav--timesheets li:hover {
+  background-color: #fff;
+  color: #00aae3;
+}
+.THIS .dashboard-section__leftNav--timesheets li:hover a {
+  color: #00aae3 !important;
+}
+.THIS .dashboard-section__leftNav--vacancies li:hover {
+  background-color: #fff;
+  color: #00aae3;
+}
+.THIS .dashboard-section__leftNav--vacancies li:hover a {
+  color: #00aae3;
+}
+.THIS .dashboard-section__leftNav--temp li:hover {
+  background-color: #fff;
+  color: #00aae3;
+}
+.THIS .dashboard-section__leftNav--temp li:hover a {
+  color: #00aae3;
+}
+
+.THIS .imag {
+  background-image: url("/profilephoto/005/T");
+  width: 48px;
+  height: 50px;
+}
+.THIS .toggle {
+  display: block !important;
+}
+
+.THIS .hide {
+  display: none !important;
+}
+
+.THIS .dashboard-section__leftNav > li:first-child a {
+  padding-top: 4rem !important;
+}
+.THIS .bgclrclas {
+  background-color: #6194d4 !important;
+}
+/*
+.THIS .dashboard-section__leftNav{
+    padding-top: 2.5rem !important;
+}*/
+
+.THIS .slds-form-element__label {
+  color: #000000;
+  font-weight: bold;
+  font-size: initial;
+  padding-bottom: 10px;
+  margin-top: -10px;
+}
+
+.THIS .slds-select_container {
+  height: 34px !important;
+  width: 102% !important;
+  font-size: 18px !important;
+  /*display: none;*/
+}
+
+.THIS .modify-block {
+  /*display: block !important;*/
+}
+
+.THIS .flex-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-evenly;
+}
+
+.THIS .banner {
+  max-width: 95%;
+  border-radius: 10px;
+  background-color: #00aae3;
+  margin-bottom: 2rem;
+  padding: 3rem;
+}
+
+.THIS .banner * .a:link,
+.THIS .banner * .a:hover,
+.THIS .banner * a:visited,
+.THIS .banner * a:active {
+  color: #e50b7e;
+}

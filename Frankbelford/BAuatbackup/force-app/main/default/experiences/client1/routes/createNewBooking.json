@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "7c70264e-5ea2-4cbf-8088-2b6ab5203c73",
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "configurationTags" : [ ],
+  "devName" : "Create_New_Booking__c",
+  "id" : "8c1064f8-db1e-4d16-9aad-d1afdeb1dc98",
+  "label" : "Create New Booking",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-create-new-booking",
+  "type" : "route",
+  "urlPrefix" : "create-new-booking"
+}

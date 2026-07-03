@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1350_Carly_s_Clients</fullName>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>FULL_NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>Skills__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>equals</operation>
+        <value>RG21 3DH,RG20 0PW,RG14 5EY,RG24 8WA,RG26 5SE,RG21 4DZ,RG19 6HN,RG21 4HG,RG22 4HS,RG26 3NA,RG14 1JL,RG14 2AD,RG20 5DX,RG25 3DU,RG22 5LQ,RG24 9NN,rg14 1dt,RG20 9XQ,RG20 9BD,RG23 8AF,RG27 9XA,RG20 6AD,RG20 9HP,RG20 6RD,RG27 9UF,GU31 4DR</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notContain</operation>
+        <value>Comouter salvage specialists,International taste solutions,groomers ltd,GB HYDRAULICS,EVCL,iterign,trustis,copart,kier,winkworth,lenovo,taylor wimpey,uninterruptable power supplies limited</value>
+    </filters>
+    <label>1350 Carly&apos;s Clients</label>
+    <sharedTo>
+        <roleAndSubordinates>Blue_Arrow_Newbury_Perm_hub</roleAndSubordinates>
+    </sharedTo>
+</ListView>

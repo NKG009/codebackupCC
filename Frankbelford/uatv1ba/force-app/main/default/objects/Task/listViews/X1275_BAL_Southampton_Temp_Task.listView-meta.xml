@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1275_BAL_Southampton_Temp_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>1275-BAL Southampton Temp</label>
+    <queue>X1275_BAL_Southampton_Temp</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

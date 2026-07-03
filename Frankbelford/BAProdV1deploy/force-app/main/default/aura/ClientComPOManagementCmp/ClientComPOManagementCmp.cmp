@@ -1,0 +1,185 @@
+<aura:component controller="PoManagementCntrl" implements="force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" description="ClientComPOManagementCmp">
+    <ltng:require styles="{!join(',',
+                          $Resource.DataTables + '/DataTables/media/css/jquery.dataTables.min.css',
+                          $Resource.assetsTest+'/assets/css/jquery-ui.css',
+                          $Resource.webUI+'/assets/css/all.css',
+                          $Resource.webUI+'/assets/css/fontawesome.css',
+                          $Resource.webUI+'/assets/css/fontawesome.min.css',
+                          $Resource.webUI+'/assets/css/dataTables.bootstrap.min.css',                          
+                          $Resource.webUI+'/assets/css/responsive.bootstrap.min.css',
+                          $Resource.Tjcss2+'/assets/css/main.css',
+                          $Resource.Tjcss2+'/assets/css/custom.css'
+                          )}"
+                  scripts="{!join(',',
+                           $Resource.Tjcss2+'/assets/js/main.min.js',
+                           $Resource.Tjcss2+'/assets/js/zoom.js',
+                           $Resource.webUI+'/assets/js/custom.js'
+                           )}" />
+
+    <aura:attribute type="boolean" name="checkparam" default="false" />
+    <aura:attribute type="String" name="TotalCost"  />
+    <aura:attribute name="SiteList" type="List"/>
+    <aura:attribute name="PlaceList" type="List"/>
+    <aura:attribute name="site" type="String" access="global" />
+    <aura:attribute name="Name" type="String"/>
+    <aura:attribute name="TimeSheets" type="List" access="global"/>
+    <aura:attribute name="vShifts" type="List" access="global"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="CandidateSelected" type="String" />
+    <aura:attribute name="Jobroleselected" type="String" />
+    <aura:attribute name="recordsNotFoundMsg" type="String" access="global"/>
+    <aura:attribute name="ContactList" type="List" access="global"/>
+    <aura:attribute name="selectedValue" type="String" />
+    <aura:attribute name="JobList" type="List" access="global"/>
+    <aura:attribute name="SiteContactMap" type="Object" access="global"/>
+    <aura:handler name="searchEvent" event="c:searchEvent" action="{!c.handleSearchEvent}"/>
+    <aura:attribute name="userInfo" type="User" access="global"/>
+    <aura:attribute name="isSelectAll" type="boolean" default="false"/>
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    <div class="timesheet-section__right-part">
+        <ol class="breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="javascript:void(0)" onclick="{!c.dashboardnavigate}" title="Dashboard">Dashboard</a></li>
+                <li>My Rates &amp; Costs</li>
+                <li class="active">PO Management</li>
+            </ol>
+        </ol>
+        <div class="search-section">
+            <form class="row">
+                <div class="col-sm-6 col-md-5 col-lg-4">
+                    <label class="global-label">Candidate Level</label>
+                    <lightning:select class="spicker" label=""  aura:id="site1" tabindex = "-98" onchange="{!c.onChangeCandidateVal}">
+                        <option value="">Select Temp Name</option>
+                        <aura:iteration items="{!v.ContactList}" var="item">
+                            <option class="spickeres" text="{!item.label}" value="{!item.value}"/>
+                        </aura:iteration>
+                    </lightning:select>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-5">
+                    <label class="global-label">Job Role</label>
+                    <lightning:select class="spicker" label=""  aura:id="site2" tabindex = "-98" onchange="{!c.onChangeRoleVal}">
+                        <option value="">Select Job Role</option>
+                        <aura:iteration items="{!v.JobList}" var="item">
+                            <option class="spickeres" text="{!item.label}" value="{!item.value}"/>
+                        </aura:iteration>
+                    </lightning:select>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="margin-top-1_5">
+                        <input type="button" class="search-btn" name="Search" value="Search" title="Search" onclick="{!c.searchShifts}" />
+                        <input type="button" class="clearAll-btn" name="Clear" value="Clear All" onclick="{!c.resetAllValues}"/>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3 col-lg-4">
+                    <table style="width: 400px; margin-top: 20px">
+                        <tr>
+                            <td>
+                                <label class="global-label">PO Number:</label>
+                                <input style="margin-top: 3px;"  class="global-input" type="text" id="PONumber" name="Timesheet" placeholder="Enter PO Number"/>
+                            </td>
+                            <td style="vertical-align: middle;">
+                                <lightning:button variant="brand" class="btnClass search-btn" label="Apply" title="Apply" onclick="{!c.BulkPOUpload}" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+        </div>
+        <br/>
+        <div>
+            <h3 style="color:black;">Please be aware that the estimated charge is based upon shifts that have currently been booked by your consultant. There maybe further shifts to be added, please click on the details tab for more information. </h3>
+        </div>
+
+        <aura:if isTrue="{!v.site}">
+            <div class="searchDetail-section">
+                <table id="tableId" class="searchDetail_table sorting" cellspacing="0" width="100%">
+                    <div id="overlay">
+                        <img src="{!$Resource.Loadingimage}"  width="120" height="100" alt=""/>
+                    </div>
+                    <thead>
+                    <tr>
+                        <th class="cth centeralign"> <ui:inputCheckbox value="{!v.isSelectAll}" class="uiheight" change="{!c.handleSelectAllTimesheet}" aura:id="selectAll"/></th>
+                        <th class="cth centeralign">Temp Name</th>
+                        <th class="cth centeralign">Job Role</th>
+                        <th class="cth centeralign">Payroll Week</th>
+                        <th class="cth centeralign">Estimated Cost £</th>
+                        <th class="cth centeralign">PO Number</th>
+                        <th class="cth centeralign">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <aura:iteration items="{!v.PlaceList}" var="place" >
+                        <tr>
+                            <td class="cth centeralign">
+                                <aura:if isTrue="{!not(place.TimesheetCheck__c)}">
+                                    <ui:inputCheckbox aura:id="checkTimesheet" class="uiheight" value="" text="{!place.Id}"/>
+                                </aura:if>
+                            </td>
+                            <td class=" centeralign">{!place.sirenum__Contact__r.Name}</td>
+                            <td class=" centeralign">{!place.sirenum__Job_Role__r.Name}</td>
+                            <td class=" centeralign">{!place.sirenum__Contract__r.sirenum__PayrollCycle__r.Name}</td>
+                            <td class=" centeralign">
+                                <aura:if isTrue="{!not(place.TimesheetCheck__c)}">
+                                    £{!place.TotalForecastValue__c}
+                                    <aura:set attribute="else">
+                                        Processing for Payroll
+                                    </aura:set>
+                                </aura:if>
+                            </td>
+                            <td class=" centeralign">{!place.IP_PurchaseOrderNumber__c}</td>
+                            <td class=" centeralign">
+                                <span class="edit_action popup-btn" data-toggle="modal" name="{!place.sirenum__Contract__r.sirenum__PayrollCycle__r.Name}" onclick="{!c.getShift}" id="{!place.Id}" data-target="#edit-popup">Details</span>
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                    </tbody>
+                </table>
+            </div>
+            <div style="float:right; margin-top: 25px;">
+                <h3 style="color:black;">Total Cost = £{!v.TotalCost}</h3>
+            </div>
+        </aura:if>
+    </div>
+
+    <!--Modal Box -->
+    <div class="custom-model modal fade" id="edit-popup" tabindex="-1" role="dialog" aria-labelledby="edit-popup">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1>All Shifts Details</h1>
+                <div class="ElementDetail__table">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th class=" centeralign">Start Date</th>
+                            <th class=" centeralign">Job Role</th>
+                            <th class=" centeralign">Total Hours</th>
+                            <th class=" centeralign">Charge</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <aura:iteration items="{!v.vShifts}" var="tsl">
+                            <tr>
+                                <td class=" centeralign" data-th="Start Date"><lightning:formattedDateTime value="{!tsl.sirenum__Scheduled_Start_Time__c}" year="numeric" month="numeric" day="numeric" /></td>
+                                <td class=" centeralign" data-th="Job Role">{!tsl.sirenum__Team__r.Name}</td>
+                                <td class=" centeralign" data-th="Total Hours">{!tsl.sirenum__Scheduled_Shift_Length_Decimal__c}</td>
+                                <aura:if isTrue="{!or(tsl.sirenum__Forecast_Charge__c != NULL,tsl.sirenum__Total_Charge__c != NULL)}" >
+                                    <aura:if isTrue="{!tsl.sirenum__Forecast_Charge__c != NULL}" >
+                                        <td class=" centeralign" data-th="Charge">£{!tsl.sirenum__Forecast_Charge__c}</td>
+                                        <aura:set attribute="else">
+                                            <td class=" centeralign" data-th="Charge">£{!tsl.sirenum__Total_Charge__c}</td>
+                                        </aura:set>
+                                    </aura:if>
+                                    <aura:set attribute="else">
+                                        <td class=" centeralign" data-th="Charge">Updating</td>
+                                    </aura:set>
+                                </aura:if>
+                            </tr>
+                        </aura:iteration>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

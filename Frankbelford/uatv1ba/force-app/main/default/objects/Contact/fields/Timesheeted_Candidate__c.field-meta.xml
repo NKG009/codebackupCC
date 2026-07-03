@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Timesheeted_Candidate__c</fullName>
+    <formula>if(isblank(sirenum__Last_Timesheet__c),false,true)</formula>
+    <label>Timesheeted Candidate</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

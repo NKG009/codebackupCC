@@ -1,0 +1,165 @@
+<template> 
+  <div class="slds-var-p-top_x-large">
+    <h1 class="main__header">
+      My
+      <span class="bluearrow-brand-color"> {titleTimePeriodLabel}</span> Shifts
+      by
+      <span class="bluearrow-brand-color"> {titleSummaryViewLabel}</span>
+    </h1>
+    <div class="table__header slds-var-p-top_large">
+      <div class="supplementary__container"></div>
+      <div class="action__container"></div>
+
+      <div class="slds-grid table__header__actionbar flex__row">
+        <div class="slds-grid small__gap flex__row">
+          <lightning-button
+            variant="brand"
+            label={viewSwitchLabel}
+            onclick={handleViewToggleClick}
+          >
+          </lightning-button>
+          <lightning-button
+            variant="brand"
+            label={timePeriodSwitchLabel}
+            onclick={handleTimePeriodToggleClick}
+          >
+          </lightning-button>
+          <template if:false={currentShiftView}>
+            <div>
+              <lightning-combobox
+                label="Time Period"
+                value={selectedTimePeriod}
+                options={timePeriodOptions}
+                variant="label-hidden"
+                onchange={selectionChangeHandler}
+                class="body-text"
+              >
+              </lightning-combobox>
+            </div>
+          </template>
+        </div>
+        <div class="slds-grid small__gap flex__row">
+          <div class="site-switcher-container">
+            <c-portal-v2-site-switch-widget></c-portal-v2-site-switch-widget>
+          </div>
+          <lightning-button
+            variant="base"
+            onclick={clearFilter}
+            label="Clear filters"
+          >
+          </lightning-button>
+          <lightning-button
+            variant="brand"
+            onclick={handleAdjustColumnClick}
+            label="Adjust columns"
+          >
+          </lightning-button>
+          <lightning-button
+            variant="brand"
+            onclick={handleExportClick}
+            label="Export"
+          >
+          </lightning-button>
+        </div>
+      </div>
+    </div>
+    <div class="table__container">
+      <template if:true={jobView}>
+        <c-portal-v2-my-shifts-job-role-view
+          site-id={siteId}
+          default-timescale={currentShiftView}
+          lookback-timescale={selectedTimePeriod}
+          onnumrecordchanged={handleNumRecordChange}
+          grouping-column-name={jobRoleViewGroupingColumn}
+        ></c-portal-v2-my-shifts-job-role-view>
+      </template>
+      <template if:false={jobView}>
+        <c-portal-v2-my-shifts-candidate-view
+          site-id={siteId}
+          default-timescale={currentShiftView}
+          lookback-timescale={selectedTimePeriod}
+          onnumrecordchanged={handleNumRecordChange}
+          grouping-column-name={candidateViewGroupingColumn}
+        ></c-portal-v2-my-shifts-candidate-view>
+      </template>
+    </div>
+    <div class="table__footer__actionbar">
+      <div
+        class="
+          slds-grid
+          slds-var-p-horizontal_medium
+          slds-var-p-vertical_small
+          flex__row
+        "
+      >
+        <div class="slds-grid small__gap flex__row">
+          <lightning-button
+            variant="brand"
+            label="View/Edit Worker Feedback"
+            class="slds-grid_vertical-align-center"
+            onclick={handleTempFeedbackModalOpenClick}
+            disabled={reviewButtonDisabled}
+          >
+          </lightning-button>
+
+          <lightning-button
+            variant="brand"
+            label="Request New Shift"
+            onclick={handleShiftModalOpenClick}
+            class="slds-grid_vertical-align-center"
+            disabled={requestShiftVacancyDisabled}
+          ></lightning-button>
+
+          <lightning-button
+            variant="brand"
+            label="Rate Card"
+            onclick={handleRateCardModalOpenClick}
+            class="slds-grid_vertical-align-center"
+            disabled={rateCardButtonDisabled}
+          ></lightning-button>
+
+          <lightning-button
+            variant="brand"
+            label="Cancel Shifts"
+            onclick={handleCancelModalOpenClick}
+            class="slds-grid_vertical-align-center"
+            disabled={cancelButtonDisabled}
+          ></lightning-button>
+        </div>
+        <template if:true={hasRecords}>
+          <c-portal-v2-pagination
+            totalrecords={numberOfRecords}
+            onpageselected={handlePageSelected}
+          ></c-portal-v2-pagination>
+        </template>
+      </div>
+      <template if:true={rateCardModalOpen}>
+        <c-portal-v2-rate-card-modal
+          shifts={mainSelectedRows}
+          onclose={handleRateCardModalCloseEvent}
+        ></c-portal-v2-rate-card-modal>
+      </template>
+      <template if:true={requestShiftModalOpen}>
+        <c-request-shift-vacancy-modal
+          site-id={siteId}
+          onclose={handleShiftRequestModalCloseEvent}
+        ></c-request-shift-vacancy-modal>
+      </template>
+      <template if:true={tempFeedbackModalOpen}>
+        <c-portal-v2-temp-feedback-modal
+          site-id={siteId}
+          selected-temps={feedbackTargets}
+          onclose={handleTempFeedbackModalCloseEvent}
+        ></c-portal-v2-temp-feedback-modal>
+      </template>
+      <template if:true={cancelModalOpen}>
+        <c-portal-v2-are-you-sure-modal
+					is-show-cancel-rsns = "true"
+          action-name="cancel the selected shifts"
+          onclose={handleTempModalClose}
+          onyesselected={handleCancelShiftClick}
+        ></c-portal-v2-are-you-sure-modal>
+      </template>
+    </div>
+  </div>
+</template>

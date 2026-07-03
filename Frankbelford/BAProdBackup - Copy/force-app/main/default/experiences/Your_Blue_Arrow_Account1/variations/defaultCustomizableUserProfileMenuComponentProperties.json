@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "aa7deb34-75b0-480a-a17c-e520fb21c86c",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "customizableUserProfileMenuEditor" : "No_Navigation"
+      }
+    },
+    "targetId" : "5b15c3f4-0518-40df-a9a3-3617a16a30a1",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Default_Customizable_User_Profile_Menu_Component_Properties",
+  "id" : "6c6fc89c-719f-49db-a059-081e8191c5de",
+  "type" : "experienceVariation"
+}

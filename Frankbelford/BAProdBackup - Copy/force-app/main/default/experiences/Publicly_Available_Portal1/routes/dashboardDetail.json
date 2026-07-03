@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "47f96bde-4c09-4e8e-8b08-5cb6b8feb73b",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "Dashboard_Detail",
+  "id" : "af7ab9fa-8a70-4c47-864d-42bdfb91b686",
+  "label" : "Dashboard Detail",
+  "routeType" : "detail-01Z",
+  "type" : "route",
+  "urlPrefix" : "dashboard"
+}

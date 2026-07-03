@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fails</fullName>
+    <columns>Job_Order_Lookup__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>NAME</columns>
+    <columns>stgRejectionReason__c</columns>
+    <columns>stgAtsCandidateIntegrationRef__c</columns>
+    <columns>stgSPlacementId__c</columns>
+    <columns>stgApplicationStatus__c</columns>
+    <columns>stgSubmissionStatus__c</columns>
+    <columns>stgSubmissionDatetime__c</columns>
+    <columns>stgSPlacementSubmitted__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>External_ID__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>stgApplicationStatus__c</field>
+        <operation>equals</operation>
+        <value>Rejected</value>
+    </filters>
+    <label>Fails</label>
+    <language>en_US</language>
+</ListView>

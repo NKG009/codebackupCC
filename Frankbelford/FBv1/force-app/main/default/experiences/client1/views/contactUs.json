@@ -1,0 +1,74 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "485c87ac-3ef7-4cdf-9be4-6ba9a9cebf3a",
+  "label" : "Contact Us",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"font-size: 28px; font-family: arial;\">Contact Us</span></p><p style=\"text-align: center;\"><br></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "11a11b07-c7e4-4515-b40e-d972ea0d3126",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "43f005c6-b8f9-41d3-abf7-3f116aed4bbb",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:ContactUsClient",
+      "id" : "8d8d4aa2-c9db-488e-8b91-1475a69cd769",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "812dfd00-065a-42b3-83b5-be92c5b4a38a",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "13c116f4-5fe3-48de-a5c2-b1bba3697c04",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><span style=\"color: rgb(0, 0, 0);\">© Blue Arrow, All rights reserved 2018.</span></p><p style=\"text-align: center;\"><span style=\"color: rgb(0, 0, 0);\">Registered Address 800 The Boulevard, Capability Green, Luton, Bedfordshire, LU1 3BA. Company No. 00641659</span><span style=\"color: rgb(0, 0, 0); font-family: arial;\">﻿</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "3fcda347-5509-4de7-a1dc-0684abae2e3f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a26014c0-15dc-4a84-9afb-3bda126dbb73",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Contact Us"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "abbaf223-da0e-431f-8c8a-71c2bef30122",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d68957c4-c62c-475b-9e85-ff0a393e35d0",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "id" : "aa7364b2-9fc7-468d-86c3-c51ac9fbe80f",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "BaeIvxdmVNAi846Z78i1VuYgMbv85a",
+  "type" : "view",
+  "viewType" : "contactsupport"
+}

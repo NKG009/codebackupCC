@@ -1,0 +1,62 @@
+{
+  "appPageId" : "8fd721c0-e733-4a07-89bc-458a336113c1",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "fb142f04-9ea5-4054-acd4-dc3df796d40a",
+  "label" : "Login",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "emailAndPasswordDontMatchMessage" : "Your username and password do not match. Please try  again.",
+        "emailErrorMessage" : "Please enter your username.",
+        "emailLabel" : "Email",
+        "passwordErrorMessage" : "Please enter your password.",
+        "passwordLabel" : "Password"
+      },
+      "componentName" : "c:portalV2Login",
+      "id" : "0cec8926-141e-4f42-9806-65204ad370c3",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c287dd8e-6e2f-42ae-b6d1-fb0b01db6937",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Login"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "c8e218cc-292e-4003-afcd-e79996046ada",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ae1d1fff-7140-46b6-ae64-484ca46488e2",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "id" : "f59b216b-d0f6-4ffe-8ecd-2e56c14cbcd4",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"display: flex; flex-direction: row; justify-content: space-between;\">\n    <p>© Blue Arrow, All rights reserved 2022.</p>\n    <p>Registered Address: 800 The Boulevard, Capability Green, Luton, Bedfordshire, LU1 3BA, Company No. 00641659</p>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "c2375412-87b7-49e9-abee-a994e8e30895",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "336b35ab-3695-4cc1-b296-72176647ade0",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Login",
+  "type" : "view",
+  "viewType" : "login-home"
+}

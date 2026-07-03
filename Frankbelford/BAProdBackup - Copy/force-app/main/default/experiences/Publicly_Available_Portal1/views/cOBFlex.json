@@ -1,0 +1,58 @@
+{
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "bd386171-9471-4af0-ab5f-91177c9504f7",
+  "label" : "COBFlex",
+  "regions" : [ {
+    "id" : "ff7f0b44-49ca-4a5a-bc46-edc5a602d19f",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Untitled2removebg.1}\" style=\"width: 254.859px; height: 64.5625px;\"></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "1714d193-4601-449a-83a7-32553e59abec",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"recordId\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!ID}\"}]",
+        "flowName" : "Screen_Flow_COB_Flex"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "1a4dfb38-1735-448f-ae24-7137f1a59bd5",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3ed95ec4-84b9-4d4e-837f-2b2052be59fb",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "33758d61-bf77-4645-8ecc-d5157abadac7",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "COBFlex"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "dc4cc241-6e59-4cc8-837b-1fe9b265a3bc",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "71178e69-f37f-46a9-a552-33edef53a3af",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-cobflex"
+}

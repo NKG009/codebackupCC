@@ -1,0 +1,83 @@
+<aura:component controller="TimeSheetFilters" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction" access="global" >
+  
+   
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="siteChanged" value="{!v.sitelist}" action="{!c.siteChanged}"/>
+    <aura:attribute name="sitelist" type="List"/>
+    <aura:attribute name="ContactList" type="List"/>
+    <aura:attribute name="OriginalContactList" type="List"/>
+    <aura:attribute name="timehsheetList" type="List"/>
+    <aura:attribute name="OriginalTimeSheetList" type="List"/>
+    <aura:attribute name="SiteContactMap" type="Object"/> 
+    <aura:attribute name="ContactTimeSheetMap" type="Object"/> 
+    <aura:registerEvent name="searchEvent" type="c:searchEvent"/>   
+    <aura:attribute name="site" type="String" default="{!v.site}" />
+   <aura:handler name="change" value="{!v.site}" action="{!c.itemsChange}"/>
+
+
+    <ol class="breadcrumb">
+        <li><a href="javascript:void(0)" onclick="{!c.gotoDashboard}" title="Dashboard">Dashboard</a></li>
+        <li>Timesheets</li>
+        <li class="active">Approved Timesheets</li>
+    </ol>
+
+    <div class="search-section">
+        <form class="row">
+            <!--
+            <div class="col-sm-6 col-md-5 col-lg-4">
+                <label class="global-label">Candidate Name</label>
+                <lightning:select aura:id="contact" name="select" label="" onchange="{!c.candidateChanged}">
+                    <option value="">Select Candidate</option>                        
+                    <aura:iteration items="{!v.ContactList}" var="item">
+                        <option text="{!item.label}" value="{!item.value}"/>
+                    </aura:iteration>
+                </lightning:select>
+            </div>
+            -->
+            
+            <div class="col-sm-6 col-md-5 col-lg-4">
+				<label class="global-label">Temp Name</label>
+                 <lightning:select aura:id="contact" name="select" label="" onchange="{!c.candidateChanged}">
+                    <option value="">Select Temp Name</option>                        
+                    <aura:iteration items="{!v.ContactList}" var="item">
+                        <option text="{!item.label}" value="{!item.value}" />
+                    </aura:iteration>
+                </lightning:select>
+								
+							</div>
+            
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <label class="global-label">Date</label>
+                <input type="text" style="margin-top: 3px;"  class="global-input" name="Date" id="timePeriod" aura:id="weekEndDate" placeholder="Select Date" onclick="{!c.handleOnClick}"
+                                       onkeypress="{!c.handleKeyPress}" onmouseover="{!c.handleMouseEnter}" onmouseout="{!c.handleMouseLeave}"/>                    
+            </div>
+            <div class="col-sm-6 col-md-3 col-lg-2">
+                <label class="global-label">Timesheet No.</label>
+                <input style="margin-top: 3px;"  class="global-input" type="text" aura:id="timesheetno" name="Timesheet" placeholder="Enter Timesheet No."/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <lightning:button variant="brand" class="search-btn" label="Search" title="Search" onclick="{! c.fireSearchEvent }" />
+                       
+              <input type="reset" class="clearAll-btn" name="Clear" value="Clear All" onclick="{!c.clearAll}"/>
+            </div>
+        </form>
+        
+        <!-- calendar starts -->
+        <section class="calendar-pop">
+            <div class="calendar">
+                <div class="control-bar">
+                    <ul>
+                        <li id="today"><a href="">Today</a></li>
+                        <li id="yesterday"><a href="">Yesterday</a></li>
+                        <li id="lastweek"><a href="">Last 7 days</a></li>
+                        <li id="lastmonth"><a href="">Last 30 days</a></li>
+                        <li id="lasttwomonth"><a href="">Last 60 days</a></li>
+                    </ul>
+                </div>
+                <div id="datepicker"></div>
+            </div>
+        </section>
+        <!-- calendar ends -->
+        
+    </div>
+</aura:component>

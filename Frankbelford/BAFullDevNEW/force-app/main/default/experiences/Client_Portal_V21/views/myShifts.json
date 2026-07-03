@@ -1,0 +1,59 @@
+{
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "d4949843-0015-44ba-94d5-dd54a45c5e90",
+  "label" : "My Shifts",
+  "regions" : [ {
+    "id" : "d7defe52-c23b-41de-a56a-854b1be3aa72",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "candidateViewGroupingColumnName" : "Name",
+        "jobRoleViewGroupingColumnName" : "Job Role"
+      },
+      "componentName" : "c:portalV2MyShifts",
+      "id" : "42d43c3d-e205-40b6-b702-9966ea3923ea",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1e91f412-3919-428d-b7c0-8eea30258121",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"display: flex; flex-direction: row; justify-content: space-between;\">\n    <p>© Blue Arrow, All rights reserved 2022.</p>\n    <p>Registered Address: 33 Soho Square, London, England, W1D 3QU. Company No: 641659</p>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "be9fe319-b7ec-4e6e-964e-58e1ac463ba2",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c2ce068d-1701-4e16-aa54-323b77763d76",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My Shifts"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "9a88d801-93aa-46f0-8a1d-68d389f1f7ca",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2392b751-1921-48f8-b13f-db9b6a61d57e",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-my-shifts"
+}

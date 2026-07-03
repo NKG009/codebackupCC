@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_CategoryOfWork__c</fullName>
+    <description>Which business areas does the person work in</description>
+    <inlineHelpText>Which business areas does the person work in</inlineHelpText>
+    <label>Category of Work</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>IP_Business_Type</valueSetName>
+    </valueSet>
+    <visibleLines>6</visibleLines>
+</CustomField>

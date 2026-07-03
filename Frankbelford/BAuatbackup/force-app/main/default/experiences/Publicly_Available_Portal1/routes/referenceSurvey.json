@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "f5748a0a-7c09-4ce9-9c2f-1d0db7af355d",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "Reference_Survey__c",
+  "id" : "02117fac-39e1-4f8b-b0ee-bbcce4c73ee8",
+  "label" : "Reference Survey",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-reference-survey",
+  "type" : "route",
+  "urlPrefix" : "reference-survey"
+}

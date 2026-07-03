@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eric_mass_text_campaign</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>notContain</operation>
+        <value>Royal Mail,DNU,Do Not Use,Chris,James,Laura,Alessia,20,Part Time,#lbg,LBG</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>equals</operation>
+        <value>,Candidates,Blue Arrow Edinburgh,Blue Arrow Livingston,Blue Arrow,Customer Success Hub,Inactive,Blue Arrow CSH SS – Santander,Blue Arrow CSH Catering,Blue Arrow Glasgow</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_CITY</field>
+        <operation>contains</operation>
+        <value>Belfast</value>
+    </filters>
+    <filters>
+        <field>FULL_NAME</field>
+        <operation>startsWith</operation>
+        <value>A</value>
+    </filters>
+    <label>Eric - mass text campaign</label>
+</ListView>

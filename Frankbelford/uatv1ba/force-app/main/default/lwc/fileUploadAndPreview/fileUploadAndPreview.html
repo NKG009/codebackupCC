@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="Upload a Job Description ">
+        <div style="margin:1rem;">
+            <lightning-file-upload label="Upload Files" 
+            record-id={recordId} 
+            onuploadfinished={handleUploadFinished}
+            accept=".pdf, .doc, .docx, .xls, .xlsx, .csv, .jpg, .jpeg, .png, .gif">
+            </lightning-file-upload>
+            <template if:true={files}>
+                <div class="file-list" style="margin-top:1rem;">
+                    <template for:each={files} for:item="file">
+                        <div key={file.Id} class="file-item" style="border-radius: 25px; padding: 10px 20px;">
+                            <lightning-icon icon-name={file.iconName} size="small" class="file-icon">
+                            </lightning-icon>
+                            <span class="file-name">{file.Title}</span>
+                            <lightning-button-icon style="border: #f4f6f9; " icon-name="utility:preview"
+                                alternative-text="View" data-id={file.Id} onclick={handleViewFile} class="view-btn"
+                                variant="bare"></lightning-button-icon>
+                            <lightning-button-icon style="border: #f4f6f9; padding-left: .5rem;"
+                                icon-name="utility:delete" alternative-text="Delete" data-id={file.Id}
+                                onclick={handleDeleteFile} class="delete-btn" variant="bare"></lightning-button-icon>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

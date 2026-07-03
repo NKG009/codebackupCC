@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Alert_Manager</name>
+        <label>Alert Manager</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <actionName>sirenum__Shift__c.Alert_Manager</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>sirenum__Shift__c.Alert_Manager</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Confirm_Blue_Arrow_2h_before</name>
+        <label>Confirm Blue Arrow 2h before</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <actionName>sirenum__Shift__c.Confirm_Blue_Arrow_2h_before</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Alert_Manager</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>sirenum__Shift__c.Confirm_Blue_Arrow_2h_before</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Shift_Sign_Out_Notice_to_Employee</name>
+        <label>Shift Sign Out Notice to Employee</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <actionName>sirenum__Shift__c.Shift_Sign_Out_Notice_to_Employee</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>sirenum__Shift__c.Shift_Sign_Out_Notice_to_Employee</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Decision</name>
+        <label>Decision</label>
+        <locationX>578</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Reminder_to_sign_out</name>
+            <conditionLogic>1 AND 2 AND 3 AND 4 AND 5 AND 8 AND ( 6 OR 7 )</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Actual_End_Time__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Scheduled_End_Time__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>CalculateScheduledEndTime</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Published__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Contact__r.HasOptedOutOfEmail</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Cancelled__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Site__r.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>a3e0Y000000bylw</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Site__r.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>a3e0Y000000bym1</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Is_Confirmed__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Shift_Sign_Out_Notice_to_Employee</targetReference>
+            </connector>
+            <label>Reminder to sign out</label>
+        </rules>
+        <rules>
+            <name>Employee_confirm_reminder_before_shift_2h</name>
+            <conditionLogic>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND ( 7 OR 8 )</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Actual_Start_Time__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Scheduled_Start_Time__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>$System.OriginDateTime</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Is_Confirmed__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Published__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Contact__r.HasOptedOutOfEmail</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Cancelled__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Site__r.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>a3e0Y000000bylw</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Site__r.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>a3e0Y000000bym1</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Confirm_Blue_Arrow_2h_before</targetReference>
+            </connector>
+            <label>Employee confirm reminder before shift (2h)</label>
+        </rules>
+        <rules>
+            <name>UpdateStart_EndTime_GMT</name>
+            <conditionLogic>1 AND ( 2 OR ( 3 AND 4 ))</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Scheduled_Start_Time__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IP_DayofDayLightOctober__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.sirenum__Scheduled_Start_Time__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IP_DayofDayLightOctober__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>$Record.sirenum__Scheduled_Start_Time__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Scheduled_Start_Time__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <elementReference>$Record.IP_DayofDaylightMarch__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdateEndTimeGMT</targetReference>
+            </connector>
+            <label>UpdateStart&amp;EndTime-GMT</label>
+        </rules>
+        <rules>
+            <name>UpdateStart_EndTime_BST</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Scheduled_Start_Time__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IP_DayofDaylightMarch__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <elementReference>$Record.sirenum__Scheduled_Start_Time__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IP_DayofDayLightOctober__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>$Record.sirenum__Scheduled_Start_Time__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdateStart_EndTime</targetReference>
+            </connector>
+            <label>UpdateStart&amp;EndTime-BST</label>
+        </rules>
+    </decisions>
+    <description>Reminder to sign out, Employee confirm reminder before shift (2h), Manager Confirmation Alert, UpdateStart&amp;EndTime-GMT, UpdateStart&amp;EndTime-BST, Update Total Break</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>CalculateEndTimeBST</name>
+        <dataType>String</dataType>
+        <expression>IF( VALUE( MID( TEXT( If(ISNULL({!$Record.sirenum__Billable_End_Time__c}),If(ISNULL({!$Record.sirenum__Actual_End_Time__c}),
+{!$Record.sirenum__Scheduled_End_Time__c},{!$Record.sirenum__Actual_End_Time__c}),{!$Record.sirenum__Billable_End_Time__c})
+
++ 1/24
+
+), 12, 2 ) ) = 0, &quot;00&quot;,
+If(VALUE( MID( TEXT( If(ISNULL({!$Record.sirenum__Billable_End_Time__c}),If(ISNULL({!$Record.sirenum__Actual_End_Time__c}),
+{!$Record.sirenum__Scheduled_End_Time__c},{!$Record.sirenum__Actual_End_Time__c}),{!$Record.sirenum__Billable_End_Time__c})
+
++ 1/24 ), 12, 2 ) ) = 12
+,
+&quot;12&quot;,
+IF(VALUE( MID( TEXT(If(ISNULL({!$Record.sirenum__Billable_End_Time__c}),If(ISNULL({!$Record.sirenum__Actual_End_Time__c}),
+{!$Record.sirenum__Scheduled_End_Time__c},{!$Record.sirenum__Actual_End_Time__c}),{!$Record.sirenum__Billable_End_Time__c})
++ 1/24
+), 12, 2 ) )&lt;10,&apos;0&apos;&amp;TEXT(VALUE( MID( TEXT( If(ISNULL({!$Record.sirenum__Billable_End_Time__c}), If(ISNULL({!$Record.sirenum__Actual_End_Time__c}),
+{!$Record.sirenum__Scheduled_End_Time__c},{!$Record.sirenum__Actual_End_Time__c}),{!$Record.sirenum__Billable_End_Time__c})
++ 1/24
+), 12, 2 ) )),
+TEXT(VALUE( MID( TEXT( If(ISNULL({!$Record.sirenum__Billable_End_Time__c}),If(ISNULL({!$Record.sirenum__Actual_End_Time__c}),
+{!$Record.sirenum__Scheduled_End_Time__c},{!$Record.sirenum__Actual_End_Time__c}),{!$Record.sirenum__Billable_End_Time__c})
++ 1/24
+), 12, 2 ) ))
+)
+)
+)
+&amp; &quot;:&quot; &amp;
+MID( TEXT( If(ISNULL({!$Record.sirenum__Billable_End_Time__c}),
+If(ISNULL({!$Record.sirenum__Actual_End_Time__c}),
+{!$Record.sirenum__Scheduled_End_Time__c},{!$Record.sirenum__Actual_End_Time__c}),{!$Record.sirenum__Billable_End_Time__c})
+
++ 1/24 ), 15, 2 )</expression>
+    </formulas>
+    <formulas>
+        <name>CalculateEndTimeGMT</name>
+        <dataType>String</dataType>
+        <expression>IF( VALUE( MID( TEXT( If(ISNULL({!$Record.sirenum__Billable_End_Time__c}),If(ISNULL({!$Record.sirenum__Actual_End_Time__c}),
+{!$Record.sirenum__Scheduled_End_Time__c},{!$Record.sirenum__Actual_End_Time__c}),{!$Record.sirenum__Billable_End_Time__c})
+), 12, 2 ) ) = 0, &quot;00&quot;,
+If(VALUE( MID( TEXT( If(ISNULL({!$Record.sirenum__Billable_End_Time__c}),If(ISNULL({!$Record.sirenum__Actual_End_Time__c}),
+{!$Record.sirenum__Scheduled_End_Time__c},{!$Record.sirenum__Actual_End_Time__c}),{!$Record.sirenum__Billable_End_Time__c})
+
+), 12, 2 ) ) = 12
+,
+&quot;12&quot;,
+IF(VALUE( MID( TEXT(If(ISNULL({!$Record.sirenum__Billable_End_Time__c}),If(ISNULL({!$Record.sirenum__Actual_End_Time__c}),
+{!$Record.sirenum__Scheduled_End_Time__c},{!$Record.sirenum__Actual_End_Time__c}),{!$Record.sirenum__Billable_End_Time__c})
+
+), 12, 2 ) )&lt;10,&apos;0&apos;&amp;TEXT(VALUE( MID( TEXT( If(ISNULL({!$Record.sirenum__Billable_End_Time__c}), If(ISNULL({!$Record.sirenum__Actual_End_Time__c}),
+{!$Record.sirenum__Scheduled_End_Time__c},{!$Record.sirenum__Actual_End_Time__c}),{!$Record.sirenum__Billable_End_Time__c})
+
+), 12, 2 ) )),
+TEXT(VALUE( MID( TEXT( If(ISNULL({!$Record.sirenum__Billable_End_Time__c}),If(ISNULL({!$Record.sirenum__Actual_End_Time__c}),
+{!$Record.sirenum__Scheduled_End_Time__c},{!$Record.sirenum__Actual_End_Time__c}),{!$Record.sirenum__Billable_End_Time__c})
+
+), 12, 2 ) ))
+)
+)
+)
+&amp; &quot;:&quot; &amp;
+MID( TEXT( If(ISNULL({!$Record.sirenum__Billable_End_Time__c}),
+If(ISNULL({!$Record.sirenum__Actual_End_Time__c}),
+{!$Record.sirenum__Scheduled_End_Time__c},{!$Record.sirenum__Actual_End_Time__c}),{!$Record.sirenum__Billable_End_Time__c})
+
+), 15, 2 )</expression>
+    </formulas>
+    <formulas>
+        <name>CalculateScheduledEndTime</name>
+        <dataType>DateTime</dataType>
+        <expression>{!$System.OriginDateTime} - 0.1</expression>
+    </formulas>
+    <formulas>
+        <name>CalculateStartTimeBST</name>
+        <dataType>String</dataType>
+        <expression>IF( VALUE( MID( TEXT( If(ISNULL({!$Record.sirenum__Billable_Start_Time__c}),If(ISNULL({!$Record.sirenum__Actual_Start_Time__c}),
+{!$Record.sirenum__Scheduled_Start_Time__c},{!$Record.sirenum__Actual_Start_Time__c}),{!$Record.sirenum__Billable_Start_Time__c})
+
++ 1/24
+
+), 12, 2 ) ) = 0, &quot;00&quot;,
+If(VALUE( MID( TEXT( If(ISNULL({!$Record.sirenum__Billable_Start_Time__c}),If(ISNULL({!$Record.sirenum__Actual_Start_Time__c}),
+{!$Record.sirenum__Scheduled_Start_Time__c},{!$Record.sirenum__Actual_Start_Time__c}),{!$Record.sirenum__Billable_Start_Time__c})
+
++ 1/24 ), 12, 2 ) ) = 12
+,
+&quot;12&quot;,
+IF(VALUE( MID( TEXT(If(ISNULL({!$Record.sirenum__Billable_Start_Time__c}),If(ISNULL({!$Record.sirenum__Actual_Start_Time__c}),
+{!$Record.sirenum__Scheduled_Start_Time__c},{!$Record.sirenum__Actual_Start_Time__c}),{!$Record.sirenum__Billable_Start_Time__c})
++ 1/24
+), 12, 2 ) )&lt;10,&apos;0&apos;&amp;TEXT(VALUE( MID( TEXT( If(ISNULL({!$Record.sirenum__Billable_Start_Time__c}), If(ISNULL({!$Record.sirenum__Actual_Start_Time__c}),
+{!$Record.sirenum__Scheduled_Start_Time__c},{!$Record.sirenum__Actual_Start_Time__c}),{!$Record.sirenum__Billable_Start_Time__c})
++ 1/24
+), 12, 2 ) )),
+TEXT(VALUE( MID( TEXT( If(ISNULL({!$Record.sirenum__Billable_Start_Time__c}),If(ISNULL({!$Record.sirenum__Actual_Start_Time__c}),
+{!$Record.sirenum__Scheduled_Start_Time__c},{!$Record.sirenum__Actual_Start_Time__c}),{!$Record.sirenum__Billable_Start_Time__c})
++ 1/24
+), 12, 2 ) ))
+)
+)
+)
+&amp; &quot;:&quot; &amp;
+MID( TEXT( If(ISNULL({!$Record.sirenum__Billable_Start_Time__c}),
+If(ISNULL({!$Record.sirenum__Actual_Start_Time__c}),
+{!$Record.sirenum__Scheduled_Start_Time__c},{!$Record.sirenum__Actual_Start_Time__c}),{!$Record.sirenum__Billable_Start_Time__c})
+
++ 1/24 ), 15, 2 )</expression>
+    </formulas>
+    <formulas>
+        <name>CalculateStartTimeGMT</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    VALUE(MID(TEXT(
+        IF(
+            ISNULL({!$Record.sirenum__Billable_Start_Time__c}),
+            IF(
+                ISNULL({!$Record.sirenum__Actual_Start_Time__c}),
+                {!$Record.sirenum__Scheduled_Start_Time__c},
+                {!$Record.sirenum__Actual_Start_Time__c}
+            ),
+            {!$Record.sirenum__Billable_Start_Time__c}
+        )
+    ), 12, 2)) = 0, 
+    &quot;00&quot;,
+    IF(
+        VALUE(MID(TEXT(
+            IF(
+                ISNULL({!$Record.sirenum__Billable_Start_Time__c}),
+                IF(
+                    ISNULL({!$Record.sirenum__Actual_Start_Time__c}),
+                    {!$Record.sirenum__Scheduled_Start_Time__c},
+                    {!$Record.sirenum__Actual_Start_Time__c}
+                ),
+                {!$Record.sirenum__Billable_Start_Time__c}
+            )
+        ), 12, 2)) = 12, 
+        &quot;12&quot;,
+        IF(
+            VALUE(MID(TEXT(
+                IF(
+                    ISNULL({!$Record.sirenum__Billable_Start_Time__c}),
+                    IF(
+                        ISNULL({!$Record.sirenum__Actual_Start_Time__c}),
+                        {!$Record.sirenum__Scheduled_Start_Time__c},
+                        {!$Record.sirenum__Actual_Start_Time__c}
+                    ),
+                    {!$Record.sirenum__Billable_Start_Time__c}
+                )
+            ), 12, 2)) &lt; 10, 
+            &quot;0&quot; &amp; TEXT(VALUE(MID(TEXT(
+                IF(
+                    ISNULL({!$Record.sirenum__Billable_Start_Time__c}),
+                    IF(
+                        ISNULL({!$Record.sirenum__Actual_Start_Time__c}),
+                        {!$Record.sirenum__Scheduled_Start_Time__c},
+                        {!$Record.sirenum__Actual_Start_Time__c}
+                    ),
+                    {!$Record.sirenum__Billable_Start_Time__c}
+                )
+            ), 12, 2))),
+            TEXT(VALUE(MID(TEXT(
+                IF(
+                    ISNULL({!$Record.sirenum__Billable_Start_Time__c}),
+                    IF(
+                        ISNULL({!$Record.sirenum__Actual_Start_Time__c}),
+                        {!$Record.sirenum__Scheduled_Start_Time__c},
+                        {!$Record.sirenum__Actual_Start_Time__c}
+                    ),
+                    {!$Record.sirenum__Billable_Start_Time__c}
+                )
+            ), 12, 2)))
+        )
+    )
+)
+&amp; &quot;:&quot; &amp;
+MID(TEXT(
+    IF(
+        ISNULL({!$Record.sirenum__Billable_Start_Time__c}),
+        IF(
+            ISNULL({!$Record.sirenum__Actual_Start_Time__c}),
+            {!$Record.sirenum__Scheduled_Start_Time__c},
+            {!$Record.sirenum__Actual_Start_Time__c}
+        ),
+        {!$Record.sirenum__Billable_Start_Time__c}
+    )
+), 15, 2)</expression>
+    </formulas>
+    <formulas>
+        <name>CalculateTotalBreak</name>
+        <dataType>Number</dataType>
+        <expression>{!$Record.Total_Shift_Break__c}*60</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>Shift: reminder Sign out, Emp Confirm, Update Start &amp; End Time(BST, GMT), and Total Break) {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Shift: reminder Signout, Emp Confirm, Update Start &amp; End Time(BST, GMT), and Total Break)</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>UpdateEndTimeGMT</name>
+        <label>UpdateEndTimeGMT</label>
+        <locationX>578</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>EndTime__c</field>
+            <value>
+                <elementReference>CalculateScheduledEndTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Starttime__c</field>
+            <value>
+                <elementReference>CalculateStartTimeGMT</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UpdateStart_EndTime</name>
+        <label>UpdateStart&amp;EndTime-BST</label>
+        <locationX>842</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>EndTime__c</field>
+            <value>
+                <elementReference>CalculateEndTimeBST</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Starttime__c</field>
+            <value>
+                <elementReference>CalculateStartTimeBST</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>452</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Decision</targetReference>
+        </connector>
+        <object>sirenum__Shift__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+</Flow>

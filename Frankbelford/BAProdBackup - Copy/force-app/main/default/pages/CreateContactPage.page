@@ -1,0 +1,92 @@
+<apex:page standardController="Contact" extensions="CreateContactPage_ext" lightningStylesheets="true" id="page">
+ <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <!--  <apex:image url="{!$Resource.NewPersonedit}" width="900" height="90"/><br/><br/> --><br></br><br></br>
+<div style="text-align:center;font-size: large;">New Person: Contact</div><br></br><br></br>
+  <apex:form id="form">
+  <style>
+  .pbTitle{display:none;}
+  </style>
+    <apex:pageMessages ></apex:pageMessages>
+    <apex:pageBlock mode="edit" id="pgblock">
+            <apex:pageblockButtons style="text-align:center;" > 
+             
+                <apex:commandButton styleClass="slds-vf-button_brand" value="Save and Add Address " rendered="{!if(And((conrec.MailingStreet=null), (conrec.MailingCity=null), (conrec.MailingPostalCode=null), (conrec.MailingState=null), (conrec.MailingCountry=null)),true,false)}" action="{!SaveandAddAddress}"/>          
+                <apex:commandButton styleClass="slds-vf-button_brand" value="Save" rendered="{!if(OR((conrec.MailingStreet!=null), (conrec.MailingCity!=null), (conrec.MailingPostalCode!=null), (conrec.MailingState!=null), (conrec.MailingCountry!=null)),true,false)}" action="{!saveandredirect2}"/> 
+                <apex:commandButton value="Cancel" action="{!cancelredirect}" immediate="true"/>
+        </apex:pageblockButtons><br/>
+            <apex:pageblockSection title="Person Edit" id="pgblocksection">
+             
+                        <apex:inputfield value="{!conrec.Salutation}"/>
+            <apex:inputfield value="{!conrec.Phone}"/>
+              
+            <apex:inputfield value="{!conrec.FirstName}" onchange="ChangeURL();" required="true" /> 
+               <apex:inputfield value="{!conrec.MobilePhone}"/>
+            <apex:inputfield value="{!conrec.MiddleName}"/>
+            <apex:inputfield value="{!conrec.Fax}"/>
+            <apex:inputfield value="{!conrec.LastName}" onchange="ChangeURL();" required="true" />
+            <apex:inputfield value="{!conrec.OtherPhone}"/>
+            <apex:inputfield value="{!conrec.Suffix}"/>
+            <apex:inputfield value="{!conrec.Email}"/>
+            <apex:inputfield value="{!conrec.ts2__Preferred_Name__c}"/>
+            <apex:inputfield value="{!conrec.IP_PreferredMethodOfContact__c}"/>
+           <apex:inputHidden value="{!accIdfrompage}" id="myHiddenField"/>
+              <apex:actionFunction name="doStuff" reRender="myHiddenField" action="{!changeAcc}"/> 
+            
+            <apex:inputField value="{!conrec.AccountID}" required="true" onselect="ChangeURL();"  id="accountid"/>
+         <!--   <apex:inputField value="{!conrec.AccountID}" required="true" onselect="ChangeURL2();" rendered="{!IF(NOT(checkacc),true,false)}"/> -->
+            
+              
+            <apex:outputtext label="Owner" value="{!ownername}"/>
+            <apex:outputtext label="Person Record Type" value="{!rectypename}"/>
+            <apex:inputField value="{!conrec.IP_JobTitle__c}"/>    
+            <apex:inputField value="{!conrec.Department}"/>                    
+            <apex:inputField value="{!Contact.Person_Status__c}"/>
+            </apex:pageblockSection>
+
+            <apex:pageblocksection title="Description Information" collapsible="false">
+                
+                 <apex:inputfield value="{!conrec.IP_CategoryOfWork__c}"/>
+                 <apex:inputfield value="{!conrec.IP_BusinessFunction__c}"/>
+                 <apex:inputfield value="{!conrec.IP_ContactType__c}"/>
+                 <apex:inputfield value="{!conrec.ts2__Legacy_ContactID__c}"/>
+             
+            </apex:pageblocksection>             
+    <apex:pageBlockSection id="addr" rendered="{!if(And((conrec.MailingStreet=null), (conrec.MailingCity=null), (conrec.MailingPostalCode=null), (conrec.MailingState=null), (conrec.MailingCountry=null)),false,true)}" title="Address Information">
+            <apex:inputField value="{!conrec.MailingStreet}" />
+            <apex:inputField value="{!conrec.OtherStreet}" />
+            <apex:inputField value="{!conrec.MailingCity}" />
+            <apex:inputField value="{!conrec.OtherCity}" />
+            <apex:inputField value="{!conrec.MailingPostalCode}" />
+            <apex:inputField value="{!conrec.OtherPostalCode}" />
+            <apex:inputField value="{!conrec.MailingState}" />
+            <apex:inputField value="{!conrec.OtherState}" />
+            <apex:inputField value="{!conrec.MailingCountry}" />
+            <apex:inputField value="{!conrec.OtherCountry}" />
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+
+    </apex:form>
+  <script>  
+   function ChangeURL()
+        { 
+        var url = document.URL;
+        console.log('url '+url);
+            if(url.includes("siteId"))
+            {
+             console.log('url site ');
+            }
+            else{
+           var idacc = document.getElementById('{!$Component.page:form:pgblock:pgblocksection:accountid}_lkid').value; 
+            console.log('acc '+idacc);
+            jQuery('[id$=myHiddenField]').val(idacc);
+       console.log( jQuery('[id$=myHiddenField]').val());
+          
+           
+         doStuff(); 
+             }
+        
+        } 
+        
+
+        </script>
+</apex:page>

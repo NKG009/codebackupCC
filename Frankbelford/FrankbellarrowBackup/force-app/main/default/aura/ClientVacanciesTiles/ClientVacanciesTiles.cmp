@@ -1,0 +1,65 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <div class="slds-grid slds-wrap slds-grid_align-center ">
+       
+        <div class="slds-col" >
+        <div style="width:150px;border:1px solid  #a8cd1b;" class="panel panel-primary"><br></br>
+              <a class="hyperlinkclass" href="#"  onclick="{!c.ActiveVacancy}" value="Active Vacancy">
+                <div  class="slds-align_absolute-center">
+                    <img src="{!$Resource.ClientPortalIcon+'/ActiveVacancy.jpg'}" style="height:92px;"/>  
+                </div>
+              
+                    <div class="slds-align_absolute-center tittletext">
+                        <span class="pull-left">Active Vacancy</span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+            <div class="slds-col" style="width:50px;"></div>
+        <div class="slds-col" >
+            <div style="width:150px;border:1px solid  #a8cd1b;" class="panel panel-primary"><br></br>
+                 <a class="hyperlinkclass" href="#"  onclick="{!c.PastVacancy}" value="Past Vacancy">
+                <div  class="slds-align_absolute-center">
+                    <img src="{!$Resource.ClientPortalIcon+'/PastVacancy.jpg'}" style="height:92px;"/>  
+                </div>
+               
+                    <div class="slds-align_absolute-center tittletext">
+                        <span class="pull-left">Past Vacancy</span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+            <div class="slds-col" style="width:50px;"></div>
+        <div class="slds-col" >
+           <div style="height:40px;width:200px;text-align:center;border:1px solid  #a8cd1b;" class="panel panel-primary">
+              &nbsp; &nbsp; 
+                 <a class="hyperlinkclass" onclick="{!c.FastBooking}" >
+                    <img src="{!$Resource.ClientPortalIcon+'/FastBooking.jpg'}" style="height:30px;"/>  
+              &nbsp; &nbsp; 
+             <b class="tittletext"> Fast Booking</b> </a>
+            </div>
+            <div style="height:40px;width:200px;text-align:center;border:1px solid  #a8cd1b;" class="panel panel-primary">
+              &nbsp; &nbsp; 
+                <a class="hyperlinkclass" onclick="{!c.NewVacancy}" >
+                    <img src="{!$Resource.ClientPortalIcon+'/NewVacancy.jpg'}" style="height:30px;"/>  
+              &nbsp; &nbsp; 
+                    <b class="tittletext">    New Vacancy</b> </a>
+            </div>
+        </div>
+ 
+    </div>
+    
+    
+    
+    <br></br> <br></br>
+     <div class="slds-truncate" style="text-align:Left;">
+                       <lightning:button class="Backbutton" label="Back" variant="Brand" onclick="{!c.getBackscreen}"   />
+                       
+                        </div> 
+    
+    
+    
+    
+    
+</aura:component>

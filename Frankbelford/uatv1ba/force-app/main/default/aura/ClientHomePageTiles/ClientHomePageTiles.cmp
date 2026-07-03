@@ -1,0 +1,70 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <div class="slds-grid slds-wrap slds-grid_align-center slds-grid_align-space">
+        
+        <div class="slds-col" >
+           <div style="width:170px;border:1px solid  #a8cd1b;" class="panel panel-primary">
+                <a class="hyperlinkclass" href="" onclick="{!c.ApproveTimesheets}" value="Approve Timesheets">
+                <div  class="slds-align_absolute-center">
+                    <img src="{!$Resource.ClientPortalIcon+'/ApprovedTimesheets.jpg'}" style="height:92px;"/>  
+                </div><br></br>
+               
+                    <div class="slds-align_absolute-center tittletext">
+                        <span class="pull-left">Timesheets</span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <div class="slds-col" >
+           <div style="width:170px;border:1px solid  #a8cd1b;" class="panel panel-primary"><br></br>
+                <a class="hyperlinkclass" href=""  onclick="{!c.CurrentVacancies}" value="Current Vacancies">
+                <div  class="slds-align_absolute-center">
+                    <img src="{!$Resource.ClientPortalIcon+'/CurrentVacancies.jpg'}" style="height:92px;"/>  
+                </div>
+               
+                    <div class="slds-align_absolute-center tittletext">
+                        <span class="pull-left">Current Vacancies</span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <div class="slds-col" >
+            <div style="width:170px;border:1px solid  #a8cd1b;" class="panel panel-primary"><br></br>
+                 <a class="hyperlinkclass" href=""  onclick="{!c.mytemps}" value="My Temps">
+                <div  class="slds-align_absolute-center">
+                    <img src="{!$Resource.ClientPortalIcon+'/MyTemps.jpg'}" style="height:92px;"/>  
+                </div>
+               
+                    <div class="slds-align_absolute-center tittletext">
+                        <span class="pull-left">My Temps</span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+           <div class="slds-col" >
+           <div style="width:170px;border:1px solid  #a8cd1b;" class="panel panel-primary"><br></br>
+                 <a class="hyperlinkclass" href="" onclick="" value="My Temps">
+                <div  class="slds-align_absolute-center">
+                    <img src="{!$Resource.Coming_Soon}" style="height:92px;"/>  
+                </div>
+              
+                    <div class="slds-align_absolute-center tittletext">
+                        <span class="pull-left">Reporting</span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+   
+    
+    
+</aura:component>

@@ -1,0 +1,227 @@
+<aura:component controller="ShiftPageApexController" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction" access="global" >
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+     <!--declare aura attributes-->
+   <aura:attribute name="popouthour" type="string" />
+    <aura:attribute name="popouthour2" type="string" />
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+ <aura:attribute name="childAttr" type="boolean" />
+ <aura:handler name="change" value="{!v.childAttr}" action="{!c.onChildAttrChange}"/>
+    <aura:attribute name="showErrorClass" type="boolean" default="false"/>
+    <aura:attribute name="sNo" type="string" />
+      <aura:attribute name="brktime" type="string" />
+     <aura:attribute name="Hours" type="string" />
+    <aura:attribute name="stopedit" type="boolean" default="false"/>
+    <aura:attribute name="singleRec" type="sobject" default="{'sobjectType' : 'sirenum__Shift__c',
+                                                             'sirenum__Break_Length__c' :'',
+                                                               'sirenum__Scheduled_Start_Time__c' : '',
+                                                               'sirenum__Actual_Start_Time__c': '',
+                                                               'Starttime__c' :'',
+                                                               'EndTime__c': '',
+                                                             'sirenum__Team__r.name': '',
+                                                             'sirenum__Site__r.name': '' ,
+                                                             'sirenum__Break_Length__c' :'',
+                                                             'TestField__c' :'',
+                                                             'IP_CandidateApproved__c' : '',
+                                                             'IP_Status__c' : '',
+                                                             'Break_from_Brekdef__c' : '',
+                                                             'Shift_Length_from_Break__c' : ''
+                                                               }"/>
+    <aura:attribute name="nameEditMode" type="boolean" default="false" />
+    <aura:attribute name="TimeEditMode" type="boolean" default="false" />
+    
+        <!--Shift query-->
+    <aura:attribute name="QueryTextBoxString" type="String"/>
+    <aura:attribute name="SendQuery1" type="String" />
+    <aura:attribute name="isOpenQuery" type="boolean" default="false" />
+    <!--Shift query-->
+    
+    <!--Table Column Start-->  
+   
+       
+
+        <td style="text-align:center" >
+                <aura:if isTrue="{!v.singleRec.sirenum__Actual_Start_Time__c==null}">
+               <div> <lightning:formattedDateTime value="{!v.singleRec.sirenum__Scheduled_Start_Time__c}" year="numeric" month="numeric" day="numeric" />
+                    </div>
+             <aura:set attribute="else">
+                 <div>
+              <lightning:formattedDateTime value="{!v.singleRec.sirenum__Actual_Start_Time__c}" year="numeric" month="numeric" day="numeric" />
+            </div>
+                 </aura:set>
+          </aura:if>
+        </td>
+        
+        <td style="text-align:center">
+            <div id="jobrole" class="slds-truncate slds-grow slds-cell-wrap">{!v.singleRec.sirenum__Team__r.Name}</div>
+        </td>
+        
+        <td style="text-align:center">
+           <div class="slds-truncate slds-grow slds-cell-wrap">{!v.singleRec.sirenum__Site__r.Name}</div> 
+        </td> 
+        <aura:if isTrue="{!and(or(v.singleRec.IP_Status__c!='Not yet submitted', v.stopedit),v.popouthour == null)}">
+         <td style="width:50%;" >
+    
+             <div  class="slds-align_absolute-center divclass">{!v.singleRec.Starttime__c}</div>
+   	     </td>
+          
+         <aura:set attribute="else">
+               <aura:if isTrue="{!and(or(v.singleRec.IP_Status__c!='Not yet submitted', v.stopedit),v.popouthour != null)}">
+         <td style="width:50%;" >
+    
+             <div  class="slds-align_absolute-center divclass">{!v.popouthour}</div>
+   	     </td>
+           <aura:set attribute="else">         
+                
+             
+                <td  style="width:80px;" ondblclick="{!c.inlineEditName}" >
+            <span style="width:80px;" class="slds-grid slds-grid_align-spread slds-align_absolute-center">
+                <!-- show input and output section based on boolean flag --> 
+                <aura:if isTrue="{!and(v.nameEditMode == false, v.popouthour != null)}">
+                     <span class="slds-truncate" title="Time">{!v.popouthour}</span>
+                    <button onclick="{!c.inlineEditName}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Time">
+                      <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button>
+                   
+                  
+                    <!-- Inline Edit Section in else case-->  
+                    <aura:set attribute="else">
+                          <aura:if isTrue="{!and(v.nameEditMode == false, v.popouthour == null)}">
+                       <span class="slds-truncate" title="Time">{!v.singleRec.Starttime__c}</span>
+                    <button onclick="{!c.inlineEditName}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Time">
+                      <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button>    
+                        <aura:set attribute="else"> 
+                          <aura:if isTrue="{!v.popouthour == null}">    
+                                  <div class="Timeinput">
+                                     <input lable="Time" tabindex="0" type="time" required="requried" onblur="{!c.closeNameBox}" min="9:00" style="position: absolute; top: 0px;width:70px; height:25px;" max="18:00" id="inputId" value="{!v.singleRec.Starttime__c}" name="{!v.singleRec.Id}" />
+                                         </div>
+                             
+                            <aura:set attribute="else"> 
+                                 <div class="Timeinput">
+                                     <input lable="Time" tabindex="0" type="time" required="requried" onblur="{!c.closeNameBox}" min="9:00" style="position: absolute; top: 0px;width:70px; height:25px;" max="18:00" id="inputId" value="{!v.popouthour}" name="{!v.singleRec.Id}" />
+                                         </div>
+                                 
+                                
+                              </aura:set>
+                              
+                              
+                            </aura:if>
+                              </aura:set>       
+                    </aura:if>
+                        
+                        
+                      
+                    </aura:set>  
+                </aura:if> 
+            </span>
+        </td>
+                   </aura:set>
+                   </aura:if>
+            </aura:set>
+    </aura:if>
+    
+    
+    <!-- End time --> 
+        <aura:if isTrue="{!and(or(v.singleRec.IP_Status__c!='Not yet submitted', v.stopedit),v.popouthour2 == null)}">
+         <td style="width:50%;" >
+    
+             <div  class="slds-align_absolute-center divclass">{!v.singleRec.EndTime__c}</div>
+   	     </td>
+          
+         <aura:set attribute="else">
+               <aura:if isTrue="{!and(or(v.singleRec.IP_Status__c!='Not yet submitted', v.stopedit),v.popouthour2 != null)}">
+         <td style="width:50%;" >
+    
+             <div  class="slds-align_absolute-center divclass">{!v.popouthour2}</div>
+   	     </td>
+           <aura:set attribute="else">         
+                
+             
+                <td  style="width:80px;" ondblclick="{!c.inlineEditTime}" >
+            <span style="width:80px;" class="slds-grid slds-grid_align-spread slds-align_absolute-center">
+                <!-- show input and output section based on boolean flag --> 
+                <aura:if isTrue="{!and(v.TimeEditMode == false, v.popouthour2 != null)}">
+                     <span class="slds-truncate" title="Time">{!v.popouthour2}</span>
+                    <button onclick="{!c.inlineEditTime}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Time">
+                      <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button>
+                   
+                  
+                    <!-- Inline Edit Section in else case-->  
+                    <aura:set attribute="else">
+                          <aura:if isTrue="{!and(v.TimeEditMode == false, v.popouthour2 == null)}">
+                       <span class="slds-truncate" title="Time">{!v.singleRec.EndTime__c}</span>
+                    <button onclick="{!c.inlineEditTime}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Time">
+                      <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button>    
+                        <aura:set attribute="else"> 
+                          <aura:if isTrue="{!v.popouthour2 == null}">    
+                                  <div class="Timeinput">
+                                     <input lable="Time" tabindex="0" type="time" required="requried" onblur="{!c.closeTimeBox}" min="9:00" style="position: absolute; top: 0px;width:70px; height:25px;" max="18:00" id="inputTime" value="{!v.singleRec.EndTime__c}" name="{!v.singleRec.Id}" />
+                                         </div>
+                             
+                            <aura:set attribute="else"> 
+                                 <div class="Timeinput">
+                                     <input lable="Time" tabindex="0" type="time" required="requried" onblur="{!c.closeTimeBox}" min="9:00" style="position: absolute; top: 0px;width:70px; height:25px;" max="18:00" id="inputTime" value="{!v.popouthour2}" name="{!v.singleRec.Id}" />
+                                         </div>
+                                 
+                                
+                              </aura:set>
+                              
+                              
+                            </aura:if>
+                              </aura:set>       
+                    </aura:if>
+                        
+                        
+                      
+                    </aura:set>  
+                </aura:if> 
+            </span>
+        </td>
+                   </aura:set>
+                   </aura:if>
+            </aura:set>
+    </aura:if>
+  
+        <td style="text-align: center; width:100px;" >
+        <div class="slds-align_absolute-center divclass">
+           <aura:if isTrue="{!v.brktime==null}">
+            {!v.singleRec.Break_Length__c}
+             <aura:set attribute="else">
+                {!v.brktime}   
+               </aura:set>
+            </aura:if>
+            </div>
+        </td>
+        <td style="text-align: center; width:100px;">
+              <div class="slds-align_absolute-center divclass">{!v.Hours}</div>
+        </td>
+        <td style="text-align:center;">
+             <aura:if isTrue="{!v.stopedit}">
+                 <div class="slds-truncate">Awaiting approval</div> 
+                  <aura:set attribute="else">
+                       <aura:if isTrue="{!v.singleRec.IP_Status__c=='Modified &#38; awaiting processing'}">
+                   <div class="slds-truncate slds-grow slds-cell-wrap modifyclass"><b>{!v.singleRec.IP_Status__c}</b></div> 
+                           <aura:set attribute="else">   
+         <div class="slds-truncate slds-grow slds-cell-wrap">{!v.singleRec.IP_Status__c}</div>
+                           </aura:set>
+                       </aura:if>
+                 </aura:set>
+            </aura:if>
+        </td>
+         <td style="text-align:center; ">
+            <aura:if isTrue="{!or(v.stopedit, v.singleRec.IP_Status__c!='Not yet submitted')}">
+             <div>
+            <lightning:button disabled="true" class="button" label="Submit" onclick="{!c.Save}" variant="success"/>
+         </div>
+           <aura:set attribute="else">
+              <div class="slds-grow slds-cell-wrap">
+                    <lightning:button label="Submit" class="Submitbutton" onclick="{!c.Save}" variant="success"/>
+       </div>   
+           </aura:set>
+         </aura:if>
+        </td>
+      
+    
+</aura:component>

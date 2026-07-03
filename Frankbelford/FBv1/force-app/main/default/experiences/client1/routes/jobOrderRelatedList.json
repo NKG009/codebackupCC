@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "e2a0d8e3-fbcc-456f-b8e8-ea0b0ede058a",
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "configurationTags" : [ ],
+  "devName" : "Job_Order_Related_List__c",
+  "id" : "a6089db4-bf17-4a8c-ae47-e147696fc27a",
+  "label" : "Job Order Related List",
+  "objectApiName" : "sirenum__JobOrder__c",
+  "routeType" : "relatedlist-a6w",
+  "type" : "route",
+  "urlPrefix" : "joborder"
+}

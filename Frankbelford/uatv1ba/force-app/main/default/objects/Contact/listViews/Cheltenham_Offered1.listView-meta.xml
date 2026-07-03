@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cheltenham_Offered1</fullName>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>FULL_NAME</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>Chelt,Gloucester</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>Offered</value>
+    </filters>
+    <label>Gloucester IWCD - Offered</label>
+    <sharedTo>
+        <role>Blue_Arrow_Edinburgh_Lloyds</role>
+    </sharedTo>
+</ListView>

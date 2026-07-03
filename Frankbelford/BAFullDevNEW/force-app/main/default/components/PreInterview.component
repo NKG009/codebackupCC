@@ -1,0 +1,328 @@
+<apex:component access="global" controller="DynamicUrl" >
+<apex:attribute type="String" name="ExpDate" description="test1"/>
+<apex:attribute type="Boolean" name="Dec" description="test2"/>
+<apex:attribute type="Boolean" name="WTR" description="test3"/>
+<apex:attribute type="String" name="con" description="test5" assignTo="{!record_Id}"/>
+<apex:attribute type="String" name="conname" description="test6"/>
+ <style>
+.linkunderline{
+    text-decoration: none;
+    color: Blue;
+}
+
+</style><html>
+<table BORDER="0" CELLSPACING="0" style="width:649px;height:1200px;background-image:url('{!URLFOR($Resource.Postpre_form_background)}');">
+<tr >
+    <td style="vertical-align:top;text-align:right;height:140px;width:190px;">
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR4-1/c.aspx" id="theLink1"><apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic1.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR5-1/c.aspx" id="theLink2"><apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic2.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR6-1/c.aspx" id="theLink3"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic3.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR7-1/c.aspx" id="theLink4"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic4.jpg')}" /></apex:outputLink>
+   
+    </td>
+      <td style="text-align:right;vertical-align:middle;height:140px;width:460px;">
+     <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR8-1/c.aspx" id="theLink5"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/logo.png')}" /> </apex:outputLink>
+    </td>
+</tr>
+<tr style="width:650px;">
+<td colspan="2" style="vertical-align:top;"><br></br>
+<table style="width:630px;">
+<tr style="height:45px;text-align:center;"><td style="text-align:center;">
+<font size="2" face="Arial" color="black"><b>Pre Interview Information Request</b></font>
+</td>
+</tr>
+<tr style="height:100px;text-align:center;"><td style="text-align:left;vertical-align:top;">
+<div style="margin-left:30px;margin-right:10px;margin-top:-10px;">
+<font size="2" face="arial" color="black">
+   
+Hi {!conname}, <br></br><br></br>
+
+Thanks for choosing Blue Arrow to assist you in finding your next role.<br></br><br></br>
+    
+As part of our onboarding process we need you to fill out the following forms. Once these have been completed we will be in touch to move to the next stage in the process. <br></br><br></br>
+<div style="font-size:13px;">
+<apex:outputLink styleClass="linkunderline" rendered="{!ExpDate = Null}" value="{!RightToWork}"
+id="theLink01">• Proof of Right to Work <br></br></apex:outputLink>    
+
+<apex:outputLink styleClass="linkunderline" rendered="{!Dec = False}" value="{!Decalartion}"
+id="theLink02">• Declarations <br></br></apex:outputLink> 
+
+<apex:outputLink styleClass="linkunderline" rendered="{!WTR = False}" value="{!WTRURL}"
+                 id="theLink03">• WTR <br></br></apex:outputLink> </div>
+
+<br></br>
+We have also attached a Key Information Document for you to review, this document sets out key information about your relationship with us, including details about pay, holiday entitlement and other benefits.<br></br><br></br>    
+Kind Regards<br></br><br></br>
+    
+The Blue Arrow Team<br></br>
+
+<apex:image height="20px" width="590px" url="{!URLFOR($Resource.PostInterviewline)}" />
+<Br></Br>
+<font size="2" face="Arial" color="black"><b>Pre Interview Feedback Survey</b></font>
+<Br></Br>
+Please consider providing feedback on the registration experience so far by filling out this short survey:
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- viewport tag is necessary for proper rendering in mobile web browsers -->
+    <meta name="viewport" content="initial-scale=1">
+    <!-- fix for windows phone native email clients that enables message to be rendered in IE mode, resulting in responsive rendering -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x-apple-disable-message-reformatting" />
+
+    <title>Impellam Template</title>
+    <style>
+        html, body {background-color:white; font-family:  sans-serif; } 
+        /*Hover effect for e-mail client*/
+        .divbox:hover, * [lang~="x-divbox"]:hover{
+            background-color: #80808024 !important;                        
+        }       
+    </style>
+    </meta>
+    </meta>
+    </meta>
+</head>
+<body leftmargin="0" marginheight="0" marginwidth="0" topmargin="0">
+<!-- Desired Survey URL in action -->
+<form id="smileys" method="GET" action="https://impellam.eu.qualtrics.com/jfe/form/SV_6hTNyEE1OVmZjBb" target="_blank">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-top:0px;">
+    <tbody>
+        <tr>
+            <td style="padding-bottom:20px;">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                    <!-- OPTION FOR VIEW IN BROWSER -->
+                    <!-- <tr>
+                        <td align="center" style="font-size: 12px;"><a href="#">View in browser</a></td>
+                    </tr> -->
+                    </tbody>
+                </table>                        
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-bottom:25px;">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                    <!--QUESTION -->
+                    <tr>
+                        <td align="left" face="arial" style="font-size: 12px;font-weight: bold;font-colour: Black">Q1 - How likely are you to recommend Blue Arrow to a friend or colleague?</td>
+                    </tr>
+                    </tbody>
+                </table>                        
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <table align="left" border="0" cellpadding="0" cellspacing="0" >
+                    <tbody>
+                    <!--LIKELY TEXT -->
+                    <tr>
+                        <td align="left" width="200" style="color:#e50b7e; font-size: 14px; font-weight: bold; width:250px;">Not at all likely</td>
+                        <td align="right" width="200" style="color:#a5cd1b; font-size: 14px; font-weight: bold; width:240px;">Extremely likely</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>   
+            <td align="center">
+                <table align="left" border="0" cellpadding="12" cellspacing="0" >
+                    <tbody>
+                    <!-- RATING -->
+                    <tr>
+                        <td align="center" width="20" style="color: gray; font-weight: 700; font-size: 14px; width:20px">0</td>
+                        <td align="center" width="20" style="color: gray; font-weight: 700; font-size: 14px; width:20px">1</td>
+                        <td align="center" width="20" style="color: gray; font-weight: 700; font-size: 14px; width:20px">2</td>
+                        <td align="center" width="20" style="color: gray; font-weight: 700; font-size: 14px; width:20px">3</td>
+                        <td align="center" width="20" style="color: gray; font-weight: 700; font-size: 14px; width:20px">4</td>
+                        <td align="center" width="20" style="color: gray; font-weight: 700; font-size: 14px; width:20px">5</td>
+                        <td align="center" width="20" style="color: gray; font-weight: 700; font-size: 14px; width:20px">6</td>
+                        <td align="center" width="20" style="color: gray; font-weight: 700; font-size: 14px; width:20px">7</td>
+                        <td align="center" width="20" style="color: gray; font-weight: 700; font-size: 14px; width:20px">8</td>
+                        <td align="center" width="20" style="color: gray; font-weight: 700; font-size: 14px; width:20px">9</td>
+                        <td align="center" width="20" style="color: gray; font-weight: 700; font-size: 14px; width:20px">10</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>               
+            <td align="center">
+                <table align="left" border="0" cellpadding="1" cellspacing="0">
+                    <tbody>
+                    <!-- SCALE IMAGE -->
+                    <tr>
+                        <td align="center">
+                            <img alt="scale_1" height="10" width="33" src="https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_40IFj8N3VsDrnLf" style="height: 16px; width:47px;">
+                        </img>
+                        </td>
+                        <td align="center">
+                            <img alt="scale_2" height="10" width="33" src="https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_79b2FlEwZBjMI2F" style="height: 16px; width:47px;">
+                        </img>
+                        </td>
+                        <td align="center">
+                            <img alt="scale_3" height="10" width="33" src="https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_4MeWDjsE0uKey1L" style="height: 16px; width:47px;">
+                        </img>
+                        </td>
+                        <td align="center">
+                            <img alt="scale_4" height="10" width="33" src="https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_cIUnmgvywQ00j3v" style="height: 16px; width:47px;">
+                        </img>
+                        </td>
+                        <td align="center">
+                            <img alt="scale_5" height="10" width="33" src="https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_5w4nMcVyLJvPo7r" style="height: 16px; width:47px;">
+                        </img>
+                        </td>
+                        <td align="center">
+                            <img alt="scale_6" height="10" width="33" src="https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_3mxQznYJegRJQJ7" style="height: 16px; width:47px;">
+                        </img>
+                        </td>
+                        <td align="center">
+                            <img alt="scale_7" height="10" width="77" src="https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_0Mt8d07uFHWWx5X" style="height: 16px; width:47px;">
+                        </img>
+                        </td>
+                        <td align="center">
+                            <img alt="scale_8" height="20" width="77" src="https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_8dCmaGTMdzGWSpf" style="height: 16px; width:47px;">
+                        </img>
+                        </td>
+                        <td align="center">
+                            <img alt="scale_9" height="20" width="77" src="https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_6unVnpjiCx4u7o9" style="height: 16px; width:47px;">
+                        </img>
+                        </td>
+                        <td align="center">
+                            <img alt="scale_10" height="20" width="77" src="https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_eD75jkX0jUAIJ1j" style="height: 16px; width:47px;">
+                        </img>
+                        </td>
+                                
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <table align="left" border="0" cellpadding="10" cellspacing="0">
+                    <tbody>
+                        <!-- SMILEYS IMAGES -->
+                        <tr>
+                            <td align="center" class="divbox" lang="x-divbox">
+                                <input type="radio" id="rate_0" name="rating" value="0" style="cursor: pointer; float: none; margin: 0px; width: 20px; top: 14px; left: 45px;">                           
+                                <label for="rate_0" style="background: url('https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_51Ikb3B1hArmZil'); height: 25px; width: 25px; cursor: pointer; display: block;background-size:cover; ">
+                                </label>
+                                </input>
+                            </td>
+                            <td align="center" class="divbox" lang="x-divbox">
+                                <input type="radio" id="rate_1" name="rating" value="1" style="cursor: pointer; float: none; margin: 0px; width: 20px; top: 14px; left: 45px;">
+                                <label for="rate_1" style="background: url('https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_71cWAv6Dne097Ct'); height: 25px; width: 25px; cursor: pointer; display: block;background-size:cover; ">
+                                </label>
+                                </input>
+                            </td>
+                            <td align="center" class="divbox" lang="x-divbox">
+                                <input type="radio" id="rate_2" name="rating" value="2" style="cursor: pointer; float: none; margin: 0px; width: 20px; top: 14px; left: 45px;">
+                                <label for="rate_2" style="background: url('https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_8ijqBp5ASjq9ecd'); height: 25px; width: 25px; cursor: pointer; display: block;background-size:cover; ">
+                                </label>
+                                </input>
+                            </td>
+                            <td align="center" class="divbox" lang="x-divbox">
+                                <input type="radio" id="rate_3" name="rating" value="3" style="cursor: pointer; float: none; margin: 0px; width: 20px; top: 14px; left: 45px;">
+                                </input>
+                                <label for="rate_3" style="background: url('https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_5bTZn1NEgunTMAR'); height: 25px; width: 25px; cursor: pointer; display: block;background-size:cover; ">
+                                </label>
+                            </td>
+                            <td align="center" class="divbox" lang="x-divbox">
+                                <input type="radio" id="rate_4" name="rating" value="4" style="cursor: pointer; float: none; margin: 0px; width: 20px; top: 14px; left: 45px;">
+                                </input>
+                                <label for="rate_4" style="background: url('https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_cxaJy6RVIpkCSyx'); height: 25px; width: 25px; cursor: pointer; display: block;background-size:cover; ">
+                                </label>
+                              
+                            </td>
+                            <td align="center" class="divbox" lang="x-divbox">
+                                <input type="radio" id="rate_5" name="rating" value="5" style="cursor: pointer; float: none; margin: 0px; width: 20px; top: 14px; left: 45px;">
+                                <label for="rate_5" style="background: url('https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_7V4jBVwjXAlqViB'); height: 25px; width: 25px; cursor: pointer; display: block;background-size:cover; ">
+                                </label>
+                                </input>
+                            </td>
+                            <td align="center" class="divbox" lang="x-divbox">
+                                <input type="radio" id="rate_6" name="rating" value="6" style="cursor: pointer; float: none; margin: 0px; width: 20px; top: 14px; left: 45px;">
+                                </input>
+                                <label for="rate_6" style="background: url('https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_1CgDnXaGkVn0MYd'); height: 25px; width: 25px; cursor: pointer; display: block;background-size:cover; ">
+                                </label>
+                               
+                            </td>
+                            <td align="center" class="divbox" lang="x-divbox">
+                                <input type="radio" id="rate_7" name="rating" value="7" style="cursor: pointer; float: none; margin: 0px; width: 20px; top: 14px; left: 45px;">
+                                <label for="rate_7" style="background: url('https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_6sN33kuGSJkvuRL'); height: 25px; width: 25px; cursor: pointer; display: block;background-size:cover; ">
+                                </label>
+                                </input>
+                            </td>
+                            <td align="center" class="divbox" lang="x-divbox">
+                                <input type="radio" id="rate_8" name="rating" value="8" style="cursor: pointer; float: none; margin: 0px; width: 20px; top: 14px; left: 45px;">
+                                <label for="rate_8" style="background: url('https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_5dTdaEQPqjEIDhH'); height: 25px; width: 25px; cursor: pointer; display: block;background-size:cover; ">
+                                </label>
+                                </input>
+                            </td>
+                            <td align="center" class="divbox" lang="x-divbox">
+                                <input type="radio" id="rate_9" name="rating" value="9" style="cursor: pointer; float: none; margin: 0px; width: 20px; top: 14px; left: 45px;">
+                                <label for="rate_9" style="background: url('https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_71cjWrOJOSgSvvn'); height: 25px; width: 25px; cursor: pointer; display: block;background-size:cover; ">
+                                </label>
+                                </input>
+                            </td>
+                            <td align="center" class="divbox" lang="x-divbox">
+                                <input type="radio" id="rate_10" name="rating" value="10" style="cursor: pointer; float: none; margin: 0px; width: 20px; top: 14px; left: 45px;">
+                                <label for="rate_10" style="background: url('https://impellam.eu.qualtrics.com/ControlPanel/Graphic.php?IM=IM_czHrpIIylGvEdbn'); height: 25px; width: 25px; cursor: pointer; display: block;background-size:cover; ">
+                                </label>
+                                </input>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" style="padding-top: 20px;">
+                <table  align="left" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <!--QUESTION2 -->
+                        <tr>
+                            <td align="left">
+                                <p style="font-size: 12px;font-weight: bold;">Q2 - What changes would Blue Arrow have to make for you to give it a higher rating?</p>
+                                <textarea name="comment" rows="3" style='width:100%'></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <br>
+                                <input type='submit' value='Submit' style="background: #e50b7e; color: white; outline: none; border: none; padding: 8px 12px; font-size: 12px;"
+                                />
+                                </br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+</form>                
+</body>
+</html>
+
+</font>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<br/><br/><br/><br/>
+<tr style="height:100px;">
+<td colspan="2" >
+<apex:image height="70px" width="230px" url="{!URLFOR($Resource.TemplatePics,'picsfolder/IIP_PLAT_19.jpg')}" />
+
+</td>
+
+</tr>
+</table>
+</html>
+
+</apex:component>

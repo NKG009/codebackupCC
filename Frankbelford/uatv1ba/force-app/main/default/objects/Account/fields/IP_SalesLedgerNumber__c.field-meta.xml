@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_SalesLedgerNumber__c</fullName>
+    <description>Billing system ID for client</description>
+    <externalId>true</externalId>
+    <inlineHelpText>This is the Sales Ledger Number for the Account</inlineHelpText>
+    <label>SL Number</label>
+    <length>10</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

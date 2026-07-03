@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Module_Name__c</fullName>
+    <label>Module Name</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cost Reduction (1M)</fullName>
+                <default>false</default>
+                <label>Cost Reduction (1M)</label>
+            </value>
+            <value>
+                <fullName>Customer Service (1M)</fullName>
+                <default>false</default>
+                <label>Customer Service (1M)</label>
+            </value>
+            <value>
+                <fullName>DCPC First Aid (1M)</fullName>
+                <default>false</default>
+                <label>DCPC First Aid (1M)</label>
+            </value>
+            <value>
+                <fullName>Depot Safety (1M)</fullName>
+                <default>false</default>
+                <label>Depot Safety (1M)</label>
+            </value>
+            <value>
+                <fullName>Driver Compliance (0.5M)</fullName>
+                <default>false</default>
+                <label>Driver Compliance (0.5M)</label>
+            </value>
+            <value>
+                <fullName>Driver Fitness and Wellbeing (0.5M)</fullName>
+                <default>false</default>
+                <label>Driver Fitness and Wellbeing (0.5M)</label>
+            </value>
+            <value>
+                <fullName>Driving Abroad (0.5M)</fullName>
+                <default>false</default>
+                <label>Driving Abroad (0.5M)</label>
+            </value>
+            <value>
+                <fullName>Eco Workshop (0.5M)</fullName>
+                <default>false</default>
+                <label>Eco Workshop (0.5M)</label>
+            </value>
+            <value>
+                <fullName>Highway Code (0.5M)</fullName>
+                <default>false</default>
+                <label>Highway Code (0.5M)</label>
+            </value>
+            <value>
+                <fullName>Mobile Phone (0.5M)</fullName>
+                <default>false</default>
+                <label>Mobile Phone (0.5M)</label>
+            </value>
+            <value>
+                <fullName>Other (0.5M)</fullName>
+                <default>false</default>
+                <label>Other (0.5M)</label>
+            </value>
+            <value>
+                <fullName>Other (1M)</fullName>
+                <default>false</default>
+                <label>Other (1M)</label>
+            </value>
+            <value>
+                <fullName>Reversing and Manoeuvring (0.5M)</fullName>
+                <default>false</default>
+                <label>Reversing and Manoeuvring (0.5M)</label>
+            </value>
+            <value>
+                <fullName>Roadside Safety – Recovery Vehicle (1M)</fullName>
+                <default>false</default>
+                <label>Roadside Safety – Recovery Vehicle (1M)</label>
+            </value>
+            <value>
+                <fullName>Safe Culture (1M)</fullName>
+                <default>false</default>
+                <label>Safe Culture (1M)</label>
+            </value>
+            <value>
+                <fullName>Safe Loading (0.5M)</fullName>
+                <default>false</default>
+                <label>Safe Loading (0.5M)</label>
+            </value>
+            <value>
+                <fullName>Tachograph and Driver Hours (0.5M)</fullName>
+                <default>false</default>
+                <label>Tachograph and Driver Hours (0.5M)</label>
+            </value>
+            <value>
+                <fullName>Theft Prevention (0.5M)</fullName>
+                <default>false</default>
+                <label>Theft Prevention (0.5M)</label>
+            </value>
+            <value>
+                <fullName>Urban (1M)</fullName>
+                <default>false</default>
+                <label>Urban (1M)</label>
+            </value>
+            <value>
+                <fullName>Vehicle Checks (0.5M)</fullName>
+                <default>false</default>
+                <label>Vehicle Checks (0.5M)</label>
+            </value>
+            <value>
+                <fullName>Winter Driving (0.5M)</fullName>
+                <default>false</default>
+                <label>Winter Driving (0.5M)</label>
+            </value>
+            <value>
+                <fullName>Smiths Training (1M)</fullName>
+                <default>false</default>
+                <label>Smiths Training (1M)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

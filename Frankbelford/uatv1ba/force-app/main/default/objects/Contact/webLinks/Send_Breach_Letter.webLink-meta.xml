@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Breach_Letter</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Send Driving Breach Letter</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/apex.js&quot;)} 
+
+var conrecord = sforce.connection.query(&quot;SELECT id,Email from Contact  where id =&apos;{!Contact.Id}&apos;&quot; );
+
+records = conrecord.getArray(&quot;records&quot;); 
+
+var email = records[0].Email; 
+
+if(email!=null)
+{
+var sendemail = confirm(&apos;A Working Hours Breach Letter used for drivers whose weekly Working Hours have exceeded 60 hours will be sent to the candidate.  Do you want to continue?&apos;);
+if(sendemail == true)
+{
+var flag = sforce.apex.execute(&quot;CandidateBreachletter&quot;,&quot;sendcandidateemail&quot;,{conID:&quot;{! 
+Contact.Id}&quot;}); 
+if(flag == &apos;true&apos;)
+{
+alert(&apos;Email sent successfully&apos;);
+window.location.reload(); 
+}
+else
+{
+alert(&apos;Error occured in sending email. Your admin has been notified with the details&apos;);
+window.location.reload(); 
+}
+}
+else
+{
+window.location.reload(); 
+}
+}
+else{
+alert(&apos;Candidate does not have an Email ID&apos;);
+window.location.reload();  
+}</url>
+</WebLink>

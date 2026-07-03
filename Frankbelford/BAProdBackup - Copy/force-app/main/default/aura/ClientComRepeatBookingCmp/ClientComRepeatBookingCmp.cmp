@@ -1,0 +1,118 @@
+<!-- FastBooking-->
+<aura:component controller="NewShiftCreationForFastBooking" implements="forceCommunity:availableForAllPageTypes,lightning:isUrlAddressable" access="global" description="ClientComRepeatBookingCmp" >
+    <!--
+    'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css',
+                          'https://use.fontawesome.com/releases/v5.3.1/css/all.css',
+    -->
+    <ltng:require styles="{!join(',',
+                          $Resource.Tjcss2+'/assets/css/main.css',
+                          $Resource.Tjcss2+'/assets/css/custom.css',
+                          $Resource.FastBooking+'/assets/css/dataTables.bootstrap.min.css',
+                          $Resource.FastBooking+'/assets/css/jquery.dataTables.min.css',
+                          $Resource.FastBooking+'/assets/css/responsive.bootstrap.min.css'
+
+                          )
+                          }"
+                  scripts="{!join(',',
+                           $Resource.Tjcss2+'/assets/js/main.min.js',
+                           $Resource.Tjcss2+'/assets/js/zoom.js',
+                               $Resource.webUI+'/assets/js/custom.js'
+                           )}"
+                  afterScriptsLoaded="{!c.scriptsLoaded}"
+    />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:flow aura:id="flowData" />
+    <aura:attribute name="siteList" type="List" access="global"/>
+    <aura:attribute name="jobSiteList" type="List" access="global"/>
+    <aura:attribute name="isOpen" type="boolean" access="global" default="false"/>
+    <aura:attribute name="message" type="String" access="global"/>
+    <aura:attribute name="startTime" type="String" access="global"/>
+    <aura:attribute name="isSiteEmpty" type="boolean" access="global"/>
+    <aura:attribute name="isJobRoleEmpty" type="boolean" access="global"/>
+    <aura:attribute name="isStaffEmpty" type="boolean" access="global"/>
+    <aura:attribute name="isStartDateEmpty" type="boolean" access="global"/>
+    <aura:attribute name="isEndDateEmpty" type="boolean" access="global"/>
+    <aura:attribute name="isStartTimeEmpty" type="boolean" access="global"/>
+    <aura:attribute name="isEndTimeEmpty" type="boolean" access="global"/>
+    <aura:attribute name="userInfo" type="User" access="global"/>
+    <aura:attribute name="site" type="String" />
+    <aura:attribute name="isButtonDisable" type="boolean" default="true" access="global"/>
+
+    <div class="timesheet-section__right-part">
+        <ol class="breadcrumb">
+            <li><a href="javascript:void(0)" onclick="{!c.dashboardNavigate}" title="Dashboard">Dashboard</a></li>
+            <li>My Shifts</li>
+            <li class="active">Repeat Booking</li>
+        </ol>
+        <div class="search-section vacancies-section">
+            <p>Request a repeat booking for any job role that we have recently supplied to you.</p>
+            <form class="row">
+                <div class="col-sm-12" style="margin-bottom: 2rem !important;">
+                    <label class="global-label mainLoginInput" style="margin-bottom: 0rem !important">Job Role</label>
+                    <lightning:select name="jobRoleSelect" label="" aura:id="jobRoleId"  tabindex = "-98">
+                        <aura:iteration items="{!v.jobSiteList}" var="item">
+                            <option text="{!item.label}" value="{!item.value}"/>
+                        </aura:iteration>
+                    </lightning:select>
+
+                </div>
+                <div  class="col-sm-12"><label></label></div>
+                <div class="col-sm-6">
+                    <label class="global-label ">Start Date</label>
+                    <input type="text" class="global-input datetimepicker mainLoginInput" name="Date" id="startDate" placeholder="DD/MM/YY" maxlength="8" onclick="{!c.handleOnClick}"
+                           onkeypress="{!c.handleKeyPress}" onmouseover="{!c.handleMouseEnter}" onmouseout="{!c.handleMouseLeave}"/>
+                </div>
+                <div class="col-sm-6">
+                    <label class="global-label">End Date</label>
+                    <input type="text" class="global-input datetimepicker mainLoginInput" name="Date" id="endDate" placeholder="DD/MM/YY" maxlength="8" onclick="{!c.handleOnClick}"
+                           onkeypress="{!c.handleKeyPress}" onmouseover="{!c.handleMouseEnter}" onmouseout="{!c.handleMouseLeave}"/>
+                </div>
+                <div class="col-sm-6">
+                    <label class="global-label">Start Time</label>
+                    <input id="startTime" type="time" name="startTime" label="Start time" variant = "label-hidden" class="selectpickercls mainLoginInput" value="00:00"/>
+                </div>
+                <div class="col-sm-6">
+                    <label class="global-label">End Time</label>
+                    <input id="endTime" type="time" name="endTime" label="End Time" variant = "label-hidden" class="selectpickercls mainLoginInput" value="00:00"/>
+                </div>
+                <div class="col-sm-6">
+                    <label class="global-label">No. of Required Staff</label>
+                    <input type="number" aura:id="requiredStaff" class="global-input-box mainLoginInput" name="No. of Required Staff" id="requiredStaff" pattern="[1-9]{1}[0-9]{9}" placeholder="No. of Required Staff" min="1" max="500" />
+                </div>
+                <div class="col-sm-6">
+                    <label class="global-label">Invoice PO (Optional)</label>
+                    <input type="text" aura:id="InvoicePO" class="global-input mainLoginInput" name="Invoice PO" id="InvoicePO"  placeholder="Invoice PO"/>
+                </div>
+                <div class="col-sm-12 text-right">
+                                <span class="edit_action popup-btn" data-toggle="modal" data-target="#bookedTemp-popup" id="updateSitebtnId" >
+                                    <lightning:button variant="success" label="Submit" title="Submit" class="action-button accept" onclick="{!c.createNewShift}" />
+                                </span>
+                    <button type="reset" class="action-button decline">Clear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <aura:if isTrue="{!v.isOpen}">
+        <div role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
+                        <b>×</b>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="header" class="slds-text-heading_medium slds-hyphenate">Info</h2>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <p> {!v.message}
+                    </p>
+                </div>
+                <div class="slds-modal__footer">
+                    <button class="slds-button slds-button_brand" onclick="{!c.closeModel}" >Close</button>
+                </div>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </aura:if>
+</aura:component>

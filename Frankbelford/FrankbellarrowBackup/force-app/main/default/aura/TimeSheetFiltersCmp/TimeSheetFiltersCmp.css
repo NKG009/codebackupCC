@@ -1,0 +1,25 @@
+.THIS.field input{
+    width: 140px;
+}
+.THIS.siteSelect {
+    padding-left: 15px;
+    width:120px;
+}
+.THIS.searchbutton {
+    padding-bottom: 14px;
+}
+.THIS .Srchbutton{
+    color : white;
+     background-color: #a8cd1b;
+    border-color: #a8cd1b;
+}
+.THIS .Srchbutton:hover{
+    color : white;
+     background-color: #96aa4b;
+    border-color: #96aa4b;
+}
+.THIS .headingdetails{
+     font-family: Arial;
+     color : #009ee3;
+    
+}

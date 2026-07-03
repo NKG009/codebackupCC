@@ -1,0 +1,50 @@
+@import "c/portalV2CSSLibrary";
+:host {
+    --sds-c-checkbox-color-background-checked: #029de4;
+    --sds-c-checkbox-mark-color-foreground: #ffffff;
+    --sds-c-button-brand-color-background: #029de4;
+    --sds-c-button-brand-color-background-hover: #029de4;
+    --sds-c-button-brand-color-border: #029de4;
+    --sds-c-button-brand-color-border-hover: #029de4;
+    --sds-c-button-outline-brand-color-border: #029de4;
+    --grey-bg: #f9f9f9;
+  }
+
+  .Internal {
+    background-color: #d1eaff;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+    text-align: right;
+    width: fit-content;
+    max-width: 75%; 
+    float: right;
+    clear: both;
+    word-wrap: break-word;
+    
+    
+  }
+  
+  .External{
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+    text-align: left;
+    float: left; /* Align the whole div to the right */
+    clear: both;
+    width: fit-content;
+    max-width: 75%; /* Set a maximum width to prevent too wide bubbles */
+    word-wrap: break-word; 
+  }
+  
+  .message-input-container {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    bottom: 0;
+    background-color: white; 
+    width: 100%;
+    padding:1rem;
+    padding-top:0;
+  }

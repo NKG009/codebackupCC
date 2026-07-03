@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "bd386171-9471-4af0-ab5f-91177c9504f7",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "COBFlex__c",
+  "id" : "b90f825b-3b9f-4fcc-9531-cf352c595162",
+  "label" : "COBFlex",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-cobflex",
+  "type" : "route",
+  "urlPrefix" : "cobflex"
+}

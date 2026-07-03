@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "9921034e-d287-44f4-bafc-1cbd832168f4",
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "configurationTags" : [ ],
+  "devName" : "Shift_Approval_vms__c",
+  "id" : "479c7756-c784-4b81-9308-a873af702540",
+  "label" : "Shift Approval vms",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-shift-approval-vms",
+  "type" : "route",
+  "urlPrefix" : "shift-approval-vms"
+}

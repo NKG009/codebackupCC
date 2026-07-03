@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1287_Active_Candidates</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>Application_Completed_Date__c</columns>
+    <columns>Registration_Started__c</columns>
+    <columns>PORTW_Verification_Date__c</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>KID_Acknowledgement__c</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>Person_Status__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>equals</operation>
+        <value>1287,1062</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>ts2__Date_Available__c</field>
+        <operation>equals</operation>
+        <value>1/1/2023</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>IP_Alias__c</field>
+        <operation>equals</operation>
+        <value>SPAUL</value>
+    </filters>
+    <label>1287 Active Candidates</label>
+</ListView>

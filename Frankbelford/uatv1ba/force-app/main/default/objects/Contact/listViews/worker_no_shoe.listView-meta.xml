@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>worker_no_shoe</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Last_No_Show_Cancelled_Shift__c</columns>
+    <columns>No_Show_Shifts__c</columns>
+    <columns>No_Show_Cancelled_Shifts__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Last_No_Show_Cancelled_Shift__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <label>worker no show/cancelled by worker</label>
+</ListView>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "052746b9-2b33-4e9d-bf08-ada8aea6dfff",
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "configurationTags" : [ ],
+  "devName" : "My_Job_Order__c",
+  "id" : "80ea412b-690f-458b-be02-0cc938b3a979",
+  "label" : "My Job Order",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-my-job-order",
+  "type" : "route",
+  "urlPrefix" : "my-job-order"
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Furlough_untick</fullName>
+    <active>true</active>
+    <errorConditionFormula>And(
+ISPICKVAL(Person_Status__c,&quot;Inactive&quot;),
+ischanged(Furlough__c),
+Furlough__c = FALSE)</errorConditionFormula>
+    <errorDisplayField>Person_Status__c</errorDisplayField>
+    <errorMessage>You cannot un-check Furloughed if the candidate is inactive, please change the status to Active</errorMessage>
+</ValidationRule>

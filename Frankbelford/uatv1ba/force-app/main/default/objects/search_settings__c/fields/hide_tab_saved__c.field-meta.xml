@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>hide_tab_saved__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>When selected, this setting will hide the Saved Sub-Tab within the Advanced Contact Search feature.  By Default, this setting is disabled and will show the Saved Tab.</description>
+    <inlineHelpText>When selected, this setting will hide the Saved Sub-Tab within the Advanced Contact Search feature.  By Default, this setting is disabled and will show the Saved Tab.</inlineHelpText>
+    <label>Hide Tab Saved</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

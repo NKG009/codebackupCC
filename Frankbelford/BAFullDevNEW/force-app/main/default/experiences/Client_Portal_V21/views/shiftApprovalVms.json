@@ -1,0 +1,46 @@
+{
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "9921034e-d287-44f4-bafc-1cbd832168f4",
+  "label" : "Shift Approval vms",
+  "regions" : [ {
+    "id" : "b7c2b660-23e0-41f5-81bd-069cbcc353e3",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2MyShiftsVmsClient",
+      "id" : "1ba6d03d-2a5e-41df-9eef-132127dd183f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9ce8ac01-220a-4fe7-8803-53f15dbd73ef",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "f18de9bf-9e17-46c8-849b-6367cce465e1",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Shift Approval vms"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "aadbf744-e286-4635-bad9-393170f927ed",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "034a9554-360f-4563-8ef7-a2dadaa83576",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-shift-approval-vms"
+}

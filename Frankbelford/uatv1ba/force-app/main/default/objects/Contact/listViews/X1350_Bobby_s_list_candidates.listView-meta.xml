@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1350_Bobby_s_list_candidates</fullName>
+    <columns>Owner__c</columns>
+    <columns>Person_Status__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>IP_CategoryOfWorkString__c</columns>
+    <columns>IP_CategoryOfWorkFormula__c</columns>
+    <columns>ts2__People_Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>Owner__c</field>
+        <operation>equals</operation>
+        <value>wayne furmage,anna Sullivan,cvill,glung,shods</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Inactive</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>notContain</operation>
+        <value>Unite</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>equals</operation>
+        <value>Catering</value>
+    </filters>
+    <label>1350 Bobby&apos;s list candidates</label>
+    <sharedTo>
+        <roleAndSubordinates>Blue_Arrow_Newbury_Perm_hub</roleAndSubordinates>
+    </sharedTo>
+</ListView>

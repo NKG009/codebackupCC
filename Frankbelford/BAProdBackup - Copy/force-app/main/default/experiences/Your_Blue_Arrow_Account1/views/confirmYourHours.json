@@ -1,0 +1,57 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "70283f77-7443-45ac-9c95-9c6dc6d7ea53",
+  "label" : "ConfirmYourHours",
+  "regions" : [ {
+    "id" : "fb757f38-8083-4044-923b-1b0660c6399d",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "Candidate_Portal_Confirm_Shifts_v2"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "0f245e0d-6b78-4fce-9a32-67356f3fc46c",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "111a09a5-20a6-4375-a8f7-06dbf349d940",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "eabfd31f-3f56-46ec-9864-e6c83d5fde8c",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "ConfirmYourHours"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "85633126-21da-425c-9cd1-04075802a974",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "21cde0a6-ed17-417f-81d1-19b6d77b337d",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "id" : "f1f4d298-8f3c-46f2-85d9-5f91ad4b5f36",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "a6e001d7-7d33-46cc-83ec-122c9431d83e",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-confirmyourhours"
+}

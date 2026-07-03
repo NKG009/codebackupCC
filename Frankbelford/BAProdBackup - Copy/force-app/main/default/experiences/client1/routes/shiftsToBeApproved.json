@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "952571b7-c22a-4ad5-96f7-0996af42e934",
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "configurationTags" : [ ],
+  "devName" : "Shifts_to_be_approved__c",
+  "id" : "c004754b-1b5e-4a8d-be06-02219e44d3a8",
+  "label" : "Shifts to be approved",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-shifts-to-be-approved",
+  "type" : "route",
+  "urlPrefix" : "shifts-to-be-approved"
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Five_Line_WTR</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( OR( NOT( ISBLANK( IP_PreAWRWTRValue__c ) ),NOT( ISBLANK(  IP_PostAWRWTRValue__c  ) ) ),(TEXT( IP_InvoicingMethod__c )=&quot;Standard&quot;))</errorConditionFormula>
+    <errorMessage>&apos;Pre and Post WTR Percentage&apos; fields can only be entered if the &apos;Invoice Type&apos; is set up as &apos;Hourly Commission&apos; or &apos;Hourly Percentage&apos;.</errorMessage>
+</ValidationRule>

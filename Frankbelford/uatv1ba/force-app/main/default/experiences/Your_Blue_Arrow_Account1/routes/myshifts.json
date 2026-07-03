@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "69384224-1d1e-4568-8cea-ced870392e49",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "Myshifts__c",
+  "id" : "30fabfc4-dfe5-4646-8639-4a6f83928efb",
+  "label" : "Myshifts",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-myshifts",
+  "type" : "route",
+  "urlPrefix" : "myshifts"
+}

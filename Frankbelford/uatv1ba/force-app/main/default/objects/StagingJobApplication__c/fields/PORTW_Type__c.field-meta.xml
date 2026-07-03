@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PORTW_Type__c</fullName>
+    <label>PORTW Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>British Passport</fullName>
+                <default>false</default>
+                <label>British Passport</label>
+            </value>
+            <value>
+                <fullName>British Birth / Adoption Certificate</fullName>
+                <default>false</default>
+                <label>British Birth / Adoption Certificate</label>
+            </value>
+            <value>
+                <fullName>British Certificate of Naturalisation</fullName>
+                <default>false</default>
+                <label>British Certificate of Naturalisation</label>
+            </value>
+            <value>
+                <fullName>Irish Passport</fullName>
+                <default>false</default>
+                <label>Irish Passport</label>
+            </value>
+            <value>
+                <fullName>Irish Passport Card</fullName>
+                <default>false</default>
+                <label>Irish Passport Card</label>
+            </value>
+            <value>
+                <fullName>Irish Birth / Adoption Certificate</fullName>
+                <default>false</default>
+                <label>Irish Birth / Adoption Certificate</label>
+            </value>
+            <value>
+                <fullName>Biometric Residence Permit / Card - No Time Limit</fullName>
+                <default>false</default>
+                <label>Biometric Residence Permit / Card - No Time Limit</label>
+            </value>
+            <value>
+                <fullName>Biometric Residence Permit / Card - Time Limit</fullName>
+                <default>false</default>
+                <label>Biometric Residence Permit / Card - Time Limit</label>
+            </value>
+            <value>
+                <fullName>Certificate of Application / Application Registration Card plus ECS Check - Time Limited</fullName>
+                <default>false</default>
+                <label>Certificate of Application / Application Registration Card plus ECS Check - Time Limited</label>
+            </value>
+            <value>
+                <fullName>Crown Dependency Letter plus ECS Check - No Time Limit</fullName>
+                <default>false</default>
+                <label>Crown Dependency Letter plus ECS Check - No Time Limit</label>
+            </value>
+            <value>
+                <fullName>Crown Dependency Letter plus ECS Check - Time Limit</fullName>
+                <default>false</default>
+                <label>Crown Dependency Letter plus ECS Check - Time Limit</label>
+            </value>
+            <value>
+                <fullName>ECS Check - Time Limit</fullName>
+                <default>false</default>
+                <label>ECS Check - Time Limit</label>
+            </value>
+            <value>
+                <fullName>EUSS Family - No Time Limited</fullName>
+                <default>false</default>
+                <label>EUSS Family - No Time Limited</label>
+            </value>
+            <value>
+                <fullName>EUSS Family - Time Limited</fullName>
+                <default>false</default>
+                <label>EUSS Family - Time Limited</label>
+            </value>
+            <value>
+                <fullName>Frontier Worker Permit - Time Limited</fullName>
+                <default>false</default>
+                <label>Frontier Worker Permit - Time Limited</label>
+            </value>
+            <value>
+                <fullName>Immigration Status Document - No Time Limit</fullName>
+                <default>false</default>
+                <label>Immigration Status Document - No Time Limit</label>
+            </value>
+            <value>
+                <fullName>Immigration Status Document - Time Limit</fullName>
+                <default>false</default>
+                <label>Immigration Status Document - Time Limit</label>
+            </value>
+            <value>
+                <fullName>Online Right To Work Check - No Time Limit</fullName>
+                <default>false</default>
+                <label>Online Right To Work Check - No Time Limit</label>
+            </value>
+            <value>
+                <fullName>Online Right To Work Check - Time Limit</fullName>
+                <default>false</default>
+                <label>Online Right To Work Check - Time Limit</label>
+            </value>
+            <value>
+                <fullName>Passport with Visa - No Time Limit</fullName>
+                <default>false</default>
+                <label>Passport with Visa - No Time Limit</label>
+            </value>
+            <value>
+                <fullName>Passport with Visa - Time Limit</fullName>
+                <default>false</default>
+                <label>Passport with Visa - Time Limit</label>
+            </value>
+            <value>
+                <fullName>(A1) UK / EEA Passport</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>(A1) UK / EEA Passport</label>
+            </value>
+            <value>
+                <fullName>(A3) Passport or National identity card, issued by EEA Agreement State</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>(A3) Passport or National identity card, issued by EEA Agreement State</label>
+            </value>
+            <value>
+                <fullName>(A4) UK residence permit</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>(A4) UK residence permit</label>
+            </value>
+            <value>
+                <fullName>(A6) Passport or other Travel doc. showing indefinite leave to enter/ remain in UK</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>(A6) Passport or other Travel doc. showing indefinite leave to enter/ remain in UK</label>
+            </value>
+            <value>
+                <fullName>(A8) Registration card showing entitlement to take employment in UK</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>(A8) Registration card showing entitlement to take employment in UK</label>
+            </value>
+            <value>
+                <fullName>NI NO. + (B) birth certificate issues in UK</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NI NO. + (B) birth certificate issues in UK</label>
+            </value>
+            <value>
+                <fullName>NI NO. + (C) birth certificate issues in the Channel Islands, Isle of Man, Ireland</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NI NO. + (C) birth certificate issues in the Channel Islands, Isle of Man, Ireland</label>
+            </value>
+            <value>
+                <fullName>NI NO. + (D) certificate of registration or naturalization as a British Citizen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NI NO. + (D) certificate of registration or naturalization as a British Citizen</label>
+            </value>
+            <value>
+                <fullName>NI NO. + (E) letter issued by Home Office granting Indefinite Leave to enter or Remain in the UK</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NI NO. + (E) letter issued by Home Office granting Indefinite Leave to enter or Remain in the UK</label>
+            </value>
+            <value>
+                <fullName>NI NO. + (F) immigration status doc issued by Home Office and endorsed with UK residence.</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NI NO. + (F) immigration status doc issued by Home Office and endorsed with UK residence.</label>
+            </value>
+            <value>
+                <fullName>NI NO. + (G) letter issues by Home Office indicating subsisting leave to remain + work</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NI NO. + (G) letter issues by Home Office indicating subsisting leave to remain + work</label>
+            </value>
+            <value>
+                <fullName>Work Permit + (I) passport or other Travel doc. showing current Leave to Enter/Remain in UK</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Work Permit + (I) passport or other Travel doc. showing current Leave to Enter/Remain in UK</label>
+            </value>
+            <value>
+                <fullName>Work Permit + (J) letter issues by Home Office showing current Leave to Enter/Remain in UK</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Work Permit + (J) letter issues by Home Office showing current Leave to Enter/Remain in UK</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

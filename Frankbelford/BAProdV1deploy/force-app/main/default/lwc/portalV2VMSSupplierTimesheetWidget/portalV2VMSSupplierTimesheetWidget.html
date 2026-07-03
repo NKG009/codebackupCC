@@ -1,0 +1,30 @@
+<template>
+      <!-- *****************************JOb Order***************************************-->
+      <div class="card blue-arrow-primary" >
+        <!-- Loading -->
+        <div if:true={loading} class="full-height slds-size_1-of-1 slds-align_absolute-center">
+          <div class="spinner">
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+          </div>
+        </div>
+        <!-- Body -->
+        <div if:false={loading} class="slds-var-m-horizontal_x-large slds-grid slds-grid_vertical grid_align-vertical-spread full-height ">
+          <div class="top-bar">
+            <h2 class="header-text slds-var-p-top_large font-colour-white">
+              Timesheets
+            </h2>
+          </div>
+          <div class="slds-grid slds-grid_align-spread slds-var-m-bottom_large">
+            <!--div class="">
+              <h1 class="indicator-number font-colour-white">{openJobOrders}</h1>
+              <p class="font-colour-white">All Open Job Orders</p>
+            </div-->
+            <div class="slds-grid" if:false={hideNavButton}>
+              <lightning-button class="slds-align-bottom font-blue-arrow-primary" label="Go to Timesheets"
+                onclick={navigate}></lightning-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+</template>

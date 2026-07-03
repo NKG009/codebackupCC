@@ -1,0 +1,66 @@
+{
+  "appPageId" : "6cf45250-dd45-4f57-aa5d-84e94e3c25f8",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "94d9f9b6-c51e-4e03-81b8-bce88f4d2bee",
+  "label" : "Job Order Detail",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "forceCommunity:recordHeadline",
+      "id" : "250741f7-3594-4eb7-9aba-2c273deeeb0d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "60ca35ca-edb2-4642-ab72-00426e120471",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2MyJobOrderDetailPage",
+      "id" : "5e659930-823c-4014-86c7-ff3a2f6decd0",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6014b326-5ee5-47aa-b5f6-87e78eb77e6c",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"display: flex; flex-direction: row; justify-content: space-between;\">\n    <p>© Blue Arrow, All rights reserved 2022.</p>\n    <p>Registered Address: 33 Soho Square, London, England, W1D 3QU. Company No: 641659</p>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "d80220a3-c4f5-475f-a057-370784995ff2",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "74481976-0c96-4336-aa23-f1488fcfbdeb",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "{!Record._Object}: {!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "0d5ee7d8-45c6-4dad-b7e6-950d065c483a",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f9f09090-aadf-4ce2-bc4f-2580c69be863",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "d1VXNxyzzGmpNOmN5wt8zoMCNGnDgO",
+  "type" : "view",
+  "viewType" : "detail-a6w"
+}

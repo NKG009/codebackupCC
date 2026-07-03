@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hannah_Tonbridge_Sevenoaks_pipeline</fullName>
+    <columns>CONTACT.LAST_UPDATE</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>No_Show_Shifts__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>TN</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Pending</value>
+    </filters>
+    <filters>
+        <field>Missing_Compliance_Details__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>IP_MissingPayrollDetail__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>equals</operation>
+        <value>Catering</value>
+    </filters>
+    <label>Hannah Tonbridge / Sevenoaks pipeline</label>
+</ListView>

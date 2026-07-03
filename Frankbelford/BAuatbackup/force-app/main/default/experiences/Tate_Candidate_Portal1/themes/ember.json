@@ -1,0 +1,274 @@
+{
+  "activeBrandingSetId" : "a5a55389-4e2d-4f43-a492-7e9d23d071ce",
+  "customCSS" : ".salesforceIdentityLoginBody2 .cCenterPanel {\n    border-radius: 6px;\n\t-webkit-box-shadow: 0 10px 50px 0 rgba(0,0,0,0.16);\n\t-moz-box-shadow: 0 10px 50px 0 rgba(0,0,0,0.16);\n\tbox-shadow: 0 10px 50px 0 rgba(0,0,0,0.16);\n    max-width: 390px !important;\n    min-width: 360px !important;\n    padding: 32px;\n}\n.salesforceIdentityLoginBody2 .cCenterPanel:before {\n    background-color: transparent !important;\n}\n.salesforceIdentityLoginBody2 .uiButton,\n.salesforceIdentityForgotPassword2 .uiButton {\n    width: 100%;\n    margin-bottom: 5px;\n    color: #fff;\n    background-color: #232323 !important;\n    display: inline-block;\n    text-align: center;\n    vertical-align: middle;\n    border: 1px solid #232323 !important;\n    border-radius: 4px;\n    font-size: 16px;\n    font-family: 'Open Sans', sans-serif;\n    font-weight: 400 !important;\n    line-height: 1.42857143;\n    border-radius: 2px;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    text-transform: uppercase;\n    letter-spacing: 2px;\n    transition: ease 0.3s background-color, ease 0.3s border;\n}\n\n.salesforceIdentityLoginBody2 .inputContainer:focus-within {\n\tborder: 3px solid #232323;\n}\n\n.salesforceIdentityLoginBody2 .uiButton:hover,\n.salesforceIdentityForgotPassword2 .uiButton:hover {\n\tbackground-color: #fff !important;\n    color: #232323 !important;\n}\n\n.salesforceIdentityLoginForm2 .uiButton:hover .label,\n.salesforceIdentityForgotPassword2 .uiButton:hover .label {\n    color: #232323 !important;\n}\n\n.forceCommunitySection .cb-section_column:only-child {\n    padding: 0 !important;\n}\n.forceCommunitySection .cb-section_row {\n    max-width: 100% !important;\n}\n\n.salesforceIdentityLoginBody2 h1, \n.salesforceIdentityLoginBody2 p {\n\tfont-family: 'Open Sans', sans-serif;\n}\n\n.salesforceIdentityLoginBody2 h1 {\n    font-size: 25px !important; \n    font-weight: 600;\n    letter-spacing: -1px;\n}\n\n.salesforceIdentityLoginBody2 p {\n    font-size: 16px;\n    font-weight: 400;\n}\n\n.salesforceIdentityLoginForm2 .inputContainer,\n.salesforceIdentityForgotPassword2 .inputContainer {\n    background-color: #F4F8F7 !important;\n    border: 0px !important;\n    border-radius: 4px !important;\n\tcolor: #6D6D6D !important;\n    height: 46px !important;\n}\n\n.salesforceIdentityLoginForm2 .inputBox,\n.salesforceIdentityForgotPassword2 .inputContainer .inputBox {\n\tbackground-color: #F4F8F7 !important;\n    margin-top: 0px !important;\n    width: 90% !important;\n}\n\n.salesforceIdentityLoginForm2 a,\n.salesforceIdentityEmployeeLoginLink2.employeeLoginLink a.inverseTextColor,\n.forceCommunityRichText a {\n\tcolor: #005FB2 !important;\n    display: block;\n    font-size: 16px;\n    text-align: center;\n}\n\n.salesforceIdentityLoginForm2 a:hover,\n.salesforceIdentityEmployeeLoginLink2.employeeLoginLink a.inverseTextColor:hover,\n.forceCommunityRichText a:hover {\n    color: #004989 !important;\n\ttext-decoration: underline !important;\n}\n\n.salesforceIdentityForgotPassword2 .inputIcon {\nmargin-top: -3px;    \n}\n\n.salesforceIdentityLoginForm2 .inputIcon {\n    margin-top: 3px;\n}",
+  "developerName" : "ember",
+  "id" : "03fe778e-28f7-424c-a7b8-8994dc7702e1",
+  "label" : "Ember",
+  "layouts" : {
+    "Inner" : "b18fbcf1-e47e-4e7d-85c0-0463bbabb7fb",
+    "Login" : "02a86acd-9689-4aca-8bc5-80ae29b7c5db",
+    "ServiceNotAvailable" : "19df749a-faae-4fd0-a500-7eb8a4ab2887"
+  },
+  "type" : "theme",
+  "views" : [ {
+    "componentAttributes" : { },
+    "componentName" : "salesforceIdentity:loginBody2",
+    "id" : "02a86acd-9689-4aca-8bc5-80ae29b7c5db",
+    "label" : "Login",
+    "regions" : [ {
+      "id" : "4418847d-c56b-41a8-86ae-d0cb1471b544",
+      "regionName" : "header",
+      "type" : "region"
+    }, {
+      "id" : "413bd6c2-5050-407d-8dd3-4fc8c1e1e77e",
+      "regionName" : "content",
+      "type" : "region"
+    }, {
+      "id" : "416f3375-cc08-487b-95c7-898651306c72",
+      "regionName" : "footer",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  }, {
+    "componentAttributes" : {
+      "fixedPageWidth" : 978,
+      "headerBgColor" : "rgba(255, 255, 255, 0.8)",
+      "isHeaderPinned" : false,
+      "isHeroUnderHeader" : false,
+      "isPageWidthFixed" : true,
+      "showHeader" : true,
+      "showHero" : false
+    },
+    "componentName" : "siteforce:themeLayoutStarter",
+    "id" : "b18fbcf1-e47e-4e7d-85c0-0463bbabb7fb",
+    "label" : "Default",
+    "regions" : [ {
+      "components" : [ {
+        "componentAttributes" : {
+          "background" : "background: rgb(237,248,245)",
+          "backgroundOverlayColor" : "rgba(0, 0, 0, 0.3)",
+          "borderBottomColor" : "rgba(66, 181, 166, 0.7)",
+          "borderTopColor" : "rgba(66, 181, 166, 0.76)",
+          "bottomRowHeight" : 5,
+          "bottomRowOverlayColor" : "rgb(66, 181, 166)",
+          "containHeader" : true,
+          "containHeaderWidth" : 978,
+          "dropdownBackgroundColor" : "rgb(255, 255, 255)",
+          "dropdownBackgroundHoverColor" : "",
+          "dropdownBorderColor" : "rgb(240, 240, 240)",
+          "dropdownTextColor" : "",
+          "dropdownTextHoverColor" : "",
+          "iconLinkColor" : "rgb(255, 255, 255)",
+          "iconLinkHoverColor" : "rgba(255, 255, 255, 0.9)",
+          "iconLinkTextShadowColor" : "rgba(0, 0, 0, 0.5)",
+          "linkActiveBorderColor" : "rgb(61, 56, 60)",
+          "linkColor" : "rgb(255, 255, 255)",
+          "linkHoverColor" : "rgba(255, 255, 255, 0.9)",
+          "linkTextShadowColor" : "rgba(0, 0, 0, 0.5)",
+          "logoWidth" : 100,
+          "searchPosition" : "right",
+          "searchStyle" : "expanded",
+          "showAppLauncher" : false,
+          "showNotifications" : false,
+          "showProfileMenu" : true,
+          "showSearch" : false,
+          "topRowHeight" : 14
+        },
+        "componentName" : "forceCommunity:themeHeaderStacked",
+        "id" : "a3b2672f-b1aa-435e-9c2f-19e173809078",
+        "regions" : [ {
+          "components" : [ {
+            "componentAttributes" : {
+              "buttonBackgroundColor" : "",
+              "buttonBackgroundHoverColor" : "",
+              "buttonBorderColor" : "rgba(0, 0, 0, 0)",
+              "buttonBorderRadius" : 4,
+              "buttonText" : "Log in",
+              "buttonTextColor" : "",
+              "buttonTextHoverColor" : "",
+              "customizableUserProfileMenuEditor" : "Default_User_Profile_Menu2",
+              "menuStyleSettings" : "{\"selectedMenuStyleSetting\":\"iconAndName\",\"selectedIconSetting\":\"userAvatar\",\"includeCompanyName\":false,\"selectedTextOrientationSetting\":\"right\"}"
+            },
+            "componentName" : "forceCommunity:customizableUserProfileMenu",
+            "id" : "c451b41d-1159-4a23-9807-61e0c21b727d",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "77e54510-8aff-4eb9-885d-f948ce9e1a29",
+          "regionName" : "themeHeaderProfileMenu",
+          "type" : "region"
+        }, {
+          "components" : [ {
+            "componentAttributes" : {
+              "backgroundColor" : "rgb(255, 255, 255)",
+              "borderColor" : "rgba(0, 15, 89, 0.5)",
+              "borderRadius" : 4,
+              "borderStyle" : "outline",
+              "buttonColor" : "",
+              "buttonHoverColor" : "",
+              "crossObjectTypeaheadApiNames" : "",
+              "iconColor" : "rgba(0, 0, 0, 0.8)",
+              "placeholderText" : "Search...",
+              "placeholderTextColor" : "rgba(0, 0, 0, 0.6)",
+              "showSearchButton" : false,
+              "textColor" : "rgba(0, 0, 0, 0.8)",
+              "typeaheadResultMax" : 5,
+              "useTypeahead" : true
+            },
+            "componentName" : "forceCommunity:themeSearch",
+            "id" : "467bc7bd-f5da-475c-8f9f-7008cf8e3c73",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "5a5adb3f-4690-4ee0-8010-304fe17e36e2",
+          "regionName" : "search",
+          "type" : "region"
+        }, {
+          "components" : [ {
+            "componentAttributes" : {
+              "navAlignment" : "left",
+              "navItemThreshold" : 7,
+              "navigationMenuEditorRefresh" : "Default_Navigation7"
+            },
+            "componentName" : "forceCommunity:themeNav",
+            "id" : "85a07b44-de3f-4c78-b5e4-9b790a6e6ecb",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "fda40f65-52fa-41ab-a1f1-9c581386549c",
+          "regionName" : "nav",
+          "type" : "region"
+        }, {
+          "id" : "af679c04-c2d5-426a-ae2f-5781ff3dbcf3",
+          "regionName" : "cartIcon",
+          "type" : "region"
+        } ],
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "250fc7d3-909f-41ca-835d-a758957096bb",
+      "regionName" : "themeHeader",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "bgImage" : "background: rgb(241,241,241)",
+          "bgOverlayColor" : "rgba(0, 0, 0, 0.2)",
+          "captionText" : "Caption Content",
+          "captionTextColor" : "rgba(0, 0, 0, 0.8)",
+          "captionTextShadowColor" : "rgba(0, 0, 0, 0)",
+          "contentAlignment" : "center",
+          "contentWidth" : 45,
+          "ctaBtnOneBgColor" : "",
+          "ctaBtnOneBgHoverColor" : "",
+          "ctaBtnOneBorderColor" : "rgba(0, 0, 0, 0)",
+          "ctaBtnOneOpenNewTab" : false,
+          "ctaBtnOneText" : "Primary",
+          "ctaBtnOneTextColor" : "",
+          "ctaBtnOneTextHoverColor" : "",
+          "ctaBtnOneUrl" : "",
+          "ctaBtnRadius" : 4,
+          "ctaBtnTwoBgColor" : "rgba(255, 255, 255, 0)",
+          "ctaBtnTwoBgHoverColor" : "rgba(255, 255, 255, 0.9)",
+          "ctaBtnTwoBorderColor" : "rgba(0, 0, 0, 0.8)",
+          "ctaBtnTwoOpenNewTab" : false,
+          "ctaBtnTwoText" : "Secondary",
+          "ctaBtnTwoTextColor" : "rgba(0, 0, 0, 0.8)",
+          "ctaBtnTwoTextHoverColor" : "rgba(0, 0, 0, 0.8)",
+          "ctaBtnTwoUrl" : "",
+          "ctaShowBtnOne" : true,
+          "ctaShowBtnTwo" : true,
+          "fixedHeroWidth" : true,
+          "heroHeight" : 80,
+          "heroWidth" : 1440,
+          "showCaption" : true,
+          "showSubtitle" : true,
+          "showTitle" : true,
+          "subtitleText" : "Subtitle Content",
+          "subtitleTextColor" : "rgba(0, 0, 0, 0.8)",
+          "subtitleTextShadowColor" : "rgba(0, 0, 0, 0)",
+          "titleText" : "Title Content",
+          "titleTextColor" : "rgba(0, 0, 0, 0.8)",
+          "titleTextShadowColor" : "rgba(0, 0, 0, 0)",
+          "type" : "callToAction"
+        },
+        "componentName" : "forceCommunity:themeHeroStarter",
+        "id" : "eac396ed-f6d5-4af9-98cd-8cd33c6a4145",
+        "regions" : [ {
+          "components" : [ {
+            "componentAttributes" : {
+              "backgroundColor" : "rgb(255, 255, 255)",
+              "borderColor" : "rgba(0, 0, 0, 0.2)",
+              "borderRadius" : 4,
+              "borderStyle" : "outline",
+              "buttonColor" : "",
+              "buttonHoverColor" : "",
+              "crossObjectTypeaheadApiNames" : "",
+              "iconColor" : "rgb(255, 255, 255)",
+              "placeholderText" : "Ask a question...",
+              "placeholderTextColor" : "rgba(0, 0, 0, 0.6)",
+              "publicDropdownBackgroundColor" : "rgb(255, 255, 255)",
+              "publicDropdownBackgroundHoverColor" : "",
+              "publicDropdownBorderColor" : "rgb(240, 240, 240)",
+              "publicDropdownTextColor" : "",
+              "publicDropdownTextHoverColor" : "",
+              "showSearchButton" : true,
+              "textColor" : "rgba(0, 0, 0, 0.8)",
+              "typeaheadResultMax" : 6,
+              "useTypeahead" : true
+            },
+            "componentName" : "forceCommunity:themeSearchHero",
+            "id" : "d8a9491d-a544-43db-a3ee-3ae2f6ac9859",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "684e6d5e-2e11-4d83-992f-c46b500e8ca7",
+          "regionName" : "search",
+          "type" : "region"
+        } ],
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "c3c0ade2-0020-4fdb-974c-a10eb7048652",
+      "regionName" : "themeHero",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "richTextValue" : "<p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\">© Tate, All rights reserved 2020. Carlisle Staffing plc trading as Tate. Registered office: The Boulevard, 800 Capability Green, Luton, Bedfordshire LU1 3BA. Company No. 2873036</p><p style=\"text-align: center;\"><br></p>"
+        },
+        "componentName" : "forceCommunity:richTextInline",
+        "id" : "d28c175d-d946-4def-beaa-644035e7c8fd",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "01d10110-d338-42ea-bced-ed7ac2b7899e",
+      "regionName" : "themeFooter",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  }, {
+    "componentAttributes" : {
+      "fixedPageWidth" : 1170,
+      "headerBgColor" : "rgba(0, 0, 0, 0)",
+      "isHeaderPinned" : false,
+      "isHeroUnderHeader" : false,
+      "isPageWidthFixed" : true,
+      "showHeader" : true,
+      "showHero" : true
+    },
+    "componentName" : "siteforce:themeLayoutStarter",
+    "id" : "19df749a-faae-4fd0-a500-7eb8a4ab2887",
+    "label" : "ServiceNotAvailable",
+    "regions" : [ {
+      "id" : "a3461dac-c85f-485d-9a14-41df39630956",
+      "regionName" : "themeHeader",
+      "type" : "region"
+    }, {
+      "id" : "9c44ade2-1bee-47bd-bd74-2003b2e44053",
+      "regionName" : "themeFooter",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  } ]
+}

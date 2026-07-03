@@ -1,0 +1,26 @@
+.THIS .mainContentArea {
+    background-color:rgb(223,241,253);
+    
+}
+.THIS .navigation{
+    background-color: #009ee3;
+}
+
+.THIS .profileMenuRegion{
+    color:rgb(48,150,212);
+   
+}
+
+.THIS .main{
+    height: 100%;
+}
+
+.THIS .mainContentArea{
+    height: 100vh;
+    
+	top: 0px;
+	bottom: 0px;
+}
+.THIS .slds-is-active{
+    background-color: #e50b7e !important;
+}

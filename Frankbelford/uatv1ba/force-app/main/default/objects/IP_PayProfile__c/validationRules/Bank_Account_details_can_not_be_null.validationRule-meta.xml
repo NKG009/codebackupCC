@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bank_Account_details_can_not_be_null</fullName>
+    <active>true</active>
+    <description>Bank_Account_details_can_not_be_null if we have building society number</description>
+    <errorConditionFormula>if( IP_BuildingSocietyNumber__c !=null,
+If(IP_BankAccountName__c ==null,true,false),false)</errorConditionFormula>
+    <errorMessage>Bank Account details can not be null</errorMessage>
+</ValidationRule>

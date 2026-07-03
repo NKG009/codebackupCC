@@ -1,0 +1,143 @@
+<aura:component implements="flexipage:availableForRecordHome,force:lightningQuickActionWithoutHeader,force:hasRecordId"
+                controller="CreatePortalUserController">
+
+    <aura:attribute name="disabled" type="Boolean" default="false" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false" />
+    <aura:attribute name="recordId" type="String" />
+	<aura:attribute name="RoleId" type="String" />
+	<aura:attribute name="profileId" type="Id" />
+	<aura:attribute name="licenseId" type="String" />
+	<aura:attribute name="ContactId" type="String" />
+    <aura:attribute name="responseDetails" type="String" />
+    <aura:attribute name="RecordType" type="String" />
+    <aura:attribute name="responseExist" type="Boolean"/>
+    <aura:attribute name="clientUserProfileName" type="String"/>
+
+     <div class="modal-header slds-modal__header slds-size_1-of-1">
+        <h4 class="title slds-text-heading--medium" >New User</h4>
+    </div>
+    
+	<div id="divDetails" aura:id="divDetails">
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner />
+        </aura:if>
+		<aura:if isTrue="{!v.responseExist}">
+            <p style="font-size:15px;color:red;">Result Message : <aura:unescapedHtml value="{!v.responseDetails}" /></p>
+        </aura:if>
+        <!-- Create record form -->
+        <lightning:recordEditForm onload="{!c.doInit}"
+                                  onsubmit="{!c.saveUserDetails}"
+                                  onsuccess="{!c.doSuccess}"
+                                  onerror="{!c.doError}"
+                                  objectApiName="User">
+
+
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="FirstName" aura:id="firstNameField"/>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <!-- <lightning:inputField fieldName="UserRoleId" aura:id="userRoleField" value="{!v.RoleId}"/>-->
+					<!--<ui:inputText label="Role" class="field" value="Candidates Customer User" disabled="true"/>-->
+					<lightning:inputField aura:id="userRoleField" fieldName="UserRoleId" value="{!v.RoleId}"/>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="MiddleName" aura:id="middleNameField" class="isRequired"/>
+                </div>
+				<div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+					<lightning:inputField aura:id="licenseId" fieldName="Profile.UserLicenseId" value="{!v.licenseId}" class="slds-hide" />
+                    <ui:inputText label="User License" class="field" value="{!v.clientUserProfileName}" maxlength="30" disabled="true"/>
+                </div>               
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="LastName" aura:id="lastName"/>
+                </div>				
+				<div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                   <!-- <lightning:inputField fieldName="ProfileId" aura:id="profileId" value="{!v.ProfileId}" />-->					
+				 	<lightning:inputField fieldName="Profile.Name" aura:id="profileId1" value="{!v.clientUserProfileName}"/>
+					<aura:if isTrue="{!v.RecordType == 'Candidate'}">
+                        <ui:inputText label="Profile" class="field" value="User Portal" disabled="true"/> 
+                        <aura:set attribute="else">
+                            <ui:inputText label="Profile" class="field" value="{!v.clientUserProfileName}" disabled="true"/>
+                        </aura:set>
+                    </aura:if>
+                    <lightning:input aura:id="profileId" fieldName="ProfileId" value="{!v.profileId}" class="slds-hide" /> 
+				</div>
+            </div>
+            <div class="slds-grid slds-gutters">
+				<div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="Alias" aura:id="alias"/>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="Suffix" aura:id="suffix" class="isRequired"/>
+                </div>                
+            </div>
+            <div class="slds-grid slds-gutters">
+				<div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="Email" aura:id="email"/>
+                </div>
+				<div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="IsActive" aura:id="isActive"/>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+				<div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="Username" aura:id="userName"/>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="Phone" aura:id="phone"/>
+                </div>
+            </div>
+			<div class="slds-grid slds-gutters">
+				<div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="MobilePhone" aura:id="mobilePhone"/>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="ContactId" aura:id="contactId" value="{!v.recordId}"/>
+                </div>
+            </div>
+			<div class="slds-grid slds-gutters">
+				<div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="Street" aura:id="street"/>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="City" aura:id="city"/>
+                </div>
+            </div>
+			<div class="slds-grid slds-gutters">
+				<div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="State" aura:id="state"/>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="PostalCode" aura:id="postalCode"/>
+                </div>
+            </div>
+			<div class="slds-grid slds-gutters">
+				<div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="Country" aura:id="country"/>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="CommunityNickname" aura:id="communityNickname"/>
+                </div>
+            </div>
+			<div class="slds-grid slds-gutters">
+				<div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="NI_Number__c" aura:id="niNumber"/>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:inputField fieldName="IP_TempestDepartment__c" aura:id="ipTempestDepartment"/>
+                </div>
+            </div>
+            <footer class="slds-card__footer">
+                <lightning:button type="reset" name="cancel" onclick="{!c.cancelClick}"
+                                  label="Cancel" variant="neutral"/>
+                <lightning:button disabled="{!v.disabled}" type="submit" name="save"
+                                  label="Save" variant="brand"/>
+            </footer>
+        </lightning:recordEditForm>
+    </div>
+
+</aura:component>

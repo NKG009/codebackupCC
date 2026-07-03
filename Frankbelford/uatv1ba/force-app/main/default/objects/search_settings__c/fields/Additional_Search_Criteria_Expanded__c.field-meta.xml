@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Additional_Search_Criteria_Expanded__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>When selected, the Additional Search Criteria will be presented as expanded to the user. If no selected (default), this section will appear collapsed.</description>
+    <inlineHelpText>When selected, the Additional Search Criteria will be presented as expanded to the user. If no selected (default), this section will appear collapsed.</inlineHelpText>
+    <label>Additional Search Criteria Expanded</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

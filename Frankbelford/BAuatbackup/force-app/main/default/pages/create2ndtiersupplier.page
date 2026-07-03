@@ -1,0 +1,54 @@
+<apex:page lightningStylesheets="true" standardController="Contact" extensions="create2ndtiersupplier_ext">
+    <!-- <apex:image url="{!$Resource.NewPersonedit}" width="900" height="90"/>-->
+ <br></br><br></br>
+<div style="text-align:center;font-size: large;">New Person: 2nd Tier Candidate</div><br></br><br></br>
+  
+    <apex:form >
+     <style>
+  .pbTitle{display:none;}
+  </style>
+    <Apex:pageMessages ></Apex:pageMessages>
+    <apex:pageBlock mode="edit">
+            <apex:pageblockButtons location="top" style="text-align:center;">            
+                <apex:commandButton value="Save & Add Address" action="{!saveandredirect1}" styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Cancel" action="{!cancelredirect}" immediate="true"/>            
+            </apex:pageblockButtons><br></br>
+            
+            <apex:pageblockButtons location="bottom" style="text-align:center;">            
+                <apex:commandButton value="Save & Add Address" action="{!saveandredirect1}" styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Cancel" action="{!cancelredirect}" immediate="true"/>            
+            </apex:pageblockButtons><br></br>
+            
+            <apex:pageblocksection title="Status" collapsible="false">
+                       <apex:inputfield value="{!conrec.IP_WorkerStartDate__c}"/>
+                       <apex:inputfield value="{!conrec.Birthdate}"/>
+                       <apex:inputfield value="{!conrec.ts2__EEO_Gender__c}"/>                       
+                     <apex:inputfield value="{!conrec.sirenum__National_Insurance__c}"/>
+            </apex:pageblocksection>
+            
+             <apex:pageblocksection title="Candidate Information" collapsible="false">
+                <apex:inputfield value="{!conrec.Salutation}"/>
+                <apex:inputfield value="{!conrec.IP_CandidateIDlegacy__c}"/>
+                <apex:inputfield value="{!conrec.FirstName}" required="true"/>
+                <apex:outputtext label="Owner" value="{!ownername}"/>
+                <apex:inputfield value="{!conrec.MiddleName}"/>
+                <apex:inputField value="{!conrec.AccountID}"/>
+                <apex:inputfield value="{!conrec.LastName}" required="true"/>
+                <apex:inputfield value="{!conrec.Person_Status__c}"/>
+                <apex:inputfield value="{!conrec.Suffix}"/>
+                <apex:inputfield value="{!conrec.IP_CategoryOfWork__c}" required="true"/>
+                <apex:inputfield value="{!conrec.ts2__Preferred_Name__c}"/>
+                <apex:inputfield value="{!conrec.sirenum__General_Comments__c}"/>
+                <apex:inputfield value="{!conrec.Email}"/>                 
+                <apex:inputfield value="{!conrec.MobilePhone}"/>
+                <apex:inputfield value="{!conrec.Phone}"/>
+                <apex:inputfield value="{!conrec.OtherPhone}"/>
+                <apex:inputfield value="{!conrec.ts2__Contact_Method__c}"/>
+                
+            </apex:pageblocksection>
+    
+    </apex:pageBlock>
+    
+    </apex:form>
+
+</apex:page>

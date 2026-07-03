@@ -1,0 +1,109 @@
+<apex:component access="global" controller="ShifttobeApprovedController">
+    <apex:attribute type="String" name="recipientid" description="test1" />
+    <apex:attribute type="String" name="relatedToid" description="test2" />
+    <apex:attribute type="id" name="recipientid" description="Record Id" assignTo="{!recipient_Id}" />
+    <apex:attribute type="id" name="relatedToid" description="Record Id2" assignTo="{!relatedTo_Id}" />
+
+    <html>
+
+    <body style="width: 100%; margin: 0px; min-width: 320px;">
+
+        <table BORDER="0" CELLSPACING="40" style="width: 100%; background-color: #009EE3; height: 120px;">
+            <tr>
+                <td style="vertical-align: center;">
+                    <apex:outputLink target="_blank" value="https://www.bluearrow.co.uk/">
+                        <img width="210" height="36"
+                            src="https://impellam--systest--c.documentforce.com/servlet/servlet.ImageServer?id=0158E000001TzBi&oid=00D8E000000FXwo&lastMod=1620244351000"
+                            style="height: 36px; width: 210px;" />
+                    </apex:outputLink>
+                </td>
+            </tr>
+        </table>
+
+        <table BORDER="0" CELLSPACING="40" style="width: 100%;">
+            <tr>
+                <td>
+                    <font size="5" face="sans-serif" color="#009EE3"><b>Blue Arrow Shift to be Approved</b>
+                    </font>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div style="max-width: 620px;">
+                        <font size="2" face="sans-serif" color="black" style="line-height: 1.5em;">
+                            Hi {!userDetails}, <br></br> <br></br>
+
+                            Please be aware that you have {!Shiftdetails} Timesheets awaiting your approval.
+                            Please could you log into your portal by <a
+                                style="color: #E50B7E; text-decoration: underline;" href="{!comURL}"> clicking here</a>
+                            and
+                            approve these by Monday 5pm in order to ensure that your temps are paid on time.
+                            <br /><br /> <br></br>
+                            Kind Regards,<br></br>
+                            <span style="color: #009EE3;"><b>Blue Arrow</b></span>
+                        </font>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <table BORDER="0" CELLSPACING="40"
+            style="width: 100%; background-color: #F5F5F5; height: 70px; table-layout: fixed;">
+            <tr>
+                <td style="vertical-align: center; width: 27px;">
+
+                    <a style="text-decoration: none;" target="_blank" href="https://www.facebook.com/BlueArrowJobs/">
+                        <img width="16" height="24"
+                            src="https://impellam--systest--c.documentforce.com/servlet/servlet.ImageServer?id=0158E000001TzBn&oid=00D8E000000FXwo&lastMod=1620244372000"
+                            style="height: 24px; width: 16px;" />
+                    </a>
+
+                    <img width="40" height="24"
+                        src="https://impellam--systest--c.documentforce.com/servlet/servlet.ImageServer?id=0158E000001SnSJ&oid=00D8E000000FXwo&lastMod=1616090943000"
+                        style="height: 24px; width: 40px;" />
+
+                    <a style="text-decoration: none;" target="_blank"
+                        href="https://www.linkedin.com/company/blue-arrow/">
+                        <img width="27" height="25"
+                            src="https://impellam--systest--c.documentforce.com/servlet/servlet.ImageServer?id=0158E000001TzBs&oid=00D8E000000FXwo&lastMod=1620244384000"
+                            style="height: 27px; width: 25px;" />
+                    </a>
+
+                    <img width="40" height="24"
+                        src="https://impellam--systest--c.documentforce.com/servlet/servlet.ImageServer?id=0158E000001SnSJ&oid=00D8E000000FXwo&lastMod=1616090943000"
+                        style="height: 24px; width: 40px;" />
+
+                    <a style="text-decoration: none;" target="_blank" href="https://twitter.com/bluearrowgroup">
+                        <img width="25" height="25"
+                            src="https://impellam--systest--c.documentforce.com/servlet/servlet.ImageServer?id=0158E000001TzBx&oid=00D8E000000FXwo&lastMod=1620244399000"
+                            style="height: 25px; width:25px;" />
+                    </a>
+
+                </td>
+
+            </tr>
+        </table>
+
+        <table CELLSPACING="40" style="width: 100%;">
+            <tr style="width: 100%;">
+                <td colspan="2">
+                    <img width="165" height="30"
+                        style=" margin-right: 35px; margin-top: 25px; float: left; height: 30px; width: 165px;"
+                        src="https://impellam--systest--c.documentforce.com/servlet/servlet.ImageServer?id=0158E000001TzB4&oid=00D8E000000FXwo&lastMod=1620243505000" />
+
+                    <img width="40" height="30"
+                        src="https://impellam--systest--c.documentforce.com/servlet/servlet.ImageServer?id=0158E000001SnSJ&oid=00D8E000000FXwo&lastMod=1616090943000"
+                        style="height: 30px; width: 40px;" />
+
+                    <img width="75" height="30" style="margin-top: 25px; float: left; height: 30px; width: 75px;"
+                        src="https://impellam--systest--c.documentforce.com/servlet/servlet.ImageServer?id=0158E000001TzB9&oid=00D8E000000FXwo&lastMod=1620243536000" />
+
+                </td>
+            </tr>
+        </table>
+
+    </body>
+
+    </html>
+</apex:component>

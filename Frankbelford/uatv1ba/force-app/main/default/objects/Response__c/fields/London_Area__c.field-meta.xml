@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>London_Area__c</fullName>
+    <label>London Area</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Central London</fullName>
+                <default>false</default>
+                <label>Central London</label>
+            </value>
+            <value>
+                <fullName>East London</fullName>
+                <default>false</default>
+                <label>East London</label>
+            </value>
+            <value>
+                <fullName>North London</fullName>
+                <default>false</default>
+                <label>North London</label>
+            </value>
+            <value>
+                <fullName>South London</fullName>
+                <default>false</default>
+                <label>South London</label>
+            </value>
+            <value>
+                <fullName>West London</fullName>
+                <default>false</default>
+                <label>West London</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

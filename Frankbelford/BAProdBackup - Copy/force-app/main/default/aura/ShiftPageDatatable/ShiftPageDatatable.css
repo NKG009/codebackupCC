@@ -1,0 +1,115 @@
+.THIS .slds-icon {
+    width: 2.5rem !important;
+    margin-top: -6px !important;
+}
+
+.THIS .ElementDetail__table table tr td:before {
+    content: none;
+}
+
+.THIS .ms-help-popup-in-header {
+    display: inline-block;
+    position: absolute !important;
+    background-color: #00aae3;
+    overflow: visible !important;
+    text-transform: none !important;
+}
+
+.THIS .ms-help-popup-in-header:before,
+.THIS .ms-help-popup-in-header:after {
+    width: 0.8rem !important;
+    height: 0.8rem !important;
+    position: absolute;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    content: '';
+    background-color: #42b5a6;
+    top: 40%;
+    left: -0.4rem !important;
+    margin-top: -.8rem !important;
+}
+
+.THIS .ms-help-popup-body {
+    white-space: unset !important;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    width: auto;
+}
+
+.THIS .testSize {
+    font-size: 1.6rem;
+}
+
+.THIS .testSizemob {
+    font-size: 1rem;
+}
+
+.THIS .slds-popover__body {}
+
+.THIS .slds-popover_tooltip {
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+}
+
+.THIS .slds-checkbox_faux {
+    height: 20px;
+    width: 20px;
+
+}
+
+.THIS .dataTables_wrapper table thead th:nth-child(-n+4):after {
+    display: none;
+}
+
+
+.THIS .tdcentermob {
+    text-align: center;
+}
+
+.THIS .tdcenter {
+    text-align: center;
+}
+
+.THIS .textheight {
+    height: 150px;
+}
+
+.THIS .uiheight {
+    height: 20px;
+    width: 20px;
+}
+
+.THIS #overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #F6F6F6;
+    opacity: 0.88;
+    text-align: center;
+    padding-top: 30%;
+
+}
+
+.THIS #overlay img {
+    position: fixed;
+
+
+}
+
+.THIS .hideclass {
+    display: none;
+}
+
+
+.THIS .slds-form-element__icon .slds-popover_tooltip { 
+    z-index: 99;
+}
+
+.THIS .slds-popover_tooltip.inhead_offset {
+    z-index: 99 !important;
+}

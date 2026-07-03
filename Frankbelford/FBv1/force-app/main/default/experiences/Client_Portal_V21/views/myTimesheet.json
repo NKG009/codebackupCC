@@ -1,0 +1,68 @@
+{
+  "appPageId" : "6cf45250-dd45-4f57-aa5d-84e94e3c25f8",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "be942e6b-19c6-458a-844d-1300e6b4c3f2",
+  "label" : "My Timesheet",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "ec38d5ea-91b2-4779-be53-367c17b718d4",
+          "columns" : [ {
+            "UUID" : "4ee413cd-fd39-4cd3-9910-69f07199ef84",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "ec38d5ea-91b2-4779-be53-367c17b718d4",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:portalTimesheetWeeklyView",
+          "id" : "9a2bdce4-fb19-4372-bea8-9f086ade07d9",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "4ee413cd-fd39-4cd3-9910-69f07199ef84",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "59d606a7-99b5-4f3f-a259-8cca36eeb45d",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My Timesheet"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "a7007c9a-e7be-4bac-8aee-a9cb8765c48b",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "90a29d2f-fc5d-416b-a497-537ef772af35",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-my-timesheet-week-view"
+}

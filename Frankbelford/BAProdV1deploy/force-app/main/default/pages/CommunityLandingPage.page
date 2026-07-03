@@ -1,0 +1,7 @@
+<apex:page showheader="false" sidebar="false">
+
+ <div style="text-align:center;font-size: 25px; font-color:red">
+               <apex:outputText value="The portal is currently down for essential maintenance, please try again later" style="color:red;"/> 
+           </div>
+ 
+</apex:page>

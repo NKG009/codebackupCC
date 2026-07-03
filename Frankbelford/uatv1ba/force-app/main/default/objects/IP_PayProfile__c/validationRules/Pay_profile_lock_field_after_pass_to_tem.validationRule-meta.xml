@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pay_profile_lock_field_after_pass_to_tem</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(NOT(ISBLANK( IP_LastPassedToTempest__c ))&amp;&amp;( RecordType.Name == &quot;LTD&quot;||RecordType.Name == &quot;Umbrella&quot;) &amp;&amp;  NOT(CONTAINS($Profile.Name, &quot;Administrator&quot;)), 
+IF(ISCHANGED( IP_BusinessAddressLine1__c )|| 
+ISCHANGED( IP_BusinessAddressPostcode__c )|| 
+ISCHANGED( IP_CompanyName__c )|| 
+ISCHANGED( IP_CompanyRegNo__c )|| 
+ISCHANGED( IP_PayrollID__c)|| 
+ISCHANGED( IP_VATNumber__c )|| 
+ISCHANGED( IP_BusinessAddressCounty__c ) || 
+ISCHANGED( IP_NewStarterTaxStatus__c) ||
+ISCHANGED( IP_BusinessAddressLine2__c) ||
+ISCHANGED( IP_PaymentType__c)
+,True,False)
+,False)</errorConditionFormula>
+    <errorMessage>These fields are locked</errorMessage>
+</ValidationRule>

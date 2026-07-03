@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source_ID_not_reqd</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISBLANK(SourceObject__c) &amp;&amp; NOT(ISBLANK(SourceID__c))</errorConditionFormula>
+    <errorMessage>No &apos;Source Object&apos; defined.  
+Please only map Source ID, if there is also a Source Object defined.</errorMessage>
+</ValidationRule>

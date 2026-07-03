@@ -1,0 +1,142 @@
+.THIS .dashboard-section__leftNav > li ul{
+    right: -23rem !important;
+}
+.THIS .dashboard-section__leftNav div:hover{
+    background-color:#fff;
+    color:#00aae3;
+    outline:2px solid !important;
+}
+.THIS .dashboard-section__leftNav--timesheets li:hover{
+    background-color:#fff;
+    color:#00aae3;
+}
+.THIS .dashboard-section__leftNav--timesheets li:hover a{
+    color : #00aae3 !important;
+}
+	.THIS .background{
+background-image:url(/resource/newimage)!important;
+    background-size:32px;
+    background-position: top;
+    background-repeat: no-repeat;
+    }
+.THIS .dashboard-section__leftNav--vacancies li:hover{
+    background-color:#fff;
+    color:#00aae3;
+}
+.THIS .dashboard-section__leftNav--vacancies li:hover a{
+    color:#00aae3;
+}
+.THIS .dashboard-section__leftNav--temp li:hover{
+    background-color:#fff;
+    color:#00aae3
+}
+.THIS .dashboard-section__leftNav--temp li:hover a{
+   color:#00aae3;
+}
+.THIS .dashboard-section__leftNav ul li a{
+    color:#fff;
+    font-size:1.6rem;
+    padding-top:1rem;
+    padding-bottom:1rem;
+ }
+.THIS .fontCSS{
+    font-family: arial;
+}
+.THIS #overlay {
+position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #F6F6F6;opacity:0.90;
+    text-align: center;
+    padding-top: 30%;
+    
+}
+.THIS .imag
+{
+background-image:url('/client/profilephoto/005/T');
+    width:48px;
+    height:50px;
+}  
+.THIS #overlay img {
+    position: fixed;
+
+}
+.THIS .hide {
+    display:none;
+}
+.THIS .clearAll-btn{
+    margin-top: 23px !important;
+}
+.THIS .mrgn
+{
+    margin-left: 8px;
+}
+.THIS .detailbutton{
+    background-color: #00aae3;
+    padding: 0.8rem;
+    padding-left: 3rem;
+    padding-bottom: 1rem;
+    font-size: 14px;
+    font-size: 1.4rem;
+    color: #fff;
+    display: inline-block;
+    cursor: pointer;
+    
+    background-image : url('/client/sfsites/c/resource/Tjcss2/assets/img/sprite.png');
+    background-position: -71px -722px;
+    background-repeat: no-repeat;
+    background-size: initial;
+    font-family: arial;
+    min-width: 8.7rem;
+}
+.THIS .toastContainer{
+    font-size: 14px;
+}
+.THIS .forceVisualMessageQueue{
+    font-size: 25px;
+}
+
+.THIS .slds-form-element__label{
+    color: #000000;
+    font-weight: bold;
+    font-size: initial;
+    padding-bottom: 10px;
+    margin-top: -10px;
+}
+.THIS .spins::after {
+    position: absolute;
+    content: 'Please wait while loading';
+    width: 100%;
+    text-align: center;
+    top: calc(50% + 3em);
+    font-weight: bold;
+    font: 18px arial, sans-serif;
+}
+.THIS .sldsfirst{
+    
+}
+.THIS .dataTables_wrapper table thead th:nth-child(-n+4):after
+    {
+        display:none;
+    }
+    .THIS .centeralign{
+        text-align:center;
+    }
+    
+    
+.THIS .sldsfirst {
+        width: 60px;
+        color: #565656;
+        font-weight: bold;
+    }
+    .THIS  .exportButton{
+        position: relative;
+        float: right;
+        margin-top: 35px;
+        height: 35px;
+        min-width: 7%;
+        padding: 5px 15px;
+        FONT-SIZE: 12px;
+    }

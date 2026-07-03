@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rob_s_Clients</fullName>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>FULL_NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>Skills__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>equals</operation>
+        <value>GU51 3PJ,RG24 9NN,RG23 7EL,RG25 2JT,RG27 9JS,RG28 7RB. RG24 8WQ,RG20 8NJ,RG27 8PT,RG28 7NR,RG29 1QT,RG25  2AR,RG17 9QR,RG25 2EJ,RG25 2AR,RG26 5LP,RG22 6PG,RG25 3HR,RG27 9AZ,RG28 7RB,RG23 7LW,RG20 7HR,SP11 9RR,RG21 7UA,RG24 8WQ,RG21 8ES</value>
+    </filters>
+    <label>1350 April&apos;s Clients</label>
+    <sharedTo>
+        <roleAndSubordinates>Blue_Arrow_Newbury_Perm_hub</roleAndSubordinates>
+        <roleAndSubordinates>Blue_Arrow_Newbury_Temps</roleAndSubordinates>
+    </sharedTo>
+</ListView>

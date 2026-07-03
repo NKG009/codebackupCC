@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lock_Contact_Fields_2_clone</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(NOT(ISBLANK( IP_LastPassedToTempest__c ))&amp;&amp;  RecordType.DeveloperName ==&apos;PAYE&apos;, 
+IF(ISCHANGED( IP_NewStarterTaxStatus__c )|| 
+ISCHANGED( IP_StudentLoan__c ) 
+,True,False) 
+,False)</errorConditionFormula>
+    <errorMessage>This can not be changed</errorMessage>
+</ValidationRule>

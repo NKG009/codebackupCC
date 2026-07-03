@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "0ee53a8a-546c-4593-aa50-427038a3732c",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "Unable_to_register__c",
+  "id" : "586d1284-9bfa-4a01-89f1-ac979a3f2177",
+  "label" : "Unable to register",
+  "pageAccess" : "Public",
+  "routeType" : "custom-unable-to-register",
+  "type" : "route",
+  "urlPrefix" : "unable-to-register"
+}

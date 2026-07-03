@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "a3ac67e2-89f5-4f03-bf3e-4df1213e0c81",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "8623feac-7335-4da5-a0d0-f95e453d33bb",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "My_Shifts_Vms_Client_portalV2MyShiftsVmsClient_Component",
+  "id" : "c298bfd7-bdae-4794-a2ba-ac15ecf4333f",
+  "type" : "experienceVariation"
+}

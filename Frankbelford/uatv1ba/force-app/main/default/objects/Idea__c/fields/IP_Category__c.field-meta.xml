@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_Category__c</fullName>
+    <inlineHelpText>Which categories does this Idea fit into?
+You can add more than one category</inlineHelpText>
+    <label>Category</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Business Improvement</fullName>
+                <default>false</default>
+                <label>Business Improvement</label>
+            </value>
+            <value>
+                <fullName>Fix a Problem</fullName>
+                <default>false</default>
+                <label>Fix a Problem</label>
+            </value>
+            <value>
+                <fullName>Compliance</fullName>
+                <default>false</default>
+                <label>Compliance</label>
+            </value>
+            <value>
+                <fullName>Payroll</fullName>
+                <default>false</default>
+                <label>Payroll</label>
+            </value>
+            <value>
+                <fullName>Shift Management</fullName>
+                <default>false</default>
+                <label>Shift Management</label>
+            </value>
+            <value>
+                <fullName>Candidate Portal</fullName>
+                <default>false</default>
+                <label>Candidate Portal</label>
+            </value>
+            <value>
+                <fullName>Client Portal</fullName>
+                <default>false</default>
+                <label>Client Portal</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1350_April_s_prospect</fullName>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>FULL_NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Skills__c</columns>
+    <columns>Sub_Category__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>sp10,sp11</value>
+    </filters>
+    <filters>
+        <field>Sub_Category__c</field>
+        <operation>equals</operation>
+        <value>Hotels</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>notContain</operation>
+        <value>Inactive</value>
+    </filters>
+    <label>1350 April&apos;s prospect</label>
+</ListView>

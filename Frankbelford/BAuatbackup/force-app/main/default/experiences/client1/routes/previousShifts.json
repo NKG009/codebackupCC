@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "8aa24f3c-b77b-4789-8a89-d16bd63159f9",
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "configurationTags" : [ ],
+  "devName" : "Previous_Shifts__c",
+  "id" : "2b3d18e6-074d-44c1-817a-2609bb14a2b1",
+  "label" : "Previous Shifts",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-testpastvacancynew",
+  "type" : "route",
+  "urlPrefix" : "testpastvacancynew"
+}

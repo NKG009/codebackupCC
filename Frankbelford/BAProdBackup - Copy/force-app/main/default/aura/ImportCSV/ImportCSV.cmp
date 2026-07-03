@@ -1,0 +1,66 @@
+<aura:component controller="UploadBatchheadetfromcomp" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:appHostable" access="global">
+	<aura:attribute name="ShowModule" type="boolean" default="false"/>
+	<aura:attribute name="siteList" type="List" access="global"/>
+	<aura:attribute name="fileName" type="String" default="No File Selected.." />
+	<aura:attribute name="selectedAccountValue" type="String" />
+	<aura:attribute name="iserrorcondition" type="boolean" access="global"/>
+	<aura:attribute name="showcard" type="boolean" default="false"/>
+	<aura:attribute name="checkboxSelected" type="Boolean" default="false"/>
+	<aura:attribute name="isaccountmissing" type="boolean" access="global"/>
+	<aura:attribute name="selectedRecord" type="sObject" description="Use,for store SELECTED sObject Record"/>
+	<aura:attribute name="selectedLookUpRecord" type="sObject" default="{}"/>
+	<aura:attribute name="isDisabled" type="Boolean" default="true"/>
+	<aura:attribute name="isUploaded" type="Boolean" default="false"/>
+
+	<aura:handler name="oSelectedRecordEvent" event="c:selectedsObjectRecordEvent" action="{!c.siterecords}"/>
+	<div class="modal-header slds-modal__header slds-size_1-of-1">
+		<div class="slds-grid slds-gutters slds-align_absolute-center">
+			<div class="slds-col slds-size_2-of-12 slds-m-top_medium">
+				<span lightning-duallistbox_duallistbox="" style="color: #003399;" id="group-label-120" class="slds-form-element__label slds-form-element__legend slds-text-title_bold">&nbsp;&nbsp;Account</span>
+			</div>
+			<div class="slds-col slds-size_1-of-2 slds-m-top_medium slds-text-align_left"  style="padding-right: 17.5%;!important;">
+				<c:customLookup objectAPIName="Account" IconName="standard:account" selectedRecord="{!v.selectedLookUpRecord}"/>
+			</div>
+		</div>
+		<div class="slds-grid slds-gutters slds-align_absolute-center">
+			<div class="slds-col slds-size_2-of-12 slds-m-top_medium">
+				<span lightning-duallistbox_duallistbox="" style="color: #003399;" id="group-label-120" class="slds-form-element__label slds-form-element__legend slds-text-title_bold">&nbsp;&nbsp;Site</span>
+			</div>
+			<div class="slds-col slds-size_1-of-2 slds-m-top_medium" style="padding-right: 17.5%;!important;">
+				<lightning:select name="siteSelect" aura:id="siteId">
+					<aura:iteration items="{!v.siteList}" var="item">
+						<option text="{!item.label}" value="{!item.value}"/>
+					</aura:iteration>
+				</lightning:select>
+			</div>
+		</div>
+		<div class="slds-grid slds-gutters slds-align_absolute-center">
+			<div class="slds-col slds-size_2-of-12 slds-m-top_medium">
+				<span lightning-duallistbox_duallistbox="" style="color: #003399;" id="group-label-120" class="slds-form-element__label slds-form-element__legend slds-text-title_bold">&nbsp;&nbsp;Multi Sites</span>
+			</div>
+			<div class="slds-col slds-size_1-of-2 slds-m-top_medium" style="padding-right: 17.5%;!important;">
+				<ui:inputCheckbox aura:id="checkboxmulti"/>
+			</div>
+		</div>
+		<div class="slds-grid slds-gutters slds-align_absolute-center">
+			<div class="slds-col slds-size_2-of-12 slds-m-top_medium">
+				<span lightning-duallistbox_duallistbox="" style="color: #003399;" id="group-label-120" class="slds-form-element__label slds-form-element__legend slds-text-title_bold">&nbsp;&nbsp;Upload CSV</span>
+			</div>
+			<div class="slds-col slds-size_1-of-2 slds-m-top_medium" style="padding-right: 17.5%;!important;">
+				<lightning:input aura:id="file"
+								 onchange="{!c.handleFilesChange}"
+								 type="file"
+								 name="file"
+								 accept=".csv"
+								 multiple="false"/>
+				<div style="margin-top:10px;color: #ff0000;" class="slds-text-body_middle">{!v.fileName}</div>
+				<aura:if isTrue="{!v.isUploaded}">
+					<div class="slds-text-align_center slds-text-color_success">Uploaded Successfully</div>
+				</aura:if>
+			</div>
+		</div>
+		<center>
+			<lightning:button variant="brand" label="Submit" onclick="{!c.CreateRecord}" disabled="{!v.isDisabled}"/>
+		</center>
+	</div>
+</aura:component>

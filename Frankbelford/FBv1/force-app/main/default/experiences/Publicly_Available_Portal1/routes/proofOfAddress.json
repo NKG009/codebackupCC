@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "0601775e-efa2-495f-bf08-a5c9211c8958",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "Proof_of_Address__c",
+  "id" : "886dc222-a4bc-4cb4-a37c-53870a5d5a2b",
+  "label" : "Proof of Address",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-proof-of-address",
+  "type" : "route",
+  "urlPrefix" : "proof-of-address"
+}

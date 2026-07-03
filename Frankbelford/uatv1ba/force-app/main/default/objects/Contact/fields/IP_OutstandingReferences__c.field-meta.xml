@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_OutstandingReferences__c</fullName>
+    <formula>IF (AND(IP_Reference_count__c = IP_CompleteReferences__c, IP_Reference_count__c &gt;0),FALSE,TRUE)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Outstanding references</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

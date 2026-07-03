@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_of_Derby_client_list2</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>FULL_NAME</columns>
+    <columns>Top_Prospect__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>CONTACT.LAST_UPDATE</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>equals</operation>
+        <value>Catering,Facilities,Manufacturing,Office,Retail,Warehouse</value>
+    </filters>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>contains</operation>
+        <value>2043</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>Taylor20</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Inactive,Pending</value>
+    </filters>
+    <label>Laurens client list</label>
+</ListView>

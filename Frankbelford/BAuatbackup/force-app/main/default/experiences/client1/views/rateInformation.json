@@ -1,0 +1,38 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "13a62625-e13f-4597-8e31-01920c82cb6a",
+  "label" : "RateInformation",
+  "regions" : [ {
+    "id" : "8161b4b4-19b9-400c-b72c-5089bbd26871",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "a661b511-1541-4774-bc77-41a268530811",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "466808b6-e4e2-4e05-b5b1-62ad759a9389",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "RateInformation"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "1b0c7439-bfcb-408e-854f-aa75c0667e36",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "dfc39445-db91-4f27-b22d-720c8d936cd8",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "8jO6jGlm2G9B8JTIcCfjgbSDWx65LH",
+  "type" : "view",
+  "viewType" : "custom-rateinfo"
+}

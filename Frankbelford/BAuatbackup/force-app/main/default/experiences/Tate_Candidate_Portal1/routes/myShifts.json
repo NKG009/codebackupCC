@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "e99e4c01-73fe-49d8-8235-d40a7dd8471d",
+  "appPageId" : "b2fa95b0-e567-41d6-a9bd-0d8201b2a4b0",
+  "configurationTags" : [ ],
+  "devName" : "My_Shifts__c",
+  "id" : "1a3d480f-50ba-4716-be82-abe2f4d17d56",
+  "label" : "My Shifts",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-my-shifts",
+  "type" : "route",
+  "urlPrefix" : "my-shifts"
+}

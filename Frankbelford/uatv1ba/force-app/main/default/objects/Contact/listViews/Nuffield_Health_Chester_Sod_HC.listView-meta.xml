@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Nuffield_Health_Chester_Sod_HC</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>Person_Status__c</columns>
+    <columns>smagicinteract__SMSOptOut__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Brand__c</field>
+        <operation>equals</operation>
+        <value>Blue Arrow</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>includes</operation>
+        <value>Catering</value>
+    </filters>
+    <filters>
+        <field>sirenum__Last_Timesheet__c</field>
+        <operation>lessThan</operation>
+        <value>2/4/2022</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>CH</value>
+    </filters>
+    <label>Nuffield Health - Chester - Sod HC</label>
+</ListView>

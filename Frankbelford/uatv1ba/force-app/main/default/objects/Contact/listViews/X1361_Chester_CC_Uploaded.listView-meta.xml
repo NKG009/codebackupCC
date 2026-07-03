@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1361_Chester_CC_Uploaded</fullName>
+    <columns>IP_WorkerStartDate__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>IP_PayrollStatus__c</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>Chester CC</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Inactive,Pending</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>Uploaded to SOVA,Telephone Interviews arranged,CV sent to LBG</value>
+    </filters>
+    <label>1361 Chester CC Uploaded</label>
+    <sharedTo>
+        <role>Blue_Arrow_Edinburgh_Lloyds</role>
+    </sharedTo>
+</ListView>

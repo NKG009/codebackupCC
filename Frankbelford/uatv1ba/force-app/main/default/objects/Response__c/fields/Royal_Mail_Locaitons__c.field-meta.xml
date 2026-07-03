@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Royal_Mail_Locaitons__c</fullName>
+    <label>Royal Mail Locaitons</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Royal_Mail_Job__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Manton Wood Industrial Estate, Worksop, S80 2RS</fullName>
+                <default>false</default>
+                <label>Manton Wood Industrial Estate, Worksop, S80 2RS</label>
+            </value>
+            <value>
+                <fullName>Mill Hill Distribution Park, Peterlee, SR8 2HR</fullName>
+                <default>false</default>
+                <label>Mill Hill Distribution Park, Peterlee, SR8 2HR</label>
+            </value>
+            <value>
+                <fullName>Edinburgh Mailing Centre, Edinburgh, EH11 4YY</fullName>
+                <default>false</default>
+                <label>Edinburgh Mailing Centre, Edinburgh, EH11 4YY</label>
+            </value>
+            <value>
+                <fullName>Royal Highland Centre, Edinburgh, EH28 8NB</fullName>
+                <default>false</default>
+                <label>Royal Highland Centre, Edinburgh, EH28 8NB</label>
+            </value>
+            <value>
+                <fullName>West Lothian</fullName>
+                <default>false</default>
+                <label>West Lothian</label>
+            </value>
+            <value>
+                <fullName>Edinburgh</fullName>
+                <default>false</default>
+                <label>Edinburgh</label>
+            </value>
+            <value>
+                <fullName>Falkirk</fullName>
+                <default>false</default>
+                <label>Falkirk</label>
+            </value>
+            <value>
+                <fullName>Fife</fullName>
+                <default>false</default>
+                <label>Fife</label>
+            </value>
+            <value>
+                <fullName>Stirling</fullName>
+                <default>false</default>
+                <label>Stirling</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Postal Sorter</controllingFieldValue>
+            <valueName>Manton Wood Industrial Estate, Worksop, S80 2RS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Postal Sorter</controllingFieldValue>
+            <valueName>Mill Hill Distribution Park, Peterlee, SR8 2HR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Postal Sorter</controllingFieldValue>
+            <valueName>Edinburgh Mailing Centre, Edinburgh, EH11 4YY</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Postal Sorter</controllingFieldValue>
+            <valueName>Royal Highland Centre, Edinburgh, EH28 8NB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Driver / Delivery Person</controllingFieldValue>
+            <valueName>West Lothian</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Driver / Delivery Person</controllingFieldValue>
+            <valueName>Edinburgh</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Driver / Delivery Person</controllingFieldValue>
+            <valueName>Falkirk</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Driver / Delivery Person</controllingFieldValue>
+            <valueName>Fife</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Driver / Delivery Person</controllingFieldValue>
+            <valueName>Stirling</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

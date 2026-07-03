@@ -1,0 +1,53 @@
+<template>
+  <div class="body-wrapper">
+    <div class="action-bar">
+      <div>
+        <lightning-input
+          label="PO Number"
+          onchange={onPOChange}
+        ></lightning-input>
+      </div>
+      <div>
+        <lightning-input
+          label="Unit Id"
+          onchange={onUnitIdChange}
+        ></lightning-input>
+      </div>
+      <div>
+        <button
+          class="slds-button slds-button_brand"
+          onclick={handleSearchClick}
+        >
+          Search
+        </button>
+      </div>
+      <div>
+        <p>Total Charge: {totalCharge}</p>
+      </div>
+    </div>
+    <div class="table">
+      <div class="header-cell"><p class="body-text">Name</p></div>
+      <div class="header-cell"><p class="body-text">PO Number</p></div>
+      <div class="header-cell"><p class="body-text">Unit Id</p></div>
+      <div class="header-cell"><p class="body-text">Site</p></div>
+      <div class="header-cell"><p class="body-text">Total Charge</p></div>
+      <template for:each={results} for:item="result">
+        <div key={result.id} class="body-cell">
+          <p class="body-text">{result.name}</p>
+        </div>
+        <div key={result.id} class="body-cell">
+          <p class="body-text">{result.poNumber}</p>
+        </div>
+        <div key={result.id} class="body-cell">
+          <p class="body-text">{result.unitId}</p>
+        </div>
+        <div key={result.id} class="body-cell">
+          <p class="body-text">{result.site}</p>
+        </div>
+        <div key={result.id} class="body-cell">
+          <p class="body-text">{result.totalCharge}</p>
+        </div>
+      </template>
+    </div>
+  </div>
+</template>

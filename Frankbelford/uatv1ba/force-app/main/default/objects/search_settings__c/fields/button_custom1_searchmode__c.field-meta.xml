@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>button_custom1_searchmode__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If selected (Checked), the button will it will ONLY be displayed after a user performs a search and will NOT be displayed from viewing results from the History tab.
+
+If not selected (Unchecked), the custom button will appear all the time.</description>
+    <inlineHelpText>If selected (Checked), the button will it will ONLY be displayed after a user performs a search and will NOT be displayed from viewing results from the History tab.
+
+If not selected (Unchecked), the custom button will appear all the time.</inlineHelpText>
+    <label>Button Custom1 SearchMode</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

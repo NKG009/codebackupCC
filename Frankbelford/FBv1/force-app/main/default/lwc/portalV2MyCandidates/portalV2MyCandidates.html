@@ -1,0 +1,31 @@
+<template>
+  <div class="slds-p-top_x-large">
+    <h1 class="main__header">My <span class="bluearrow-brand-color"> Candidates </span> </h1>
+    <template if:false={showjoborderdetail}>
+      <lightning-layout horizontal-align="spread" multiple-rows>
+        <lightning-layout-item class="slds-p-top_large" size="12">
+          <div class="slds-clearfix">
+            <div class="slds-float_right">
+              <!--div class="slds-p-around_small" style="display: inline-block">
+              <c-portal-v2-site-switch-widget></c-portal-v2-site-switch-widget>
+            </div>
+            <lightning-button variant={clearFiltersVariation} label="Clear Filters" class="slds-p-horizontal_xx-small"
+              onclick={clearFilters}></lightning-button>
+              <lightning-button variant="brand" label="Adjust Columns" class="slds-p-horizontal_xx-small"
+                onclick={openAdjustColumnsModalBox}></lightning-button>
+              <lightning-button variant="brand" label="Export" class="slds-p-horizontal_xx-small"
+                onclick={exportTimesheets}></lightning-button-->
+                <lightning-input type="search" label="Search" onchange={handleSearch}></lightning-input>
+            </div>
+          </div>
+        </lightning-layout-item>
+        <lightning-layout-item class="slds-p-top_large" size="12">
+         <lightning-datatable key-field="id" data={allSubmittedCandidateRecords}
+                  columns={SubmittedCandidatecolumns} hide-checkbox-column>
+                </lightning-datatable>
+        </lightning-layout-item>
+
+      </lightning-layout>
+    </template>
+  </div>
+</template>

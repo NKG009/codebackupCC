@@ -1,0 +1,123 @@
+<!-- sldsValidatorIgnore -->
+<template>
+  <div style="height: 20rem">
+    <div class="slds-form slds-form_compound">
+      <fieldset class="slds-form-element">
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__group">
+            <div class="slds-form-element__row">
+              <div
+                class="slds-form-element slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open"
+              >
+                <div
+                  aria-hidden="false"
+                  aria-label="Date picker"
+                  class="slds-datepicker slds-dropdown slds-dropdown_left"
+                  role="dialog"
+                >
+                  <div class="slds-datepicker__filter slds-grid">
+                    <div
+                      class="slds-datepicker__filter_month slds-grid slds-grid_align-spread slds-grow"
+                      style="align-content: center"
+                    >
+                      <div class="slds-align-middle">
+                        <lightning-button-icon
+                          variant="bare"
+                          icon-name="utility:left"
+                          alternative-text="Previous Month"
+                          title="Previous Month"
+                          onclick={previousMonth}
+                        ></lightning-button-icon>
+                      </div>
+                      <h2
+                        aria-atomic="true"
+                        aria-live="assertive"
+                        class="slds-align-middle"
+                        data-id="rangeSelected_start-month"
+                      >
+                        {currentMonth}
+                      </h2>
+                      <div class="slds-align-middle">
+                        <lightning-button-icon
+                          variant="bare"
+                          icon-name="utility:right"
+                          alternative-text="Next Month"
+                          title="Next Month"
+                          onclick={nextMonth}
+                        ></lightning-button-icon>
+                      </div>
+                    </div>
+                  </div>
+                  <table
+                    aria-labelledby="rangeSelected_start-month"
+                    aria-multiselectable="true"
+                    class="slds-datepicker__month"
+                    role="grid"
+                  >
+                    <thead>
+                      <tr id="rangeSelected_start-weekdays">
+                        <th id="rangeSelected_start-Sunday" scope="col">
+                          <abbr title="Sunday">Sun</abbr>
+                        </th>
+                        <th id="rangeSelected_start-Monday" scope="col">
+                          <abbr title="Monday">Mon</abbr>
+                        </th>
+                        <th id="rangeSelected_start-Tuesday" scope="col">
+                          <abbr title="Tuesday">Tue</abbr>
+                        </th>
+                        <th id="rangeSelected_start-Wednesday" scope="col">
+                          <abbr title="Wednesday">Wed</abbr>
+                        </th>
+                        <th id="rangeSelected_start-Thursday" scope="col">
+                          <abbr title="Thursday">Thu</abbr>
+                        </th>
+                        <th id="rangeSelected_start-Friday" scope="col">
+                          <abbr title="Friday">Fri</abbr>
+                        </th>
+                        <th id="rangeSelected_start-Saturday" scope="col">
+                          <abbr title="Saturday">Sat</abbr>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <template for:each={weeks} for:item="week">
+                        <tr key={week.week}>
+                          <template for:each={week.days} for:item="day">
+                            <td
+                              key={day.formatted}
+                              role="gridcell"
+                              class={day.className}
+                              aria-label={day.formatted}
+                              data-date={day.formatted}
+                            >
+                              <span
+                                onclick={setSelected}
+                                data-date={day.formatted}
+                                class="slds-day"
+                                >{day.text}</span
+                              >
+                            </td>
+                          </template>
+                        </tr>
+                      </template>
+                    </tbody>
+                  </table>
+                  <span>
+                    <lightning-button
+                      class="slds-button slds-align_absolute-center slds-text-link"
+                      label="Today"
+                      variant="base"
+                      onclick={goToday}
+                    >
+                    </lightning-button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+  <!--  -->
+</template>

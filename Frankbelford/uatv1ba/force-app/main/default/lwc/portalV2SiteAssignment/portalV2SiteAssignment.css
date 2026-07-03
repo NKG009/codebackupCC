@@ -1,0 +1,8 @@
+@import "c/portalV2CSSLibrary";
+.button-container {
+  gap: 0.5em;
+}
+
+.button {
+  width: 8em;
+}

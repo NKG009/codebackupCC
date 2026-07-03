@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationMenu xmlns="http://soap.sforce.com/2006/04/metadata">
+    <container>Client Portal V2</container>
+    <containerType>Network</containerType>
+    <label>Client Portal V2 - Navigation Menu</label>
+    <navigationMenuItem>
+        <label>Dashboard</label>
+        <position>1</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Shift Approval</label>
+        <position>2</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/shift-management</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Workforce Management</label>
+        <position>3</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/my-shifts</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>My Preferred Workers</label>
+        <position>4</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/my-preferred-workers</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Todays Workforce</label>
+        <position>5</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/todays-workforce</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Contact Us</label>
+        <position>6</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/contact-us</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Help</label>
+        <position>7</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>https://www.bluearrow.co.uk/recruitment-solutions/client-portal/</target>
+        <type>ExternalLink</type>
+    </navigationMenuItem>
+</NavigationMenu>

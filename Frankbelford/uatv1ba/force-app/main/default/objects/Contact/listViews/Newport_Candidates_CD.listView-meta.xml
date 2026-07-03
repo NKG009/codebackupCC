@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Newport_Candidates_CD</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.ADDRESS2_CITY</field>
+        <operation>contains</operation>
+        <value>Newport,Cardiff</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>notContain</operation>
+        <value>DNU,Do Not Use,Chris,James,Alessia,20,Part Time,#lbg,LBG</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>equals</operation>
+        <value>,Candidates,Blue Arrow Edinburgh,Blue Arrow Livingston,Blue Arrow,Customer Success Hub,Inactive,Blue Arrow CSH SS – Santander,Blue Arrow CSH Catering</value>
+    </filters>
+    <filters>
+        <field>FULL_NAME</field>
+        <operation>startsWith</operation>
+        <value>B</value>
+    </filters>
+    <label>Newport Candidates - CD</label>
+</ListView>

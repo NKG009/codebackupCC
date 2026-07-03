@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gateshead_Text_Existing_Candidates</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>includes</operation>
+        <value>Catering,Commercial,Industrial,Technical</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>TQ1,TQ2,TQ3,TQ4,TQ5,TQ6,TQ7,TQ8,TQ9,TQ10,TQ11,TQ12,TQ13,TQ14</value>
+    </filters>
+    <filters>
+        <field>Compliance_Status__c</field>
+        <operation>equals</operation>
+        <value>compliant</value>
+    </filters>
+    <filters>
+        <field>sirenum__Last_Timesheet__c</field>
+        <operation>lessThan</operation>
+        <value>1/31/2021</value>
+    </filters>
+    <label>Gateshead Text Existing Candidates</label>
+    <sharedTo>
+        <role>Blue_Arrow_Labs</role>
+    </sharedTo>
+</ListView>

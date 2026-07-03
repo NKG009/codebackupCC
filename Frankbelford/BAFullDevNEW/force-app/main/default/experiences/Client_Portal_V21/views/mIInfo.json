@@ -1,0 +1,56 @@
+{
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "4e5ae2b2-b8af-4bbc-ae84-d47bf7db6e2d",
+  "label" : "MI Info",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div class=\"slds-var-p-top_x-large\"><h1 style=\"font-size: 2vw;\">MI Info</h1></div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "0bf6aef1-115a-40b5-b7de-9efc83d6d6ad",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ab34f547-c179-4602-9809-e83ffd6d8f97",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2InvoicingCostViewer",
+      "id" : "ccb58e0a-ac40-4034-a81c-08437b42b3a3",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d5d08bde-c6fa-4388-9492-eb24bb652a42",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "30948824-355b-4f06-8c2e-c7028a5380a9",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "MI Info"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "48957bbc-c82d-49bf-8663-db1ea9dc50a4",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ca5e262a-b57f-4272-badf-50f9cec89ae9",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-mi-info"
+}

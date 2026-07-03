@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Portal V2 - Dashboard</masterLabel>
+    <targets>
+        <target>lightningCommunity__Default</target>
+        <target>lightningCommunity__Page</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+        name="timesheetPageName"
+        type="String"
+        label="Timesheet page API Name"
+        default="Shift_Management_Data_Table__c"
+      />
+      <property
+        name="jobRoleViewGroupingColumnName"
+        type="String"
+        label="Job Role View Grouping Column"
+        description="NOT IN USE"
+        default="Job Role"
+      />
+      <property
+        name="myShiftsPageName"
+        type="String"
+        label="My Shifts page API Name"
+        default="My_Shifts__c"
+      />
+      <property
+        name="myShiftsVMSclientPageName"
+        type="String"
+        label="My Shifts VMS Client page API Name"
+        default="My_Shifts_Vms_Client__c"
+      />
+      <property
+        name="todaysWorkforcePageName"
+        type="String"
+        label="Today's workforce page name"
+        default="Todays_Workforce__c"
+      />
+    <property
+        name="mIInfoPageName"
+        type="String"
+        label="MI Info page API Name"
+        default="MI_Info__c"
+      />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

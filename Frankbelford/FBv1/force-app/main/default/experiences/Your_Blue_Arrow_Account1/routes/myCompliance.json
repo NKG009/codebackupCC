@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "67989620-2594-45ff-807f-abe359673c5b",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "MyCompliance__c",
+  "id" : "3c998c95-4753-4893-964f-6ae3cfaede2f",
+  "label" : "MyCompliance",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-mycompliance",
+  "type" : "route",
+  "urlPrefix" : "mycompliance"
+}

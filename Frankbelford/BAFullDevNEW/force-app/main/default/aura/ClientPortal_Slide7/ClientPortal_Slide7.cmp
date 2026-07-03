@@ -1,0 +1,168 @@
+<aura:component controller="Shifthistorydetails" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>    
+    <aura:attribute type="List"    name="allshifts" />
+    <aura:attribute type="List"    name="currentList" /> 
+     <aura:attribute type="Boolean" name="hyperclick1" default="false"/>
+    <aura:attribute type="Boolean" name="hyperclick2" default="false"/>
+    <aura:attribute type="Boolean" name="hyperclick3" default="false"/>
+    <aura:attribute type="Boolean" name="hyperclick4" default="false"/>
+    <aura:attribute type="Integer" name="selectedRating"/>
+     <aura:attribute name="feedbackshift" type="sirenum__Shift__c"/>
+    <aura:attribute name="isOpenCancel" type="boolean" default="false"/>
+ 	<aura:attribute type="Integer" name="pageNumber" default="1" />
+    <aura:attribute type="Integer" name="maxPage" default="1" />
+    <aura:handler name="change"	value="{!v.pageNumber}"	action="{!c.renderPage}" />
+     <div class="slds-scrollable slds-wrap">   
+    <aura:if isTrue="{!v.hyperclick1}"> 
+         
+    <a href="javascript:void(0)" style="color:red;" name="Yesterday" onclick="{!c.getList}">Yesterday</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <aura:set attribute="else">
+       <a href="javascript:void(0)" name="Yesterday" onclick="{!c.getList1}">Yesterday</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   
+    </aura:set>
+    </aura:if>  
+    <aura:if isTrue="{!v.hyperclick2}">   
+    <a href="javascript:void(0)" style="color:red;" name="Last_7_days" onclick="{!c.getList}">Last 7 days</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <aura:set attribute="else">
+   <a href="javascript:void(0)" name="Last_7_days" onclick="{!c.getList2}">Last 7 days</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+    </aura:set>
+    </aura:if>  
+     <aura:if isTrue="{!v.hyperclick3}">  
+       <a href="javascript:void(0)" style="color:red;" name="Last_14_days" onclick="{!c.getList}">Last 14 Days</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <aura:set attribute="else">
+        <a href="javascript:void(0)" name="Last_14_days" onclick="{!c.getList3}">Last 14 Days</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     </aura:set>
+    </aura:if>      
+  
+    <aura:if isTrue="{!v.hyperclick4}"> 
+    <a href="javascript:void(0)" style="color:red;" name="Last_30_days" onclick="{!c.getList}">Last 30 Days</a>
+
+    <aura:set attribute="else">
+         <a href="javascript:void(0)" name="Last_30_days" onclick="{!c.getList4}">Last 30 Days</a>
+   
+      </aura:set>
+         </aura:if></div> <br></br><br></br>
+    <div class="slds-scrollable slds-wrap">   
+    <table class="slds-no-row-hover slds-table slds-table--bordered slds-table--cell-buffer slds-table--fixed-layout">
+        <thead>
+            <tr >
+              <!--   <th scope="col"><div class="slds-truncate" title="Name">Name</div></th>-->
+                <th class="headingfont" scope="col" style="text-align:center;width:130px;"><div  title="Created Date">Start Date</div></th>
+                 <th class="headingfont" scope="col" style="text-align:center;width:130px;"><div class="slds-truncate" title="End Date">End Date</div></th>
+                <th class="headingfont" scope="col" style="text-align:center;width:150px;"><div class="slds-truncate" title="Job Role">Job Role</div></th>
+                <th class="headingfont" scope="col" style="text-align:center;width:150px;"><div class="slds-truncate" title="Site">Site</div></th>
+                <th class="headingfont" scope="col" style="text-align:center;width:110px;"><div class="slds-truncate" title="Start Time">Start Time</div></th>
+                <th class="headingfont" scope="col" style="text-align:center;width:110px;"><div class="slds-truncate" title="End Time">End Time</div></th>
+                <th class="headingfont" scope="col" style="text-align:center;width:110px;"><div class="slds-truncate" title="Requirement">Requirement</div></th>
+                 <th class="headingfont" scope="col" style="text-align:center;width:110px;"><div class="slds-truncate" title="Action">Action</div></th>
+                <th class="headingfont" scope="col" style="text-align:center;width:100px;"><div class="slds-truncate" title="Rating">Rating</div></th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.currentList}" var="record" indexVar="idx">
+                <tr>
+                   <!-- <td><div class="slds-truncate">{!record.Name}</div></td> -->
+                    <td style="text-align:center;width:130px;"><div class="slds-truncate"><lightning:formattedDateTime value="{!record.sirenum__Scheduled_Start_Time__c}" year="numeric" month="numeric" day="numeric" /></div></td>
+                    <td style="text-align:center;width:130px;"><div class="slds-truncate"><lightning:formattedDateTime value="{!record.sirenum__Scheduled_End_Time__c}" year="numeric" month="numeric" day="numeric" /></div></td>
+                    <td style="text-align:center;width:150px;"><div class="slds-truncate slds-grow slds-cell-wrap">{!record.sirenum__Team__r.Name}</div></td>
+                    <td style="text-align:center;width:150px;"><div class="slds-truncate slds-grow slds-cell-wrap">{!record.sirenum__Site__r.Name}</div></td>
+                    <td style="text-align:center;width:110px;"><div class="slds-truncate"><lightning:formattedDateTime value="{!record.sirenum__Scheduled_Start_Time__c}" hour12="true" hour="2-digit" minute="2-digit"/></div></td>
+                    <td style="text-align:center;width:110px;"><div class="slds-truncate"><lightning:formattedDateTime value="{!record.sirenum__Scheduled_End_Time__c}" hour="2-digit" hour12="true"  minute="2-digit"/></div></td>
+                   <td style="text-align:center;width:110px;"><div class="slds-truncate">{!record.X__c} out of {!record.X__c + record.Y__c + record.Z__c}</div></td>
+                   <td style="text-align:center;width:110px;">
+                   <aura:if isTrue="{!record.ClientBlueArrowRakingStored__c==null}">
+                       <div ><lightning:button value="{!record.Id}" variant="brand" label="Feedback" onclick="{! c.feedback }" /></div>
+                         <aura:set attribute="else">
+                         <div  style="text-align:center;">
+                       <lightning:button label="Feedback" disabled="true" variant="Brand" onclick="{!c.feedback}" value="{!record.Id}"  />
+                       
+                        </div>
+                        </aura:set>
+                       </aura:if>    
+                       </td>
+ 				   <td style="text-align:center;">
+        <aura:if isTrue="{!record.ClientBlueArrowRakingStored__c=='0'}">
+        <img src="{!$Resource.Ratings+'/nostar.png'}" style="height:20px;width:90px;"/>    
+      </aura:if>
+      <aura:if isTrue="{!record.ClientBlueArrowRakingStored__c==null}">
+        <img src="{!$Resource.Ratings+'/nostar.png'}" style="height:20px;width:90px;"/>    
+      </aura:if>
+    <aura:if isTrue="{!record.ClientBlueArrowRakingStored__c=='1'}">  
+         <img src="{!$Resource.Ratings+'/1star.png'}" style="height:20px;width:90px;"/> 
+      </aura:if>  
+    <aura:if isTrue="{!record.ClientBlueArrowRakingStored__c=='2'}">
+           <img src="{!$Resource.Ratings+'/2star.png'}" style="height:20px;width:90px;"/> 
+          </aura:if> 
+       <aura:if isTrue="{!record.ClientBlueArrowRakingStored__c=='3'}">
+           <img src="{!$Resource.Ratings+'/3star.png'}" style="height:20px;width:90px;"/> 
+          </aura:if> 
+       <aura:if isTrue="{!record.ClientBlueArrowRakingStored__c=='4'}">
+           <img src="{!$Resource.Ratings+'/4star.png'}" style="height:20px;width:90px;"/> 
+          </aura:if> 
+       <aura:if isTrue="{!record.ClientBlueArrowRakingStored__c=='5'}">
+           <img src="{!$Resource.Ratings+'/5star.png'}" style="height:20px;width:90px;"/> 
+          </aura:if> 
+                       
+                    
+                    </td>
+
+                </tr>
+            </aura:iteration>    
+        </tbody>
+        </table></div><br></br>
+        <div style="text-align:right;"> <c:PaginationButton currentPageNumber="{!v.pageNumber}" 
+                                    maxPageNumber="{!v.maxPage}" /> </div><br></br>
+
+     <aura:if isTrue="{!v.isOpenCancel}">
+        <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open slds-scrollable slds-wrap">
+            <div class="slds-modal__container">
+                <form>
+                    <div class="slds-modal__header" >
+                       How likely are you to recommend Blue Arrow to fill future vacancies? 
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModelCancel}">
+                            X
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                    </div>
+                    <div class="slds-modal__content slds-p-around--medium slds-scrollable slds-wrap " >
+                        <lightning:layout class="slds-scrollable slds-wrap" horizontalAlign="spread">
+                            <lightning:layoutItem padding="horizontal-small">
+                                <lightning:button aura:id="rating" variant="brand"  value="0" label="0" onclick="{! c.selectRating }" />
+                            </lightning:layoutItem>  
+                            <lightning:layoutItem padding="horizontal-small">
+                                <lightning:button aura:id="rating" variant="brand"  value="1" label="1" onclick="{! c.selectRating }" />
+                            </lightning:layoutItem>
+                            <lightning:layoutItem padding="horizontal-small">
+                                <lightning:button aura:id="rating" variant="brand"  value="2" label="2" onclick="{! c.selectRating }" />
+                            </lightning:layoutItem> 
+                            <lightning:layoutItem padding="horizontal-small">
+                                <lightning:button aura:id="rating" variant="brand"  value="3" label="3" onclick="{! c.selectRating }" />
+                            </lightning:layoutItem> 
+                            <lightning:layoutItem padding="horizontal-small">
+                                <lightning:button aura:id="rating" variant="brand"  value="4" label="4" onclick="{! c.selectRating }" />
+                            </lightning:layoutItem> 
+                            <lightning:layoutItem padding="horizontal-small">
+                                <lightning:button aura:id="rating" variant="brand"  value="5" label="5" onclick="{! c.selectRating }" />
+                            </lightning:layoutItem> 
+                        </lightning:layout> 
+                        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                        <lightning:layout class="slds-scrollable slds-wrap" horizontalAlign="spread">
+                            <lightning:layoutItem padding="horizontal-small">
+                                <lightning:button aura:id="Back" variant="brand" value="back" class="Backbutton" label="Back" onclick="{! c.closeModelCancel }" />
+                            </lightning:layoutItem>  
+                            <lightning:layoutItem padding="horizontal-small">
+                                <lightning:button aura:id="submitRating" variant="brand" value="submitRating" class="Submitbutton" label="Submit" onclick="{! c.submitRating }" />
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </aura:if>
+        <div class="slds-truncate" style="text-align:Left;">
+                       <lightning:button label="Back" class="Backbutton" variant="Brand" onclick="{!c.getBackscreen}"   />
+                       
+                        </div>
+</aura:component>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pipeline_clean_out</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.LAST_UPDATE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.LAST_UPDATE</field>
+        <operation>lessThan</operation>
+        <value>6/1/2024 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>equals</operation>
+        <value>1068</value>
+    </filters>
+    <filters>
+        <field>Registration_Status__c</field>
+        <operation>equals</operation>
+        <value>KID,Contact Details,Work Details,Compliance,Awaiting_PORTW_Check,No Show</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Pending</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <label>Pipeline clean out</label>
+</ListView>

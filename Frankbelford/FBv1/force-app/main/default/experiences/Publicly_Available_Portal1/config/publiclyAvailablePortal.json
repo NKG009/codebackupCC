@@ -1,0 +1,11 @@
+{
+  "forgotPasswordRouteId" : "5758fe03-4f8f-42d6-84da-7a4095bcc6fc",
+  "isAvailableToGuests" : true,
+  "isFilteredComponentsView" : false,
+  "isProgressiveRenderingEnabled" : false,
+  "loginAppPageId" : "8ad3df74-58ec-4449-9d42-c9cbc3cbbb79",
+  "mainAppPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "preferredDomain" : "mytempagency.bluearrow.co.uk",
+  "selfRegistrationRouteId" : "65ca9dc6-3cc6-4231-b4bf-4f90e49b41b2",
+  "type" : "site"
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Use_this_one_JS_TASK_SALES</fullName>
+    <columns>IP_TaskType__c</columns>
+    <columns>SUBJECT</columns>
+    <columns>DUE_DATE</columns>
+    <columns>WHAT_NAME</columns>
+    <columns>WHO_NAME</columns>
+    <columns>STATUS</columns>
+    <columns>PRIORITY</columns>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IP_TaskType__c</field>
+        <operation>equals</operation>
+        <value>Sales Call,Spec Call,Client Visit,Mailer/E-marketing,Competitor Check-In,Applicant Mailer,Client Drop In</value>
+    </filters>
+    <filters>
+        <field>STATUS</field>
+        <operation>equals</operation>
+        <value>Not Started,In Progress,Waiting on someone else,Deferred</value>
+    </filters>
+    <filters>
+        <field>DUE_DATE</field>
+        <operation>lessOrEqual</operation>
+        <value>2/20/2022 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.FULL_NAME</field>
+        <operation>equals</operation>
+        <value>Murray Harding,Wayne Furmage</value>
+    </filters>
+    <label>Use this one JS TASK SALES</label>
+</ListView>

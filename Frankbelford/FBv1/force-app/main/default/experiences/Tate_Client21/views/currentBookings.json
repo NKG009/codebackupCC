@@ -1,0 +1,79 @@
+{
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "f887254a-cbd1-47ea-a81c-1609b82c909a",
+  "label" : "Current Bookings",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "bb39e747-fb4b-468e-869a-d0b00ea21685",
+          "columns" : [ {
+            "UUID" : "958361c5-0bd9-47dd-8565-f95764e13070",
+            "columnKey" : "ec321",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "bb39e747-fb4b-468e-869a-d0b00ea21685",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "currentPage" : "Current Bookings"
+          },
+          "componentName" : "c:ClientComunityBreadcrumb",
+          "id" : "dbd8d125-5966-4f85-b8df-c599ae8d23d7",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : {
+            "status" : "Ongoing"
+          },
+          "componentName" : "c:JobOrderList",
+          "id" : "b8dff932-a48c-4318-884f-d3dfdd66978a",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "958361c5-0bd9-47dd-8565-f95764e13070",
+        "regionLabel" : "Column 1",
+        "regionName" : "ec321",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d42a7889-c565-4dd8-9614-9fd8e06dde03",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Current Bookings"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "39ded450-a65d-4d8e-ad1f-456f8aff0437",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "038dc0b5-d09c-4425-98a2-2bc545765791",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-current-bookings"
+}

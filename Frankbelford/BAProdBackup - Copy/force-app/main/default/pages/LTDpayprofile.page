@@ -1,0 +1,77 @@
+<apex:page standardcontroller="IP_PayProfile__c" extensions="createLTDpayprofile" lightningStylesheets="true">
+  
+    
+   <!-- <apex:image url="{!$Resource.PayEdit}" width="700" height="60" rendered="{! $User.UIThemeDisplayed == 'Theme3' }"/><br/><br/>
+    <apex:image url="{!$Resource.NewPayProfileEdit}" width="700" height="60" rendered="{! $User.UIThemeDisplayed == 'Theme4d' }"/><br/><br/> -->
+     <br></br><br></br>
+    <div style="text-align:center;font-size: large;">New Pay Profile : LTD</div><br></br><br></br>
+    <apex:form >
+    <style>
+  .pbTitle{display:none;}
+  </style>
+          <apex:pageMessages ></apex:pageMessages>
+
+    <apex:pageBlock mode="edit">
+            <apex:pageblockButtons location="top" style="text-align:center;">
+            
+                <apex:commandButton value="Save & Add Address" action="{!saveandredirect}" styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Cancel" action="{!cancelredirect}" immediate="true"/>
+              <!--  <apex:commandButton value="Hide This Save Command Button" style="visibility:hidden;"/>
+                <apex:commandButton value="Hide This Cancel Command Button" style="visibility:hidden;"/> 
+                <apex:commandButton value="Hide Cancel" style="visibility:hidden;"/>   -->
+            
+            </apex:pageblockButtons><br></br>
+            <apex:pageblockButtons location="bottom" style="text-align:center;">
+            
+                <apex:commandButton value="Save & Add Address" action="{!saveandredirect}" styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Cancel" action="{!cancelredirect}" immediate="true"/>
+            
+            </apex:pageblockButtons><br></br>
+            <b>&nbsp;&nbsp;&nbsp; Pay Profile Edit </b> <br></br><br></br>
+            <apex:pageblocksection title="Status" collapsible="false">
+                <apex:outputField value="{!payrec.IP_Status__c}" html-disabled="true"/>
+            </apex:pageblocksection>
+            
+             <apex:pageblocksection title="Information" collapsible="false">
+                <!--<apex:outputtext label="Record Type" value="{!recname}"/> -->
+                <apex:outputField value="{!payrec.RecordTypeID}"/>
+              <!--  <apex:pageblocksectionitem >
+                <apex:outputLabel >Candidate</apex:outputLabel>
+               <apex:outputLink value="/{!parentId}" id="theLink" target="_blank">{!parentname}</apex:outputLink> 
+               </apex:pageblocksectionitem> -->
+               <apex:inputfield value="{!payrec.IP_Candidate__c}" required="true"/>
+             <!--    Candidate <a href="/{!parentId}">{!parentname}</a> -->
+                <apex:inputfield value="{!payrec.IP_PrimaryPayMethod__c}"/>
+                <apex:inputfield value="{!payrec.IP_EmailPayslip__c}"/>
+                <apex:inputfield value="{!payrec.IP_CertificateOfIncorporation__c}"/>
+                <apex:inputfield value="{!payrec.IP_CompanyName__c}" required="true"/>
+                <apex:inputfield value="{!payrec.IP_CompanyRegNo__c}"/>
+                <apex:inputfield value="{!payrec.IP_VATRegistered__c}"/>
+                <apex:inputfield value="{!payrec.IP_VATNumber__c}"/>
+                <apex:inputfield value="{!payrec.IP_TermsOfEngagement__c}"/>
+                <apex:inputField value="{!payrec.IP_PayFrequency__c}"/>
+            </apex:pageblocksection>
+            
+            <apex:pageblocksection title="Bank Details" collapsible="false">
+                
+                <apex:inputfield value="{!payrec.IP_BankAccountName__c}"/>
+                <apex:inputfield value="{!payrec.IP_AccountNumber__c}"/>
+                <apex:inputfield value="{!payrec.IP_SortCode__c}"/>
+                <apex:inputfield value="{!payrec.IP_BuildingSocietyNumber__c  }"/>
+                
+                
+            </apex:pageblocksection>
+            
+              <apex:pageblocksection title="System Information" collapsible="false">
+                
+                <apex:inputfield value="{!payrec.IP_PassToTempest__c}"/>
+                <apex:inputfield value="{!payrec.IP_LastPassedToTempest__c  }"/>
+               
+                
+            </apex:pageblocksection>
+    
+    </apex:pageBlock>
+    
+    </apex:form>
+  
+</apex:page>

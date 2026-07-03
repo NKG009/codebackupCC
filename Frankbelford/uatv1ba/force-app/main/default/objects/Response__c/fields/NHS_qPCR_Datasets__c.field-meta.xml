@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NHS_qPCR_Datasets__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Did your experience include analysis of qPCR datasets?</inlineHelpText>
+    <label>qPCR Datasets</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

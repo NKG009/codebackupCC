@@ -1,0 +1,236 @@
+<template>
+  <template if:true={loading}>
+    <div class="spinner slds-align_absolute-center">
+      <lightning-spinner
+        alternative-text="loading"
+        size="large"
+      ></lightning-spinner>
+    </div>
+  </template>
+  <template if:false={loading}>
+    <table class="slds-table slds-table_cell-buffer">
+      <thead>
+        <tr class="slds-line-height_reset header__row">
+          <th style="text-align: start" class="table__header">
+            &nbsp;
+          </th>
+          <th scope="col" class="table__header">
+            <div class="slds-truncate header-title" title="Worker Name">
+              <p class="table-header">Worker Name
+                <span>
+                  &nbsp;&nbsp;
+                  <img
+                    class="clickable__element"
+                    src={textFilterIcon}
+                    alt="Text"
+                    name="workerName"
+                    title="Worker Name"
+                    onclick={handleFilterClick}
+                  />
+                </span> 
+              </p>
+            </div>
+          </th>
+          <th scope="col" class="table__header">
+            <div class="slds-truncate header-title" title="Last Timesheet">
+              <p class="table-header">Last Timesheet
+                <span>
+                  &nbsp;&nbsp;
+                  <img
+                    class="clickable__element"
+                    src={dateFilterIcon}
+                    alt="Date"
+                    name="lastWorked"
+                    title="column"
+                    onclick={handleFilterClick}
+                  />
+                </span> 
+              </p>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+      <template if:true={preferredData}>
+      <template for:each={preferredData} for:item="record">
+          <tr class="body__row" key={record.workerId}>    
+            <td class="flex__row slds-truncate checkbox__column">
+              <div class="slds-grid checkbox__container">
+                <img
+                  if:false={record.isHidden}
+                  alt="Toggle detailed view"
+                  onclick={toggleSubTableShow}
+                  class="slds-var-p-left_medium clickable__element"
+                  name={record.workerId}
+                  src={primaryAnchorCaretOpen}
+                />
+                <img
+                  if:true={record.isHidden}
+                  alt="Toggle detailed view"
+                  onclick={toggleSubTableShow}
+                  class="slds-var-p-left_medium clickable__element"
+                  name={record.workerId}
+                  src={primaryAnchorCaret}
+                />
+              </div>
+            </td>         
+            <td>
+              <div class="slds-truncate" title={record.workerName}>
+                <p class="body-text">{record.workerName}</p>
+              </div>
+            </td>
+            <td>
+              <div class="slds-truncate" title={record.lastWorked}>
+                <p class="body-text">{record.lastWorked}</p>
+              </div>
+            </td>
+          </tr>
+          <template if:false={record.isHidden}>
+          <tr key={record.workerId} class="dropdown-row">
+
+              <td colspan="6" class="subtable__container">
+                <!--! Subtable start -->
+                <table class="slds-table slds-table_cell-buffer">
+                  <thead>
+                    <tr class="slds-line-height_reset header__row">					
+            
+                      <th  scope="col" class="table__header sub-table__header">
+                        <div class="slds-truncate" title="JobType">
+                          <p class="table-header">Job Type</p>
+                        </div>
+                      </th>
+                      <th scope="col" class="table__header sub-table__header">
+                        <div class="slds-truncate" title="Site">
+                          <p class="table-header">Site</p>
+                        </div>
+                      </th>
+                      <th scope="col" class="table__header sub-table__header">
+                        <div class="slds-truncate" title="Preferred Since">
+                          <p class="table-header">                            
+                            <template if:true={isPreferredWorker}>
+                              Preferred Since
+                            </template>
+                            <template if:false={isPreferredWorker}>
+                              Last Shift Worked
+                            </template>
+                          </p>
+                        </div>
+                      </th>
+                      <th scope="col" class="table__header sub-table__header">
+                        <div class="slds-truncate" title="Preferred Worker">
+                          <p class="table-header">Preferred Worker</p>
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <template for:each={record.jobRecords} for:item="crecord">
+                      <tr key={crecord.jobType} class="body__row">                        
+                        <td >
+                          <div class="slds-truncate" title={crecord.jobType}>
+                              <p class="body-text">{crecord.jobType}</p>                             
+                          </div>
+                        </td>
+                        <td>
+                          <div class="slds-truncate" title={crecord.site}>
+                              <p class="body-text">{crecord.site}</p>                             
+                          </div>
+                        </td>
+                        <td>
+                          <div class="slds-truncate" title={crecord.preferredSince}>
+                              <p class="body-text">{crecord.preferredSince}</p>                             
+                          </div>
+                        </td>
+                        <td>
+                          <div class="slds-truncate" title={crecord.preferredWorker}>
+                              <p class="body-text">
+                                
+                                <lightning-button-stateful
+                                  data-id={crecord.jobTypeId}
+                                  name={crecord.jobTypeId}
+                                  label-when-off="Prefer Worker"
+                                  label-when-on="Preferred Worker"
+                                  label-when-hover="Preferred Worker"
+                                  icon-name-when-off="utility:ribbon"
+                                  icon-name-when-on="utility:check"
+                                  selected={crecord.selected}
+                                  onclick={handleEndorsedChange}
+                                ></lightning-button-stateful>
+                              </p>                             
+                          </div>
+                        </td>
+                      </tr>
+                      </template>
+                  </tbody>
+                </table>
+                <!--! Subtable end  -->
+              </td>
+            </tr>
+          </template>
+          </template>
+          </template>
+      </tbody>
+    </table>
+  </template>
+  <template if:true={openTextFilterModal}>
+    <div data-id="textFilterModal" class="filter__modal">
+      <!--Jyothi-->
+         <c-portal-v2-filter-modal
+        onclose={handleTextFilterModalClose}
+        default-selected-values={defaultSelectedValues}
+        onapplyfilter={handleApplyFilter}
+        onresetfilter={handleResetFilter}
+        column-label={filterColumnLabel}
+        filter-click-type={filterClickType}
+        filter-terms={filterTerms}
+      ></c-portal-v2-filter-modal>
+    </div>
+  </template>
+  <template if:true={openDateFilterModal}>
+    <div data-id="dateFilterModal" class="filter__modal">
+      <!--Jyothi-->
+      <c-portal-v2-date-filter-modal
+        column={filterColumnLabel}
+        default-selected-values={defaultSelectedDate2}
+        selected-date-filter={defaultSelectedDate2}
+        onclose={handleDateFilterModalClose}
+        onapplyfilter={handleApplyFilter}
+        onresetfilter={handleResetFilter}
+        date-range="true"
+      ></c-portal-v2-date-filter-modal>
+    </div>
+  </template>
+
+  <template if:true={isShowModal}>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+         <div class="slds-modal__container">
+            <header class="slds-modal__header">
+               <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideModalBox}>
+                  <lightning-icon icon-name="utility:close"
+                     alternative-text="close"
+                     variant="inverse"
+                     size="small" ></lightning-icon>
+                  <span class="slds-assistive-text">Close</span>
+               </button>
+               <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Workers</h2>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                  <p class="slds-align_absolute-center norecordclc">                    
+                    <template if:true={isPreferredWorker}>
+                      
+                    </template>
+                    <template if:false={isPreferredWorker}>
+                      
+                    </template>
+                  
+                  </p>
+            </div>
+            <footer class="slds-modal__footer">
+               <button class="slds-button slds-button_brand" onclick={hideModalBox}>Ok</button>
+            </footer>       
+         </div>
+      </section>
+      <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+
+</template>

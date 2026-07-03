@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>This workflow is used to notify the Prospect that they have been referred to a position.</description>
+        <name>Notify_the_Prospect_that_they_have_been_referred_to_a_position</name>
+        <label>Notify the Prospect that they have been referred to a position</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <actionName>Referral__c.EmailReferral</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Referral__c.EmailReferral</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>This Email is used to notify the Referrer that the Prospect has successfully applied to the position they referred them to.</description>
+        <name>Notify_the_Referrer_that_the_Prospect</name>
+        <label>Notify the Referrer that the Prospect</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <actionName>Referral__c.Referral_Employee_Notification_on_Applied</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Referral__c.Referral_Employee_Notification_on_Applied</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Decision_1</name>
+        <label>Decision 1</label>
+        <locationX>314</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Check_Type_Not_Equal_To_Lead_And_Link_Not_Equal_To_Null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Referral_type__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Lead</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Referral_link__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Notify_the_Prospect_that_they_have_been_referred_to_a_position</targetReference>
+            </connector>
+            <label>Check Type Not Equal To Lead And Link Not Equal To Null</label>
+        </rules>
+        <rules>
+            <name>Has_Prospect_AppliedequalsTrue</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Applied__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Notify_the_Referrer_that_the_Prospect</targetReference>
+            </connector>
+            <label>Has Prospect AppliedequalsTrue</label>
+        </rules>
+    </decisions>
+    <description>EmailReferral &amp; Referral Employee Notification on Referral Applied</description>
+    <environments>Default</environments>
+    <interviewLabel>EmailReferral {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>EmailReferral</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Decision_1</targetReference>
+        </connector>
+        <object>Referral__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+</Flow>

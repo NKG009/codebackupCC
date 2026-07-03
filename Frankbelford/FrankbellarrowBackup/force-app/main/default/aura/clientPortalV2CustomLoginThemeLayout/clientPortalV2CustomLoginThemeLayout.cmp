@@ -1,0 +1,8 @@
+<aura:component implements="forceCommunity:themeLayout">
+  <aura:attribute name="navigation" type="Aura.Component[]" />
+  <aura:attribute name="sidebar" type="Aura.Component[]" />
+
+  <div class="slds-grid">
+    <div class="slds-col slds-size_12-of-12">{!v.body}</div>
+  </div>
+</aura:component>

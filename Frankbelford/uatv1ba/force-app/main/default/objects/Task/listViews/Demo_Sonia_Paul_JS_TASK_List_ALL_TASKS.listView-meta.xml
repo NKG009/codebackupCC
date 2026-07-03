@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Demo_Sonia_Paul_JS_TASK_List_ALL_TASKS</fullName>
+    <columns>No_Future_Task__c</columns>
+    <columns>SUBJECT</columns>
+    <columns>DUE_DATE</columns>
+    <columns>STATUS</columns>
+    <columns>WHO_NAME</columns>
+    <columns>WHAT_NAME</columns>
+    <columns>IP_TaskType__c</columns>
+    <columns>ts2__Client__c</columns>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>PRIORITY</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>STATUS</field>
+        <operation>equals</operation>
+        <value>Not Started,In Progress,Waiting on someone else,Deferred</value>
+    </filters>
+    <filters>
+        <field>DUE_DATE</field>
+        <operation>greaterThan</operation>
+        <value>5/1/2024 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>IP_TaskType__c</field>
+        <operation>equals</operation>
+        <value>Sales Call,Spec Call,General Call,Left Message,Sales Visit,T-P / Perm,Mailer/E-marketing,COB Completed</value>
+    </filters>
+    <filters>
+        <field>DUE_DATE</field>
+        <operation>lessOrEqual</operation>
+        <value>12/31/2024 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Task.Task</value>
+    </filters>
+    <label>Demo Sonia Paul JS TASK List ALL TASKS</label>
+</ListView>

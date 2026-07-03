@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "97c3d5e7-caef-42ba-905c-bcc0e615f003",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "852c206b-72e2-452e-8fde-3e32eeabdb88",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Bank_Details_Flow_Component",
+  "id" : "fedf0c7f-a348-4d66-907d-b97da79e7a51",
+  "type" : "experienceVariation"
+}

@@ -1,0 +1,49 @@
+{
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "8929c343-a42f-422a-b61b-75dd72fd16de",
+  "label" : "PORTW",
+  "regions" : [ {
+    "id" : "9e13e886-63b3-4770-977b-3e325b109956",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"CandidateIDVar\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!ID}\"}]",
+        "flowName" : "Online_Registration_PORTW"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "43d5f91f-7e1f-46e8-8c83-edf9789c9b4e",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "bcd54683-f7bc-4246-976b-a65505726d09",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "5ff356c9-c2e9-4413-9f17-45a075aa9ef1",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "PORTW"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "f6bda94c-c2d0-4873-ad96-b75290f24e9d",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f8608423-8c41-4b31-a26e-67d7949b4288",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-portw"
+}

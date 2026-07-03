@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Birth_date_validation</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF(RecordType.DeveloperName==&apos;PAYE&apos;,
+	IF(YEAR(TODAY())- YEAR( IP_Candidate__r.Birthdate ) &lt; 16 || ISBLANK(IP_Candidate__r.Birthdate),True,False),
+	 ISBLANK(IP_Candidate__r.sirenum__National_Insurance__c)
+	 
+)</errorConditionFormula>
+    <errorMessage>On Candidate Page - Candidate Age should be greater than 16 years and Profile should be PAYE  OR Candidate National Insurance 
+ should not be blank for Ltd &amp; Umbrella Profile</errorMessage>
+</ValidationRule>

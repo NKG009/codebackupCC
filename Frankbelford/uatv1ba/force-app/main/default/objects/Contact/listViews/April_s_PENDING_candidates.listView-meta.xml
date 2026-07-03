@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>April_s_PENDING_candidates</fullName>
+    <columns>Person_Status__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>ts2__Jobs_Applied_For__c</columns>
+    <columns>Missing_Compliance_Details__c</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <columns>ts2__People_Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>ts2__Desired_Salary__c</columns>
+    <columns>Perm_Notes__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Owner__c</field>
+        <operation>equals</operation>
+        <value>April haywood</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Pending</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <label>April&apos;s PENDING candidates</label>
+    <sharedTo>
+        <roleAndSubordinates>Blue_Arrow_Newbury_Perm_hub</roleAndSubordinates>
+    </sharedTo>
+</ListView>

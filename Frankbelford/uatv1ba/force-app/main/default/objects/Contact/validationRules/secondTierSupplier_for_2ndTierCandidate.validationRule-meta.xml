@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>secondTierSupplier_for_2ndTierCandidate</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( RecordType.DeveloperName ==&quot;IP_2ndTierCandidate&quot;, 
+Account.RecordType.DeveloperName != &quot;IP_2ndTierSupplier&quot;)</errorConditionFormula>
+    <errorDisplayField>AccountId</errorDisplayField>
+    <errorMessage>2nd Tier Candidate can only be linked with 2nd Tier Supplier</errorMessage>
+</ValidationRule>

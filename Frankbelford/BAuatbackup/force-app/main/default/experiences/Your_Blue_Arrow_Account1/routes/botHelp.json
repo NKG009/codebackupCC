@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "a7ec0a5a-5ca7-4985-bc09-e6702e198cdf",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "Bot_Help__c",
+  "id" : "daf40f19-b55a-404d-8b04-66f80b90487d",
+  "label" : "Bot Help",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-bot-help",
+  "type" : "route",
+  "urlPrefix" : "bot-help"
+}

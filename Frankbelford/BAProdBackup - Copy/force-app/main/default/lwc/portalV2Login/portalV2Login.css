@@ -1,0 +1,67 @@
+.body-wrapper {
+  height: 97vh;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  place-items: center;
+  gap: 0.5em;
+}
+
+.input-container {
+  width: 30em;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 0.5fr 0.5fr;
+}
+
+.header-container {
+  align-self: flex-end;
+}
+
+.login-button {
+  justify-self: center;
+  width: 60%;
+  background-color: #029de4;
+}
+
+.login-button > button {
+  width: 100%;
+}
+
+.forgotten-password {
+  justify-self: flex-end;
+}
+
+.hidden {
+  display: none;
+}
+.error {
+  height: 1em;
+}
+
+.general-error-container {
+  min-height: 2em;
+}
+.general-error > p {
+  width: 40ch;
+  color: red;
+  margin: auto;
+  text-align: center;
+}
+.error > p {
+  color: red;
+  font-size: 0.85em;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.social-logo {
+  width: 25px;
+  height: 25px;
+}
+
+.candidate-text-container {
+  text-align: center;
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Furlough__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check this box if the candidate has been Furloughed</description>
+    <inlineHelpText>Check this box if the candidate has been Furloughed</inlineHelpText>
+    <label>Furloughed</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

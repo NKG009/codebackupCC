@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JSP__TalentWise_Screening</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>false</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>160</height>
+    <isResizable>true</isResizable>
+    <linkType>page</linkType>
+    <masterLabel>TalentWise Screening</masterLabel>
+    <openType>newWindow</openType>
+    <page>JSP__TalentWise</page>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <width>755</width>
+</WebLink>

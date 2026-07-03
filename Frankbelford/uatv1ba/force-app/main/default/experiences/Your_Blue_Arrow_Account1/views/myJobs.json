@@ -1,0 +1,69 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "d59ed0ce-54cc-4e4c-b8d2-f84e9e2d5899",
+  "label" : "MyJobs",
+  "regions" : [ {
+    "id" : "f5df469b-8b96-438f-ab32-720376bf25db",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "bannerBackgroundColor" : "rgb(0, 170, 227)",
+        "bannerPosition" : "bottom",
+        "bannerSizePercent" : 20,
+        "borderRadius" : 10,
+        "haveBanner" : false,
+        "iconBackgroundColor" : "rgb(255,255,255)",
+        "iconSize" : "large",
+        "noImageColor" : "rgb(212, 212, 212)",
+        "overlay" : "rgba(0,0,0,0.01)",
+        "templateType" : "icon",
+        "tileMenuEditor" : "My_Jobs_Tiles",
+        "titleColor" : "",
+        "titleFontSize" : "large",
+        "titleHorizontalAlign" : "center"
+      },
+      "componentName" : "community_navigation:tileMenu",
+      "id" : "c6319ebc-5e79-4853-b493-79ec7a434b68",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f8223f70-f0d0-46e5-8099-1a39de7a0027",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "2a1ffd47-c9cd-41af-adaa-ddd6f808bb86",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "MyJobs"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "0e026cdc-ce93-41ec-b400-6302c4551aa3",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "79c7ecf4-0051-4593-bc92-7b818eeac099",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "id" : "2a9f3ca7-840c-445e-b275-8f25636c44c5",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "b2ff623b-bcb4-4c95-a74e-9089517bb3ff",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-myjobs"
+}

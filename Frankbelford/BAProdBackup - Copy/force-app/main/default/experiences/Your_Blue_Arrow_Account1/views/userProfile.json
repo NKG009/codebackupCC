@@ -1,0 +1,77 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "d74e6fd7-c0f8-43a4-8798-2c7417bedfd9",
+  "label" : "User Profile",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"text-align:center;background-color:#DFF1FD;height:60px;font-size:28px;\">My Profile</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "cf31f88f-c7b0-47d7-b169-a913355e4c84",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "35b9f2c8-5d38-41fb-8b16-83a9f78ea2d4",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "caseCreateLabel" : "",
+        "caseFilterName" : "",
+        "caseHeaderLabel" : "",
+        "casesTabLabel" : "",
+        "detailsTabLabel" : "",
+        "feedTabLabel" : "",
+        "knowledgeableAboutTitle" : "",
+        "maxTopics" : "",
+        "relatedTabLabel" : "",
+        "showAllUpdates" : false,
+        "showBadges" : false,
+        "showFullPhotoAsCircle" : true,
+        "showKnowledgeableAbout" : false,
+        "showRelatedList" : false,
+        "showReputationInInfluenceCard" : false,
+        "showStats" : false,
+        "userBadgesTitle" : "",
+        "userId" : "{!recordId}",
+        "userStatsTitle" : ""
+      },
+      "componentName" : "forceCommunity:userRecordHome",
+      "id" : "e39313a4-95e5-4653-82c3-f38f2d43ccbf",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d14dcb25-4469-44e3-a719-c38dd9f49a95",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:BackButtonMyProfile",
+      "id" : "c3046840-e0fc-4640-83be-be0d2b436b6e",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "53fefaa1-d3d6-48b2-a26f-82bcbc4b20fa",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "id" : "d656e602-76a4-4a28-8852-4cee95886f03",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "dfb1f88e-28c4-4774-874b-1f492f8f5dd9",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-005"
+}

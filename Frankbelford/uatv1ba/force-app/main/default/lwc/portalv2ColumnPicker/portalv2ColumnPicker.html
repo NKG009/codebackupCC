@@ -1,0 +1,124 @@
+<template>
+  <div class="slds-is-absolute card__size">
+    <article class="slds-card card">
+      <div style="height: 90%">
+        <div class="slds-card__header slds-grid">
+          <header
+            class="slds-media slds-media_center slds-has-flexi-truncate slds-var-p-vertical_medium slds-var-p-horizontal_xx-small"
+          >
+            <div class="slds-media__body">
+              <h1 class="slds-card__header-title">
+                <a
+                  href="#"
+                  class="slds-card__header-link slds-truncate"
+                  title="Adjust Columns"
+                >
+                  <span>{pickerTitle}</span>
+                </a>
+              </h1>
+            </div>
+            <div class="slds-no-flex">
+              <lightning-button-icon
+                icon-name="utility:close"
+                alternative-text="Close"
+                title="Close"
+                onclick={closeHandler}
+                variant="bare"
+                slot="actions"
+              ></lightning-button-icon>
+            </div>
+          </header>
+        </div>
+
+        <div class="content__wrapper">
+          <!--! Main table -->
+          <div>
+            <div if:false={hideSectionHeaders}>
+              <h3 class="slds-p-around_small">
+                <lightning-formatted-text
+                  value="Main columns"
+                ></lightning-formatted-text>
+              </h3>
+            </div>
+            <template iterator:record={mainTableColumnSelection}>
+              <div
+                key={record.value.id}
+                class="slds-grid slds-gutters slds-var-p-horizontal_medium slds-var-p-vertical_xx-small"
+              >
+                <div class="slds-col slds-size_1-of-12">
+                  <lightning-input
+                    type="checkbox"
+                    variant="label-hidden"
+                    label={record.value.column}
+                    name={record.value.column}
+                    data-id={record.value.column}
+                    value={record.value.selected}
+                    onchange={handleMainTableCheckboxTick}
+                    checked={record.value.selected}
+                  ></lightning-input>
+                </div>
+                <div class="slds-col slds-size_11-of-12">
+                  <p class="slds-text-body_small">
+                    <lightning-formatted-text
+                      value={record.value.column}
+                    ></lightning-formatted-text>
+                  </p>
+                </div>
+              </div>
+            </template>
+          </div>
+          <!--! Sub Table -->
+          <div if:true={hasSecondaryTable}>
+            <div if:false={hideSectionHeaders}>
+              <h3 class="slds-var-p-around_small">
+                <lightning-formatted-text
+                  value="Drop down columns"
+                ></lightning-formatted-text>
+              </h3>
+            </div>
+            <template iterator:record={subTableColumnSelection}>
+              <div
+                key={record.value.id}
+                class="slds-grid slds-var-p-horizontal_medium slds-var-p-vertical_xx-small slds-gutters"
+              >
+                <div class="slds-col slds-size_1-of-12">
+                  <lightning-input
+                    type="checkbox"
+                    variant="label-hidden"
+                    data-id={record.value.column}
+                    label={record.value.column}
+                    name={record.value.column}
+                    value={record.value.selected}
+                    onchange={handleSubTableCheckboxTick}
+                    checked={record.value.selected}
+                  ></lightning-input>
+                </div>
+                <div class="slds-col slds-size_11-of-12">
+                  <p class="slds-text-body_small">
+                    <lightning-formatted-text
+                      value={record.value.column}
+                    ></lightning-formatted-text>
+                  </p>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+      <div class="action__buttons slds-var-p-around_large">
+        <lightning-button
+          label="Reset Columns"
+          onclick={resetToStandard}
+          variant="outline"
+          class="slds-var-p-horizontal_xx-small"
+        ></lightning-button>
+        <lightning-button
+          label="Apply"
+          onclick={applyFilter}
+          variant="brand"
+          class="slds-var-p-horizontal_xx-small"
+        ></lightning-button>
+      </div>
+    </article>
+  </div>
+</template>

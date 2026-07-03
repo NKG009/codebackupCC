@@ -1,0 +1,127 @@
+<template>
+  <section aria-modal="true" class="slds-modal slds-fade-in-open">
+    <div class="slds-modal__container">
+      <header class="slds-modal__header">
+        <h2 class="slds-text-heading_medium">View/Edit Candidate Feedback</h2>
+        <lightning-button-icon
+          class="slds-modal__close"
+          variant="bare-inverse"
+          icon-name="utility:close"
+          size="large"
+          onclick={closeClicked}
+        ></lightning-button-icon>
+      </header>
+      <div class="slds-modal__content">
+        <div class="slds-var-p-around_large">
+          <div class="table__min-height">
+            <table
+              class="slds-table slds-table_cell-buffer slds-table--bordered"
+            >
+              <thead>
+                <tr class="slds-line-height_reset header__row">
+                  <th scope="col" class="table__header">
+                    <div class="flex__row header__cell slds-truncate">
+                      <p class="slds-text-body_regular">Name</p>
+                    </div>
+                  </th>
+                  <template for:each={additionalColumns} for:item="column">
+                    <th key={column.key} scope="col" class="table__header">
+                      <div class="slds-truncate" title={column.label}>
+                        {column.label}
+                      </div>
+                    </th>
+                  </template>
+                  <th scope="col" class="table__header">
+                    <div class="flex- header__cell slds-truncate">
+                      <p class="slds-text-body_regular">Rating</p>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <template for:each={selectedTemps} for:item="temp">
+                  <tr key={temp.id} class="body__row">
+                    <td>{temp.name}</td>
+                    <template for:each={temp.columnInfo} for:item="column">
+                      <td key={column.key}>
+                        <div class="slds-truncate" title={column.label}>
+                          <template if:true={column.isText}>
+                            {column.value}
+                          </template>
+                          <template if:true={column.isDate}>
+                            <lightning-formatted-date-time
+                              value={column.value}
+                              year="numeric"
+                              month="2-digit"
+                              day="2-digit"
+                            ></lightning-formatted-date-time>
+                          </template>
+                          <template if:true={column.isTime}>
+                            <lightning-formatted-date-time
+                              value={column.value}
+                              hour="2-digit"
+                              minute="2-digit"
+                            ></lightning-formatted-date-time>
+                          </template>
+                          <template if:true={column.isRating}>
+                            <template if:false={isLoading}>
+                              <c-portal-v2-star-rating
+                                rating={temp.ratingNumber}
+                                max-stars="5"
+                                rating-out-of={temp.tempRatingLength}
+                                has-rating={temp.hasRating}
+                              ></c-portal-v2-star-rating>
+                            </template>
+                          </template>
+                          <template if:true={column.isCurrentShift}>
+                            <p class="slds-text-body_regular">
+                              {temp.currentShifts}
+                            </p>
+                          </template>
+                        </div>
+                      </td>
+                    </template>
+                    <td
+                      class="
+                        slds-truncate
+                        ellipsis__truncation
+                        slds-grid
+                        column__left-justified
+                      "
+                    >
+                      <template if:false={isLoading}>
+                        <c-portal-v2-star-rating
+                          rating={temp.ratingNumber}
+                          max-stars="5"
+                          has-rating="true"
+                          record-id={temp.id}
+                          onratingchange={handleStarChange}
+                          can-select
+                        ></c-portal-v2-star-rating>
+                      </template>
+                    </td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
+          <div class="slds-grid slds-grid_align-end">
+            <lightning-button
+              label="Clear"
+              variant="brand-outline"
+              class="slds-var-m-top_medium slds-var-m-horizontal_xx-small"
+              onclick={clearClicked}
+            ></lightning-button>
+            <lightning-button
+              variant="brand"
+              label="Submit Feedback"
+              class="slds-var-m-top_medium slds-var-m-horizontal_xx-small"
+              onclick={applyClicked}
+            ></lightning-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rob_s_Clients2</fullName>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>FULL_NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Skills__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Pending</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>contains</operation>
+        <value>GL7 3NX,OX2 6HS,GL53 8EY,SN11 0LZ,SN14 6DQ,OX5 2QD,SN16 0RB,GL53 7LD,GL7 3NB,GL10 2JQ,OX29 0RZ,OX5 1RX,OX4 6LT,OX1 3LZ,GL20 7DN,SN25 1UZ,OX13 6AF,OX29 0RN,OX26 4SS,OX1 3JP,OX15 5QL,OX2 6SS,OX13 6BD,OX2 6JX,OX13 6LN,OX2 7EN,OX14 4TE</value>
+    </filters>
+    <filters>
+        <field>FULL_NAME</field>
+        <operation>notContain</operation>
+        <value>Imogen Bennett,Stacey Bryden,Colette Smith,Kelly Homer,Catering Office,Malgorzata Fitzgerald,Yannick Joseph,Paul Ashman,Paul Barnes,Nicholas Hawkins Mr,David James,Accounts Payable,Emma Dougall,Heather Bates,Katie Sillence,Stuart Crook</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notContain</operation>
+        <value>Cheltenham College,London Residential Healthcare Ltd,Summerfield School,Fresh Start Catering</value>
+    </filters>
+    <filters>
+        <field>FULL_NAME</field>
+        <operation>notContain</operation>
+        <value>,Patrick Cleary,Luca Becherini,Rachel Howie</value>
+    </filters>
+    <filters>
+        <field>FULL_NAME</field>
+        <operation>notContain</operation>
+        <value>Paulina Sagan,Magaly Etter MIH,John Branbook,Peter Burden</value>
+    </filters>
+    <label>1350 Rob&apos;s Clients</label>
+    <sharedTo>
+        <roleAndSubordinates>Blue_Arrow_Newbury_Perm_hub</roleAndSubordinates>
+    </sharedTo>
+</ListView>

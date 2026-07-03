@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ts2__Facebook_Profile__c</fullName>
+    <deprecated>false</deprecated>
+    <description>This Field Should hold the URL for the contact&apos;s Facebook Profile</description>
+    <inlineHelpText>This Field Should hold the URL for the contact&apos;s Facebook Profile</inlineHelpText>
+    <label>Facebook Profile</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Url</type>
+</CustomField>

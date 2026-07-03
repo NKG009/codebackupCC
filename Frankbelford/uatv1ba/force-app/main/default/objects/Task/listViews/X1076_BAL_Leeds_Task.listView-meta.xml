@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1076_BAL_Leeds_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>1076-BAL Leeds</label>
+    <queue>X1076_BAL_Leeds</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,496 @@
+{
+  "activeBrandingSetId" : "5b1bed5f-5552-4373-8aea-a2c6ccb8aef4",
+  "customCSS" : "/* Footer Navigation Links - White Text & Underline on Hover */\na.footer-link {\n    color: white !important; /* Force links to stay white */\n    text-decoration: none;\n    display: block;\n    transition: text-decoration 0.2s ease-in-out;\n}\na.footer-link:hover {\n    color: white !important; /* Keep text white on hover */\n    text-decoration: underline;\n}\n\n/* Get in Touch - White Text & Underline on Hover */\na.get-in-touch {\n    color: white !important; /* Ensure it stays white */\n    text-decoration: none;\n    display: inline-flex;\n    align-items: center;\n    transition: text-decoration 0.2s ease-in-out;\n}\na.get-in-touch:hover {\n    color: white !important; /* Keep text white */\n    text-decoration: underline;\n}",
+  "developerName" : "jepson",
+  "id" : "45195a9d-35f8-45df-bdcb-23136ca1fc13",
+  "label" : "Jepson",
+  "layouts" : {
+    "Home" : "2dc83564-bfc1-4529-8b16-a7077bd4dc23",
+    "Inner" : "17e9bda9-1bee-4ad2-a55e-16f6f11e58cf",
+    "Login" : "ebf842c2-1ecf-4012-8897-820f45808bc1",
+    "ServiceNotAvailable" : "95f9d04f-d8ac-4a38-97d9-3586289a8771"
+  },
+  "type" : "theme",
+  "views" : [ {
+    "componentAttributes" : { },
+    "componentName" : "salesforceIdentity:loginBody2",
+    "id" : "ebf842c2-1ecf-4012-8897-820f45808bc1",
+    "label" : "Login",
+    "regions" : [ {
+      "id" : "44fb10f1-735f-4180-bd95-77c2a9d344fb",
+      "regionName" : "header",
+      "type" : "region"
+    }, {
+      "id" : "875cf204-16e1-4eba-999d-3f1d8c88a980",
+      "regionName" : "content",
+      "type" : "region"
+    }, {
+      "id" : "93c53857-5c0d-423f-ada9-e06608fbf6ec",
+      "regionName" : "footer",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  }, {
+    "componentAttributes" : {
+      "fixedPageWidth" : 1440,
+      "headerBgColor" : "rgba(255, 255, 255, 0.8)",
+      "isHeaderPinned" : false,
+      "isHeroUnderHeader" : false,
+      "isPageWidthFixed" : true,
+      "showHeader" : true,
+      "showHero" : false
+    },
+    "componentName" : "siteforce:themeLayoutStarter",
+    "id" : "17e9bda9-1bee-4ad2-a55e-16f6f11e58cf",
+    "label" : "Default",
+    "regions" : [ {
+      "components" : [ {
+        "componentAttributes" : {
+          "background" : "background: #FFFFFF",
+          "backgroundOverlayColor" : "rgba(0, 0, 0, 0.3)",
+          "borderBottomColor" : "rgba(0, 0, 0, 0.5)",
+          "centerAlignLogo" : false,
+          "collapseNavMenu" : false,
+          "containHeader" : true,
+          "containHeaderWidth" : 1440,
+          "dropdownBackgroundColor" : "#FFFFFF",
+          "dropdownBackgroundHoverColor" : "",
+          "dropdownBorderColor" : "#F0F0F0",
+          "dropdownTextColor" : "",
+          "dropdownTextHoverColor" : "",
+          "headerHeight" : 16,
+          "linkActiveBorderColor" : "",
+          "linkColor" : "rgba(0, 0, 0, 0.8)",
+          "linkHoverColor" : "rgba(0, 0, 0, 0.7)",
+          "linkTextShadowColor" : "rgba(255, 255, 255, 0)",
+          "logoWidth" : 150,
+          "searchStyle" : "expanded",
+          "showAppLauncher" : false,
+          "showNavMenuOnLeft" : true,
+          "showNotifications" : true,
+          "showProfileMenu" : true,
+          "showSearch" : false
+        },
+        "componentName" : "forceCommunity:themeHeaderCompact",
+        "id" : "1dcf5970-2850-4def-b75c-65ed7ba609ad",
+        "regions" : [ {
+          "components" : [ {
+            "componentAttributes" : {
+              "buttonBackgroundColor" : "",
+              "buttonBackgroundHoverColor" : "",
+              "buttonBorderColor" : "rgba(0, 0, 0, 0)",
+              "buttonBorderRadius" : 15,
+              "buttonText" : "Log in",
+              "buttonTextColor" : "",
+              "buttonTextHoverColor" : "",
+              "customizableUserProfileMenuEditor" : "Default_User_Profile_Menu",
+              "menuStyleSettings" : "{\"selectedMenuStyleSetting\":\"iconOnly\",\"selectedIconSetting\":\"userAvatar\",\"includeCompanyName\":false,\"selectedTextOrientationSetting\":\"right\"}"
+            },
+            "componentName" : "forceCommunity:customizableUserProfileMenu",
+            "id" : "ef6aa41a-58ee-4695-b91e-cc7a732243a2",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "93834f6b-a003-4624-bc8e-a0388fdb8c0a",
+          "regionName" : "themeHeaderProfileMenu",
+          "type" : "region"
+        }, {
+          "components" : [ {
+            "componentAttributes" : {
+              "backgroundColor" : "#FFFFFF",
+              "borderColor" : "rgba(0, 0, 0, 0.8)",
+              "borderRadius" : 20,
+              "borderStyle" : "outline",
+              "buttonColor" : "",
+              "buttonHoverColor" : "",
+              "crossObjectTypeaheadApiNames" : "",
+              "iconColor" : "rgba(0, 0, 0, 0.8)",
+              "placeholderText" : "Search...",
+              "placeholderTextColor" : "rgba(0, 0, 0, 0.6)",
+              "showInputFocusOutline" : true,
+              "showSearchButton" : false,
+              "textColor" : "rgba(0, 0, 0, 0.8)",
+              "typeaheadResultMax" : 5,
+              "useTypeahead" : true
+            },
+            "componentName" : "forceCommunity:themeSearch",
+            "id" : "abccf3ca-bd5c-4903-9cd6-557e84440e52",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "0131d598-4c21-460e-90bc-6f7f6d56f037",
+          "regionName" : "search",
+          "type" : "region"
+        }, {
+          "components" : [ {
+            "componentAttributes" : {
+              "NavigationMenuEditorRefresh" : "",
+              "alignment" : "center",
+              "showAppLauncher" : false,
+              "showBackLabel" : false,
+              "showHomeLink" : true
+            },
+            "componentName" : "forceCommunity:multiLevelNavigationWrapper",
+            "id" : "7dffc779-3595-4ecb-84b9-7ae7e327fc26",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "849b1d3d-6bfd-4ee3-8b2e-7693ccc6dbab",
+          "regionName" : "nav",
+          "type" : "region"
+        }, {
+          "id" : "cb140df7-01e7-44ca-8826-b250edf85099",
+          "regionName" : "cartIcon",
+          "type" : "region"
+        } ],
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "00d18c54-2099-477e-8e04-3aaff62bf31f",
+      "regionName" : "themeHeader",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "bgImage" : "background: #FFFFFF url(/sfsites/assets/themes/jepson-background.jpg) top center /cover",
+          "bgOverlayColor" : "rgba(255, 255, 255, 0.20)",
+          "captionText" : "Our Mission",
+          "captionTextColor" : "rgba(0, 0, 0, 0.8)",
+          "captionTextShadowColor" : "rgba(0, 0, 0, 0)",
+          "contentAlignment" : "right",
+          "contentWidth" : 45,
+          "ctaBtnOneBgColor" : "",
+          "ctaBtnOneBgHoverColor" : "",
+          "ctaBtnOneBorderColor" : "rgba(10, 50, 198, 0)",
+          "ctaBtnOneOpenNewTab" : false,
+          "ctaBtnOneText" : "Our Projects",
+          "ctaBtnOneTextColor" : "",
+          "ctaBtnOneTextHoverColor" : "",
+          "ctaBtnOneUrl" : "",
+          "ctaBtnRadius" : 25,
+          "ctaBtnTwoBgColor" : "rgba(255, 255, 255, 0)",
+          "ctaBtnTwoBgHoverColor" : "rgba(255, 255, 255, 0.9)",
+          "ctaBtnTwoBorderColor" : "rgba(0, 0, 0, 0.8)",
+          "ctaBtnTwoOpenNewTab" : false,
+          "ctaBtnTwoText" : "Contact Us",
+          "ctaBtnTwoTextColor" : "rgba(0, 0, 0, 0.8)",
+          "ctaBtnTwoTextHoverColor" : "rgba(0, 0, 0, 0.8)",
+          "ctaBtnTwoUrl" : "",
+          "ctaShowBtnOne" : true,
+          "ctaShowBtnTwo" : true,
+          "fixedHeroWidth" : true,
+          "heroHeight" : 162,
+          "heroWidth" : 1440,
+          "showCaption" : true,
+          "showSubtitle" : true,
+          "showTitle" : true,
+          "subtitleText" : "We specialize in the construction of unique and exclusive properties.  We deliver outstanding quality and design for leading architects and private clients around the world.",
+          "subtitleTextColor" : "rgba(0, 0, 0, 0.8)",
+          "subtitleTextShadowColor" : "rgba(0, 0, 0, 0)",
+          "titleText" : "Your Dream Home",
+          "titleTextColor" : "rgba(0, 0, 0, 0.8)",
+          "titleTextShadowColor" : "rgba(0, 0, 0, 0)",
+          "type" : "callToAction"
+        },
+        "componentName" : "forceCommunity:themeHeroStarter",
+        "id" : "2702a3d3-6a83-441d-bdf9-f680e152b92a",
+        "regions" : [ {
+          "components" : [ {
+            "componentAttributes" : {
+              "backgroundColor" : "#FFFFFF",
+              "borderColor" : "rgba(0, 0, 0, 0)",
+              "borderRadius" : 25,
+              "borderStyle" : "outline",
+              "buttonColor" : "",
+              "buttonHoverColor" : "",
+              "crossObjectTypeaheadApiNames" : "",
+              "iconColor" : "#FFFFFF",
+              "placeholderText" : "Ask a question...",
+              "placeholderTextColor" : "rgba(0, 0, 0, 0.6)",
+              "publicDropdownBackgroundColor" : "#FFFFFF",
+              "publicDropdownBackgroundHoverColor" : "",
+              "publicDropdownBorderColor" : "#F0F0F0",
+              "publicDropdownTextColor" : "",
+              "publicDropdownTextHoverColor" : "",
+              "showInputFocusOutline" : true,
+              "showSearchButton" : true,
+              "textColor" : "rgba(0, 0, 0, 0.8)",
+              "typeaheadResultMax" : 6,
+              "useTypeahead" : true
+            },
+            "componentName" : "forceCommunity:themeSearchHero",
+            "id" : "91b336bc-dbf6-4a09-a614-679196f6da88",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "6af40f25-51a5-4426-8e5f-e161852ac240",
+          "regionName" : "search",
+          "type" : "region"
+        } ],
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "81d47031-9e8b-4990-9abd-0f25d635df68",
+      "regionName" : "themeHero",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "richTextValue" : "<div style=\"position: relative; width: 100%; max-width: 1925px; margin: 0 auto;\">\n    <div style=\"background: url('https://blue-arrow--uat--c.sandbox.vf.force.com/resource/1741111040000/BACandidateFooter') \n                no-repeat center center / cover; \n                width: 100%; \n                height: auto; \n                position: relative; \n                display: flex; \n                flex-direction: column; \n                justify-content: flex-start; \n                align-items: stretch; \n                padding-top: 100px;\n                margin-bottom: 0; /* Remove any extra space below */\">\n\n            <!-- Footer Content Here -->\n            \n<!-- Centralized Content Container (max 958px) -->\n        <div style=\"max-width: 958px; width: 100%; margin: 0 auto; position: relative;\">\n\n            <!-- Footer Navigation Links -->\n            <div style=\"display: flex; flex-wrap: wrap; justify-content: space-between; text-align: left; color: white; font-family: Arial, sans-serif; font-size: 14px; margin-bottom: 30px;\">\n                <div style=\"width: 22%;\">\n                    <strong>Jobs</strong><br><br>\n                    <a href=\"/jobs\" class=\"footer-link\">All Jobs</a>\n                    <a href=\"/catering-jobs\" class=\"footer-link\">Catering Jobs</a>\n                    <a href=\"/warehouse-jobs\" class=\"footer-link\">Warehouse Jobs</a>\n                </div>\n\n                <div style=\"width: 22%;\">\n                    <strong>Recruitment Solutions</strong><br><br>\n                    <a href=\"/recruitment-solutions\" class=\"footer-link\">Solutions Overview</a>\n                    <a href=\"/managed-service\" class=\"footer-link\">Managed Service (MSP)</a>\n                    <a href=\"/client-portal\" class=\"footer-link\">Client Portal</a>\n                </div>\n\n                <div style=\"width: 22%;\">\n                    <strong>Company</strong><br><br>\n                    <a href=\"/company\" class=\"footer-link\">Company Overview</a>\n                    <a href=\"/about-us\" class=\"footer-link\">About Us</a>\n                    <a href=\"/contact-us\" class=\"footer-link\">Contact Us</a>\n                </div>\n\n                <div style=\"width: 22%;\">\n                    <strong>Corporate Governance</strong><br><br>\n                    <a href=\"/corporate-governance\" class=\"footer-link\">Governance Overview</a>\n                    <a href=\"/privacy-policy\" class=\"footer-link\">Privacy Policy</a>\n                    <a href=\"/data-access-request\" class=\"footer-link\">Data Access Request</a>\n                </div>\n            </div>\n\n           \n\n<!-- Company Details Section -->\n            <div style=\"width: 100%; display: flex; flex-direction: column; align-items: flex-start; margin-top: 70px; gap: 10px;\">\n                <div style=\"text-align: left; color: white; font-size: 12px;\">\n\n            <!-- Social Media Icons -->\n            <div style=\"margin-bottom: 15px;\">\n                <a href=\"https://www.facebook.com/BlueArrowJobs\" target=\"_blank\" style=\"margin-right: 10px;\">\n                    <img src=\"https://blue-arrow--uat--c.sandbox.vf.force.com/resource/1741108478000/BAFacebook\" alt=\"Facebook\" style=\"width: 24px; height: 24px;\">\n                </a>\n                <a href=\"https://www.linkedin.com/company/blue-arrow\" target=\"_blank\" style=\"margin-right: 10px;\">\n                    <img src=\"https://blue-arrow--uat--c.sandbox.vf.force.com/resource/1741108439000/BALinkedIn\" alt=\"LinkedIn\" style=\"width: 24px; height: 24px;\">\n                </a>\n                <a href=\"https://twitter.com/bluearrowgroup\" target=\"_blank\" style=\"margin-right: 10px;\">\n                    <img src=\"https://blue-arrow--uat--c.sandbox.vf.force.com/resource/1741108494000/BAX\" alt=\"Twitter\" style=\"width: 24px; height: 24px;\">\n                </a>\n                <a href=\"https://www.youtube.com/channel/UCN1X-rcqNOXv0fLbhtNnJJQ\" target=\"_blank\">\n                    <img src=\"https://blue-arrow--uat--c.sandbox.vf.force.com/resource/1741108460000/BAYoutube\" alt=\"YouTube\" style=\"width: 24px; height: 24px;\">\n                </a>\n            </div>\n\n                    <!-- Get in Touch with Arrow Icon -->\n                    <a href=\"your_salesforce_community_link\" class=\"get-in-touch\">\n                        Get in touch \n                        <img src=\"https://blue-arrow--uat--c.sandbox.vf.force.com/resource/1741107606000/BAArrow\" \n                             alt=\"Arrow\" \n                             style=\"width: 14px; height: 14px; margin-left: 5px;\">\n                    </a> &nbsp;&nbsp; |  &nbsp;&nbsp;\n                    \n                    <!-- Location Icon Before Address -->\n                    <img src=\"https://blue-arrow--uat--c.sandbox.vf.force.com/resource/1741107628000/BALocation\" \n                         alt=\"Location\" \n                         style=\"width: 14px; height: 16px; vertical-align: middle; margin-right: 5px;\">\n                    33 Soho Square, London, W1D 3QU, United Kingdom<br><br>\n\n                    © Blue Arrow Ltd. All rights reserved 2025 | <strong>Company Number:</strong> 641659 | <strong>VAT Number:</strong> 434 7680 76\n        </div>\n    </div>\n</div>"
+        },
+        "componentName" : "forceCommunity:htmlBlock",
+        "id" : "3a7c65ec-9418-4ea3-98b5-8aaae547e2b7",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "69c7ad86-672e-453b-be44-0a93e2b4794c",
+      "regionName" : "themeFooter",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  }, {
+    "componentAttributes" : {
+      "fixedPageWidth" : 958,
+      "headerBgColor" : "rgba(255, 255, 255, 0.8)",
+      "isHeaderPinned" : false,
+      "isHeroUnderHeader" : false,
+      "isPageWidthFixed" : true,
+      "showHeader" : true,
+      "showHero" : true
+    },
+    "componentName" : "siteforce:themeLayoutStarter",
+    "id" : "2dc83564-bfc1-4529-8b16-a7077bd4dc23",
+    "label" : "Home",
+    "regions" : [ {
+      "components" : [ {
+        "componentAttributes" : {
+          "background" : "background: #FFFFFF",
+          "backgroundOverlayColor" : "rgba(0, 0, 0, 0.3)",
+          "borderBottomColor" : "rgba(0, 0, 0, 0.5)",
+          "centerAlignLogo" : false,
+          "collapseNavMenu" : false,
+          "containHeader" : true,
+          "containHeaderWidth" : 1440,
+          "dropdownBackgroundColor" : "#FFFFFF",
+          "dropdownBackgroundHoverColor" : "",
+          "dropdownBorderColor" : "#F0F0F0",
+          "dropdownTextColor" : "",
+          "dropdownTextHoverColor" : "",
+          "headerHeight" : 16,
+          "linkActiveBorderColor" : "",
+          "linkColor" : "rgba(0, 0, 0, 0.8)",
+          "linkHoverColor" : "rgba(0, 0, 0, 0.7)",
+          "linkTextShadowColor" : "rgba(255, 255, 255, 0)",
+          "logoWidth" : 150,
+          "searchStyle" : "expanded",
+          "showAppLauncher" : false,
+          "showNavMenuOnLeft" : true,
+          "showNotifications" : true,
+          "showProfileMenu" : true,
+          "showSearch" : false
+        },
+        "componentName" : "forceCommunity:themeHeaderCompact",
+        "id" : "d9d24508-db26-40cb-986f-2b469be8998c",
+        "regions" : [ {
+          "components" : [ {
+            "componentAttributes" : {
+              "buttonBackgroundColor" : "",
+              "buttonBackgroundHoverColor" : "",
+              "buttonBorderColor" : "rgba(0, 0, 0, 0)",
+              "buttonBorderRadius" : 15,
+              "buttonText" : "Log in",
+              "buttonTextColor" : "",
+              "buttonTextHoverColor" : "",
+              "customizableUserProfileMenuEditor" : "Default_User_Profile_Menu",
+              "menuStyleSettings" : "{\"selectedMenuStyleSetting\":\"iconOnly\",\"selectedIconSetting\":\"userAvatar\",\"includeCompanyName\":false,\"selectedTextOrientationSetting\":\"right\"}"
+            },
+            "componentName" : "forceCommunity:customizableUserProfileMenu",
+            "id" : "ef20c900-3f5d-40c9-9046-a843287d303b",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "96c9b77d-bd25-4989-b86e-6627a2135651",
+          "regionName" : "themeHeaderProfileMenu",
+          "type" : "region"
+        }, {
+          "components" : [ {
+            "componentAttributes" : {
+              "backgroundColor" : "#FFFFFF",
+              "borderColor" : "rgba(0, 0, 0, 0.8)",
+              "borderRadius" : 8,
+              "borderStyle" : "outline",
+              "buttonColor" : "",
+              "buttonHoverColor" : "",
+              "crossObjectTypeaheadApiNames" : [ {
+                "isPublic" : true,
+                "name" : "FeedItem"
+              } ],
+              "iconColor" : "rgba(0, 0, 0, 0.8)",
+              "placeholderText" : "Search...",
+              "placeholderTextColor" : "rgba(0, 0, 0, 0.6)",
+              "showInputFocusOutline" : true,
+              "showSearchButton" : false,
+              "textColor" : "rgba(0, 0, 0, 0.8)",
+              "typeaheadResultMax" : 5,
+              "useTypeahead" : true
+            },
+            "componentName" : "forceCommunity:themeSearch",
+            "id" : "0824c79b-8a03-4e38-b4c1-69ecdc7ddc91",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "09e6e43a-b737-4e54-b97f-96ce427ec10c",
+          "regionName" : "search",
+          "type" : "region"
+        }, {
+          "components" : [ {
+            "componentAttributes" : {
+              "NavigationMenuEditorRefresh" : "",
+              "alignment" : "center",
+              "showAppLauncher" : false,
+              "showBackLabel" : false,
+              "showHomeLink" : true
+            },
+            "componentName" : "forceCommunity:multiLevelNavigationWrapper",
+            "id" : "74e68d4c-3135-469c-8f0f-c8a015ff7418",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "404397df-1cf1-4587-9eef-189ac16ad37a",
+          "regionName" : "nav",
+          "type" : "region"
+        }, {
+          "id" : "b0755aa3-0f91-4612-8e32-c5f204e2a69d",
+          "regionName" : "cartIcon",
+          "type" : "region"
+        } ],
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "7284ad76-59e5-46f5-9e23-64620fa31365",
+      "regionName" : "themeHeader",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "bgImage" : "background: #FFFFFF url(/sfsites/c/file-asset/test1?v=1) center center /cover",
+          "bgOverlayColor" : "rgba(0, 0, 0, 0.2)",
+          "captionText" : "Welcome to your Blue Arrow portal.",
+          "captionTextColor" : "rgb(255, 255, 255)",
+          "captionTextShadowColor" : "rgb(7, 7, 7)",
+          "contentAlignment" : "right",
+          "contentWidth" : 48,
+          "ctaBtnOneBgColor" : "rgb(0, 158, 228)",
+          "ctaBtnOneBgHoverColor" : "",
+          "ctaBtnOneBorderColor" : "rgba(10, 50, 198, 0)",
+          "ctaBtnOneOpenNewTab" : false,
+          "ctaBtnOneText" : "Confirm my hours",
+          "ctaBtnOneTextColor" : "",
+          "ctaBtnOneTextHoverColor" : "",
+          "ctaBtnOneUrl" : "https://blue-arrow--uat.sandbox.my.site.com/candidate/s/confirmyourhours",
+          "ctaBtnRadius" : 25,
+          "ctaBtnTwoBgColor" : "rgba(255, 255, 255, 0)",
+          "ctaBtnTwoBgHoverColor" : "rgba(255, 255, 255, 0.9)",
+          "ctaBtnTwoBorderColor" : "rgba(0, 0, 0, 0.8)",
+          "ctaBtnTwoOpenNewTab" : false,
+          "ctaBtnTwoText" : "Contact Us",
+          "ctaBtnTwoTextColor" : "rgba(0, 0, 0, 0.8)",
+          "ctaBtnTwoTextHoverColor" : "rgba(0, 0, 0, 0.8)",
+          "ctaBtnTwoUrl" : "",
+          "ctaShowBtnOne" : true,
+          "ctaShowBtnTwo" : false,
+          "fixedHeroWidth" : true,
+          "heroHeight" : 162,
+          "heroWidth" : 1432,
+          "showCaption" : true,
+          "showSubtitle" : false,
+          "showTitle" : false,
+          "subtitleText" : "",
+          "subtitleTextColor" : "rgb(255, 255, 255)",
+          "subtitleTextShadowColor" : "rgb(0, 0, 0)",
+          "titleText" : "Welcome to Blue Arrow the Recruitment Agency.",
+          "titleTextColor" : "rgba(0, 0, 0, 0.8)",
+          "titleTextShadowColor" : "rgba(0, 0, 0, 0)",
+          "type" : "callToAction"
+        },
+        "componentName" : "forceCommunity:themeHeroStarter",
+        "id" : "4becdba4-6b7a-4e62-9110-92aa67587d3a",
+        "regions" : [ {
+          "components" : [ {
+            "componentAttributes" : {
+              "backgroundColor" : "#FFFFFF",
+              "borderColor" : "rgba(0, 0, 0, 0)",
+              "borderRadius" : 25,
+              "borderStyle" : "outline",
+              "buttonColor" : "",
+              "buttonHoverColor" : "",
+              "crossObjectTypeaheadApiNames" : "",
+              "iconColor" : "#FFFFFF",
+              "placeholderText" : "Ask a question...",
+              "placeholderTextColor" : "rgba(0, 0, 0, 0.6)",
+              "publicDropdownBackgroundColor" : "#FFFFFF",
+              "publicDropdownBackgroundHoverColor" : "",
+              "publicDropdownBorderColor" : "#F0F0F0",
+              "publicDropdownTextColor" : "",
+              "publicDropdownTextHoverColor" : "",
+              "showInputFocusOutline" : true,
+              "showSearchButton" : true,
+              "textColor" : "rgba(0, 0, 0, 0.8)",
+              "typeaheadResultMax" : 6,
+              "useTypeahead" : true
+            },
+            "componentName" : "forceCommunity:themeSearchHero",
+            "id" : "e6f57ae7-60b8-4ddc-818e-b299e2798b8b",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "449e698a-fc7e-433d-af05-1e39e0018be3",
+          "regionName" : "search",
+          "type" : "region"
+        } ],
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "4652ddce-bc75-4db2-8766-21d4596b8931",
+      "regionName" : "themeHero",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "richTextValue" : "<div style=\"position: relative; width: 100%; max-width: 1925px; margin: 0 auto;\">\n    <div style=\"background: url('https://blue-arrow--uat--c.sandbox.vf.force.com/resource/1741111040000/BACandidateFooter') \n                no-repeat center center / cover; \n                width: 100%; \n                height: auto; \n                position: relative; \n                display: flex; \n                flex-direction: column; \n                justify-content: flex-start; \n                align-items: stretch; \n                padding-top: 100px;\n                margin-bottom: 0; /* Remove any extra space below */\">\n\n            <!-- Footer Content Here -->\n            \n<!-- Centralized Content Container (max 958px) -->\n        <div style=\"max-width: 958px; width: 100%; margin: 0 auto; position: relative;\">\n\n            <!-- Footer Navigation Links -->\n            <div style=\"display: flex; flex-wrap: wrap; justify-content: space-between; text-align: left; color: white; font-family: Arial, sans-serif; font-size: 14px; margin-bottom: 30px;\">\n                <div style=\"width: 22%;\">\n                    <strong>Jobs</strong><br><br>\n                    <a href=\"/jobs\" class=\"footer-link\">All Jobs</a>\n                    <a href=\"/catering-jobs\" class=\"footer-link\">Catering Jobs</a>\n                    <a href=\"/warehouse-jobs\" class=\"footer-link\">Warehouse Jobs</a>\n                </div>\n\n                <div style=\"width: 22%;\">\n                    <strong>Recruitment Solutions</strong><br><br>\n                    <a href=\"/recruitment-solutions\" class=\"footer-link\">Solutions Overview</a>\n                    <a href=\"/managed-service\" class=\"footer-link\">Managed Service (MSP)</a>\n                    <a href=\"/client-portal\" class=\"footer-link\">Client Portal</a>\n                </div>\n\n                <div style=\"width: 22%;\">\n                    <strong>Company</strong><br><br>\n                    <a href=\"/company\" class=\"footer-link\">Company Overview</a>\n                    <a href=\"/about-us\" class=\"footer-link\">About Us</a>\n                    <a href=\"/contact-us\" class=\"footer-link\">Contact Us</a>\n                </div>\n\n                <div style=\"width: 22%;\">\n                    <strong>Corporate Governance</strong><br><br>\n                    <a href=\"/corporate-governance\" class=\"footer-link\">Governance Overview</a>\n                    <a href=\"/privacy-policy\" class=\"footer-link\">Privacy Policy</a>\n                    <a href=\"/data-access-request\" class=\"footer-link\">Data Access Request</a>\n                </div>\n            </div>\n\n           \n\n<!-- Company Details Section -->\n            <div style=\"width: 100%; display: flex; flex-direction: column; align-items: flex-start; margin-top: 70px; gap: 10px;\">\n                <div style=\"text-align: left; color: white; font-size: 12px;\">\n\n            <!-- Social Media Icons -->\n            <div style=\"margin-bottom: 15px;\">\n                <a href=\"https://www.facebook.com/BlueArrowJobs\" target=\"_blank\" style=\"margin-right: 10px;\">\n                    <img src=\"https://blue-arrow--uat--c.sandbox.vf.force.com/resource/1741108478000/BAFacebook\" alt=\"Facebook\" style=\"width: 24px; height: 24px;\">\n                </a>\n                <a href=\"https://www.linkedin.com/company/blue-arrow\" target=\"_blank\" style=\"margin-right: 10px;\">\n                    <img src=\"https://blue-arrow--uat--c.sandbox.vf.force.com/resource/1741108439000/BALinkedIn\" alt=\"LinkedIn\" style=\"width: 24px; height: 24px;\">\n                </a>\n                <a href=\"https://twitter.com/bluearrowgroup\" target=\"_blank\" style=\"margin-right: 10px;\">\n                    <img src=\"https://blue-arrow--uat--c.sandbox.vf.force.com/resource/1741108494000/BAX\" alt=\"Twitter\" style=\"width: 24px; height: 24px;\">\n                </a>\n                <a href=\"https://www.youtube.com/channel/UCN1X-rcqNOXv0fLbhtNnJJQ\" target=\"_blank\">\n                    <img src=\"https://blue-arrow--uat--c.sandbox.vf.force.com/resource/1741108460000/BAYoutube\" alt=\"YouTube\" style=\"width: 24px; height: 24px;\">\n                </a>\n            </div>\n\n                    <!-- Get in Touch with Arrow Icon -->\n                    <a href=\"your_salesforce_community_link\" class=\"get-in-touch\">\n                        Get in touch \n                        <img src=\"https://blue-arrow--uat--c.sandbox.vf.force.com/resource/1741107606000/BAArrow\" \n                             alt=\"Arrow\" \n                             style=\"width: 14px; height: 14px; margin-left: 5px;\">\n                    </a> &nbsp;&nbsp; |  &nbsp;&nbsp;\n                    \n                    <!-- Location Icon Before Address -->\n                    <img src=\"https://blue-arrow--uat--c.sandbox.vf.force.com/resource/1741107628000/BALocation\" \n                         alt=\"Location\" \n                         style=\"width: 14px; height: 16px; vertical-align: middle; margin-right: 5px;\">\n                    33 Soho Square, London, W1D 3QU, United Kingdom<br><br>\n\n                    © Blue Arrow Ltd. All rights reserved 2025 | <strong>Company Number:</strong> 641659 | <strong>VAT Number:</strong> 434 7680 76\n        </div>\n    </div>\n</div>"
+        },
+        "componentName" : "forceCommunity:htmlBlock",
+        "id" : "c0c2b77b-b9ae-46ff-8b48-0c79c8a5eb7b",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "8521a1c8-84f5-4b40-8f65-5daf16d3f368",
+      "regionName" : "themeFooter",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  }, {
+    "componentAttributes" : {
+      "fixedPageWidth" : 1440,
+      "headerBgColor" : "rgba(0, 0, 0, 0)",
+      "isHeaderPinned" : false,
+      "isHeroUnderHeader" : false,
+      "isPageWidthFixed" : true,
+      "showHeader" : true,
+      "showHero" : true
+    },
+    "componentName" : "siteforce:themeLayoutStarter",
+    "id" : "95f9d04f-d8ac-4a38-97d9-3586289a8771",
+    "label" : "ServiceNotAvailable",
+    "regions" : [ {
+      "id" : "bf0e8d16-0d36-4e5f-97a7-96228aaeb1a1",
+      "regionName" : "themeHeader",
+      "type" : "region"
+    }, {
+      "id" : "9fa94297-afe1-4c58-ae49-939e6e264bae",
+      "regionName" : "themeFooter",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  } ]
+}

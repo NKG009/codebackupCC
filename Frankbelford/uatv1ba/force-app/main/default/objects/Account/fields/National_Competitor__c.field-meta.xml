@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>National_Competitor__c</fullName>
+    <label>National Competitor</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>24/7</fullName>
+                <default>false</default>
+                <label>24/7</label>
+            </value>
+            <value>
+                <fullName>Adecco</fullName>
+                <default>false</default>
+                <label>Adecco</label>
+            </value>
+            <value>
+                <fullName>Adkins &amp; Cheurfi</fullName>
+                <default>false</default>
+                <label>Adkins &amp; Cheurfi</label>
+            </value>
+            <value>
+                <fullName>Admiral Group</fullName>
+                <default>false</default>
+                <label>Admiral Group</label>
+            </value>
+            <value>
+                <fullName>Berkeley Scott Group</fullName>
+                <default>false</default>
+                <label>Berkeley Scott Group</label>
+            </value>
+            <value>
+                <fullName>Best Connection</fullName>
+                <default>false</default>
+                <label>Best Connection</label>
+            </value>
+            <value>
+                <fullName>Bia People Ltd</fullName>
+                <default>false</default>
+                <label>Bia People Ltd</label>
+            </value>
+            <value>
+                <fullName>Blue Arrow Personnel Services</fullName>
+                <default>false</default>
+                <label>Blue Arrow Personnel Services</label>
+            </value>
+            <value>
+                <fullName>Brook Street</fullName>
+                <default>false</default>
+                <label>Brook Street</label>
+            </value>
+            <value>
+                <fullName>Cartwheel Recruitment Ltd</fullName>
+                <default>false</default>
+                <label>Cartwheel Recruitment Ltd</label>
+            </value>
+            <value>
+                <fullName>Catering Services International</fullName>
+                <default>false</default>
+                <label>Catering Services International</label>
+            </value>
+            <value>
+                <fullName>Contract Options Ltd</fullName>
+                <default>false</default>
+                <label>Contract Options Ltd</label>
+            </value>
+            <value>
+                <fullName>Cordant</fullName>
+                <default>false</default>
+                <label>Cordant</label>
+            </value>
+            <value>
+                <fullName>Driverhire</fullName>
+                <default>false</default>
+                <label>Driverhire</label>
+            </value>
+            <value>
+                <fullName>Evolve Hospitality Recruitment Ltd</fullName>
+                <default>false</default>
+                <label>Evolve Hospitality Recruitment Ltd</label>
+            </value>
+            <value>
+                <fullName>Flexy</fullName>
+                <default>false</default>
+                <label>Flexy</label>
+            </value>
+            <value>
+                <fullName>Hays</fullName>
+                <default>false</default>
+                <label>Hays</label>
+            </value>
+            <value>
+                <fullName>Host Staffing</fullName>
+                <default>false</default>
+                <label>Host Staffing</label>
+            </value>
+            <value>
+                <fullName>illume</fullName>
+                <default>false</default>
+                <label>illume</label>
+            </value>
+            <value>
+                <fullName>Indeed Flex</fullName>
+                <default>false</default>
+                <label>Indeed Flex</label>
+            </value>
+            <value>
+                <fullName>Interaction</fullName>
+                <default>false</default>
+                <label>Interaction</label>
+            </value>
+            <value>
+                <fullName>Jark</fullName>
+                <default>false</default>
+                <label>Jark</label>
+            </value>
+            <value>
+                <fullName>Kelly</fullName>
+                <default>false</default>
+                <label>Kelly</label>
+            </value>
+            <value>
+                <fullName>Mach Recruitment</fullName>
+                <default>false</default>
+                <label>Mach Recruitment</label>
+            </value>
+            <value>
+                <fullName>Manpower</fullName>
+                <default>false</default>
+                <label>Manpower</label>
+            </value>
+            <value>
+                <fullName>MSSHOSP Ltd T/A Mint People</fullName>
+                <default>false</default>
+                <label>MSSHOSP Ltd T/A Mint People</label>
+            </value>
+            <value>
+                <fullName>Office Angels</fullName>
+                <default>false</default>
+                <label>Office Angels</label>
+            </value>
+            <value>
+                <fullName>Office Angels Ltd</fullName>
+                <default>false</default>
+                <label>Office Angels Ltd</label>
+            </value>
+            <value>
+                <fullName>Off to Work</fullName>
+                <default>false</default>
+                <label>Off to Work</label>
+            </value>
+            <value>
+                <fullName>Olerio Group</fullName>
+                <default>false</default>
+                <label>Olerio Group</label>
+            </value>
+            <value>
+                <fullName>Pertemps</fullName>
+                <default>false</default>
+                <label>Pertemps</label>
+            </value>
+            <value>
+                <fullName>PMP</fullName>
+                <default>false</default>
+                <label>PMP</label>
+            </value>
+            <value>
+                <fullName>Randstad</fullName>
+                <default>false</default>
+                <label>Randstad</label>
+            </value>
+            <value>
+                <fullName>Rapier</fullName>
+                <default>false</default>
+                <label>Rapier</label>
+            </value>
+            <value>
+                <fullName>Reed</fullName>
+                <default>false</default>
+                <label>Reed</label>
+            </value>
+            <value>
+                <fullName>Rota</fullName>
+                <default>false</default>
+                <label>Rota</label>
+            </value>
+            <value>
+                <fullName>Search</fullName>
+                <default>false</default>
+                <label>Search</label>
+            </value>
+            <value>
+                <fullName>Search Consultancy/Search Total Recruitment</fullName>
+                <default>false</default>
+                <label>Search Consultancy/Search Total Recruitment</label>
+            </value>
+            <value>
+                <fullName>Staffline</fullName>
+                <default>false</default>
+                <label>Staffline</label>
+            </value>
+            <value>
+                <fullName>Susan Hamilton Group Ltd</fullName>
+                <default>false</default>
+                <label>Susan Hamilton Group Ltd</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>6</visibleLines>
+</CustomField>

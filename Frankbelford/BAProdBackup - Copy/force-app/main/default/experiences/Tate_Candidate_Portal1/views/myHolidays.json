@@ -1,0 +1,49 @@
+{
+  "appPageId" : "b2fa95b0-e567-41d6-a9bd-0d8201b2a4b0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "861d51e0-da7b-41df-8f0b-392106aabcaf",
+  "label" : "My Holidays",
+  "regions" : [ {
+    "id" : "57f9d013-6862-4502-8d27-eb92c79a17ea",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "Candidate_Portal_My_Holidays"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "8315b755-787e-4cc4-8697-99ebc128f699",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d0c82808-ddb0-427f-9c9b-c045e7a7bb4c",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "7ad3bb42-c97a-4f85-a51d-8e70260ab976",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My Holidays"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "e1c5c5aa-a506-4332-a9da-cb1a07129a84",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "49a18773-928c-4416-a03f-c00729cec9bc",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-my-holidays"
+}

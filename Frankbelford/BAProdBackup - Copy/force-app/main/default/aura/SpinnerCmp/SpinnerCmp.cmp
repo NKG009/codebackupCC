@@ -1,0 +1,17 @@
+<!--
+ - Created by mrahman on 2021-01-12.
+ -->
+
+<aura:component description="SpinnerCmp">
+    <aura:attribute name="spinnerMsg" type="String" default="Processing"/>
+
+    <div class="slds-align_absolute-center" style="height:6rem">
+        <div class="slds-spinner_container">
+            <div role="status" class="slds-spinner div slds-spinner_small slds-spinner_brand">
+                <span class="slds-assistive-text">{!v.spinnerMsg}</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </div>
+</aura:component>

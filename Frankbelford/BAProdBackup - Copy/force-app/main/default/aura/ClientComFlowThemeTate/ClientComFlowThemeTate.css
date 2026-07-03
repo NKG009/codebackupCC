@@ -1,0 +1,347 @@
+/**
+ * Created by mrahman on 2020-08-21.
+ */
+
+.THIS .flowruntimeBody {
+    /*width : 1200px;*/
+    width : 100%;
+}
+/*USE THIS CONTROL PAGE WIDTH*/
+/*.THIS .ui-widget {
+    width : 100%;
+}*/
+
+.THIS .flowruntimeRichTextWrapper .uiOutputRichText {
+    font-size : 12pt;
+}
+.THIS .forceOutputLookupWithPreview a.textUnderline {
+    border-bottom: none;
+}
+
+/*HEADER NEV*/
+.THIS .headeNav__right .dropdown-menu {
+    background-color : #42b5a6;
+}
+
+.THIS .slds-truncate{
+    font-size : 12pt;
+    height : 3rem;
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+}
+.THIS .uiInput--input {
+    font-size : 12pt;
+    height : 2.5em;
+}
+.THIS .uiInput--textarea.textarea {
+    font-size : 12pt;
+    height : 10em;
+}
+.THIS .ui-widget button {
+    font-size : 10pt; /*background: #42b5a6;*/
+}
+.THIS .uiBlock .bBody {
+    padding-top : 5pt;
+}
+.THIS .slds-checkbox_faux::after {
+    border-bottom: 3.5px solid !important;
+    border-left: 3.5px solid !important;
+}
+.THIS .slds-form-element__label {
+    font-size : 12pt;
+    padding-top : 10pt;
+}
+.THIS .slds-form-element {
+    font-size : 12pt;
+}
+.THIS .slds-input-has-icon .slds-input__icon {
+    width: 1rem;
+    height: 1rem;
+}
+.THIS .slds-select_container .slds-select {
+    font-size : 10pt;
+    color : black;
+}
+.THIS .slds-datepicker thead > tr > th {
+    font-size : 10pt;
+}
+.THIS .slds-day {
+    font-size : 10pt;
+}
+.THIS .slds-popover--tooltip .slds-popover__body {
+    font-size: 10px !important;
+}
+/* DATE PICKER FORMATTING */
+.THIS .slds-datepicker__filter_month h2 {
+    font-size : 12pt;
+    color: #42b5a6;
+}
+.THIS .slds-progress__item.slds-is-active .slds-progress__marker {
+    width: 15pt;
+    height: 15pt;
+}
+/* END OF DATE PICKER FORMATTING  */
+.THIS .slds-radio .slds-radio_faux {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.THIS .slds-radio [type=radio]+.slds-radio__label .slds-radio--faux {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.THIS .slds-checkbox .slds-checkbox_faux {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.THIS .forceCommunityTabset>.uiTabBar .uiTabItem .tabHeader {
+    font-size: 20px;
+}
+.THIS .slds-form-element__help {
+    font-size : 12pt;
+}
+/*FOOTER FONT SIZE*/
+.THIS .community-footer {
+    font-size : 10pt !important;
+}
+/*FOR JOB ORDER DETAILS PAGE LAYOUT*/
+.THIS .slds-input-has-icon_right .slds-input {
+    height: 2em;
+}
+.THIS .slds-icon.slds-icon_small {
+    display: flex;
+    width: 40px;
+    height: 40px;
+}
+.THIS .decorationsWrapper[sirenum-scheduleDecorationBar_scheduleDecorationBar] {
+    text-align: right;
+    /* display: flow-root; */
+    height: 40px;
+    /* color: rgb(255, 255, 255);
+    background-color: rgb(4, 132, 75); */
+}
+.THIS .slds-theme_success {
+    color: rgb(255, 255, 255);
+    background-color: rgb(4, 132, 75);
+}
+.THIS .slds-form-element__static {
+    font-size : 12pt;
+}
+.THIS .forceHighlightsStencilDesktop .entityNameTitle {
+    font-size: 15pt;
+    color: #42b5a6;
+}
+.THIS .forceHighlightsStencilDesktop .clip-text {
+    font-size: 15pt;
+    color: #42b5a6;
+}
+.THIS .slds-media__figure {
+    width: 40px !important;
+    height: 40px !important;
+}
+.THIS .slds-m-right--xx-small {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+}
+.THIS .forceEntityIcon .uiImage {
+    width : 40px;
+    height : 40px;
+}
+.THIS .forcePageBlockItemView .slds-form-element__static {
+    padding-top: 0;
+    padding-bottom: 5pt;
+}
+.THIS .outputLookupLink{
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: black;
+}
+.THIS .slds-hyphenate {
+    font-size : 12pt;
+}
+/*END OF JOB ORDER DETAILS PAGE LAYOUT*/
+.THIS .uiTooltip {
+    display: none !important;
+}
+.THIS .flowruntimeInputWrapper .slds-button.slds-button_icon-bare {
+    display: none;
+}
+.THIS .flowruntimeRadioButtonInput .slds-form-element__control label {
+    padding-bottom : 5pt;
+}
+.THIS .slds-form-element__control {
+    padding-top : 8pt;
+}
+/*CHANGES FOR SCHEDULE TAB*/
+.THIS .slds-box_x-small {
+    font-size : 12pt;
+}
+
+
+
+/*HOME PAGE RELATED STYLING*/
+.THIS .dashboard-section {
+    background-color: #e7fdfa;
+    padding-top: 3.5rem;
+}
+
+.THIS .background{
+    background-image: url("/resource/sterlingIcon")!important;
+    /*background-image: url({!URLFOR($Resource.communityTate +'img/sterlingIcon.png')});*/
+    /*background-image: url({!URLFOR($Resource.MyResource,"images/")}myimage.png);*/
+    background-size:32px;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.THIS .dashboard-section__leftNav > li ul{
+    right: -23rem !important;
+    background-color: #42b5a6 !important;
+}
+
+.THIS .dashboard-section__leftNav div:hover{
+    background-color:#fff;
+    color:#42b5a6;
+    outline:2px solid !important;
+}
+.THIS .dashboard-section__leftNav--timesheets li:hover{
+    background-color:#fff;
+    color:#42b5a6;
+}
+.THIS .dashboard-section__leftNav--timesheets li:hover a{
+    color : #42b5a6 !important;
+}
+.THIS .dashboard-section__leftNav--vacancies li:hover{
+    background-color:#fff;
+    color:#42b5a6;
+}
+.THIS .dashboard-section__leftNav--vacancies li:hover a{
+    color:#42b5a6;
+}
+.THIS .dashboard-section__leftNav--temp li:hover{
+    background-color:#fff;
+    color:#42b5a6;
+}
+.THIS .dashboard-section__leftNav--temp li:hover a{
+   color:#42b5a6;
+}
+
+.THIS .dashboard-section__leftNav > li:first-child a{
+    padding-top: 4rem !important;
+}
+
+.THIS .timesheet-section__right-part{
+    margin-left: 0rem;
+}
+
+.THIS .imag
+    {
+        background-image:url('/profilephoto/005/T');
+        width:48px;
+        height:50px;
+    }
+.THIS .toggle {
+    display: block !important;
+}
+
+.THIS .hide {
+    display: none !important;
+}
+
+.THIS .bgclrclas{
+    background-color: #447b74 !important;
+}
+
+
+.THIS .dashboard-section__leftNav{
+    padding-top: 2.5rem !important;
+}
+
+.THIS .slds-form-element__label{
+    color: #000000;
+    font-weight: bold;
+    font-size: initial;
+    padding-bottom: 5px;
+    margin-top: -10px;
+}
+
+.THIS .slds-select_container {
+    height: 34px !important;
+    width: 102% !important;
+    font-size: 18px !important;
+   /*display: none;*/
+}
+
+
+.THIS .modify-block{
+    /*display: block !important;*/
+}
+
+/*DASHBOARD*/
+.THIS .cMy_Blue_Arrow_Contact .pstrong{
+    color: #42b5a6;
+}
+
+.THIS .dashboard-section__right-part {
+    padding-top: 0rem;
+}
+
+.THIS .dashboard-section__right-part--singleElement .ElementDetail__content-section label {
+    color: #42b5a6;
+}
+
+.THIS .ElementDetail__table table tr th {
+    color: #42b5a6;
+}
+
+.THIS h3{
+    color: #42b5a6;
+}
+
+.THIS .query-btn {
+    background: #42b5a6;
+}
+
+.THIS .query-btn:hover {
+    border: 1px solid #e7fcfa;
+    background: #447b74;
+    color: #42b5a6;
+}
+/*END OF DASHBOARD*/
+
+
+.THIS .side-menu {
+    padding-top: 3.9rem;
+}
+
+.THIS .cHomeLayoutFooter {
+    font-size : 10pt !important;
+}
+
+/*TATE SPECIFIC STYLING*/
+.THIS .search-btn {
+    background: #42b5a6;
+}
+
+.THIS input.uiInput--checkbox[type="checkbox"]:checked {
+    background-color: #42b5a6;
+    border-color: #42b5a6;
+}
+.THIS .breadcrumb > .active {
+    color: #42b5a6;
+}
+.THIS .tab-section .nav-tabs > li.active a {
+    border-bottom: 2px solid #42b5a6;
+}
+/*END OF TATE SPECIFIC STYLING*/
+
+/*FIX FOR OTHER CSS CLASSES*/
+/*.THIS .timesheet-section__right-part{
+    margin-left: 0rem;
+    padding-left: 0rem;
+    padding-top: 0rem;
+    width: 110%;
+}*/
+/*END OF FIX FOR OTHER CSS CLASSES*/

@@ -1,0 +1,12 @@
+<apex:page standardController="sirenum__JobOrder__c">
+    <apex:variable var="rateCardId" value="{!sirenum__JobOrder__c.sirenum__RateCard__c}" />
+
+    <apex:outputPanel rendered="{!NOT(ISBLANK(rateCardId))}">
+        <iframe src="https://blue-arrow--test.sandbox.lightning.force.com/lightning/r/sirenum__Rate_Card__c/{!rateCardId}/view?fullPage=true" 
+                width="100%" height="600px" frameborder="0"></iframe>
+    </apex:outputPanel>
+
+    <apex:outputPanel rendered="{!ISBLANK(rateCardId)}" style="text-align:center; margin-top: 20%;">
+        <h2>No rate card found</h2>
+    </apex:outputPanel>
+</apex:page>

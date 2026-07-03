@@ -1,0 +1,46 @@
+{
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "b635ab0c-7acd-4fc5-aae6-10d8c0bef155",
+  "label" : "Lab Technican Leeds",
+  "regions" : [ {
+    "id" : "cb6948b9-83af-4eb7-a90c-39f5e7917e7e",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "849b7e6f-a99c-44a8-8c08-542dcda5d7c2",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "6db28d3b-61e6-41f6-a921-dd560fbb868c",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "dbe3cbf2-cf82-4e41-8e33-4461df7689f6",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "id" : "71de4e2c-566a-4fed-a436-3f61426205d8",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Lab Technican Leeds"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "ff88a460-d12d-4503-83ba-2c1af8d02065",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8b3b110b-646f-4e05-915a-b25783a504ff",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-lab-technican-leeds"
+}

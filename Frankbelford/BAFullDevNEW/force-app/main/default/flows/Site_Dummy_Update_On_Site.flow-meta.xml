@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Dummy update on site to run the formula of missing site details</description>
+        <name>Decision_1</name>
+        <label>Decision 1</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Dummy_update_on_site</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Prospect</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LastModifiedDate</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_User_Department</targetReference>
+            </connector>
+            <label>Dummy update on site</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>CalculateUserDepartment</name>
+        <dataType>String</dataType>
+        <expression>IF((ISNULL( {!$Record.IP_ClientLastPassedToTempest__c} ) &amp;&amp; ISNULL( {!$Record.IP_ClientAddressLastPassedToTempest__c})),
+IF(ISBLANK( {!$Record.IP_ClientIDLegacy__c}  ),&quot;Client ID,&quot;,&quot;&quot;)&amp;
+IF(ISBLANK( {!$Record.IP_ClientInvoiceName__c} 
+),&quot;ClientInvoice Name,&quot;,&quot;&quot;)&amp;
+IF(ISBLANK( {!$Record.IP_InvoiceAddressStreet__c} 
+),&quot;Invoice Address Line 1,&quot;,&quot;&quot;)&amp;
+IF(ISBLANK( {!$Record.IP_InvoiceAddressCity__c} 
+),&quot;Invoice Address Line 2,&quot;,&quot;&quot;)&amp;
+IF(ISBLANK( {!$Record.sirenum__Street_Address__c} ),&quot;Street Address,&quot;,&quot;&quot;)&amp;
+IF(ISBLANK( {!$Record.sirenum__City__c} ),&quot;City,&quot;,&quot;&quot;)&amp;
+IF(ISBLANK( {!$Record.IP_SalesLedgerNo__c} 
+),&quot;SLN,&quot;,&quot;&quot;)&amp;
+IF(ISPICKVAL({!$Record.Owner:User.IP_TempestDepartment__c}  ,&apos;0000&apos;),&quot; Owner not a Branch Staff,&quot;,&quot;&quot;)&amp;
+IF(ISBLANK( {!$Record.IP_InvoiceContactText__c} 
+),&quot;Invoice Con,&quot;,&quot;&quot;)&amp;
+IF(ISBLANK( {!$Record.IP_MainContact__c} ),&quot;Main Con,&quot;,&quot;&quot;)&amp;
+IF(ISBLANK(TEXT( {!$Record.IP_PublicSector__c}  )),&quot;Public Sec location?&quot;,&quot;&quot;),IF(ISBLANK( {!$Record.IP_ClientIDLegacy__c}  ),&quot;Client ID,&quot;,&quot;&quot;)&amp;
+IF(ISBLANK( {!$Record.sirenum__Street_Address__c} ),&quot;Street Address,&quot;,&quot;&quot;)&amp;
+IF(ISBLANK( {!$Record.sirenum__City__c} ),&quot;City,&quot;,&quot;&quot;)&amp;
+IF(ISBLANK( {!$Record.IP_SalesLedgerNo__c} 
+),&quot;SLN,&quot;,&quot;&quot;)&amp;
+IF(ISPICKVAL({!$Record.Owner:User.IP_TempestDepartment__c}, &apos;0000&apos;), &apos;Owner not a Branch Staff&apos;, &apos;&apos;) &amp;
+IF(ISBLANK( {!$Record.IP_MainContact__c} ),&quot;Main Con,&quot;,&quot;&quot;)&amp;
+IF(ISBLANK(TEXT( {!$Record.IP_PublicSector__c}  )),&quot;Public Sec location?&quot;,&quot;&quot;))</expression>
+    </formulas>
+    <interviewLabel>Site: Dummy Update On Site {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Site: Dummy Update On Site</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_User_Department</name>
+        <label>Update User Department</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>IP_UD__c</field>
+            <value>
+                <elementReference>CalculateUserDepartment</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Decision_1</targetReference>
+        </connector>
+        <object>sirenum__Site__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+</Flow>

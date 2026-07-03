@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1097_BAL_Bellshill_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>1097-BAL Bellshill</label>
+    <queue>X1097_BAL_Bellshill</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

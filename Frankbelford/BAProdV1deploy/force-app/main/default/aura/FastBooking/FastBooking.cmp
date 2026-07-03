@@ -1,0 +1,173 @@
+<!-- FastBooking-->
+<aura:component controller="NewShiftCreationForFastBooking" implements="forceCommunity:themeLayout,lightning:isUrlAddressable" access="global" >
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<lightning:flow aura:id="flowData" />
+	<aura:attribute name="siteList" type="List" access="global"/>
+	<aura:attribute name="jobSiteList" type="List" access="global"/>
+	<aura:attribute name="isOpen" type="boolean" access="global" default="false"/>
+	<aura:attribute name="message" type="String" access="global"/>
+	<aura:attribute name="startTime" type="String" access="global"/>
+	<aura:attribute name="isSiteEmpty" type="boolean" access="global"/>
+	<aura:attribute name="isJobRoleEmpty" type="boolean" access="global"/>
+	<aura:attribute name="isStaffEmpty" type="boolean" access="global"/>
+	<aura:attribute name="isStartDateEmpty" type="boolean" access="global"/>
+	<aura:attribute name="isEndDateEmpty" type="boolean" access="global"/>
+	<aura:attribute name="isStartTimeEmpty" type="boolean" access="global"/>
+	<aura:attribute name="isEndTimeEmpty" type="boolean" access="global"/>
+	<aura:attribute name="userInfo" type="User" access="global"/>
+	<aura:attribute name="site" type="String" />
+	<ltng:require styles="{!join(',',
+                          'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css',
+                          'https://use.fontawesome.com/releases/v5.3.1/css/all.css',
+                          $Resource.Tjcss2+'/assets/css/main.css',
+                          $Resource.Tjcss2+'/assets/css/custom.css',
+                          $Resource.FastBooking+'/assets/css/dataTables.bootstrap.min.css',
+                          $Resource.FastBooking+'/assets/css/jquery.dataTables.min.css',
+                          $Resource.FastBooking+'/assets/css/responsive.bootstrap.min.css'
+                          
+                          )
+                          }"
+				  scripts="{!join(',',
+                           $Resource.Tjcss2+'/assets/js/main.min.js',
+                           $Resource.Tjcss2+'/assets/js/zoom.js',
+                               $Resource.webUI+'/assets/js/custom.js'
+                           )}"
+				  afterScriptsLoaded="{!c.scriptsLoaded}"
+	/>
+	<body>
+	<div class="container-fluid">
+		<!-- Modal Popup when site updated -->
+		<!--<div class="custom-model modal fade" id="bookedTemp-popup" tabindex="-1" role="dialog" aria-labelledby="bookedTemp-popup">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal"  onclick="{!c.fastBookingNavigate}" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <p>Booking Created</p>
+                </div>
+            </div>
+        </div>-->
+		<nav class="headeNav">
+			<div class="visible-xs mobile-nav">
+				<img src="{!$Resource.Tjcss + '/assets/img/mobile-nav.png'}" alt="Mobile Icon" title="Click to slide"/>
+			</div>
+			<a href="" class="logo" title="BlueArrow">
+				<img src="{!$Resource.Tjcss + '/assets/img/impellam-logo-blue.png'}" lt="Impellam Logo" Title="Impellam"/>
+			</a>
+
+			<ul class="headeNav__right">
+				<li>
+					<a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="hidden-xs hidden-sm">{!v.userInfo.Name}</span>
+						<aura:if isTrue="{!v.userInfo.User_Image__c != null}">
+							<img src="{!v.userInfo.User_Image__c}" alt=""/>
+							<aura:set attribute="else">
+								<img src="" class="imag" alt=""/>
+							</aura:set>
+						</aura:if>
+						<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="" onclick="{!c.myProfileNavigate}" title="My Profile">My Profile</a></li>
+						<li><a href="" onclick="{!c.siteManagementNavigate}" title="Setting">Site Management</a></li>
+						<li><a href="" onclick="{!c.logout}" title="Logout">Logout</a></li>
+					</ul>
+				</li>
+			</ul>
+			<div class="col-sm-4 col-md-3 headeNav__selectpicker">
+
+				<!--<label class="global-label">Site Name</label>-->
+				<ui:inputSelect aura:id="siteId" class="slselect" label="Site Name" >
+					<aura:iteration items="{!v.siteList}" var="item" >
+						<option text="{!item.label}" value="{!item.value}" selected="{!item.selected}"  />
+					</aura:iteration>
+				</ui:inputSelect>
+
+
+
+			</div>
+			<!--<span class="headeNav__search">
+              <input type="search" name="Search" placeholder="Search"/>
+                <img src="{!$Resource.Tjcss + '/assets/img/search-icon.png'}" alt="Search Icon" Title="Search Icon"/>
+
+            </span>-->
+		</nav>
+		<div class="timesheet-section">
+
+			<c:BlueBarComp site="{!v.site}" ></c:BlueBarComp>
+
+			<div class="timesheet-section__right-part">
+				<ol class="breadcrumb">
+					<li><a href="javascript:void(0)" onclick="{!c.dashboardnavigate}" title="Dashboard">Dashboard</a></li>
+					<li><!--<a href="#" title="Dashboard">-->My Shifts<!--</a>--></li>
+					<li class="active">Repeat Booking</li>
+				</ol>
+				<div class="search-section vacancies-section">
+					<p>Request a repeat booking for any job role that we have recently supplied to you.</p>
+					<form class="row">
+						<div class="col-sm-12">
+							<label class="global-label mainLoginInput" style="margin-bottom:1.0rem!important">Job Role</label>
+							<!--<ui:inputSelect  label="" aura:id='jobRoleId' class="selectpickercls" >
+                                <aura:iteration items="{!v.jobSiteList}" var="item">
+                                    <option text="{!item.label}" value="{!item.value}" />
+                                </aura:iteration>
+                            </ui:inputSelect>-->
+							<lightning:select name="jobRoleSelect" label="" aura:id="jobRoleId"  tabindex = "-98">
+								<aura:iteration items="{!v.jobSiteList}" var="item">
+									<option text="{!item.label}" value="{!item.value}"/>
+								</aura:iteration>
+							</lightning:select>
+
+						</div>
+						<!--Adding for Space between Job Role and Start Date-->
+						<div  class="col-sm-12"><label></label></div>
+						<div class="col-sm-6">
+							<label class="global-label ">Start Date</label>
+							<input type="text" class="global-input datetimepicker mainLoginInput" name="Date" id="startDate" placeholder="DD/MM/YY" maxlength="8" onclick="{!c.handleOnClick}"
+								   onkeypress="{!c.handleKeyPress}" onmouseover="{!c.handleMouseEnter}" onmouseout="{!c.handleMouseLeave}"/>
+						</div>
+						<div class="col-sm-6">
+							<label class="global-label">End Date</label>
+							<input type="text" class="global-input datetimepicker mainLoginInput" name="Date" id="endDate" placeholder="DD/MM/YY" maxlength="8" onclick="{!c.handleOnClick}"
+								   onkeypress="{!c.handleKeyPress}" onmouseover="{!c.handleMouseEnter}" onmouseout="{!c.handleMouseLeave}"/>
+						</div>
+						<div class="col-sm-6">
+							<label class="global-label">Start Time</label>
+							<input id="startTime" type="time" name="startTime" label="Start time" variant = "label-hidden" class="selectpickercls mainLoginInput" value="00:00"/>
+						</div>
+						<div class="col-sm-6">
+							<label class="global-label">End Time</label>
+							<input id="endTime" type="time" name="endTime" label="End Time" variant = "label-hidden" class="selectpickercls mainLoginInput" value="00:00"/>
+						</div>
+						<div class="col-sm-6">
+							<label class="global-label">No. of Required Staff</label>
+							<input type="number" aura:id="requiredStaff" class="global-input-box"  name="No. of Required Staff" id="requiredStaff" pattern="[1-9]{1}[0-9]{9}" placeholder="No. of Required Staff" min="1" max="500" />
+						</div>
+						<div class="col-sm-6">
+							<label class="global-label">Invoice PO (Optional)</label>
+							<input type="text" aura:id="InvoicePO" class="global-input-box" name="Invoice PO" id="InvoicePO"  placeholder="Invoice PO"/>
+						</div>
+						<div class="col-sm-12 text-right">
+                                <span class="edit_action popup-btn" data-toggle="modal" data-target="#bookedTemp-popup" id="updateSitebtnId" >
+                                    <lightning:button variant="success" label="Submit" title="Submit" class="action-button accept" onclick="{!c.createNewShift}" />
+                                </span>
+							<button type="reset" class="action-button decline">Clear</button>
+						</div>
+					</form>
+				</div>
+				<footer>
+					<div class="row">
+						<div class="col-sm-6"><p> &copy; Blue Arrow, All rights reserved 2019.</p></div>
+						<div class="col-sm-6"><p>Regd Address:  800 The Boulevard, Capability Green, Luton, Bedfordshire, LU1 3BA. Company No. 00641659</p></div>
+					</div>
+				</footer>
+			</div>
+		</div>
+	</div>
+	<div class="sidenav-overlay"></div>
+	<div class="search-overlay"></div>
+	<!--Modal Box -->
+	<aura:if isTrue="{!v.isOpen}">
+		<p>Modal Window Opens</p>
+	</aura:if>
+
+	</body>
+
+</aura:component>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "d427a725-b6fe-4e35-a192-8c437790da2c",
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "configurationTags" : [ ],
+  "devName" : "Shift_Management__c",
+  "id" : "f87695d0-3594-42fd-932f-0f111dbebe77",
+  "label" : "Shift Management",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-shift-management",
+  "type" : "route",
+  "urlPrefix" : "shift-management"
+}

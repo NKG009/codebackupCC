@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "2ef285de-6b79-4d33-b39b-070c48e13060",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "Holidays__c",
+  "id" : "7fd46f4d-a0b3-48a2-8fd5-6b4f49424bce",
+  "label" : "Holidays",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-holidays",
+  "type" : "route",
+  "urlPrefix" : "holidays"
+}

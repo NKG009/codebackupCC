@@ -1,0 +1,64 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "056a395f-200c-48e2-a652-a35c52a6d790",
+  "label" : "Active Vacancy",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"color: rgb(0, 0, 0); font-size: 28px;\">Active Vacancy<span class=\"ql-cursor\">﻿</span></span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "10299447-54c3-42fc-8cc8-bcbd67dd7b8a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3bfdf604-0fc6-461d-a1c3-288f1dad242c",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:ActiveVacancy",
+      "id" : "400ee129-8734-411b-a401-84a0c1f7ac0f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "91e997f7-7859-44c3-a0bf-d49858a5d5ae",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:HomeLayoutFooter",
+      "id" : "60d50566-b9c9-4e4c-842f-61f5015d8e32",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0ea08c7a-ef3b-43fb-b902-9ff31d53ca50",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Active Vacancy"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "6905036b-3c83-4ab3-a814-d4b689612e1c",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "50b36b2a-0d37-4a36-9d79-784d8391aa63",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "BaeIvxdmVNAi846Z78i1VuYgMbv85a",
+  "type" : "view",
+  "viewType" : "custom-active-vacancy"
+}

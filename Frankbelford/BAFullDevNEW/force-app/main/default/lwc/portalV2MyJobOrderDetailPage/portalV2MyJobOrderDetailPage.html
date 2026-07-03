@@ -1,0 +1,38 @@
+<template>
+    <template if:true={recordId}>
+        <lightning-record-view-form record-id={recordId} object-api-name="sirenum__JobOrder__c">
+            <div class="slds-p-around_medium">
+                <lightning-accordion allow-multiple-sections-open active-section-name="JOInfo">
+                    <lightning-accordion-section name="JOInfo" label="Job Order Information">
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning-output-field field-name="Name"></lightning-output-field>
+                                <lightning-output-field field-name="Job_Order_Number__c"></lightning-output-field>
+                                <lightning-output-field field-name="sirenum__StartDate__c"></lightning-output-field>
+                                <lightning-output-field field-name="sirenum__EndDate__c"></lightning-output-field>
+                                <lightning-output-field field-name="sirenum__CancellationDate__c"></lightning-output-field>
+                                <lightning-output-field field-name="sirenum__CancellationReason__c"></lightning-output-field>
+                                
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning-output-field field-name="Account_Name__c"></lightning-output-field>
+                                <lightning-output-field field-name="Contract_Name__c"></lightning-output-field>
+                                <lightning-output-field field-name="Job_Type__c"></lightning-output-field>
+                                <lightning-output-field field-name="Job_Role_Name__c"></lightning-output-field>
+                                <lightning-output-field field-name="Total_Resource_Required__c"></lightning-output-field>
+                                <lightning-output-field field-name="Reason_for_requirement__c"></lightning-output-field>
+                            </div>
+                        </div>
+                    </lightning-accordion-section>
+                </lightning-accordion>
+
+            </div>
+        </lightning-record-view-form>
+    </template>
+
+    <template if:false={recordId}>
+        <div class="slds-p-around_medium slds-text-color_error">
+            ⚠️ Job Order record not found or Error getting recordId
+        </div>
+    </template>
+</template>

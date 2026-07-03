@@ -1,0 +1,84 @@
+<apex:component access="global" >
+    <apex:attribute type="String" name="con" description="test1"/>
+<apex:attribute type="String" name="conname" description="test2"/>
+<apex:attribute type="String" name="conownername" description="test3"/>
+      <apex:attribute type="String" name="ownph" description="test8"/>
+<apex:attribute type="String" name="ownemail" description="test9"/>
+    <apex:attribute type="String" name="ownfax" description="test9"/>
+    <style>
+.linkunderline{
+    text-decoration: none;
+    color: blue;
+}
+
+</style>
+    <html>
+ <table BORDER="0" CELLSPACING="0" style="width:640px;height:600px;background-image:url('{!URLFOR($Resource.TemplatePics,'picsfolder/largebackground.jpg')}');">
+<tr>
+      <td style="vertical-align:top;text-align:right;height:140px;width:190px;">
+           <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR4-1/c.aspx" id="theLink1"><apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic1.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR5-1/c.aspx" id="theLink2"><apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic2.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR6-1/c.aspx" id="theLink3"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic3.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR7-1/c.aspx" id="theLink4"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic4.jpg')}" /></apex:outputLink>
+    </td>
+     
+      <td style="text-align:right;vertical-align:middle;height:140px;width:460px;">
+     <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR8-1/c.aspx" id="theLink5"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/logo.png')}" /> </apex:outputLink>
+    </td>
+</tr>
+<tr style="width:650px;">
+<td colspan="2" style="vertical-align:top;">
+<table style="width:630px;">
+<tr style="height:25px;text-align:center;"><td style="text-align:center;">
+    <font size="2" face="Bahnschrift Light" color="black"><b>Timesheet Template</b></font>
+    </td>
+    </tr>
+    <tr style="height:200px;text-align:center;"><td style="text-align:left;vertical-align:top;">
+<div style="margin-left:30px;margin-right:10px;margin-top:-10px;">
+<font size="2" face="Bahnschrift Light" color="black">
+    
+    
+    <br></br>
+    <br></br>
+    
+Dear {!conname}, <br></br><br></br>
+Please see attached your e-Timesheet for the forthcoming week, as confirmed by your Blue Arrow representative. If you work in multiple assignments, a separate e-Timesheet will be sent for each confirmed assignment.
+    <br></br>
+If you have a problem in attending your assignment or are running late, please notify your Blue Arrow representative as soon as possible. The office contact details are listed below.
+    <br></br>
+Please follow any clocking in and out procedures required by the client, enter the hours you have worked on a printed copy of the e-Timesheet, have this signed by an authorised representative of the client and return it to your Blue Arrow office by no later than 6pm on the Friday of the assignment week (unless prior arrangements have been made with your Blue Arrow office).
+     <br></br>
+        Details of Blue Arrow’s policies and procedures are available at https://register.litmosheroes.com/blue-arrow or via your Blue Arrow representative.
+        <br></br>
+<br></br>
+
+    Thank you,
+    <br></br>
+
+
+Kind Regards <br></br>
+{!conownername}    <Br></Br>
+{!ownph} <br></br>
+{!ownemail} <br></br>
+{!ownfax} <br></br><br></br>
+
+</font>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+  <tr style="height:120px;">
+<td colspan="2" >
+<apex:image height="80px" width="250px" url="{!URLFOR($Resource.TemplatePics,'picsfolder/IIP_PLAT_19.jpg')}" />
+
+</td>
+
+</tr>
+</table>
+</html>
+
+
+
+</apex:component>

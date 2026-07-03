@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Newbury_candidates_KID</fullName>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Person_Status__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>KID_Acknowledgement__c</columns>
+    <columns>KID_Document_Version__c</columns>
+    <columns>KID_Email_Date_Time__c</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>equals</operation>
+        <value>1062,1350</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>notEqual</operation>
+        <value>Inactive,Pending</value>
+    </filters>
+    <filters>
+        <field>KID_Acknowledgement__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Newbury candidates KID</label>
+    <sharedTo>
+        <role>Blue_Arrow_Newbury_Temps</role>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>lloyds_brindley_and_wolverhampton</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>Liverpool CC</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>CH2,CH34,CH41,CH62,CH65,CH66,L1,L12,L13,L14,L15,L16,L17,L18,L19,L2,L20,L24,L25,L26,L27,L3,L35,L36,L41,L43,L5,L62,L63,L65,L66,L67,L69,L7,L70,L71,L73,L75,L8,WA7,WA8,WA88</value>
+    </filters>
+    <label>lloyds brindley and wolverhampton</label>
+</ListView>

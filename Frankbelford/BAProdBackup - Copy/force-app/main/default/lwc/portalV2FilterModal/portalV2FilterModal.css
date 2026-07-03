@@ -1,0 +1,13 @@
+.card__size {
+  min-width: 18rem;
+  max-width: 40rem;
+  height: var(--lwc-sizeXLarge, 40rem);
+  filter: drop-shadow(10px 10px 22px #00000029);
+  border-radius: var(--lwc-spacingMedium, 1rem);
+}
+
+.table-height {
+  margin-top: 1rem;
+  height: 16rem;
+  overflow: auto;
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NHS_High_Risk_Confirmation__c</fullName>
+    <label>High Risk Confirmation</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>I confirm</fullName>
+                <default>false</default>
+                <label>I confirm</label>
+            </value>
+            <value>
+                <fullName>I am unable to confirm</fullName>
+                <default>false</default>
+                <label>I am unable to confirm</label>
+            </value>
+            <value>
+                <fullName>I prefer not to say</fullName>
+                <default>false</default>
+                <label>I prefer not to say</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

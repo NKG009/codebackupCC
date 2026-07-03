@@ -1,0 +1,58 @@
+{
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "d02874a9-088a-4084-8893-c94431e84321",
+  "label" : "Driving Training Programme Talent Pool",
+  "regions" : [ {
+    "id" : "6c1148d2-1e87-4282-b1a8-ed27dde10142",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Untitled2removebg.1}\" style=\"width: 254.859px; height: 64.5625px;\"></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "6868f39d-11d1-43b7-b511-764dec904928",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowArguments" : "[]",
+        "flowName" : "Pre_Screener_HGV_Driver_Existing_Talent_Pool"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "92ef96ba-34d4-40eb-b944-b5ab189e14aa",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b5597e3b-eb26-4fb8-a0fb-6ba1af8d99a0",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "341ea531-f87b-4a7e-abbd-1fe91551aa4e",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "HGV Driver - Existing Candidates"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "6cdca35b-3f75-404f-8115-aa289c556f1e",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "fa42a675-4b3d-4101-be9c-f7064c19c06f",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-driving-training-programme-talent-pool"
+}

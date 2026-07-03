@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lincoln_Testing_Centre_Candidates</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Person_Status__c</columns>
+    <columns>IP_18DigitID__c</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>Account.sirenum__External_ID__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>equals</operation>
+        <value>Candidates</value>
+    </filters>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>equals</operation>
+        <value>1285</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Inactive</value>
+    </filters>
+    <filters>
+        <field>CREATEDBY_USER.ALIAS</field>
+        <operation>contains</operation>
+        <value>dmck,acla,thol,jbra,jcri,bhein</value>
+    </filters>
+    <label>Lincoln Testing Centre Candidates</label>
+</ListView>

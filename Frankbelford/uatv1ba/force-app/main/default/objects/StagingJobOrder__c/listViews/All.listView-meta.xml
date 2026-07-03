@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>StgSourceSystem__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>StgQuantity__c</columns>
+    <columns>StgCandidateRoleId__c</columns>
+    <columns>StgJobTitle__c</columns>
+    <columns>StgRoleId__c</columns>
+    <columns>Job_Order_Lookup__c</columns>
+    <columns>Staging_Job_Application__c</columns>
+    <columns>StgLocationName__c</columns>
+    <columns>StgMoveOrCopy__c</columns>
+    <columns>StgFrontOfficeIntegrationSystem__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Records</label>
+</ListView>

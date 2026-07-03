@@ -1,0 +1,49 @@
+{
+  "appPageId" : "cb4d05bc-15d6-4e33-beb3-5244832ec585",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "4316a3a0-1c79-4be4-9993-95c6f18c6038",
+  "label" : "Booking Managment",
+  "regions" : [ {
+    "id" : "f3879303-4f42-452e-b1ee-4c1f7773ff79",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "VMS_Supplier_Booking_Screen"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "a145ce4c-2eba-4713-ac6c-c8f8d5381f98",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "aa320aac-78a1-44a9-9709-88516ab76990",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "44ff7b18-19a0-4ac5-9c63-808d28b681c7",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Booking Managment"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "2abfbf86-a26f-4d1e-85ec-37b349a39d57",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f99dd574-8399-4264-8e61-9cf42d94d9bd",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-booking-managment"
+}

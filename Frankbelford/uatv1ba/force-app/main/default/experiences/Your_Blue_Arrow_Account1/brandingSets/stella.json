@@ -1,0 +1,28 @@
+{
+  "definitionName" : "stella:branding-stella",
+  "id" : "59f9c2c5-59d9-40d4-b7c3-f49debb93576",
+  "label" : "Stella",
+  "type" : "brandingSet",
+  "values" : {
+    "ActionColor" : "rgb(64, 64, 65)",
+    "BorderColor" : "#D4D4D4",
+    "CardBackgroundColor" : "rgba(255, 255, 255, 0)",
+    "CompanyLogo" : "/file-asset/BA_logo_White_2017_Transparent1?v=1",
+    "DetailTextColor" : "rgba(0, 0, 0, 0.6)",
+    "ErrorFontColor" : "#ff9e9e",
+    "HeaderFonts" : "Open Sans",
+    "LinkColor" : "#005FB2",
+    "LoginBackgroundColor" : "#F4F4F4",
+    "LoginBackgroundImage" : "../../../../sfsites/picasso/core/external/salesforceIdentity/images/background.jpg?v=1",
+    "OverlayTextColor" : "#FFFFFF",
+    "PageBackgroundColor" : "rgb(223, 241, 253)",
+    "PrimaryFont" : "Salesforce Sans",
+    "TextColor" : "rgba(0, 0, 0, 0.8)",
+    "TextTransformStyle" : "none",
+    "_ActionColorDarker" : "#272727",
+    "_ActionColorTrans" : "rgba(64, 64, 65, 0.9)",
+    "_HoverColor" : "rgba(64, 64, 65, 0.05)",
+    "_LinkColorDarker" : "#004989",
+    "_OverlayTextColorShadow" : "#000000"
+  }
+}

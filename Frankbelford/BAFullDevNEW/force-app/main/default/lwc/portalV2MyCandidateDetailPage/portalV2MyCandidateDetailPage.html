@@ -1,0 +1,35 @@
+<template>
+    <template if:true={recordId}>
+        <lightning-record-view-form record-id={recordId} object-api-name="Contact">
+            <div class="slds-p-around_medium">
+                <lightning-accordion allow-multiple-sections-open active-section-name="CandidateInfo">
+                    <lightning-accordion-section name="CandidateInfo" label="Candidate Information">
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning-output-field field-name="FirstName"></lightning-output-field>
+                                <lightning-output-field field-name="LastName"></lightning-output-field>
+                                <lightning-output-field field-name="Account_Name__c"></lightning-output-field>
+                                <lightning-output-field field-name="Email"></lightning-output-field>
+                                <lightning-output-field field-name="MobilePhone"></lightning-output-field>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning-output-field field-name="Preferred_Name__c"></lightning-output-field>
+                                <lightning-output-field field-name="sirenum__Age__c"></lightning-output-field>
+                                <lightning-output-field field-name="Birthdate"></lightning-output-field>
+                                <lightning-output-field field-name="EEO_Gender__c"></lightning-output-field>
+                                <lightning-output-field field-name="IP_CategoryOfWork__c"></lightning-output-field>
+                                <lightning-output-field field-name="MailingAddress"></lightning-output-field>
+                            </div>
+                        </div>
+                    </lightning-accordion-section>
+                </lightning-accordion>
+            </div>
+        </lightning-record-view-form>
+    </template>
+
+    <template if:false={recordId}>
+        <div class="slds-p-around_medium slds-text-color_error">
+            ⚠️ Contact record not found or Error getting Contact Details
+        </div>
+    </template>
+</template>

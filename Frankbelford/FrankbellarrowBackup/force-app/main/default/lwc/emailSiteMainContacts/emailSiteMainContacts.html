@@ -1,0 +1,10 @@
+<template>
+		<template if:true={isInvokeFlow}>
+		<lightning-flow 
+               flow-name="SendMailToSiteMainContacts"
+               flow-input-variables={inputVariables}
+                onstatuschange={handleStatusChange}  
+       >
+    </lightning-flow>
+		</template>
+</template>

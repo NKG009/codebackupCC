@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "f600c219-6cbd-4dcb-971b-4138dfecacd8",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "Booked_Temps__c",
+  "id" : "9cc32bcc-3b29-47d7-a6cc-fa53c9ef540b",
+  "label" : "Booked Temps",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-booked-temps",
+  "type" : "route",
+  "urlPrefix" : "booked-temps"
+}

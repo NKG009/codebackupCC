@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Next_Wednesday__c</fullName>
+    <formula>CASE(MOD(Stamp_date_on_hold__c-DATE(2000, 1, 1), 7), 
+0, Stamp_date_on_hold__c+11, 
+1, Stamp_date_on_hold__c+10, 
+2, (Stamp_date_on_hold__c)+9, 
+3, (Stamp_date_on_hold__c)+8, 
+4, (Stamp_date_on_hold__c)+7, 
+5, (Stamp_date_on_hold__c)+6, 
+6, (Stamp_date_on_hold__c)+5,
+Stamp_date_on_hold__c)</formula>
+    <label>Next Wednesday</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X4731_BAL_Bristol_IND_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>4731-BAL Bristol IND</label>
+    <queue>X4731_BAL_Bristol_IND</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

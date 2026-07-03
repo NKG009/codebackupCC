@@ -1,0 +1,160 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,forceCommunity:themeLayout" access="global" controller="SiteManagementComponentController">
+    <!-- attributes -->
+    <aura:attribute name="selectedSite" type="String"/>
+    <aura:attribute name="userInfo" type="User"/>
+    <aura:attribute name="siteInfo" type="sirenum__Site__c"/>
+    <aura:attribute name="Linksite" type="list"/>
+    <aura:attribute name="siteList" type="List" access="global"/>
+    <aura:attribute name="site" type="String" /> 
+    <aura:attribute name="baseURL" type="String" />
+    
+    <!-- hendler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div class="container-fluid">
+        <div class="timesheet-section" style="margin-top:-50px !important; background-color: inherit !important; padding-left: 0px !important;">
+            <div class="timesheet-section__right-part">
+                <ol class="breadcrumb">
+                    <li><a href="javascript:void(0)" onclick="{!c.dashboardnavigate}" title="Dashboard">Dashboard</a></li>
+                    <li class="active">Site Management</li>
+                </ol>
+                <div class="search-section vacancies-section">
+                    <div class="address-details">
+                        <form class="row">
+                            <!--
+                               <div class="col-sm-12 text-right">
+                                    <button type="button" class="action-button edit" onclick="{!c.openActionWindow}">Edit</button>
+                                </div> -->
+                            <div class="col-sm-12">
+                                <h2>Site Address:</h2>
+                            </div>
+                            
+                            <div class="col-sm-12">
+                                <label class="global-label">Address Lines</label>
+                                <p>{!v.siteInfo.sirenum__Street_Address__c}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="global-label">City</label>
+                                <p>{!v.siteInfo.sirenum__City__c}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="global-label">County</label>
+                                <p>{!v.siteInfo.sirenum__County__c}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="global-label">Country</label>
+                                <p>{!v.siteInfo.sirenum__Country__c}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="global-label">Postcode</label>
+                                <p>{!v.siteInfo.sirenum__Postal_Code__c}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <hr/>
+                            </div>
+                            <div class="col-sm-12">
+                                <h2>Main Contact:</h2>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="global-label">First Name</label>
+                                <p>{!v.siteInfo.IP_MainContact__r.FirstName}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="global-label">Last Name</label>
+                                <p>{!v.siteInfo.IP_MainContact__r.LastName}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="global-label">Email</label>
+                                <p>{!v.siteInfo.IP_MainContact__r.Email}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <hr/>
+                            </div>
+                            <!--	<div class="col-sm-12">
+         <h2>Secondary Approver:</h2>
+        </div>
+        <div class="col-sm-6">
+         <label class="global-label">First Name</label>
+         <p>{!v.siteInfo.IP_InvoiceContact__r.FirstName}</p>
+        </div>
+                                <div class="col-sm-6">
+         <label class="global-label">Last Name</label>
+         <p>{!v.siteInfo.IP_InvoiceContact__r.LastName}</p>
+        </div>
+        <div class="col-sm-6">
+         <label class="global-label">Email</label>
+         <p>{!v.siteInfo.IP_InvoiceContact__r.Email}</p>
+        </div>
+        <div class="col-sm-12">
+                                    <hr/>
+                                </div> -->
+                            <div class="col-sm-12">
+                                <h2>Emergency Contact:</h2>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="global-label">First Name</label>
+                                <p>{!v.siteInfo.Emergency_Contact__r.FirstName}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="global-label">Last Name</label>
+                                <p>{!v.siteInfo.Emergency_Contact__r.LastName}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="global-label">Email</label>
+                                <p>{!v.siteInfo.Emergency_Contact__r.Email}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <hr/>
+                            </div>
+                            <!--
+                                <div class="col-sm-12 text-right">
+                                    <button type="button" class="action-button edit" onclick="{!c.openActionWindow}">Edit</button>
+                                </div>
+        -->
+                        </form>
+                        <!--       start from here -->
+                        <div  >
+                            <h2 class="slds-truncate" style="font-size: 2.4rem;">List of Approvers:
+                            </h2>
+                            <form class="row">
+                                <aura:iteration items="{!v.Linksite}" var="link"  indexVar="i" >
+                                    <!--  <div class="col-sm-12">
+                                            <p class="slds-truncate" style="font-size: 2.0rem; margin-bottom: 1.5rem; font-weight: bold;">Approver {!i+1}
+                                            </p>
+                                        </div>-->
+                                    <div class="slds-card__body">
+                                        <div class="col-sm-6">
+                                            <label class="global-label" style="font-weight: bold;">First Name</label>
+                                            <p>{!link.IP_Contact__r.FirstName}</p>
+                                            
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label class="global-label" style="font-weight: bold;">Last Name</label>
+                                            <p>{!link.IP_Contact__r.LastName}</p>
+                                            
+                                        </div>
+                                        <div class="col-sm-6">
+                                            
+                                            <label class="global-label" style="font-weight: bold;">Email</label>
+                                            <p>{!link.IP_Contact__r.Email}</p>
+                                            
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label class="global-label" style="font-weight: bold;">Portal Type</label>
+                                            <p>{!link.IP_PortalType__c}</p>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <hr/>
+                                    
+                                </aura:iteration>
+                            </form>
+                        </div>
+                        
+                        <!--       End  here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>	
+</aura:component>

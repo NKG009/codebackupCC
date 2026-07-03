@@ -1,0 +1,69 @@
+<template>
+  <div class="slds-p-top_x-large">
+    <lightning-layout horizontal-align="spread" multiple-rows>
+      <lightning-layout-item padding="around-small" size="12">
+        <img src={userIcon} alt="User Thumbnail Icon" />
+        <h2 class="slds-p-top_medium">
+          {loggedInUserDetails.name}
+          <br />
+          {loggedInUserDetails.jobTitle}
+        </h2>
+      </lightning-layout-item>
+      <lightning-layout-item padding="around-small" size="12">
+        <!-- <lightning-combobox
+          label="Site Selection"
+          value={siteSelectedByUser}
+          options={loggedInUserSites}
+          variant="label-hidden"
+          onchange={selectionChangeHandler}
+          disabled={isPicklistDisabled}
+        > 
+         </lightning-combobox> -->
+        <c-portal-v2-site-switch-widget></c-portal-v2-site-switch-widget>
+        <hr class="slds-m-top_medium slds-m-bottom_none" />
+      </lightning-layout-item>
+      <template if:true={showSiteOwnerDetails}>
+        <lightning-layout-item padding="around-small" size="12">
+          <div class="slds-text-heading_medium bluearrow-brand-color">
+            Site Owner Details
+          </div>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small" size="12">
+          <p>Name:</p>
+          <p>{siteOwnerDetails.name}</p>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small" size="12">
+          <p>Email:</p>
+          <p>{siteOwnerDetails.emailAddress}</p>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small" size="12">
+          <p>Phone:</p>
+          <p>{siteOwnerDetails.phoneNumber}</p>
+        </lightning-layout-item>
+        <template if:true={hasEmailAddress}>
+          <lightning-layout-item padding="around-small" size="12">
+            <a
+              href={siteOwnerDetails.emailAddressHref}
+              class="bluearrow-brand-color"
+            >
+              <div>
+                Email
+                <img src={emailLogo} alt={siteOwnerDetails.emailAddress} />
+              </div>
+            </a>
+          </lightning-layout-item>
+        </template>
+      </template>
+      <template if:false={showSiteOwnerDetails}>
+        <div
+          class="slds-m-around_small slds-p-around_x-small slds-text-body_small"
+        >
+          <p>
+            To view your Blue Arrow consultant details, please select a specific
+            site above.
+          </p>
+        </div>
+      </template>
+    </lightning-layout>
+  </div>
+</template>

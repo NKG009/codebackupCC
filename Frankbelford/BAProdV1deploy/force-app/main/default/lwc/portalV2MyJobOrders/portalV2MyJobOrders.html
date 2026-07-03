@@ -1,0 +1,797 @@
+<template>
+  <div class="slds-p-top_x-large">
+    <h1 class="main__header"><span class="bluearrow-brand-color"> Job Orders </span> </h1>
+    <template if:false={showjoborderdetail}>
+      <lightning-layout horizontal-align="spread" multiple-rows>
+        <lightning-layout-item class="slds-p-top_large" size="12">
+          <div class="slds-clearfix">
+            <div class="slds-float_right">
+              <!--div class="slds-p-around_small" style="display: inline-block">
+              <c-portal-v2-site-switch-widget></c-portal-v2-site-switch-widget>
+            </div>
+            <lightning-button variant={clearFiltersVariation} label="Clear Filters" class="slds-p-horizontal_xx-small"
+              onclick={clearFilters}></lightning-button-->
+              <!--lightning-button variant="brand" label="Adjust Columns" class="slds-p-horizontal_xx-small"
+                onclick={openAdjustColumnsModalBox}></lightning-button>
+              <lightning-button variant="brand" label="Export" class="slds-p-horizontal_xx-small"
+                onclick={exportTimesheets}></lightning-button-->
+              <lightning-button variant={clearFiltersVariation} label="Clear Filters" class="slds-p-horizontal_xx-small"
+                onclick={clearFilters}></lightning-button>
+            </div>
+          </div>
+        </lightning-layout-item>
+        <lightning-layout-item class="slds-p-top_large" size="12">
+          <div class="table__container table_layout" style="overflow-y: scroll">
+            <table class="slds-table slds-table_cell-buffer"
+              aria-labelledby="element-with-table-label other-element-with-table-label">
+              <thead>
+                <tr class="slds-line-height_reset header__row table__header__actionbar">
+                  <template for:each={mainTableColumnStatus} for:item="theColumn">
+                    <template if:true={theColumn.selected}>
+                      <th key={theColumn.fieldAPIName} scope="col" class="table__header table-header">
+                        <div title={theColumn.column} class="column-header-container">
+                          <span class="column-title-text">{theColumn.column}</span>
+
+                          <template if:true={theColumn.filterable}>
+                            <span>
+                              &nbsp;&nbsp;
+                              <img class="clickable__element" src={theColumn.filterIcon} alt={theColumn.filterType}
+                                name={theColumn.fieldAPIName} title={theColumn.column} onclick={handleFilterClick} />
+                            </span>
+                          </template>
+                        </div>
+                      </th>
+                    </template>
+                  </template>
+                </tr>
+              </thead>
+              <tbody>
+                <template if:true={hasRecords}>
+                  <template for:each={filteredShifts} for:item="jobOrder">
+                    <tr class="slds-hint-parent body__row" key={jobOrder.Id}>
+                      <template for:each={jobOrder.columns} for:item="column">
+                        <template if:true={column.display}>
+                          <template if:true={column.isJobTitle}>
+                            <td key={column.key} class="body-text" style="text-align: center">
+                              <a href="#" onclick={handleRowClick} data-id={jobOrder.Id}
+                                class="link-style bluearrow-brand-color">{column.value}</a>
+                            </td>
+                          </template>
+                          <template if:false={column.isJobTitle}>
+
+                            <td key={column.key} class="body-text" style="text-align: center">
+                              <div if:true={column.isNumber}>
+                                <lightning-formatted-number value={column.value}></lightning-formatted-number>
+                              </div>
+                              <div if:true={column.isText}>
+                                <lightning-formatted-text value={column.value}></lightning-formatted-text>
+                              </div>
+                            </td>
+                          </template>
+                          <!--td key={column.key} class="body-text" style="text-align: center">
+                          <lightning-formatted-text value={column.value}></lightning-formatted-text>
+                        </td-->
+                        </template>
+                      </template>
+                    </tr>
+                  </template>
+                </template>
+                <template if:false={hasRecords}>
+                  <tr class="slds-hint-parent">
+                    <td colspan={totalColumns} style="padding: 20px; font-weight: bold; font-size: medium">
+                      {theTableMessage}
+                    </td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
+        </lightning-layout-item>
+
+      </lightning-layout>
+    </template>
+    <template if:true={showjoborderdetail}>
+      <lightning-layout-item size="12" padding="around-small">
+        <h2 class="sub__header">{jobOrderTitle}{joborderdetaildata.Name}</h2>
+      </lightning-layout-item>
+      <lightning-layout>
+        <!-- Left side tabset-->
+        <lightning-layout-item padding="around-small" size="8" class="slds-p-left_none">
+          <lightning-tabset>
+            <!-- Tab 1(l) : Job Order Details-->
+            <lightning-tab label="Job Order Details">
+
+              <lightning-layout multiple-rows="true">
+                <!-- Job Details -->
+
+                <lightning-layout-item size="12" padding="around-small" class="slds-p-left_none slds-p-bottom_none">
+                  <div class="job-info">
+                    <lightning-layout multiple-rows="true">
+                      <lightning-layout-item size="4" padding="around-small">
+                        <p><strong class="bluearrow-brand-color">Job Title:</strong>
+                          <span style="padding-left: 10px;">{joborderdetaildata.sirenum__JobRole__r.Name}</span>
+                        </p>
+                      </lightning-layout-item>
+                      <lightning-layout-item size="4" padding="around-small">
+                        <p><strong class="bluearrow-brand-color">Job Order Id:</strong>
+                          <span style="padding-left: 10px;">{joborderdetaildata.Job_Order_Number__c}</span>
+                        </p>
+                      </lightning-layout-item>
+                      <lightning-layout-item size="4" padding="around-small ">
+                        <p><strong class="bluearrow-brand-color">Minimum Pay/Rate:</strong>
+                          <lightning-formatted-number style="padding-left: 10px;"
+                            value={joborderdetaildata.JobRoleMinimum__c} format-style="currency"
+                            currency-code="GBP"></lightning-formatted-number>
+                        </p>
+                      </lightning-layout-item>
+
+
+                      <lightning-layout-item size="4" class="slds-p-left_small">
+                        <p><strong class="bluearrow-brand-color">Start Date:</strong>
+                          <span style="padding-left: 10px;">{joborderdetaildata.sirenum__StartDate__c}</span>
+                        </p>
+                      </lightning-layout-item>
+                      <!--lightning-layout-item size="4" class="slds-p-left_small">
+                        <p><strong class="bluearrow-brand-color" >Competency Conditions:</strong> {competencyConditions}
+                        </p>
+                      </lightning-layout-item-->
+                      <lightning-layout-item size="4" class="slds-p-left_small">
+                        <p><strong class="bluearrow-brand-color">Number or staff required:</strong>
+                          <span style="padding-left: 10px;">{joborderdetaildata.Total_Resource_Required__c}</span>
+                        </p>
+                      </lightning-layout-item>
+                      <lightning-layout-item size="4" class="slds-p-left_small">
+                        <p><strong class="bluearrow-brand-color">Supplier Fee/Rate: </strong>
+                          <lightning-formatted-number style="padding-left: 10px;"
+                            value={joborderdetaildata.Total_Supplier_Flat_Fee__c} format-style="currency"
+                            currency-code="GBP"></lightning-formatted-number>
+
+                        </p>
+                      </lightning-layout-item>
+
+
+                      <lightning-layout-item size="4" padding="around-small">
+                        <p><strong class="bluearrow-brand-color">End Date:</strong>
+                          <span style="padding-left: 10px;">{joborderdetaildata.sirenum__EndDate__c}</span>
+                        </p>
+                      </lightning-layout-item>
+                      <lightning-layout-item size="4" padding="around-small">
+                        <p><strong class="bluearrow-brand-color">Management Fee/Rate</strong>
+                          <lightning-formatted-number style="padding-left: 10px;"
+                            value={joborderdetaildata.Management_Fee_hr__c} format-style="currency" currency-code="GBP">
+                          </lightning-formatted-number>
+                        </p>
+                      </lightning-layout-item>
+                      <lightning-layout-item size="4" padding="around-small">
+                        <p><strong class="bluearrow-brand-color">Forecasted Total Rate: </strong>
+                          <lightning-formatted-number style="padding-left: 10px;"
+                            value={joborderdetaildata.Forecasted_Total_Rate__c} format-style="currency"
+                            currency-code="GBP"></lightning-formatted-number>
+                        </p>
+                      </lightning-layout-item>
+
+                      <!--lightning-layout-item size="6" padding="around-small">
+                        <p><strong class="bluearrow-brand-color">Health & Safety Requirements:</strong>
+                          {joborderdetaildata.sirenum__JobRole__r.IP_Notified_Health_Safety_Risks__c}</p>
+                      </lightning-layout-item-->
+
+                    </lightning-layout>
+                  </div>
+                </lightning-layout-item>
+
+
+                <!-- Job Responsibilities -->
+                <lightning-layout-item size="6" class="slds-p-top_large slds-p-right_large">
+                  <h3>Job Description</h3>
+                  <div class="slds-box scrollable-box" style="height:200px">
+                    <lightning-formatted-rich-text value={joborderdetaildata.sirenum__JobRole__r.IP_Job_Description__c}>
+                    </lightning-formatted-rich-text>
+                  </div>
+                </lightning-layout-item>
+
+                <!-- Competency condition -->
+                <lightning-layout-item size="6" class="slds-p-top_large">
+                  <div style="display: flex;">
+                    <h3 style="width: 22.5%;">Required Skills</h3>
+                    <span style="margin-left: -25px;margin-top: -3px;"><lightning-helptext
+                        content="The skills, qualifications, certifications listed below are required for this job order."></lightning-helptext></span>
+                  </div>
+                  <div class="slds-box" style="height:200px">
+                    <template if:true={isloadingcompetencycondition}>
+                      <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                    </template>
+                    <lightning-datatable key-field="Id" data={allCompetencyConditionRecords}
+                      columns={competencyconditioncolumns} sorted-by={sortedBy} sorted-direction={sortedDirection}
+                      onsort={handleSort} hide-checkbox-column>
+                    </lightning-datatable>
+                  </div>
+                </lightning-layout-item>
+
+                <!-- Worker Information -->
+                <lightning-layout-item size="6" class="slds-p-top_large slds-p-right_large">
+                  <div class="slds-p-bottom_small">
+                    <h3>Health & Safety Requirements:</h3>
+                    <p class="slds-box scrollable-box" style="height:75px">
+                      {joborderdetaildata.sirenum__JobRole__r.IP_Notified_Health_Safety_Risks__c}
+                    </p>
+                  </div>
+                  <div class="slds-p-bottom_small">
+                    <h3>Who to Meet on Arrival</h3>
+                    <p class="slds-box scrollable-box slds-p-bottom_small" style="height:75px">
+                      {joborderdetaildata.sirenum__Site__r.Who_to_meet_on_arrival__c}</p>
+                  </div>
+
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="slds-p-top_large">
+                  <div class="slds-p-bottom_small">
+                    <h3>Parking Information</h3>
+                    <p class="slds-box scrollable-box" style="height:75px">
+                      {joborderdetaildata.sirenum__Site__r.Parking_information__c}
+                    </p>
+                  </div>
+                  <div class="slds-p-bottom_small">
+                    <h3>Public Transport Information</h3>
+                    <p class="slds-box scrollable-box" style="height:75px">
+                      {joborderdetaildata.sirenum__Site__r.Public_Transport_Information__c}</p>
+                  </div>
+
+                </lightning-layout-item>
+
+
+              </lightning-layout>
+
+            </lightning-tab>
+            <!-- *************************Tab 2(l) : Rate Card Details******************************** >
+            <lightning-tab label="Rate Card Details">
+              <lightning-tabset>
+                <template for:each={allRateCardRecords} for:item="ratecard">
+
+                  <lightning-tab key={ratecard.Id} label={ratecard.Name}>
+                    <div class="table__container table_layout" style="overflow-y: scroll">
+                      <table class="slds-table slds-table_cell-buffer"
+                        aria-labelledby="element-with-table-label other-element-with-table-label">
+                        <thead>
+                          <tr class="slds-line-height_reset header__row table__header__actionbar">
+                            <template for:each={rateCardColumns} for:item="RCColumn">
+                              <th key={RCColumn.fieldAPIName} scope="col" class="table__header table-header">
+                                <div title={RCColumn.column} class="column-header-container">
+                                  <span class="column-title-text">{RCColumn.column}</span>
+                                </div>
+                              </th>
+                            </template>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <template if:true={hasRateCardRecords}>
+                            <template for:each={ratecard.sirenum__Rate_Lines__r} for:item="ratecardlines">
+                              <tr class="slds-hint-parent body__row" key={ratecardlines.Id}>
+                                <template for:each={ratecardlines.columns} for:item="column">
+                                  <template if:true={column.isNum}>
+                                    <td key={column.key} class="body-text" style="text-align: center">
+                                      <lightning-formatted-number value={column.value} format-style="currency"
+                                        currency-code="GBP"></lightning-formatted-number>
+
+                                    </td>
+                                  </template>
+                                  <template if:true={column.isText}>
+                                    <td key={column.key} class="body-text" style="text-align: center">
+                                      <lightning-formatted-text value={column.value}></lightning-formatted-text>
+                                    </td>
+                                  </template>
+                                </template>
+                              </tr>
+                            </template>
+                          </template>
+                          <template if:false={hasRateCardRecords}>
+                            <tr class="slds-hint-parent">
+                              <td colspan={totalColumns} style="padding: 20px; font-weight: bold; font-size: medium">
+                                {theTableMessage}
+                              </td>
+                            </tr>
+                          </template>
+                        </tbody>
+                      </table>
+                    </div>
+                  </lightning-tab>
+                </template>
+              </lightning-tabset>
+            </lightning-tab-->
+
+            <lightning-tab label="Job location">
+              <lightning-layout-item size="4" padding="around-small">
+                <p><strong class="bluearrow-brand-color">Site Name:</strong>
+                  <span style="padding-left: 10px;">{joborderdetaildata.sirenum__Site__r.Name}</span>
+                </p>
+              </lightning-layout-item>
+              <lightning-layout-item size="4" padding="around-small">
+                <p><strong class="bluearrow-brand-color">Address:</strong>
+                  <span
+                    style="padding-left: 10px;">{joborderdetaildata.sirenum__Site__r.sirenum__Full_Address__c}</span>
+                </p>
+              </lightning-layout-item>
+            </lightning-tab>
+
+            <lightning-tab label="Working Schedule">
+              <!--p><strong class="bluearrow-brand-color" >Screen Development in Progress...</strong></p-->
+              <lightning-accordion  active-section-name={activeSection}>
+                <template for:each={flattenWorkSchedule} for:item="weekData">
+                  <lightning-accordion-section key={weekData.week} label={weekData.week} name={weekData.week}>
+                    <div class="table__container table_layout">
+                      <table class="slds-table slds-table_cell-buffer"
+                        aria-labelledby="element-with-table-label other-element-with-table-label">
+                        <thead>
+                          <tr class="slds-line-height_reset header__row table__header__actionbar">
+                            <th scope="col" class="rstable__header table-header">
+                              <div class="column-header-container" title="Skill">
+                                <span class="column-title-text">Day Of the Week</span>
+                              </div>
+                            </th>
+                            <th scope="col" class="rstable__header table-header">
+                              <div class="column-header-container" title="Severity">
+                                <span class="column-title-text">Start Time </span>
+                              </div>
+                            </th>
+                            <th scope="col" class="rstable__header table-header">
+                              <div class="column-header-container" title="Severity">
+                                <span class="column-title-text">End Time </span>
+                              </div>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <template if:true={hasWorkScheduleRecords}>
+                            <template for:each={weekData.weekLines} for:item="workschitem">
+                              <tr key={workschitem.sirenum__Offset__c} class="slds-hint-parent body__row">
+                                <td class="body-text" style="text-align: center">
+                                  <div class="slds-truncate" title={workschitem.dayOfWeek}>{workschitem.dayOfWeek}</div>
+                                </td>
+                                <td class="body-text" style="text-align: center; ">
+                                  <div class="slds-truncate" title={workschitem.formattedStartTime}>
+                                    {workschitem.formattedStartTime}</div>
+                                </td>
+                                <td class="body-text" style="text-align: center; ">
+                                  <div class="slds-truncate" title={workschitem.formattedEndTime}>
+                                    <lightning-formatted-time
+                                      value={workschitem.formattedEndTime}></lightning-formatted-time>
+                                  </div>
+                                </td>
+                              </tr>
+                            </template>
+                          </template>
+                          <template if:false={hasWorkScheduleRecords}>
+                            <tr class="slds-hint-parent">
+                              <td colspan={totalColumns} style="padding: 20px; font-weight: bold; font-size: medium">
+                                {theTableMessage}
+                              </td>
+                            </tr>
+                          </template>
+                        </tbody>
+                      </table>
+                    </div>
+                  </lightning-accordion-section>
+                </template>
+              </lightning-accordion>
+
+            </lightning-tab>
+
+            <!--lightning-tab label="Requirements for Candidates ">
+              <p><strong class="bluearrow-brand-color">Screen Development in Progress...</strong></p>
+            </lightning-tab-->
+
+            <lightning-tab label="Files">
+
+              <lightning-datatable key-field="Id" data={allFiles} columns={filescolumns} hide-checkbox-column
+                onrowaction={handleFileRowAction}>
+              </lightning-datatable>
+
+
+            </lightning-tab>
+
+          </lightning-tabset>
+        </lightning-layout-item>
+
+        <!-- ****************Right side tabset **************************** -->
+        <lightning-layout-item padding="around-small" size="4">
+          <!-- Tab Section for Candidates, Submit New Candidate, and Ask a Question -->
+          <lightning-tabset>
+            <!-- Tab 1: Candidates Submitted -->
+            <lightning-tab label="Candidates Submitted">
+              <div class="slds-box scrollable-box" style="max-height: 570px;">
+                <lightning-datatable key-field="id" data={allSubmittedCandidateRecords}
+                  columns={SubmittedCandidatecolumns} hide-checkbox-column>
+                </lightning-datatable>
+              </div>
+            </lightning-tab>
+
+            <!-- Tab 2: Submit New Candidate -->
+
+            <lightning-tab label="Submit New Candidate">
+              <div class="slds-box">
+                <div if:false={joborderdetaildata.showJODecline}>
+                  <template if:true={isloadingcreatecandidate}>
+                    <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                  </template>
+                  <template if:true={Showtoggleoption}>
+                    <div style="text-align: center; padding-bottom: 20px;">
+                      <lightning-radio-group name="toggleGroup" options={toggleOptions} value={selectedView}
+                        type="button" onchange={handleToggleChange}>
+                      </lightning-radio-group>
+                    </div>
+                  </template>
+                  <template if:true={showSearchForm}>
+                    <lightning-layout multiple-rows>
+                      <lightning-layout-item size="12" padding="around-small">
+                        <h2 class="slds-card__header-title" style="margin-top:1rem;">
+                          <div style="width: 50%; position: relative;">
+                            <label for="candidateInput">Search Candidate</label>
+                            <input type="text" id="candidateInput" class="slds-input" value={searchTerm}
+                              onkeyup={handleSearchChange} onfocus={showDrop} onblur={hideDrop}
+                              placeholder="Type to search Candidates..." style="margin-top: .15rem;" />
+
+                            <template if:true={isDropdownVisible}>
+                              <ul class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid custom-dropdown">
+                                <template for:each={filteredCandidates} for:item="Candidate">
+                                  <li key={Candidate.Id} class="slds-dropdown__item"
+                                    onclick={handleSelect2ndTierCandidate} data-id={Candidate.Id}>
+                                    <span>{Candidate.Name}</span>
+                                  </li>
+                                </template>
+                              </ul>
+                            </template>
+                          </div>
+                        </h2>
+                      </lightning-layout-item>
+                    </lightning-layout>
+
+                    <template if:true={show2ndTierCandidatedetail}>
+                      <lightning-layout multiple-rows=true>
+                        <lightning-layout-item size="6" padding="around-small">
+                          <p><strong class="bluearrow-brand-color">Candidate Name:</strong>
+                            <span style="padding-left: 10px;">{selected2ndTierCandidatedata.Name}</span>
+                          </p>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6" padding="around-small">
+                          <p><strong class="bluearrow-brand-color">Mobile Phone:</strong>
+                            <span style="padding-left: 10px;">{selected2ndTierCandidatedata.MobilePhone}</span>
+                          </p>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6" padding="around-small">
+                          <p><strong class="bluearrow-brand-color">Email:</strong>
+                            <span style="padding-left: 10px;"><lightning-formatted-email class="email-field"
+                                value={selected2ndTierCandidatedata.Email}></lightning-formatted-email></span>
+                          </p>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6" padding="around-small">
+                          <p><strong class="bluearrow-brand-color">National Insurance Number:</strong>
+                            <span
+                              style="padding-left: 10px;">{selected2ndTierCandidatedata.sirenum__National_Insurance__c}</span>
+                          </p>
+                        </lightning-layout-item>
+
+
+                        <lightning-layout-item size="12" padding="around-small">
+                          <p><strong class="bluearrow-brand-color">Note:</strong>
+                            <template if:true={searchscreenerrormsg}>
+                              <span style="padding-left: 5px; color:red;">This candidate has some missing skills :-
+                                <strong>
+                                  <template for:each={Searchcandidatescreenmsg} for:item="umskill">
+                                    <li key={umskill.key}>
+                                      {umskill.name}
+                                    </li>
+                                  </template>
+                                </strong></span>
+                            </template>
+                            <template if:false={searchscreenerrormsg}>
+                              <span style="padding-left: 5px; color:green;">This Candidate has all the skills needed for
+                                this job</span>
+                            </template>
+                          </p>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6" padding="around-small">
+                          <template if:true={searchscreenerrormsg}>
+                            <lightning-button label="Go to: Add skills" variant="brand" onclick={handleGotoAddSkills}
+                              class="slds-m-top_medium">
+                            </lightning-button>
+                          </template>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6" padding="around-small">
+                          <lightning-button label="Submit Candidate" variant="brand" onclick={handleSubmitCandidate}
+                            class="slds-m-top_medium">
+                          </lightning-button>
+                        </lightning-layout-item>
+
+                      </lightning-layout>
+                    </template>
+
+                  </template>
+
+                  <template if:true={showAddForm}>
+                    <template if:true={showcandidatecrepage1}>
+                      <lightning-record-edit-form object-api-name="Contact" record-type-id={candidateRecordTypeId}
+                        onerror={handleError} onsuccess={handlecandidateSuccess} onsubmit={handlecandidateSubmit}
+                        onkeydown={handleKeydown}>
+                        <lightning-layout multiple-rows>
+                          <!-- Personal Information -->
+                          <lightning-layout-item size="6" padding="around-small">
+                            <div style="display: flex;">
+                              <h2 class="slds-text-heading_medium bluearrow-brand-color">Personal Information</h2>
+                              <lightning-helptext style="width:0px;"
+                                content="This data is required for HMRC"></lightning-helptext>
+                            </div>
+                            <lightning-input-field field-name="Salutation" required></lightning-input-field>
+                            <lightning-input-field field-name="FirstName" required></lightning-input-field>
+                            <lightning-input-field field-name="ts2__Preferred_Name__c"></lightning-input-field>
+                            <lightning-input-field field-name="MiddleName"></lightning-input-field>
+                            <lightning-input-field field-name="LastName"></lightning-input-field>
+                          </lightning-layout-item>
+
+                          <lightning-layout-item size="6" padding="around-small">
+                            <div style="display: flex;">
+                              <h2 class="slds-text-heading_medium bluearrow-brand-color">Address </h2>
+                              <lightning-helptext content="This data is required for HMRC"></lightning-helptext>
+                            </div>
+                            <lightning-input label="Street" data-id="street" onchange={handleInputChange} required
+                              style="padding-bottom: .3rem;"></lightning-input>
+                            <lightning-input label="City" data-id="city" onchange={handleInputChange} required
+                              style="padding-bottom: .3rem;"></lightning-input>
+                            <lightning-input label="Postcode" data-id="postcode" onchange={handleInputChange} required
+                              style="padding-bottom: .3rem;">
+                            </lightning-input>
+                            <lightning-input label="Country" data-id="country" onchange={handleInputChange} required
+                              style="padding-bottom: .3rem;">
+                            </lightning-input>
+                          </lightning-layout-item>
+
+                          <!-- Contact Information -->
+                          <lightning-layout-item size="6" padding="around-small">
+                            <h2 class="slds-text-heading_medium bluearrow-brand-color">Contact Information</h2>
+                            <div style="display: flex;">
+                              <lightning-input-field field-name="Email" required>
+                              </lightning-input-field>
+                              <span style="margin-left: -140px;"><lightning-helptext
+                                  content="For access to the Blue Arrow 2nd tier app/portal"></lightning-helptext></span>
+                            </div>
+                            <lightning-input-field field-name="MobilePhone" required></lightning-input-field>
+                            <Div style="margin-top: 40px;">
+                              <lightning-input-field field-name="IP_CategoryOfWork__c" required></lightning-input-field>
+                            </Div>
+                          </lightning-layout-item>
+
+                          <!-- Other Information -->
+                          <lightning-layout-item size="6" padding="around-small">
+                            <div style="display: flex;">
+                              <h2 style="width:155px" class="slds-text-heading_medium bluearrow-brand-color">Other
+                                Information</h2>
+                              <span><lightning-helptext
+                                  content="This data is required for HMRC"></lightning-helptext></span>
+                            </div>
+                            <lightning-input-field field-name="ts2__EEO_Gender__c" required></lightning-input-field>
+                            <lightning-input-field field-name="Birthdate" required></lightning-input-field>
+                            <lightning-input-field field-name="sirenum__National_Insurance__c"
+                              required></lightning-input-field>
+                          </lightning-layout-item>
+                        </lightning-layout>
+
+                        <!-- Save Button -->
+                        <lightning-layout-item size="12" padding="around-small">
+                          <lightning-button variant="brand" label="Next: Add Compliance"
+                            type="submit"></lightning-button>
+                        </lightning-layout-item>
+                      </lightning-record-edit-form>
+                    </template>
+                    <template if:true={showcandidatecrepage2}>
+                      <lightning-layout multiple-rows>
+                        <div style="font-size: 15px; margin-bottom: 10px;">I confirm that the candidate matches the
+                          requirements for the role
+                          including:
+                        </div><br><br>
+                        <!-- Proof of Right to Work in the UK -->
+                        <lightning-layout-item size="12" style="margin-bottom: 10px;">
+                          <lightning-input type="checkbox"
+                            label="This candidate has valid Proof Of Right to Work in the United Kingdom?"
+                            checked={proofOfWork} onchange={handleProofOfWorkChange}>
+                          </lightning-input>
+                        </lightning-layout-item>
+
+                        <!-- References in line with the Supplier Agreement -->
+                        <lightning-layout-item size="12" style="margin-bottom: 10px;">
+                          <lightning-input type="checkbox"
+                            label="This candidate has references in line with the Supplier Agreement?"
+                            checked={references} onchange={handleReferencesChange}>
+                          </lightning-input>
+                        </lightning-layout-item>
+
+                        <!-- 3rd checkboc question -->
+                        <lightning-layout-item size="12" style="margin-bottom: 10px;">
+                          <lightning-input type="checkbox"
+                            label="This candidate will be paid via PAYE in line with the Supplier Agreement?"
+                            checked={paidvia} onchange={handlePaidViaChange}>
+                          </lightning-input>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="9" padding="around-small">
+                          <lightning-button label="Next: Add skills and certification" variant="brand"
+                            onclick={handleCertificateSubmit} disabled={isSubmitDisabled} class="slds-m-top_medium">
+                          </lightning-button>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="3" padding="around-small">
+                          <lightning-button label="Cancel" variant="brand" onclick={handleCertificateCancel}
+                            class="slds-m-top_medium">
+                          </lightning-button>
+                        </lightning-layout-item>
+                      </lightning-layout>
+
+                    </template>
+                  </template>
+                  <template if:true={showcandidatecrepage3}>
+                    <template if:true={searchscreenerrormsg}>
+                      <div style="font-size: 15px">Missing skills for this role:
+                      </div><br><br>
+                    </template>
+                    <template if:false={searchscreenerrormsg}>
+                      <div style="font-size: 15px">Please confirm that your candidate has all the below skills for this
+                        role:
+                      </div><br><br>
+                    </template>
+
+                    <lightning-layout>
+                      <lightning-layout-item size="4">
+                        Skill
+                      </lightning-layout-item>
+
+                      <lightning-layout-item size="4">
+                        Severity
+                      </lightning-layout-item>
+
+                      <lightning-layout-item size="4">
+                        Select Your Choice
+                      </lightning-layout-item>
+                    </lightning-layout>
+                    <template for:each={alteredCompetencyRecords} for:item="skillRecord">
+                      <lightning-layout multiple-rows=true key={skillRecord.Id} class="slds-m-bottom_medium">
+
+                        <!-- Skill Name -->
+                        <lightning-layout-item size="4">
+                          <lightning-formatted-text value={skillRecord.skill}></lightning-formatted-text>
+                        </lightning-layout-item>
+
+                        <!-- Severity -->
+                        <lightning-layout-item size="4">
+                          <lightning-formatted-text value={skillRecord.severity}></lightning-formatted-text>
+                        </lightning-layout-item>
+
+                        <!-- Radio buttons for selecting Yes or No -->
+                        <lightning-layout-item size="4">
+                          <lightning-radio-group options={yesNoOptions} value={skillRecord.selectedValue}
+                            data-id={skillRecord.Id} onchange={handleRadioChangecompetencycreation}>
+                          </lightning-radio-group>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="8">
+                          <template if:true={skillRecord.showValidtill}>
+                            <lightning-input data-id={skillRecord.Id} type="date" label="Valid To"
+                              placeholder="Enter a date here..." onchange={handleValiddateChangecompetencycreation}
+                              required></lightning-input>
+                          </template>
+                        </lightning-layout-item>
+
+                        <!-- Conditionally rendered file upload section -->
+                        <lightning-layout-item size="12">
+                          <template if:true={skillRecord.showFileUpload}>
+                            <lightning-file-upload label="Upload Proof" data-id={skillRecord.Id} record-id={recordId}
+                              onuploadfinished={handleSkillsFileUpload} required>
+                            </lightning-file-upload>
+                          </template>
+                        </lightning-layout-item>
+                      </lightning-layout>
+                    </template>
+
+                    <template if:false={searchscreenerrormsg}>
+                      <lightning-layout-item size="12" padding="around-small">
+                        <lightning-file-upload label="Upload CV" record-id={newcandidaterecid}
+                          onuploadfinished={handleUploadFinished}>
+                        </lightning-file-upload>
+                        <div if:true={cvuploadshow}>
+                          uploaded CV : {cvfilename}
+                        </div>
+                      </lightning-layout-item>
+                    </template>
+
+                    <lightning-layout-item size="12" padding="around-small">
+                      <template if:true={searchscreenerrormsg}>
+                        <lightning-button label="Create Skills" variant="brand" onclick={handleCompetenciesSubmit}
+                          class="slds-m-top_medium">
+                        </lightning-button>
+                      </template>
+                      <template if:false={searchscreenerrormsg}>
+                        <lightning-button label="Submit" variant="brand" onclick={handleCompetenciesSubmit}
+                          class="slds-m-top_medium">
+                        </lightning-button>
+                      </template>
+
+                    </lightning-layout-item>
+
+
+                  </template>
+                </div>
+                <div if:true={joborderdetaildata.showJODecline}>
+                  <p> You're unable to submit a candidate as the Job Order has been declined. If this circumstance has
+                    changed, please contact your Blue Arrow representative</p>
+                </div>
+
+              </div>
+            </lightning-tab>
+
+            <!-- Tab 3: Ask a Question >
+            <lightning-tab label="Ask a Question">
+              <div class="slds-box" style="padding-left: 0;padding-right: 0; padding-bottom: 0;" >
+               <div style="max-height: 400px; min-height:200px; padding-bottom:0px; overflow-y: auto;overflow-x: hidden; padding: 1rem;">
+                <template for:each={allCommentRecords} for:item="comment">
+                    <div key={comment.Id} data-id={comment.Id} class={comment.Comment_Type__c}>
+                    <p>{comment.Comment_Text__c}</p>
+                    </div>
+                </template>
+            
+             </div>
+            
+            <div class="message-input-container">
+            <lightning-textarea label="" value={newComment} onchange={handleCommentChange}></lightning-textarea>
+    
+           
+             <div style="padding: 1rem;align-self: flex-end;padding-bottom:0;">
+              <lightning-button label="Submit" variant="brand" onclick={handleSubmitNewComment}></lightning-button>
+             </div>
+            
+            </div>
+          </div>
+            </lightning-tab-->
+          </lightning-tabset>
+        </lightning-layout-item>
+      </lightning-layout>
+      <div class="table__footer__actionbar">
+        <div class="
+          slds-grid
+          slds-var-p-horizontal_medium
+          slds-var-p-vertical_small
+          flex__row
+        ">
+          <div class="slds-grid small__gap flex__row">
+            <lightning-button variant="brand" label="Back to Job Orders" onclick={handlebacktojobOrdersClick}
+              class="slds-grid_vertical-align-center"></lightning-button>
+            <button class="slds-button slds-button_destructive" style="margin-left: 10px;"
+              disabled={joborderdetaildata.showJODecline} onclick={handledeclinejoborder}>Decline</button>
+            <p if:true={joborderdetaildata.showJODecline} style="color: red; padding-top: 5px; margin-left: 10px;">Job
+              Order Already Declined <lightning-formatted-date-time value={joDeclinedatetime} year="numeric"
+                month="2-digit" day="2-digit" hour="2-digit" minute="2-digit" second="2-digit" hour12="true">
+              </lightning-formatted-date-time> </p>
+          </div>
+        </div>
+      </div>
+    </template>
+  </div>
+
+
+  <template if:true={openAdjustColumnsModal}>
+    <div data-id="adjustColumnsModal" class="column_adjust__modal">
+      <c-portalv2-column-picker main-table-column-selection={mainTableColumnStatus}
+        onapplyfilters={handleColumnPickerFilter} onclose={closeAdjustColumnsModalBox}>
+      </c-portalv2-column-picker>
+    </div>
+  </template>
+  <template if:true={openTextFilterModal}>
+    <div data-id="textFilterModal" class="filter__modal">
+      <c-portal-v2-filter-modal onclose={handleTextFilterModalClose} onapplyfilter={handleApplyFilter}
+        onresetfilter={handleResetFilter} column-label={filterColumnLabel} filter-click-type={filterClickType}
+        default-selected-values={currentFilterSelectedTerms} filter-terms={filterTerms}></c-portal-v2-filter-modal>
+    </div>
+  </template>
+  <template if:true={openDateFilterModal}>
+    <div data-id="dateFilterModal" class="filter__modal">
+      <c-portal-v2-date-filter-modal column={filterColumnLabel} selected-date-filter={selectedDateFilter}
+        onclose={handleDateFilterModalClose} onapplyfilter={handleApplyFilter}
+        default-selected-values={selectedDateFilter} onresetfilter={handleResetFilter}
+        date-range="true"></c-portal-v2-date-filter-modal>
+    </div>
+  </template>
+
+</template>

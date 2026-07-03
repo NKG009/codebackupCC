@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pre_and_Post_AWR_WTR_is_mandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(NOT(TEXT( IP_InvoicingMethod__c )=&quot;Standard&quot;),OR(ISBLANK(IP_PostAWRWTRValue__c)||IP_PostAWRWTRValue__c==0,ISBLANK(IP_PreAWRWTRValue__c)||IP_PreAWRWTRValue__c==0) )</errorConditionFormula>
+    <errorMessage>&apos;Pre and Post WTR Percentage&apos; fields cannot be 0 or left blank for &apos;Hourly Commission&apos; or &apos;Hourly Percentage&apos; invoice type.</errorMessage>
+</ValidationRule>

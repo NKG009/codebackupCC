@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NetiveBatch</fullName>
+    <columns>NAME</columns>
+    <columns>IP_BatchTitle__c</columns>
+    <columns>IP_BatchType__c</columns>
+    <columns>IP_Status__c</columns>
+    <columns>IP_State__c</columns>
+    <columns>IP_CountOfBatchLines__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>CREATEDBY_USER</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IP_BatchType__c</field>
+        <operation>equals</operation>
+        <value>Netive</value>
+    </filters>
+    <label>NetiveBatch</label>
+    <language>en_US</language>
+</ListView>

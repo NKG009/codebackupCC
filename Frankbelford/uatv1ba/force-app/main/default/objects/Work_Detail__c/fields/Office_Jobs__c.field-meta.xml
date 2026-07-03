@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Office_Jobs__c</fullName>
+    <label>Office Jobs</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Administrator</fullName>
+                <default>false</default>
+                <label>Administrator</label>
+            </value>
+            <value>
+                <fullName>Assistant Accountant</fullName>
+                <default>false</default>
+                <label>Assistant Accountant</label>
+            </value>
+            <value>
+                <fullName>Audio Secretary</fullName>
+                <default>false</default>
+                <label>Audio Secretary</label>
+            </value>
+            <value>
+                <fullName>Call Centre</fullName>
+                <default>false</default>
+                <label>Call Centre</label>
+            </value>
+            <value>
+                <fullName>Consultant Support</fullName>
+                <default>false</default>
+                <label>Consultant Support</label>
+            </value>
+            <value>
+                <fullName>Credit Control</fullName>
+                <default>false</default>
+                <label>Credit Control</label>
+            </value>
+            <value>
+                <fullName>Customer Service</fullName>
+                <default>false</default>
+                <label>Customer Service</label>
+            </value>
+            <value>
+                <fullName>Data Engineering</fullName>
+                <default>false</default>
+                <label>Data Engineering</label>
+            </value>
+            <value>
+                <fullName>Data Entry</fullName>
+                <default>false</default>
+                <label>Data Entry</label>
+            </value>
+            <value>
+                <fullName>DTP/Graphic Operator</fullName>
+                <default>false</default>
+                <label>DTP/Graphic Operator</label>
+            </value>
+            <value>
+                <fullName>Filing Clerk</fullName>
+                <default>false</default>
+                <label>Filing Clerk</label>
+            </value>
+            <value>
+                <fullName>Health &amp; Safety</fullName>
+                <default>false</default>
+                <label>Health &amp; Safety</label>
+            </value>
+            <value>
+                <fullName>HR Admin</fullName>
+                <default>false</default>
+                <label>HR Admin</label>
+            </value>
+            <value>
+                <fullName>HR Advisor</fullName>
+                <default>false</default>
+                <label>HR Advisor</label>
+            </value>
+            <value>
+                <fullName>IT Administrator</fullName>
+                <default>false</default>
+                <label>IT Administrator</label>
+            </value>
+            <value>
+                <fullName>IT Helpdesk</fullName>
+                <default>false</default>
+                <label>IT Helpdesk</label>
+            </value>
+            <value>
+                <fullName>IT Support</fullName>
+                <default>false</default>
+                <label>IT Support</label>
+            </value>
+            <value>
+                <fullName>Legal Secretary</fullName>
+                <default>false</default>
+                <label>Legal Secretary</label>
+            </value>
+            <value>
+                <fullName>Marketing Assistant</fullName>
+                <default>false</default>
+                <label>Marketing Assistant</label>
+            </value>
+            <value>
+                <fullName>Medical Secretary</fullName>
+                <default>false</default>
+                <label>Medical Secretary</label>
+            </value>
+            <value>
+                <fullName>Personal Assistant</fullName>
+                <default>false</default>
+                <label>Personal Assistant</label>
+            </value>
+            <value>
+                <fullName>Receptionist</fullName>
+                <default>false</default>
+                <label>Receptionist</label>
+            </value>
+            <value>
+                <fullName>Secretary</fullName>
+                <default>false</default>
+                <label>Secretary</label>
+            </value>
+            <value>
+                <fullName>Supervisor</fullName>
+                <default>false</default>
+                <label>Supervisor</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Accounts Payable Assistant</fullName>
+                <default>false</default>
+                <label>Accounts Payable Assistant</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

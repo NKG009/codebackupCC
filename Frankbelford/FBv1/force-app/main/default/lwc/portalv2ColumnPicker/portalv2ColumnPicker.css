@@ -1,0 +1,50 @@
+.card__size {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+
+.card__header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card {
+  height: 100%;
+  min-width: 300px;
+  box-shadow: -15px 0px 22px #00000029;
+  border-radius: 0px;
+}
+.column-gap {
+  gap: 1em;
+}
+.action__buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media only screen and (min-height: 740px) {
+  .content__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media only screen and (max-height: 739px) {
+  .content__wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+:host {
+  --sds-c-checkbox-color-background-checked: #029de4;
+  --sds-c-checkbox-mark-color-foreground: #ffffff;
+  --sds-c-button-brand-color-background: #029de4;
+  --sds-c-button-brand-color-background-hover: #029de4;
+  --sds-c-button-brand-color-border: #029de4;
+  --sds-c-button-brand-color-border-hover: #029de4;
+}

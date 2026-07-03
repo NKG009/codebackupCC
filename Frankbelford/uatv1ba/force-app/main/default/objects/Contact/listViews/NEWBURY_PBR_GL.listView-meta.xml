@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NEWBURY_PBR_GL</fullName>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>FULL_NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Sub_Category__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>Sub_Category__c</field>
+        <operation>includes</operation>
+        <value>Leisure Catering,&quot;PBR (Pubs, Bars, Restaurants)&quot;</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>GL1,GL2,GL3,GL4,GL5,GL6,GL7,GL8,GL9,GL10,GL11,GL12,GL13,GL14,GL15,GL16,GL17,GL18,GL19,GL20,GL50,GL51,GL52,GL53,GL54,GL55,GL56</value>
+    </filters>
+    <label>NEWBURY - PBR - GL</label>
+</ListView>

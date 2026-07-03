@@ -1,0 +1,107 @@
+<aura:component implements="forceCommunity:availableforallpagetypes,forceCommunity:themeLayout,lightning:isUrlAddressable" access="global" controller="MyProfileComponentController">
+    <ltng:require styles="{!join(',',
+                          $Resource.webUI+'/assets/css/all.css',
+                          $Resource.webUI+'/assets/css/fontawesome.css',
+                          $Resource.webUI+'/assets/css/fontawesome.min.css',
+                          $Resource.webUI+'/assets/css/custom.css',
+                          $Resource.Tjcss2+'/assets/css/main.css',
+                          $Resource.Tjcss2+'/assets/css/custom.css',
+                          $Resource.Tjcss+'/assets/css/dataTables.bootstrap.min.css',
+                          $Resource.Tjcss+'/assets/css/jquery.dataTables.min.css',
+                          $Resource.Tjcss+'/assets/css/responsive.bootstrap.min.css',
+                          $Resource.Tjcss+'/assets/css/jquery-ui.css'
+                          )
+                          }"
+                  scripts="{!join(',',
+                           $Resource.Tjcss2+'/assets/js/main.min.js',
+                           $Resource.Tjcss2+'/assets/js/zoom.js',
+                           $Resource.webUI+'/assets/js/custom.js')}"
+                  />
+
+    <!-- attributes -->
+    <aura:attribute name="Name" type="String"/>
+    <aura:attribute name="siteList" type="List" access="global"/>
+    <aura:attribute name="userInfo" type="User" access="global"/>
+    <aura:attribute name="site" type="String" /> 
+    <aura:attribute name="baseURL" type="String" />
+    <!-- hendler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class="container-fluid">
+        <div class="timesheet-section" style="margin-top:-50px !important; background-color: inherit !important; padding-left: 0px !important;">
+            <div class="timesheet-section__right-part">
+                <ol class="breadcrumb">
+                    <li><a href="javascript:void(0)" onclick="{!c.dashboardnavigate}" title="Dashboard">Dashboard</a></li>
+                    <li class="active">My Profile</li>
+                </ol>
+                <div class="search-section vacancies-section">
+                    <div class="address-details">
+                        <form class="row">
+                            <div class="col-sm-12">
+                                <h2>Personal Details:</h2>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="global-label">First Name</label>
+                                <p>{!v.userInfo.FirstName}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="global-label">Last Name</label>
+                                <p>{!v.userInfo.LastName}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="global-label">Job Title</label>
+                                <p>{!v.userInfo.Title}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="global-label">Email</label>
+                                <p>{!v.userInfo.Email}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="global-label">Mobile</label>
+                                <p>{!v.userInfo.MobilePhone}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="global-label">Phone</label>
+                                <p>{!v.userInfo.Phone}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <hr/>
+                            </div>
+                            <div class="col-sm-12">
+                                <h2>Address:</h2>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="global-label">Address Line</label>
+                                <p>{!v.userInfo.Street}&nbsp;&nbsp;{!v.userInfo.Address_Line_2__c}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="global-label">County</label>
+                                <p>{!v.userInfo.State}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="global-label">City</label>
+                                <p>{!v.userInfo.City}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="global-label">Country</label>
+                                <p>{!v.userInfo.Country}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="global-label">Postcode</label>
+                                <p>{!v.userInfo.PostalCode}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <hr/>
+                            </div>
+                            <!--
+                            <div class="col-sm-12 text-right">
+                                <button type="button" class="action-button edit" onclick="{!c.openActionWindow}">Edit</button>
+                            </div>
+							-->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

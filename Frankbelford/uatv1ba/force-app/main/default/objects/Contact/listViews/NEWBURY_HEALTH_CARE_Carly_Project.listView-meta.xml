@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NEWBURY_HEALTH_CARE_Carly_Project</fullName>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>Skills__c</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Person_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>Sub_Category__c</field>
+        <operation>equals</operation>
+        <value>Healthcare Services (Public Sector)</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>OX1,OX2,OX4,OX3,SN1,SN2,SN3,SN4,SN5,SN25,RG1,RG2,RG4,RG5,RG6,RG7,RG8,RG9,RG10,RG12,RG14,RG17,RG18,RG19,RG20,RG21,RG22,RG23,RG24,RG25,RG26,RG27,RG28,RG29,RG30,RG31,RG40,RG41,RG42,RG45</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>notEqual</operation>
+        <value>Inactive</value>
+    </filters>
+    <label>NEWBURY - HEALTH CARE  - Carly Project</label>
+    <sharedTo>
+        <role>Blue_Arrow_Newbury_Perm_hub</role>
+        <role>Blue_Arrow_Newbury_Temps</role>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DE_postal_code</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>Perm_Work__c</columns>
+    <columns>Temp_Work__c</columns>
+    <columns>Brand__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>Brand__c</field>
+        <operation>equals</operation>
+        <value>Blue Arrow,Impellam</value>
+    </filters>
+    <filters>
+        <field>Compliance_Status__c</field>
+        <operation>equals</operation>
+        <value>Compliant</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>DE1,DE11,DE12,DE13,DE14,DE15,DE2,DE21,DE22,DE23,DE24,DE3,DE4,DE45,DE5,DE55,DE56,DE6,DE65,DE7,DE72,DE73,DE74,DE75,DE99</value>
+    </filters>
+    <label>DE postal code</label>
+</ListView>

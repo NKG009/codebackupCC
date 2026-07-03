@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1062_Incom_05_10_23</fullName>
+    <columns>Person_Status__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>IP_PayrollStatus__c</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Inactive,Pending</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>notContain</operation>
+        <value>,Iadmi</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>equals</operation>
+        <value>Manufacturing,Warehouse</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>RG15,RG17,RG20,RG25,RG28,SN8,SO18,SO20,SO21,SO22,SP10,SP11,SP4,SP5,SP9</value>
+    </filters>
+    <label>1062 Incom 05.10 .23</label>
+</ListView>

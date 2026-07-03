@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Audience xmlns="http://soap.sforce.com/2006/04/metadata">
+    <audienceName>No Active Pay Profile</audienceName>
+    <container>Your Blue Arrow Account</container>
+    <criteria>
+        <criterion>
+            <criteriaNumber>1</criteriaNumber>
+            <criterionValue>
+                <entityField>Contact.$Contact.IP_PAYECount__c</entityField>
+                <entityType>User</entityType>
+                <fieldValue>1</fieldValue>
+            </criterionValue>
+            <operator>GreaterThanOrEqual</operator>
+            <type>FieldBased</type>
+        </criterion>
+        <criterion>
+            <criteriaNumber>2</criteriaNumber>
+            <criterionValue>
+                <entityField>Contact.$Contact.IP_MissingPayrollDetail__c</entityField>
+                <entityType>User</entityType>
+                <fieldValue>No Active pay profile(s),</fieldValue>
+            </criterionValue>
+            <operator>Contains</operator>
+            <type>FieldBased</type>
+        </criterion>
+    </criteria>
+    <formulaFilterType>AllCriteriaMatch</formulaFilterType>
+    <isDefaultAudience>false</isDefaultAudience>
+    <targets>
+        <target>
+            <groupName>9ffcaf58-3333-4812-81ca-277fcf248fc9$#$a251fe49-3f08-4a35-83fb-5f197a803c45</groupName>
+            <priority>1</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>Home_Flow_2_Component</targetValue>
+        </target>
+    </targets>
+</Audience>

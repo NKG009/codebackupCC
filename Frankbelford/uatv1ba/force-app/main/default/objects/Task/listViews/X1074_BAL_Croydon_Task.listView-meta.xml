@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1074_BAL_Croydon_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>1074-BAL Croydon</label>
+    <queue>X1074_BAL_Croydon</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

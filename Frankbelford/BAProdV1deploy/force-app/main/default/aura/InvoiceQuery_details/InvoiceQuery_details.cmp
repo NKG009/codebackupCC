@@ -1,0 +1,68 @@
+<aura:component implements="force:appHostable,force:hasRecordID,force:lightningQuickActionwithoutheader" controller="InvoiceDetailsfromTask">
+	<aura:attribute name="recordId" type="String" />
+    <aura:attribute name="displaydetails" type="Boolean" />
+    <aura:attribute name="displaysucces" type="Boolean" />
+     <aura:attribute name="displayactioned" type="Boolean"/>
+       <aura:attribute name="fileName" type="String" default="No File Selected.." />
+     <aura:attribute name="invoiceList" type="List"/>
+    <aura:attribute name="commentsnull" type="Boolean"/>
+    <aura:attribute name="processingText" type="Boolean" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+        <center>        <h3 class="title slds-text-heading--medium" style="color:#1B5297;"><b>Invoice Query Update</b></h3></center>
+    <div class="slds-align_absolute-center">
+         <br/><br/>
+       
+     <aura:if isTrue = "{!v.displayactioned}">
+         
+         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <p style="font-size:15px;">
+            <center><b><aura:unescapedHtml value="The invoice record is already actioned" /></b></center>
+        </p> 
+    </aura:if>    
+          <aura:if isTrue="{!v.processingText}">
+         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <p style="font-size:15px;color:#1B5297;">
+            <center><b><aura:unescapedHtml value="{!$Label.c.ScreenProcessingMessage}" /></b></center>
+        </p>
+    </aura:if>
+    <aura:if isTrue = "{!v.displaydetails}">
+                      <p>  <center> 
+                             <br/> <br/>    <aura:iteration items="{!v.invoiceList}" var="i">
+                        <!--  <div class="slds-form_horizontal">-->
+                        Invoice Number    : {!i.IP_InvoiceNumber__c}<br/><br/>
+                        Account Number    : {!i.IP_Accountumber__c}<br/><br/>
+                        Account Name      : {!i.ts2__account__r.Name}<br/><br/>
+                        Query Description : {!i.IP_QueryDescription__c} <br/><br/>
+                          	<label class="global-label">PO Number (If Applicable):    </label>
+                          <input type="text" id="ponumber"  name="PO Number"/> <br/><br/>
+                      <lightning:textarea aura:id="comments" class="tallTextArea" required = "true" label = "Comments"/> 
+				 <lightning:input aura:id="fileId" onchange="{!c.handleFilesChange}" type="file" name="file" multiple="false"/>
+   					<div class="slds-text-body_small slds-text-color_error">{!v.fileName} </div>
+					 <br/>                          
+                          <aura:if isTrue = "{!v.commentsnull}">
+                            <p style="color:#FF0000;">  <center> Comments are mandatory </center> </p>
+                          </aura:if><br/>
+                    <!--  <p><center> If supporting evidence (such as timesheets or correspondence) needs to be attached, please email to BranchRequest@impellam.com after submitting the query update</center></p>-->
+                          </aura:iteration>
+                          </center>
+                           </p> <br/> 
+    </aura:if>    
+     <aura:if isTrue = "{!v.displaysucces}">
+    	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <p style="font-size:15px;color:#1B5297;">
+            <center><b><aura:unescapedHtml value="Email sent successfully" /></b></center>
+        </p> 
+                  
+    </aura:if> 
+    </div>
+      
+   <br/>
+   <center>
+     <aura:if isTrue = "{!v.displaydetails}">
+			<lightning:button variant="brand" label="Submit" onclick="{!c.Updaterecord}"/> 
+     </aura:if> 
+     <lightning:button variant="brand" label="Close" onclick="{!c.closeClick}"/>  
+  </center>
+  
+         
+</aura:component>

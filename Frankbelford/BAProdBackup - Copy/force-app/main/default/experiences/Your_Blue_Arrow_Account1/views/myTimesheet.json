@@ -1,0 +1,54 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "1d6a5e7a-e615-46c9-a3f0-aa0aacba0a23",
+  "label" : "MyTimesheet",
+  "regions" : [ {
+    "id" : "aa66811e-d357-4f55-b589-3d62cbc9ac4d",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:MyTimesheet",
+      "id" : "c718cb13-fc6b-4f78-981c-5082d667ca01",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ec7b2087-c436-4e22-90cb-78270d56f2e0",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "b860a2d4-7819-4b39-961c-16d7f15a3ea4",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "MyTimesheet"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "37c054ae-81ba-45d5-bcda-1f8c503017ec",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f451be13-29cd-41ab-8d1d-e59bc4c6e740",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "id" : "d2e78b76-43b4-441d-9ce7-a0687c3f15b6",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "6f9b74a4-0515-42c1-b351-0043a379a106",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-mytimesheet"
+}

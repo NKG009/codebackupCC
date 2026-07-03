@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "b635ab0c-7acd-4fc5-aae6-10d8c0bef155",
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "configurationTags" : [ ],
+  "devName" : "Lab_Technican_Leeds__c",
+  "id" : "cfe52930-6dc1-449c-af0d-e62e49c7ea6f",
+  "label" : "Lab Technican Leeds",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-lab-technican-leeds",
+  "type" : "route",
+  "urlPrefix" : "lab-technican-leeds"
+}

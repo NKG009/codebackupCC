@@ -1,0 +1,38 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "29a37991-d6c1-4901-a9d9-20b8d5bf8968",
+  "label" : "LoginToCommunity",
+  "regions" : [ {
+    "id" : "a226f1a0-e74d-42b7-8a89-c5c397c25463",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "39a6e14d-55f0-47d5-b9d2-948543b86ef5",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "bcdcff1e-2420-4238-a644-4e16bdeb16bd",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "LoginToCommunity"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "8ee6a81a-f194-42a8-920e-19270d51fe3e",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "49fe0b9b-5417-4bd7-9b9d-11e7232a5672",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-logintocommunity"
+}

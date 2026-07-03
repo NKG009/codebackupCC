@@ -1,0 +1,55 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "bc90d9e5-6230-4d49-9f7c-53ad2355ceba",
+  "label" : "User Settings",
+  "regions" : [ {
+    "id" : "a69cf9da-024d-4606-b7a1-b475050e506f",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "accountSectionTitle" : "Account",
+        "accountTabName" : "Account Details",
+        "connectedSourcesTabName" : "Connected Sources",
+        "emailNotificationsTitle" : "Email Notifications",
+        "emailSectionDescText" : "When email notifications are enabled, email me when someone:",
+        "hideChatterNotificationSettings" : false,
+        "hideConnectedSources" : false,
+        "hideEmailNotificationSettings" : false,
+        "hideProfileVisibilitySettings" : false,
+        "id" : "{!userId}",
+        "locationTitle" : "Location",
+        "profileSectionDescText" : "Customize who is able to see what on your profile page",
+        "profileSectionToolTipText" : "Restricted: Visible to the employees of the company that created the site. Members: Visible to logged-in members. Public: Visible to anyone viewing pages that don't require login.",
+        "profileVisibilityTitle" : "Profile Visibility",
+        "settingsPageTitle" : "My Settings"
+      },
+      "componentName" : "forceCommunity:userSettingsCustomizable",
+      "id" : "5327a810-e245-47d6-8c52-e78f5d6780c0",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "dc2da8d3-1b4a-493b-a761-203ad5fceef7",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "9170371c-a843-4808-88cc-1e4a85faab1a",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "id" : "a4611a2c-0e20-4f91-8500-8c343ad9fe7e",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "7becfa63-6bd7-435f-92a3-3f3115ba1215",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "usersettings"
+}

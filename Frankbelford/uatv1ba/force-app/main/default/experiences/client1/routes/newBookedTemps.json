@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "6804f5bf-85c1-4a22-bd2c-6588d056a3f6",
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "configurationTags" : [ ],
+  "devName" : "NewBookedTemps__c",
+  "id" : "8ee7942f-f05d-46cd-a746-668b0c6692b0",
+  "label" : "NewBookedTemps",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-newbookedtemps",
+  "type" : "route",
+  "urlPrefix" : "newbookedtemps"
+}

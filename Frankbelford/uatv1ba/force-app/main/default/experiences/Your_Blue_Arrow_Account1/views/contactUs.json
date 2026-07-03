@@ -1,0 +1,62 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "761a812f-9acc-4f89-98fb-01c083200c8a",
+  "label" : "ContactUs",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "bannerText" : "Email your queries to our customer support",
+        "bannerTextWithKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineArticles\">articles</a> and <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+        "bannerTextWithoutKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+        "pageType" : "",
+        "showSubTopics" : true,
+        "title" : "Contact for Support",
+        "uniqueNameOrId" : ""
+      },
+      "componentName" : "forceCommunity:headline",
+      "id" : "8ecb97be-7bcc-4a6a-9490-c747bd37c34d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "eb5df11a-dd13-43ba-9315-3b73eb43e4a8",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:ContactUs",
+      "id" : "f7df6805-9df6-4a23-ba5d-296a321de587",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "11ca468c-7f66-4954-9b4f-4cf83b91e6be",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "d875d9d9-7d9f-47ff-b4b2-ac4ae943311b",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "ContactUs"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "5c299ef0-e1c5-4a7c-ac08-6d7de560f912",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1e69c143-12f5-479b-9ec1-7ed05a3b4af8",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-contactus"
+}

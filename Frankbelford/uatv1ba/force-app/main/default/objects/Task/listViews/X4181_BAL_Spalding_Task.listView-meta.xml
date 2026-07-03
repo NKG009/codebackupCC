@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X4181_BAL_Spalding_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>4181-BAL Spalding</label>
+    <queue>X4181_BAL_Spalding</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

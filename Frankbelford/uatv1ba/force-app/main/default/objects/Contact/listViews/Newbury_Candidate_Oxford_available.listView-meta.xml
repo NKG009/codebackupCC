@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Newbury_Candidate_Oxford_available</fullName>
+    <columns>Person_Status__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>FULL_NAME</columns>
+    <columns>Temp_Work__c</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Pending</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>equals</operation>
+        <value>1062</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_CITY</field>
+        <operation>contains</operation>
+        <value>Oxford</value>
+    </filters>
+    <filters>
+        <field>sirenum__Last_Timesheet__c</field>
+        <operation>lessThan</operation>
+        <value>9/16/2023</value>
+    </filters>
+    <label>Newbury - Candidate Oxford available</label>
+    <sharedTo>
+        <role>Blue_Arrow_Newbury_Temps</role>
+    </sharedTo>
+</ListView>

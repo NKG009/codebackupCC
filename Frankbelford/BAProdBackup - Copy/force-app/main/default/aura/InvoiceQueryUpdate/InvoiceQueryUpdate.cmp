@@ -1,0 +1,137 @@
+<aura:component implements="lightning:isUrlAddressable,force:appHostable,force:hasRecordID" controller="Invoicequeryupdatecontrller">
+	  <aura:attribute name="listofInvoices" type="List" />
+    <aura:attribute name="recordId" type="String" />
+     <aura:attribute name="Accrecid" type="String" />
+    <aura:attribute name="displaydetails" type="Boolean" />
+    <aura:attribute name="displayblankerror" type="Boolean" />
+    <aura:attribute name="displaymore1" type="Boolean" />
+    <aura:attribute name="displaysucces" type="Boolean" />
+     <aura:attribute name="invoiceList" type="List"/>
+    <aura:attribute name="Accountnav" type="String"/>
+    <aura:attribute name="displayactioned" type="Boolean"/>
+     <aura:attribute name="commentsnull" type="Boolean"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+     <aura:if isTrue = "{!v.displayblankerror}">
+    	<div role="dialog" class="slds-modal slds-fade-in-open slds-backdrop slds-backdrop_open">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.handleCloseModal}">
+                            X
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h1 class="slds-text-heading--medium">Error</h1>
+                    </div>
+                     
+                    <!--Modal Box Header-->
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <center> <p>
+								Please select a record                            
+                            </p></center>
+                    </div>
+                </div>
+            </div>
+    </aura:if>   
+    <aura:if isTrue = "{!v.displayactioned}">
+    	<div role="dialog" class="slds-modal slds-fade-in-open slds-backdrop slds-backdrop_open">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.handleCloseModal}">
+                            X
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h1 class="slds-text-heading--medium">Error</h1>
+                    </div>
+                     
+                    <!--Modal Box Header-->
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <center> <p>
+								The invoice record is already actioned                            
+                            </p></center>
+                    </div>
+                </div>
+            </div>
+    </aura:if>    
+    <aura:if isTrue = "{!v.displaydetails}">
+    	<div role="dialog" class="slds-modal slds-fade-in-open slds-backdrop slds-backdrop_open">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.handleCloseModal}">
+                            X
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h1 class="slds-text-heading--medium">Invoice Query Details</h1>
+                    </div>
+                     
+                    <!--Modal Box Header-->
+                    <div class="slds-modal__content slds-p-around--medium">
+                      <p>  <center> 
+                             <br/> <aura:iteration items="{!v.invoiceList}" var="i">
+                        <!--  <div class="slds-form_horizontal">-->
+                        Invoice Number    : {!i.IP_InvoiceNumber__c}<br/><br/>
+                        Account Number    : {!i.IP_AccountNumber__c}<br/><br/>
+                        Account Name      : {!i.IP_Account__r.Name}<br/><br/>
+                        Query Description : {!i.IP_QueryDescription__c} <br/><br/>
+                          	<label class="global-label">PO Number (If Applicable):    </label>
+                          <input type="text" id="ponumber"  name="PO Number"/> <br/><br/>
+                            
+                        <!-- 	<label class="global-label">Comments     </label>
+                          <input type="textarea" id="comments" name="Comments" rows="3"/><br/> -->
+                        
+                         
+                            <!--   <label class="global-label text-align:left">Comments:</label> -->
+                          <lightning:textarea aura:id="comments" class="tallTextArea" required = "true" label = "Comments"/> 
+                        <aura:if isTrue = "{!v.commentsnull}">
+                            <p style="color:#FF0000;"> <center> Comments are mandatory </center> </p>
+                          </aura:if><br/>
+                      <p><center> If supporting evidence (such as timesheets or correspondence) needs to be attached, please email to BranchRequest@impellam.com after submitting the query update</center></p>
+                          <!-- </div> -->
+                    </aura:iteration>
+                          </center>
+                           </p> <br/>  <br/> 
+                   <center>  <lightning:button variant="brand" label="Submit" onclick="{!c.Updaterecord}"/>  </center>
+                    </div>
+                </div>
+            </div>
+    </aura:if>    
+    <aura:if isTrue = "{!v.displaymore1}">
+    	<div role="dialog" class="slds-modal slds-fade-in-open slds-backdrop slds-backdrop_open">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.handleCloseModal}">
+                            X
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h1 class="slds-text-heading--medium">Error</h1>
+                    </div>
+                     
+                    <!--Modal Box Header-->
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <center> <p>
+								Please select a single record to proceed                           
+                            </p></center>
+                    </div>
+                </div>
+            </div>
+    </aura:if>  
+    <aura:if isTrue = "{!v.displaysucces}">
+    	<div role="dialog" class="slds-modal slds-fade-in-open slds-backdrop slds-backdrop_open">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.handleCloseModal}">
+                            X
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h1 class="slds-text-heading--medium">Success</h1>
+                    </div>
+                     
+                    <!--Modal Box Header-->
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <center> <p>
+								Email sent successfully                       
+                            </p></center>
+                    </div>
+                </div>
+            </div>
+    </aura:if>    
+</aura:component>

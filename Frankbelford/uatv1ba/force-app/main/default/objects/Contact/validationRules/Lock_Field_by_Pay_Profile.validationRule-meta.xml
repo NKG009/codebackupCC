@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lock_Field_by_Pay_Profile</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF(Sync_Pay_Profile__c==True,
+IF(
+ 
+ISCHANGED( IP_WorkerStartDate__c )
+
+,True,False)
+,False)</errorConditionFormula>
+    <errorMessage>These fields are locked after the record has been passed to back office:-
+Address Street
+AddressTown
+Address Postcode
+Birthdate
+Gender
+WorkerStartDate
+New Start Tax Status
+Student Loan</errorMessage>
+</ValidationRule>

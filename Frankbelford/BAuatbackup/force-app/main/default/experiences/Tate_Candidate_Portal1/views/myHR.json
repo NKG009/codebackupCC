@@ -1,0 +1,38 @@
+{
+  "appPageId" : "b2fa95b0-e567-41d6-a9bd-0d8201b2a4b0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "8c57e1d1-78c4-460f-9cd8-07a23cb52b95",
+  "label" : "My HR",
+  "regions" : [ {
+    "id" : "95010595-53ab-42be-9c07-2c690451a60b",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "9be73c5c-2ed3-428b-982a-6ae8f73549fb",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "8220cb3d-a3fe-4e57-a766-57972815d352",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My HR"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "cf17d24c-b6ca-4a25-91f7-a21d53f166d9",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9b5c8b17-c486-49be-bda9-29655825a85e",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-my-hr"
+}

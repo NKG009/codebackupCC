@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NHS_Test_Trace_Responses_SRG_Filtered</fullName>
+    <columns>NAME</columns>
+    <columns>NHS_Job_Roles__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>NHS_Location__c</columns>
+    <columns>Email__c</columns>
+    <columns>Mobile__c</columns>
+    <columns>NHS_Job_Role_Other__c</columns>
+    <columns>Status__c</columns>
+    <columns>NHS_Location_Other__c</columns>
+    <columns>Work_Time__c</columns>
+    <columns>Candidate__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>New</value>
+    </filters>
+    <filters>
+        <field>Brand__c</field>
+        <operation>equals</operation>
+        <value>SRG</value>
+    </filters>
+    <filters>
+        <field>NHS_Job_Roles__c</field>
+        <operation>includes</operation>
+        <value>Associate Principal Scientist,Associate Principal Scientist – Genetic Sequencing,Senior Scientist,Senior Scientist - Genetic Sequencing,Senior Scientist - Test</value>
+    </filters>
+    <label>NHS Test&amp;Trace Responses - SRG Filtered</label>
+    <sharedTo>
+        <role>SRG</role>
+    </sharedTo>
+</ListView>

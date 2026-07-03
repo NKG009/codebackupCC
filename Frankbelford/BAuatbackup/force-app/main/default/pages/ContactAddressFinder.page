@@ -1,0 +1,28 @@
+<apex:page standardController="Contact" lightningStylesheets="true">
+    <apex:pagemessages />
+    <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+        <apex:slds />
+    </apex:outputPanel>
+    <apex:form >
+        <apex:sectionHeader title="Contact" subtitle="{!Contact.Name}"/>
+        <apex:pageBlock title="Contact Address" mode="edit">
+            <apex:pageblockButtons location="top">
+                <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+                    <apex:commandButton styleClass="slds-vf-button_neutral" style="visibility: hidden;" value="HideThis Command Button"/>
+                </apex:outputPanel>
+                <apex:commandButton value="Save" action="{!Save}" styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageblockButtons>
+            <apex:pageBlockSection title="Address Finder">
+                <pca:AddressFinder label="Mailing" record="{!Contact}" address="ContactMailing" country="{!Contact.MailingCountry}" value="{!Contact.MailingStreet}</br>{!Contact.MailingCity}, {!Contact.MailingState} {!Contact.MailingPostalCode}</br>{!Contact.MailingCountry}" />  
+                <pca:AddressFinder label="Other" record="{!Contact}" address="ContactOther" country="{!Contact.OtherCountry}" value="{!Contact.OtherStreet}</br>{!Contact.OtherCity}, {!Contact.OtherState} {!Contact.OtherPostalCode}</br>{!Contact.OtherCountry}" />                          
+            </apex:pageBlockSection>
+            <apex:pageblockButtons location="bottom">
+                <apex:commandButton value="Save" action="{!Save}" styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageblockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

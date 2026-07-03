@@ -1,0 +1,58 @@
+{
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "95f7980c-fbc4-491e-9ed0-dc4a8bf8e35f",
+  "label" : "Incorrect Referee Email",
+  "regions" : [ {
+    "id" : "2df83ef6-ef43-4e43-9978-d633eaa76b2c",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Untitled2removebg.1}\" style=\"width: 254.859px; height: 64.5625px;\"></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "1f6cc5d6-228c-4958-a56e-808023e44e00",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"recordId\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!recordId}\"}]",
+        "flowName" : "Screen_Flow_Notify_Consultant_of_Incorrect_Referee"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "dfa1dd2c-22d8-437b-bb55-cdb8d2b999bf",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "537058b3-8887-4dcd-aaef-598cf5071955",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "a558f33b-2945-4a17-bb14-7ec5c298b888",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Incorrect Referee Email"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "e016ed6e-3b27-4bb2-b1de-b1984ff941d9",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f7896faf-e878-452d-a34d-7f7833d2ff7d",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-incorrect-referee-email"
+}

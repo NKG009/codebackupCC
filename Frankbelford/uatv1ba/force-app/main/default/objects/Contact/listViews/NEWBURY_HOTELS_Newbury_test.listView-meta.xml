@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NEWBURY_HOTELS_Newbury_test</fullName>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>FULL_NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>Skills__c</columns>
+    <columns>Owner__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>Sub_Category__c</field>
+        <operation>includes</operation>
+        <value>Hotels</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>OX10,OX11,OX9,RG1,RG10,RG11,RG12,RG13,RG16,RG18,RG19,RG2,RG20,RG26,RG27,RG3,RG30,RG31,RG4,RG40,RG41,RG42,RG45,RG5,RG6,RG7,RG8,RG9</value>
+    </filters>
+    <filters>
+        <field>CONTACT.DEPARTMENT</field>
+        <operation>notContain</operation>
+        <value>Feldon Valley Golf Club</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Inactive</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>notContain</operation>
+        <value>OX15 6QB,OX20 1SZ,OX7 6BA</value>
+    </filters>
+    <label>NEWBURY - HOTELS - Newbury (test)</label>
+    <sharedTo>
+        <role>Blue_Arrow_Newbury_Perm_hub</role>
+        <role>Blue_Arrow_Newbury_Temps</role>
+    </sharedTo>
+</ListView>

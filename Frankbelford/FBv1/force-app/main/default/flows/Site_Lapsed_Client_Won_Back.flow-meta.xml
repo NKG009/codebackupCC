@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <decisions>
+        <description>does it already have a previous lapsed won back?</description>
+        <name>Count</name>
+        <label>Count</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Update_Lapsed_Client_Won_Back</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Previously_Lapsed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Lapsed_Client_Won_Back_Count__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Update_Lapsed_Client_Won_Back</targetReference>
+            </connector>
+            <label>Previously Lapsed</label>
+        </rules>
+    </decisions>
+    <description>PT1-1534</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Counter</name>
+        <dataType>Number</dataType>
+        <expression>1</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Counterv2</name>
+        <dataType>Number</dataType>
+        <expression>{!$Record.Lapsed_Client_Won_Back_Count__c} + 1</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Todaysdate</name>
+        <dataType>Date</dataType>
+        <expression>{!$Record.Last_Timesheet__c}</expression>
+    </formulas>
+    <interviewLabel>Site - Lapsed Client Won Back {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Site - Lapsed Client Won Back</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>updates lapsed won back checkbox, date field and counter</description>
+        <name>Copy_1_of_Update_Lapsed_Client_Won_Back</name>
+        <label>Previous - Update Lapsed Client Won Back</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Lapsed_Client_Won_Back_Count__c</field>
+            <value>
+                <elementReference>Counterv2</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Lapsed_Client_Won_Back_Date__c</field>
+            <value>
+                <elementReference>Todaysdate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Lapsed_Client_Won_Back__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>updates lapsed won back checkbox, date field and counter</description>
+        <name>Update_Lapsed_Client_Won_Back</name>
+        <label>Update Lapsed Client Won Back</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Lapsed_Client_Won_Back_Count__c</field>
+            <value>
+                <elementReference>Counter</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Lapsed_Client_Won_Back_Date__c</field>
+            <value>
+                <elementReference>Todaysdate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Lapsed_Client_Won_Back__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Count</targetReference>
+        </connector>
+        <filterFormula>PRIORVALUE({!$Record.Last_Timesheet__c}) &lt; ADDMONTHS(TODAY(), -3)&amp;&amp;ISCHANGED({!$Record.Last_Timesheet__c})</filterFormula>
+        <object>sirenum__Site__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

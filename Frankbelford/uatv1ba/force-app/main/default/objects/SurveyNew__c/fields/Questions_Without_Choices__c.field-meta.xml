@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Questions_Without_Choices__c</fullName>
+    <label>Questions Without Choices</label>
+    <summaryFilterItems>
+        <field>Survey_Question__c.Choice_Count__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Survey_Question__c.Question_Type__c</field>
+        <operation>equals</operation>
+        <value>Choices, Multi-Select Choices</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Survey_Question__c.Survey__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

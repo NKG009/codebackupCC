@@ -1,0 +1,213 @@
+<apex:page id="DrivingWeek" sidebar="false" controller="DrivingWeekController">
+    <apex:composition template="sirenum__SirenumTemplate">
+        <apex:define name="body">
+            <style>
+                #tblWeeks {
+                    min-width: 100%;
+                    border-spacing: 0;
+                    border-collapse: collapse;
+                }
+
+                #tblWeeks tr.week td {
+                    background-color: #EFEFEF;
+                    color: black;
+                    padding: 5px;
+                    vertical-align: middle;
+                }
+
+                #tblWeeks tr.period td {
+                    background-color: #FA6900;
+                    color: white;
+                    padding: 5px;
+                    font-size: 120%;
+                }
+
+                #tblWeeks td {
+                    vertical-align: middle;
+                }
+
+                #tblWeeks input[type="text"],
+                #tblWeeks textarea {
+                    height: 100%;
+                    border: none;
+                    border-bottom: solid 1px #666;
+                    width: 100%;
+                    outline: none;
+                    padding-top: 3px;
+                    background-color: transparent;
+                    transition: background-color 0.5s;
+                }
+
+                #tblWeeks input[type="text"]:focus,
+                #tblWeeks textarea:focus {
+                    background-color: #1797c02b;
+                }
+
+                #tblWeeks input[type="text"] {
+                    max-width: 70px;
+                    text-align: center;
+                }
+
+                #tblWeeks textarea {
+                    height: 13px;
+                }
+
+                #tblWeeks input[type="number"] {
+                    width: 55px;
+                }
+
+                #tblWeeks td.client,
+                #tblWeeks td.special {
+                    background-color: #1797C0;
+                    color: white;
+                    font-weight: bold;
+                    padding: 5px;
+                }
+
+                #tblWeeks td.special {
+                    background-color: #c01717;
+                }
+
+                #tblWeeks tbody.closed tr.weekDetails,
+                #tblWeeks tbody.closed tr.assignment {
+                    display: none;
+                }
+
+                #tblWeeks tr.week a {
+                    text-decoration: none;
+                    display: inline-block;
+                    border: solid 1px #ccc;
+                    background-color: white;
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 11px;
+                    text-align: center;
+                    line-height: 16px;
+                }
+
+                #tblWeeks .redFlag {
+                    display: inline-block;
+                    background: #ffe3cf;
+                    color: red;
+                    padding: 0px 5px;
+                }
+
+                body[hasFormChange="1"] .btn.btnSave {
+                    background: #1797C0;
+                    color: white;
+                }
+            </style>
+            <script>
+                function toggleWeek(btn) {
+                    var tbody = btn.parentNode.parentNode.parentNode;
+                    if (tbody.classList.contains("closed")) {
+                        tbody.classList.remove("closed");
+                        btn.innerHTML = "-";
+                    } else {
+                        tbody.classList.add("closed");
+                        btn.innerHTML = "+";
+                    }
+                }
+
+                function showChange() {
+                    document.body.setAttribute("hasFormChange", "1");
+                }
+            </script>
+            <apex:form >
+                <apex:pageBlock >
+                    <apex:pageMessages />
+                    <apex:pageBlockButtons >
+                        <apex:commandButton value="Save" action="{!doSave}" rendered="{!periods.size != 0}" styleClass="btnSave" />
+                    </apex:pageBlockButtons>
+                    <apex:pageBlockSection title="{!$Label.Select_Driver}" columns="1">
+                        <apex:outputPanel >
+                            <apex:inputField value="{!wFilter.Contact__c}" label="{!$Label.Select_Driver}"
+                                             html-sirenum-autocomplete-object="Contact"
+                                             html-sirenum-autocomplete-field="name, Account.Name, Email"
+                                             html-sirenum-autocomplete-headers="Name, Account, Email"
+                                             html-placeholder="Enter driver name"
+                                             html-autocomplete="off"/>&nbsp;
+                            <apex:commandButton value="{!$Label.Select}" action="{!loadDriver}" />
+                        </apex:outputPanel>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection title="{!$Label.Enter_Hours}" columns="1" rendered="{!wFilter.Contact__c != null}">
+                        <apex:outputPanel >
+                            <table id="tblWeeks">
+                                <apex:outputPanel rendered="{!periods.size = 0}" layout="none">
+                                    <tr class="period">
+                                        <td>No driving periods found for the selected driver.</td>
+                                    </tr>
+                                </apex:outputPanel>
+                                <apex:repeat value="{!periods}" var="period">
+                                    <tr class="period">
+                                        <td colspan="6"><apex:outputText value="{!period.name}" /></td>
+                                        <td>{!$Label.Target_Average} &nbsp; <apex:outputText value="{!period.targetAverage}" /></td>
+                                        <td>{!$Label.Rolling_Average} &nbsp; <apex:outputText value="{!period.rollingAverage}" /></td>
+                                        <td>{!$Label.Hours_Left_in_Period} &nbsp; <apex:outputText value="{!period.hoursLeft}" styleClass="{!IF(BLANKVALUE(period.hoursLeft, 0) > 0, '', 'redFlag')}" /></td>
+                                    </tr>
+                                    <apex:repeat value="{!period.weeks}" var="week">
+                                        <tbody class="week">
+                                        <tr class="week">
+                                            <td><a href="#" onclick="toggleWeek(this); return false;">-</a></td>
+                                            <td>Week #{!week.Week_Number__c}</td>
+                                            <td><apex:outputText value="{0, date, MMMM d}">
+                                                    <apex:param value="{!week.Start_Date__c}" />
+                                                </apex:outputText>
+                                                - {!week.End_Date__c.date}, {!week.Start_Date__c.year + 1900}</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>{!$Label.Rolling_Average} &nbsp; {!week.Average_Hours__c}</td>
+                                            <td>{!$Label.Hours_This_Week} &nbsp; {!week.Total_Hours__c}</td>
+                                        </tr>
+                                        <tr class="weekDetails">
+                                            <td class="special">{!$Label.This_Week}</td>
+
+                                            <td>{!$Label.Holiday_Sick}:</td>
+                                            <td><apex:inputField value="{!week.Unavailable_Hours__c}" html-step="0.25" rendered="{!NOT week.Is_Locked__c}" required="false" onchange="showChange()" />
+                                                <apex:outputField value="{!week.Unavailable_Hours__c}" rendered="{!week.Is_Locked__c}" />
+                                            </td>
+
+                                            <td>{!$Label.Other_Work}:</td>
+                                            <td><apex:inputField value="{!week.Other_Hours__c}" html-step="0.25" rendered="{!NOT week.Is_Locked__c}" required="false" onchange="showChange()" />
+                                                <apex:outputField value="{!week.Other_Hours__c}" rendered="{!week.Is_Locked__c}"/>
+                                            </td>
+
+                                            <td>{!$ObjectType.Reference_Period_Week__c.fields.Comments__c.Label}:</td>
+                                            <td colspan="3"><apex:inputField value="{!week.Comments__c}" rendered="{!NOT week.Is_Locked__c}" required="false" onchange="showChange()" />
+                                                            <apex:outputField value="{!week.Comments__c}" rendered="{!week.Is_Locked__c}" />
+                                            </td>
+                                        </tr>
+
+                                        <apex:repeat value="{!week.reference_period_jobs__r}" var="job">
+                                            <tr class="assignment">
+                                                <td class="client"><apex:outputText value="{!job.Job_Role__r.Name}" /></td>
+
+                                                <td>{!$ObjectType.Reference_Period_Job__c.fields.Duty_Hours__c.Label}:</td>
+                                                <td><apex:inputField value="{!job.Duty_Hours__c}" html-step="0.25" rendered="{!NOT week.Is_Locked__c}" required="false" onchange="showChange()" />
+                                                    <apex:outputField value="{!job.Duty_Hours__c}" rendered="{!week.Is_Locked__c}" />
+                                                </td>
+
+                                                <td>{!$ObjectType.Reference_Period_Job__c.fields.Period_of_Availability__c.Label}:</td>
+                                                <td><apex:inputField value="{!job.Period_of_Availability__c}" html-step="0.25" rendered="{!NOT week.Is_Locked__c}" required="false" onchange="showChange()" />
+                                                    <apex:outputField value="{!job.Period_of_Availability__c}" rendered="{!week.Is_Locked__c}" />
+                                                </td>
+
+                                                <td>{!$ObjectType.Reference_Period_Job__c.fields.Break__c.Label}:</td>
+                                                <td><apex:inputField value="{!job.Break__c}" html-step="0.25" rendered="{!NOT week.Is_Locked__c}" required="false" onchange="showChange()" />
+                                                    <apex:outputField value="{!job.Break__c}" rendered="{!week.Is_Locked__c}" />
+                                                </td>
+                                            </tr>
+                                        </apex:repeat>
+                                        </tbody>
+                                    </apex:repeat>
+                                </apex:repeat>
+                            </table>
+                        </apex:outputPanel>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+            </apex:form>
+        </apex:define>
+    </apex:composition>
+</apex:page>

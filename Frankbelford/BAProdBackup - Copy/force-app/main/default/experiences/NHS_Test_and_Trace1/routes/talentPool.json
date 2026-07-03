@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "2b8614f7-498f-4157-9356-961eb017d13e",
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "configurationTags" : [ ],
+  "devName" : "Talent_Pool__c",
+  "id" : "322f4464-6d57-4ed3-8160-ba35dbbbcaea",
+  "label" : "Talent-Pool",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-talent-pool",
+  "type" : "route",
+  "urlPrefix" : "Talent-Pool"
+}

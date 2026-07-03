@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TermDatesCannotOverlap</fullName>
+    <active>true</active>
+    <description>Term dates are not allowed to overlap</description>
+    <errorConditionFormula>OR(
+   AND(IP_Term1EndDate__c &gt; IP_Term2StartDate__c,IP_Term1EndDate__c &lt; IP_Term2EndDate__c),
+   AND(IP_Term1EndDate__c &gt; IP_Term3StartDate__c,IP_Term1EndDate__c &lt; IP_Term3EndDate__c),
+   AND(IP_Term1StartDate__c &gt; IP_Term2StartDate__c,IP_Term1StartDate__c &lt; IP_Term2EndDate__c),
+   AND(IP_Term1StartDate__c &gt; IP_Term3StartDate__c,IP_Term1StartDate__c &lt; IP_Term3EndDate__c),
+   AND(IP_Term2EndDate__c &gt; IP_Term1StartDate__c,IP_Term2EndDate__c &lt; IP_Term1EndDate__c),
+   AND(IP_Term2EndDate__c &gt; IP_Term3StartDate__c,IP_Term2EndDate__c &lt; IP_Term3EndDate__c),
+   AND(IP_Term2StartDate__c &gt; IP_Term1StartDate__c,IP_Term2StartDate__c &lt; IP_Term1EndDate__c),
+   AND(IP_Term2StartDate__c &gt; IP_Term3StartDate__c,IP_Term2StartDate__c &lt; IP_Term3EndDate__c),
+   AND(IP_Term3EndDate__c &gt; IP_Term2StartDate__c,IP_Term3EndDate__c &lt; IP_Term2EndDate__c),
+   AND(IP_Term3EndDate__c &gt; IP_Term1StartDate__c,IP_Term3EndDate__c &lt; IP_Term1EndDate__c),
+   AND(IP_Term3StartDate__c &gt; IP_Term2StartDate__c,IP_Term3StartDate__c &lt; IP_Term2EndDate__c),
+   AND(IP_Term3StartDate__c &gt; IP_Term1StartDate__c,IP_Term3StartDate__c &lt; IP_Term1EndDate__c)
+   )</errorConditionFormula>
+    <errorDisplayField>IP_Term1StartDate__c</errorDisplayField>
+    <errorMessage>Term time cannot overlap</errorMessage>
+</ValidationRule>

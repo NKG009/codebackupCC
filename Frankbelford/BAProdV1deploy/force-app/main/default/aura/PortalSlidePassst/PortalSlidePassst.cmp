@@ -1,0 +1,275 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,forceCommunity:themeLayout,lightning:isUrlAddressable" access="global" controller="PassTempsApexController" >
+    <ltng:require styles="{!join(',',
+                          $Resource.assetsTest+'/assets/css/jquery-ui.css',
+ 						$Resource.webUI+'/assets/css/all.css',
+                          $Resource.webUI+'/assets/css/fontawesome.css',
+                          $Resource.webUI+'/assets/css/fontawesome.min.css',
+                          $Resource.webUI+'/assets/css/dataTables.bootstrap.min.css',
+                         
+                          $Resource.webUI+'/assets/css/responsive.bootstrap.min.css',
+                          $Resource.Tjcss2+'/assets/css/main.css',
+                          $Resource.Tjcss2+'/assets/css/custom.css'
+                          )
+                          }" 
+                  scripts="{!join(',',
+                           $Resource.Tjcss2+'/assets/js/main.min.js',
+                           $Resource.Tjcss2+'/assets/js/zoom.js',
+                           $Resource.webUI+'/assets/js/custom.js'
+                           )}"
+                  />
+    
+    <ltng:require styles="{! $Resource.	DataTables + '/DataTables/media/css/jquery.dataTables.min.css'}" 
+                   afterScriptsLoaded="{!c.scriptsLoaded}"/>   
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 	
+    <aura:attribute type="boolean" name="checkparam" default="false" />
+    <aura:attribute name="siteList" type="List" access="global"/>
+    <aura:attribute name="candidateNameList" type="List" access="global"/>
+    <aura:attribute name="selectedSite" type="String"/>
+      <aura:attribute name="ratingreset" type="Boolean" default="true"/>
+    <aura:attribute name="timeperiodselected" type="Date" />
+    <aura:attribute name="jobSiteList" type="List" access="global"/>
+    <aura:attribute type="List" name="allshifts" />
+    <aura:attribute type="List" name="shifts" />
+    <aura:attribute name="selectedRating" type="Integer"/> 
+    <aura:attribute name="selectedjobrole" type="String"/>
+    <aura:attribute name="userInfo" type="User"/>
+    <aura:attribute type="Integer" name="pageNumber" default="1" />
+    <aura:attribute type="Integer" name="maxPage" default="1" />
+    <aura:attribute name="listpage" type="List"  />
+    <aura:attribute name="page" type="integer"/>
+    <aura:attribute name="pages" type="integer"/>
+    <aura:attribute name="total" type="integer"/>
+    <aura:attribute type="List"    name="currentList" />
+    <aura:attribute name="feedbackshift" type="sirenum__Shift__c"/>
+    <aura:attribute name="isOpenCancel" type="boolean" default="false"/>
+    <aura:attribute type="boolean" name="checkSearch" default="false"  access="global"/>
+    <aura:registerEvent name="change" type="c:RatingChangeEvent"/>
+    <aura:registerEvent name="RatingAppEvent" type="c:RatingAppEvent"/>
+     <aura:attribute name="site" type="String" /> 
+    <head>
+        <title>Impellam Project</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+           
+            <nav class="headeNav">
+                <div class="visible-xs mobile-nav">
+                    <img src="{!$Resource.Tjcss + '/assets/img/mobile-nav.png'}" alt="Mobile Icon" title="Click to slide"/>
+                </div>
+                <a href="" class="logo" title="BlueArrow">
+                    <img src="{!$Resource.Tjcss + '/assets/img/impellam-logo-blue.png'}" alt="Impellam Logo" Title="Impellam"/>
+                </a>
+                
+                <ul class="headeNav__right">
+                    <li>
+                        <a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="hidden-xs hidden-sm">{!v.userInfo.Name}</span> 
+                            <aura:if isTrue="{!v.userInfo.User_Image__c != null}">
+                                <img src="{!v.userInfo.User_Image__c}" alt=""/>
+                                <aura:set attribute="else">
+                                    <img src="" class="imag" alt=""/>
+                                </aura:set> 
+                            </aura:if>
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="" onclick="{!c.myProfileNavigate}" title="My Profile">My Profile</a></li>
+                            <li><a href="" onclick="{!c.siteManagementNavigate}" title="Setting">Site Management</a></li>
+                            <li><a href="" onclick="{!c.logout}" title="Logout">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="col-sm-4 col-md-3 headeNav__selectpicker">
+                    <div class="btn-group bootstrap-select">
+                         <ui:inputSelect aura:id="siteId" class="slselect" label="Site Name" change="{! c.siteChanged }">
+                     <aura:iteration items="{!v.siteList}" var="item" >
+                            <option text="{!item.label}" value="{!item.value}" selected="{!item.selected}"  />
+         </aura:iteration>
+                    </ui:inputSelect>
+                        
+                    </div>
+                </div>
+            </nav>
+            <div class="timesheet-section">
+                
+              <c:BlueBarComp site="{!v.site}" ></c:BlueBarComp>  
+                
+                <div class="timesheet-section__right-part">
+                    <ol class="breadcrumb">
+                        <li><a href="javascript:void(0)" onclick="{!c.dashboardnavigate}" title="Dashboard">Dashboard</a></li>
+                        <li><!--<a href="#" title="Dashboard">-->My Temps<!--</a>--></li>
+                        <li class="active">Past Temps</li>
+                    </ol>
+                    <div class="search-section">
+                        <form class="row">
+                            <div class="col-sm-6 col-md-5 col-lg-4">
+                                <label class="global-label">Temp Name</label>
+                                <lightning:select label="" aura:id="candidateId" name="candidateSelect"  tabindex = "-98">
+                                    <aura:iteration items="{!v.candidateNameList}" var="item">
+                                        <option text="{!item.label}" value="{!item.value}"/>
+                                    </aura:iteration>
+                                </lightning:select>
+                            </div>
+                            <div class="col-sm-6 col-md-3 col-lg-2">
+                                <label class="global-label">Job Role</label>
+                                <lightning:select name="jobRoleSelect" label="" aura:id="jobRoleId"  tabindex = "-98">
+                                    <aura:iteration items="{!v.jobSiteList}" var="item">
+                                        <option text="{!item.label}" value="{!item.value}"/>
+                                    </aura:iteration>
+                                </lightning:select>
+                            </div>
+                            <div class="col-sm-6 col-md-4 col-lg-3">
+                                <label class="global-label">Date</label>
+                                <input type="text" style="margin-top: 3px;" class="global-input" name="Date" id="timePeriod" value="{!v.timeperiodselected}" placeholder="Select Date" onclick="{!c.handleOnClick}"
+                                       onkeypress="{!c.handleKeyPress}" onmouseover="{!c.handleMouseEnter}" onmouseout="{!c.handleMouseLeave}"/>
+                            </div>
+                            
+                            <div class="col-sm-6 col-md-4 col-lg-3">
+                                <lightning:button label="Search" class="search-btn" name="Search" value="Search" onclick="{!c.searchShifts}" />&nbsp;
+                               <input type="reset" class="clearAll-btn" name="Clear" value="Clear All" onclick="{!c.resetAllValues}"/> 
+                                           </div>
+                        </form>
+                        <!-- calendar starts -->
+                        <section class="calendar-pop">
+                            <div class="calendar">
+                                <div class="control-bar">
+                                    <ul>
+                                        <li id="today"><a href="">Today</a></li>
+                                        <li id="yesterday"><a href="">Yesterday</a></li>
+                                        <li id="lastweek"><a href="">Last 7 days</a></li>
+                                        <li id="lastmonth"><a href="">Last 30 days</a></li>
+                                        <li id="lasttwomonth"><a href="">Last 60 days</a></li>
+               
+                                    </ul>
+                                </div>
+                                <div id="datepicker"></div>
+                            </div>
+                        </section>
+                        <!-- calendar ends -->
+                    </div>
+                    <div class="searchDetail-section">
+                        <aura:if isTrue="{!v.checkparam}">
+                            <table id="tableId" class="searchDetail_table book-temp-table" cellspacing="0" width="100%">
+                               
+                                <thead>
+                                    <tr>
+                                        <th>Job Role</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Start Time</th>
+                                        <th>End Time</th>
+                                        <th >Action</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                            <aura:set attribute="else">
+                                <table id="tableId" class="searchDetail_table" cellspacing="0" width="100%">
+                                <div id="overlay">
+                                    <img src="{!$Resource.Loadingimage}"  width="120" height="100" alt=""/>
+                               </div>  
+                                    <thead>
+                                        <tr>
+                                            <th class="centeralign">Temp Name</th>
+                                            <th class="centeralign">Job Role</th>
+                                            <th class="centeralign">Start Date</th>
+                                            <th class="centeralign">End Date</th>
+                                            <th class="centeralign">Start Time</th>
+                                            <th class="centeralign">End Time</th>                                           
+                                            <th class="centeralign">Action</th>
+                                            <th class="centeralign">Rating</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <aura:iteration items="{!v.shifts}" var="record" indexVar="idx">
+                                            <tr>
+                                                 <td class="centeralign">{!record.sirenum__Contact__r.Name}</td>
+                                                 <td ><div class="slds-grow slds-cell-wrap centeralign">{!record.sirenum__Team__r.Name}</div></td>
+                                               <td ><div class="slds-grow slds-cell-wrap centeralign"><span class='hide'>{!record.Scheduled_Start_Date_Text__c}</span>{!record.Scheduled_Start_Date_Display__c}</div></td>
+                                                <td ><div class="slds-grow slds-cell-wrap centeralign"><span class='hide'>{!record.Scheduled_End_Date_Text__c}</span>{!record.Scheduled_End_Date_Display__c}</div></td>
+                                                <td class="centeralign">{!record.Starttime__c}</td>
+                                               <td class="centeralign">{!record.EndTime__c}</td>
+                                              
+                                                <td style="text-align:center;">
+                                                    <aura:if isTrue="{!and(record.ClientRankingStored__c==null,record.sirenum__Contact__c!=null)}">
+                                                        <span class='hide'>1</span> <span aura:id= "feedbackSpnId1" class="action-button feedback bluecolor" Id="{!record.Id}" data-toggle="modal" onclick="{!c.feedback }" data-target="#bookedTemp-popup">Feedback</span>     
+                                                        <aura:set attribute="else">
+                                                         <span class='hide'>2</span>   <span aura:id= "feedbackSpnId2" class="action-button feedback disablebutton" Id="{!record.Id}" >Feedback</span>     
+                                                        </aura:set>
+                                                    </aura:if> 
+                                                    
+                                                </td>
+                                                <td class="centeralign">
+                                                    <span class='hide'>{!record.ClientRankingStored__c}</span>
+                                                    <aura:if isTrue="{!record.ClientRankingStored__c=='0'}">
+                                                        <img src="{!$Resource.Ratings+'/nostar.png'}" style="height:20px;width:90px;"/>    
+                                                    </aura:if>
+                                                    <aura:if isTrue="{!record.ClientRankingStored__c==null}">
+                                                        <img src="{!$Resource.Ratings+'/nostar.png'}" style="height:20px;width:90px;"/>    
+                                                    </aura:if>
+                                                    <aura:if isTrue="{!record.ClientRankingStored__c=='1'}">  
+                                                        <img src="{!$Resource.Ratings+'/1star.png'}" style="height:20px;width:90px;"/> 
+                                                    </aura:if>  
+                                                    <aura:if isTrue="{!record.ClientRankingStored__c=='2'}">
+                                                        <img src="{!$Resource.Ratings+'/2star.png'}" style="height:20px;width:90px;"/> 
+                                                    </aura:if> 
+                                                    <aura:if isTrue="{!record.ClientRankingStored__c=='3'}">
+                                                        <img src="{!$Resource.Ratings+'/3star.png'}" style="height:20px;width:90px;"/> 
+                                                    </aura:if> 
+                                                    <aura:if isTrue="{!record.ClientRankingStored__c=='4'}">
+                                                        <img src="{!$Resource.Ratings+'/4star.png'}" style="height:20px;width:90px;"/> 
+                                                    </aura:if> 
+                                                    <aura:if isTrue="{!record.ClientRankingStored__c=='5'}">
+                                                        <img src="{!$Resource.Ratings+'/5star.png'}" style="height:20px;width:90px;"/> 
+                                                    </aura:if>
+                                                </td>
+                                            </tr>
+                                        </aura:iteration>
+                                    </tbody>
+                                </table>
+                            </aura:set>
+                        </aura:if>   
+                    </div>
+                    
+                    <footer>
+                        <div class="row">
+                            <div class="col-sm-6"><p> &copy; Blue Arrow, All rights reserved 2019.</p></div>
+                            <div class="col-sm-6"><p>Regd Address:  800 The Boulevard, Capability Green, Luton, Bedfordshire, LU1 3BA. Company No. 00641659</p></div>
+                        </div>
+                    </footer>
+                </div>
+                
+            </div>
+            
+             <!-- model -->
+            <div class="custom-model modal fade" aura:id="modalPopupId" id="bookedTemp-popup" tabindex="-1" role="dialog" aria-labelledby="bookedTemp-popup">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <button type="button" class="close" data-dismiss="modal" onclick="{!c.closeModalWindowOnCancel}" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <br></br><br/><br/><br/><br/>
+                        <h3><b> How likely are you to recommend this temp for future shifts? </b></h3><br></br>
+                        <p >
+                            <c:Rating  change="{!c.selectRating}" />	
+                        </p>
+                        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                        <lightning:layout class="slds-scrollable slds-wrap" horizontalAlign="spread">
+                            <lightning:layoutItem padding="horizontal-small">
+                                <button type="button" class="action-button reject" data-dismiss="modal" aria-label="Close" onclick="{! c.cancel}">Cancel</button>
+                            </lightning:layoutItem>  
+                            <lightning:layoutItem padding="horizontal-small">
+                             <!--   <lightning:button  variant="success" label="Submit" title="Submit" class="action-button accept" onclick="{!c.submitRating}"/> -->
+                           <button type="button"  class="action-button accept" onclick="{! c.submitRating }" data-dismiss="modal" aria-label="Close">Submit</button>
+
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </div>
+                </div>
+            </div>    
+            <!-- model-->
+        </div>
+        <div class="sidenav-overlay"></div>
+        <div class="search-overlay"></div>		
+    </body>
+</aura:component>

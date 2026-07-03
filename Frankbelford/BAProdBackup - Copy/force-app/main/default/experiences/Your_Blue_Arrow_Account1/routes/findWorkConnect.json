@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "391d739b-8d46-4351-826b-14a6acfc4696",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "Find_Work_Connect__c",
+  "id" : "134451c6-0709-47e9-9159-245a2a9484d4",
+  "label" : "Find Work Connect",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-find-work-connect",
+  "type" : "route",
+  "urlPrefix" : "find-work-connect"
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1285_BAL_Nottingham_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>1285-BAL Nottingham</label>
+    <queue>X1285_BAL_Nottingham</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

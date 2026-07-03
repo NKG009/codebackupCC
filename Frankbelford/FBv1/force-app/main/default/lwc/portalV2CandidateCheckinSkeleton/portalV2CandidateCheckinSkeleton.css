@@ -1,0 +1,263 @@
+/* @import "c/portalV2CSSLibrary"; */
+
+.parent-grid-container {
+  display: grid;
+
+  --grid-layout-gap: 0.5em;
+  --grid-column-count: 1;
+  --grid-item--min-width: 100%;
+  /*
+  Calculated values.
+ */
+  --gap-count: calc(var(--grid-column-count) - 1);
+  --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+  --grid-item--max-width: calc(
+    (100% - var(--total-gap-width)) / var(--grid-column-count)
+  );
+
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr)
+  );
+  grid-gap: var(--grid-layout-gap);
+}
+
+@media only screen and (min-width: 1025px) {
+  .parent-grid-container {
+    display: grid;
+
+    --grid-layout-gap: 0.5em;
+    --grid-column-count: 2;
+    --grid-item--min-width: 25%;
+    /*
+    Calculated values.
+   */
+    --gap-count: calc(var(--grid-column-count) - 1);
+    --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+    --grid-item--max-width: calc(
+      (100% - var(--total-gap-width)) / var(--grid-column-count)
+    );
+
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr)
+    );
+    grid-gap: var(--grid-layout-gap);
+  }
+}
+.full-tile {
+  grid-column: 1 / 3;
+}
+/*---------------------------------------------------*/
+.tile {
+  min-height: 30em;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px #00000029;
+  background-color: var(--colour-grey-bg);
+}
+
+.job-role-grid-container {
+  display: grid;
+  padding: 1.5em;
+  grid-template-rows: 1fr 1fr auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "name time"
+    "name summary"
+    "body body";
+}
+
+.name-component {
+  grid-area: name;
+  height: 8em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.name-component > .skeleton-box {
+  width: 60ch;
+  height: 2.5em;
+}
+
+.half-tile .name-component > .skeleton-box {
+  width: 30ch;
+}
+
+.time-component {
+  grid-area: time;
+  display: flex;
+  gap: 0.5em;
+  align-self: center;
+  justify-self: flex-end;
+  align-items: center;
+}
+
+.time-component > .skeleton-box {
+  width: 20ch;
+  height: 2.5em;
+}
+
+.summary-component {
+  grid-area: summary;
+  display: flex;
+  align-self: center;
+  justify-self: flex-end;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.summary-component > .skeleton-box {
+  width: 40ch;
+  height: 2em;
+}
+
+.half-tile .summary-component > .skeleton-box {
+  width: 25ch;
+}
+
+.summary-component > div {
+  display: flex;
+  height: fit-content;
+  align-items: center;
+}
+
+.body-component {
+  grid-area: body;
+  padding-top: 1.5em;
+
+  --grid-layout-gap: 0.5em;
+  --grid-column-count: 8;
+  --grid-item--min-width: var(--card-small-width);
+  /*
+      Calculated values.
+     */
+  --gap-count: calc(var(--grid-column-count) - 1);
+  --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+  --grid-item--max-width: calc(
+    (100% - var(--total-gap-width)) / var(--grid-column-count)
+  );
+
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr)
+  );
+  grid-template-rows: 1fr 1fr auto;
+  grid-gap: var(--grid-layout-gap);
+}
+
+.skeleton-box {
+  display: inline-block;
+  border-radius: 5px;
+  height: 1em;
+  position: relative;
+  overflow: hidden;
+  background-color: #dddbdd;
+}
+.skeleton-box::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.5) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  animation: shimmer 2s infinite;
+  content: "";
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/*---------------------------------------------------*/
+.card-small {
+  width: var(--card-small-width);
+  height: var(--card-small-height);
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px #00000029;
+}
+
+.grid-container {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  padding-inline: 5%;
+  padding-block: 2.5%;
+  grid-template-rows: 1fr 4fr 1fr 3fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "confirmed confirmed"
+    "name name"
+    "started-text finished-text"
+    "started-icon finished-icon"
+    "started-time finished-time";
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+
+/*
+      Grid areas
+  */
+.confirmed-container {
+  grid-area: confirmed;
+  gap: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.candidate-name {
+  grid-area: name;
+  display: flex;
+}
+.started-text {
+  grid-area: started-text;
+}
+.finished-text {
+  grid-area: finished-text;
+}
+.started-icon {
+  grid-area: started-icon;
+  position: relative;
+}
+.finished-icon {
+  grid-area: finished-icon;
+  position: relative;
+}
+.started-time {
+  grid-area: started-time;
+}
+.finished-time {
+  grid-area: finished-time;
+}
+
+/*
+      Icons
+  */
+/* .confirmed-check {
+    --sds-c-icon-color-foreground-default: var(--colour-positive-green);
+    min-width: 2em;
+  } */
+/* .confirmed-check >  */
+/* .accepted-icon {
+    --sds-c-icon-color-background: var(--colour-positive-green);
+  }
+  .rejected-icon {
+    --sds-c-icon-color-background: var(--colour-negative-red);
+  } */

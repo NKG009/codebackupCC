@@ -1,0 +1,107 @@
+<aura:component controller="Placementdisplay" implements="force:lightningQuickAction,forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome" access="global"  >
+     <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    <div class="slds-grid slds-wrap slds-grid_align-center slds-grid_align-space">
+       
+     
+        <div class="slds-col " >
+            <div style="width:170px;border:1px solid  #a8cd1b;" class="panel panel-primary">
+                <a class="hyperlinkclass" href="" onclick="{!c.PaySlipTimesheet}" value="Pay and Timesheet">
+                <div  class="slds-align_absolute-center">
+                    <img src="{!$Resource.CandidatePortalIcons+'/PayTimesheets.jpg'}" style="height:92px;"/>  
+                </div><br></br>
+                
+                    <div class="slds-align_absolute-center tittletext">
+                        <span class="pull-left">Pay &#38; Timesheets </span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <div class="slds-col " >
+            <div style="width:170px;border:1px solid  #a8cd1b;" class="panel panel-primary">
+                 <a class="hyperlinkclass" href="" onclick="{!c.myjobs}" value="My Job">
+                <div class="slds-align_absolute-center">
+                    <img src="{!$Resource.CandidatePortalIcons+'/MyJobs.png'}" style="height:92px;" />    
+                </div><br></br>
+               
+                    <div class="slds-align_absolute-center tittletext">
+                        <span class="pull-left">My Jobs</span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+          <div class="slds-col " >
+            <div style="width:170px;border:1px solid  #a8cd1b;" class="panel panel-primary">
+                  <a class="hyperlinkclass" href="" onclick="{!c.holidays}" value="Holidays">
+                <div  class="slds-align_absolute-center">
+                    <img src="{!$Resource.CandidatePortalIcons+'/Holidays.jpg'}" style="height:92px;"/>  
+                </div><br></br>
+              
+                    <div class="slds-align_absolute-center tittletext">
+                        <span class="pull-left">My Holidays</span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+            
+    </div>
+    
+     
+    <div class="slds-grid slds-wrap slds-wrap slds-grid_align-center slds-grid_align-space">
+       
+     
+     
+              <div class="slds-col" >
+            <div style="width:170px;border:1px solid  #a8cd1b;" class="panel panel-primary">
+                  <a class="hyperlinkclass" href=""  onclick="{!c.mydetails}" value="My Details">
+                <div class="slds-align_absolute-center">
+                    <img src="{!$Resource.CandidatePortalIcons+'/MyDetails.jpg'}" style="height:92px;" />    
+                </div><br></br>
+              
+                    <div class="slds-align_absolute-center tittletext">
+                        <span class="pull-left">My Details </span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="slds-col" >
+            <div style="width:170px;height:132px;border:1px solid  #a8cd1b;" class="panel panel-primary">
+                <a class="hyperlinkclass" href="" value="My Goal">
+                <div class="slds-align_absolute-center">
+                    <img src="{!$Resource.Coming_Soon}" />    
+                </div><br></br>
+               
+                    <div class="slds-align_absolute-center tittletext">
+                        <span class="pull-left">My Goals</span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+  
+           <div class="slds-col" >
+            <div style="width:170px;border:1px solid  #a8cd1b;" class="panel panel-primary">
+                 <a class="hyperlinkclass" href=""  value="My Availability">
+                <div class="slds-align_absolute-center">
+                    <img src="{!$Resource.Coming_Soon}" style="height:92px;" />    
+                </div><br></br>
+               
+                    <div class="slds-align_absolute-center tittletext">
+                        <span class="pull-left">My Availability </span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+      
+    </div>
+    
+    
+    
+</aura:component>

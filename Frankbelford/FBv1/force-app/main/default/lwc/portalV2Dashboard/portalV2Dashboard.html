@@ -1,0 +1,115 @@
+<template>
+  <template if:true={displayComponent}>
+    <template if:false={vmscontact}>
+    <div class="slds-var-p-top_small">
+      <div
+        class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center"
+      >
+        <h1 class="main__header">Dashboard</h1>
+        <lightning-button
+          label="Configure tiles"
+          onclick={toggleWidgetSelectorOpen}
+          variant="brand"
+        ></lightning-button>
+      </div>
+      <div class="slds-var-p-around_large grid-layout">
+        
+        <div if:true={approveShiftsSelected}>
+           <template if:false={vmsClientcontact}>
+          <c-portal-v2-shift-approve-widget
+            navigation-page-name={timesheetPageName}
+            site-id={siteId}
+          ></c-portal-v2-shift-approve-widget>
+           </template>
+            <template if:true={vmsClientcontact}>
+              <c-portal-v2-hours-approve-widget-vms-client
+            navigation-page-name={timesheetPageName}
+            site-id={siteId}
+          ></c-portal-v2-hours-approve-widget-vms-client>
+            </template>
+        </div>
+        <div if:true={totalCostSelected}>
+          <c-portal-v2-total-cost-per-week-widget
+            navigation-page-name={myShiftsPageName}
+            site-id={siteId}
+          ></c-portal-v2-total-cost-per-week-widget>
+        </div>
+        <div if:true={requestShiftsSelected}>
+           <template if:false={vmsClientcontact}>
+          <c-portal-v2-request-new-booking-widget
+            navigation-page-name={myShiftsPageName}
+          ></c-portal-v2-request-new-booking-widget>
+           </template>
+            <template if:true={vmsClientcontact}>
+              <c-portal-v2-request-new-booking-widget-vms-client
+            navigation-page-name={myShiftsPageName}
+          ></c-portal-v2-request-new-booking-widget-vms-client>
+            </template>
+        </div>
+        <div if:true={shiftFulfilmentSelected}>
+          <c-portal-v2-shift-fulfilment-widget
+            navigation-page-name={myShiftsPageName}
+            site-id={siteId}
+          ></c-portal-v2-shift-fulfilment-widget>
+        </div>
+        <div if:true={myTempsSelected}>
+          <c-portal-v2-my-temps-widget
+            site-id={siteId}
+            navigation-page-name={myShiftsPageName}
+          ></c-portal-v2-my-temps-widget>
+        </div>
+        <div if:true={todaysWorkforceSelected}>
+          <c-portal-v2-candidate-checkin-dashboard-widget
+            site-id={siteId}
+            navigation-page-name={todaysWorkforcePageName}
+          ></c-portal-v2-candidate-checkin-dashboard-widget>
+        </div>
+        <!--jyothi.start-->
+        <div if:true={enableWorkerEndorsement}>
+          <!--jyoth-->
+          <c-portal-v2-my-preferred-workers
+            site-id={siteId}
+          ></c-portal-v2-my-preferred-workers>
+        </div>
+
+        
+      
+
+    
+    
+        <!--jyoth-->
+        <!--jyothi.stop-->
+        <!-- <div if:true={approvalStatusSelected}>
+          <c-portal-v2-auto-approval-widget
+            site-id={siteId}
+          ></c-portal-v2-auto-approval-widget>
+        </div> -->
+      </div>
+    </div>
+    <div class="column-adjust-modal" if:true={widgetSelectorOpen}>
+      <c-portalv2-column-picker
+        picker-title="Select dashboard widgets"
+        main-table-column-selection={availableWidgets}
+        onclose={toggleWidgetSelectorOpen}
+        onapplyfilters={handleWidgetFilter}
+        hide-section-headers
+      >
+      </c-portalv2-column-picker>
+    </div>
+  </template>
+  <template if:true={vmscontact}>
+    <div class="slds-var-p-top_small">
+      <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+        <h1 class="main__header">Dashboard</h1>
+      </div>
+      <div class="slds-var-p-around_large grid-layout">
+    <c-portal-v2-v-m-s-supplier-job-order-widget ></c-portal-v2-v-m-s-supplier-job-order-widget>
+    <c-portal-v2-v-m-s-supplier-candidate-widget ></c-portal-v2-v-m-s-supplier-candidate-widget>  
+   
+   <c-portal-v2-v-m-s-supplier-hour-submission-widget ></c-portal-v2-v-m-s-supplier-hour-submission-widget>
+   <c-portal-v2-v-m-s-supplier-timesheet-widget ></c-portal-v2-v-m-s-supplier-timesheet-widget>
+      </div>
+      </div>
+  </template>
+  </template>
+</template>

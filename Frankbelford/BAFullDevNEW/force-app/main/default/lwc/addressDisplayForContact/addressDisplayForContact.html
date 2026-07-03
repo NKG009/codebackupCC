@@ -1,0 +1,43 @@
+<template>
+    <template if:true={isEditMode}>
+        <template if:true={maillingAddressSection}>
+            <lightning-input label="Street Address" value={mailStreet} onchange={handleChange} data-id="mailStreet"></lightning-input>
+            <lightning-input label="City" value={mailCity} onchange={handleChange} data-id="mailCity"></lightning-input>
+            <lightning-input label="County" value={mailCounty} onchange={handleChange} data-id="mailCounty"></lightning-input>
+            <lightning-input label="Postal Code" value={mailPostalCode} onchange={handleChange} data-id="mailPostalCode"></lightning-input>
+            <lightning-input label="Country" value={mailCountry} onchange={handleChange} data-id="mailCountry"></lightning-input>
+            <lightning-button variant="base" label="Update" onclick={updateRecord}></lightning-button>
+        </template>
+
+        <template if:true={otherAddressSection}>
+             <lightning-input label="Street Address" value={otherStreet} onchange={handleChange} data-id="otherStreet"></lightning-input>
+             <lightning-input label="City" value={otherCity} onchange={handleChange} data-id="otherCity"></lightning-input>
+             <lightning-input label="County" value={otherCounty} onchange={handleChange} data-id="otherCounty"></lightning-input>
+             <lightning-input label="Postal Code" value={otherPostalCode} onchange={handleChange} data-id="otherPostalCode"></lightning-input>
+             <lightning-input label="Country" value={otherCountry} onchange={handleChange} data-id="otherCountry"></lightning-input>
+             <lightning-button variant="base" label="Update" onclick={updateOtherAddress}></lightning-button>
+        </template>
+    </template>
+
+    <template if:false={isEditMode}>
+        <template if:true={maillingAddressSection}>
+            <p><strong>Contact Mailling Address</strong></p>
+            <p>{mailStreet}</p>
+            <p>{mailCity}</p>
+            <p>{mailCounty}</p>
+            <p>{mailPostalCode}</p>
+            <p>{mailCountry}</p>
+            <lightning-button variant="base" label="Edit" onclick={toggleEdit}></lightning-button>
+        </template>
+
+        <template if:true={otherAddressSection}>
+            <p><strong>Contact Other Address</strong></p>
+            <p>{otherStreet}</p>
+            <p>{otherCity}</p>
+            <p>{otherCounty}</p>
+            <p>{otherPostalCode}</p>
+            <p>{otherCountry}</p>
+            <lightning-button variant="base" label="Edit" onclick={toggleEdit}></lightning-button>
+        </template>
+    </template>
+</template>

@@ -1,0 +1,49 @@
+{
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "ee9062aa-3eec-46b8-b56c-4ef65e82ac00",
+  "label" : "Unsubscribe",
+  "regions" : [ {
+    "id" : "68ebf974-7edf-4bff-8050-3cc3e43ba5d5",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "Unsubscribe_to_Email_Notifications"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "5e1d2fce-6c15-4a58-bd47-bc1dca6d0c7c",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2c875d36-1de8-4ec7-8034-3771cba8600c",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "e89c072a-06bf-4677-94f6-48db418b73a9",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Unsubscribe"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "324183e8-522d-49b8-b72a-cc99ca659956",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0cd41a2c-dbbf-4aad-9290-3c554273985a",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-unsubscribe"
+}

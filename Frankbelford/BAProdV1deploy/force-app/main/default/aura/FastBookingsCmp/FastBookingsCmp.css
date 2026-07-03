@@ -1,0 +1,61 @@
+.THIS .datewidth{
+	width:235px
+}
+
+.THIS .slds-input{
+    transition: border .1s linear,background-color .1s linear;
+    display: inline-block;
+    padding: 0 1rem 0 .75rem;
+    line-height: 1.875rem;
+    min-height: calc(1.875rem + (1px * 2));
+}
+
+.THIS .timefield{
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(212, 212, 212);
+    border-image: initial;
+    border-radius: 0.25rem;
+    transition: border 0.1s linear, background-color 0.1s linear;
+    padding: 0px 1rem 0px 0.75rem;
+    line-height: 1.875rem;
+    width: 235px;
+}
+
+.THIS .backgroundCssCol1{
+    background-color: white;
+    padding-top:30px;
+    padding-left:40px;
+}
+
+.THIS .backgroundCssCol2{
+    background-color: white;
+    padding-top:30px;
+    padding-left: 55px;
+    padding-bottom: 3px;
+}
+.THIS .Backbutton{
+    color : white;
+     background-color: #6f6f6e;
+    border-color: #6f6f6e;
+}
+.THIS .Backbutton:hover{
+    color : white;
+     background-color: #99998e;
+    border-color: #99998e;
+}
+.THIS .Submitbutton{
+    color : white;
+     background-color: #a8cd1b;
+    border-color: #a8cd1b;
+}
+.THIS .Submitbutton:hover{
+    color : white;
+     background-color: #96aa4b;
+    border-color: #96aa4b;
+}
+.THIS .headingdetails{
+     font-family: Arial;
+     color : #009ee3;
+    
+}

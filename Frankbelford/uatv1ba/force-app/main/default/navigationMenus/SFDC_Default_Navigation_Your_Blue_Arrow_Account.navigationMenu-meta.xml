@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationMenu xmlns="http://soap.sforce.com/2006/04/metadata">
+    <container>Your Blue Arrow Account</container>
+    <containerType>Network</containerType>
+    <label>Default Navigation</label>
+    <navigationMenuItem>
+        <label>Find Work</label>
+        <position>1</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/find-work</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Pay &amp; Timesheets</label>
+        <position>2</position>
+        <publiclyAvailable>true</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <label>Confirm My Hours</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/confirmyourhours</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Track My Pay</label>
+                <position>1</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/track-my-pay</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>My Payslips</label>
+                <position>2</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/payslips</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>My Bank Details</label>
+                <position>3</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/bank-details</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>My Holidays</label>
+                <position>4</position>
+                <publiclyAvailable>true</publiclyAvailable>
+                <target>/holidays</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>My Timesheets</label>
+                <position>5</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/mytimesheet</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>My Jobs</label>
+        <position>3</position>
+        <publiclyAvailable>true</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <label>My Shifts</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/myshifts</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Shift History</label>
+                <position>1</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/shifthistory</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>My Details</label>
+        <position>4</position>
+        <publiclyAvailable>true</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <label>My Contact Details</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/my-contact-details</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>My Skills</label>
+                <position>1</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/my-skills</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Upload Documentation</label>
+                <position>2</position>
+                <publiclyAvailable>true</publiclyAvailable>
+                <target>/upload-additional-documentation</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>My Bank Details</label>
+                <position>3</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/bank-details</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>My HR and Benefits</label>
+                <position>4</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/my-hr</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>My Compliance</label>
+                <position>5</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/mycompliance</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>My Study Details</label>
+                <position>6</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/my-study-details</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Delete My Data</label>
+                <position>7</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/managemydata</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Contact Us</label>
+        <position>5</position>
+        <publiclyAvailable>true</publiclyAvailable>
+        <target>/contactsupport</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+</NavigationMenu>

@@ -1,0 +1,76 @@
+<!--
+ - @AUTHOR Charlie Nash (RSS Global)
+ - @DATE 24/10/2023
+ -
+ - @DESCRIPTION: Self Registration Component
+ -
+ -
+ -->
+
+<!-- Self Register Lwc -->
+<template>
+
+
+    <div style="width: 100%; margin:auto">
+
+        <div class="spinner" if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading" size="xx-small"></lightning-spinner>
+        </div>
+        <!-- Main DIV -->
+
+        <div if:true={displayScreen1}>
+
+            <lightning-input onchange={updateFirstName} placeholder="First Name" value={firstName}></lightning-input>
+            <p></p>
+            <lightning-input onchange={updateLastName} placeholder="Last Name" value={lastName}></lightning-input>
+            <p></p>
+            <lightning-input if:true={showEmailInput} onchange={updateEmail} placeholder="Email" value={email}></lightning-input>
+            <lightning-input if:false={showEmailInput} disabled placeholder="Email" value={email}></lightning-input>
+            <div class="error">{emailError}</div>
+            <br/>
+            <lightning-radio-group name="radioGroup1"
+                                   onchange={updateQ1}
+                                   label="Do you currently live in the UK or ROI?"
+                                   options={options}
+                                   value={question1Value}
+                                   required="true"
+                                   type="radio"></lightning-radio-group>
+            <p></p>
+            <lightning-radio-group name="radioGroup2"
+                                   onchange={updateQ2}
+                                   label="Do you currently have proof of right to work in the UK?"
+                                   options={options}
+                                   required="true"
+                                   value={question2Value}
+                                   type="radio"></lightning-radio-group>
+            <br/>
+
+            <button if:true={showSignUpButton} class="signUpButtonCls" label="Sign Up" onclick={clickSignUp}>Sign Up</button>
+            <button if:false={showSignUpButton} disabled class="signUpButtonClsDisabled" label="Sign Up">Sign Up</button>
+
+            <div style="padding-top: 20px; text-align: center; colour: white;">
+                <a href={a_Record_URL}><b style="color: white!important;">Already Registered?</b></a>
+            </div>
+
+        </div>
+
+        <div if:false={displayScreen1}>
+
+            <!-- Error or verification page -->
+
+            <div style="width: 100%; text-align: center; padding-bottom: 100px;">
+                <h1 class="headerText">Next Steps...</h1>
+
+                {resultFromSubmissionText}
+                <p></p>
+                <p></p>
+                <div style="padding-top: 40px;">
+                <button class="signUpButtonCls" label="RETURN TO LOGIN" onclick={clickLoginPage}>Return To Login</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</template>

@@ -1,0 +1,429 @@
+<apex:page standardController="sirenum__Placement__c" showHeader="false" sidebar="false" applyBodyTag="false" applyHtmlTag="false" renderas="pdf" extensions="TimesheetDesignCommunityController">
+<html>
+  
+ <head>
+        <style>
+            @page {
+                size: A4 potrait;
+                      margin-left: 0cm;
+                        margin-top: 0.1cm;
+                         margin-right: 0.1cm;
+                          margin-bottom: 0cm;
+                          size: 8.27in 11.8in;
+            }
+    
+        table.table1{
+      width:780px;   margin-left: 0.2cm; margin-right: 0cm;
+     font-family: Arial;
+      font-size:9.8px;   color:#000000; 
+     
+     }
+     
+     table.main{margin-left:-5px; width:900px; margin-top:8px; margin-right:0px; height:220px;}
+     
+     table.bar{
+      width:20px; margin-top:-49px;
+      height:210px;
+   font-family: Arial;
+      font-size:11px;   color:#000000;
+   
+     }
+   
+  
+    table.table2{  border: 1px solid black; margin-top:0px;  margin-left:27px; font-family: Calibri; vertical-align: middle; font-size:12px;   color:#000000;    height:200px;   width:300px;}
+  
+    table.worktable{ border: 1px solid black; margin-top:-38px; border-collapse:collapse;  font-family: Calibri; vertical-align: middle; font-size:12px;   color:#000000;    height:200px;   width:300px;margin-left:32px;}
+  table.worktable td {
+  border: 1px solid black; height:26px; width:12px; vertical-align: bottom;
+} 
+   table.sheet{border-collapse:collapse; margin-left:10px; font-family: Calibri; vertical-align: middle; font-size:12px;   color:#000000;    height:240px;   width:300px; margin-top:0px;}
+  table.sheet td {
+  border: 1px solid black; border-collapse:collapse; height:22px;  
+}  
+ table.sheet2{diplay:none; border-collapse:collapse; margin-left:10px; font-family: Calibri; vertical-align: middle; font-size:12px;   color:#000000;    height:240px;   width:300px; margin-top:0px;}
+ 
+    
+    table.table3{border-collapse:collapse; border-color:#000000; border-style:solid;   border-width: 1px; font-family: Calibri; font-size:12px;   color:#000000;    height:250px;   width:20px;}
+table.t1 { font-family: Calibri; margin-top:0px;
+    border: 1px solid black;margin-left:10px;
+    color:#000000;    height:105px;   width:220px; font-size:12px; 
+}
+table.t2 { font-family: Calibri;
+    border: 1px solid black;margin-left:10px;
+    color:#000000;    height:90px;   width:220px; font-size:12px; 
+}
+
+table.time{width:120px;  
+   font-family: Calibri; margin-left:80px; margin-top:-77px; margin-bottom:10px;
+      font-size:15px;   color:#000000; height:20px;}
+      
+      table.week{  width:25px;  border: 1px solid black; border-collapse:collapse; 
+      height:252px;
+   font-family: Arial;
+      font-size:14px;   color:#000000; margin-top:19px; margin-left:32px;}
+       table.week td {
+  border: 1px solid black; border-collapse:collapse; height:22px;   
+} 
+ table.work{  width:640px; border: 1px solid black; border-collapse:collapse; 
+      height:252px;
+   font-family: Arial;
+      font-size:14px;   color:#000000; margin-top:-50px; margin-left:-4.6px;}
+       table.work td {
+  border: 1px solid black; border-collapse:collapse; height:22px;   
+} 
+
+ table.declare{  width:450px; 
+      height:140px;
+   font-family: Arial; 
+      font-size:11px;   color:#000000;  margin-left:32px; margin-top:-75px;   border: 1px solid black; }
+      table.declare td {
+height:20px; vertical-align:middle;
+} 
+      
+    table.total{  width:490px;
+      height:200px;
+   font-family: Arial; 
+      font-size:11px;  color:#000000;  margin-left:32px; margin-top:-120px;}      
+   table.total td {
+height:15px;   
+} 
+    table.code{  width:900px;
+      height:60px;
+      margin-left:200px; margin-top:-90px;}      
+
+     </style>
+        
+ 
+    </head>
+<body>
+     
+<table class="table1" width="100%" >
+<tr>
+<td  width="8%">
+<div style="margin-left:0px; margin-top:5px; font-size:30px; color:#000000;">
+<b>Timesheet</b>
+</div>
+</td>
+<td> <div style="margin-left:0px; margin-top:5px;">
+<I><font size=".5" face="Calibri" >Please deduct lunch<br></br>
+breaks as necessary</font></I></div></td>
+<td><img id='pic' src="{!endpt}" />  </td><td></td>
+<td rowspan="2">
+<apex:image url="{!$Resource.logobluearrow}" width="160" height="60"/>
+</td>
+</tr>
+<tr>
+<td colspan="5"><div style="margin-left:10px; margin-top:0px;">
+The Standard Conditions of Business and Terms of Engagement of the Company will govern the completion<br></br> and authorisation of this timesheet.
+Further copies will be available on request from your local branch.
+</div>
+</td>
+<td> <div style = "color:black; font-size: 15pt; margin-left:-280px; margin-top:10px;">
+<b>{!sirenum__Placement__c.TimesheetNumberThisWeek__c}</b>
+</div>
+</td>
+</tr>
+</table>
+<div >
+<table class="main">
+<tr>
+<td>
+<table style="margin-top:10px;"><tr><td><div >
+ 
+        </div>
+ </td></tr>
+</table>
+</td>
+<td style="width:15%;">
+<table class="table2">
+<tr>
+<td colspan="2" style="text-align:center;   border-bottom: 0.5px solid #000000; font-weight:bold;" height="22px">Client Details</td>
+</tr>
+<tr><td style="font-weight:bold; width:35%; padding-bottom: 1em;" height="22px"><font size="3" face="Calibri" color="#305496">Client Name :</font></td><td style="width:26% border-bottom: 0.5px solid #000000; border-bottom: 0.5px solid #000000; padding-bottom: .5em;">{!sirenum__Placement__c.sirenum__Site__r.name}</td></tr>
+<tr><td style="font-weight:bold; padding-bottom: .5em;" height="22px"><font size="3" face="Calibri" color="#305496">Address : </font></td><td style="padding-bottom: .5em;border-bottom: 0.5px solid #000000;">{!sirenum__Placement__c.sirenum__Site__r.sirenum__Street_Address__c}</td></tr>
+<tr><td style="padding-bottom: 1em;">&nbsp;&nbsp;&nbsp;</td><td height="22px" style="border-bottom: 0.5px solid #000000; padding-bottom: .5em;">{!sirenum__Placement__c.sirenum__Site__r.sirenum__City__c}</td></tr>
+<tr><td style="padding-bottom: 1em;">&nbsp;&nbsp;&nbsp;&nbsp;</td><td height="22px" style="border-bottom: 0.5px solid #000000; padding-bottom: .5em;">{!sirenum__Placement__c.sirenum__Site__r.sirenum__County__c}</td></tr>
+<tr><td style="padding-bottom: 1em;">&nbsp;&nbsp;&nbsp;&nbsp;</td><td height="22px" style="border-bottom: 0.5px solid #000000; padding-bottom: .5em;">{!sirenum__Placement__c.sirenum__Site__r.sirenum__Postal_Code__c}</td></tr>
+
+
+
+</table>
+</td>
+<td >
+<table class="t1"  style="width:70%;">
+<tr>
+<td colspan="2" style="text-align:center; border-bottom: 1px solid #000000; font-weight:bold; height:22px;"><font size="4" face="Calibri" color="#305496">Working Details</font></td>
+</tr>
+<tr><td style="font-weight:bold; width:18%; padding-bottom: .5em;"><font size="3" face="Calibri" color="#305496">Reporting to :</font></td><td style="width:33%; border-bottom:1px solid #000000;" >{!sirenum__Placement__c.sirenum__Site__r.IP_MainContact__r.name}</td></tr>
+<tr><td style="font-weight:bold; width:18%; padding-bottom: .5em;" ><font size="3" face="Calibri" color="#305496">Purchase Order ref : </font></td><td style="width:33%; border-bottom:1px solid #000000;">{!sirenum__Placement__c.Calculate_invoice_po__c}</td></tr>
+<tr><td style="font-weight:bold; width:18%;"><font size="3" face="Calibri" color="#305496">Client Cost Centre ref :</font></td><td style="width:33%;"></td></tr>
+</table>
+<table class="t2" style="width:70%;margin-top: 2px;">
+<tr><td style="font-weight:bold;  padding-bottom: .5em; vertical-align:bottom;" width="35%" colspan="2"><font size="3" face="Calibri" color="#305496">Worker Name : </font></td><td colspan="2" width="65%">{!sirenum__Placement__c.sirenum__Contact__r.name}</td></tr>
+<tr><td style="font-weight:bold;  padding-bottom: .6em; vertical-align:center;" width="35%" colspan="2"><font size="3" face="Calibri" color="#305496">Job Title : </font></td><td colspan="2" style="vertical-align:middle; padding-bottom: .7em;" width="65%">{!sirenum__Placement__c.sirenum__Job_Role__r.name}</td></tr>
+<tr><td style="font-weight:bold; vertical-align:bottom;" width="30%"><font size="3" face="Calibri" color="#305496">Worker Id :</font></td>
+<td valign="Center">{!sirenum__Placement__c.IP_WorkerPayrollRef__c}</td>
+<td style="font-weight:bold; width:30%; vertical-align:bottom;"><font size="3" face="Calibri" color="#305496">Assignment ref :</font></td>
+<td>{!sirenum__Placement__c.IP_AssignmentRef__c}</td>
+</tr>
+</table>
+</td>
+
+
+<!--<table class="bar"><tr><td>
+ <img id='pic' src="{!endpt2}"  />  
+  </td></tr></table> -->
+
+</tr>
+</table>
+</div>
+<div>
+<table style=" margin-top:-10px; width:900px; height:218px;">
+<tr>
+<td style="width:35%;">
+<table class="worktable"  >
+<tr>
+<td colspan="2"  style="text-align:center;width:10%; font-weight:bold; border-bottom: 1px solid #000000;">Branch/Administration Details</td>
+</tr>
+<tr><td style="font-weight:bold; vertical-align:bottom; padding-bottom: .6em; padding-top: .6em; width:6%;border:none;   border-left:1px solid #000000; " >Branch :</td><td  style="width:16%; padding-bottom: .6em; padding-top: .6em;border:none; border-bottom: 1px solid #000000; border-right: 1px solid #000000; ">{!sirenum__Placement__c.IP_Consultant1LookupSplitShare__r.Department}</td></tr>
+<tr><td style="font-weight:bold; width:6%; border:none; padding-bottom: .6em;padding-top: .6em; vertical-align:bottom; border-left:1px solid #000000; " >Tel No : </td><td  style="padding-bottom: .6em; padding-top: .6em; border:none; width:19%; border-right:1px solid #000000;  vertical-align:bottom; border-bottom:1px solid #000000;">{!sirenum__Placement__c.IP_Consultant1LookupSplitShare__r.Phone}</td>
+</tr>
+<tr><td style="font-weight:bold; width:6%; border:none; padding-bottom: .6em;padding-top: .6em; vertical-align:bottom; border-left:1px solid #000000; " >Fax :</td><td  style="padding-bottom: .6em; padding-top: .6em; border:none; width:19%; border-right:1px solid #000000;  vertical-align:bottom; border-bottom:1px solid #000000;">{!sirenum__Placement__c.IP_Consultant1LookupSplitShare__r.Fax}</td>
+</tr>
+<tr><td  style="border:none; vertical-align:bottom; padding-bottom: .5em; padding-top: .5em; border-left:1px solid #000000;font-weight:bold; width:8%;"><font size="4" face="Calibri" color="#305496">Branch Code :</font></td><td  style=" padding-bottom: .5em; padding-top: .5em; border:none; border-right:1px solid #000000; border-bottom:1px solid #000000;   width:14%;">{!sirenum__Placement__c.IP_Consultant1LookupSplitShare__r.IP_TempestDepartment__c}</td></tr>
+<tr><td  style=" border:none;  border-left:1px solid #000000; padding-bottom: .5em;padding-top: .5em; font-weight:bold; width:5%;"><font size="4" face="Calibri" color="#305496">Week Ending :</font></td><td  style="border:none; vertical-align:bottom; border-bottom:1px solid #000000;padding-top: .5em; border-right:1px solid #000000;  padding-bottom: .8em; width:14%;">{!d}</td></tr>
+<tr><td  style="border:none;  border-bottom:1px solid #000000; border-left:1px solid #000000; padding-bottom: .6em; padding-top: .6em; font-weight:bold; width:5%;"><font size="4" face="Calibri" color="#305496">Consultant :</font></td><td  style="border:none;   border-right:1px solid #000000;  border-bottom:1px solid #000000; width:14%;padding-top: .6em; padding-bottom: .6em;">{!sirenum__Placement__c.IP_Consultant1LookupSplitShare__r.name}</td></tr>
+</table>
+</td>
+<td style=" width:100px;" >
+<!--<table class="time">
+<tr><td style="width:100%; font-weight:bold; color:black; font-size: 14pt; text-align:center;"><b>{!sirenum__Placement__c.Manual_Timesheet_No__c}</b></td></tr>
+</table> -->
+<apex:outputpanel rendered="{!(sirenum__Placement__c.sirenum__Rota__r.Name='Driving')}">
+<table class="sheet"  >
+<tr><td style="width:50%; text-align:center;"><font size="3" face="Calibri" color="#305496">Expenses Description</font></td><td style="width:25%; text-align:center;"><font size="3" face="Calibri" color="#305496">Qty</font></td><td style="width:25%; border: 2px solid black; border-bottom: 1px solid black; text-align:center;"><font size="3" face="Calibri" color="#305496">Cost</font></td></tr>
+<tr><td></td><td></td><td style="border-left: 2px solid black;border-right: 2px solid black;"></td></tr>
+<tr><td></td><td></td><td style="border-left: 2px solid black;border-right: 2px solid black;"></td></tr>
+<tr><td></td><td></td><td style="border-left: 2px solid black;border-right: 2px solid black;"></td></tr>
+<tr><td></td><td></td><td style="border-left: 2px solid black;border-right: 2px solid black;"></td></tr>
+<tr><td></td><td></td><td style="border-left: 2px solid black;border-right: 2px solid black;"></td></tr>
+<tr><td></td><td></td><td style="border-left: 2px solid black;border-right: 2px solid black;"></td></tr>
+<tr><td style=" border: none;"></td><td style=" border: none;" align="center">Total</td><td style="border-bottom: 2px solid black; border-top: 2px solid black; border-left: 2px solid black;border-right: 2px solid black;"></td></tr>
+</table>
+</apex:outputpanel>
+
+<apex:outputpanel rendered="{!(sirenum__Placement__c.sirenum__Rota__r.Name!='Driving')}">
+<table class="sheet2"  >
+<tr><td style="width:50%; text-align:center;"></td></tr>
+<tr><td></td><td></td><td ></td></tr>
+<tr><td></td><td></td><td ></td></tr>
+<tr><td></td><td></td><td ></td></tr>
+<tr><td></td><td></td><td ></td></tr>
+<tr><td></td><td></td><td ></td></tr>
+<tr><td></td><td></td><td ></td></tr>
+<tr><td style=" border: none;"></td><td style=" border: none;" align="center"></td><td ></td></tr>
+</table>
+</apex:outputpanel> 
+</td>
+
+<table>
+<tr>
+<td >
+<table class="week">
+<tr><td style="text-align:left;">{!day1}</td></tr>
+<tr><td style="text-align:left;">{!day2}</td></tr>
+<tr><td style="text-align:left;">{!day3}</td></tr>
+<tr><td style="text-align:left;">{!day4}</td></tr>
+<tr><td style="text-align:left;">{!day5}</td></tr>
+<tr><td style="text-align:left;">{!day6}</td></tr>
+<tr><td style="text-align:left;">{!day7}</td></tr>
+</table>
+</td>
+<td style="width:500px;  margin-left:-2px;">
+<table class="work" id="data">
+<tr><td style="text-align:center; width:10%;">Start
+Time</td>
+<td style="text-align:center; width:10%; height:15px;">Finish Time</td>
+<td style="text-align:center; width:10%; height:15px;">Hours</td>
+<td style="text-align:center; width:10%; height:15px;">Less Breaks</td>
+<td style="text-align:center; width:10%; height:15px; border-top: 2px solid black; border-right: 2px solid black; border-left: 2px solid black;">Chargable Hours</td>
+<td style="text-align:center; width:10%; height:15px;">Basic Hours</td>
+<td style="text-align:center; width:10%; height:15px;">Overtime Hours</td>
+<td style="text-align:center; width:10%; height:15px;">POA Hours</td>
+<td style="text-align:center; width:10%; height:15px; border-top: 2px solid black; border-right: 2px solid black; border-left: 2px solid black;">Working Hours</td>
+</tr>
+<tr>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="border-left: 2px solid black;border-right: 2px solid black;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="border-left: 2px solid black;border-right: 2px solid black;"></td>
+</tr><tr>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="border-left: 2px solid black;border-right: 2px solid black;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="border-left: 2px solid black;border-right: 2px solid black;"></td>
+</tr><tr>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="border-left: 2px solid black;border-right: 2px solid black;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="border-left: 2px solid black;border-right: 2px solid black;"></td>
+</tr><tr>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="border-left: 2px solid black;border-right: 2px solid black;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="border-left: 2px solid black;border-right: 2px solid black;"></td>
+</tr><tr>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="border-left: 2px solid black;border-right: 2px solid black;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="border-left: 2px solid black;border-right: 2px solid black;"></td>
+</tr><tr>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="border-left: 2px solid black;border-right: 2px solid black;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="border-left: 2px solid black;border-right: 2px solid black;"></td>
+</tr><tr>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="border-left: 2px solid black;border-right: 2px solid black;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="border-left: 2px solid black;border-right: 2px solid black;"></td>
+</tr>
+<tr>
+<td style=" border: none;" ></td>
+<td style=" border: none;" ></td>
+<td style=" border: none;" ></td>
+<td style=" border: none;" align="center">Total</td>
+<td style="border-bottom: 2px solid black; border-top: 2px solid black; border-left: 2px solid black;border-right: 2px solid black;" ></td>
+<td style=" border: none;" ></td>
+<td style=" border: none;" ></td>
+<td style=" border: none;" align="center">Total</td>
+<td style="border-bottom: 2px solid black; border-top: 2px solid black; border-left: 2px solid black;border-right: 2px solid black;" ></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+</tr>
+</table>
+</div>
+<div >
+<table style=" width:900px; height:200px;">
+<tr>
+<td>
+<table class="declare">
+<tr>
+<td height="5%" valign="center" colspan="6"><font size="2" face="Calibri" color="#305496"><b>Declaration : </b>I confirm the hours entered are correct, and understand that failure to provide accurate information on time may result in delay or error in processing my pay.
+</font>
+</td>
+</tr>
+<tr><td colspan="6" >I have accurately detailed all my Working Time in this week and I warrant that it is true and correct to the best of my knowledge.</td></tr>
+<tr><td colspan="6" ></td>
+</tr>
+<tr><td colspan="6" ></td>
+</tr>
+<tr height="4%">
+<td style="width:10%; text-align:left; height:5%;"><font size="2" face="Calibri" color="#305496">Drivers Signature:</font></td>
+<td style="border-bottom: 1px solid #000000; width:18%; text-align:center;"></td>
+<td style="width:10%; text-align:center; height:5%;"><font size="2" face="Calibri" color="#305496">Print Name:</font></td>
+<td style="border-bottom: 1px solid #000000; width:15%; text-align:center;"></td>
+<td style="width:8%; text-align:center; height:5%;"><font size="2" face="Calibri" color="#305496">Date:</font></td>
+<td style="border-bottom: 1px solid #000000; width:15%; text-align:center;"></td>
+</tr>
+</table>
+</td>
+<td>
+</td>
+</tr>
+</table>
+</div> 
+<div>
+<table class="total" >
+<tr>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<table style="border-collapse:collapse; margin-top:-18px; width:430px; height:160px;">
+<tr><td colspan="4" valign="top" width="80%">
+<font size="1" face="Calibri" color="#305496">
+We hereby confirm the above hours are correct and chargeable. We agree that we shall pay you within seven days of the invoice date (unless agreed otherwise in writing) the chargeable hours at the agreed rate. Unless alternative terms have been agreed in writing, we agree to accept your Conditions of Business as previously supplied  and we acknowledge that should any temporary worker introduced by you accept an offer of employment by us a fee calculated in accordance with your normal scale of charges for the introduction of permanent staff will be payable.
+</font>
+
+</td></tr><tr><td colspan="4"></td></tr>
+<tr><td colspan="4"></td></tr>
+<tr>
+<td style="width:12%; text-align:left; height:12%;"><font size="2" face="Calibri" color="#305496">Client Signature:</font></td>
+<td style="border-bottom: 1px solid #000000; width:15%; text-align:center;"></td>
+<td style="width:5%; text-align:left; height:12%;"><font size="2" face="Calibri" color="#305496">Date:</font></td>
+<td style="border-bottom: 1px solid #000000; width:22%; text-align:center;"></td>
+</tr>
+<tr><td colspan="4" style="height:15%;"></td></tr>
+<tr><td colspan="4" style="height:10px;"></td></tr>
+<tr>
+<td style="width:10%; text-align:left; height:12%;"><font size="2" face="Calibri" color="#305496">Please print name:</font></td>
+<td style="border-bottom: 1px solid #000000; width:15%; text-align:center;" ></td>
+<td style="width:5%; text-align:left; height:12%;"><font size="2" face="Calibri" color="#305496">Position:</font></td>
+<td style="border-bottom: 1px solid #000000; width:22%; text-align:center;"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table class = "code">
+<!--<table style="width:900px;height:60px;"> -->
+<tr>
+<td align="center">
+<img id='pic' src="{!endpt2}"  />   
+</td>
+</tr>
+</table>
+</div>
+<!--<div>
+<table style="width:900px;height:60px;">
+<tr>
+<td align="center">
+<img id='pic' src="{!endpt2}"  />   
+</td>
+</tr>
+</table>
+</div> -->
+</body>
+</html>
+</apex:page>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>London_Helena_Active_Chefs</fullName>
+    <columns>CONTACT.LAST_UPDATE</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>Driving_Licence__c</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>Preferred_Job_Title__c</columns>
+    <columns>ts2__Current_Salary__c</columns>
+    <columns>ts2__Desired_Salary__c</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>Perm_Notes__c</columns>
+    <columns>ts2__Notice__c</columns>
+    <columns>Relocate__c</columns>
+    <columns>Live_on_Site__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>London Chef Active</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>notContain</operation>
+        <value>Placed</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>notContain</operation>
+        <value>FOH</value>
+    </filters>
+    <label>London - Helena - Active Chefs</label>
+</ListView>

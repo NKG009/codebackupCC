@@ -1,0 +1,9 @@
+<apex:page >
+  <!-- Begin Default Content REMOVE THIS -->
+  <img src="https://java-flow-521--c.na6.content.force.com/servlet/servlet.ImageServer?id=0150Y000000mCRL&oid=00DQz000004iDs6&lastMod=1431024938000" alt="" usemap="#Map" />
+<map name="Map" id="Map">
+    <area alt="" title="" href="https://java-flow-521.my.salesforce.com/one/one.app#/sObject/jsinq__Inquiry__c/home?t=1431029501099" shape="poly" coords="5,21,179,22,178,128,5,127,3,21,182,21" />
+    [...]
+</map>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

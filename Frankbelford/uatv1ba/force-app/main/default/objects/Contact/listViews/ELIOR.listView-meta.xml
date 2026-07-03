@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ELIOR</fullName>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>FULL_NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>Skills__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Inactive,Pending</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>contains</operation>
+        <value>rg,sl,HP</value>
+    </filters>
+    <filters>
+        <field>Skills__c</field>
+        <operation>equals</operation>
+        <value>Barista,Butler,Catering Assistant,Catering Manager,Chef,Chef de partie,Chef Manager,Commis Chef,Cook,Event Staff,FSA/GA/CSA,Head Chef,House Keeper,Silver Service,Sous Chef,Specialist Chef</value>
+    </filters>
+    <label>1350 - ELIOR</label>
+    <sharedTo>
+        <role>Blue_Arrow_Newbury_Perm_hub</role>
+        <roleAndSubordinates>Blue_Arrow_Newbury_Perm_hub</roleAndSubordinates>
+    </sharedTo>
+</ListView>

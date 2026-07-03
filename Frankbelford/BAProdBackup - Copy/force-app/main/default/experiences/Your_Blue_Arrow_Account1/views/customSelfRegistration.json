@@ -1,0 +1,77 @@
+{
+  "appPageId" : "886f015d-392a-4a9f-a14c-7d28c544c256",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "11dfacea-ffb5-491a-b9d0-265d6b5941a4",
+  "label" : "Custom Self Registration",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "3d410fba-263c-4b01-a40e-71b361995eef",
+          "columns" : [ {
+            "UUID" : "ba3593ec-3bed-42a6-b140-d8f6acf7ba34",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "3d410fba-263c-4b01-a40e-71b361995eef",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "richTextValue" : "<p><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.BA_logo_White_2017_Transparent3.1}\"></p>\n<p style=\"text-align: center;\"><br></p>\n<h1 style=\"text-align: center;\"><strong style=\"font-size: 16px; color: rgb(204, 224, 245);\">Register Today!</strong></h1>"
+          },
+          "componentName" : "forceCommunity:richTextInline",
+          "id" : "a528cf24-5fa8-4756-a8d2-0cef202f5b31",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : { },
+          "componentName" : "c:selfRegisterLWC",
+          "id" : "c58be4ac-fd81-4ff9-a0f6-60e7d65677e9",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "ba3593ec-3bed-42a6-b140-d8f6acf7ba34",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9d64b183-382c-41b3-bea8-f0e448960b86",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "Join one of the UK's largest flexible work communities for flexible work that's all about you.",
+        "title" : "Register"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "554f2f91-b701-45b2-9e5d-fa4a4540ed5a",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5533cedf-c40b-4738-8a89-b24904ff82ab",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Login",
+  "type" : "view",
+  "viewType" : "self-register"
+}

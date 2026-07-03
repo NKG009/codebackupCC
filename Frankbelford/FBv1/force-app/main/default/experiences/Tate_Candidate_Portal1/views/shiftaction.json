@@ -1,0 +1,49 @@
+{
+  "appPageId" : "b2fa95b0-e567-41d6-a9bd-0d8201b2a4b0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "5a4d2456-5bac-491f-be8a-123c691aa0ed",
+  "label" : "Shiftaction",
+  "regions" : [ {
+    "id" : "41869233-bca0-47e5-81c9-0ad9c01560e7",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"Action\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!Action}\"},{\"label\":\"BreakID\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!BreakID}\"},{\"label\":\"ShiftID\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!ShiftID}\"}]",
+        "flowName" : "Candidate_Portal_Shift_Action"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "99a42114-9eb4-444b-8e52-740c0a4ddb44",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1d40f9ad-19df-4f86-a602-c2152cb93ed2",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "55d0dfb5-c6bc-4b71-9110-c420dac16a3f",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Shiftaction"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "e03b55a9-45db-46ef-8b52-3dab614f7303",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c093f981-e610-402a-a859-1755fa3142fd",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-shiftaction"
+}

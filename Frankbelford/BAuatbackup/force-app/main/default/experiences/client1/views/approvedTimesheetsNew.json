@@ -1,0 +1,38 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "4a69d19f-96ad-457f-baac-a26e2ea5b8fc",
+  "label" : "Approved Timesheets New",
+  "regions" : [ {
+    "id" : "d3e75218-7812-4570-a1ba-867677ad3d6d",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "2337f669-ff9a-4b97-ba37-b60e6aebd45d",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "d1e3a4d0-aec6-4d96-9907-6ce1495c8134",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Approved Timesheets New"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "27504895-1c86-4b41-ae96-183877abffbc",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1c0c6f65-5b3a-4018-98c8-a7726c6eb621",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "MBLHA39IgtZ2NnlXQaIHqnoUAEsLSj",
+  "type" : "view",
+  "viewType" : "custom-approved-time-sheets-new"
+}

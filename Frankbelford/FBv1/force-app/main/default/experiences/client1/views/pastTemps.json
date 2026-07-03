@@ -1,0 +1,64 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "77216123-d3c9-4866-b8c3-66cacd41b10d",
+  "label" : "Past Temps",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"color: rgb(0, 0, 0); font-size: 28px;\">Past Temps</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "e36297eb-1822-48c6-9804-53675de4f844",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "45f864e5-5ae6-4c20-b224-00fd8c156e8a",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:PastTemps",
+      "id" : "63c8f371-ee3d-4d3d-b533-d5e74ec32d71",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9d50eed1-caa4-4786-b6be-18e6b731293a",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:HomeLayoutFooter",
+      "id" : "54495065-0f70-4a21-97f4-87228d524e31",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5989c43b-ca45-41ad-84df-87db153a59fa",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Past Temps"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "34e57b0a-0e58-4e99-bf76-60ccb2bcb606",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d3aae673-8158-472e-8f9b-6d6fad566b98",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "BaeIvxdmVNAi846Z78i1VuYgMbv85a",
+  "type" : "view",
+  "viewType" : "custom-past-temps"
+}

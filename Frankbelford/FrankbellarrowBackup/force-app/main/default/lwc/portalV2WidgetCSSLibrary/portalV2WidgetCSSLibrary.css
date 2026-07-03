@@ -1,0 +1,77 @@
+/* Mobile/tablet */
+
+.card {
+  /* width: 27rem; */
+  width: 55vw;
+  height: 25em;
+  border-radius: 20px;
+  box-shadow: -15px 0px 22px #00000029;
+}
+
+/* L Laptop */
+@media (min-width: 85em) {
+  .card {
+    /* width: 35em; */
+    width: 28vw;
+    height: 20em;
+    border-radius: 20px;
+    box-shadow: -15px 0px 22px #00000029;
+  }
+}
+/* 4k */
+@media (min-width: 136em) {
+  .card {
+    width: 30vw;
+    height: 30em;
+    border-radius: 20px;
+    box-shadow: -15px 0px 22px #00000029;
+  }
+}
+
+.grid_align-vertical-spread {
+  justify-content: space-between;
+}
+
+.blue-arrow-primary {
+  background-color: #029de4;
+}
+.top-bar {
+  height: 5em;
+}
+.font-blue-arrow-primary {
+  color: #029de4;
+}
+
+.font-colour-white {
+  color: white;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.spinner {
+  position: relative;
+}
+
+.indicator-number {
+  font-size: 4rem;
+}
+
+.grey-background-color {
+  background-color: #f9f9f9;
+}
+
+.header-text {
+  font-size: 25px;
+}
+
+.font-dark-grey {
+  color: #53565a;
+}
+
+:host {
+  --sds-c-button-brand-color-background: #029de4;
+  --sds-c-button-neutral-color-background-hover: white;
+  --colour-negative-red: #ef6e64;
+}

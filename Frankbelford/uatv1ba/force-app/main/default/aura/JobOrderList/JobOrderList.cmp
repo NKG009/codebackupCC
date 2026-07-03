@@ -1,0 +1,39 @@
+<!--
+ - Created by mrahman on 2020-08-21.
+ -->
+
+<aura:component description="JobOrderList" controller="JobOrderListController" implements="forceCommunity:availableForAllPageTypes">
+
+
+
+
+    <!-- attributes -->
+    <aura:attribute name="status" type="String" required="true"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="prefe_columns" type="List"/>
+
+    <aura:attribute name="sortDirection" type="String" default="asc" />
+    <aura:attribute name="defaultSortDirection" type="String" default="asc" />
+    <aura:attribute name="sortedBy" type="String" />
+
+    <!-- handlers-->
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+    <!-- the container element determine the height of the datatable -->
+
+        <lightning:datatable
+                columns="{! v.columns }"
+                data="{! v.data }"
+                keyField="id"
+                onrowaction="{! c.handleRowAction }"
+                hideCheckboxColumn="true"
+                defaultSortDirection="{!v.defaultSortDirection}"
+                sortedDirection="{!v.sortDirection}"
+                sortedBy="{!v.sortedBy}"
+                onsort="{!c.handleSort}"
+
+
+        />
+
+</aura:component>

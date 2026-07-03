@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Catering_Jobs__c</fullName>
+    <label>Catering Jobs</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Barista</fullName>
+                <default>false</default>
+                <label>Barista</label>
+            </value>
+            <value>
+                <fullName>Bar Staff</fullName>
+                <default>false</default>
+                <label>Bar Staff</label>
+            </value>
+            <value>
+                <fullName>Butler</fullName>
+                <default>false</default>
+                <label>Butler</label>
+            </value>
+            <value>
+                <fullName>Care Worker</fullName>
+                <default>false</default>
+                <label>Care Worker</label>
+            </value>
+            <value>
+                <fullName>Catering Assistant</fullName>
+                <default>false</default>
+                <label>Catering Assistant</label>
+            </value>
+            <value>
+                <fullName>Catering Manager</fullName>
+                <default>false</default>
+                <label>Catering Manager</label>
+            </value>
+            <value>
+                <fullName>Chamber Person</fullName>
+                <default>false</default>
+                <label>Chamber Person</label>
+            </value>
+            <value>
+                <fullName>Chef</fullName>
+                <default>false</default>
+                <label>Chef</label>
+            </value>
+            <value>
+                <fullName>Chef de partie</fullName>
+                <default>false</default>
+                <label>Chef de partie</label>
+            </value>
+            <value>
+                <fullName>Chef Manager</fullName>
+                <default>false</default>
+                <label>Chef Manager</label>
+            </value>
+            <value>
+                <fullName>Commis Chef</fullName>
+                <default>false</default>
+                <label>Commis Chef</label>
+            </value>
+            <value>
+                <fullName>Cook</fullName>
+                <default>false</default>
+                <label>Cook</label>
+            </value>
+            <value>
+                <fullName>Deli Bar</fullName>
+                <default>false</default>
+                <label>Deli Bar</label>
+            </value>
+            <value>
+                <fullName>Event Staff</fullName>
+                <default>false</default>
+                <label>Event Staff</label>
+            </value>
+            <value>
+                <fullName>Food Services Assistant</fullName>
+                <default>false</default>
+                <label>Food Services Assistant</label>
+            </value>
+            <value>
+                <fullName>Front of House</fullName>
+                <default>false</default>
+                <label>Front of House</label>
+            </value>
+            <value>
+                <fullName>General Assistant</fullName>
+                <default>false</default>
+                <label>General Assistant</label>
+            </value>
+            <value>
+                <fullName>Head Chef</fullName>
+                <default>false</default>
+                <label>Head Chef</label>
+            </value>
+            <value>
+                <fullName>Hospitality Staff</fullName>
+                <default>false</default>
+                <label>Hospitality Staff</label>
+            </value>
+            <value>
+                <fullName>House Keeper</fullName>
+                <default>false</default>
+                <label>House Keeper</label>
+            </value>
+            <value>
+                <fullName>Kitchen Assistant</fullName>
+                <default>false</default>
+                <label>Kitchen Assistant</label>
+            </value>
+            <value>
+                <fullName>Kitchen Porter</fullName>
+                <default>false</default>
+                <label>Kitchen Porter</label>
+            </value>
+            <value>
+                <fullName>Laundry Person</fullName>
+                <default>false</default>
+                <label>Laundry Person</label>
+            </value>
+            <value>
+                <fullName>Silver Service</fullName>
+                <default>false</default>
+                <label>Silver Service</label>
+            </value>
+            <value>
+                <fullName>Sous Chef</fullName>
+                <default>false</default>
+                <label>Sous Chef</label>
+            </value>
+            <value>
+                <fullName>Steward</fullName>
+                <default>false</default>
+                <label>Steward</label>
+            </value>
+            <value>
+                <fullName>Supervisor</fullName>
+                <default>false</default>
+                <label>Supervisor</label>
+            </value>
+            <value>
+                <fullName>Waiting Staff</fullName>
+                <default>false</default>
+                <label>Waiting Staff</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>No Experience</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>No Experience</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>no_perm_work_for_2nd_tier_candidate</fullName>
+    <active>true</active>
+    <description>no perm work for 2nd tier candidate</description>
+    <errorConditionFormula>If(RecordType.Name=&apos;2nd Tier Candidate&apos;, 
+If((Perm_Work__c),true,false),false)</errorConditionFormula>
+    <errorMessage>You can not select perm work for 2nd tier candidate</errorMessage>
+</ValidationRule>

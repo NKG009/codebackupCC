@@ -1,0 +1,49 @@
+{
+  "appPageId" : "cb4d05bc-15d6-4e33-beb3-5244832ec585",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "8cd88aa0-2f01-4194-a300-65edb522d44e",
+  "label" : "Notifications",
+  "regions" : [ {
+    "id" : "e53098f7-2c48-45e2-8b72-fb824418b124",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "VMS_Supplier_View_Subscriptions"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "a81dbcfa-8040-4b55-a35f-d104c5cf80bc",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "70f68793-6f73-432a-b08a-5c3279a0e629",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "4b275a27-889d-4689-a163-04e145513e81",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Notifications"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "84586436-7060-43d2-89ae-5c86ef3a0c0e",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "bb933392-12c8-4527-87fb-2a3ae0204736",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-notifications"
+}

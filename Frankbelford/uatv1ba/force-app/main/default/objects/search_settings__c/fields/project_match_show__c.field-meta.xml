@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>project_match_show__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field identifies whether the Project Match field appears on the Match Search tab.</description>
+    <inlineHelpText>This field identifies whether the Project Match field appears on the Match Search tab.</inlineHelpText>
+    <label>Project Match Show</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

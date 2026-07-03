@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2167_BAL_Stevenage_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>2167-BAL Stevenage</label>
+    <queue>X2167_BAL_Stevenage</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

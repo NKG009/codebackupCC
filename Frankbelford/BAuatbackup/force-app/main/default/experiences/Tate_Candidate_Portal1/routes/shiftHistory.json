@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "d77a6e9f-ec29-4d50-9430-48b829d58199",
+  "appPageId" : "b2fa95b0-e567-41d6-a9bd-0d8201b2a4b0",
+  "configurationTags" : [ ],
+  "devName" : "Shift_History__c",
+  "id" : "0f991e15-b1d1-4689-bcc1-647c53a99fad",
+  "label" : "Shift History",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-shift-history",
+  "type" : "route",
+  "urlPrefix" : "shift-history"
+}

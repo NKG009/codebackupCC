@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>3</activeVersionNumber>
+    <description>Replaces below process builder:
+https://bluearrowgroup--migration.sandbox.my.salesforce-setup.com/lightning/setup/ProcessAutomation/home</description>
+    <masterLabel>Record Triggered Flow - Change Status Of Site</masterLabel>
+</FlowDefinition>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "b216acc8-d4f5-4ef7-bda7-72a1ea56789d",
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "configurationTags" : [ ],
+  "devName" : "Fast_Booking__c",
+  "id" : "10b58ddc-e214-4558-bda7-850160cf819d",
+  "label" : "Fast Booking",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-fast-booking",
+  "type" : "route",
+  "urlPrefix" : "fast-booking"
+}

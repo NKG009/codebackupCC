@@ -1,0 +1,140 @@
+<apex:page controller="ShopDirectBatchHeaderdisplay" sidebar="false" lightningStylesheets="true">
+  <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <style>
+            .form-errors {
+                color: red;
+                text-align:center; 
+            }
+        .mandatory-error{ 
+            color: red;
+            text-align:center; 
+        }
+        </style>
+        </head> 
+  <script>
+         var msg = {!$CurrentPage.Parameters.sx}
+         $(".form-errors").hide();  
+        if(msg=='1')
+        {
+            $(".form-errors").show();    
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";
+            self.close();
+        }else{
+            $(".form-errors").hide();    
+        }
+        function CloseARefresh()
+        {      
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";
+            self.close();
+        }    
+        function myFunction() {
+location.href = "/apex/ShopDirectBatchHeader'+'?sx=2";
+ }
+<!--window.onload = function() {
+  myFunction()
+  }; -->
+  function showAlert(t) {
+      if(t) {
+        alert('Batch in progresss');
+      } else {
+        alert('Success');
+      } 
+    }
+     </script>   
+          <apex:form id="form">
+            <apex:pageMessages />
+            <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+            <apex:slds />
+        </apex:outputPanel>
+            <apex:outputPanel layout="block" styleClass="slds-text title slds-text-heading_medium modal-header slds-modal__header slds-size_1-of-1">
+
+                <apex:pageBlock title="Shop Direct Import Management">   
+                                                    
+                    <apex:pageblocksection >                   
+                     <apex:pageblocksectionitem >
+                   
+                    <apex:outputLabel value="Select Batch Header to Process" />
+                    <!-- <apex:outputPanel styleClass="requiredInput" layout="block">
+                        <apex:outputPanel styleClass="requiredBlock" layout="block"/>-->
+                         <apex:actionRegion >
+                        <apex:selectList id="batchhead" size="1" value="{!selectedbatchId}">
+                            <apex:selectOptions value="{!batchOptions}"/>
+                            <apex:actionSupport event="onchange"  action="{!checkstatus}" />  
+                        </apex:selectList>
+                        </apex:actionRegion>
+                    <!--    </apex:outputPanel> -->
+                       
+                        </apex:pageblocksectionitem>
+                        
+                    </apex:pageblocksection> 
+
+                             
+                               <apex:pageBlockButtons location="top">
+                               <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+                                    <apex:commandButton styleClass="slds-vf-button_neutral" style="visibility: hidden;" value="Reject Batch Btn"/>
+                                </apex:outputPanel>
+                                 <apex:commandButton styleClass="slds-vf-button_brand" value="Approve/Reprocess Batch" disabled="{!If($CurrentPage.Parameters.sx=='1',true, false)}" action="{!approvebatch}" onclick="if({!checkrender== 'true'}){
+                                  alert('The batch job is currently executing. Please wait for it to complete.');
+                              }else{
+                                 alert('Batch process initiated'); 
+                               }">
+                             </apex:commandbutton>
+                                                                   
+                        
+                                 <apex:commandButton styleClass="slds-vf-button_neutral" value="Reject Batch" action="{!rejectbatch}" rendered="{!IF(status  == 'Pending Approval',TRUE,FALSE)}"/>
+                               
+                                 </apex:pageBlockButtons>  
+                                 
+                                 
+                                 <apex:pageBlockButtons location="bottom">
+                                 <apex:commandButton styleClass="slds-vf-button_brand" value="Show All Lines" action="{!displaylines}"/>   
+                                 <apex:commandButton styleClass="slds-vf-button_brand" value="Show Errored Lines" action="{!showerroredlines}"/>                                                           
+                                   </apex:pageBlockButtons>  
+                            </apex:pageBlock>                                  
+                    </apex:outputPanel>
+                                  <apex:outputPanel id="a">
+                                  <apex:pageblock >
+                                  <apex:pageBlockTable value="{!batchline}" var="b" rendered="{!NOT(ISNULL(batchline))}">
+                                      <apex:column value="{!b.IP_Status__c}" />                                    
+                                     <apex:column >
+                                     <apex:facet name="header">   
+                                       <apex:commandLink action="{!showlines}" value="Candidate Name{!IF(sortExpression=='IP_TextField1__c',IF(sortDirection='ASC','▼','▲'),'')}" id="cmdSort">
+                                         <apex:param value="IP_TextField1__c" name="column" assignTo="{!sortExpression}" ></apex:param>
+                                       </apex:commandLink>
+                                     </apex:facet>
+                                     <apex:outputText >{!b.IP_TextField1__c}</apex:outputText>
+                                   </apex:column>  
+                                    <apex:column >
+                                      <apex:facet name="header">Record ID</apex:facet>   
+                                       <apex:outputText >{!b.ID}</apex:outputText>
+                                    </apex:column>
+                                    <apex:column >
+                                      <apex:facet name="header">Batch Line</apex:facet>   
+                                       <apex:outputText >{!b.Name}</apex:outputText>
+                                    </apex:column>
+                                    <apex:column >
+                                      <apex:facet name="header">Job Role</apex:facet>   
+                                       <apex:outputText >{!b.IP_TextField4__c}</apex:outputText>
+                                    </apex:column>
+                                    <apex:column >
+                                      <apex:facet name="header">Rate Code</apex:facet>   
+                                       <apex:outputText >{!b.IP_TextField9__c}</apex:outputText>
+                                    </apex:column>
+                                    <apex:column >
+                                      <apex:facet name="header">Pay Rate</apex:facet>   
+                                       <apex:outputText >{!b.IP_CurrencyField1__c}</apex:outputText>
+                                    </apex:column>
+                                    <apex:column >
+                                      <apex:facet name="header">Charge Rate</apex:facet>   
+                                       <apex:outputText >{!b.IP_CurrencyField2__c}</apex:outputText>
+                                    </apex:column>
+                                      <apex:column value="{!b.IP_ErrorReason__c}" />
+                                  </apex:pageBlockTable>
+                                    </apex:pageBlock>
+                                 </apex:outputPanel>
+                                  
+                              </apex:form>
+</apex:page>

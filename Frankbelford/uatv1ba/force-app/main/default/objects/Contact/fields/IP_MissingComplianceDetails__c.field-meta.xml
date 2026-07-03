@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_MissingComplianceDetails__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( RecordType.Name == &apos;2nd Tier Candidate&apos; &amp;&amp; !ISBLANK(IP_MC2Tier__c) ,IP_MC2Tier__c,
+IF( AND(IP_EarliestExpiringComplianceDate__c &lt; Today(),
+NOT(BEGINS(IP_CitizenshipGroup__c,&quot;Citizen of the&quot;)),
+NOT(ID_Time_Limited__c =&quot;Indefinite&quot;) ,
+IP_CountOfPORTWWithNoExpiry__c =0
+),
+&quot;Expired Compliance&quot;,&quot;&quot;) &amp;
+IF( AND(PORTW_Completed__c,
+ISBLANK(IP_PORTWStartDate__c),
+
+NOT(BEGINS(IP_CitizenshipGroup__c,&quot;Citizen of the&quot;))
+),
+&quot;POTWStartDate&quot;,&quot;&quot;) &amp;
+IF( AND(IP_EarliestExpiringComplianceDate__c &gt;= Today(),
+IP_EarliestExpiringComplianceDate__c &lt; Today()+30,
+NOT(BEGINS(IP_CitizenshipGroup__c,&quot;Citizen of the&quot;)),
+IP_CountOfPORTWWithNoExpiry__c =0
+),
+&quot;Expiring Compliance&quot;,&quot;&quot;)&amp;
+IF( RecordType.Name != &apos;2nd Tier Candidate&apos; ,
+IF( !ISBLANK(IP_MCPermWork__c)&amp;&amp;Perm_Work__c,&quot;Missing for Perm: &quot; +IP_MCPermWork__c ,&quot;&quot;) &amp;
+IF( !ISBLANK(IP_MCPAYE__c)&amp;&amp;IP_PAYECount__c&gt;0,&quot;Missing for Paye:&quot; +IP_MCPAYE__c ,&quot;&quot;) &amp;
+IF( !ISBLANK(IP_MCLTD__c)&amp;&amp;IP_LTDCount__c&gt;0,&quot;Missing for LTD:&quot; +IP_MCLTD__c ,&quot;&quot;) &amp;
+IF( !ISBLANK(IP_MCUmb__c)&amp;&amp;IP_UmbCount__c&gt;0,&quot;Missing for Umbrella:&quot; +IP_MCUmb__c,&quot;&quot;),&quot;&quot;
+))</formula>
+    <label>Missing Compliance Details</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

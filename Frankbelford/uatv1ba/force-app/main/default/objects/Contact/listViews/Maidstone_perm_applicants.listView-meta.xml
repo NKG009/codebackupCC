@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maidstone_perm_applicants</fullName>
+    <columns>CONTACT.LAST_UPDATE</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>Preferred_Job_Title__c</columns>
+    <columns>ts2__Current_Salary__c</columns>
+    <columns>ts2__Desired_Salary__c</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>Perm_Notes__c</columns>
+    <columns>ts2__Notice__c</columns>
+    <columns>Driving_Licence__c</columns>
+    <columns>Relocate__c</columns>
+    <columns>Live_on_Site__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>Perm_Work__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>equals</operation>
+        <value>1068</value>
+    </filters>
+    <label>Maidstone perm applicants</label>
+</ListView>

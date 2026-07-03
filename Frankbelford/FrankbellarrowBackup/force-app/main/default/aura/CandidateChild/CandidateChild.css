@@ -1,0 +1,101 @@
+@media screen and (max-width: 450px) {
+  .THIS .panel-default:first-child {
+    display: block;
+  }
+}
+
+.THIS .ElementDetail__table table tr td:before {
+  /* content : none;*/
+}
+
+.THIS .textclass::before {
+  content: none;
+}
+
+.THIS .hideclass {
+  display: none;
+}
+
+.THIS #overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #F6F6F6;
+  opacity: 0.90;
+  text-align: center;
+  padding-top: 30%;
+
+}
+
+.THIS #overlay img {
+  position: fixed;
+
+}
+
+.THIS .selected {
+  color: orange;
+}
+
+.THIS .dataTables_wrapper table thead th:nth-child(-n+4):after {
+  display: none;
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {
+
+  .THIS .centeralign {
+    text-align: center;
+  }
+
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+  .THIS .centeralign {
+    text-align: center;
+  }
+
+}
+
+.THIS .disabled {
+  pointer-events: none;
+
+}
+
+
+.THIS .whitecolor {
+  background-color: white;
+}
+
+.THIS .textheight {
+  height: 150px;
+}
+
+.THIS .InvoicePO {
+  min-height: 30px;
+  text-align-last: center;
+}
+
+.THIS .fitWidth {
+  width: max-content;
+}
+
+.THIS tbody .slds-popover_tooltip.inhead_offset {
+  top: 20px !important;
+}
+
+.THIS .search-btn {
+  height: 34px !important;
+  padding: 6px 10px !important;
+  font-size: 15px !important;
+}

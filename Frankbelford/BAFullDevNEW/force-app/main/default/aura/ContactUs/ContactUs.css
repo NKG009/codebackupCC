@@ -1,0 +1,38 @@
+.THIS .datatable{
+    
+    width:500px;
+  
+    border-collapse: collapse;
+  
+     margin: 0 auto;
+}
+
+.THIS .divtable{
+    width:500px;
+    text-align:center;
+}
+
+.THIS .inputtext{
+    width:500px;
+    
+}
+.THIS .Backbutton{
+    color : white;
+     background-color: #6f6f6e;
+    border-color: #6f6f6e;
+}
+.THIS .Backbutton:hover{
+    color : white;
+     background-color: #99998e;
+    border-color: #99998e;
+}
+.THIS .Submitbutton{
+    color : white;
+     background-color: #a8cd1b;
+    border-color: #a8cd1b;
+}
+.THIS .Submitbutton:hover{
+    color : white;
+     background-color: #96aa4b;
+    border-color: #96aa4b;
+}

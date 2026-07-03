@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "70283f77-7443-45ac-9c95-9c6dc6d7ea53",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "ConfirmYourHours__c",
+  "id" : "ac047f0e-57b3-4999-8a0d-feb649ecfc10",
+  "label" : "ConfirmYourHours",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-confirmyourhours",
+  "type" : "route",
+  "urlPrefix" : "confirmyourhours"
+}

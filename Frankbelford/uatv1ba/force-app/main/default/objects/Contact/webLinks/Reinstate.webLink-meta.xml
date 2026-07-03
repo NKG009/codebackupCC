@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reinstate</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Reinstate</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/apex.js&quot;)} 
+
+var P45_Date_Head_Office = &apos;{!Contact.P45_Date_by_Head_Office__c}&apos;; 
+var P45_Requested = &apos;{!Contact.P45_Requested__c}&apos;; 
+
+var childrecord = sforce.connection.query(&quot;SELECT ID,IP_Status__c FROM ts2__Certification__c where (RecordType.Name=&apos;TOE&apos; OR RecordType.Name=&apos;New Starter Declaration Form&apos;) AND ts2__Contact__c =&apos;{!Contact.Id}&apos;&quot; ); 
+
+var precord= sforce.connection.query(&quot;SELECT ID,IP_Status__c,IP_NewStarterTaxStatus__c,IP_StudentLoan__c, P45_Date_by_Head_Office__c, P45_Requested__c,P45_Initiated__c, Reason_for_P45_Internal__c, Reason_for_Leaving1__c,Date_P45_Requested__c FROM IP_PayProfile__c where RecordType.Name = &apos;PAYE&apos; AND IP_Status__c=&apos;Inactive&apos; AND IP_Candidate__c =&apos;{!Contact.Id}&apos;&quot; ); 
+
+var payrecord = sforce.connection.query(&quot;SELECT ID,IP_Status__c FROM IP_PayProfile__c where (RecordType.Name = &apos;LTD&apos; OR RecordType.Name = &apos;Umbrella&apos;) AND IP_Candidate__c =&apos;{!Contact.Id}&apos; AND IP_Status__c=&apos;Inactive&apos;&quot;); 
+
+var paylist = payrecord.getArray(&quot;records&quot;); 
+var plist = precord.getArray(&quot;records&quot;); 
+var updatepRecord = new Array(); 
+var updateconRecord = new Array(); 
+
+var records = childrecord.getArray(&quot;records&quot;); 
+var updatecertRecord = new Array(); 
+
+
+if(P45_Date_Head_Office !=&apos;&apos;) 
+{ 
+
+var c= new sforce.SObject(&quot;Contact&quot;); 
+c.id=&quot;{!Contact.Id}&quot;; 
+c.P45_Requested__c = false; 
+c.Reason_for_Leaving1__c=null; 
+c.P45_Date_by_Head_Office__c=null; 
+c.IP_WorkerLeavingDate__c=null; 
+c.Reason_for_P45__c=null; 
+c.IP_WorkerStartDate__c=null; 
+c.Student__c=false; 
+c.TOE_Completed__c=false; 
+c.New_Starter_Form__c=false; 
+c.Sync_Pay_Profile__c = false;
+c.Sync_Pay_Profile2__c = false;
+
+updateconRecord.push(c);
+for (i=0; i &lt; records.length ; i++) 
+{ 
+var child = records[i]; 
+child.IP_Status__c = &apos;Lapsed&apos;; 
+
+
+updatecertRecord.push(child); 
+
+} 
+
+childrecord = sforce.connection.update(updatecertRecord); 
+
+if(paylist.length&gt;0) 
+{ 
+
+var win = window.open(&apos;/apex/Payprofileactive?id={! Contact.Id}&apos;, &apos;_blank&apos;, &apos;height=550,width=800,resizable=yes,scrollbars=yes,toolbar=n‌​o,menubar=no&apos;); 
+
+
+} 
+else if(paylist.length ==0 &amp;&amp; plist.length&gt;0) 
+{ 
+for (i=0; i &lt; plist.length ; i++) 
+{ 
+var child = plist[i]; 
+child.IP_Status__c = &apos;Active&apos;; 
+child.P45_Date_by_Head_Office__c=null; 
+child.P45_Requested__c=false; 
+child.Reason_for_P45_Internal__c=null; 
+child.Reason_for_Leaving1__c = null; 
+child.P45_Initiated__c=false; 
+child.IP_NewStarterTaxStatus__c = null;
+child.IP_StudentLoan__c = null;
+child.Date_P45_Requested__c = null;
+child.IP_PassToTempest__c=false;
+child.IP_LastPassedToTempest__c=null;
+
+updatepRecord.push(child); 
+
+} 
+
+precord = sforce.connection.update(updatepRecord); 
+//alert(&apos;precord &apos;+precord ); 
+//alert(&apos;test &apos;+c); 
+var results= sforce.connection.update(updateconRecord); 
+//alert(&apos;results &apos;+results); 
+alert(&apos;Candiate Reinstated&apos;); 
+location.reload(true); 
+} 
+else{ 
+alert(&apos;There is no Inactive Pay Profile associated to this Contact&apos;); } 
+} 
+else 
+{ 
+alert(&apos;You have not requested P45 OR you have not issued P45&apos;); 
+}</url>
+</WebLink>

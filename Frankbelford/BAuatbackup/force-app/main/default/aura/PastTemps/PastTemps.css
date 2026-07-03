@@ -1,0 +1,84 @@
+.THIS .red {
+    background-color: #ff0000;
+}
+.THIS .amber {
+    background-color: #e6ac00;
+}
+.THIS .green {
+    background-color: lightgreen;
+}
+.THIS .button {
+    font-weight: bold;
+    background:none!important;
+    color:#009ee3;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: underline; 
+}
+.THIS .buttonRed {
+    font-weight: bold;
+    background:none!important;
+    color:red;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: underline; 
+}
+.THIS .slds-button:focus{
+    box-shadow:none;
+    outline:none;
+}
+.THIS .tdcenter{
+    text-align:center;
+}
+.THIS .headingdetails{
+     font-family: Arial;
+     color : #009ee3;
+    
+}
+.THIS .headingfont{
+   font-family: Arial;
+	font-size: 15px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 26.4px;
+    color : #009ee3;
+  border-bottom: 1px solid darkgray ;
+    border-top: 1px solid darkgray ;
+    text-align:center;
+    
+}
+.THIS .Backbutton{
+    color : white;
+     background-color: #6f6f6e;
+    border-color: #6f6f6e;
+}
+.THIS .Backbutton:hover{
+    color : white;
+     background-color: #99998e;
+    border-color: #99998e;
+}
+.THIS .Searchbutton{
+    color : white;
+     background-color: #a8cd1b;
+    border-color: #a8cd1b;
+}
+.THIS .Searchbutton:hover{
+    color : white;
+     background-color: #96aa4b;
+    border-color: #96aa4b;
+}
+.THIS .Feedbackbutton{
+    color : white;
+     background-color: #009ee3;
+    border-color: #009ee3;
+}
+.THIS .Feedbackbutton:hover{
+    color : white;
+     background-color: #377d9b;
+    border-color: #377d9b;
+}

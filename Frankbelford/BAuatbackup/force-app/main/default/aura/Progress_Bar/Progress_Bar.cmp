@@ -1,0 +1,6 @@
+<aura:component implements="lightning:availableForFlowScreens" description="Progress Bar" access="global">
+	 <aura:attribute name="Width" type="String" default="0"/> 
+    <lightning:formattedText value="{!'Progress: ' + v.Width + '%'}" />
+    <lightning:progressBar value="{!v.Width}" size="Large" variant="Circular" class="progress" />
+   
+</aura:component>

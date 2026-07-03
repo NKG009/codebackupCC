@@ -1,0 +1,24 @@
+<template>
+    <template if:false={theLayout.previous.disabled}>
+        <lightning-icon icon-name="utility:chevronleft" class="next-previous-button" alternative-text="Previous Page" size="xx-small" title="Previous Page" data-page="previous" onclick={pageSelectedByUser}></lightning-icon>
+    </template>
+    <template if:true={theLayout.previous.disabled}>
+        <lightning-icon icon-name="utility:chevronleft" class="next-previous-button-disabled" alternative-text="Previous Page" size="xx-small" title="Previous Page" data-page="previous"></lightning-icon>
+    </template>
+
+    <template for:each={theLayout.pages} for:item="page">
+        <template if:true={page.skip}>
+            .....
+        </template>
+        <template if:false={page.skip}>
+            <lightning-button key={page.tag} variant={page.variant} label={page.tag} class={page.rule} data-page={page.tag} onclick={pageSelectedByUser}></lightning-button>
+        </template>
+    </template>
+
+    <template if:false={theLayout.next.disabled}>
+        <lightning-icon icon-name="utility:chevronright" class="next-previous-button" alternative-text="Next Page" size="xx-small" title="Next Page" data-page="next" onclick={pageSelectedByUser}></lightning-icon>
+    </template>
+    <template if:true={theLayout.next.disabled}>
+        <lightning-icon icon-name="utility:chevronright" class="next-previous-button-disabled" alternative-text="Next Page" size="xx-small" title="Next Page" data-page="next"></lightning-icon>
+    </template>
+</template>

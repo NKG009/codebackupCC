@@ -1,0 +1,15 @@
+<!--
+ - Created by mrahman on 2020-08-22.
+ -->
+
+<aura:component implements="forceCommunity:availableForAllPageTypes" description="ClientComunityBreadcrumb">
+    <aura:attribute name="currentPage" type="String" required="false"/>
+    <aura:attribute name="siteId" type="String" default="all"/>
+
+    <div class="slds-col">
+        <ol class="breadcrumb">
+            <li><a href="javascript:void(0)" onclick="{!c.goToDashboard}" title="Dashboard">Dashboard</a></li>
+            <li class="active">{! v.currentPage}</li>
+        </ol>
+    </div>
+</aura:component>

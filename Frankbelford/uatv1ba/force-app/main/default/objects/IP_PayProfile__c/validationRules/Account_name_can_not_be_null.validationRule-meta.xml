@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_name_can_not_be_null</fullName>
+    <active>true</active>
+    <errorConditionFormula>if(AND(IP_AccountNumber__c !=Null|| IP_SortCode__c !=Null,IP_BuildingSocietyNumber__c ==Null),
+IF(IP_BankAccountName__c==null,True,False),False)</errorConditionFormula>
+    <errorMessage>Account name can not be null</errorMessage>
+</ValidationRule>

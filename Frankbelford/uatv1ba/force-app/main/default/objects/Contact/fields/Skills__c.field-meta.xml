@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Skills__c</fullName>
+    <label>Skills</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bar Staff</fullName>
+                <default>false</default>
+                <label>Bar Staff</label>
+            </value>
+            <value>
+                <fullName>Barista</fullName>
+                <default>false</default>
+                <label>Barista</label>
+            </value>
+            <value>
+                <fullName>Butler</fullName>
+                <default>false</default>
+                <label>Butler</label>
+            </value>
+            <value>
+                <fullName>Cashier</fullName>
+                <default>false</default>
+                <label>Cashier</label>
+            </value>
+            <value>
+                <fullName>Catering Manager</fullName>
+                <default>false</default>
+                <label>Catering Manager</label>
+            </value>
+            <value>
+                <fullName>BOH</fullName>
+                <default>false</default>
+                <label>BOH</label>
+            </value>
+            <value>
+                <fullName>FOH</fullName>
+                <default>false</default>
+                <label>FOH</label>
+            </value>
+            <value>
+                <fullName>Chef</fullName>
+                <default>false</default>
+                <label>Chef</label>
+            </value>
+            <value>
+                <fullName>Chef de partie</fullName>
+                <default>false</default>
+                <label>Chef de partie</label>
+            </value>
+            <value>
+                <fullName>Chef Manager</fullName>
+                <default>false</default>
+                <label>Chef Manager</label>
+            </value>
+            <value>
+                <fullName>Commis Chef</fullName>
+                <default>false</default>
+                <label>Commis Chef</label>
+            </value>
+            <value>
+                <fullName>Cook</fullName>
+                <default>false</default>
+                <label>Cook</label>
+            </value>
+            <value>
+                <fullName>Head Chef</fullName>
+                <default>false</default>
+                <label>Head Chef</label>
+            </value>
+            <value>
+                <fullName>Pastry Chef</fullName>
+                <default>false</default>
+                <label>Pastry Chef</label>
+            </value>
+            <value>
+                <fullName>Sous Chef</fullName>
+                <default>false</default>
+                <label>Sous Chef</label>
+            </value>
+            <value>
+                <fullName>Specialist Chef</fullName>
+                <default>false</default>
+                <label>Specialist Chef</label>
+            </value>
+            <value>
+                <fullName>Event Staff</fullName>
+                <default>false</default>
+                <label>Event Staff</label>
+            </value>
+            <value>
+                <fullName>Front of House</fullName>
+                <default>false</default>
+                <label>Front of House</label>
+            </value>
+            <value>
+                <fullName>FSA/GA/CSA</fullName>
+                <default>false</default>
+                <label>FSA/GA/CSA</label>
+            </value>
+            <value>
+                <fullName>House Keeper</fullName>
+                <default>false</default>
+                <label>House Keeper</label>
+            </value>
+            <value>
+                <fullName>Kitchen Porter</fullName>
+                <default>false</default>
+                <label>Kitchen Porter</label>
+            </value>
+            <value>
+                <fullName>Kitchen Assistant</fullName>
+                <default>false</default>
+                <label>Kitchen Assistant</label>
+            </value>
+            <value>
+                <fullName>Porter</fullName>
+                <default>false</default>
+                <label>Porter</label>
+            </value>
+            <value>
+                <fullName>Plate Waiting</fullName>
+                <default>false</default>
+                <label>Plate Waiting</label>
+            </value>
+            <value>
+                <fullName>Waiting Staff/SS</fullName>
+                <default>false</default>
+                <label>Waiting Staff/SS</label>
+            </value>
+            <value>
+                <fullName>Caretaker</fullName>
+                <default>false</default>
+                <label>Caretaker</label>
+            </value>
+            <value>
+                <fullName>Cleaner</fullName>
+                <default>false</default>
+                <label>Cleaner</label>
+            </value>
+            <value>
+                <fullName>Covid-19 Tester</fullName>
+                <default>false</default>
+                <label>Covid-19 Tester</label>
+            </value>
+            <value>
+                <fullName>Refuse Collector</fullName>
+                <default>false</default>
+                <label>Refuse Collector</label>
+            </value>
+            <value>
+                <fullName>Steward</fullName>
+                <default>false</default>
+                <label>Steward</label>
+            </value>
+            <value>
+                <fullName>Chauffer</fullName>
+                <default>false</default>
+                <label>Chauffer</label>
+            </value>
+            <value>
+                <fullName>Counterbalance FLT Driver</fullName>
+                <default>false</default>
+                <label>Counterbalance FLT Driver</label>
+            </value>
+            <value>
+                <fullName>Drivers Mate</fullName>
+                <default>false</default>
+                <label>Drivers Mate</label>
+            </value>
+            <value>
+                <fullName>ADR</fullName>
+                <default>false</default>
+                <label>ADR</label>
+            </value>
+            <value>
+                <fullName>Hi-Ab</fullName>
+                <default>false</default>
+                <label>Hi-Ab</label>
+            </value>
+            <value>
+                <fullName>LGV ADR Category C</fullName>
+                <default>false</default>
+                <label>LGV ADR Category C</label>
+            </value>
+            <value>
+                <fullName>LGV ADR Category C+E</fullName>
+                <default>false</default>
+                <label>LGV ADR Category C+E</label>
+            </value>
+            <value>
+                <fullName>LGV ADR Category C1</fullName>
+                <default>false</default>
+                <label>LGV ADR Category C1</label>
+            </value>
+            <value>
+                <fullName>LGV C Driver</fullName>
+                <default>false</default>
+                <label>LGV C Driver</label>
+            </value>
+            <value>
+                <fullName>LGV C+E Driver</fullName>
+                <default>false</default>
+                <label>LGV C+E Driver</label>
+            </value>
+            <value>
+                <fullName>LGV C1 Driver</fullName>
+                <default>false</default>
+                <label>LGV C1 Driver</label>
+            </value>
+            <value>
+                <fullName>LGV HIAB Category C</fullName>
+                <default>false</default>
+                <label>LGV HIAB Category C</label>
+            </value>
+            <value>
+                <fullName>LGV HIAB Category C+E</fullName>
+                <default>false</default>
+                <label>LGV HIAB Category C+E</label>
+            </value>
+            <value>
+                <fullName>Narrow Aisle Fork Lift Driver</fullName>
+                <default>false</default>
+                <label>Narrow Aisle Fork Lift Driver</label>
+            </value>
+            <value>
+                <fullName>Non LGV Driver</fullName>
+                <default>false</default>
+                <label>Non LGV Driver</label>
+            </value>
+            <value>
+                <fullName>PCV Driver (Bus/Coach)</fullName>
+                <default>false</default>
+                <label>PCV Driver (Bus/Coach)</label>
+            </value>
+            <value>
+                <fullName>PCV Driver (Minibus)</fullName>
+                <default>false</default>
+                <label>PCV Driver (Minibus)</label>
+            </value>
+            <value>
+                <fullName>Reach FLT Driver</fullName>
+                <default>false</default>
+                <label>Reach FLT Driver</label>
+            </value>
+            <value>
+                <fullName>Shunter</fullName>
+                <default>false</default>
+                <label>Shunter</label>
+            </value>
+            <value>
+                <fullName>Telescopic Fork Lift Driver</fullName>
+                <default>false</default>
+                <label>Telescopic Fork Lift Driver</label>
+            </value>
+            <value>
+                <fullName>Van ADR Driver</fullName>
+                <default>false</default>
+                <label>Van ADR Driver</label>
+            </value>
+            <value>
+                <fullName>Van Driver</fullName>
+                <default>false</default>
+                <label>Van Driver</label>
+            </value>
+            <value>
+                <fullName>Carpenter/Joiner</fullName>
+                <default>false</default>
+                <label>Carpenter/Joiner</label>
+            </value>
+            <value>
+                <fullName>Food Packing</fullName>
+                <default>false</default>
+                <label>Food Packing</label>
+            </value>
+            <value>
+                <fullName>Goods in/out</fullName>
+                <default>false</default>
+                <label>Goods in/out</label>
+            </value>
+            <value>
+                <fullName>Labourer</fullName>
+                <default>false</default>
+                <label>Labourer</label>
+            </value>
+            <value>
+                <fullName>Loader/Unloader</fullName>
+                <default>false</default>
+                <label>Loader/Unloader</label>
+            </value>
+            <value>
+                <fullName>Picker/Packer</fullName>
+                <default>false</default>
+                <label>Picker/Packer</label>
+            </value>
+            <value>
+                <fullName>Production Operative</fullName>
+                <default>false</default>
+                <label>Production Operative</label>
+            </value>
+            <value>
+                <fullName>Stores Person</fullName>
+                <default>false</default>
+                <label>Stores Person</label>
+            </value>
+            <value>
+                <fullName>Warehouse Operative</fullName>
+                <default>false</default>
+                <label>Warehouse Operative</label>
+            </value>
+            <value>
+                <fullName>Yards Person</fullName>
+                <default>false</default>
+                <label>Yards Person</label>
+            </value>
+            <value>
+                <fullName>Banksman</fullName>
+                <default>false</default>
+                <label>Banksman</label>
+            </value>
+            <value>
+                <fullName>Recycling Operative</fullName>
+                <default>false</default>
+                <label>Recycling Operative</label>
+            </value>
+            <value>
+                <fullName>360 Excavator Operator</fullName>
+                <default>false</default>
+                <label>360 Excavator Operator</label>
+            </value>
+            <value>
+                <fullName>Power Tool Operative</fullName>
+                <default>false</default>
+                <label>Power Tool Operative</label>
+            </value>
+            <value>
+                <fullName>Customer Service</fullName>
+                <default>false</default>
+                <label>Customer Service</label>
+            </value>
+            <value>
+                <fullName>Merchandiser</fullName>
+                <default>false</default>
+                <label>Merchandiser</label>
+            </value>
+            <value>
+                <fullName>Retail Staff</fullName>
+                <default>false</default>
+                <label>Retail Staff</label>
+            </value>
+            <value>
+                <fullName>Shelf Replenishment</fullName>
+                <default>false</default>
+                <label>Shelf Replenishment</label>
+            </value>
+            <value>
+                <fullName>Administrator</fullName>
+                <default>false</default>
+                <label>Administrator</label>
+            </value>
+            <value>
+                <fullName>Assistant Accountant</fullName>
+                <default>false</default>
+                <label>Assistant Accountant</label>
+            </value>
+            <value>
+                <fullName>Audio Secretary</fullName>
+                <default>false</default>
+                <label>Audio Secretary</label>
+            </value>
+            <value>
+                <fullName>Call Centre In/Out</fullName>
+                <default>false</default>
+                <label>Call Centre In/Out</label>
+            </value>
+            <value>
+                <fullName>Consultant Support</fullName>
+                <default>false</default>
+                <label>Consultant Support</label>
+            </value>
+            <value>
+                <fullName>Credit Control</fullName>
+                <default>false</default>
+                <label>Credit Control</label>
+            </value>
+            <value>
+                <fullName>Data Engineering</fullName>
+                <default>false</default>
+                <label>Data Engineering</label>
+            </value>
+            <value>
+                <fullName>Data Entry</fullName>
+                <default>false</default>
+                <label>Data Entry</label>
+            </value>
+            <value>
+                <fullName>DTP/Graphic Operator</fullName>
+                <default>false</default>
+                <label>DTP/Graphic Operator</label>
+            </value>
+            <value>
+                <fullName>Filing Clerk</fullName>
+                <default>false</default>
+                <label>Filing Clerk</label>
+            </value>
+            <value>
+                <fullName>HR Admin/Advisor</fullName>
+                <default>false</default>
+                <label>HR Admin/Advisor</label>
+            </value>
+            <value>
+                <fullName>IT Administrator</fullName>
+                <default>false</default>
+                <label>IT Administrator</label>
+            </value>
+            <value>
+                <fullName>IT Helpdesk</fullName>
+                <default>false</default>
+                <label>IT Helpdesk</label>
+            </value>
+            <value>
+                <fullName>IT Support</fullName>
+                <default>false</default>
+                <label>IT Support</label>
+            </value>
+            <value>
+                <fullName>Legal Secretary</fullName>
+                <default>false</default>
+                <label>Legal Secretary</label>
+            </value>
+            <value>
+                <fullName>Marketing Assistant</fullName>
+                <default>false</default>
+                <label>Marketing Assistant</label>
+            </value>
+            <value>
+                <fullName>Medical Secretary</fullName>
+                <default>false</default>
+                <label>Medical Secretary</label>
+            </value>
+            <value>
+                <fullName>PA/Secretary</fullName>
+                <default>false</default>
+                <label>PA/Secretary</label>
+            </value>
+            <value>
+                <fullName>Receptionist</fullName>
+                <default>false</default>
+                <label>Receptionist</label>
+            </value>
+            <value>
+                <fullName>Accounts Payable Assistant</fullName>
+                <default>false</default>
+                <label>Accounts Payable Assistant</label>
+            </value>
+            <value>
+                <fullName>Sales and Marketing</fullName>
+                <default>false</default>
+                <label>Sales and Marketing</label>
+            </value>
+            <value>
+                <fullName>Secretary</fullName>
+                <default>false</default>
+                <label>Secretary</label>
+            </value>
+            <value>
+                <fullName>Technical Assistant</fullName>
+                <default>false</default>
+                <label>Technical Assistant</label>
+            </value>
+            <value>
+                <fullName>Tele Sales</fullName>
+                <default>false</default>
+                <label>Tele Sales</label>
+            </value>
+            <value>
+                <fullName>Bendi FLT</fullName>
+                <default>false</default>
+                <label>Bendi FLT</label>
+            </value>
+            <value>
+                <fullName>Call Centre</fullName>
+                <default>false</default>
+                <label>Call Centre</label>
+            </value>
+            <value>
+                <fullName>Catering Assistant</fullName>
+                <default>false</default>
+                <label>Catering Assistant</label>
+            </value>
+            <value>
+                <fullName>Electrician</fullName>
+                <default>false</default>
+                <label>Electrician</label>
+            </value>
+            <value>
+                <fullName>Estate agent</fullName>
+                <default>false</default>
+                <label>Estate agent</label>
+            </value>
+            <value>
+                <fullName>Food Services Assistant</fullName>
+                <default>false</default>
+                <label>Food Services Assistant</label>
+            </value>
+            <value>
+                <fullName>Gardener</fullName>
+                <default>false</default>
+                <label>Gardener</label>
+            </value>
+            <value>
+                <fullName>General Assistant</fullName>
+                <default>false</default>
+                <label>General Assistant</label>
+            </value>
+            <value>
+                <fullName>Grounds Maintenance</fullName>
+                <default>false</default>
+                <label>Grounds Maintenance</label>
+            </value>
+            <value>
+                <fullName>Handy Person</fullName>
+                <default>false</default>
+                <label>Handy Person</label>
+            </value>
+            <value>
+                <fullName>Security</fullName>
+                <default>false</default>
+                <label>Security</label>
+            </value>
+            <value>
+                <fullName>Hygiene operative</fullName>
+                <default>false</default>
+                <label>Hygiene operative</label>
+            </value>
+            <value>
+                <fullName>Health &amp; Safety</fullName>
+                <default>false</default>
+                <label>Health &amp; Safety</label>
+            </value>
+            <value>
+                <fullName>Hospital Porter</fullName>
+                <default>false</default>
+                <label>Hospital Porter</label>
+            </value>
+            <value>
+                <fullName>HR Admin</fullName>
+                <default>false</default>
+                <label>HR Admin</label>
+            </value>
+            <value>
+                <fullName>HR Advisor</fullName>
+                <default>false</default>
+                <label>HR Advisor</label>
+            </value>
+            <value>
+                <fullName>Laundry Person</fullName>
+                <default>false</default>
+                <label>Laundry Person</label>
+            </value>
+            <value>
+                <fullName>LGV C+E Driver (102 Restriction)</fullName>
+                <default>false</default>
+                <label>LGV C+E Driver (102 Restriction)</label>
+            </value>
+            <value>
+                <fullName>Litter Picker</fullName>
+                <default>false</default>
+                <label>Litter Picker</label>
+            </value>
+            <value>
+                <fullName>Mail Room</fullName>
+                <default>false</default>
+                <label>Mail Room</label>
+            </value>
+            <value>
+                <fullName>Manufacturing Operative</fullName>
+                <default>false</default>
+                <label>Manufacturing Operative</label>
+            </value>
+            <value>
+                <fullName>MIG Welder</fullName>
+                <default>false</default>
+                <label>MIG Welder</label>
+            </value>
+            <value>
+                <fullName>Offshore Installation</fullName>
+                <default>false</default>
+                <label>Offshore Installation</label>
+            </value>
+            <value>
+                <fullName>Shovel Driver</fullName>
+                <default>false</default>
+                <label>Shovel Driver</label>
+            </value>
+            <value>
+                <fullName>Carpenter</fullName>
+                <default>false</default>
+                <label>Carpenter</label>
+            </value>
+            <value>
+                <fullName>Solderer</fullName>
+                <default>false</default>
+                <label>Solderer</label>
+            </value>
+            <value>
+                <fullName>Machine Operator</fullName>
+                <default>false</default>
+                <label>Machine Operator</label>
+            </value>
+            <value>
+                <fullName>Chemical Operative</fullName>
+                <default>false</default>
+                <label>Chemical Operative</label>
+            </value>
+            <value>
+                <fullName>Cleanroom Operative</fullName>
+                <default>false</default>
+                <label>Cleanroom Operative</label>
+            </value>
+            <value>
+                <fullName>Quality Checkers</fullName>
+                <default>false</default>
+                <label>Quality Checkers</label>
+            </value>
+            <value>
+                <fullName>Mechanical fitter</fullName>
+                <default>false</default>
+                <label>Mechanical fitter</label>
+            </value>
+            <value>
+                <fullName>Fitter</fullName>
+                <default>false</default>
+                <label>Fitter</label>
+            </value>
+            <value>
+                <fullName>Sewing machinist</fullName>
+                <default>false</default>
+                <label>Sewing machinist</label>
+            </value>
+            <value>
+                <fullName>Engineer</fullName>
+                <default>false</default>
+                <label>Engineer</label>
+            </value>
+            <value>
+                <fullName>Personal Assistant</fullName>
+                <default>false</default>
+                <label>Personal Assistant</label>
+            </value>
+            <value>
+                <fullName>Platform Staff</fullName>
+                <default>false</default>
+                <label>Platform Staff</label>
+            </value>
+            <value>
+                <fullName>Polisher</fullName>
+                <default>false</default>
+                <label>Polisher</label>
+            </value>
+            <value>
+                <fullName>Postal Worker</fullName>
+                <default>false</default>
+                <label>Postal Worker</label>
+            </value>
+            <value>
+                <fullName>Road Worker</fullName>
+                <default>false</default>
+                <label>Road Worker</label>
+            </value>
+            <value>
+                <fullName>Sales Executive</fullName>
+                <default>false</default>
+                <label>Sales Executive</label>
+            </value>
+            <value>
+                <fullName>Silver Service</fullName>
+                <default>false</default>
+                <label>Silver Service</label>
+            </value>
+            <value>
+                <fullName>Sorter</fullName>
+                <default>false</default>
+                <label>Sorter</label>
+            </value>
+            <value>
+                <fullName>Supervisor</fullName>
+                <default>false</default>
+                <label>Supervisor</label>
+            </value>
+            <value>
+                <fullName>TIG Welder</fullName>
+                <default>false</default>
+                <label>TIG Welder</label>
+            </value>
+            <value>
+                <fullName>Waiting Staff</fullName>
+                <default>false</default>
+                <label>Waiting Staff</label>
+            </value>
+            <value>
+                <fullName>Telesales</fullName>
+                <default>false</default>
+                <label>Telesales</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

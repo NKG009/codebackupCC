@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OXFORD_UNI</fullName>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>FULL_NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>Skills__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>contains</operation>
+        <value>OX1 3JP,OX4 1DY,OX2 7NN,OX2 7AL,OX1 3UJ,OX2 6JF,OX2 6HS,OX1 4JD,OX4 1DZ,OX1 3JA,OX2 6QA,OX1 3PG,OX1 3DW,OX1 3BW,OX2 6DP,OX1 1HP,OX1 1DW,OX1 1DP,OX2 6LE,OX1 4AJ,OX1 3BJ,OX1 3LZ,OX1 4EW,OX2 6PN,OX2 6HG,OX1 2DL,OX2 6UD,OX1 2HG,OX1 3DP,OX1 4JF</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>notContain</operation>
+        <value>Inactive</value>
+    </filters>
+    <filters>
+        <field>FULL_NAME</field>
+        <operation>notContain</operation>
+        <value>Finance Bursary,Kenny Isaac,Mariola Serednicka,Accounts Payable,Mike Curran</value>
+    </filters>
+    <label>1350 - OXFORD UNI - OX</label>
+    <sharedTo>
+        <roleAndSubordinates>Blue_Arrow_Newbury_Perm_hub</roleAndSubordinates>
+    </sharedTo>
+</ListView>

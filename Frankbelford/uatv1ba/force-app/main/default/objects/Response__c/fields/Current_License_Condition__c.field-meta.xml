@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_License_Condition__c</fullName>
+    <label>Current License Condition</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Clean</fullName>
+                <default>false</default>
+                <label>Clean</label>
+            </value>
+            <value>
+                <fullName>1 point</fullName>
+                <default>false</default>
+                <label>1 point</label>
+            </value>
+            <value>
+                <fullName>2 points</fullName>
+                <default>false</default>
+                <label>2 points</label>
+            </value>
+            <value>
+                <fullName>3 points</fullName>
+                <default>false</default>
+                <label>3 points</label>
+            </value>
+            <value>
+                <fullName>4 points</fullName>
+                <default>false</default>
+                <label>4 points</label>
+            </value>
+            <value>
+                <fullName>5 points</fullName>
+                <default>false</default>
+                <label>5 points</label>
+            </value>
+            <value>
+                <fullName>6 points</fullName>
+                <default>false</default>
+                <label>6 points</label>
+            </value>
+            <value>
+                <fullName>7 points</fullName>
+                <default>false</default>
+                <label>7 points</label>
+            </value>
+            <value>
+                <fullName>8 points</fullName>
+                <default>false</default>
+                <label>8 points</label>
+            </value>
+            <value>
+                <fullName>9 points</fullName>
+                <default>false</default>
+                <label>9 points</label>
+            </value>
+            <value>
+                <fullName>10 points</fullName>
+                <default>false</default>
+                <label>10 points</label>
+            </value>
+            <value>
+                <fullName>11 points</fullName>
+                <default>false</default>
+                <label>11 points</label>
+            </value>
+            <value>
+                <fullName>12 points</fullName>
+                <default>false</default>
+                <label>12 points</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

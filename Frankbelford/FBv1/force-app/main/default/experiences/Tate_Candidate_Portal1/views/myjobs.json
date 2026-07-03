@@ -1,0 +1,70 @@
+{
+  "appPageId" : "b2fa95b0-e567-41d6-a9bd-0d8201b2a4b0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "5aacbb7c-aca1-421f-a48b-c19089d14714",
+  "label" : "myjobs",
+  "regions" : [ {
+    "id" : "7533920c-76c6-4773-9d69-d29930f42a0c",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "bdb734a2-e866-4cfe-9673-5ea506a71530",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "bannerBackgroundColor" : "rgb(61, 56, 60)",
+        "bannerPosition" : "bottom",
+        "bannerSizePercent" : 20,
+        "borderRadius" : 20,
+        "boxShadow" : true,
+        "haveBanner" : false,
+        "iconBackgroundColor" : "rgb(255,255,255)",
+        "iconSize" : "large",
+        "noImageColor" : "rgb(212, 212, 212)",
+        "overlay" : "rgba(0,0,0,0.01)",
+        "templateType" : "icon",
+        "tileMenuEditor" : "Tile_Menu",
+        "titleColor" : "",
+        "titleFontSize" : "large",
+        "titleHorizontalAlign" : "center"
+      },
+      "componentName" : "community_navigation:tileMenu",
+      "id" : "d3f82390-bb58-4afe-b6ee-23c4fb1f25ac",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "dd804085-412d-4482-8fc0-31af77ce1ae8",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "b17d0212-a811-427e-9eaa-da1e5702c13a",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "id" : "a39511a8-702e-457e-a277-0031e4c024a0",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "myjobs"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "0acba38b-402e-44c8-87a5-6cc313a1f21b",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0eb29eca-3252-41c0-ae73-ade06ff6cb44",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-myjobs"
+}

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Email_2FA_Code</name>
+        <label>Email 2FA Code</label>
+        <locationX>1022</locationX>
+        <locationY>400</locationY>
+        <actionName>qsydApps_AO__Flow_Session__c.qsydApps_AO__All_Onboard_Two_Factor_Authentication_Code_Is_Set</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>qsydApps_AO__Flow_Session__c.qsydApps_AO__All_Onboard_Two_Factor_Authentication_Code_Is_Set</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Bypass_flow</name>
+        <label>Bypass flow</label>
+        <locationX>548</locationX>
+        <locationY>337</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Bypass_flow1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Bypass_Flows__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>X2FA_Code_Is_Set</targetReference>
+            </connector>
+            <label>Bypass flow1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>X2FA_Code_Is_Set</name>
+        <label>2FA Code Is Set</label>
+        <locationX>772</locationX>
+        <locationY>400</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.qsydApps_AO__Two_Factor_Authentication_Code__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Email_2FA_Code</targetReference>
+            </connector>
+            <label>True</label>
+        </rules>
+    </decisions>
+    <description>This is replacing the following Process Builder:
+https://bluearrowgroup--migration.sandbox.my.salesforce-setup.com/lightning/setup/ProcessAutomation/home</description>
+    <environments>Default</environments>
+    <interviewLabel>Record Triggered Flow - Flow Session Record Updated {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Record Triggered Flow - Flow Session Record Updated</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>505</locationX>
+        <locationY>54</locationY>
+        <connector>
+            <targetReference>Bypass_flow</targetReference>
+        </connector>
+        <object>qsydApps_AO__Flow_Session__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

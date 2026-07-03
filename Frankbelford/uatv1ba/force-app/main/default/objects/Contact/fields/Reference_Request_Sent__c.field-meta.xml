@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reference_Request_Sent__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check this box to send the Reference Request email. Uncheck it and Save before checking it again to re-send.</description>
+    <inlineHelpText>Check this box to send the Reference Request email. Uncheck it and Save before checking it again to re-send.</inlineHelpText>
+    <label>Reference Request Sent</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

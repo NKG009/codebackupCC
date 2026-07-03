@@ -1,0 +1,84 @@
+<aura:component controller="Booked_Temps_Cnt" implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute type="List" name="allshifts" />
+    <aura:attribute type="String" name="site" />
+    <aura:attribute name="CompetenciesList" type="List" access="global"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute type="boolean" name="checkCompetencies"/>
+
+    <aura:handler name="change" value="{!v.site}" action="{!c.reInit}" />
+
+    <div class="ElementDetail">
+        <div class="ElementDetail__table ElementDetail__table3">
+            <table>
+                <thead>
+                <tr>
+                    <th>Temp Name</th>
+                    <th>Date</th>
+                    <th>Job Role</th>
+                </tr>
+                </thead>
+                <tbody>
+                <aura:iteration items="{!v.allshifts}" var="shifts">
+                    <tr>
+                        <td data-th="Temp Name" data-toggle="modal" data-target="#bookedTemp-popup"><a href="" Id="{!shifts.shiftId}" onclick="{!c.fetchCompetencies}">{!shifts.TempName}</a></td>
+                        <td data-th="Date"><lightning:formattedDateTime value="{!shifts.TempDate}" year="numeric" month="numeric" day="numeric" /></td>
+                        <td data-th="Job Role">{!shifts.jobRole}</td>
+                    </tr>
+
+                </aura:iteration>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <button type="submit" class="query-btn" onclick="{!c.redirectBookTemp}">View All</button>
+
+    <!-- booked Temp Popup -->
+    <!-- Compitencies Detail modal Popup -->
+    <div class="custom-model modal fade" id="bookedTemp-popup" tabindex="-1" role="dialog" aria-labelledby="bookedTemp-popup">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1>Skills</h1>
+                <aura:if isTrue="{!v.checkCompetencies}">
+                    <h3>{!v.CompetenciesList[0].sirenum__Owner__r.Name}</h3>
+                    <div class="ElementDetail__table">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Competency Type</th>
+                                <th>Valid From</th>
+                                <th>Valid To</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <aura:iteration items="{!v.CompetenciesList}" var="record" indexVar="idx">
+                                <tr>
+
+                                    <td data-th="Competency Type">{!record.sirenum__TicketType__r.Name}</td>
+                                    <aura:if isTrue="{!(record.sirenum__Valid_from__c != null)}">
+                                        <td data-th="Valid From"><lightning:formattedDateTime value="{!record.sirenum__Valid_from__c}" year="numeric" month="numeric" day="numeric" /></td>
+                                        <aura:set attribute="else">
+                                            <td data-th="Valid From">n/a</td>
+                                        </aura:set>
+                                    </aura:if>
+                                    <aura:if isTrue="{!(record.sirenum__Valid_until__c != null)}">
+                                        <td data-th="Valid To"><lightning:formattedDateTime value="{!record.sirenum__Valid_until__c}" year="numeric" month="numeric" day="numeric" /></td>
+                                        <aura:set attribute="else">
+                                            <td data-th="Valid To">n/a</td>
+                                        </aura:set>
+                                    </aura:if>
+                                </tr>
+                            </aura:iteration>
+                            </tbody>
+                        </table>
+                    </div>
+                    <aura:set attribute="else">
+                        <p class="cancel-text">No related skills to job role</p>
+                    </aura:set>
+                </aura:if>
+            </div>
+        </div>
+    </div>
+
+</aura:component>

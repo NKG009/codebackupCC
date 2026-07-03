@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_for_P45__c</fullName>
+    <label>Reason for P45 (Internal)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Resigned</fullName>
+                <default>false</default>
+                <label>Resigned</label>
+            </value>
+            <value>
+                <fullName>Declined work</fullName>
+                <default>false</default>
+                <label>Declined work</label>
+            </value>
+            <value>
+                <fullName>Other dismissal</fullName>
+                <default>false</default>
+                <label>Other dismissal</label>
+            </value>
+            <value>
+                <fullName>Automatic</fullName>
+                <default>false</default>
+                <label>Automatic</label>
+            </value>
+            <value>
+                <fullName>Transferred to LTD</fullName>
+                <default>false</default>
+                <label>Transferred to LTD</label>
+            </value>
+            <value>
+                <fullName>Branch Transfer/BM</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Branch Transfer/BM</label>
+            </value>
+            <value>
+                <fullName>Eight Week Leaver/PE</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Eight Week Leaver/PE</label>
+            </value>
+            <value>
+                <fullName>Payroll Holiday/PH</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Payroll Holiday/PH</label>
+            </value>
+            <value>
+                <fullName>Payroll Inactive/PI</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Payroll Inactive/PI</label>
+            </value>
+            <value>
+                <fullName>Payroll Leaver/PL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Payroll Leaver/PL</label>
+            </value>
+            <value>
+                <fullName>T.U.P.E Transfers/TU</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>T.U.P.E Transfers/TU</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

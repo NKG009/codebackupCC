@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EDUCATION</fullName>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>FULL_NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>Skills__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>contains</operation>
+        <value>OX12 9BY,OX4 6JD,OX7 6AN,OX4 1JX,OX9 2AJ,OX3 7TD,OX3 0BL,OX14 3DZ,OX2 7PL,OX1 2AR,OX11 6FF,OX11 7LH,OX10 7LZ,OX4 3QH,OX1 1QW,OX29 6TA,OX14 1BE,OX2 6HD,OX15 5QL,OX3 0BY,OX3 9BZ,OX44 9EX,OX11 7AJ,OX14 2HR,OX18 4PL,OX15 4PE,OX10 9HT,OX1 3BN</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>FULL_NAME</field>
+        <operation>notContain</operation>
+        <value>head teacher,Finance Bursary,Kenny Isaac,Mariola Serednicka,Accounts Payable,Mike Curran</value>
+    </filters>
+    <label>1350 - EDUCATION - OX</label>
+    <sharedTo>
+        <roleAndSubordinates>Blue_Arrow_Newbury_Perm_hub</roleAndSubordinates>
+    </sharedTo>
+</ListView>

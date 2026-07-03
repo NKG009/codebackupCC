@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Attract_Register_Candidates__c</fullName>
+    <label>Attract &amp; Register Candidates</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Speed of registration</fullName>
+                <default>false</default>
+                <label>Speed of registration</label>
+            </value>
+            <value>
+                <fullName>Candidates placed within 7 days</fullName>
+                <default>false</default>
+                <label>Candidates placed within 7 days</label>
+            </value>
+            <value>
+                <fullName>BlueArrow App promotion</fullName>
+                <default>false</default>
+                <label>BlueArrow App promotion</label>
+            </value>
+            <value>
+                <fullName>Engaging our compliant candidates</fullName>
+                <default>false</default>
+                <label>Engaging our compliant candidates</label>
+            </value>
+            <value>
+                <fullName>Shortlist management</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Shortlist management</label>
+            </value>
+            <value>
+                <fullName>Sourcing centre candidates</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sourcing centre candidates</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>8</visibleLines>
+</CustomField>

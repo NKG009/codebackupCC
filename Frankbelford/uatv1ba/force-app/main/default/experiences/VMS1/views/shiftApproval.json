@@ -1,0 +1,49 @@
+{
+  "appPageId" : "cb4d05bc-15d6-4e33-beb3-5244832ec585",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "8b2c166f-5da5-4c23-aac7-cdb7202ee405",
+  "label" : "Shift Approval",
+  "regions" : [ {
+    "id" : "7f620cf9-e1bd-4df2-8de4-a46b97a50a76",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "VMS_Supplier_Shift_Approval"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "3436ea3e-141b-4deb-88aa-d7c1571d493f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d0f39c71-3a5a-4108-8b01-1b39cb11995d",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "6fa6b1ed-f21b-4203-8b54-2895b9e86d19",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Shift Approval"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "1e97689c-e075-40d3-aca2-f094930c8d39",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7a17baea-e56b-429e-8238-58db013c003e",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-shift-approval"
+}

@@ -1,0 +1,146 @@
+<apex:page lightningStylesheets="true" controller="IdeasForumController" action="{!getStatusOptions}" >   
+    
+    <apex:form id="form">
+        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+            <apex:slds />
+        </apex:outputPanel>
+        
+        <apex:actionfunction name="updateRecord" action="{!updateIdeaRecord}" rerender="rerenderIdeaSection">
+            <apex:param value="ideadId" name="ideadId" assignTo="{!ideadIdValue}" id="idea"/>
+            <apex:param value="upvotedownvote" name="upvotedownvote" assignTo="{!upvotedownvote}" id="like"/>
+        </apex:actionfunction>
+        
+        <!--<apex:repeat value="{!listIdeaIdeaCommentRecords}" var="item" >
+            <apex:outputText value="{!item.IP_Headline__c}" />
+        </apex:repeat> -->
+        <center><apex:image url="{!URLFOR($Resource.Idea_Images, 'Idea_Images/Idea_Image.png')}"/></center>
+        
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="5">             
+                <apex:commandButton value="Log Idea" action="{!createIdea}" style="font-size:15px;" styleClass="slds-vf-button_brand"/>
+                <!--Jyothi.start-->
+
+                <apex:inputText value="{!searchText}" html-placeholder="Search Text" style="min-width: 15rem !important"/>
+                <apex:outputPanel >
+                <apex:commandButton status="actStatusId" styleClass="slds-vf-button_brand" value="Search"  action="{!displayIdeasBySelection}" reRender="rerenderIdeaSection,panelgrird"/>
+                <apex:commandButton status="actStatusId" value="Clear"  action="{!clearInputText}" reRender="form"/>
+                </apex:outputPanel>
+
+                <!--Jyothi.stop-->
+                <apex:selectList value="{!selectedSorting}" multiselect="false" size="1" label="Sort By"  style="min-width: 10rem;">
+                     <apex:actionSupport event="onchange" action="{!displayIdeasBySelection}" reRender="form,rerenderIdeaSection,panelgrird"/>
+                    <apex:selectOptions value="{!sortingOptions}"/>
+                </apex:selectList>
+                <apex:selectList size="1" value="{!selectedStatus}" label="Status Filter"  style="min-width: 10rem;">
+                    <apex:selectOptions value="{!statusValues}"  />
+                    <apex:actionSupport event="onchange" action="{!ideasBasedOnStatus}"  reRender="form,rerenderIdeaSection"/>
+                </apex:selectList>
+             </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+    
+         <apex:actionstatus id="actStatusId">
+            <apex:facet name="start">
+                <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb; height:100%;opacity:0.65;width:100%;">
+                    <div class="waitingHolder" style="top: 100px; width: 91px;">
+                    <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                    <span class="waitingDescription">Loading...</span>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionstatus>
+        
+        <apex:outputPanel id="rerenderIdeaSection"> 
+            <apex:repeat value="{!listIdeaIdeaCommentRecords}" var="item" >
+                <apex:pageBlock >
+                    <apex:pageBlockSection columns="2">                     
+                        <!-------- First Line ----------->
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Headline" style="font-size:15px;"/>
+                            <apex:outputLink onclick="openpage('{!item.Id}')" styleClass="wrapword" style="font-size:15px;word-wrap: break-word; width: 10px;!important">{!item.IP_Headline__c}</apex:outputLink>
+                        </apex:pageBlockSectionItem>
+                        <apex:outputText value="{!item.Status__c}"/>
+                        
+                        <!-------- Second Line ----------->
+                        <apex:outputText value="{!item.IP_Description__c}" escape="false"/>
+                        
+                        <!-------- Classic View ----------->
+                        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+                            <apex:outputPanel rendered="{!IF(mapIdeaIdNumberOfStatus[item]=0,true,false)}">
+                                <apex:commandButton status="actStatusId" value="Upvote"  image="{!URLFOR($Resource.Idea_Images, 'Idea_Images/UpVote.png')}" onclick="ideaPointsAddedSubtracted('{!item.Id}','Upvote')"  reRender="form,rerenderIdeaSection"/>
+                                <apex:outputText value="{!item.IP_Points__c} Points"/><br/>
+                                <apex:commandButton status="actStatusId" value="Downvote"  image="{!URLFOR($Resource.Idea_Images, 'Idea_Images/Downvote.png')}" onclick="ideaPointsAddedSubtracted('{!item.Id}','Downvote')" reRender="form,rerenderIdeaSection"/>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!IF(mapIdeaIdNumberOfStatus[item]>0,true,false)}" id="buttonSection1">
+                                <apex:outputPanel rendered="{!IF(mapIdeaIdIdeaStatus[item]=='Upvoted',true,false)}">
+                                    <apex:commandButton value="Upvoted" disabled="true"   image="{!URLFOR($Resource.Idea_Images, 'Idea_Images/UpVote_Grey.png')}"  style="background-position: 0 -79px;"/>
+                                    <apex:outputText value="{!item.IP_Points__c} Points"/><br/>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!IF(mapIdeaIdIdeaStatus[item]=='Downvoted',true,false)}">
+                                    <apex:commandButton value="Downvoted" disabled="true" image="{!URLFOR($Resource.Idea_Images, 'Idea_Images/Downvote_Grey.png')}" style="background-position: 0 -79px;"/>
+                                    &nbsp;<apex:outputText value="{!item.IP_Points__c} Points"/><br/>
+                               </apex:outputPanel>
+                            </apex:outputPanel>
+                        </apex:outputPanel> 
+                        
+                        <!-------- Lightning View ----------->
+                        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+                            <apex:outputPanel rendered="{!IF(mapIdeaIdNumberOfStatus[item]=0,true,false)}">
+                                &nbsp;&nbsp;<apex:commandButton status="actStatusId" value="Upvote"  image="{!URLFOR($Resource.Idea_Images, 'Idea_Images/UpVote.png')}" onclick="ideaPointsAddedSubtracted('{!item.Id}','Upvote')"  reRender="form,rerenderIdeaSection"/>
+                                &nbsp;<apex:outputText value="{!item.IP_Points__c} Points"/><br/><br/>
+                                <apex:commandButton status="actStatusId" value="Downvote"  image="{!URLFOR($Resource.Idea_Images, 'Idea_Images/Downvote.png')}" onclick="ideaPointsAddedSubtracted('{!item.Id}','Downvote')" reRender="form,rerenderIdeaSection"/>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!IF(mapIdeaIdNumberOfStatus[item]>0,true,false)}" id="buttonSection2">
+                                <apex:outputPanel rendered="{!IF(mapIdeaIdIdeaStatus[item]=='Upvoted',true,false)}">
+                                    <apex:commandButton value="Upvoted" disabled="true"   image="{!URLFOR($Resource.Idea_Images, 'Idea_Images/UpVote_Grey.png')}"  style="background-position: 0 -79px;"/><br/>
+                                    &nbsp;<apex:outputText value="{!item.IP_Points__c} Points"/><br/><br/>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!IF(mapIdeaIdIdeaStatus[item]=='Downvoted',true,false)}">
+                                    <apex:commandButton value="Downvoted" disabled="true" image="{!URLFOR($Resource.Idea_Images, 'Idea_Images/Downvote_Grey.png')}" style="background-position: 0 -79px;"/>
+                                    &nbsp;<apex:outputText value="{!item.IP_Points__c} Points"/>
+                               </apex:outputPanel>
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+                        
+                        
+                        <!-------- Third Line ----------->
+                        <apex:outputPanel rendered="{!IF(mapIdeaIdCommentExist[item]=0,true,false)}">
+                            0 comment
+                        </apex:outputPanel>                        
+                        <apex:outputPanel rendered="{!IF(mapIdeaIdCommentExist[item]>0,true,false)}">                       
+                                <apex:outputLink onclick="openpage('{!item.Id}')">
+                                    {!mapIdeaIdNumberOfComments[item]} comment
+                                </apex:outputLink>
+                        </apex:outputPanel>                        
+                        <apex:outputText value="{!item.CreatedBy.Name}"/>
+                    </apex:pageBlockSection>
+                </apex:pageBlock><br/><br/>
+            </apex:repeat>
+        </apex:outputPanel>
+         
+         <apex:panelGrid columns="4" id="panelgrird">            
+            <apex:commandLink action="{!previous}" reRender="form,rerenderIdeaSection"  rendered="{!disablePrevious}" value="< Prev" style="text-decoration:none;color: #0070d2;"></apex:commandLink>
+            <apex:outputLabel rendered="{!NOT(disablePrevious)}" value="Previous" />
+            <!--<apex:outputLabel value=" (page {!page} of {!totalPages}) | showing {!startIdx} to {!endIdx} of {!totalRecords} " />-->
+            <apex:outputLabel value=" | {!startIdx} to {!endIdx} of {!totalRecords} |" />
+            <apex:commandLink action="{!next}" reRender="form,rerenderIdeaSection"  rendered="{!disableNext}"  value="Next >" style="text-decoration:none;color: #0070d2;"></apex:commandLink>
+            <apex:outputLabel rendered="{!NOT(disableNext)}" value="Next" />
+        </apex:panelGrid>
+    </apex:form>
+     <script type="text/javascript">
+        function ideaPointsAddedSubtracted(ideadId,upvotedownvote){
+            updateRecord(ideadId,upvotedownvote);
+        }
+        function openpage(ideadId){
+            if((typeof sforce != 'undefined') && (sforce != null) ){
+                sforce.one.navigateToURL("/apex/IdeaView?id="+ideadId);
+            }
+            else{
+                window.open('/apex/IdeaView?id='+ideadId, '_blank' );
+            }
+        }
+    </script>
+    
+</apex:page>

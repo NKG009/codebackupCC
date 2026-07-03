@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_MCPermWork__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Perm_Work__c ,
+IF( PORTW_Completed__c, &quot;&quot;, &quot;PORTW, &quot;) &amp; 
+IF( Equal_Opportunity_Completed__c , &quot;&quot;, &quot;Equal Opportunity, &quot;) &amp;
+IF( IP_PermDisclaimer__c , &quot;&quot;, &quot;Perm Disclaimer.&quot;),&quot;&quot;)</formula>
+    <label>Missing Compliance PermWork</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

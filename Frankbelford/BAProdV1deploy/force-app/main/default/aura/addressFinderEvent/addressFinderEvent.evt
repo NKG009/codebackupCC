@@ -1,0 +1,10 @@
+<!--
+ - Created by mrahman on 2020-11-28.
+ -->
+
+<aura:event type="COMPONENT" description="addressFinderEvent">
+    <aura:attribute name="size" type="Integer" default="0"/>
+    <aura:attribute name="showError" type="Boolean" default="false"/>
+    <aura:attribute name="canProceed" type="Boolean" default="false"/>
+    <aura:attribute name="msg" type="String" default="Address is required!"/>
+</aura:event>

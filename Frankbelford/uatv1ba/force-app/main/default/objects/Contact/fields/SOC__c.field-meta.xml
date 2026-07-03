@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SOC__c</fullName>
+    <description>Created for JPC-1957 Belfast - Recording Religion - Part 1</description>
+    <label>SOC</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SOC 1 – Managers and senior officials</fullName>
+                <default>false</default>
+                <label>SOC 1 – Managers and senior officials</label>
+            </value>
+            <value>
+                <fullName>SOC 2 – Professional occupations</fullName>
+                <default>false</default>
+                <label>SOC 2 – Professional occupations</label>
+            </value>
+            <value>
+                <fullName>SOC 3 – Associate professional and technical occupations</fullName>
+                <default>false</default>
+                <label>SOC 3 – Associate professional and technical occupations</label>
+            </value>
+            <value>
+                <fullName>SOC 4 – Administrative and secretarial occupations</fullName>
+                <default>false</default>
+                <label>SOC 4 – Administrative and secretarial occupations</label>
+            </value>
+            <value>
+                <fullName>SOC 5 – Skilled trade organisations</fullName>
+                <default>false</default>
+                <label>SOC 5 – Skilled trade organisations</label>
+            </value>
+            <value>
+                <fullName>SOC 6 – Personal service occupations</fullName>
+                <default>false</default>
+                <label>SOC 6 – Personal service occupations</label>
+            </value>
+            <value>
+                <fullName>SOC 7 – Sales and customer service occupations</fullName>
+                <default>false</default>
+                <label>SOC 7 – Sales and customer service occupations</label>
+            </value>
+            <value>
+                <fullName>SOC 8 – Process, plant and machine operatives</fullName>
+                <default>false</default>
+                <label>SOC 8 – Process, plant and machine operatives</label>
+            </value>
+            <value>
+                <fullName>SOC 9 – Elementary occupations</fullName>
+                <default>false</default>
+                <label>SOC 9 – Elementary occupations</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

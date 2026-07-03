@@ -1,0 +1,86 @@
+.THIS .imp_regbutton {
+    width: 100%;
+    margin-bottom: 5px;
+    color: #fff;
+    background-color: #232323;
+    border-color: #357ebd;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    background-image: none;
+    border: 1px solid #232323;
+    border-radius: 4px;
+    white-space: nowrap;
+    padding: 10px 12px;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    line-height: 1.42857143;
+    border-radius: 2px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: ease 0.3s background-color, ease 0.3s border;
+}
+/*Jyothi.start*/
+.THIS .message2{
+    font-size: 1rem !important;
+}
+/*Jyothi.stop*/
+
+.THIS .imp_regbutton.secondary {
+    background-color: #f4f8f7 !important;
+    color: #232323 !important;
+    margin-top: 10px;
+	border: 1px solid #fff !important;
+}
+
+.THIS button:hover.imp_regbutton {
+    background-color:#fff;
+    color: #232323;
+    cursor:pointer;
+}
+
+.THIS .imp_regbutton:hover.secondary {
+	border: 1px solid #232323 !important;
+}
+
+.THIS .imp_reginput label {
+    display: none;
+}
+
+.THIS .page-message {
+    color: #232323;
+    font-size: 0.95rem;
+    white-space: pre-line !important;
+    margin-bottom: 20px;
+}
+
+.THIS .imp_reginput {
+	margin-bottom: 20px;
+}
+
+.THIS .imp_regerror {
+    margin-bottom: 20px;
+}
+
+.THIS .imp_reginput input {
+    background-color: #F4F8F7;
+    border: 0px;
+    border-radius: 4px;
+	color: #6D6D6D;
+    height: 46px;
+}
+
+.THIS input:focus {
+    border: 1px solid #232323;
+    box-shadow: none;
+}
+.THIS .slds-radio {  
+    display: inline !important;     
+} 
+.THIS .customRadioCls{
+    padding-bottom: 10px;
+}

@@ -1,0 +1,110 @@
+/* Typography */
+.body-text {
+  font-size: 0.88rem;
+  color: #53565a;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.table-header {
+  font-size: 0.88rem;
+  color: #53565a;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+
+.title-text {
+  font-size: 1.5rem;
+  color: #53565a;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+
+.subtitle-text {
+  font-size: 1.25rem;
+  color: #53565a;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+
+.navigation-link {
+  font-size: 17px;
+  color: #53565a;
+  line-height: 2;
+  letter-spacing: 0;
+  font-weight: 300;
+}
+
+.text-wrap-column {
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 25ch;
+}
+/* Layout */
+.settings {
+  position: absolute;
+  bottom: 0;
+  width: 120px;
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.card {
+  width: 45em;
+  height: 20em;
+  border-radius: 20px;
+  box-shadow: -15px 0px 22px #00000029;
+}
+
+.caret {
+  min-width: 1em;
+  min-height: 1em;
+}
+
+/* Colours */
+.bluearrow-brand-color {
+  color: #029de4;
+}
+.green-button {
+  background-color: #d7f5ea;
+}
+
+.red-button {
+  background-color: #ffbfb8;
+}
+
+.yellow-button {
+  background-color: #ffe7b8;
+}
+.colour-white {
+  background-color: #ffffff;
+}
+
+:host {
+  --colour-white: #ffffff;
+  --colour-blue-arrow-brand-blue: #029de4;
+  --colour-positive-green: #00c6b7;
+  --colour-negative-red: #ef6e64;
+  --colour-grey-bg: #f9f9f9;
+  --card-small-width: 10em;
+  --card-small-height: 15em;
+  --slds-c-button-brand-color-background: #029de4;
+}
+
+@media only screen and (min-width: 1921px) {
+  :host {
+    --card-small-width: 17em;
+    --card-small-height: 22em;
+  }
+}
+@media only screen and (min-width: 2561px) {
+  :host {
+    --card-small-width: 20em;
+    --card-small-height: 23em;
+  }
+}

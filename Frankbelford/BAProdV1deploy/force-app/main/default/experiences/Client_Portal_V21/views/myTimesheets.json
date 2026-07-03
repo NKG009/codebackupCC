@@ -1,0 +1,71 @@
+{
+  "appPageId" : "6cf45250-dd45-4f57-aa5d-84e94e3c25f8",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "7f401bee-5800-4332-b8bd-8ed022c702e4",
+  "label" : "My Timesheets",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "99a76f1c-437f-451c-8d7d-5bd947a9c324",
+          "columns" : [ {
+            "UUID" : "d79e558c-dd09-478f-9a94-56fb1cab600c",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "99a76f1c-437f-451c-8d7d-5bd947a9c324",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "candidateViewGroupingColumnName" : "Name",
+            "jobRoleViewGroupingColumnName" : "Job Role"
+          },
+          "componentName" : "c:portalV2MyTimesheets",
+          "id" : "7e717ced-c123-4b80-afd6-a9d3481bccbd",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "d79e558c-dd09-478f-9a94-56fb1cab600c",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ee98cdf5-b7e7-40ce-ac7a-e9f188b0e0d9",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My Timesheets"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "d5f5c8f3-25e4-463f-8a60-0f7e6a1711c2",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0bba0fe2-1c9c-4ec4-9ce9-cd53d6f1bddc",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-my-timesheets"
+}

@@ -1,0 +1,21 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickAction" access="global" controller="MiniPayrollApx" >
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="processingText" type="Boolean" />
+    <aura:attribute name="processingBatch" type="Boolean" />
+    <aura:attribute name="Messagefromapx" type="String" />
+    
+    <aura:if isTrue="{!v.processingText}">
+        <br/><br/><br/><br/>
+        <p style="font-size:15px;color:#1B5297;" class="testtt">
+            <center><b><aura:unescapedHtml value="Processing........" /></b></center>
+        </p>
+    </aura:if>
+
+    <aura:if isTrue="{!v.processingBatch}">
+        <br/><br/><br/><br/>
+        <p style="font-size:15px;color:#1B5297;">
+            <center><b><aura:unescapedHtml value="{!v.Messagefromapx}" /></b></center>
+        </p>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,52 @@
+<aura:component controller="TimeSheetFilters" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="siteChanged" value="{!v.sitelist}" action="{!c.siteChanged}"/>
+  	<aura:attribute name="sitelist" type="List"/>
+    <aura:attribute name="ContactList" type="List"/>
+    <aura:attribute name="OriginalContactList" type="List"/>
+    <aura:attribute name="timehsheetList" type="List"/>
+    <aura:attribute name="OriginalTimeSheetList" type="List"/>
+    <aura:attribute name="SiteContactMap" type="Object"/> 
+    <aura:attribute name="ContactTimeSheetMap" type="Object"/> 
+    <aura:registerEvent name="searchEvent" type="c:searchEvent"/>   
+    <div class="slds-grid slds-gutters slds-scrollable slds-wrap">
+    
+        <div style="width:150px;" class="siteSelect slds-col">
+            <!--<label class="slds-form-element__label" for="search"></label>
+            <div class="slds-form-element__control" >-->
+                <lightning:select name="mySiteSelect" label="Site:" aura:id="SiteId" onchange="{!c.siteChanged}">
+                  
+                    <aura:iteration items="{!v.sitelist}" var="item">
+                        <option text="{!item.label}" value="{!item.value}"/>
+                    </aura:iteration>
+                </lightning:select>
+        </div>
+        <div style="width:150px;" class="slds-col">
+                <lightning:select label="Candidate Name:" class="contact" aura:id="contact" onchange="{!c.candidateChanged}">
+                    <option text="Select Candidate" value=""/>
+                    <aura:iteration items="{!v.ContactList}" var="item"> 
+                        <option text="{!item.label}" value="{!item.value}"/>
+                    </aura:iteration>
+                </lightning:select>
+            </div>
+      
+        <div class="slds-col" style="width: 150px;">
+          
+            <!--<lightning:select label="Timehseet No:" aura:id="timesheetno">
+                <option text="Select Timesheet" value=""/>
+                <aura:iteration items="{!v.timehsheetList}" var="item">
+                    <option text="{!item.label}" value="{!item.value}"/>
+                </aura:iteration>
+            </lightning:select>-->
+            <lightning:input aura:id="timesheetno" label=" Timehseet No:" name="timesheetnumber" placeholder="Enter Timesheet"/>
+         </div>
+         <div  class="field slds-col" style="width:150px;">
+            <ui:inputDate label=" Week Ending:" aura:id="weekEndDate" displayDatePicker="true" format="dd/MM/yyyy" class="field" select="{!c.nullify}" keyup="{!c.nullify}" keypress="{!c.nullify}" updateOn="keypress, keyup"/>
+        </div>  <div class="slds-col" style="vertical-align:botom;">      <br></br>  
+            <button class="Srchbutton slds-button slds-button--brand searchbutton" onclick="{!c.fireSearchEvent}" >Search</button> 
+        </div>
+      
+        
+     </div>
+    <br></br>
+</aura:component>

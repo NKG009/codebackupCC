@@ -1,0 +1,40 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+
+    <div class="slds-grid slds-wrap slds-grid_align-center ">
+
+        <div class="slds-col" >
+            <div style="width:170px;border:1px solid  #a8cd1b;" class="panel panel-primary"><br></br>
+                <a class="hyperlinkclass" href="#" onclick="{!c.shiftstobeapproved}" value="Shifts to be Approved">
+                    <div  class="slds-align_absolute-center">
+                        <img src="{!$Resource.ClientPortalIcon+'/ShiftsAwaitingApproval.jpg'}" style="height:92px;"/>
+                    </div><br/>
+
+                    <div class="slds-align_absolute-center tittletext">
+                        <span class="pull-left">Shifts to be Approved</span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="slds-col" style="width:200px;"></div>
+        <div class="slds-col" >
+            <div style="width:170px;border:1px solid  #a8cd1b;" class="panel panel-primary"><br></br>
+                <a class="hyperlinkclass" href="#"  onclick="{!c.ApprovedTimesheets}" value="Approved Timesheet">
+                    <div  class="slds-align_absolute-center">
+                        <img src="{!$Resource.ClientPortalIcon+'/Timesheets.jpg'}" style="height:92px;"/>
+                    </div><br/>
+
+                    <div class="slds-align_absolute-center tittletext">
+                        <span class="pull-left">Approved Timesheet</span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <br/> <br/>
+    <div class="slds-truncate" style="text-align:Left;">
+        <lightning:button label="Back" class="Backbutton" variant="Brand" onclick="{!c.getBackscreen}"   />
+    </div>
+</aura:component>

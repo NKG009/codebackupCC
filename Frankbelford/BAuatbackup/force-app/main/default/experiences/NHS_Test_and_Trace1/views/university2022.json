@@ -1,0 +1,59 @@
+{
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "557ab0c9-bfea-4ac3-88ac-914bd9455593",
+  "label" : "University2022",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p>&nbsp;<img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.HMGovernment.1}\" style=\"width: 401.531px; height: 146.797px;\"></p>\n<p>&nbsp;</p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "1654b731-5de4-4ff9-aab3-14de9c4aae85",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7da90aa5-c753-45d9-97ff-4dae340146ed",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "NHS_Pre_Screener_Government"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "a4f95e2e-5ed4-4372-b021-4f7ce89a4b63",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "46ed313c-5823-4e1a-9a57-8887ccbd3fe4",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "7de4c76f-16d2-4090-8fec-79a2ac59e676",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "University2022"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "67b8af20-1996-4894-ae73-dcf58acca5ef",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "07923923-bc4d-4fa9-8426-a8b25d05caf2",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-university2022"
+}

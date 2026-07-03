@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "4a69d19f-96ad-457f-baac-a26e2ea5b8fc",
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "configurationTags" : [ ],
+  "devName" : "Approved_Timesheets_New__c",
+  "id" : "e4f7d249-a37d-4fd5-bdc0-a90df4f05e1c",
+  "label" : "Approved Timesheets New",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-approved-time-sheets-new",
+  "type" : "route",
+  "urlPrefix" : "approved-timeSheets-new"
+}

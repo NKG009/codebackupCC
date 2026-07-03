@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_MissingPayrollDetail__c</fullName>
+    <description>List of missing fields for payroll integration
+
+THL 31.03: Removed the 2nd Tier Candidate OR Statement
+IF( ISPICKVAL( IP_BorrowedTemp__c , &quot;Yes&quot; ) || RecordType.Name = &quot;2nd Tier Candidate&quot;,</description>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL( IP_BorrowedTemp__c , &quot;Yes&quot; ), IF( ISBLANK( IP_CandidateIDlegacy__c ) , &quot;Candidate ID&quot;, &quot;&quot;) ,&quot;&quot;) &amp; 
+IF( ISBLANK( FirstName ) , &quot;First Name, &quot;, &quot;&quot;) &amp; 
+IF( ISBLANK( Text(Salutation) ) , &quot;Title, &quot;, &quot;&quot;)&amp; 
+/*IF( AND(ISBLANK( sirenum__National_Insurance__c ),RecordType.Name = &quot;2nd Tier Candidate&quot;) , &quot;NI, &quot;, &quot;&quot;)&amp;*/
+IF(OR( ISBLANK( MailingPostalCode ), ISBLANK( IP_MailingAddressLine1__c ), ISBLANK( MailingCity )) , &quot;Address, &quot;, &quot;&quot;)&amp; 
+/* If( AND( TOE_Completed__c = FALSE, IP_ActivePAYEPayProfiles__c = 1),&quot;TOE not complete, &quot;,&quot;&quot;)&amp; 
+If( AND( New_Starter_Form__c = FALSE, IP_ActivePAYEPayProfiles__c = 1),&quot;New Starter Form, &quot;,&quot;&quot;)&amp; */
+IF( ISBLANK( IP_WorkerStartDate__c ) , &quot;Start Date, &quot;, &quot;&quot;)&amp; 
+IF( AND( IP_IncompleteActivePayProfiles__c &gt; 0, IP_ActivePayProfiles__c &gt; 0) ,&quot;Incomplete active pay profiles, &quot;,&quot;&quot;)&amp;
+IF( AND(IP_ActivePayProfiles__c =0,
+        NOT(RecordType.Name = &quot;2nd Tier Candidate&quot;),
+	NOT(ISPICKVAL( IP_BorrowedTemp__c , &quot;Yes&quot;))
+       ) , 
+	&quot;No Active pay profile(s), &quot;, &quot;&quot;) &amp;
+IF(AND(IP_IncompleteActivePayProfiles__c = IP_ActivePayProfiles__c, RecordType.Name = &quot;2nd Tier Candidate&quot;,ISPICKVAL( IP_BorrowedTemp__c , &quot;Yes&quot;) ),&quot;No completed pay profiles , &quot;,&quot;&quot;) &amp;
+
+IF(AND(OR(RecordType.Name = &quot;2nd Tier Candidate&quot;,ISPICKVAL( IP_BorrowedTemp__c , &quot;Yes&quot;)),  IP_TempestDepartment__c ==&quot;0000&quot; ),&quot;Owner Not a Branch Staff  &quot;,&quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>List of missing fields for payroll integration</inlineHelpText>
+    <label>Missing Payroll Details</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

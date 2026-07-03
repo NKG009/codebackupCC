@@ -1,0 +1,56 @@
+<aura:component controller="FileUploadController">
+    
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="messageinred" type="boolean" access="global" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!-- 'showLoadingSpinner' attribute for show/hide the uploading image and msg in aura:if-->
+    <aura:attribute name="showLoadingSpinner" type="boolean" default="false" />
+    <!-- 'fileName' attribute for display the selected file name -->  
+    <aura:attribute name="fileName" type="String" default="No File Selected.." />
+    <!-- Lightning Input with file type and on file change call the 'handleFilesChange' controller -->
+    <div>
+        <label class="global-label cssinputLable">Please Upload Image</label>
+        <lightning:input aura:id="fileId" class="edit cssInputFileClass" onchange="{!c.handleFilesChange}" type="file" name="file" label="" multiple="false"/><br></br>
+        
+        <div class="slds-text-body_small slds-text-color_error">
+            <aura:if isTrue="{!v.messageinred}">
+                	<label class="global-label" style="color:red;font-size:20px;font-weight:900;">{!v.fileName}</label>
+                <aura:set attribute="else">
+                    <label class="global-label" style="color:black;font-size:20px;font-weight:900;">{!v.fileName}</label>
+                </aura:set>
+            </aura:if>
+            
+        </div>
+        
+        <!--use aura:if for show-hide the loading spinner image--> 
+        <aura:if isTrue="{!v.showLoadingSpinner}">
+            <div class="slds-text-body_small slds-text-color_error"><label class="global-label">Uploading... </label>
+                <img src="/auraFW/resources/aura/images/spinner.gif" class="spinner-img" alt="Loading"/>
+            </div>
+        </aura:if>
+        <br/>
+        <label class="global-label">Click on Button after uploading the image</label>&nbsp;&nbsp;
+        <!--<img alt="User-added image" src="{!v.oUser.User_Image__c}" class="imagestyle"></img>
+    <lightning:button label="Upload Image" class="action-button accept" variant="Brand" onclick="{!c.doSave}" /> -->
+        <span class="edit_action popup-btn" data-toggle="modal" data-target="#myprofileedit-popup" id="updateSitebtnId" >
+            <lightning:button value="Upload Image" label="Upload Image" onclick="{!c.doSave}" class="slds-button_brand clsButton"/>
+        </span>
+        <!--<button class="action-button edit" onclick="{!c.doSave}" style=" width: 156px; height: 40px;background: #00aae3;font-family: arial; font-size: 1.4rem; color:white; font-weight: bold;padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 12px;">
+    <center>Upload Image</center></button>-->
+        <!-- Modal Popup when Profile Image updated -->
+        <aura:if isTrue="{!v.showLoadingSpinner}">
+            <div class="custom-model modal fade" id="myprofileedit-popup" tabindex="-1" role="dialog" aria-labelledby="bookedTemp-popup">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <p>Image has been updated succesfully!</p><br/>
+                		<button type="button" label="Close" class="action-button decline" data-dismiss="modal" onclick="{!c.myprofileEditNavigate}" style="background-color: #706e6f!important;">Close</button>
+                       <!-- <button type="button" class="close" data-dismiss="modal" onclick="{!c.myprofileEditNavigate}" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <p>Image has been updated succesfully!</p>-->
+                    </div>
+                </div>
+            </div>
+        </aura:if>
+    </div>
+</aura:component>

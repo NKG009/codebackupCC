@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Refer_a_Friend_TESCO</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>equals</operation>
+        <value>Office</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_CITY</field>
+        <operation>contains</operation>
+        <value>,Runcorn,Widnes,Warrington,Northwich,Winsford,Hartford,Frodsham,Helsby</value>
+    </filters>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>equals</operation>
+        <value>1319</value>
+    </filters>
+    <label>Refer a Friend TESCO</label>
+</ListView>

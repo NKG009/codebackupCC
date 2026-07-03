@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Company_Name_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISBLANK(CompanyName__c) &amp;&amp; LeadObject__c == &apos;Lead&apos;</errorConditionFormula>
+    <errorDisplayField>CompanyName__c</errorDisplayField>
+    <errorMessage>If you are using the default Salesforce lead object, please ensure you add a CompanyName mapping first.</errorMessage>
+</ValidationRule>

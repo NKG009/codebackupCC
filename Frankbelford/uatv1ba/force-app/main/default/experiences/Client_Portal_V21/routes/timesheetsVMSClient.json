@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "726d4677-6856-4f83-a788-9266e1d71bb6",
+  "appPageId" : "6cf45250-dd45-4f57-aa5d-84e94e3c25f8",
+  "configurationTags" : [ ],
+  "devName" : "Timesheets_VMS_client__c",
+  "id" : "d8d97393-0e1b-4849-9bf0-5da5bb8ce7b9",
+  "label" : "Timesheets VMS client",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-timesheets-vms-client",
+  "type" : "route",
+  "urlPrefix" : "timesheets-vms-client"
+}

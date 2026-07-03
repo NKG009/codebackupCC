@@ -1,0 +1,38 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "5901eef9-a1b3-45eb-b4e0-66aa57e6d030",
+  "label" : "MyProfileEdit",
+  "regions" : [ {
+    "id" : "56b80e15-0122-48cc-aa62-a9fe0f0e0c51",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "5c5d25c1-8e6d-4524-8482-4268920954e4",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "85372adb-4bfd-4cf5-9fb0-728fae80236b",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "MyProfileEdit"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "27c0a90a-836f-4a91-a94a-a0fb845c6a67",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c54ce43f-303b-4dd4-ac54-afb80f234a99",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "mKCa0AClWBInhddJAcSSushewOQUdT",
+  "type" : "view",
+  "viewType" : "custom-myprofileedit"
+}

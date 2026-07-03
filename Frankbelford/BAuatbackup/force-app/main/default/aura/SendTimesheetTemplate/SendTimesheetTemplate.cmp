@@ -1,0 +1,74 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader"  
+                access="global" 
+                controller="ManualPDFGenerateLightning">
+	<!-- handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- atrributes -->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="messageDisplay" type="String" />
+    <aura:attribute name="errorMessage" type="Boolean" />
+    <aura:attribute name="successMessage" type="Boolean" />
+    <aura:attribute name="processingText" type="Boolean" />
+    <aura:attribute name="pageDisplay" type="Boolean" />
+    <aura:attribute name="weekOptions" type="List" access="PRIVATE"/>
+    <aura:attribute name="yearOptions" type="List" access="PRIVATE"/>
+    <aura:attribute name="selectedWeekValue" type="String" access="PRIVATE"/>
+    <aura:attribute name="selectedYearValue" type="String" access="PRIVATE"/>
+    <aura:attribute name="disabled" type="Boolean" default="false" />    
+    
+    <aura:if isTrue="{!v.pageDisplay}">
+        <br/><br/>
+        <div class="modal-header slds-modal__header slds-size_1-of-1">
+            <h4 class="title slds-text-heading--medium" style="color:#1B5297;"><b>Timesheet Generation</b></h4>
+        </div>
+        <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:select name="payrollId" label="Payroll Week:" aura:id="payrollId" value="{!v.selectedWeekValue}">
+                        <aura:iteration items="{!v.weekOptions}" var="option">
+                            <option text="{!option.weekLabel}" value="{!option.weekValue}" selected="{!option.selected}"/>
+                        </aura:iteration>
+                    </lightning:select>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    <lightning:select name="payYearId" label="Payroll Year:" aura:id="payYearId" value="{!v.selectedYearValue}">
+                        <aura:iteration items="{!v.yearOptions}" var="option">
+                            <option text="{!option.yearLabel}" value="{!option.yearValue}" selected="{!option.selected}"/>
+                        </aura:iteration>
+                    </lightning:select>
+                </div>
+            </div>
+        <br/><br/>
+        <footer class="slds-card__footer">
+            <br/><br/>
+            <lightning:button type="reset" name="cancel" onclick="{!c.cancelClick}"
+                              label="Cancel" variant="neutral"/>
+            <lightning:button disabled="{!v.disabled}" type="submit" name="save" onclick="{!c.doSave}"
+                              label="Save" variant="brand"/>
+            <lightning:button disabled="{!v.disabled}" name="Print Timesheet" onclick="{!c.doPrint}"
+                              label="Print Timesheet" variant="brand"/>
+    </footer>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.processingText}">
+        <br/><br/><br/><br/>
+        <p style="font-size:15px;color:#1B5297;">
+            <center><b><aura:unescapedHtml value="{!$Label.c.ScreenProcessingMessage}" /></b></center>
+        </p>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.successMessage}">
+        <br/><br/><br/><br/>
+        <p style="font-size:15px;color:green;">
+            <center><b><aura:unescapedHtml value="{!v.messageDisplay}" /></b></center>
+        </p>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.errorMessage}">
+        <br/><br/><br/><br/>
+        <p style="font-size:15px;color:red;">
+             <center><b><aura:unescapedHtml value="{!v.messageDisplay}" /></b></center>
+        </p>
+    </aura:if>
+
+</aura:component>

@@ -1,0 +1,11 @@
+{
+  "forgotPasswordRouteId" : "f3e20cc8-d4fd-467e-a812-19e4b9692789",
+  "isAvailableToGuests" : false,
+  "isFilteredComponentsView" : true,
+  "isProgressiveRenderingEnabled" : true,
+  "loginAppPageId" : "95c9161f-4877-4a4c-b9f3-6e0454c03633",
+  "mainAppPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "preferredDomain" : "myagencytemps.bluearrow.co.uk",
+  "selfRegistrationRouteId" : "b14a549e-3930-4aa9-bf87-5845377b1370",
+  "type" : "site"
+}

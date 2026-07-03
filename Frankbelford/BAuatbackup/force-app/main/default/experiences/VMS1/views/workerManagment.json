@@ -1,0 +1,49 @@
+{
+  "appPageId" : "cb4d05bc-15d6-4e33-beb3-5244832ec585",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "ad26f101-210e-44c0-9dee-834e32cf41cd",
+  "label" : "Worker Managment",
+  "regions" : [ {
+    "id" : "448a2b2f-82c6-4451-955d-0a21c6f7eea0",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "VMS_Supplier_Worker_Management"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "746c0de5-95d8-43ef-a2fa-5b2b6696eb03",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3086c16a-25c2-4878-a2c3-27e50d514b30",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "66048b4c-3d95-4f7e-950a-dc51e04eeb8e",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Worker Managment"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "8f8f7b84-b2b5-4d28-9420-610f06c6fa0f",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "aaaaeebe-b535-421a-b435-bf342894065e",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-worker-managment"
+}

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "d2f79552-19d3-4845-91f3-c0d064a0ff5b",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "ClientForm__c",
+  "id" : "6d6fe3ce-4ef6-4123-b094-2ebe305f5e04",
+  "label" : "ClientForm",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-clientform",
+  "type" : "route",
+  "urlPrefix" : "clientform"
+}

@@ -1,0 +1,58 @@
+{
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "c04a431d-09d1-4f7f-b145-eb68edfa0faf",
+  "label" : "HGV Driver - New Trainees",
+  "regions" : [ {
+    "id" : "6dae50b0-4896-447e-957b-6d307169e335",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Untitled2removebg.1}\" style=\"width: 254.859px; height: 64.5625px;\"></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "5e5db8ff-589c-458c-bbc5-de6130b1f977",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowArguments" : "[]",
+        "flowName" : "Pre_Screener_HGV_Driver_New_Trainees"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "88e6681d-e0fa-4df6-95b6-0bde66285d7f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "30c02739-5041-45fe-9efd-b6c0f1a55534",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "f877cad1-9238-454c-8b91-0e552f197922",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "HGV Driver - New Trainees"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "eac57229-b9f4-4c38-b236-5ad213651422",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6e61df98-4bba-4146-8fe5-0d9cd4a7b25f",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-hgv-driver-new-trainees"
+}

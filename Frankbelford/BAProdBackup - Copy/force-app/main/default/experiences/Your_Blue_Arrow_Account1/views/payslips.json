@@ -1,0 +1,63 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "6220fafd-5551-4145-9b69-86cc2b4928e1",
+  "label" : "payslips",
+  "regions" : [ {
+    "id" : "82e019f9-08d9-48a2-830c-e500937e457a",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><strong style=\"color: rgb(230, 0, 0); font-size: 28px;\">Oops, we are having trouble loading your payslip history! </strong></p><p style=\"text-align: center;\"><span style=\"font-size: 28px;\">We are working on a resolution so check back again soon. Your payslips are emailed to you so you will be able to find them in your email inbox or your consultant will be able to send it to you if you can't find it in your inbox.</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "1c827132-0356-41cf-82c9-5451dd8209f8",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:Payslips",
+      "id" : "dd74b471-7318-477a-8cc6-8692e1581cef",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "cf8b430a-3847-4dd9-8582-ca6cde4b4eef",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "abb356a9-3ef5-49f4-a31f-01260b9a0800",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "payslips"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "03781c01-d0a0-40a0-9096-5158b5fa87ea",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7e923bf1-4905-40eb-939e-7d744ed3ccbe",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "id" : "8a5d5f5f-1259-4556-9d0a-094219514ca6",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "73f51465-2c25-4c57-b8f7-9b4e2bed162e",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-payslips"
+}

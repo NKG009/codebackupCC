@@ -1,0 +1,82 @@
+<apex:page standardController="jsinq__Inquiry__c" extensions="ConvertLeadSiteCheckController" standardStylesheets="true">
+    <script type="text/javascript">
+        function convertselectedsite(){
+            var checkboxes = document.getElementsByClassName('myChk');
+            var count = 0;
+            for(var i=0; i<checkboxes.length; i++){
+                if(checkboxes[i].checked == true){
+                    count++;
+                }
+            }           
+            if(count==0){
+                alert('Please select an existing site.');
+            }
+            else{
+                callconverttoselectedsite();
+            }
+        }
+        
+        function redirectToInquiry(inquiryId){
+            var url = '/apex/ConvertLeadContactCheck?id='+inquiry.id+'&accId='+accountId;
+            window.open(url, '_self');  
+        }
+        
+        function convertnewsite(){
+            var checkboxes = document.getElementsByClassName('myChk');
+            var count = 0;
+            for(var i=0; i<checkboxes.length; i++){
+                if(checkboxes[i].checked == true){
+                    count++;
+                }
+            }
+            if(count>0){
+                alert('Please unselect existing site.');
+            }
+            else{
+                callconverttonewsite();
+            }
+        }
+        
+        function allowOnePrimary(checkbox){
+            var checkboxes = document.getElementsByClassName('myChk');
+            var count = 0;
+            for(var i=0; i<checkboxes.length; i++){
+                if(checkboxes[i].checked == true){
+                    checkboxes.checked = false;
+                    count++;
+                }
+            }
+            if(count>1){
+                alert('Please select only one site.');
+                checkbox.checked = false;
+            }
+        }
+    </script>
+    <apex:form >
+        <apex:actionfunction name="callconverttonewsite" action="{!ConvertToNewSite}" rerender=""/>
+        <apex:actionfunction name="callconverttoselectedsite" action="{!ConvertToSelectedSite}" rerender=""/>
+        <apex:pageBlock title="Convert Inquiry">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Convert to Selected Site" id="ConvertSelAccount" onclick="convertselectedsite();" />
+                <apex:commandButton value="Convert to New Site" id="ConvertNewSite" onclick="convertnewsite();" oncomplete="redirectToInquiry('{!inquiryId}');"/>
+                <apex:commandButton action="{!Cancel}" value="Cancel" id="Cancel" />
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection title="Convert to Existing Site">
+                <apex:pageBlockTable value="{!wrapSiteList}" var="siteWrap" id="table"  style="width:260%" >
+                    <apex:column >
+                        <apex:inputCheckbox value="{!siteWrap.selected}" id="inputId" styleClass="myChk" onClick="allowOnePrimary(this);"/>
+                    </apex:column>
+                    <apex:column headerValue="Site Name" style="width:250px">
+                        <apex:outputLink value="/{!siteWrap.site.Id}" target="_blank">{!siteWrap.site.Name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Status" value="{!siteWrap.site.Status__c}" style="width:250px" />
+                    <apex:column headerValue="Owner" style="width:500px" >
+                        <apex:outputLink value="/{!siteWrap.site.OwnerId}" target="_blank">{!siteWrap.site.Owner.Name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Last Modified Date" value="{!siteWrap.site.LastModifiedDate}" style="width:250px" />
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

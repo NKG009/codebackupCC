@@ -1,0 +1,133 @@
+<apex:page standardController="Contact" lightningStylesheets="true" extensions="CreateCandidatePage_ext">
+ 
+ <!-- <apex:image url="{!$Resource.NewPersonedit}" width="900" height="90"/>-->
+ <br></br><br></br>
+<div style="text-align:center;font-size: large;">New Person: Candidate</div><br></br><br></br>
+  
+    <apex:form >
+     <style>
+  .pbTitle{display:none;}
+  </style>
+    <apex:pageMessages ></apex:pageMessages>
+    <apex:pageBlock mode="edit">
+            <apex:pageblockButtons style="text-align:center;" >
+            
+               <apex:commandButton styleClass="slds-vf-button_brand" value="Save & Add Address" action="{!saveandredirect}" rendered="{!IF((displayduplicate = false),true,false)}"/>
+              <apex:commandButton styleClass="slds-vf-button_brand" value="Save & Add Address (Ignore Alert)" action="{!saveandredirectallowbypass}" rendered="{!IF(displayduplicate,true,false)}"/>
+                <apex:commandButton value="Cancel" action="{!cancelredirect}" immediate="true"/>
+            </apex:pageblockButtons><br></br>
+            
+            
+             <apex:outputPanel rendered="{!IF(displayduplicate,true,false)}" >
+             <font color="Crimson">
+             <br></br>
+            <center>  <b> <apex:outputText > {!countdup} Possible Duplicate Record Found </apex:outputText> </b> </center> <br></br> 
+             <center>  <b> <apex:outputText > You are creating a duplicate record. We recommend you use an existing record instead</apex:outputText> </b> </center> <br></br> 
+               </font>
+                <apex:pageblockTable value="{!ppList}" var="p">
+ 
+                    <apex:column headerValue="Name">
+                       <apex:outputLink value="/{!p.id}" target="_blank">
+                       {!p.Name}
+                       </apex:outputLink>
+                      </apex:column>
+                     <apex:column value="{!p.MobilePhone}" />
+                     <apex:column value="{!p.Email}" />
+                    <apex:column headerValue="Owner">
+                       <apex:outputLink value="/{!p.Owner.id}" target="_blank">
+                       {!p.Owner.Name}
+                       </apex:outputLink>
+                       </apex:column>
+                      <apex:column value="{!p.LastModifieddate}" />
+               </apex:pageblockTable><br></br> <br></br> <br></br>
+                </apex:outputPanel>      
+            
+            
+            <apex:pageblocksection title="Status" collapsible="false">
+                <apex:inputField value="{!conrec.Person_Status__c}"/>
+                <apex:inputField value="{!conrec.Reference_Status__c}"/>
+            </apex:pageblocksection>
+            
+             <apex:pageblocksection title="Contact Details" collapsible="false">
+                <apex:inputfield value="{!conrec.Salutation}"/>
+                <apex:inputfield value="{!conrec.MobilePhone}"/>
+                <apex:inputfield value="{!conrec.FirstName}" required="true"/>
+                <apex:inputfield value="{!conrec.Phone}"/>
+                <apex:inputfield value="{!conrec.MiddleName}"/>
+                <apex:inputfield value="{!conrec.OtherPhone}"/>
+                <apex:inputfield value="{!conrec.LastName}" required="true"/>
+                <apex:inputfield value="{!conrec.Email}"/>
+                <apex:inputfield value="{!conrec.Suffix}"/>
+                <apex:inputfield value="{!conrec.ts2__Preferred_Name__c}"/>
+                <apex:inputfield value="{!conrec.ts2__Contact_Method__c}"/>
+                
+            </apex:pageblocksection>
+            
+            <apex:pageblocksection title="Candidate Information" collapsible="false">
+                
+                <apex:inputfield value="{!conrec.IP_NextOfKinInfo__c}"/>
+                <apex:inputfield value="{!conrec.Perm_Work__c}"/>
+                <apex:inputfield value="{!conrec.IP_CandidateIDlegacy__c}"/>
+                <apex:inputfield value="{!conrec.Temp_Work__c}"/>
+                <apex:inputfield value="{!conrec.IP_PreferredLocation__c}"/>
+                <apex:inputfield value="{!conrec.Student__c}"/>
+                <apex:inputfield value="{!conrec.IP_StudentWorkHours__c}"/>
+                <apex:inputfield value="{!conrec.sirenum__General_Comments__c}"/>          
+            </apex:pageblocksection>
+            
+             <apex:pageblocksection title="Student Course Details" collapsible="false">
+                
+                <apex:inputfield value="{!conrec.IP_Term1StartDate__c}"/>
+                <apex:inputfield value="{!conrec.IP_Term1EndDate__c}"/>
+                <apex:inputfield value="{!conrec.IP_Term2StartDate__c}"/>
+                <apex:inputfield value="{!conrec.IP_Term2EndDate__c}"/>
+                <apex:inputfield value="{!conrec.IP_Term3StartDate__c}"/>
+                <apex:inputfield value="{!conrec.IP_Term3EndDate__c}"/>
+                <apex:inputfield value="{!conrec.IP_StudyComplete__c}"/>
+                <apex:inputfield value="{!conrec.IP_LastRecordedTermdate__c}"/> 
+                <apex:inputfield value="{!conrec.IP_FirstRecordedTermDate__c}"/>          
+            </apex:pageblocksection>
+            
+              <apex:pageblocksection title="Other Information" collapsible="false">
+                
+                <apex:inputfield value="{!conrec.ts2__EEO_Gender__c}"/>
+                <apex:inputfield value="{!conrec.IP_BorrowedTemp__c}"/>
+                <apex:inputfield value="{!conrec.Birthdate}"/>
+                <apex:inputfield value="{!conrec.IP_Unspent_Criminal_Convictions__c}"/>
+                <apex:inputfield value="{!conrec.IP_CategoryOfWork__c}" required="true"/>
+                <apex:inputfield value="{!conrec.IP_Unspent_Criminal_Convictions_Details__c}"/>
+                <apex:inputfield value="{!conrec.IP_ReasonForRegistration__c}"/> 
+                <apex:inputfield value="{!conrec.IP_Offence__c}"/>  
+                 <apex:inputfield value="{!conrec.ts2__Candidate_Source__c}"/>  
+                  <apex:inputfield value="{!conrec.IP_Conviction__c}"/>   
+                  <apex:inputfield value="{!conrec.IP_Rehabilitation_Period_End_Date__c}"/>    
+                  
+            </apex:pageblocksection>
+            
+              <apex:pageblocksection title="HR & Employment" collapsible="false">
+                
+                <apex:inputfield value="{!conrec.sirenum__National_Insurance__c}"/>
+                <apex:inputfield value="{!conrec.P45_Suppression_Reason__c}"/>
+                <apex:inputfield value="{!conrec.IP_Minimum_Pay_Rate_Ltd__c}"/>
+                <apex:inputfield value="{!conrec.IP_AWRType__c}"/>
+                <apex:inputfield value="{!conrec.IP_Minimum_Pay_Rate_PAYE__c}"/>
+                <apex:inputfield value="{!conrec.IP_WorkerStartDate__c}"/>
+                <apex:inputfield value="{!conrec.ts2__Current_Salary__c}"/>
+                <apex:inputfield value="{!conrec.ts2__Desired_Salary__c}"/> 
+            </apex:pageblocksection>
+            
+             <apex:pageblocksection title="System Information" collapsible="false">
+                
+                <apex:outputtext label="Owner" value="{!ownername}"/>
+                <apex:outputtext label="Person Record Type" value="{!rectypename}"/>
+                <apex:inputfield value="{!conrec.sirenum__Client_Password__c}"/>
+                <apex:inputfield value="{!conrec.HasOptedOutOfEmail}"/>
+                <apex:inputfield value="{!conrec.ts2__Active_Search__c}"/>
+                          
+            </apex:pageblocksection>
+    
+    </apex:pageBlock>
+    
+    </apex:form>
+ 
+</apex:page>

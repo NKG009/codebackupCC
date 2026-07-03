@@ -1,0 +1,181 @@
+<aura:component Controller="CPtrackmypayController" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction" access="global" >
+    
+    <!--pageload Timesheet starts-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!--pageload Timesheet ends-->
+    
+    <!--listing Timesheet start-->
+    <aura:attribute type="List"    name="allTimesheets" />
+    <aura:attribute type="List"    name="currentList" />
+    <!--listing Timesheet end-->
+    
+    <!--Pagination Timesheet start -->
+    <aura:attribute type="Integer" name="pageNumber" default="1" />
+    <aura:attribute type="Integer" name="maxPage" default="1" />
+    <aura:handler name="change"	value="{!v.pageNumber}"	action="{!c.renderPage}" />
+    <!-- Pagination Timesheet end-->
+    
+    <!--Timesheet details-->
+    <aura:attribute name="timesheetDetails" type="List" />
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <!--Timesheet details-->
+    
+    
+    <!--Timesheet query-->
+    <aura:attribute name="QueryTextBoxString" type="String"/>
+    <aura:attribute name="SendQuery1" type="String" />
+    <aura:attribute name="TimesheetIDQuery" type="String" />
+    <aura:attribute name="isOpenQuery" type="boolean" default="false" />
+    <!--Timesheet query-->
+    
+    <aura:attribute name="QueryTextTimesheet" type="String" />
+    <aura:attribute name="QueryTextSite" type="String" />
+    <aura:attribute name="QueryTextJobRole" type="String" />
+    <aura:attribute name="idme" type="String" />
+    <aura:attribute name="allRecords" type="String" />
+    
+    
+    <div class="slds-scrollable slds-wrap">  
+    <table class="slds-no-row-hover slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+            <tr class="headingfont">
+                <th scope="col" class="headingfont"><div class="slds-text-align_center " title="Created Date" >Created Date</div></th>
+                <th scope="col" class="headingfont"><div class="slds-text-align_center" title="Weekending">Week Ending</div></th>
+                <th scope="col" class="headingfont"><div class="slds-text-align_center" >Before Any Deductions
+                <lightning:helptext content="Yet to be deducted for example NI, Tax &#38; Pension" />    </div></th>
+                <th scope="col" class="headingfont"><div class="slds-text-align_center" title="Total Hours">Total Hours</div></th>
+                <th scope="col" style="width:300px;" class="headingfont"><div class="slds-text-align_center" title="Status">Status</div></th>
+                <th scope="col" style="width:200px;" colspan="2"  class="headingfont"><div class="slds-text-align_center" title="Action">Action</div></th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:if isTrue="{!v.recordCnt}">
+                <div class="slds-text-color--error"> No Result Found...</div>
+            </aura:if>
+            
+            <aura:iteration items="{!v.currentList}" var="record" indexVar="idx">
+                <tr>
+                    <td><div class="slds-text-align_center slds-cell-wrap"><lightning:formattedDateTime value="{!record.CreatedDate}" year="numeric" month="numeric" day="numeric" /></div></td>
+                    <td><div class="slds-text-align_center slds-cell-wrap"><lightning:formattedDateTime value="{!record.sirenum__Week_Ending__c}" year="numeric" month="numeric" day="numeric" /></div></td>
+                    <td><div class="slds-text-align_center slds-cell-wrap">£ {!record.sirenum__Total_Pay__c}</div></td>
+                    <td><div class="slds-text-align_center slds-cell-wrap">{!record.sirenum__Total_Hours__c}</div></td>
+                    <td><div class="slds-text-align_center slds-cell-wrap">{!record.IP_Status__c}</div></td>
+                    <td><div class="slds-text-align_center slds-cell-wrap">
+                        <lightning:button label="Details" class="Detailsbutton" iconPosition="left" variant="brand" onclick="{!c.getTSLDetails}" value="{!record.Id}"  /></div></td>
+                          <td><div class="slds-text-align_center slds-cell-wrap">
+                         <lightning:button label="Query" class="Querybutton"   iconPosition="left" variant="brand" onclick="{!c.getQuery}" value="{!record.Id}" />     
+                              </div>
+                    </td>
+                </tr>
+            </aura:iteration>    
+        </tbody>
+        </table></div><br></br>
+    <div style="text-align:right"><c:Pagination currentPageNumber="{!v.pageNumber}" maxPageNumber="{!v.maxPage}" />
+    </div>
+    <div class="slds-form-element__control slds-p-top_x-large">
+        <button class="slds-button slds-button_brand Backbutton" iconName="utility:open" onclick="{!c.payntimesheet}" >Back</button>
+    </div>
+    
+    <!-- timesheet details popup starts here-->   
+    <aura:if isTrue="{!v.isOpen}">
+        <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
+            <div class="slds-modal__container slds-scrollable">
+                <div class="slds-modal__header">
+                    <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
+                        X
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </div>
+                <div class="slds-modal__content slds-p-around--medium slds-scrollable">
+                    <table class="slds-table slds-scrollable">
+                        <tr>
+                            <td><div class="slds-truncate "><b class="headingdetails">Timesheet Number :- </b> {!v.timesheetDetails[0].sirenum__Timesheet__r.IP_StandardWeeklyNumberID__c}</div></td>
+                        </tr>
+                    </table>
+                    <table class="slds-table slds-table_bordered slds-table_col-bordered ">
+                        <thead>
+                            <tr >
+                                <th scope="col" style="text-align:center;" class="headingdetails"><b>Start Date</b></th>
+                                <th scope="col" style="text-align:center;" class="headingdetails"><b>Job Role</b></th>
+                                <th scope="col" style="text-align:center;" class="headingdetails"><b>Site</b></th>
+                                <th scope="col" style="text-align:center;" class="headingdetails"><b>Total Hours</b></th>
+                                <th scope="col" style="text-align:center;" class="headingdetails"><b>Rate</b></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <aura:iteration items="{!v.timesheetDetails}" var="tsld" indexVar="idx">
+                                <tr>
+                                    <td><div class="slds-truncate slds-cell-wrap"><lightning:formattedDateTime value="{!tsld.sirenum__Date__c}" year="numeric" month="numeric" day="numeric" /></div></td>
+                                    <td><div class="slds-truncate slds-cell-wrap">{!tsld.sirenum__Timesheet__r.sirenum__Team__r.Name}</div></td>
+                                    <td><div class="slds-truncate slds-cell-wrap">{!tsld.sirenum__Timesheet__r.sirenum__Site__r.Name}</div></td>
+                                    <td><div class="slds-truncate slds-cell-wrap">{!tsld.sirenum__Hours__c}</div></td>
+                                    <td><div class="slds-truncate slds-cell-wrap">£{!tsld.sirenum__Rate__c}</div></td>
+                                </tr>
+                            </aura:iteration>    
+                        </tbody>
+                    </table><br></br>
+                      <button class="slds-button slds-button_brand Backbutton"  onclick="{!c.closeModel}" >Back</button>
+
+                </div>
+               
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </aura:if>
+    
+    <!-- timesheet details popup starts here-->   
+    
+    
+    
+    
+    <!-- timesheet query popup starts here-->   
+    <aura:if isTrue="{!v.isOpenQuery}">
+        <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
+            <div class="slds-modal__container">
+                <form>
+                    <div class="slds-modal__header">
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModelQuery}">
+                            X
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                    </div>
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <table class="slds-table" >
+                            <tr>
+                                <td><u class="headingdetails"><b >Query</b></u></td>    
+                            </tr> 
+                            <tr>
+                                <td>
+                                    <b class="headingdetails"> Timesheet No</b> : -  <ui:outputText class="slds-cell-wrap" aura:id="QueryTimesheet" value="{!v.allRecords.IP_StandardWeeklyNumberID__c}"/><br/>
+                                    <b class="headingdetails"> Site</b> : - <ui:outputText class="slds-cell-wrap" aura:id="QuerySite" value="{!v.allRecords.sirenum__Site__r.Name}"/>,&nbsp;<br/>
+                                    <b class="headingdetails"> Job Role</b> : - <ui:outputText class="slds-cell-wrap" aura:id="QueryJobRole" value="{!v.allRecords.sirenum__Team__r.Name}"/> 
+                                <div aura:id="editDiv" class="slds-hide">
+                                    <ui:outputText aura:id="TimesheetId" value="{!v.allRecords.Id}"/> 
+                                </div>
+                                </td>   
+                            </tr> 
+                            <tr>
+                                <td style="width:100%;"><ui:inputTextArea aura:id="Query" label=""  value="" rows="5" placeholder="" /></td>
+                            </tr>
+                        </table>
+                        <div>
+						 <table>
+                      <tr><td style="text-align:left"> <ui:button class="button Backbutton" label="Back" press="{!c.closeModelQuery}" /></td>
+                       <td style="text-align:right"> <ui:button aura:id="{!v.TimesheetId}" class="slds-button Submitbutton slds-button_brand" label="Submit" press="{!c.QueryToJSC}" /></td>
+                             </tr>
+                            </table>
+                            
+                       </div>
+                    </div>
+                 
+                </form>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </aura:if>
+    
+    <!-- timesheet query popup starts here-->   
+    
+    
+</aura:component>

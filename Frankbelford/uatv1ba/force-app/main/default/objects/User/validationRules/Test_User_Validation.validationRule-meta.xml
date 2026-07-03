@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Test_User_Validation</fullName>
+    <active>false</active>
+    <errorConditionFormula>Username = &apos;mko.vfr@njh.com&apos; &amp;&amp; not(isblank( GUID_user__c ))</errorConditionFormula>
+    <errorDisplayField>EmailPreferences</errorDisplayField>
+    <errorMessage>Error for Test class</errorMessage>
+</ValidationRule>

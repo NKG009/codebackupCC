@@ -1,0 +1,38 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "8d5401ec-0663-4211-9b11-405719c2e51c",
+  "label" : "Current Shifts",
+  "regions" : [ {
+    "id" : "1db25bb2-d2dd-4dc3-b29a-13d554a150cf",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "c89b6cee-e584-44b7-9bd8-6b42e6d530c9",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "31415998-5e57-4070-8c38-cdaacaf15db3",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Current Shifts"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "63689a75-70ed-41e5-bf83-c27a3221e340",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "88519f25-7a40-4cee-9644-660ccc55d44b",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "sK0xzDntQScAWn23vFTiDXCuib6hsO",
+  "type" : "view",
+  "viewType" : "custom-testtemps"
+}

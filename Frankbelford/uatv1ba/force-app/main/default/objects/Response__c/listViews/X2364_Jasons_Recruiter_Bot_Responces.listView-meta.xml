@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2364_Jasons_Recruiter_Bot_Responces</fullName>
+    <columns>Candidate__c</columns>
+    <columns>Question_1__c</columns>
+    <columns>Question_2__c</columns>
+    <columns>Question_3__c</columns>
+    <columns>Question_4__c</columns>
+    <columns>Question_5__c</columns>
+    <columns>NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Campaign__c</field>
+        <operation>equals</operation>
+        <value>2364 - Pickering Measham</value>
+    </filters>
+    <label>2364 - Jasons Recruiter Bot Responces</label>
+    <sharedTo>
+        <role>Blue_Arrow_Burton</role>
+    </sharedTo>
+</ListView>

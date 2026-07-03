@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1350Laura_s_ACTIVE_candidates</fullName>
+    <columns>Person_Status__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>Top_Prospect__c</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>ts2__Jobs_Applied_For__c</columns>
+    <columns>Missing_Compliance_Details__c</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <columns>ts2__People_Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>IP_PreferredLocation__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Owner__c</field>
+        <operation>equals</operation>
+        <value>Laura Fairbridge</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <label>1350Laura&apos;s ACTIVE candidates</label>
+    <sharedTo>
+        <role>Blue_Arrow_Newbury_Perm_hub</role>
+        <role>Blue_Arrow_Newbury_Temps</role>
+    </sharedTo>
+</ListView>

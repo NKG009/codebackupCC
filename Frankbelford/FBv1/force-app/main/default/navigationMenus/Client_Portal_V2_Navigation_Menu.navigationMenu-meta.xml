@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationMenu xmlns="http://soap.sforce.com/2006/04/metadata">
+    <container>Client Portal V2</container>
+    <containerType>Network</containerType>
+    <label>Client Portal V2 - Navigation Menu</label>
+    <navigationMenuItem>
+        <label>Dashboard</label>
+        <position>1</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Shift Approval</label>
+        <position>2</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/shift-management</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Hours Approval</label>
+        <position>3</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/shift-approval-vms</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Timesheets</label>
+        <position>4</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/timesheets-vms-client</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Job Order</label>
+        <position>5</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/my-job-order</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Job Orders</label>
+        <position>6</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/job-order-vms-client</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Candidates</label>
+        <position>7</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/my-candidates</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Hour Submission</label>
+        <position>8</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/hour-submission</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Timesheets</label>
+        <position>9</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/my-timesheets</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>My Preferred Workers</label>
+        <position>10</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/my-preferred-workers</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Workforce Management</label>
+        <position>11</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/my-shifts</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Workforce Management</label>
+        <position>12</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/my-shifts-vms-client</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Todays Workforce</label>
+        <position>13</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/todays-workforce</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Contact Us</label>
+        <position>14</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/contact-us</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Help</label>
+        <position>15</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>https://www.bluearrow.co.uk/recruitment-solutions/client-portal/</target>
+        <type>ExternalLink</type>
+    </navigationMenuItem>
+</NavigationMenu>

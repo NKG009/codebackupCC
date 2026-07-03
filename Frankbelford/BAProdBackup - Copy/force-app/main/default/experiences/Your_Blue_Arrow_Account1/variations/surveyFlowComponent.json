@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "099a52f9-294a-43cc-ab29-0ecbfdf719f5",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "0b593d5a-3da3-47b9-a618-efb93d16a667",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Survey_Flow_Component",
+  "id" : "724a20b1-98f3-43fe-b7d2-daaa93c756f0",
+  "type" : "experienceVariation"
+}

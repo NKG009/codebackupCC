@@ -1,0 +1,20 @@
+<apex:page standardController="Account" extensions="TopProspectCheck" showHeader="false" sidebar="false">
+    <!-- Begin Default Content REMOVE THIS -->
+    <apex:form >
+        <apex:outputPanel style="margin-left:10px;margin-top:10px;" rendered="{!show}">
+            <apex:outputPanel style="margin-left:10px;margin-top:10px;" rendered="{!account.Check_Top_Prospect__c}">
+                <div style="background-color:transparent;width:400px; height:30px; color:red;text-align:center; margin:0 auto; display:{! If(show==true ,'block','none') }">
+                <apex:outputText >All related sites will no longer be top prospect. Do you want to continue?</apex:outputText><br/><br/>
+                <apex:commandButton value="Yes" action="{!updateTopProspect}" oncomplete="refreshPage();"/>
+                <apex:commandButton value="No" action="{!revertTopProspect}" oncomplete="refreshPage();"/>
+                </div>
+            </apex:outputPanel>
+        </apex:outputPanel>
+    </apex:form>
+     <script type="text/javascript">
+        function refreshPage(){
+            var accountId = '{!acctId}';
+            window.top.location.href = '/'+accountId;
+        }
+    </script>
+</apex:page>

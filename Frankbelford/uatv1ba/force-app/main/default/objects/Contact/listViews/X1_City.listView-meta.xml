@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1_City</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>IP_NextOfKinInfo__c</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>Missing_Compliance_Details__c</columns>
+    <columns>IP_PayrollStatus__c</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>IP_WorkerStartDate__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CONTACT.ADDRESS2_CITY</field>
+        <operation>equals</operation>
+        <value>London</value>
+    </filters>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>equals</operation>
+        <value>1040</value>
+    </filters>
+    <filters>
+        <field>Person_Activity_Status__c</field>
+        <operation>equals</operation>
+        <value>active</value>
+    </filters>
+    <filters>
+        <field>PORTW_Completed__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>1.City</label>
+</ListView>

@@ -1,0 +1,116 @@
+<apex:page standardcontroller="IP_PayProfile__c" extensions="createpayumbpayprofile" lightningStylesheets="true">
+  
+ <!--   <apex:image url="{!$Resource.PayEdit}" width="700" height="60"/><br/><br/>  -->
+    
+    <br></br><br></br>
+    <apex:outputPanel rendered="{!recordTypeName == 'PAYE' }">
+    <div style="text-align:center;font-size: large;">New Pay Profile : PAYE</div><br></br><br></br>
+       </apex:outputPanel>
+        <apex:outputPanel rendered="{!recordTypeName == 'Umbrella' }">
+        <div style="text-align:center;font-size: large;">New Pay Profile : Umbrella</div><br></br><br></br> 
+</apex:outputPanel>
+    <apex:form >
+     <style>
+  .pbTitle{display:none;}
+  </style>
+        <apex:pageMessages ></apex:pageMessages>
+
+        <apex:pageBlock mode="edit">
+           <apex:pageblockButtons location="top" style="text-align:center;">                            
+                <apex:commandButton value="Save" action="{!saveandredirect}" styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Save & New" action="{!saveandredirectnewpage}" styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Cancel" action="{!cancelredirect}" immediate="true"/>
+              <!--  <apex:commandButton value="Hide This SaveNew Command Button" style="visibility:hidden;"/>
+                <apex:commandButton value="Hide This Cancel Command Button" style="visibility:hidden;"/> -->
+            </apex:pageblockButtons><br></br>
+            <br></br>
+            
+            <!--------------Section for Umbrella Pay Profile------------------->
+            <apex:outputPanel rendered="{!recordTypeName == 'Umbrella' }">
+                <apex:pageblocksection title="Information" collapsible="false">
+                    <!--<apex:outputtext label="Record Type" value="{!recname}"/> -->
+                    <apex:inputfield value="{!payrec.IP_Status__c}" rendered="{!profileName == 'System Administrator' }"/>
+                    <apex:outputField value="{!payrec.IP_Status__c}" html-disabled="true"  rendered="{!profileName != 'System Administrator' }"/>
+                    <apex:outputField value="{!payrec.RecordTypeID}"/>
+                    <apex:inputfield value="{!payrec.IP_Candidate__c}" required="true"/>
+                    <apex:inputfield value="{!payrec.IP_MissingPayrollDetail__c}" rendered="{!profileName == 'System Administrator' }"/>
+                    <apex:outputField value="{!payrec.IP_MissingPayrollDetail__c}" html-disabled="true"  rendered="{!profileName != 'System Administrator' }"/>                     
+                    <apex:inputfield value="{!payrec.IP_UmbrellaName__c}"/>
+                    <apex:inputfield value="{!payrec.IP_PayrollID__c}"  rendered="{!profileName == 'System Administrator' }"/>
+                    <apex:outputField value="{!payrec.IP_PayrollID__c}" html-disabled="true"  rendered="{!profileName != 'System Administrator' }"/>
+                    <apex:inputfield value="{!payrec.IP_SupplierReference__c}" rendered="{!profileName == 'System Administrator' }"/>
+                    <apex:outputField value="{!payrec.IP_SupplierReference__c}" html-disabled="true" rendered="{!profileName != 'System Administrator' }"/>                     
+                    <apex:outputText ><br/></apex:outputText>        
+                    <apex:inputfield value="{!payrec.IP_PrimaryPayMethod__c}"/>
+                </apex:pageblocksection>
+                
+                <apex:pageblocksection title="System Information" collapsible="false">                
+                    <apex:inputfield value="{!payrec.IP_PassToTempest__c}"/>
+                    <apex:inputfield value="{!payrec.IP_LastPassedToTempest__c  }"/>
+                    <apex:outputText ><br/></apex:outputText>
+                    <apex:inputfield value="{!payrec.IP_EmergencyPull__c  }" rendered="{!profileName == 'System Administrator' }"/>
+                </apex:pageblocksection>
+            </apex:outputPanel>
+            
+            <!--------------Section for PAYE Pay Profile------------------->
+            <apex:outputPanel rendered="{!recordTypeName == 'PAYE' }">
+                <apex:pageblocksection title="Information" collapsible="false">
+                    <apex:outputtext label="Record Type" value="{!recordTypeName}"/>
+                    <apex:inputfield value="{!payrec.IP_MissingPayrollDetail__c}" rendered="{!profileName == 'System Administrator' }"/>
+                    <apex:outputField value="{!payrec.IP_MissingPayrollDetail__c}" html-disabled="true"  rendered="{!profileName != 'System Administrator' }"/>
+                    <apex:inputfield value="{!payrec.IP_Candidate__c}" required="true"/>
+                    <apex:inputfield value="{!payrec.IP_Status__c}" rendered="{!profileName == 'System Administrator' }"/>
+                    <apex:outputField value="{!payrec.IP_Status__c}" html-disabled="true"  rendered="{!profileName != 'System Administrator' }"/>
+                    <apex:inputfield value="{!payrec.IP_PayrollID__c}"/>
+                    <apex:inputfield value="{!payrec.IP_PrimaryPayMethod__c}"/>
+                    <apex:inputfield value="{!payrec.IP_PayFrequency__c}"/>
+                    <apex:inputfield value="{!payrec.IP_NewStarterTaxStatus__c  }"/>
+                    <apex:inputfield value="{!payrec.IP_EmailPayslip__c}"/>
+                    <apex:inputfield value="{!payrec.IP_StudentLoan__c  }"/>
+                    <apex:inputfield value="{!payrec.IP_Derogated__c}"/>
+                    <apex:outputField value="{!payrec.RecordTypeID}"/>    
+                    <apex:outputText ><br/></apex:outputText>        
+                    
+                </apex:pageblocksection>
+                
+                <apex:pageblocksection title="Bank Details" collapsible="false">                    
+                    <apex:inputfield value="{!payrec.IP_BankAccountName__c}" rendered="{!profileName == 'System Administrator' }"/>
+                    <apex:outputField value="{!payrec.IP_BankAccountName__c}" html-disabled="true" rendered="{!profileName != 'System Administrator' }"/>                   
+                </apex:pageblocksection>
+                
+                <apex:pageblocksection title="HR & Employment" collapsible="false">
+                    <apex:inputfield value="{!payrec.P45_Requested__c}" rendered="{!profileName == 'System Administrator' }"/>
+                    <apex:inputfield value="{!payrec.Date_P45_Requested__c}" rendered="{!profileName == 'System Administrator' }"/>
+                    <apex:inputfield value="{!payrec.Reason_for_Leaving1__c}" rendered="{!profileName == 'System Administrator' }"/>
+                    <apex:inputfield value="{!payrec.P45_Date_by_Head_Office__c }" rendered="{!profileName == 'System Administrator' }"/>
+                    <apex:outputField value="{!payrec.P45_Requested__c}" html-disabled="true" rendered="{!profileName != 'System Administrator'}"/>
+                    <apex:outputField value="{!payrec.Date_P45_Requested__c}" html-disabled="true"  rendered="{!profileName != 'System Administrator'}"/>
+                    <apex:outputField value="{!payrec.Reason_for_Leaving1__c}" html-disabled="true" rendered="{!profileName != 'System Administrator'}"/>
+                    <apex:outputField value="{!payrec.P45_Date_by_Head_Office__c }"  html-disabled="true" rendered="{!profileName != 'System Administrator'}"/>
+                </apex:pageblocksection>
+                
+                <apex:pageblocksection title="System Information" collapsible="false">                
+                    <apex:inputfield value="{!payrec.IP_PassToTempest__c}"/>
+                    <apex:inputfield value="{!payrec.IP_LastPassedToTempest__c  }"/>
+                    <apex:inputfield value="{!payrec.IP_Branch_Code__c}" rendered="{!profileName == 'System Administrator' }"/>
+                    <apex:inputfield value="{!payrec.IP_GUID__c}" rendered="{!profileName == 'System Administrator' }"/>
+                    <apex:inputfield value="{!payrec.P45_Initiated__c}" rendered="{!profileName == 'System Administrator' }"/>
+                    <apex:inputfield value="{!payrec.IP_EmergencyPull__c}" rendered="{!profileName == 'System Administrator' }"/>
+                    <apex:inputfield value="{!payrec.Reason_for_P45_Internal__c}" rendered="{!profileName == 'System Administrator' }"/>
+                    <apex:inputfield value="{!payrec.IP_TimesheetIDLink__c}" rendered="{!profileName == 'System Administrator' }"/>
+                    <apex:inputfield value="{!payrec.For_P45_batch__c}" rendered="{!profileName == 'System Administrator' }"/>
+                    <apex:inputfield value="{!payrec.IP_Payroll_Leaver__c }" rendered="{!profileName == 'System Administrator' }"/>
+                    <!--<apex:inputfield value="{!payrec.IP_AccountNumber__c}"/>
+                    <apex:inputfield value="{!payrec.IP_SortCode__c}"/>
+                    <apex:inputfield value="{!payrec.IP_BuildingSocietyNumber__c  }"/>--->
+                </apex:pageblocksection>
+            </apex:outputPanel>
+            <apex:pageblockButtons location="bottom">                            
+                <apex:commandButton value="Save" action="{!saveandredirect}" styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Save & New" action="{!saveandredirectnewpage}" styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Cancel" action="{!cancelredirect}" immediate="true"/>            
+            </apex:pageblockButtons>
+        </apex:pageBlock>    
+    </apex:form>
+  
+</apex:page>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>hide_tab_skills__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>When selected, this setting will hide the Skills Sub-Tab within the Advanced Contact Search feature.  By Default, this setting is disabled and will show the Skills Tab.</description>
+    <inlineHelpText>When selected, this setting will hide the Skills Sub-Tab within the Advanced Contact Search feature.  By Default, this setting is disabled and will show the Skills Tab.</inlineHelpText>
+    <label>Hide Tab Skills</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

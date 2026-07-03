@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TestClassValidation</fullName>
+    <active>false</active>
+    <errorConditionFormula>(!ISNEW() &amp;&amp; CONTAINS(FirstName, &apos;TestManish&apos;)) || (CONTAINS(FirstName, &apos;TestManish&apos;) &amp;&amp; NOT(ISBLANK(GUID__c)) &amp;&amp; RecordType.Name = &apos;2nd Tier Candidate&apos;)</errorConditionFormula>
+    <errorDisplayField>IP_2nd_Tier_Supplier__c</errorDisplayField>
+    <errorMessage>Test Validation for Test class coverage</errorMessage>
+</ValidationRule>

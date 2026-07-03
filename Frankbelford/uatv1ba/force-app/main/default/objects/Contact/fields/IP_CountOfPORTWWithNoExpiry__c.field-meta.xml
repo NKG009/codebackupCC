@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_CountOfPORTWWithNoExpiry__c</fullName>
+    <label>Count of PORTW with no expiry</label>
+    <summaryFilterItems>
+        <field>ts2__Certification__c.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>Right to Work</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>ts2__Certification__c.Is_a_PORTW_with_no_expiry__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>ts2__Certification__c.ts2__Contact__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

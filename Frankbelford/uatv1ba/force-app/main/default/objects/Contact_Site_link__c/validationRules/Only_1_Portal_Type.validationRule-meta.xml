@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_1_Portal_Type</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+AND(INCLUDES(IP_PortalType__c, &quot;Primary Hours Approver&quot;),
+OR(
+INCLUDES(IP_PortalType__c, &quot;Secondary Hours Approver&quot;),
+INCLUDES(IP_PortalType__c, &quot;Escalation Hours Approver&quot;),
+INCLUDES(IP_PortalType__c, &quot;Viewer&quot;),
+INCLUDES(IP_PortalType__c, &quot;Viewer&quot;)
+)
+),
+
+AND(INCLUDES(IP_PortalType__c, &quot;Secondary Hours Approver&quot;),
+OR(
+INCLUDES(IP_PortalType__c, &quot;Primary Hours Approver&quot;),
+INCLUDES(IP_PortalType__c, &quot;Escalation Hours Approver&quot;),
+INCLUDES(IP_PortalType__c, &quot;Viewer&quot;),
+INCLUDES(IP_PortalType__c, &quot;Consultant&quot;)
+)
+),
+
+AND(INCLUDES(IP_PortalType__c, &quot;Escalation Hours Approver&quot;),
+OR(
+INCLUDES(IP_PortalType__c, &quot;Secondary Hours Approver&quot;),
+INCLUDES(IP_PortalType__c, &quot;Primary Hours Approver&quot;),
+INCLUDES(IP_PortalType__c, &quot;Viewer&quot;),
+INCLUDES(IP_PortalType__c, &quot;Consultant&quot;)
+)
+),
+
+AND(INCLUDES(IP_PortalType__c, &quot;Viewer&quot;),
+OR(
+INCLUDES(IP_PortalType__c, &quot;Secondary Hours Approver&quot;),
+INCLUDES(IP_PortalType__c, &quot;Escalation Hours Approver&quot;),
+INCLUDES(IP_PortalType__c, &quot;Primary Hours Approver&quot;),
+INCLUDES(IP_PortalType__c, &quot;Consultant&quot;)
+)
+),
+
+AND(INCLUDES(IP_PortalType__c, &quot;Consultant&quot;),
+OR(
+INCLUDES(IP_PortalType__c, &quot;Secondary Hours Approver&quot;),
+INCLUDES(IP_PortalType__c, &quot;Escalation Hours Approver&quot;),
+INCLUDES(IP_PortalType__c, &quot;Primary Hours Approver&quot;),
+INCLUDES(IP_PortalType__c, &quot;Viewer&quot;)
+)
+)
+
+
+
+)</errorConditionFormula>
+    <errorMessage>You can not select Primary Hours Approver OR Secondary Hours Approver OR Escalation Hours Approver OR Viewer  OR Consultant together</errorMessage>
+</ValidationRule>

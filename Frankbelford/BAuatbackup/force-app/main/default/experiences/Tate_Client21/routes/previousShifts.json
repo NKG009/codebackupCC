@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "a898232a-7859-47b9-9ead-3870ea715505",
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "configurationTags" : [ ],
+  "devName" : "Previous_Shifts__c",
+  "id" : "9bfce1c0-8574-4a47-84cf-a2d5ad0021fd",
+  "label" : "Previous Shifts",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-previous-shifts",
+  "type" : "route",
+  "urlPrefix" : "previous-shifts"
+}

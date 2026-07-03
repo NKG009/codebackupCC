@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "a702922e-51c5-4003-8b72-dd3a12340d51",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "d4e82825-ba64-46c3-8ed5-ff4c426bddad",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Shift_Management_Data_Table_Portal_V2_Timesheets_Component",
+  "id" : "07aae850-6ecb-4609-9958-3bec04a77eaf",
+  "type" : "experienceVariation"
+}

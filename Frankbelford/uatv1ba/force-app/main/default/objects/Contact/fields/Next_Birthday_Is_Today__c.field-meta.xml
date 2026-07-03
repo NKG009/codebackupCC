@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Next_Birthday_Is_Today__c</fullName>
+    <formula>AND(
+			
+month(Next_Birthday__c) = month( TODAY() ), day(Next_Birthday__c) = day( TODAY() )
+				
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Next_Birthday_Is_Today</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

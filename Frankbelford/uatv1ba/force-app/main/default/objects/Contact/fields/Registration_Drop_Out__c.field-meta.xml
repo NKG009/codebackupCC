@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Registration_Drop_Out__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is checked when the candidate has manually requested to be removed from the registration process or when the candidate has not responded to the reminder emails and the candidate has been removed.</description>
+    <inlineHelpText>This field is checked when the candidate has manual requested to be removed from the registration process or when the candidate has not responded to the reminder emails and has been set to inactive.</inlineHelpText>
+    <label>Registration Drop Out</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

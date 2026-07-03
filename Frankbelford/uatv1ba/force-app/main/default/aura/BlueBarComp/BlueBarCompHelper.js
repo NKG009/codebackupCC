@@ -1,0 +1,14 @@
+/**
+ * Created by mrahman on 2021-04-28.
+ */
+({
+    getJsonFromUrl : function () {
+        var query = location.search.substr(1);
+        var result = {};
+        query.split("&").forEach(function(part) {
+            var item = part.split("=");
+            result[item[0]] = decodeURIComponent(item[1]);
+        });
+        return result;
+    }
+})

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1362_BAL_Glasgow_Scottish_Government_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>1362-BAL Glasgow - Scottish Government</label>
+    <queue>X1362_BAL_Glasgow_Scottish_Government</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,7 @@
+<!--
+ - Created by mrahman on 2020-08-22.
+ -->
+
+<design:component>
+    <design:attribute name="currentPage" label="Page Name" description="Enter Page to display as last item in breadcrumb"/>
+</design:component>

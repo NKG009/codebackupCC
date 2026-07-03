@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_CompetencyRestriction__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>If this is checked then the creation, edit, and deletion of competencies linked to this account are restricted to permitted users.</inlineHelpText>
+    <label>Account Competency Restriction</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

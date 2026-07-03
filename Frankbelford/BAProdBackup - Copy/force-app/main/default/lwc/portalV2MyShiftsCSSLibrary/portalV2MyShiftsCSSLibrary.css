@@ -1,0 +1,120 @@
+.flex__row {
+  display: flex;
+  flex-direction: row;
+}
+
+.clickable__element:hover {
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.header__row {
+  height: var(--table-header-height);
+}
+.header-title {
+  display: flex;
+  justify-content: center;
+}
+
+.header__row > td {
+  pointer-events: none;
+}
+
+.spinner {
+  position: relative;
+  height: 40vh;
+  background: none;
+}
+tbody > tr {
+  border-top: var(--lwc-borderWidthThin, 1px) solid var(--table-border-colour);
+}
+tbody > tr:nth-child(1) {
+  border-top: none;
+}
+
+.dropdown-row > td:hover {
+  background-color: var(--lwc-colorBackgroundAlt, rgb(255, 255, 255));
+}
+
+.dropdown-row > td {
+  background-color: var(--lwc-colorBackgroundAlt, rgb(255, 255, 255));
+}
+
+.table__header {
+  /* display: flex;
+    justify-content: center; */
+  position: sticky;
+  top: 0;
+  /* border-top: var(--lwc-borderWidthThin, 1px) solid var(--grey-bg);
+    border-bottom: var(--lwc-borderWidthThin, 1px) solid var(--grey-bg); */
+  z-index: 1;
+  background: var(--grey-bg);
+}
+
+.sub-table__header.table__header {
+  top: var(--table-header-height);
+  border-top: 0;
+}
+
+.checkbox__header {
+  justify-content: flex-start;
+}
+
+.body__row,
+.checkbox__column {
+  height: 7vh;
+}
+
+.checkbox__container {
+  align-self: center;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+}
+
+.subtable__container {
+  background-color: #f1f1f1;
+}
+
+th,
+td {
+  text-align: center;
+}
+
+.ellipsis__truncation {
+  max-width: 15ch;
+  /* @sldsValidatorIgnore */
+  text-overflow: ellipsis;
+}
+
+.filter__modal {
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  z-index: 999;
+}
+
+.column_adjust__modal {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  left: 70%;
+}
+
+.fulfilment {
+  border-radius: 5px;
+  width: 5rem;
+}
+
+:host {
+  --sds-c-checkbox-color-background-checked: #029de4;
+  --sds-c-checkbox-mark-color-foreground: #ffffff;
+  --sds-c-button-brand-color-background: #029de4;
+  --sds-c-button-brand-color-background-hover: #029de4;
+  --sds-c-button-brand-color-border: #029de4;
+  --sds-c-button-brand-color-border-hover: #029de4;
+  --table-header-height: 5vh;
+  --grey-bg: #f9f9f9;
+  --table-border-colour: #e1e1e1;
+}

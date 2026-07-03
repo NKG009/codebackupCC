@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1361_Bournemouth_GI_Offered</fullName>
+    <columns>IP_WorkerStartDate__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>IP_PayrollStatus__c</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>Bournemouth GI</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>Offered</value>
+    </filters>
+    <label>1361 Bournemouth GI Offered</label>
+    <sharedTo>
+        <role>Blue_Arrow_Edinburgh_Lloyds</role>
+    </sharedTo>
+</ListView>

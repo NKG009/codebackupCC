@@ -1,0 +1,70 @@
+{
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "4c310d2f-ee73-4bbb-952a-9fdea65a7d13",
+  "label" : "Home",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "18f3268d-0d94-417f-8440-4d0b9d99d22a",
+          "columns" : [ {
+            "UUID" : "c81765a4-9a8d-40c5-9f6c-0304dd335614",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "18f3268d-0d94-417f-8440-4d0b9d99d22a",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "brandName" : "Tate"
+          },
+          "componentName" : "c:ClientCommDashboard",
+          "id" : "15ed43ed-afff-4b9d-b992-f8afc1dfb2bc",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "c81765a4-9a8d-40c5-9f6c-0304dd335614",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "24fa362e-cd90-4640-82c8-0d79987e3a79",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "35d6aa27-4002-4bf4-84dc-a0a46f0d4b0f",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3604663c-8914-4830-85d7-c69c0e96a214",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "home"
+}

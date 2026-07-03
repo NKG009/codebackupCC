@@ -1,0 +1,98 @@
+{
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "eaeb5682-97c5-4285-b235-e5e02fef5de4",
+  "label" : "Home",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.HMGovernment.1}\" style=\"width: 401.531px; height: 146.797px;\"></p>\n<p>&nbsp;</p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "c8bfaf00-01a9-465b-b202-bb98bff31d01",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "NHS_Pre_Screener_SRG_v4"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "8873985d-9db7-41b0-9eb2-cf9247998260",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9c079416-f1ef-4eb4-bbfd-7dc4839658cc",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "6f7dee43-47de-4b75-b9ea-5d335aaa3535",
+    "regionName" : "featured",
+    "type" : "region"
+  }, {
+    "id" : "39bc4bec-802b-43ba-91e2-947bb5a67773",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "channel" : "DefaultChannel",
+        "title" : ""
+      },
+      "componentName" : "forceCommunity:recommendations",
+      "id" : "04ad6739-8c32-479b-a332-336ffec953b5",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "display" : "LEVELS_POINTS",
+        "excludeInternalUsers" : false,
+        "knowledgeLabel" : "Knows about",
+        "numberOfUsers" : 5,
+        "showContextUser" : false,
+        "showTooltip" : false,
+        "showUserRank" : false,
+        "title" : "Leaderboard",
+        "tooltipText" : "Earn points and climb to new levels when you contribute in the community!"
+      },
+      "componentName" : "forceCommunity:reputationLeaderboard42",
+      "id" : "a39760c6-528b-46b7-8d34-10463350a111",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "87ca5b5e-5e7d-46bf-bf3e-64e789de3424",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "c6421e0c-477c-4158-9ed5-f5bb4c671e5f",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "c8f03b35-9cfe-4331-bd90-6ecd32a3b348",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "63845415-c1d2-41d4-8c62-5232397217af",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "id" : "8b8f351a-2954-4fe0-9e0c-a2c6112573af",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "home"
+}

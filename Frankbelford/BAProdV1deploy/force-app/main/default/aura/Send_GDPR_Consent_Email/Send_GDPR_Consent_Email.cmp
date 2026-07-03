@@ -1,0 +1,48 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader"  access="global" 
+                controller="CandidateConsentCallLightning">
+	
+    <!-- handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- atrributes -->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="Contact" type="Contact" />
+    <aura:attribute name="displayMessage" type="Boolean" access="global"/>
+    <aura:attribute name="displayErrorMessage" type="Boolean" access="global"/>O
+    <aura:attribute name="callresult" type="String" access="global"/>
+    <aura:attribute name="displayConfirmMessage" type="Boolean" access="global"/>
+    <aura:attribute name="processingStatus" type="Boolean" default="true" />
+    <aura:attribute name="datecheck" type="String" />
+    <aura:attribute name="requestBy" type="String" />
+    <aura:attribute name="singleRec" type="sobject" default="{'sobjectType' : 'Contact',
+                                                             'IP_Last_Consent_Requested__c' :'',
+                                                             'IP_Last_Consent_Requested_By__c' :''}"/>		
+    
+    <aura:if isTrue="{!v.displayMessage}">
+        <br/><br/><br/><br/>
+        <p style="font-size:20px;color:green;"><center>Record sent to data store successfully.</center></p>
+        <br/><br/>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.processingStatus}">
+        <br/><br/><br/><br/>
+        <p style="font-size:20px"><center>Processing.......</center></p>
+        <br/><br/>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.displayErrorMessage}">
+        <br/><br/><br/><br/>
+        <p style="font-size:20px;color:red;"><center>Request could not be sent to data store as : {!v.callresult}</center></p>
+        <br/><br/>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.displayConfirmMessage}">
+        <br/><br/>
+        <p style="font-size:15px;">Consent for this Candidate was last requested on {!v.datecheck} by {!v.requestBy}.Do you want to resend the request?</p>
+        <br/><br/>
+        <div style="text-align:center;"> 
+            <lightning:button variant="brand" label="Yes" onclick="{!c.handleClick }" />&nbsp;&nbsp;&nbsp;&nbsp;
+            <lightning:button variant="brand" label="No" onclick="{!c.cancel}" />
+        </div>
+    </aura:if>
+</aura:component>

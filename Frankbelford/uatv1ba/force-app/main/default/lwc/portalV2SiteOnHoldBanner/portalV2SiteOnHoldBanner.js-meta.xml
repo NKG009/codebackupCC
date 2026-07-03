@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Portal V2 - On Hold Banner</masterLabel>
+    <targets>
+        <target>lightningCommunity__Default</target>
+        <target>lightningCommunity__Page</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+        name="singleSiteOnHoldMessage"
+        type="String"
+        label="Message for single site on hold"
+        description="Displayed when only one site is marked as on hold out of the user's available sites"
+        default="{0} currently has a credit status of 'on hold'. Please contact your Blue Arrow consultant to resolve this issue."
+      />
+      <property
+        name="allSitesSelectedOnHoldMessage"
+        type="String"
+        label="Message for all sites is selected and more than one site is on hold"
+        description="Displayed when all sites is selected and more than one site is marked as on hold out of the user's available sites"
+        default="More than one of your assigned sites currently have a credit status of 'on hold'. Please contact your Blue Arrow consultant to resolve this issue."
+      />
+    <property
+        name="selectedSiteOnHoldMessage"
+        type="String"
+        label="Message for selected site marked on hold"
+        description="Displayed when the selected site is marked as on hold"
+        default="Your currently selected site has a credit status of 'on hold'. Please contact your Blue Arrow consultant to resolve this issue."
+      />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

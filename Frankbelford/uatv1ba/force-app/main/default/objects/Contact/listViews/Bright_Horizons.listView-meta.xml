@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bright_Horizons</fullName>
+    <columns>Person_Status__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>Owner__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>ts2__Job_Type__c</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>IP_DepartmentNoNeed__c</columns>
+    <columns>IP_Department__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>FULL_NAME</field>
+        <operation>notContain</operation>
+        <value>DNU,LEFT</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>notEqual</operation>
+        <value>Inactive</value>
+    </filters>
+    <filters>
+        <field>IP_JobTitle__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>equals</operation>
+        <value>Bright Horizons Family Solutions</value>
+    </filters>
+    <label>Bright Horizons</label>
+</ListView>

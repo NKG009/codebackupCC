@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "62df4ed7-6707-47d3-9788-b77bda52dc32",
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "configurationTags" : [ ],
+  "devName" : "BA__c",
+  "id" : "ea2860f3-b57e-4661-81c7-7b3fb7e0946f",
+  "label" : "BA",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-ba",
+  "type" : "route",
+  "urlPrefix" : "BA"
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CPC_Header__c</fullName>
+    <label>CPC Period Name</label>
+    <referenceTo>IP_CPC_Header__c</referenceTo>
+    <relationshipLabel>CPC Modules</relationshipLabel>
+    <relationshipName>Recorded_CPC</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

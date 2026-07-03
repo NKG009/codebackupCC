@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BT_Client_Premises__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Are you happy to work from the client premises?</inlineHelpText>
+    <label>Client Premises</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

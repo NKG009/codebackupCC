@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Bypass_flow</name>
+        <label>Bypass flow</label>
+        <locationX>476</locationX>
+        <locationY>347</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Bypass_flow1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Bypass_Flows__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>overtime_rates_are_changed_from_default</targetReference>
+            </connector>
+            <label>Bypass flow1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>overtime_rates_are_changed_from_default</name>
+        <label>overtime rates are changed from default</label>
+        <locationX>716</locationX>
+        <locationY>425</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>overtimeratesarechangedfromdefaultFormula</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_switch_date</targetReference>
+            </connector>
+            <label>True</label>
+        </rules>
+    </decisions>
+    <description>This will replace the below process builder:
+https://bluearrowgroup--migration.sandbox.my.salesforce-setup.com/lightning/setup/ProcessAutomation/home</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>overtimeratesarechangedfromdefaultFormula</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(AND(ISCHANGED({!$Record.sirenum__Weekly_Overtime_Treshold__c}),
+      PRIORVALUE({!$Record.sirenum__Weekly_Overtime_Treshold__c)=37.5}),
+   AND(ISCHANGED({!$Record.sirenum__Daily_Overtime_Treshold__c}),
+       PRIORVALUE({!$Record.sirenum__Daily_Overtime_Treshold__c})=7.5 )
+  )</expression>
+    </formulas>
+    <formulas>
+        <name>UpdateswitchdateFormula</name>
+        <dataType>Date</dataType>
+        <expression>NOW()</expression>
+    </formulas>
+    <interviewLabel>Record Triggered Flow - Overtime Threshold Change on rate card page {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Record Triggered Flow - Overtime Threshold Change on rate card page</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_switch_date</name>
+        <label>Update switch date</label>
+        <locationX>899</locationX>
+        <locationY>450</locationY>
+        <inputAssignments>
+            <field>IP_DateOvertimeValuesSwitchedFromStand__c</field>
+            <value>
+                <elementReference>UpdateswitchdateFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>453</locationX>
+        <locationY>55</locationY>
+        <connector>
+            <targetReference>Bypass_flow</targetReference>
+        </connector>
+        <object>sirenum__Rate_Card_Page__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

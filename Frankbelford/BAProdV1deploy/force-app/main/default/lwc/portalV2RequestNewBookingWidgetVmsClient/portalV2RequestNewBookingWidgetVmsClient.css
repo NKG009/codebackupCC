@@ -1,0 +1,6 @@
+@import "c/portalV2WidgetCSSLibrary";
+
+.cardImage {
+  background-image: var(--cardImage);
+  background-size: cover;
+}

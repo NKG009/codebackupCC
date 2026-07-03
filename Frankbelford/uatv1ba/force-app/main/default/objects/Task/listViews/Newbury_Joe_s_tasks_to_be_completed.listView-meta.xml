@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Newbury_Joe_s_tasks_to_be_completed</fullName>
+    <columns>COMPLETED_DATE_TIME</columns>
+    <columns>IP_TaskType__c</columns>
+    <columns>SUBJECT</columns>
+    <columns>DUE_DATE</columns>
+    <columns>WHAT_NAME</columns>
+    <columns>WHO_NAME</columns>
+    <columns>STATUS</columns>
+    <columns>PRIORITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IP_TaskType__c</field>
+        <operation>notEqual</operation>
+        <value>Sales Visit,Service Visit,Feedback,T-P / Perm,Enhanced Vetting,COB Completed</value>
+    </filters>
+    <filters>
+        <field>OWNER_ROLE</field>
+        <operation>contains</operation>
+        <value>newbury</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.FULL_NAME</field>
+        <operation>contains</operation>
+        <value>Joe Bargus</value>
+    </filters>
+    <filters>
+        <field>DUE_DATE</field>
+        <operation>greaterThan</operation>
+        <value>10/1/2023 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>STATUS</field>
+        <operation>notEqual</operation>
+        <value>Completed</value>
+    </filters>
+    <filters>
+        <field>SUBJECT</field>
+        <operation>notContain</operation>
+        <value>happy birthday,first day,send,COB,reference,check in,New Vacancy</value>
+    </filters>
+    <label>Newbury - Joe&apos;s tasks to be completed</label>
+</ListView>

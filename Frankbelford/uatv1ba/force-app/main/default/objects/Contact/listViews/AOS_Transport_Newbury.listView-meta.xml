@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AOS_Transport_Newbury</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>P45_Date_by_Head_Office__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <columns>Skills__c</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Inactive,Pending</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>includes</operation>
+        <value>Driving</value>
+    </filters>
+    <filters>
+        <field>Skills__c</field>
+        <operation>equals</operation>
+        <value>LGV ADR Category C,LGV ADR Category C+E,LGV ADR Category C1,LGV C Driver,LGV C+E Driver,LGV C1 Driver,LGV HIAB Category C</value>
+    </filters>
+    <filters>
+        <field>Postcode_District__c</field>
+        <operation>equals</operation>
+        <value>ML1,ML2,ML3,ML4,ML5,ML6,ML7,ML8,ML9,ML10,ML11</value>
+    </filters>
+    <label>1062 AOS Transport - Newbury</label>
+</ListView>

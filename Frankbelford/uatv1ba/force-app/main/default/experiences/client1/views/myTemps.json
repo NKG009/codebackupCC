@@ -1,0 +1,64 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "89a2814a-e3f6-4369-955f-340b3301c20c",
+  "label" : "My Temps",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"font-size: 28px;\">My Temps﻿</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "2ed13544-5067-46d8-868d-d80393c09117",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4a03a914-adb7-4db6-98b9-1c25c45a7c2a",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:MyTempsTiles",
+      "id" : "7af86f6b-4646-461c-988e-3f0d0b769281",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "45d07ed4-ca34-410c-83b3-a86f1ae207a2",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:HomeLayoutFooter",
+      "id" : "d0895670-daa4-4f72-9b68-e1fb7dad68ab",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f0f9baf6-60fa-4ad0-aded-386c2c35d1cb",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My Temps"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "38f31bcb-4136-4791-9bea-4bcbd5d5bb83",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2b64ca54-fb37-4f27-9c42-5351e117905c",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "BaeIvxdmVNAi846Z78i1VuYgMbv85a",
+  "type" : "view",
+  "viewType" : "custom-my-temps"
+}

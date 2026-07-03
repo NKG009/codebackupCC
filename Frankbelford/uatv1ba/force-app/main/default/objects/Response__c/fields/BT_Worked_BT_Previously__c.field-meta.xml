@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BT_Worked_BT_Previously__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Have you worked for BT previously?</inlineHelpText>
+    <label>Worked BT Previously</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

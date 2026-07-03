@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Newbury_Oxford_Jake_Area_Managers</fullName>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>FULL_NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Skills__c</columns>
+    <columns>Sub_Category__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>notContain</operation>
+        <value>Inactive</value>
+    </filters>
+    <filters>
+        <field>IP_JobTitle__c</field>
+        <operation>contains</operation>
+        <value>Area Manager,Contract manager,Operations manager,Regional manager</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>equals</operation>
+        <value>Catering</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>HP18,OX1,OX10,OX11,OX13,OX14,OX2,OX20,OX25,OX26,OX28,OX29,OX3,OX33,OX4,OX44,OX49,OX5,OX6,OX7,OX8,OX9</value>
+    </filters>
+    <label>Newbury - Oxford Jake -  Area Managers</label>
+    <sharedTo>
+        <role>Blue_Arrow_Newbury_Perm_hub</role>
+        <role>Blue_Arrow_Newbury_Temps</role>
+    </sharedTo>
+</ListView>

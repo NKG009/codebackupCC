@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1265_BAL_Glasgow_Catering_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>1265-BAL Glasgow Catering</label>
+    <queue>X1265_BAL_Glasgow_Catering</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

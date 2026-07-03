@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2043_BAL_Derby_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>2043-BAL Derby</label>
+    <queue>X2043_BAL_Derby</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_ActivityTypesThatQualifyAsContact__c</fullName>
+    <description>Types of recorded activities that count as contact with a candidate</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Comma separated list like “ Type1,Type2,….”</inlineHelpText>
+    <label>Activity Types That Qualify As Contact</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,55 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+	<div class="slds-grid slds-wrap slds-grid_align-center slds-grid_align-space">
+       
+                <div class="slds-col" >
+                     <div  style="width:170px;" class="panel panel-primary divborder">
+                           <a class="hyperlinkclass" href="" onclick="{!c.MyShiftsPage}" value="My Shifts">
+                         <div style="height:110px;" class="slds-align_absolute-center">
+                           <img src="{!$Resource.myshifts}"/>    
+                        </div><br></br>
+                       
+                            <div class="slds-align_absolute-center tittletext">
+                                <span class="pull-left">My Shifts</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+       
+        <div class="slds-col" >
+                <div style="width:170px;" class="panel panel-primary divborder">
+                    <a class="hyperlinkclass" href="" onclick="{!c.MyShiftHistory}" value="shift history">
+                         <div style="height:110px;" class="slds-align_absolute-center">
+                           <img src="{!$Resource.shifthistoryicon}"/>    
+                        </div><br></br>
+                         
+                            <div class="slds-align_absolute-center tittletext">
+                                <span class="pull-left">Shift History</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+       
+ <div class="slds-col" >
+                    <div style="width:170px;" class="panel panel-primary divborder">
+                        <a class="hyperlinkclass" href="" onclick="" value="new jobs">
+                         <div style="height:110px;" class="slds-align_absolute-center">
+                           <img src="{!$Resource.Coming_Soon}" style="width:100px;"/>    
+                        </div><br></br>
+                         
+                            <div class="slds-align_absolute-center tittletext">
+                                <span class="pull-left">New Jobs</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>   
+       
+            </div>
+    <br></br><br></br>
+         <div class="slds-truncate" style="text-align:Left;">
+                       <lightning:button class="Backbutton" label="Back" variant="Brand" onclick="{!c.getBackscreen}"   />
+                       
+                        </div>
+</aura:component>

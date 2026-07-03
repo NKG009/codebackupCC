@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Michael_P_View</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>Brand_Logo__c</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <columns>P45_Date_by_Head_Office__c</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>sirenum__Shift_Activity_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.ADDRESS2_CITY</field>
+        <operation>equals</operation>
+        <value>London</value>
+    </filters>
+    <filters>
+        <field>Brand__c</field>
+        <operation>equals</operation>
+        <value>bluearrow</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>sirenum__Shift_Activity_Date__c</field>
+        <operation>notEqual</operation>
+        <value>THIS_WEEK</value>
+    </filters>
+    <label>Michael P View</label>
+</ListView>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "83da0c9a-c6e0-4e7c-bdb1-14a09fba1283",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "Past_Temps__c",
+  "id" : "1d516d38-8246-441b-8fda-581c96b75c26",
+  "label" : "Past Temps",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-past-temps",
+  "type" : "route",
+  "urlPrefix" : "past-temps"
+}

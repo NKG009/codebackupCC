@@ -1,0 +1,55 @@
+<template>
+  <template if:true={display}>
+    <h2 class="table-header">User Site Permissions</h2>
+    <!-- List of users -->
+    <lightning-combobox
+      name="user"
+      label="User"
+      value={selectedUser}
+      placeholder="Select a user"
+      options={userOptions}
+      onchange={handleUserSelection}
+    ></lightning-combobox>
+
+    <lightning-combobox
+      name="Site"
+      label="Site"
+      value={selectedSite}
+      placeholder="Select Site"
+      options={siteOptions}
+      onchange={handleSiteChange}
+      required
+    ></lightning-combobox>
+    <!-- Multiselect of sites -->
+    <template if:true={siteSelected}>
+      <lightning-radio-group
+        name="PortalType"
+        label="Portal Type"
+        options={portalTypeOptions}
+        onchange={handlePortalTypeChange}
+        value={selectedPortalType}
+        required
+      ></lightning-radio-group>
+    </template>
+    <div
+      class="
+        slds-grid slds-grid_align-center
+        slds-var-m-around_large
+        button-container
+      "
+    >
+      <!-- <button
+      class="slds-button slds-button_neutral button"
+      onclick={handleResetClick}
+    >
+      Reset
+    </button> -->
+      <button
+        class="slds-button slds-button_brand button"
+        onclick={handleSaveClick}
+      >
+        Save
+      </button>
+    </div>
+  </template>
+</template>

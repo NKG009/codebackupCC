@@ -1,0 +1,161 @@
+<apex:page showheader="false" sidebar="false" standardcontroller="sirenum__Site__c" extensions="SiteContactLinkController">
+<head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <style>
+            .form-errors {
+                color: red;
+                text-align:center; 
+            }
+        .mandatory-error{ 
+            color: red;
+            text-align:center; 
+        }
+    </style>
+    <script>
+        $( ".slds-input picklistArrowRight" ).css( "margin-bottom", "-33px" );
+    </script>
+  <script>
+          var msg = {!$CurrentPage.Parameters.sx}
+         $(".form-errors").hide();  
+        if(msg=='1')
+        {
+            $(".form-errors").show();   
+            
+        }else{
+            $(".form-errors").hide();    
+        }
+        function CloseARefresh()
+        {      
+          
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";
+            window.close();
+          
+        }   
+          function CloseBRefresh()
+        {     
+     
+           window.opener.location.href="/{!$CurrentPage.parameters.id}";
+           window.top.close();
+          
+        }   
+   function Callmefunc2(id)
+    {
+      
+     var vfield = document.getElementById(id).value;
+         jQuery('[id$=myHiddenField2]').val(vfield);
+      
+    }
+      function Callmefunc(id)
+   {
+
+        var select = document.getElementById(id);
+             var selected = [ ];
+            for (var i = 0; i < select.length; i++) {
+                
+                if (select.options[i].selected) selected.push(select.options[i].value);
+            }
+      
+        jQuery('[id$=myHiddenField]').val(selected.join(';'));
+
+   }
+  
+     function Callme(id)
+   {
+  
+    
+          var select = document.getElementById(id);
+   
+            var selected = [ ];
+            for (var i = 0; i < select.length; i++) {
+                if (select.options[i].selected) selected.push(select.options[i].value);
+            }
+          jQuery('[id$=myHiddenField3]').val(selected.join(';'));
+       //  check2(selected.join(';')); 
+
+   }
+        </script>
+     </head> 
+    <apex:form >
+        <apex:pageMessages id="msgs" ></apex:pageMessages>
+        <apex:actionFunction name="closeAndRedirect" action="{!closePage}" reRender=""/>
+
+        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+            <apex:slds />
+        </apex:outputPanel>
+        
+        <apex:inputHidden value="{!myString}" id="myHiddenField"/>   
+        <apex:inputHidden value="{!hidvalue}" id="myHiddenField2"/>  
+        <apex:inputHidden value="{!createmyString}" id="myHiddenField3"/>
+        <apex:pageblock id="page1" title="Link Existing Contact">
+
+            <apex:pageBlockButtons location="top">
+                <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+                    <apex:commandButton value="Close" action="{!closePage}" />
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+                    <apex:commandButton value="Close" action="{!closePage}" styleClass="slds-button slds-button_outline-brand"/>
+                </apex:outputPanel>
+            </apex:pageBlockButtons>
+            
+            <apex:pageblockSection id="pagesection">
+                <apex:selectList id="contactid" label="Select Contact to Link" size="1" value="{!selectedcontact}" >
+                    <apex:selectOptions value="{!allcontacts}"/>
+                </apex:selectList>
+                <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+                    <apex:inputField label="Portal Type"  value="{!sirenum__Site__c.Portal_Type_Test__c}" id="check"/> 
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+                    <div class="slds-form-element__control">
+                        <apex:inputField label="Portal Type"  value="{!sirenum__Site__c.Portal_Type_Test__c}" id="checkLight" /> 
+                    </div>
+                </apex:outputPanel>                
+               <apex:inputText label="Email" id="testfield" value="{!emailval}" rendered="{!hasemail}" />
+            </apex:pageblockSection>
+            
+            <apex:pageBlockButtons location="bottom">
+                <!--     <apex:commandButton value="Update Contact Email"  onclick="Callmefunc2('{!$Component.page1.pagesection.testfield}');" action="{!linksite2}" rendered="{!hasemail}"  /> -->             
+            
+                <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+                    <apex:commandButton value="Link to Site"  onclick="Callmefunc('{!$Component.page1.pagesection.check}'),Callmefunc2('{!$Component.page1.pagesection.testfield}');" action="{!linksite2}" disabled="{!If(consize==0,true, false)}"/> 
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+                    <apex:commandButton value="Link to Site" styleClass="slds-button slds-button--brand" onclick="Callmefunc('{!$Component.page1.pagesection.checkLight}'),Callmefunc2('{!$Component.page1.pagesection.testfield}');" action="{!linksite2}" disabled="{!If(consize==0,true, false)}"/> 
+                </apex:outputPanel>
+            </apex:pageBlockButtons>
+        </apex:pageblock>
+        
+        <apex:pageblock id="page2" title="Link New Contact">
+            <apex:pageblockSection id="pagesection2">
+                <apex:inputText label="First Name" value="{!fname}"/>
+                <apex:inputText label="Last Name" value="{!lname}"/> 
+                <apex:inputText label="Email" id="testfield" value="{!emailval}" />                
+                <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+                    <apex:inputField label="Portal Type" value="{!s.Portal_Type_Test__c}" id="checkpick2"  />
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+                    <div class="slds-form-element__control">
+                        <apex:inputField label="Portal Type" value="{!s.Portal_Type_Test__c}" id="checkpick4"  />
+                    </div>
+                </apex:outputPanel>
+            </apex:pageblockSection>
+
+
+            <apex:pageBlockButtons location="bottom">                               
+                <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+                    <apex:commandlink id="cmdbutton" onclick="Callme('{!$Component.page2.pagesection2.checkpick2}');Callmefunc2('{!$Component.page2.pagesection2.testfield}');" target="_blank" action="{!createlink}" style="text-decoration:none;">    
+                        <apex:commandButton value="Add to Site" oncomplete="window.close();"/>
+                    </apex:commandlink>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+                    <apex:commandlink id="cmdbuttonlight" onclick="Callme('{!$Component.page2.pagesection2.checkpick4}');Callmefunc2('{!$Component.page2.pagesection2.testfield}');" target="_blank" action="{!createlink}" style="text-decoration:none;"> 
+                        <apex:commandButton value="Add to Site" oncomplete="window.close();" styleClass="slds-button slds-button--brand"/>
+                    </apex:commandlink>
+                </apex:outputPanel>
+            <!--   <apex:commandLink value="Add to Site" action="{!createlink}" target="_blank"/> -->
+            </apex:pageBlockButtons>
+        </apex:pageblock>
+    </apex:form>
+   
+</apex:page>

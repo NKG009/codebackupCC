@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CandidateSubStatus__c</fullName>
+    <label>CandidateSubStatus</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Available</fullName>
+                <default>false</default>
+                <label>Available</label>
+            </value>
+            <value>
+                <fullName>Part-Time</fullName>
+                <default>false</default>
+                <label>Part-Time</label>
+            </value>
+            <value>
+                <fullName>Limited Availability</fullName>
+                <default>false</default>
+                <label>Limited Availability</label>
+            </value>
+            <value>
+                <fullName>Notice Period Required</fullName>
+                <default>false</default>
+                <label>Notice Period Required</label>
+            </value>
+            <value>
+                <fullName>Interview Incomplete</fullName>
+                <default>false</default>
+                <label>Interview Incomplete</label>
+            </value>
+            <value>
+                <fullName>Not yet worked</fullName>
+                <default>false</default>
+                <label>Not yet worked</label>
+            </value>
+            <value>
+                <fullName>On Special Contract</fullName>
+                <default>false</default>
+                <label>On Special Contract</label>
+            </value>
+            <value>
+                <fullName>Student Available</fullName>
+                <default>false</default>
+                <label>Student Available</label>
+            </value>
+            <value>
+                <fullName>Student Local</fullName>
+                <default>false</default>
+                <label>Student Local</label>
+            </value>
+            <value>
+                <fullName>Awaiting References</fullName>
+                <default>false</default>
+                <label>Awaiting References</label>
+            </value>
+            <value>
+                <fullName>Working</fullName>
+                <default>false</default>
+                <label>Working</label>
+            </value>
+            <value>
+                <fullName>&lt;Unspecified&gt;</fullName>
+                <default>false</default>
+                <label>&lt;Unspecified&gt;</label>
+            </value>
+            <value>
+                <fullName>Not Available</fullName>
+                <default>false</default>
+                <label>Not Available</label>
+            </value>
+            <value>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+                <label>Incomplete</label>
+            </value>
+            <value>
+                <fullName>Permanently Placed</fullName>
+                <default>false</default>
+                <label>Permanently Placed</label>
+            </value>
+            <value>
+                <fullName>Student Unavailable</fullName>
+                <default>false</default>
+                <label>Student Unavailable</label>
+            </value>
+            <value>
+                <fullName>Self-Suited</fullName>
+                <default>false</default>
+                <label>Self-Suited</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

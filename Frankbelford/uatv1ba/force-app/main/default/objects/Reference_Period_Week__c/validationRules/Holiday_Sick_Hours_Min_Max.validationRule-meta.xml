@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Holiday_Sick_Hours_Min_Max</fullName>
+    <active>true</active>
+    <description>The minimum and maximum hours a driver can miss through holiday or sickness.</description>
+    <errorConditionFormula>Unavailable_Hours__c &lt; 0 ||
+Unavailable_Hours__c &gt; 200</errorConditionFormula>
+    <errorDisplayField>Unavailable_Hours__c</errorDisplayField>
+    <errorMessage>Value must be between 0 and 200 hours.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>P45_Suppression_Reason__c</fullName>
+    <label>P45 Suppression Reason</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not Suppressed</fullName>
+                <default>true</default>
+                <label>Not Suppressed</label>
+            </value>
+            <value>
+                <fullName>Long Term Sick</fullName>
+                <default>false</default>
+                <label>Long Term Sick</label>
+            </value>
+            <value>
+                <fullName>Extended Maternity Leave</fullName>
+                <default>false</default>
+                <label>Extended Maternity Leave</label>
+            </value>
+            <value>
+                <fullName>Employee Grievance</fullName>
+                <default>false</default>
+                <label>Employee Grievance</label>
+            </value>
+            <value>
+                <fullName>Tribunal</fullName>
+                <default>false</default>
+                <label>Tribunal</label>
+            </value>
+            <value>
+                <fullName>Death</fullName>
+                <default>false</default>
+                <label>Death</label>
+            </value>
+            <value>
+                <fullName>Pregnancy related absence due to sickness</fullName>
+                <default>false</default>
+                <label>Pregnancy related absence due to sickness</label>
+            </value>
+            <value>
+                <fullName>Public Duties</fullName>
+                <default>false</default>
+                <label>Public Duties</label>
+            </value>
+            <value>
+                <fullName>Industrial Action</fullName>
+                <default>false</default>
+                <label>Industrial Action</label>
+            </value>
+            <value>
+                <fullName>Contractually Agreed</fullName>
+                <default>false</default>
+                <label>Contractually Agreed</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

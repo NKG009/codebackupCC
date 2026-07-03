@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "ed9b54a6-60cd-482b-b85d-7b50e95a0218",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "Pay_and_Timesheet__c",
+  "id" : "ffc9a441-38f2-4a16-b0f1-39ee9faf0273",
+  "label" : "Pay and Timesheet",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-pay-and-timesheet",
+  "type" : "route",
+  "urlPrefix" : "pay-and-timesheet"
+}

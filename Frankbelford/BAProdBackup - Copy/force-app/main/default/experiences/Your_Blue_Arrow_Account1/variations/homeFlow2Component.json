@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "0dce41c7-86d3-4928-8685-9ed85dd12d1e",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "a251fe49-3f08-4a35-83fb-5f197a803c45",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Home_Flow_2_Component",
+  "id" : "37d41bfb-7c1c-4d41-8c96-3ad1b361f815",
+  "type" : "experienceVariation"
+}

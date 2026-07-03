@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_Temp_Contractual_Terms__c</fullName>
+    <inlineHelpText>Please confirm whether the Temp Contract of Business is under Standard Blue Arrow Terms</inlineHelpText>
+    <label>Temp Contractual Terms</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Standard Terms</fullName>
+                <default>true</default>
+                <label>Standard Terms</label>
+            </value>
+            <value>
+                <fullName>Non-Standard Terms</fullName>
+                <default>false</default>
+                <label>Non-Standard Terms</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

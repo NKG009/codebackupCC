@@ -1,0 +1,196 @@
+<aura:component controller='Shifts_to_be_ApprovedCnt' implements="forceCommunity:themeLayout,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    
+    
+    <ltng:require styles="{!join(',',
+                          $Resource.assetsTest+'/assets/css/jquery-ui.css',
+                          $Resource.webUI+'/assets/css/all.css',
+                          $Resource.webUI+'/assets/css/fontawesome.css',
+                          $Resource.webUI+'/assets/css/fontawesome.min.css',
+                          $Resource.Tjcss+'/assets/css/dataTables.bootstrap.min.css',
+                          $Resource.Tjcss+'/assets/css/jquery.dataTables.min.css',
+                          $Resource.Tjcss+'/assets/css/responsive.bootstrap.min.css',
+                          $Resource.Tjcss2+'/assets/css/main.css'
+                          )
+                          }" 
+                  scripts="{!join(',',
+                           $Resource.TJwithoutcustom+'/assets/js/main.min.js',
+                           $Resource.TJwithoutcustom+'/assets/js/custom.js'
+
+                           )}"
+                  />
+    
+    
+    
+    
+    
+    <aura:attribute name="truly" type="Boolean" />
+    <aura:attribute name="ShiftList" type="List" />
+    <aura:attribute name="CandidateName" type="String" />
+    <aura:attribute type="List" name="SiteList" />
+    <aura:attribute name="selectedSite" type="String" />
+    <aura:attribute type="List" name="shift" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="Name" type="String"/>
+    <aura:attribute name="userInfo" type="User" access="global"/>
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+  <!--   <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>		    
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>		
+    <aura:attribute name="Spinner" type="boolean" default="false"/>		
+   loading spinner start... style=Brand Medium (blue dots)-->
+   <!--    <aura:if isTrue="{!v.Spinner}">
+        <div aura:id="spinnerId" class="slds-spinner_container">
+            <lightning:spinner class="spins" size="large" variant="brand" alternativeText="Loading" />
+        </div>
+     </aura:if>
+ Loading spinner end--> 
+    <div class="container-fluid">
+        <nav class="headeNav">
+            <div class="visible-xs mobile-nav">
+                <img src="{!$Resource.Tjcss+'/assets/img/mobile-nav.png'}" alt="Mobile Icon" title="Click to slide" />
+            </div>
+            <a href="" class="logo" title="BlueArrow">
+                <img src="{!$Resource.Tjcss+'/assets/img/impellam-logo-blue.png'}" alt="Impellam Logo" Title="Impellam" />
+            </a>
+            <ul class="headeNav__right">
+                <li>
+                    <a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="hidden-xs hidden-sm">{!v.Name}</span>
+                        <aura:if isTrue="{!v.userInfo.User_Image__c != null}">
+                            <img src="{!v.userInfo.User_Image__c}" alt=""/>
+                            <aura:set attribute="else">
+                                <img src="" class="imag" alt=""/>
+                            </aura:set> 
+                        </aura:if>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="" onclick="{!c.MyProfileNavigate}" title="My Profile">My Profile</a></li>
+                        <li><a href="" onclick="{!c.SiteManagementNavigate}" title="Setting">Site Management</a></li>
+                        <li><a href="" onclick="{!c.logout}" title="Logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="col-sm-4 col-md-3 headeNav__selectpicker">
+                <lightning:select class="spicker" label="Site Name" aura:id="site" tabindex="-98" onchange="{!c.onChangeSiteVal}">
+                    <aura:iteration items="{!v.SiteList}" var="item">
+                        <option class="spickeres" text="{!item.label}" value="{!item.value}" selected="{!item.selected}" />
+                    </aura:iteration>
+                </lightning:select>
+            </div>
+        </nav>
+        <div class="timesheet-section">
+            <ul class="dashboard-section__leftNav">
+                
+                <li class="dashboard-section__leftNav--dashboard">
+                    <a href="" onclick="{!c.dashboardnavigate}" title="Dashboard">Dashboard</a>
+                </li>
+                <li class="dashboard-section__leftNav--timesheets active"> 
+                    <a href="" title="Timesheets">Timesheets</a> 
+                    <ul> 
+                        <li>
+                                <a href="javascript:void(0)" onclick="{!c.shiftsToBeApprovedDataView}" title="Shifts to be approved">Shifts to be approved</a>
+                            </li> 
+                            <li>
+                                <a href="javascript:void(0)" onclick="{!c.candidateView}" title="Shifts by temp name">Shifts by temp name</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" onclick="{!c.gotoApprovedTimesheet}" title="Approved Timesheets">Approved Timesheets</a>
+                            </li> 
+                    </ul> 
+                </li>
+                <li class="dashboard-section__leftNav--vacancies ">
+                    <a href="" title="My Shifts">My Shifts</a>
+                    <ul> 
+                         <li>
+                                    <a href="" onclick="{!c.activeVacancy}" title="Current Shits">Current Shifts</a>
+                                </li> 
+                                <li>
+                                    <a href="" onclick="{!c.pastVacancyNavigate}" title="Previous Shifts">Previous Shifts</a>
+                                </li> 
+                                <li>
+                                    <a href="" onclick="{!c.fastBookingNavigate}" title="Repeat Booking">Repeat Booking</a>
+                                </li> 
+                                <li>
+                                    <a href="" onclick="{!c.newVacancyNavigate}" title="Shift/Vacancy Request">Shift/Vacancy Request</a>
+                                </li>
+                    </ul> 
+                </li>
+                <li class="dashboard-section__leftNav--temp">
+                    <a href="" title="My Temps">My Temps</a>
+                    <ul> 
+                        <li>
+                            <a href="" onclick="{!c.bookedTempsNavigate}" title="Booked Temps">Booked Temps</a>
+                        </li> 
+                        <li>
+                            <a href="" onclick="{!c.pastTempsNavigate}" title="Past Temps">Past Temps</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dashboard-section__leftNav--contact">
+                    <a href="" onclick="{!c.contactUsNavigate}" title="Contact Us">Contact Us</a>
+                </li>
+                
+                
+                
+            </ul>
+            <div class="timesheet-section__right-part">
+                <div style="width=100px">
+                    <ol class="breadcrumb">
+                        <li><a href="javascript:void(0)" onclick="{!c.dashboardnavigate}" title="Dashboard">Dashboard</a></li>
+                        <li>Timesheets</li>
+                        <li class="active">Shifts by temp Name</li>
+                    </ol>
+                    <div class="search-section">
+                        <form class="row">
+                            <div onkeypress="{!c.keyCheck}" class="col-sm-12 col-md-6 col-lg-9">
+                                <label class="global-label">Temp Name</label>
+                                <ui:inputText label="" aura:id="cand" class="selectrole" value="{!v.CandidateName}" placeholder="Search Temp Name" />
+                                <!-- <input type="text" class="global-input"  placeholder="Search Candidate Name" />-->
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-3">
+                                <lightning:button variant="brand" class="search-bttn" label="Search" onclick="{!c.search}" />
+                                <input type="reset" class="clearAll-btn" name="Clear" value="Clear All" onclick="{!c.resetAllValues}" />
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <div class="tab-section">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="">By Temp Name</a></li>
+                            <li role="presentation"><a href="javascript:void(0)" onclick="{!c.shiftsToBeApprovedDataView}" title="Shifts to be Approved">By Date</a></li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active">
+                                <div class="panel-group custom-accordian" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+                                        <div class="ElementDetail__table" role="tab">
+                                        </div>
+                                    </div>
+                                    <!--<aura:iteration items="{!v.shift}" var="shift" indexVar="i"> -->
+                                    <aura:if isTrue="{!v.truly}">
+                                    <!--    <c:CandidateChild ShiftList="{!v.ShiftList}" contact="{!v.CandidateName}" site="{!v.selectedSite}" aura:id="childC" />
+                                         <c:DataView ShiftList="{!v.ShiftList}" contact="{!v.CandidateName}" site="{!v.selectedSite}" aura:id="childC" />  -->
+                                        
+                                    </aura:if>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p> &copy; Blue Arrow, All rights reserved 2019.</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p>Regd Address: 800 The Boulevard, Capability Green, Luton, Bedfordshire, LU1 3BA. Company No. 00641659</p>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidenav-overlay"></div>
+    <div class="search-overlay"></div>
+</aura:component>

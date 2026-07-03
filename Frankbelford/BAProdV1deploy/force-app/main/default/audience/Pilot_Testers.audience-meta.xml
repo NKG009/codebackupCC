@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Audience xmlns="http://soap.sforce.com/2006/04/metadata">
+    <audienceName>Non Compliant Candidates</audienceName>
+    <container>Your Blue Arrow Account</container>
+    <criteria>
+        <criterion>
+            <criteriaNumber>1</criteriaNumber>
+            <criterionValue>
+                <entityField>Contact.$Contact.Compliance_Status__c</entityField>
+                <entityType>User</entityType>
+                <fieldValue>Not Compliant</fieldValue>
+            </criterionValue>
+            <operator>Equal</operator>
+            <type>FieldBased</type>
+        </criterion>
+        <criterion>
+            <criteriaNumber>1</criteriaNumber>
+            <criterionValue>
+                <entityField>Contact.$Contact.Compliance_Status__c</entityField>
+                <entityType>User</entityType>
+                <fieldValue>Partial Compliant</fieldValue>
+            </criterionValue>
+            <operator>Equal</operator>
+            <type>FieldBased</type>
+        </criterion>
+        <criterion>
+            <criteriaNumber>2</criteriaNumber>
+            <criterionValue>
+                <entityField>Contact.$Contact.TRC_Registered__c</entityField>
+                <entityType>User</entityType>
+                <fieldValue>false</fieldValue>
+            </criterionValue>
+            <operator>Equal</operator>
+            <type>FieldBased</type>
+        </criterion>
+    </criteria>
+    <formulaFilterType>AllCriteriaMatch</formulaFilterType>
+    <isDefaultAudience>false</isDefaultAudience>
+    <targets>
+        <target>
+            <groupName>630b4b17-6c6b-47cc-8620-ef1fefb30dc3$#$f1439441-9ba9-493f-8063-3824a94865c9</groupName>
+            <priority>1</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>Home_Navigation_Menu_Component_Properties</targetValue>
+        </target>
+        <target>
+            <groupName>e374e982-4396-4346-a904-cc3429c157c4$#$5f9d53a7-df62-4708-8886-742ff550fed8</groupName>
+            <priority>1</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>Default_Theme_Navigation_Menu_Component_Properties</targetValue>
+        </target>
+        <target>
+            <groupName>e374e982-4396-4346-a904-cc3429c157c4$#$5b15c3f4-0518-40df-a9a3-3617a16a30a1</groupName>
+            <priority>1</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>Default_Customizable_User_Profile_Menu_Component_Properties</targetValue>
+        </target>
+        <target>
+            <groupName>9ffcaf58-3333-4812-81ca-277fcf248fc9$#$c8da5106-413e-4c81-bf38-83ee7065909d</groupName>
+            <priority>1</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>Home_Flow_Component</targetValue>
+        </target>
+        <target>
+            <groupName>9ffcaf58-3333-4812-81ca-277fcf248fc9$#$39912d4d-1f34-4d91-94a2-7eb1be6cab80</groupName>
+            <priority>1</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>Home_Tile_Menu_Component_Properties</targetValue>
+        </target>
+        <target>
+            <groupName>b049bb76-a8be-422a-8a68-a063b8adde49$#$7f0d4796-9c14-4aa7-9ffb-509a0665973f</groupName>
+            <priority>1</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>Default_Theme_Navigation_Menu_1_Component_Properties</targetValue>
+        </target>
+    </targets>
+</Audience>

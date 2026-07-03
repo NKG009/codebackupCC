@@ -1,0 +1,56 @@
+{
+  "appPageId" : "6cf45250-dd45-4f57-aa5d-84e94e3c25f8",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "528c3f94-7d0c-4c33-b725-9e46c02de780",
+  "label" : "My Candidates",
+  "regions" : [ {
+    "id" : "1d4a6d67-e3f0-4dac-8c49-d8dfd5462ab6",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2MyCandidates",
+      "id" : "af8a02d1-f50e-4db7-9afa-19254c120254",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6b00d157-adf0-4232-a8ff-6d5dbe8c6bdc",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"display: flex; flex-direction: row; justify-content: space-between;\">\n    <p>© Blue Arrow, All rights reserved 2022.</p>\n    <p>Registered Address: 33 Soho Square, London, England, W1D 3QU. Company No: 641659</p>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "1e95299c-c6ee-4121-b038-1bf800ed8096",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "79eb9fa8-947d-4cb5-b026-12df4e8d8cb5",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My Candidates"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "501c846b-bb4f-4e85-8c57-8d32419f1bd5",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5fe5b10a-d04a-435c-94a2-10444421ab4a",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "d1VXNxyzzGmpNOmN5wt8zoMCNGnDgO",
+  "type" : "view",
+  "viewType" : "custom-my-candidates"
+}

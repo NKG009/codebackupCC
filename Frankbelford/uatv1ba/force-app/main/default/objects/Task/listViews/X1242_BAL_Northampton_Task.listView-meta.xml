@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1242_BAL_Northampton_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>1242-BAL Northampton</label>
+    <queue>X1242_BAL_Northampton</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

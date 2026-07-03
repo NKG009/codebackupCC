@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ashford_Applicants_Call_handlers</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>Person_Status__c</columns>
+    <columns>Registration_Status__c</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Registration_Status__c</field>
+        <operation>equals</operation>
+        <value>KID,Contact Details,Work Details,Compliance,Awaiting_PORTW_Check,Complete</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>CT1,CT2,CT15,CT4,ME13,CT18,CT19,CT20,CT21,TN12,TN26,TN27,TN23,TN24,TN25,TN17,TN30,TN28,TN29,TN31,TN18</value>
+    </filters>
+    <filters>
+        <field>Brand__c</field>
+        <operation>equals</operation>
+        <value>Blue Arrow</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Inactive</value>
+    </filters>
+    <label>Ashford inactive candidates - NHS</label>
+</ListView>

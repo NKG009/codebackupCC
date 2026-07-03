@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SPH_TEMP_CHEFS</fullName>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>CONTACT.PHONE5</columns>
+    <columns>CONTACT.LAST_UPDATE</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>P45_Date_by_Head_Office__c</columns>
+    <columns>sirenum__Shift_Activity_Date__c</columns>
+    <columns>S_Placement_Start_Date__c</columns>
+    <columns>Brand_Logo__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>SPH-TEMP</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>notContain</operation>
+        <value>Placed</value>
+    </filters>
+    <label>SPH - TEMP CHEFS</label>
+    <sharedTo>
+        <role>Blue_Arrow_Southampton</role>
+        <role>Blue_Arrow_Specialist_Catering_Perm_Division_SCPD</role>
+    </sharedTo>
+</ListView>

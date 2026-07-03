@@ -1,0 +1,49 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "7450dbe2-9153-4569-bde1-6eee24a3e44a",
+  "label" : "My Study Details",
+  "regions" : [ {
+    "id" : "7ed30e0c-f5b8-4298-b339-29bd0401a063",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[]",
+        "flowName" : "Online_Registration_Student_Timetable"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "a962dd5d-f4a3-4c63-ab8a-8997de27d20f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "41bb8c32-6dcd-40c6-a126-9474f52b5288",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "a8ec56b6-0b27-423f-b0cf-df7635e8f010",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My Study Details"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "120e121e-9425-4149-bc72-4602c74ec028",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a11b78ac-f22d-4420-ae6b-82f257c1d9b6",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-my-study-details"
+}

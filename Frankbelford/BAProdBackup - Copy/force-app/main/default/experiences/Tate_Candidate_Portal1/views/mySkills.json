@@ -1,0 +1,49 @@
+{
+  "appPageId" : "b2fa95b0-e567-41d6-a9bd-0d8201b2a4b0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "809caae2-e6d5-4da9-a8dc-7ff809a14bc4",
+  "label" : "My Skills",
+  "regions" : [ {
+    "id" : "b7307bd3-b588-478c-9746-8b4d3d6e1924",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "Candidate_Portal_Competency_Managment"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "30f697cb-c425-4746-88fa-6c9a08c9875b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "32ecdb3c-9118-4d6e-a583-c2261f176997",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "3016e0ab-a371-46a1-b7cf-e37531fa40cf",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My Skills"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "f5e06d57-7b93-4645-adbd-5338dee79618",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c40caa4e-20b4-43c3-ae56-d27d6a4a67a9",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-my-skills"
+}

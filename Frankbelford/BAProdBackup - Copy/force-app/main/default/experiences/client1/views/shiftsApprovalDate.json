@@ -1,0 +1,38 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "a2e01c63-6286-4b16-9300-9ca23f6325cf",
+  "label" : "ShiftsApprovalDate",
+  "regions" : [ {
+    "id" : "2c331a10-5372-4b9d-affa-a963b0787121",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "c75830fe-d6d0-49f7-80a2-e86f38d65851",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "d3ade126-c6a4-4524-b574-889698b00122",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "ShiftsApprovalDate"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "147ebf65-ee21-4721-9ce5-f04070c19b3f",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "76221ac0-20c6-47ce-8c84-5b637112e4ed",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "GUsxbyKahMW5jhzFHFQCh9O0uS36r9",
+  "type" : "view",
+  "viewType" : "custom-shiftdateview"
+}

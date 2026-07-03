@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Furlough_untick_before_end_date</fullName>
+    <active>false</active>
+    <errorConditionFormula>And(
+ischanged(Furlough__c),
+Furlough__c = FALSE,
+Furlough_End_Date__c &gt; today()
+)</errorConditionFormula>
+    <errorDisplayField>Furlough_End_Date__c</errorDisplayField>
+    <errorMessage>This candidate has not yet reached their Furlough end date so cant be taken off Furlough</errorMessage>
+</ValidationRule>

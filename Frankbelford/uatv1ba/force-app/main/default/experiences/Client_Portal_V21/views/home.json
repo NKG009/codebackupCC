@@ -1,0 +1,90 @@
+{
+  "appPageId" : "6cf45250-dd45-4f57-aa5d-84e94e3c25f8",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "8517c36c-6edd-4afe-8da2-f2cc3bc1f2d6",
+  "label" : "Home",
+  "regions" : [ {
+    "id" : "2db2e51b-8f27-4d79-a8ba-3fdc8a362483",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2MobileShiftApproval",
+      "id" : "6ffcd563-9aed-4c37-b588-648791453c09",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "allSitesSelectedOnHoldMessage" : "One or more of your assigned sites currently have a credit status of 'on hold'. Please contact your Blue Arrow consultant to resolve this issue.",
+        "selectedSiteOnHoldMessage" : "Your currently selected site has a credit status of 'on hold'. Please contact your Blue Arrow consultant to resolve this issue.",
+        "singleSiteOnHoldMessage" : "{0} currently has a credit status of 'on hold'. Please contact your Blue Arrow consultant to resolve this issue."
+      },
+      "componentName" : "c:portalV2SiteOnHoldBanner",
+      "id" : "64b67c8a-f2b8-4c3d-adc1-117a13a9f876",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "jobRoleViewGroupingColumnName" : "",
+        "mIInfoPageName" : "MI_Info__c",
+        "myShiftsPageName" : "My_Shifts__c",
+        "myShiftsVMSclientPageName" : "My_Shifts_Vms_Client__c",
+        "timesheetPageName" : "Shift_Management__c",
+        "todaysWorkforcePageName" : "Todays_Workforce__c"
+      },
+      "componentName" : "c:portalV2Dashboard",
+      "id" : "270c71af-f1e7-4443-bf58-d3be2cd57878",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : {
+        "small" : "02dfea7d-1f2b-45b9-af56-ba1383617ab9"
+      },
+      "renditions" : [ {
+        "id" : "02dfea7d-1f2b-45b9-af56-ba1383617ab9",
+        "renditionValue" : {
+          "isVisible" : true
+        },
+        "type" : "renditionComponent"
+      } ],
+      "type" : "component"
+    } ],
+    "id" : "19c87846-b947-44a6-9b6f-8fd00774ba2d",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"display: flex; flex-direction: row; justify-content: space-between; padding-inline: 1em;\">\n    <p>© Blue Arrow, All rights reserved 2022.</p>\n    <p>Registered Address: 33 Soho Square, London, England, W1D 3QU. Company No: 641659</p>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "63fa4cfd-6a2b-434b-88ca-105256005c89",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6856aa84-7f20-4c5d-b3bc-955a53ea3259",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Dashboard"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "ddb3b309-e991-47ce-a80c-86a738e27430",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "39a381a8-ebb1-4839-b50a-6ca555d0cc27",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "home"
+}

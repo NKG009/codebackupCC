@@ -1,0 +1,47 @@
+.custom-dropdown {
+    position: absolute;
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.custom-dropdown .slds-dropdown__item {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.custom-dropdown .slds-dropdown__item:hover {
+    background: #f4f4f4;
+}
+
+.hovereffect {
+    font-size: 13px;
+    font-weight: 500;
+    color: #00A1E0;
+    text-decoration: none;
+}
+
+.hovereffect:hover {
+    border-bottom: 1px solid #0176D3;
+    color: #00569c;
+    cursor: pointer;
+}
+
+.slds-card{
+    min-height: 12rem;
+}
+
+.slds-modal {
+    width: 40rem;
+    max-width: 100%;
+}
+.slds-backdrop {
+    z-index: 1040;
+}
+.slds-modal__container {
+    z-index: 1050;
+}

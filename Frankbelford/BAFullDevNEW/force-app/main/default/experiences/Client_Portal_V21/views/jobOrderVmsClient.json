@@ -1,0 +1,46 @@
+{
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "c1c0fcbf-c1a1-4e67-bf7b-04f0eb0e0462",
+  "label" : "Job Order vms Client",
+  "regions" : [ {
+    "id" : "121481ef-da5c-4f28-93ac-241383a2528a",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2VMSClientJobOrder",
+      "id" : "d09efcc8-8342-4f9d-9829-15bd7acadb91",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ee40bd9e-e756-477a-8399-1d514d817405",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "e92d94cf-7120-4a53-af9e-19178f182ef3",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Job Order vms Client"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "771f186b-58ab-4769-b9a3-1a7bfe9dc3b6",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e867ec42-b468-4ca5-9444-08a37e35db9a",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-job-order-vms-client"
+}

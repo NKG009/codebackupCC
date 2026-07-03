@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Demo_my_new_contacts_to_update_weekly</fullName>
+    <columns>CREATEDBY_USER.ALIAS</columns>
+    <columns>Top_Prospect__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>Person_Status__c</columns>
+    <columns>Skills__c</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Inactive,Pending</value>
+    </filters>
+    <label>Demo my new contacts  - to update weekly</label>
+</ListView>

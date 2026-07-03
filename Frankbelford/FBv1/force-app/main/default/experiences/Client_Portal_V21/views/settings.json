@@ -1,0 +1,81 @@
+{
+  "appPageId" : "6cf45250-dd45-4f57-aa5d-84e94e3c25f8",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "a3906295-fd81-4c84-9ac1-6635d3c0dd36",
+  "label" : "Settings",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div class=\"slds-var-p-top_x-large\"><h1 style=\"font-size: 2vw;\">Settings</h1></div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "08ad3ffe-0041-4aae-9215-e1bb55705387",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a90ac654-0a89-4ef0-ac96-9ed0776173ba",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "b512d5de-d0d6-4a17-9c49-682d0822e391",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2SiteAssignment",
+      "id" : "a15f6bc4-3517-48b4-bb02-cc51610bba7b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2Settings",
+      "id" : "c13b93e9-495b-4aba-b9ff-c81033f07baf",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6c8c1d53-de83-4f93-a346-5bd2bccb136e",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "e407c178-3b7b-4962-b3e8-4cab5c15bfc5",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"display: flex; flex-direction: row; justify-content: space-between;\">\n    <p>© Blue Arrow, All rights reserved 2022.</p>\n    <p>Registered Address: 33 Soho Square, London, England, W1D 3QU. Company No: 641659</p>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "d5d5dc98-fa96-4068-a839-01aeb00bd87a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1b20279a-b08f-4e75-9378-9112d5d88fda",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Settings"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "98a6da8c-ebba-48a4-ab06-972ae3b51b5e",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "94790314-bef6-4407-b7b5-2343d5a86cb1",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-settings"
+}

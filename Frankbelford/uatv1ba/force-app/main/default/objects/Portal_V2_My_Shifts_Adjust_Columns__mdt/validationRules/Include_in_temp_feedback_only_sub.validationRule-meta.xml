@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Include_in_temp_feedback_only_sub</fullName>
+    <active>true</active>
+    <errorConditionFormula>!ISPICKVAL(Table_Type__c, &apos;Sub&apos;) &amp;&amp;   Include_in_temp_feedback_modal__c = TRUE</errorConditionFormula>
+    <errorMessage>A column can only be included in the edit temp feedback modal if it is part of a sub table</errorMessage>
+</ValidationRule>

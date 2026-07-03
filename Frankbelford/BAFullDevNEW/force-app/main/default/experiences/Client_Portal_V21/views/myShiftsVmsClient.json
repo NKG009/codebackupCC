@@ -1,0 +1,46 @@
+{
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "230b346c-8576-410a-b967-3d8337e77867",
+  "label" : "My Shifts Vms Client",
+  "regions" : [ {
+    "id" : "2d9ca6de-aac8-4986-8d76-881eca55a685",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2MyShiftsVmsClient",
+      "id" : "3895c83b-8c7b-4749-860e-88a6b2107a38",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "93d89549-4bbb-4731-abe4-a63d5db06ba0",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "27c8ac9b-4109-4798-8ab4-98df87d7b489",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My Shifts Vms Client"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "60d92270-c45a-4165-b6b9-35608bfa9054",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6fa9f354-e078-42a8-9b4f-747b293679cd",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-my-shifts-vms-client"
+}

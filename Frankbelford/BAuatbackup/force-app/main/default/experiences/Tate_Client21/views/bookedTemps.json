@@ -1,0 +1,70 @@
+{
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "9c83cef5-4a52-46c5-95d3-ba2b3332ec73",
+  "label" : "Booked Temps",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "0407688d-dbfd-46e8-84f7-780a98014a86",
+          "columns" : [ {
+            "UUID" : "33c0a36b-6f08-4398-8dc8-b9f3555582e8",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "0407688d-dbfd-46e8-84f7-780a98014a86",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "defaultSiteID" : ""
+          },
+          "componentName" : "c:ClientComBookedTempsCmp",
+          "id" : "6bbfd236-903e-4438-95bd-f6f048a10995",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "33c0a36b-6f08-4398-8dc8-b9f3555582e8",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5322f524-8bc3-4832-b111-ae28d3e16793",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Booked Temps"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "b55d59c2-487d-4824-8620-b15eb1b29539",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c9258ea8-4346-43a8-b2fe-574fa8e1a1cb",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-newbookedtemps"
+}

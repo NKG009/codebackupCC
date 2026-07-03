@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NHS_Budget_Experience__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Do you have management experience of budget and contracts/tendering?</inlineHelpText>
+    <label>Budget Experience</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

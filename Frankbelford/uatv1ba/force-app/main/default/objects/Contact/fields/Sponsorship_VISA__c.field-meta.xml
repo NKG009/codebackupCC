@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sponsorship_VISA__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicate if candidate is under sponsorship VISA. Field is ticked when RTW with valid sponsorship VISA is verified. Field is unticked when candidate&apos;s RTW certificate lapsed or a new one created.</description>
+    <inlineHelpText>Indicate if candidate is under sponsorship VISA</inlineHelpText>
+    <label>Sponsorship VISA</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

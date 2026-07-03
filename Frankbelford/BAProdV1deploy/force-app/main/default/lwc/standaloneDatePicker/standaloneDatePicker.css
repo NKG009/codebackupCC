@@ -1,0 +1,12 @@
+.slds-dropdown {
+  border: 0;
+  box-shadow: none;
+}
+
+.slds-datepicker tbody > tr > td.slds-is-selected-multi > .slds-day {
+  border-radius: 30% !important;
+}
+
+:host {
+  --sds-c-brandAccessible: #029de4;
+}

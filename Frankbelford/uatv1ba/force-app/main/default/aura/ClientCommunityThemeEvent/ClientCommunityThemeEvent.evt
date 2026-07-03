@@ -1,0 +1,9 @@
+<!--
+ - Created by mrahman on 2021-01-06.
+ - PURPOSE: USE THIS EVENT TO COMMUNICATE WHEN ANY VALUE CHANGES AT THE TEMPLATE LEVEL.
+ - FOR EXAMPLE IF A SITE IS SELECT THEN IT WILL BE PUBLISHED FOR ANY OTHER COMPONENT TO CATCH AND REACT ACCORDINGLY
+ -->
+
+<aura:event type="APPLICATION" description="ClientCommunityThemeEvent">
+    <aura:attribute name="selectedSiteId" type="String"/>
+</aura:event>

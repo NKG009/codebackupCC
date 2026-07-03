@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VertasBB311020244responses</fullName>
+    <columns>NAME</columns>
+    <columns>Candidate__c</columns>
+    <columns>Question_1__c</columns>
+    <columns>Question_2__c</columns>
+    <columns>Question_3__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RecruiterBot__c</field>
+        <operation>equals</operation>
+        <value>VertasBB31102024</value>
+    </filters>
+    <label>VertasBB311020244responses</label>
+</ListView>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Request_P45</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Request P45</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/apex.js&quot;)}
+
+var ppCount = &apos;{!Contact.IP_PAYECount__c}&apos;;
+
+result = sforce.connection.query(&quot;SELECT IP_LastPassedToTempest__c  FROM IP_PayProfile__c WHERE IP_Candidate__c= &apos;{!Contact.Id}&apos; and IP_Status__c =&apos;Active&apos; and RecordType.Name=&apos;PAYE&apos;&quot;);
+records = result.getArray(&quot;records&quot;); 
+
+
+if(ppCount&gt;0 &amp;&amp; records.length&gt;0)
+{
+	var P45_Date = &apos;{!Contact.IP_WorkerLeavingDate__c}&apos;;
+	var P45_Requested = &apos;{!Contact.P45_Requested__c}&apos;;
+	var P45_HeadOfficeDate = &apos;{!Contact.P45_Date_by_Head_Office__c}&apos;;
+
+
+	if(records[0].IP_LastPassedToTempest__c==null)
+	{
+		alert(&apos;Candidate has never worked and has no historic or active timesheet/s associated.&apos;);
+	}
+	else if(P45_HeadOfficeDate==0)
+	{
+		window.open(&apos;/apex/RequestP45Page?id={! Contact.Id}&apos;, &apos;_blank&apos;, &apos;height=550,width=800,resizable=yes,scrollbars=yes,toolbar=n??o,menubar=no&apos;);
+	}
+	else
+	{
+		alert(&apos;P45 process has been initiated already&apos;);
+	}
+}
+else
+{
+	alert(&apos;No Paye profile for this candidate&apos;);
+}</url>
+</WebLink>

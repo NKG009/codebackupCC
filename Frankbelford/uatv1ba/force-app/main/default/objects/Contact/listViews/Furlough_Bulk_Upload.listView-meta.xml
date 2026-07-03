@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Furlough_Bulk_Upload</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>IP_Branch__c</columns>
+    <columns>IP_TempestDepartment__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.FIRST_NAME</field>
+        <operation>equals</operation>
+        <value>Callum</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.LAST_NAME</field>
+        <operation>equals</operation>
+        <value>Coe</value>
+    </filters>
+    <label>Furlough Bulk Upload</label>
+    <sharedTo>
+        <role>Blue_Arrow_change_team</role>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LeadObject__c</fullName>
+    <defaultValue>&quot;Lead&quot;</defaultValue>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>API Name of the Contact object. Typically, this is just &apos;Lead&apos; in most environments, to use the default Lead object in Salesforce.</inlineHelpText>
+    <label>Lead API Name</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

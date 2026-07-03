@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_Senior_Admin_can_create_2ndTierSupp</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISNEW() &amp;&amp;  RecordType.DeveloperName = &apos;IP_2ndTierSupplier&apos; &amp;&amp;  
+(AND($Profile.Name &lt;&gt; &apos;System Administrator&apos; , $Profile.Name &lt;&gt; &apos;JS Admin tier 1&apos;))</errorConditionFormula>
+    <errorMessage>Only Admins can create 2nd Tier Supplier</errorMessage>
+</ValidationRule>

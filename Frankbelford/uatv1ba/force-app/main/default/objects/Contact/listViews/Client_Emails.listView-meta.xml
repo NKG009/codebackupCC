@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Client_Emails</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Account.sirenum__BACS_Account_Name__c</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>equals</operation>
+        <value>2043</value>
+    </filters>
+    <filters>
+        <field>IP_ContactType__c</field>
+        <operation>equals</operation>
+        <value>Booking Contact,Budget Holder,Decision Maker,Invoice Contact</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>Account.IP_Temp_Contractual_Terms__c</field>
+        <operation>equals</operation>
+        <value>Standard Terms,Non-Standard Terms</value>
+    </filters>
+    <label>Client Emails</label>
+</ListView>

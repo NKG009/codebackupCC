@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>catering_assistant_st_andrews1</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.TITLE</field>
+        <operation>contains</operation>
+        <value>catering assistant,kitchen assistant,server,waiter,waiting staff,cafe assistant,steward</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>contains</operation>
+        <value>KY1,KY2,KY14,KY15,KY16,KY13,KY4,KY9,KY10,KY11,KY12,DD6,DD1,DD2,DD3,DD4,DD5,EH38,EH39,EH40,EH41,EH42,EH43,EH44,EH46,EH47,EH48,EH49,EH50,EH51,EH52,EH53,EH54,EH55</value>
+    </filters>
+    <label>catering assistant st andrews</label>
+</ListView>

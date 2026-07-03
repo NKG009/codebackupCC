@@ -1,0 +1,16 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader"  access="global" controller="RateCardController">
+	<!-- handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- atrributes -->
+    <aura:attribute name="recordId" type="String" />
+ <aura:attribute name="processingText" type="Boolean" />
+    
+    <aura:if isTrue="{!v.processingText}">
+        <br/><br/><br/><br/>
+        <p style="font-size:15px;color:#1B5297;">
+            <center><b><aura:unescapedHtml value="Please wait a moment........" /></b></center>
+        </p>
+    </aura:if>
+  
+</aura:component>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Borrowed_Temp_Candidate</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL(IP_Candidate__r.IP_BorrowedTemp__c, &quot;Yes&quot;)</errorConditionFormula>
+    <errorMessage>Pay profile can not be created for &apos;Borrowed Temp Candidate&apos;</errorMessage>
+</ValidationRule>

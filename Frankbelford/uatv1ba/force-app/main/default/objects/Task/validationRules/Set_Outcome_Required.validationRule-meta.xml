@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Set_Outcome_Required</fullName>
+    <active>true</active>
+    <description>Only national account users can use Task Outcome Required</description>
+    <errorConditionFormula>OR (
+				AND (ISNEW(),
+									$User.Role_Name__c != &quot;Blue Arrow National Accounts&quot;,
+									 Outcome_Required__c = TRUE									
+								),
+
+AND (
+	$User.Role_Name__c != &quot;Blue Arrow National Accounts&quot;,
+ ISCHANGED(Outcome_Required__c) 
+				)	
+)</errorConditionFormula>
+    <errorDisplayField>Outcome_Required__c</errorDisplayField>
+    <errorMessage>Only National Account user can set the Outcome Required field</errorMessage>
+</ValidationRule>

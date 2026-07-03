@@ -1,0 +1,56 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "d6ed683f-a849-4ef2-8c8a-fcc257af0b74",
+  "label" : "Approved TimeSheets",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"font-size: 28px; color: rgb(0, 0, 0); font-family: arial;\">Approved Timesheets</span></p><p><br></p><p> </p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "823cfe41-45a8-4486-8cbd-256cd6f065f1",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3ade01a5-fc22-44e1-903e-1cab23ef1daa",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:TimsSheetInfoWithPaginationCmp",
+      "id" : "2631e058-9a9f-4f6c-8cfb-616e92c9c11b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8588801d-1c00-46d2-810c-e393a9074cbd",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "e6f79ddc-1616-4809-9501-ba09fa3bc1c3",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Approved TimeSheets"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "2e680f85-0831-4fd9-8145-f48ad8e003ef",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4edc9545-398c-45eb-8b58-9e324a464e80",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "1fitOSCZL0c31jnY0VvGUv41yZqrsW",
+  "type" : "view",
+  "viewType" : "custom-approved-timesheets"
+}

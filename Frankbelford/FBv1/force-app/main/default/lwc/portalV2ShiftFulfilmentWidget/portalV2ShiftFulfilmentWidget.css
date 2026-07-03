@@ -1,0 +1,32 @@
+@import "c/portalV2WidgetCSSLibrary";
+
+.fulfilment {
+  border-radius: 10px;
+}
+
+.filled {
+  background-color: #d7f5ea;
+}
+
+.unfilled {
+  background-color: #ffbfb8;
+}
+
+.partial__fill {
+  background-color: #ffe7b8;
+}
+
+.stacked-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  width: 50%;
+}
+.body-container {
+  height: 70%;
+  gap: 4rem;
+  padding-inline: 3em;
+}
+/* .top-bar {
+  padding-inline: 1rem;
+} */

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Decision_1</name>
+        <label>Decision 1</label>
+        <locationX>710</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_timesheet_number</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.IP_PayrollPresentedTimesheetNumber__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Timesheet__r.IP_DuplicateCheckPassOK__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_timesheet</targetReference>
+            </connector>
+            <label>Update timesheet number</label>
+        </rules>
+        <rules>
+            <name>Update_Rate</name>
+            <conditionLogic>(1 OR 2) AND (3 OR 4 OR 5 OR 6)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.IP_LastPassedToTempest__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.GUID_Timesheetline__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Charge__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Rate__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ChargeBatch__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Ratebatch__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdatePayRate_And_ChargeBatch</targetReference>
+            </connector>
+            <label>Update Rate</label>
+        </rules>
+        <rules>
+            <name>Update_InvoicePO</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.IP_PurchaseOrderNumber__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Timesheet__r.IP_Client_Invoice_PO__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdateClientInvoicePO</targetReference>
+            </connector>
+            <label>Update InvoicePO</label>
+        </rules>
+        <rules>
+            <name>UpdateDateIFBlank</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.sirenum__Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdateSirenumDate</targetReference>
+            </connector>
+            <label>UpdateDateIFBlank</label>
+        </rules>
+        <rules>
+            <name>ResolveRateCodeToBePassed</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.IP_LastPassedToTempest__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.GUID_Timesheetline__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Updatet_Tempest_Rate_Code</targetReference>
+            </connector>
+            <label>ResolveRateCodeToBePassed</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>CalculateScheduledStartTime</name>
+        <dataType>DateTime</dataType>
+        <expression>DATETIMEVALUE({!$Record.sirenum__Shift__r.sirenum__Scheduled_Start_Time__c })</expression>
+    </formulas>
+    <formulas>
+        <name>CalculateTempestRateCode</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record.sirenum__Shift__r.Account__c} !=&apos;Blue Arrow&apos;,
+If(AND(FIND({!$Record.IP_PayrollPresentedRateCode__c} , {!$Record.sirenum__Timesheet__r.sirenum__Site__r.GlobalClientName__r.Text_EDI__c})&gt;0,
+{!$Record.sirenum__Timesheet__r.sirenum__Site__r.GlobalClientName__r.EDI_Client__c =True}
+),
+Right(MID({!$Record.sirenum__Timesheet__r.sirenum__Site__r.GlobalClientName__r.Text_EDI__c},
+FIND( {!$Record.IP_PayrollPresentedRateCode__c} , {!$Record.sirenum__Timesheet__r.sirenum__Site__r.GlobalClientName__r.Text_EDI__c}
+),
+FIND(&quot;=&quot;, {!$Record.sirenum__Timesheet__r.sirenum__Site__r.GlobalClientName__r.Text_EDI__c} ) +4-LEN( {!$Record.IP_PayrollPresentedRateCode__c} )
+),
+2
+),
+IF(AND({!$Record.sirenum__Overtime_Rate__c} =TRUE, {!$Record.sirenum__Timesheet__r.sirenum__Site__r.GlobalClientName__r.EDI_Client__c}=FALSE),
+&quot;HN&quot;,
+{!$Record.IP_PayrollPresentedRateCode__c})
+),IF( CONTAINS( {!$Record.sirenum__Shift__r.sirenum__Team__r.sirenum__Job_Type__r.Name}  ,&apos;Cleaner&apos;),&apos;IC&apos;,&apos;IN&apos;))</expression>
+    </formulas>
+    <formulas>
+        <name>UpdateCharge_Batch</name>
+        <dataType>String</dataType>
+        <expression>Text( ROUND({!$Record.sirenum__Charge__c},2) )</expression>
+    </formulas>
+    <interviewLabel>Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update timesheet number, Rate, InvoicePO, Next Payroll, DateIFBlank AND ResolveRateCodeToBePassed</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_timesheet</name>
+        <label>Update timesheet number</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>IP_StandardWeeklyNumberID__c</field>
+            <value>
+                <elementReference>$Record.IP_PayrollPresentedTimesheetNumber__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.sirenum__Timesheet__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UpdateClientInvoicePO</name>
+        <label>UpdateClientInvoicePO</label>
+        <locationX>578</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>IP_Client_Invoice_PO__c</field>
+            <value>
+                <elementReference>$Record.IP_PurchaseOrderNumber__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.sirenum__Timesheet__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UpdatePayRate_And_ChargeBatch</name>
+        <label>UpdatePayRate And ChargeBatch</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>ChargeBatch__c</field>
+            <value>
+                <elementReference>UpdateCharge_Batch</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Ratebatch__c</field>
+            <value>
+                <elementReference>$Record.sirenum__Rate__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UpdateSirenumDate</name>
+        <label>UpdateSirenumDate</label>
+        <locationX>842</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>sirenum__Date__c</field>
+            <value>
+                <elementReference>CalculateScheduledStartTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Updatet_Tempest_Rate_Code</name>
+        <label>Updatet Tempest Rate Code</label>
+        <locationX>1106</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>IP_TempestRateCode__c</field>
+            <value>
+                <elementReference>CalculateTempestRateCode</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>584</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Decision_1</targetReference>
+        </connector>
+        <object>sirenum__Timesheet_Line__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+</Flow>

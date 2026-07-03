@@ -1,0 +1,168 @@
+<apex:page standardcontroller="ts2__Placement__c" extensions="CreditFunctionCalc" docType="html-5.0">
+<head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <style>
+            .form-errors {
+                color: red;
+                text-align:center; 
+            }
+        .mandatory-error{ 
+            color: red;
+            text-align:center; 
+        }
+        </style>
+        </head> 
+  <script>
+         var msg = {!$CurrentPage.Parameters.sx}
+         $(".form-errors").hide();  
+        if(msg=='1')
+        {
+            $(".form-errors").show();    
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";
+            self.close();
+        }else{
+            $(".form-errors").hide();    
+        }
+        function CloseARefresh()
+        {      
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";
+            self.close();
+            // window.top.location.href="/{!$CurrentPage.parameters.oppid}";
+        }    
+        
+        </script>
+        <script type="text/javascript">
+        function AllowNumeric(e)
+        {
+            var a = e.charCode;
+            return (a >= 48 && a <= 57 || a==46);
+        }
+        </script>
+
+<apex:form >
+ <apex:pageMessages ></apex:pageMessages>
+<apex:pageBlock title="Credit Calculation" id="form1">
+
+<apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+            <apex:slds />
+        </apex:outputPanel>
+
+         <apex:pageblocksection >
+                     <apex:pageblocksectionItem >
+                       <apex:outputLabel value="Reason for Credit" />
+                        <apex:outputPanel styleClass="requiredInput" layout="block">
+                        <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                        <apex:actionRegion >
+                       <apex:selectList id="creditreason" label="Reason For Credit" size="1" value="{!selectedcreditreason}" >
+                            <apex:selectOptions value="{!allcreditreason}"/>
+                             <apex:actionSupport event="onchange"  reRender="a"/>
+                        </apex:selectList>
+                        </apex:actionRegion>
+                         </apex:outputPanel>
+                        </apex:pageblocksectionItem>
+                       
+                        <apex:pageblocksectionItem >
+                        <apex:outputLabel value="Rebate Amount" />                       
+                        <apex:outputPanel styleClass="requiredInput" layout="block" id="a">
+                        <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                         <apex:actionRegion >
+                         <apex:selectList size="1" value="{!selectedpercentage}"  >
+                            <apex:selectOptions value="{!allcreditpercent}"/>
+                            <apex:actionSupport event="onchange" reRender="b,c,d,e" action="{!setadminfee}" />
+                        </apex:selectList> 
+                        </apex:actionRegion>
+                        </apex:outputPanel>
+                        </apex:pageblocksectionItem>                       
+                        <apex:pageblocksectionItem >
+                        
+                        <apex:outputLabel value="Reason for Leaving" />
+                        <apex:outputPanel layout="block">
+                        <apex:outputPanel layout="block"/>
+                         <apex:actionRegion >
+                         <apex:selectList id="leavingreason" size="1" label="Reason for Leaving" value="{!selectedleavingreason}">
+                            <apex:selectOptions value="{!allleavingreason}"/>
+                             <apex:actionSupport event="onclick"  reRender="c,e" action="{!setadminfee}"/>
+                        </apex:selectList> 
+                         </apex:actionRegion>
+                        </apex:outputPanel>
+                        
+                        </apex:pageblocksectionItem>
+                       
+                        <apex:pageblocksectionItem >
+                        <apex:outputPanel layout="block" id="e">           
+                        <apex:outputLabel value="Admin Fee" rendered="{!IF(ts2__Placement__c.IP_Number_of_Credits__c==0,true,false)}"/>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="block" id="c">
+                        <apex:outputPanel layout="block"/>
+                        <apex:inputText value="{!adminfee}" label="Admin Fee" rendered="{!IF(ts2__Placement__c.IP_Number_of_Credits__c==0,true,false)}" disabled="{!flag1}"/>
+                        </apex:outputPanel>
+                        </apex:pageblocksectionItem>
+                        
+                        <apex:pageblocksectionItem >
+                         <apex:outputPanel layout="block" id="d">
+                        <apex:outputLabel value="Credit Amount" rendered="{!IF(selectedpercentage == 'Amount £',true,false)}"/>   
+                        </apex:outputPanel>                
+                        <apex:outputPanel layout="block" id="b">
+                        <apex:outputPanel layout="block"/>    
+                        <apex:inputText value="{!amountcredit}" rendered="{!IF(selectedpercentage == 'Amount £',true,false)}" disabled="false" onkeypress="return AllowNumeric(event)" html-placeholder="Please enter Numeric Values"/>
+                        </apex:outputPanel>
+                        </apex:pageblocksectionItem>
+                        
+                        <apex:pageblocksectionItem >
+                        <apex:outputLabel value="Amount to Credit"/>
+                        <apex:outputPanel layout="block">
+                        <apex:outputPanel layout="block"/> 
+                        <apex:outputText value="{!tempactual}"/>
+                        </apex:outputPanel>
+                        </apex:pageblocksectionItem>
+                        </apex:pageBlockSection>
+                        
+                         <apex:pageBlockButtons location="bottom">
+                         
+                         <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+                    <apex:commandButton value="Calculate" action="{!calcrecord}"/> 
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+                    <apex:commandButton value="Calculate" action="{!calcrecord}" styleClass="slds-button slds-button_outline-brand"/>
+                </apex:outputPanel>
+                 <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+                    <apex:commandButton value="Confirm" action="{!saverecord}"  disabled="{!If($CurrentPage.Parameters.sx=='1',true, false)}"/>
+                </apex:outputPanel>
+                 <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+                    <apex:commandButton value="Confirm" action="{!saverecord}" styleClass="slds-button slds-button_outline-brand"/>
+                </apex:outputPanel>
+                
+                 <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+                    <apex:commandButton value="Cancel" action="{!closepage}"  onclick="CloseARefresh();" />
+                </apex:outputPanel>
+                 <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+                    <apex:commandButton value="Cancel" action="{!closepage}" onclick="CloseARefresh();"  styleClass="slds-button slds-button_outline-brand"/>
+                </apex:outputPanel>
+
+                          </apex:pageBlockButtons>
+        
+
+</apex:pageBlock>
+
+</apex:form>
+   <script>
+                       var msg = {!$CurrentPage.Parameters.sx}
+                    $(".form-errors").hide();  
+       if(msg=='1')
+        {
+            $(".form-errors").show();    
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";           
+            self.close();
+        }else{
+            $(".form-errors").hide();    
+        }
+        function CloseARefresh()
+        {      
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";
+            self.close();
+        } 
+        
+        </script>
+  </apex:page>

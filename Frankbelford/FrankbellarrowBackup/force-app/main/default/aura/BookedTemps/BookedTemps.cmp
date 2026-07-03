@@ -1,0 +1,165 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" controller="BookedTempController">
+    <aura:attribute type="List" name="allshifts" />
+    <aura:attribute type="List" name="shifts" />
+    
+    <aura:attribute name="SiteList" type="List"/>
+    <aura:attribute name="ContactList" type="List"/>
+    <aura:attribute name="SiteContactMap" type="Object"/>
+    <aura:attribute name="JobroleList" type="List"/>
+    <aura:attribute name="selectedSite" type="String"/>
+    <aura:attribute name="selectedcandidate" type="String"/>
+    <aura:attribute name="selectedJobRole" type="String"/>
+    
+    <aura:attribute type="Integer" name="pageNumber" default="1" />
+    <aura:attribute type="Integer" name="maxPage" default="1" />
+    <aura:handler name="change"	value="{!v.pageNumber}"	action="{!c.renderPage}" />
+    
+    
+    <aura:attribute name="filter" type="String"/>
+    <aura:attribute name="page" type="integer"/>
+    <aura:attribute name="pages" type="integer"/>
+    <aura:attribute name="total" type="integer"/>
+    
+    <aura:attribute name="phonedetails" type="String"/>
+    <aura:attribute name="cancelledshift" type="sirenum__Shift__c"/>
+    <aura:attribute name="isOpenCancel" type="boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="slds-wrap slds-scrollable">
+    <table style="width:800px;" class=" slds-wrap "><tr>
+        <td style="width:80px;" class="slds-grow slds-cell-wrap"><br></br>
+          <div class="slds-grow slds-cell-wrap">
+                         <lightning:select  label="Site:"  aura:id="site" onchange="{!c.siteChanged}">
+                            <aura:iteration items="{!v.SiteList}" var="item">
+                                <option text="{!item.label}" value="{!item.value}"/>
+                            </aura:iteration>
+                        </lightning:select></div>
+        </td><td style="width:20px;"></td>  <td style="width:100px;">  <div class="slds-grow slds-cell-wrap">
+          <lightning:helptext class="helpicon" content="Please select the Site First" />
+                        <lightning:select  label="Candidate Name:" aura:id="contact">
+                            <aura:iteration items="{!v.ContactList}" var="item">
+                                <option text="{!item.label}" value="{!item.value}"/>
+                            </aura:iteration>
+        </lightning:select></div>
+       </td><td style="width:20px;"></td><td style="width:100px;"><br></br>
+          <div class="slds-grow slds-cell-wrap">
+                        <lightning:select label="Job Role:" aura:id="jobrole">
+                            <aura:iteration items="{!v.JobroleList}" var="item">
+                                <option text="{!item.label}" value="{!item.value}"/>
+                            </aura:iteration>
+              </lightning:select></div>
+       </td><td style="width:20px;"></td>
+        <td style="width:100px;"><br></br><br></br>
+              <div class="slds-grow slds-cell-wrap">
+                          <lightning:button variant="brand" class="Searchbutton" label="Search" onclick="{!c.searchShifts}" />
+            </div></td>
+      </tr>    
+     </table>
+    </div><br></br>
+    <lightning:layout class="slds-scrollable slds-wrap" horizontalAlign="left">
+        <lightning:layoutItem padding="horizontal-small">
+            <lightning:button class="button" aura:id="filter" value="today" label="Today" onclick="{! c.applyFilter }" />
+        </lightning:layoutItem>    
+        <lightning:layoutItem padding="horizontal-small">
+            <lightning:button class="button" aura:id="filter" value="tomorrow" label="Tomorrow" onclick="{! c.applyFilter }" />
+        </lightning:layoutItem>    
+        <lightning:layoutItem padding="horizontal-small">
+            <lightning:button class="button" aura:id="filter" value="next7days" label="Next 7 Days" onclick="{! c.applyFilter }" />
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="horizontal-small">
+            <lightning:button class="button" aura:id="filter" value="next14days" label="Next 14 Days" onclick="{! c.applyFilter }" />
+        </lightning:layoutItem> 
+        <lightning:layoutItem padding="horizontal-small">
+            <lightning:button class="button" aura:id="filter" value="future" label="Future" onclick="{! c.applyFilter }" />
+        </lightning:layoutItem> 
+    </lightning:layout>     
+    
+    <br/>
+     <div class="slds-scrollable slds-wrap">  
+    <table class="slds-no-row-hover slds-table slds-table--bordered slds-table--cell-buffer slds-table--fixed-layout">
+        <thead>
+            <tr >
+                <th style="text-align:center;width:130px;" class="headingfont" scope="col"><div class="slds-truncate slds-grow slds-cell-wrap" title="Candidate Name">Candidate Name</div></th>
+                <th style="text-align:center;width:150px;" class="headingfont" scope="col"><div class="slds-truncate" title="Job Role">Job Role</div></th>
+                <th style="text-align:center;width:150px;" class="headingfont" scope="col"><div class="slds-truncate" title="Site">Site</div></th>
+                <th style="text-align:center;width:100px;" class="headingfont" scope="col"><div class="slds-truncate" title="Start Date">Start Date</div></th>
+                <th style="text-align:center;width:100px;" class="headingfont" scope="col"><div class="slds-truncate" title="Start Time">Start Time</div></th>
+                <th style="text-align:center;width:90px;" class="headingfont" scope="col"><div class="slds-truncate" title="End Time">End Time</div></th>
+                <th style="text-align:center;width:100px;" class="headingfont" scope="col"><div class="slds-truncate" title="Action">Action</div></th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.shifts}" var="record" indexVar="idx">
+                <tr>
+                    <td style="text-align:center;width:130px;" class="tdcenter"><div class="slds-grow slds-cell-wrap slds-truncate">{!record.sirenum__Contact__r.Name}</div></td>
+                    <td style="text-align:center;width:130px;" class="tdcenter"><div class="slds-grow slds-cell-wrap slds-truncate">{!record.sirenum__Team__r.Name}</div></td>
+                    <td style="text-align:center;width:130px;" class="tdcenter"><div class="slds-grow slds-cell-wrap slds-truncate">{!record.sirenum__Site__r.Name}</div></td>
+                    <td style="text-align:center;width:130px;" class="tdcenter"><div class="slds-grow slds-cell-wrap slds-truncate"><lightning:formattedDateTime value="{!record.sirenum__Scheduled_Start_Time__c}" year="numeric" month="numeric" day="numeric" /></div></td>
+                    <td style="text-align:center;width:130px;" class="tdcenter"><div class="slds-grow slds-cell-wrap slds-truncate"><lightning:formattedDateTime value="{!record.sirenum__Scheduled_Start_Time__c}" hour="2-digit" minute="2-digit"/></div></td>
+                    <td style="text-align:center;width:130px;" class="tdcenter"><div class="slds-grow slds-cell-wrap slds-truncate"><lightning:formattedDateTime value="{!record.sirenum__Scheduled_End_Time__c}" hour="2-digit" minute="2-digit"/></div></td>
+                    <td style="text-align:center;width:130px;" class="tdcenter"><div ><lightning:button value="{!record.Id}" variant="destructive" label="Cancel" class="Canclebutton" onclick="{!c.cancelShift}" /></div></td>
+                    
+                </tr>
+            </aura:iteration>    
+        </tbody>
+         </table></div><br></br>  <div style="text-align:right;">
+    <c:Pagination currentPageNumber="{!v.pageNumber}" maxPageNumber="{!v.maxPage}" /></div>
+    <aura:if isTrue="{!v.isOpenCancel}">
+        <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open slds-scrollable">
+            <div class="slds-modal__container">
+                <form>
+                    <div class="slds-modal__header" >
+                        Thank you for informing us that you wish to cancel the below shift.
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModelCancel}">
+                            X
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                    </div>
+                    <div class="slds-modal__content slds-p-around--medium " >
+                        
+                        <div class="headingdetails"><u>Shift Details</u></div><br></br><br></br>
+                        <table style="border:none;">
+                            <tr>
+                                <td>
+                                    <u class="headingdetails">Job Role</u>
+                                    <br/>{!v.cancelledshift.sirenum__Team__r.Name}
+                                </td>
+                                <td>
+                                    <u  class="headingdetails">Site</u>
+                                    <br/>{!v.cancelledshift.sirenum__Site__r.Name}
+                                </td>
+                            </tr>
+                            <tr><br/>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <u  class="headingdetails">Schedule StartTime</u><br/>
+                                    <lightning:formattedDateTime value="{!v.cancelledshift.sirenum__Scheduled_Start_Time__c}" hour="2-digit" minute="2-digit"/>
+                                </td>
+                                <td>
+                                    <u  class="headingdetails">Schedule EndTime</u><br/>
+                                    <lightning:formattedDateTime value="{!v.cancelledshift.sirenum__Scheduled_End_Time__c}" hour="2-digit" minute="2-digit"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <br></br>
+                        <div class="RedText">
+                            Please contact the branch on {!v.phonedetails}
+                        </div><br></br><br></br>
+                          <div class="slds-truncate" style="text-align:Left;">
+                       <lightning:button class="Backbutton" label="Back" variant="Brand" onclick="{!c.closeModelCancel}"   />
+                       
+                        </div>    
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </aura:if>
+    <br/>
+    <div class="slds-truncate" style="text-align:Left;">
+        <lightning:button label="Back" class="Backbutton" variant="Brand" onclick="{!c.getBackscreen}"   />
+        
+    </div>
+</aura:component>

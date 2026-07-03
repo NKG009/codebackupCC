@@ -1,0 +1,121 @@
+<aura:component controller="LoginController" implements="forceCommunity:themeLayout,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <ltng:require styles="{!join(',',
+                          $Resource.webUI+'/assets/css/all.css',
+                          $Resource.webUI+'/assets/css/fontawesome.css',
+                          $Resource.webUI+'/assets/css/fontawesome.min.css',
+                          $Resource.webUI+'/assets/css/custom.css',
+                          $Resource.Tjcss2+'/assets/css/main.css'
+                          )
+                          }" 
+                  scripts="{!join(',',
+                           $Resource.Tjcss2+'/assets/js/main.min.js',                           
+                           $Resource.Tjcss2+'/assets/js/custom.js'
+                           )}"
+                  />
+    
+    <!-- Username and Password -->
+    <aura:attribute name="Username" type="String" />
+    <aura:attribute name="Password" type="String" />
+    <aura:attribute name="email" type="String" />
+    <aura:attribute name="resetUsername" type="String" />
+    <aura:attribute name="mylabel" type="String" />
+    <aura:attribute name="resetError" type="String" />
+    <aura:attribute name="errorMessage" type="String"/>
+    <aura:attribute name="showError" type="boolean"/>
+    <aura:attribute name="isShowResetModal" type="boolean" default="false"/>
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    
+    <!--create a component attributs -->
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    <aura:attribute name="isVisible" type="boolean" default="true"/>
+    <!-- Error Message Displayed -->
+    <aura:if isTrue="{!v.showError}">
+        <!-- Show the message to ui -->
+        <div class="slds-notify slds-notify_toast slds-theme_error">
+            <span class="slds-assistive-text">error</span>
+            <div class="slds-notify__content">
+                <h5 class="slds-text-heading_small slds-align_absolute-center">Error Message </h5>
+                <br/>
+                <p class="slds-align_absolute-center">{!v.errorMessage}</p>                
+            </div>
+        </div>    
+    </aura:if>
+   
+    <!-- reset modal Popup -->
+   
+    <div class="custom-model modal fade" id="reset-popup" tabindex="-1" role="dialog" aria-labelledby="reset-popup">
+        <div class="modal-dialog" role="document">
+            <aura:if isTrue="{!v.isShowResetModal}">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h1>PASSWORD RESET</h1>
+                    <h3>Please enter the username that you used when creating your account. An email will be sent to that address with further instructions on how to reset your password.</h3>
+                    <form class="slds-form--stacked">
+                        <input type="text" value="{!Username}" aura:id="resetUsername" class="login removeBorderCSS" required="true" autocomplete="off" />
+                        <label aura:id="FormVal"><span><i class="fa fa-user fa-2x" aria-hidden="true"></i> Username </span></label>
+                        <br></br>
+                        <div>    
+                            <ui:outputRichText class="errormessag" value="{!v.resetError}"/>
+                        </div>
+                        <!--<input class="login-btn" type="submit" name="details" value="Send Password" onclick="{!c.resetPassword}"/>-->
+                        <lightning:button label="Reset Password" class="login-btn" variant="brand" onclick="{!c.resetPassword}"/>
+                        
+                    </form>
+                </div>
+                <aura:set attribute="else">
+                    <div class="modal-content">
+			    		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			    		<h1>NOW, CHECK YOUR EMAIL</h1>
+			    		<h3>Check the email account associated with your user name for instructions on resetting your password. Remember to look in your spam folder, where automated messages sometimes filter. If you still can't log in, contact your administrator.</h3>
+                        <button type="button " class="login-btn" data-dismiss="modal"  aria-label="back to login"><span aria-hidden="true">Back To login</span></button>
+			    	</div>
+                </aura:set>
+            </aura:if>
+        </div>
+    </div>
+   <div class="container-fluid">
+        
+        <div class="loginSection">
+            <div class="loginSection__leftPart"> 
+               <div class="loginSection__leftPart--content">
+                   <a href="" class="logo" title="BlueArrow">
+                      <img src="{!$Resource.BlueArrowImage}" alt="Impellam Logo" Title="Impellam"/>
+                     <!--   <img src="{!$Resource.impellam_logo}" alt="Impellam Logo" Title="Impellam"/>-->
+                   </a>
+                    <h2>Your portal to manage your temporary staffing service by Blue Arrow.</h2>
+                    <!--<h2>Blue Arrow.</h2>-->
+                    <!--<p class="hidden-xs">The provision of temporary staff in the UK has become increasingly commoditised, with people being treated as numbers rather than individuals.</p>-->
+                    <a class="more-btn texttransform" href="javascript:void(0)" onclick="{!c.callExpernalSite}" title="more details" target="_blank">Can’t Sign In?</a>
+                </div>
+                
+            </div>
+            <div class="loginSection__rightPart">
+                <div class="loginSection__rightPart--content">
+                    <h1>Login to your account</h1>&nbsp;&nbsp;
+                    
+                    <!-- CREATE NEW FORM -->
+                    <form class="slds-form--stacked">
+                        <input type="text" value="{!Username}" aura:id="uname" class="login" required="true" autocomplete="off" />
+                        <label aura:id="FormVal"><span><i class="fa fa-user fa-2x" aria-hidden="true"></i> Username </span></label>
+                        
+                        <input type="password" value="{!Password}" aura:id="pass" class="login" required="true" autocomplete="off" />
+                        <label aura:id="FormVal"><span> <i class="fa fa-lock fa-2x"></i> Password</span></label>
+                        
+                        <div> 
+                            <!--<a href="" onclick="{!c.forgetPasswordNavigate}" class="loginSection__rightPart-forgetPassword" title="Forgot Password ?">Forgot Password ?</a>-->
+                            <a href="" class="loginSection__rightPart--forgetPassword" data-toggle="modal" data-target="#reset-popup" title="Forgot Password ?" onclick="{!c.onClickForgotPassword}">Forgot Password ?</a>
+                        </div>
+                        <br></br>
+                        <div>    <ui:outputRichText class="errormessag" value="{!v.mylabel}"/></div>
+                        
+                        <lightning:button label="SIGN IN" class="login-btn" variant="brand" onclick="{!c.getInput}"/>
+                        
+                    </form> 
+                    <!-- / CREATE NEW FORM -->
+                </div>
+            </div>
+        </div>
+    </div>  
+</aura:component>

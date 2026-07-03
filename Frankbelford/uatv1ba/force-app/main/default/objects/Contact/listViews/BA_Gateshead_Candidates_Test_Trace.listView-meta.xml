@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BA_Gateshead_Candidates_Test_Trace</fullName>
+    <columns>DoHSc_Stages__c</columns>
+    <columns>DoHSc_Job_Role__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CONTACT.LAST_UPDATE</columns>
+    <columns>Registration_Link_Sent__c</columns>
+    <columns>Registration_Status__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>Person_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>DoHSc_Stages__c</field>
+        <operation>contains</operation>
+        <value>Application,Screen</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_CITY</field>
+        <operation>equals</operation>
+        <value>gateshead,newcastle</value>
+    </filters>
+    <label>BA Gateshead Candidates Test &amp; Trace</label>
+    <sharedTo>
+        <role>Blue_Arrow_Labs</role>
+    </sharedTo>
+</ListView>

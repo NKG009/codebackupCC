@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Breaks__c</fullName>
+    <label>Breaks</label>
+    <summarizedField>Reference_Period_Job__c.Break__c</summarizedField>
+    <summaryForeignKey>Reference_Period_Job__c.Reference_Period_Week__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

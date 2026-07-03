@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1354_BAL_PG_Wincanton_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>1354-BAL PG Wincanton</label>
+    <queue>X1354_BAL_PG_Wincanton</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

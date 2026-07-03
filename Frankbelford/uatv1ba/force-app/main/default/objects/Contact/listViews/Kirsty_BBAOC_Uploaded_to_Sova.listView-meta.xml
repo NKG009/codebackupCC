@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Kirsty_BBAOC_Uploaded_to_Sova</fullName>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.BIRTHDATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>ts2__Action__c</columns>
+    <columns>IP_PayrollStatus__c</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>sirenum__AddressGeocoded__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>Alessia</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>Edi BBAOC</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>Uploaded to SOVA</value>
+    </filters>
+    <label>BBAOC Uploaded to Sova</label>
+    <sharedTo>
+        <roleAndSubordinates>Blue_Arrow_Edinburgh_Lloyds</roleAndSubordinates>
+    </sharedTo>
+</ListView>

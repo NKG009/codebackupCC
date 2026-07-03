@@ -1,0 +1,56 @@
+<aura:component controller='ShiftApprovalController' implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="SiteList" type="List"/>
+    <aura:attribute name="ContactList" type="List"/>
+    <aura:attribute name="SiteContactMap" type="Object"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>    
+    <div class="slds-form--inline">
+        <div class="slds-form-element">
+            <div class="slds-form-element__control ">
+                <lightning:layout horizontalAlign="left" verticalAlign="end">
+                    <lightning:layoutItem  padding="horizontal-small">
+                        <lightning:select label="Site:"  class="site selectsitewidth" aura:id="site" onchange="{!c.siteChanged}">
+                            <aura:iteration items="{!v.SiteList}" var="item">
+                                <option text="{!item.label}" value="{!item.value}"/>
+                            </aura:iteration>
+                        </lightning:select>
+                    </lightning:layoutItem>   
+                    <lightning:layoutItem padding="horizontal-small">
+                        <lightning:helptext class="helpicon" content="Please select the Site First" />
+                        
+                        <lightning:select label="Candidate Name:" class="contact Selectwidth" aura:id="contact">
+                            <aura:iteration items="{!v.ContactList}" var="item">
+                                <option text="{!item.label}" value="{!item.value}"/>
+                            </aura:iteration>
+                        </lightning:select>                        
+                    </lightning:layoutItem>   
+                    <lightning:layoutItem padding="horizontal-small">
+                        <lightning:input type="date" class="startDate" label="From : " name="date1"   aura:id="startDate" format="MM/dd/yyyy" />
+                    </lightning:layoutItem>   
+                    <lightning:layoutItem padding="horizontal-small">
+                        <lightning:input type="date" class="endDate" label="To : " name="date2"   aura:id="endDate" format="MM/dd/yyyy" />
+                    </lightning:layoutItem> 
+                    <lightning:layoutItem padding="horizontal-small">
+                        <lightning:button variant="brand" class="SearchButton" label="Search" onclick="{! c.SearchShifts }" />
+                    </lightning:layoutItem>   
+                    <lightning:layoutItem padding="horizontal-small">
+                        <lightning:button variant="brand" class="ClearButton" label="ClearAll" onclick="{! c.ClearAllfilter }" />
+                    </lightning:layoutItem>  
+                    <lightning:layoutItem padding="horizontal-small">
+                        <lightning:button variant="success" class="ApproveAllButton" label="Approve All" onclick="{! c.ApproveAll }" />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem class="checkwidth" >
+                      <lightning:helptext class="helpicon" content="Highlight all shifts where hours match schedule" />
+                     
+                        <table>
+                         <tr><td></td><td style="width:54px;">Match Shifts: </td><td>  <lightning:input type="checkbox" class="textclass" aura:id="match" name="match" onchange="{!c.Matched}"/></td>
+                         </tr></table>
+                    </lightning:layoutItem>  
+                </lightning:layout>    
+            </div>
+        </div>
+        <div class="slds-p-top_x-large"></div>
+    </div>
+    
+</aura:component>

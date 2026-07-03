@@ -1,0 +1,38 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "b97e011f-ba8b-4932-9cb1-e46ecdf605aa",
+  "label" : "Shift Vacancy Request",
+  "regions" : [ {
+    "id" : "c200221d-75f3-406d-b13b-86327620a4b6",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "096f60c1-8c90-4b28-9060-21399656a794",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "4c2e6a3e-d2bd-4dcb-b101-0b45e4b28d14",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Shift Vacancy Request"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "c2a9bf7a-1c7b-423f-ab51-c7bfa9161ac3",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "37e8287b-657f-4473-bfaa-4a4e3c87e49f",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "DbRHI8P71E1ttyocRGr3uzCDGyqG5M",
+  "type" : "view",
+  "viewType" : "custom-testnewvacancy"
+}

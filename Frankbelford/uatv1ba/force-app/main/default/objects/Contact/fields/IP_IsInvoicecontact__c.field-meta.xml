@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_IsInvoicecontact__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field used to only bring through Invoice contacts in filters populated via workflow based on value in the Multi-picklist for Contact Type</description>
+    <inlineHelpText>Field used to only bring through Invoice contacts in filters populated via workflow based on value in the Multi-picklist for Contact Type</inlineHelpText>
+    <label>Is Invoice contact</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Email</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Send Email</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/23.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/23.0/apex.js&quot;)} 
+
+var records = {!GETRECORDIDS($ObjectType.Contact)}; 
+
+if (records.length &lt;= 0) {
+alert(&apos;You must select at least 1 Candidate.&apos;); 
+} else {
+
+var contactsIds = records.join(&apos;,&apos;); 
+
+var resultItem = new sforce.SObject(&quot;ts2__s_ResultItem__c&quot;);
+if (resultItem) {
+resultItem.ts2__sel_contact_id_list__c = contactsIds;
+var createRiResult = sforce.connection.create([resultItem]);
+if (createRiResult &amp;&amp; createRiResult[0].getBoolean(&quot;success&quot;)) {
+var resultId = createRiResult[0].id;
+var url = &quot;/apex/ts2__email_manager?cId=&quot; + resultId + &apos;&amp;src=resultitem&apos;;
+var features = &apos;directories=no,menubar=no,titlebar=no,toolbar=no,width=800,height=600&apos;;
+win = window.open(url,&apos;&apos;, features);
+win.focus();
+}
+}
+}</url>
+</WebLink>

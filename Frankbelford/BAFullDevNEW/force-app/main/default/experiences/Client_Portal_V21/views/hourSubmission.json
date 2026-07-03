@@ -1,0 +1,46 @@
+{
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "954e8a99-d38f-4ad6-a892-4ac81d745512",
+  "label" : "Hour Submission",
+  "regions" : [ {
+    "id" : "1a32bedc-c74e-4ecd-931f-4e5daca85b04",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2HourSubmission",
+      "id" : "97579cfa-2846-4f56-b043-5d1d5b292f63",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5a1eb8e8-413a-4be3-9d10-26f3f857dab3",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "9a2650ef-5cf0-476e-8668-831476291c29",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Hour Submission"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "9ac374ff-761e-4f90-8def-b6c1cedec938",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0750285c-8a68-43b7-a25c-2877c922a264",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-hour-submission"
+}

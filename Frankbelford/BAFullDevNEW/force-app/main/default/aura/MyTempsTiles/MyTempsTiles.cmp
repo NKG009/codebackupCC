@@ -1,0 +1,49 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <div class="slds-grid slds-wrap slds-grid_align-center" >
+     
+        <div class="slds-col" >
+            <div style="width:150px;border:1px solid  #a8cd1b;" class="panel panel-primary"><br></br>
+                  <a href="" class="hyperlinkclass"  onclick="{!c.BookedTemps}" value="Booked Temps">
+                <div  class="slds-align_absolute-center">
+                    <img src="{!$Resource.ClientPortalIcon+'/BookedTemps.jpg'}" style="height:92px;"/>  
+                </div>
+              
+                    <div class="slds-align_absolute-center tittletext">
+                        <span class="pull-left">Booked Temps</span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+      <div class="slds-col" style="width:240px;"></div>
+        <div class="slds-col" >
+          <div style="width:150px;border:1px solid  #a8cd1b;" class="panel panel-primary"><br></br>
+               <a href="" class="hyperlinkclass"  onclick="{!c.PastTemps}" value="Past Temps">
+                <div  class="slds-align_absolute-center">
+                    <img src="{!$Resource.ClientPortalIcon+'/PastTemps.jpg'}" style="height:92px;"/>  
+                </div>
+               
+                    <div class="slds-align_absolute-center tittletext">
+                        <span class="pull-left">Past Temps</span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+
+    </div>
+    
+    
+     <br></br> <br></br>
+     <div class="slds-truncate" style="text-align:Left;">
+                       <lightning:button label="Back" class="Backbutton" variant="Brand" onclick="{!c.getBackscreen}"   />
+                       
+                        </div>
+    
+    
+    
+    
+    
+    
+</aura:component>

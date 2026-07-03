@@ -1,0 +1,155 @@
+.mobile-header {
+  display: flex;
+  gap: 1em;
+}
+
+.mobile-header > lightning-combobox {
+  width: 100%;
+}
+
+.card-display-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  padding: 1.5em;
+}
+
+.field-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.field-body {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding-left: 0.5em;
+}
+
+.title {
+  font-size: 26px;
+}
+
+.field-container {
+  display: grid;
+}
+
+.button-container {
+  display: grid;
+  /* gap: 1em; */
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+}
+
+.card {
+  background-color: #f9f9f9;
+  position: absolute;
+  width: 90%;
+  border-radius: 20px;
+}
+
+.fore-card {
+  left: 4%;
+  top: 22em;
+  bottom: 4%;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%), 0px -4px 4px rgb(0 0 0 / 25%);
+  overflow-y: scroll;
+}
+
+.mid-card {
+  left: 5%;
+  top: 21.5em;
+  bottom: 5%;
+
+  z-index: 1;
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.back-card {
+  top: 21em;
+  left: 6%;
+  bottom: 6%;
+
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
+  z-index: 0;
+}
+
+.modal-container {
+  position: absolute;
+  top: 4em;
+  left: 1em;
+  background: #f9f9f9;
+  z-index: 999;
+  right: 1em;
+  bottom: 2em;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%), 0px -4px 4px rgb(0 0 0 / 25%);
+  border-radius: 20px;
+}
+
+.modal-body {
+  overflow-y: scroll;
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.break-item {
+  display: grid;
+  grid-template-columns: 8fr 1fr;
+  gap: 1em;
+}
+
+.delete-button {
+  place-self: center;
+}
+
+.table-header {
+  position: sticky;
+  top: -15px;
+  z-index: 1;
+  background-color: #f9f9f9;
+  padding-bottom: 20px;
+}
+
+.table-footer {
+  position: sticky;
+  bottom: -15px;
+  z-index: 1;
+  background-color: #f9f9f9;
+  padding-block: 10px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.records-missing-view {
+  display: flex;
+  place-items: center;
+  height: 100%;
+  flex-direction: column;
+  padding: 1em;
+  width: 70%;
+  align-self: center;
+  justify-content: center;
+}
+
+.records-missing-title {
+  line-height: 1.5;
+  font-size: 20px;
+  text-align: center;
+}
+
+.modal-wrapper {
+  height: 80vh;
+  display: grid;
+  grid-template-rows: 4.5fr 0.5fr;
+}

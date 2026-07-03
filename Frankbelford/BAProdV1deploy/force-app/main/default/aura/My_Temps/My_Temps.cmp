@@ -1,0 +1,133 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction" access="global" controller="BookedTempController">
+    
+  <ltng:require styles="{!join(',',
+                              $Resource.webUI+'/assets/css/all.css',
+                              $Resource.Tjcss2+'/assets/css/main.css',
+                              $Resource.export,
+                              $Resource.webUI+'/assets/css/fontawesome.css',
+                              $Resource.webUI+'/assets/css/fontawesome.min.css'
+                              )
+                              }" 
+                      scripts="{!join(',',
+                               $Resource.Tjcss2+'/assets/js/main.min.js',    
+                               $Resource.amchart+'/amcharts/amcharts.js',
+                               $Resource.amchart+'/amcharts/gauge.js',
+                               $Resource.amchart+'/amcharts/export.min.js',
+                               $Resource.amchart+'/amcharts/none.js',
+                               $Resource.amchart+'/amcharts/mdb.min.js',
+                               $Resource.amchart+'/amcharts/canvasjs.min.js',
+                               $Resource.Tjcss2+'/assets/js/pie-chart.js',
+                               $Resource.Tjcss2+'/assets/js/custom.js'
+                               )}"
+                      />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+  
+   
+    <aura:attribute name="site" type="String" default="{!v.site}" />
+     <aura:attribute name="checksearchA" type="boolean"  />
+    <aura:attribute name="contact" type="String"/>
+    <aura:attribute name="startDate" type="Date"/>
+    <aura:attribute name="endDate" type="Date"/>
+    <aura:attribute name="shifts" type="List"/>
+    <aura:attribute name="detailShifts" type="List"/>    
+    <aura:attribute name="shiftsRequiringApproval" type="String"/>
+    <aura:attribute name="shiftsApproved" type="String"/> 
+     <aura:attribute name="testabc" type="String" default="mytestvariable"/>   
+    <aura:attribute name="availableUSers" type="Integer"/>     
+    <aura:attribute name="notAvailableUsers" type="Integer"/>     
+    <aura:attribute name="totalShifts" type="String"/>         
+    <aura:attribute type="Integer" name="pageNumber" default="1" />
+   
+
+    
+    <!-- My Temp Popup -->
+    
+    <div class="custom-model modal fade" id="myTemp-popup" tabindex="-1" role="dialog" aria-labelledby="myTemp-popup">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1>My Temps</h1>
+                
+                <div class="ElementDetail__table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Booked Temps</th>
+                                <th>Check-in Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <aura:iteration items="{!v.detailShifts}" var="record" indexVar="idx">
+                                 <aura:if isTrue="{! record.sirenum__Actual_Start_Time__c != null }" >
+                                    <tr>
+                                        <td data-th="Booked Temps"><a class="avlUser aclass" title="" style="cursor: default; !important;">{!record.sirenum__Contact__r.Name}</a></td>
+                                        <td data-th="Check-in Time"><lightning:formattedDateTime value="{!record.sirenum__Actual_Start_Time__c}" hour="2-digit" minute="2-digit"/></td>
+                                    </tr>     
+                                    <aura:set attribute="else">
+                                        <tr>
+                                            <td data-th="Booked Temps"><a class="avlUser aclass" title="" style="cursor: default; !important;">{!record.sirenum__Contact__r.Name}</a></td>
+                                            <td data-th="Check-in Time"><lightning:formattedDateTime value="{!record.sirenum__Actual_Start_Time__c}" hour="2-digit" minute="2-digit"/>-</td>
+                                        </tr>     
+                                    </aura:set>                                        
+                                </aura:if>
+                            </aura:iteration>   
+                        </tbody>
+                    </table><br/>
+                    <a href="javascript:void(0)" onclick="{!c.bookedTempsNavigate}" style="font-size: 20px;">View All</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    
+            <div class="ElementDetail">
+
+                <div class="ElementDetail__pic-section--chart" style="width:50%;">
+											<div  id="demo-pie-1" class="pie-title-center" data-percent="{!v.notAvailableUsers}"> 
+											<span class="pie-value"></span>
+                                                <p>Temps not yet<br></br>checked-in</p>
+										</div>
+      										<div style="width:120px;" id="demo-pie-2" class="pie-title-center" data-percent="{!v.availableUSers}"> 
+      										<span class="pie-value"></span>
+      										<p>Temps already<br></br>checked-in</p>
+      									</div>
+				</div>
+                
+                <div class="ElementDetail__content-section">
+                    <div class="ElementDetail__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Booked Temps</th>
+                                    <th>Check-in Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <aura:iteration items="{!v.shifts}" var="record" indexVar="idx">
+                                   
+                                    <aura:if isTrue="{! record.sirenum__Actual_Start_Time__c != null }" >
+                                        <tr>
+                                            <td data-th="Booked Temps"><a class="avlUser aclass" title="" style="cursor: default; !important;">{!record.sirenum__Contact__r.Name}</a></td>
+                                            <td data-th="Check-in Time"><lightning:formattedDateTime value="{!record.sirenum__Actual_Start_Time__c}" hour="2-digit" minute="2-digit"/></td>
+                                        </tr>     
+                                        <aura:set attribute="else">
+                                            <tr>
+                                                <td data-th="Booked Temps"><a class="avlUser aclass" title="" style="cursor: default; !important;">{!record.sirenum__Contact__r.Name}</a></td>
+                                                <td data-th="Check-in Time"><lightning:formattedDateTime value="{!record.sirenum__Actual_Start_Time__c}" hour="2-digit" minute="2-digit"/>-</td>
+                                            </tr>     
+                                        </aura:set>                                        
+                                    </aura:if>
+                                </aura:iteration>    
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="query-btn" data-toggle="modal" data-target="#myTemp-popup">View All</button>
+      
+</aura:component>

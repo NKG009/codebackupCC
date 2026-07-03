@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Candidate_Portal_URL</name>
+        <label>Assign Candidate Portal URL</label>
+        <locationX>665</locationX>
+        <locationY>227</locationY>
+        <assignmentItems>
+            <assignToReference>Candidate_Portal_URL</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Candidate_Portal_Homepage</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Bypass_flow</name>
+        <label>Bypass flow</label>
+        <locationX>978</locationX>
+        <locationY>77</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Bypass_flow1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Bypass_Flows__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Candidate_Portal_URL</targetReference>
+            </connector>
+            <label>Bypass flow1</label>
+        </rules>
+    </decisions>
+    <description>Get system values such as candidate portal URL</description>
+    <environments>Default</environments>
+    <interviewLabel>Einstein Bot - Get System Values {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Einstein Bot - Get System Values</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>538</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Bypass_flow</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>Candidate_Portal_URL</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <elementReference>$Label.System_URL</elementReference>
+        </value>
+    </variables>
+</Flow>

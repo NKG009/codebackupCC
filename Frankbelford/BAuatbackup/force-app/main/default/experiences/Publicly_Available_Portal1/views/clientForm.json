@@ -1,0 +1,58 @@
+{
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "d2f79552-19d3-4845-91f3-c0d064a0ff5b",
+  "label" : "ClientForm",
+  "regions" : [ {
+    "id" : "9468ad53-677a-4e82-b256-c510073858b8",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Untitled2removebg.1}\" style=\"width: 254.859px; height: 64.5625px;\"></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "55091a22-6f81-4b39-ba4a-e8727e4dc343",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"RecordId\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!ID}\"}]",
+        "flowName" : "Public_Flow_Client_Form"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "650d0d47-2718-4f00-ad81-71dd24dcbfa4",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b96a79e6-61c8-4fc2-acc7-2b1d04a4f8a3",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "1dae9de5-2dc8-4fb1-8fc4-5f32c4b59ea2",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "ClientForm"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "461818ad-a0b6-451e-a188-bfe8c10aa31f",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9030a67e-f600-45cf-ae0b-fc0f6697748e",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-clientform"
+}

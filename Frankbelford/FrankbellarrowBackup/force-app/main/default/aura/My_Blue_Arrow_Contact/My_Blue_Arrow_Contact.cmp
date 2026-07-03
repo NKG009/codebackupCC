@@ -1,0 +1,55 @@
+<aura:component controller="My_Blue_Arrow_Contact_cnt" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction" access="global">
+	
+    
+       			<!--	<ltng:require styles="{!join(',',
+                             $Resource.webUI+'/assets/css/all.css',
+                             $Resource.webUI+'/assets/css/fontawesome.css',
+                             $Resource.webUI+'/assets/css/fontawesome.min.css',
+                             $Resource.Tjcss2+'/assets/css/main.css'
+                           )
+                          }" 
+                   scripts="{!join(',',
+                           $Resource.Tjcss2+'/assets/js/main.min.js',
+                            $Resource.Tjcss+'/assets/js/custom.js'
+                           )}"
+                  />
+    -->
+    
+     <aura:attribute name="Consultant" type="String"/>
+     <aura:attribute name="BranchName" type="String"/>
+     <aura:attribute name="BranchEmail" type="String"/>
+     <aura:attribute name="BranchPhone" type="String"/> 
+    <aura:attribute name="BranchAddress" type="String"/>
+    
+    <aura:attribute name="site" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> 
+   
+							
+							<div class="ElementDetail">
+								<div class="ElementDetail__pic-section">
+									<div class="ElementDetail__pic-section--chart">
+                                        
+										<p class="pstrong">Branch Name <strong style="font-size:3rem;color: #969696;font-weight:100;">{!v.BranchName}</strong></p>
+									</div>
+								</div>
+								<div class="ElementDetail__content-section">
+									<div class="address-block">
+										<div class="address-name">
+                                            <label>Consultant</label>
+											<p>{!v.Consultant}</p>
+											
+										</div>
+										<label>Branch Email:</label>
+										<p class="address">{!v.BranchEmail}</p>
+										<label>Branch Phone:</label>
+										<p class="address">{!v.BranchPhone}</p>
+										<label>Branch Address:</label>
+										<p class="address">{!v.BranchAddress}</p>
+									</div>
+								</div>
+							</div>
+
+   
+ 
+</aura:component>

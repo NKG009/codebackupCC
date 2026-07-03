@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manually_Saved__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Denotes whether this week has been saved manually by a user.</inlineHelpText>
+    <label>Manually Saved</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

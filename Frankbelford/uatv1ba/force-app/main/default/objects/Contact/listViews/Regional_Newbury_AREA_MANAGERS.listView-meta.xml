@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Regional_Newbury_AREA_MANAGERS</fullName>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>IP_JobTitle__c</field>
+        <operation>contains</operation>
+        <value>Ops manager,Area manager,Regional Manager,Head of operations,HR</value>
+    </filters>
+    <filters>
+        <field>FULL_NAME</field>
+        <operation>notContain</operation>
+        <value>DNU,LEFT</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>notEqual</operation>
+        <value>Inactive</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>GL1,GL2,GL3,GL4GL5,GL54,GL55,GL53,OX10,OX11,OX12,OX13,OX14,OX9,RG1,RG13,RG14,RG15,RG16,RG17,RG18,RG19,RG2,RG20,RG21,RG22,RG23,RG24,RG25,RG26,RG27,RG28,RG3,RG30,RG31,RG4,RG6,RG7,RG8,SN8,SO18,SO21,SP10,SP11</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>notEqual</operation>
+        <value>Driving,Manufacturing,Office,Retail,Warehouse,N/A</value>
+    </filters>
+    <label>Regional Newbury -  AREA MANAGERS</label>
+</ListView>

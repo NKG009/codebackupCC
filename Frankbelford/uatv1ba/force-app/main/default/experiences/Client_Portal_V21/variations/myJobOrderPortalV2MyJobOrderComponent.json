@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "e25940d5-af2d-4266-a185-d2ad49f420dd",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "18d5e55f-2fc0-4780-b896-5c40471fe6b1",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "My_Job_Order_Portal_V2_My_Job_Order_Component",
+  "id" : "38818bbf-e2a0-47f5-97ac-317146a354b9",
+  "type" : "experienceVariation"
+}

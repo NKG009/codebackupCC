@@ -1,0 +1,159 @@
+<aura:component controller='ClientComApprovedShiftController' implements="forceCommunity:availableForAllPageTypes" description="ClientComApprovedShiftsCmp" access="global">
+
+
+    <ltng:require styles="{!join(',',
+                          $Resource.assetsTest+'/assets/css/jquery-ui.css',
+                          $Resource.webUI+'/assets/css/all.css',
+                          $Resource.webUI+'/assets/css/fontawesome.css',
+                          $Resource.webUI+'/assets/css/fontawesome.min.css',
+                          $Resource.Tjcss+'/assets/css/dataTables.bootstrap.min.css',
+                          $Resource.Tjcss+'/assets/css/jquery.dataTables.min.css',
+                          $Resource.Tjcss+'/assets/css/responsive.bootstrap.min.css',
+                          $Resource.Tjcss2+'/assets/css/main.css'
+                          )}"
+                  scripts="{!join(',',
+                           $Resource.Tjcss2+'/assets/js/main.min.js',
+                           $Resource.webUI+'/assets/js/custom.js'
+                           )}"/>
+
+    <aura:attribute name="truly" type="Boolean" />
+    <aura:attribute name="ShiftList" type="sirenum__Shift__c" />
+    <aura:attribute name="shifts" type="sirenum__Shift__c" />
+    <aura:attribute name="candidateId" type="String" />
+    <aura:attribute name="candidateList" type="List" />
+    <aura:attribute name="noData" type="Boolean" default="false" />
+
+    <aura:attribute name="selectedSite" type="String" />
+
+    <aura:attribute name="PaginationList" type="sirenum__Shift__c"/>
+    <aura:attribute name="OnePage" type="Boolean" Default="True"/>
+    <aura:attribute name="pageList" type="List"/>
+    <aura:attribute name="currentPageNumber" type="Integer" default="1"/>
+    <aura:attribute name="totalPages" type="Integer" default="0"/>
+    <aura:attribute name="pageSize" type="Integer" default="5"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:ClientCommunityThemeEvent" action="{! c.onChange }"/>
+
+
+    <div class="container-fluid">
+        <div class="timesheet-section__right-part">
+            <div style="width=100px">
+                <ol class="breadcrumb">
+                    <li><a href="javascript:void(0)" onclick="{!c.dashboardNavigate}" title="Dashboard">Dashboard</a></li>
+                    <li>Timesheets</li>
+                    <li class="active">Approved Shifts</li>
+                </ol>
+                <div class="search-section w-100">
+                    <form class="row">
+                        <div onkeypress="{!c.keyCheck}" class="col-sm-12 col-md-6 col-lg-9">
+                            <lightning:select class="spicker" label="Temp Name"  aura:id="selectedCandidate" tabindex = "-98" onchange="{!c.onChangeCandidateVal}">
+                                <aura:iteration items="{!v.candidateList}" var="item">
+                                    <option class="spickeres" text="{!item.label}" value="{!item.value}" selected="{!item.selected}"/>
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                            <div class="m-top-3p05r">
+                                <lightning:button variant="brand" class="search-btn" label="Search" onclick="{!c.search}" />
+                                <lightning:button variant="brand" class="clearAll-btn" label="Clear All" onclick="{!c.resetAllValues}" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div style="margin-top: 4rem;">
+                    <aura:if isTrue="{! !v.noData}">
+                        <p>The shifts below have been approved and are awaiting processing for payroll.  If you have any questions please contact your Blue Arrow consultant.</p>
+                    </aura:if>
+                </div>
+                <div class="tab-section">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="">By Temp Name</a></li>
+                        <aura:if isTrue="{!!v.noData}">
+                            <li role="presentation" style="float:right;">
+                                <lightning:button variant="brand" class="exportButton" label="Export" title="Export" onclick="{!c.downloadCSV}"/>
+                            </li>
+                        </aura:if>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active">
+                            <div class="panel-group custom-accordian" id="accordion" role="tablist" aria-multiselectable="true">
+                                <!--<div class="panel panel-default">
+                                    <div class="ElementDetail__table" role="tab">
+                                    </div>
+                                </div>-->
+                                <aura:if isTrue="{!v.truly}">
+                                    <!--<c:CandidateChild ShiftList="{!v.ShiftList}" contact="{!v.CandidateName}" site="{!v.selectedSite}" aura:id="childC" />-->
+
+                                    <div class="panel panel-default panel-accepted">
+                                        <div class="ElementDetail__table" role="tab" id="headingOne">
+                                            <table id="candViewTable">
+                                                <thead>
+                                                <tr class="panel panel-default">
+                                                    <th class="centeralign">Temp Name</th>
+                                                    <th class="centeralign">Job Role</th>
+                                                    <th class="centeralign">Date <c:customHelpText isDynamicText="true" helpText="Shift Start Date" /></th>
+                                                    <th class="centeralign">Start Time</th>
+                                                    <th class="centeralign">End Time </th>
+                                                    <th class="centeralign">Break</th>
+                                                    <th class="centeralign">Total Hours <c:customHelpText isDynamicText="true" helpText="Total Hours to be Paid" /></th>
+                                                    <th class="centeralign">Charge <c:customHelpTextPopUpLeft isDynamicText="true" helpText="Total Charge for the shift" /> </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <aura:iteration  items="{!v.shifts}" var="shift" indexVar="i">
+                                                    <tr>
+                                                        <td class="centeralign" data-th="Temp Name">{!shift.sirenum__Contact__r.Name}</td>
+                                                        <td class="centeralign" data-th="Job Role">{!shift.sirenum__Team__r.Name}</td>
+                                                        <td class="centeralign" data-th="Date">{!shift.StartDate}</td>
+                                                        <td class="centeralign" data-th="Start Time">{!shift.Starttime__c}</td>
+                                                        <td class="centeralign" data-th="End Time">{!shift.EndTime__c}</td>
+                                                        <td class="centeralign" data-th="Break">{!shift.Break_from_Brekdef__c}</td>
+                                                        <td class="centeralign" data-th="Total Hours">{!shift.TotalHours}</td>
+                                                        <td class="centeralign" data-th="Charge">{!shift.ForecastCharge}</td>
+                                                    </tr>
+                                                </aura:iteration>
+                                                </tbody>
+                                            </table>
+                                            <aura:if isTrue="{!v.noData}">
+                                                <div class="no-data-found">No Approved Shifts found.</div>
+                                            </aura:if>
+                                        </div>
+                                    </div>
+                                </aura:if>
+
+                                <aura:if isTrue="{!v.spinner}">
+                                    <div id="overlay">
+                                        <img src="{!$Resource.Loadingimage}"  width="120" height="100" alt=""/>
+                                    </div>
+                                </aura:if>
+                            </div>
+
+                            <div class="m-top-3p05r">
+                                <ul class="custom-pagination text-right">
+                                    <li class="{! if(v.OnePage == false ,'paginate_button previous disabled','paginate_button previous ')}"><a onclick="{!c.onPrev}">Previous</a></li>
+                                    <aura:if isTrue="{!v.OnePage}" >
+                                        <aura:iteration items="{!v.pageList}" var="item">
+                                            <li class="{! (v.currentPageNumber == item) ? 'paginate_button active' : 'paginate_button '}">
+                                                <a onclick="{!c.processMe}" name="{!item}"
+                                                >{!item}</a>
+                                            </li>
+                                        </aura:iteration>
+                                        <aura:set attribute="else">
+                                            <li class="{! (v.OnePage == false) ? 'paginate_button disabled active' : 'paginate_button'}">
+                                                <a onclick="{!c.processMe}" name="1">1</a>
+                                            </li>
+                                        </aura:set>
+                                    </aura:if>
+                                    <li class="{! if(v.currentPageNumber == v.totalPages,'paginate_button next disabled','paginate_button next')}"  ><a onclick="{!c.onNext}">Next</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

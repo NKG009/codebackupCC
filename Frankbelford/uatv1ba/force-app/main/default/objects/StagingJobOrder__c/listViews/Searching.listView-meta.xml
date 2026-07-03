@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Searching</fullName>
+    <columns>NAME</columns>
+    <columns>StgClient_Id__c</columns>
+    <columns>StgClientName__c</columns>
+    <columns>StgLocationName__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>StgJobTitle__c</columns>
+    <columns>Staging_Job_Application__c</columns>
+    <columns>StgStartDate__c</columns>
+    <columns>StgEndDate__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Staging_Job_Application__c</field>
+        <operation>contains</operation>
+        <value>VMS-A-202301-6768</value>
+    </filters>
+    <label>Searching</label>
+    <language>en_US</language>
+</ListView>

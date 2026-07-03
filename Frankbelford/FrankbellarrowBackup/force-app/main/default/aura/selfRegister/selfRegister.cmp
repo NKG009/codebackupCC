@@ -1,0 +1,344 @@
+<aura:component
+  controller="LightningSelfRegisterController"
+  implements="forceCommunity:availableForAllPageTypes"
+>
+  <aura:attribute
+    name="accountId"
+    type="String"
+    required="false"
+    description="accountId for creating the user. If not specified, it will create a PersonAccount if possible for B2C scenario. Or otherwise if it's in a community, the community's self-registration accountId will be used."
+  />
+  <aura:attribute name="regConfirmUrl" type="String" required="true" />
+  <aura:attribute
+    name="startUrl"
+    type="String"
+    required="false"
+    description="The url you go to after a successful login"
+  />
+  <aura:attribute
+    name="showError"
+    type="Boolean"
+    required="true"
+    description=""
+    default="false"
+    access="private"
+  />
+  <aura:attribute
+    name="errorMessage"
+    type="String"
+    required="false"
+    description=""
+    access="private"
+  />
+  <aura:attribute
+    name="firstnameLabel"
+    type="String"
+    required="true"
+    default="First Name"
+  />
+  <aura:attribute name="firstname" type="String" />
+  <aura:attribute
+    name="lastnameLabel"
+    type="String"
+    required="true"
+    default="Last Name"
+  />
+  <aura:attribute name="lastname" type="String" />
+  <aura:attribute
+    name="emailLabel"
+    type="String"
+    required="true"
+    default="Email"
+  />
+  <aura:attribute name="email" type="String" />
+  <aura:attribute
+    name="passwordLabel"
+    type="String"
+    required="false"
+    default="Create Password"
+  />
+  <aura:attribute name="password" type="String" />
+  <aura:attribute
+    name="confirmPasswordLabel"
+    type="String"
+    required="false"
+    default="Confirm Password"
+  />
+  <aura:attribute name="confirmPassword" type="String" />
+  <aura:attribute name="submitButtonLabel" type="String" />
+  <aura:attribute
+    name="includePasswordField"
+    type="Boolean"
+    required="true"
+    default="true"
+    description="Whether to include password"
+  />
+  <aura:attribute
+    name="extraFieldsFieldSet"
+    type="String"
+    required="false"
+    description="A field set name whose fields are desired for user registration"
+  />
+  <aura:attribute
+    name="extraFields"
+    type="list"
+    required="false"
+    description="A field set name whose fields are desired for user registration"
+  />
+
+  <aura:attribute name="vId" type="String" />
+  <aura:attribute name="codeLabel" type="String" default="Enter code" />
+
+  <aura:attribute name="regStage" type="Integer" default="0" />
+  <aura:attribute
+    name="confirmationMsg"
+    type="String"
+    default="Please Complete registration process! You need start from Registration page."
+  />
+  <aura:attribute
+    name="confMsgClass"
+    type="String"
+    default="slds-text-heading_small page-message"
+  />
+  <aura:attribute
+    name="confButtonLabel"
+    type="String"
+    default="Back To Login?"
+  />
+  <aura:attribute name="code" type="String" />
+  <aura:attribute name="spinner" type="Boolean" default="false" />
+
+  <aura:registerevent name="sitePropagatedStartUrl" type="c:setStartUrl" />
+  <aura:handler name="init" value="{!this}" action="{!c.initialize}" />
+  <aura:dependency resource="c:setStartUrl" type="EVENT" />
+  <aura:dependency resource="siteforce:registerQueryEventMap" type="EVENT" />
+  <aura:handler event="c:setStartUrl" action="{!c.setStartUrl}" />
+
+  <!--Jyothi hale.start-->
+  <aura:attribute name="isROIValidation" type="Boolean" default="false" />
+  <aura:attribute
+    name="liveOptions"
+    type="List"
+    default="[{'label': 'Yes', 'value': 'Yes'}, {'label': 'No', 'value': 'No'}]"
+  />
+  <aura:attribute name="valueUkROI" type="String" />
+  <aura:attribute name="valueWorkInUk" type="String" />
+  <aura:attribute name="ROIPageURL" type="String" />
+  <!--Jyothi hale.stop-->
+  <!--PT1-948-->
+  <aura:attribute name="candidateId" type="String" />
+  <aura:attribute name="candidateRecord" type="object" />
+
+  <!--PT1-948-->
+
+  <!--<aura:handler name="change" value="{!v.confirmPassword}" action="{!c.setExpPatern}"/>-->
+  <div class="slds-form-element">
+    <aura:renderIf isTrue="{!v.showError}">
+      <div class="{!v.confMsgClass}" id="error">
+        <!--<div class="slds-text-heading_small slds-text-color_error" id="error">-->
+        <ui:outputRichText value="{!v.errorMessage}" />
+      </div>
+    </aura:renderIf>
+    <aura:renderIf isTrue="{! v.regStage == 0}">
+      <div class="row">
+        <lightning:input
+          class="imp_reginput"
+          name="firstname"
+          required="true"
+          value="{!v.firstname}"
+          label="{!v.firstnameLabel}"
+          messageWhenValueMissing="Enter First Name"
+          placeholder="First Name"
+        />
+      </div>
+
+      <div class="row">
+        <span id="sfdc_user" class="login-icon" data-icon="a"></span>
+        <lightning:input
+          class="imp_reginput"
+          name="lastname"
+          required="true"
+          value="{!v.lastname}"
+          label="{!v.lastnameLabel}"
+          messageWhenValueMissing="Enter Last Name"
+          placeholder="Last Name"
+        />
+      </div>
+      <div class="row">
+        <lightning:input
+          class="imp_reginput"
+          type="email"
+          name="email"
+          required="true"
+          value="{!v.email}"
+          label="{!v.emailLabel}"
+          messageWhenValueMissing="Enter Your Email"
+          placeholder="Email"
+        />
+      </div>
+      <!--Jyothi hale.start-->
+      <div class="row">
+        <lightning:radioGroup
+          aura:id="que1"
+          name="liveGroup1"
+          label="Do you currently live in the UK or ROI?"
+          options="{!v.liveOptions}"
+          value="{!v.valueUkROI}"
+          type="radio"
+          class="customRadioCls"
+          required="true"
+          messageWhenValueMissing="Please select an option"
+        />
+        <lightning:radioGroup
+          aura:id="que2"
+          name="liveGroup2"
+          label="Do you currently have proof of right to work in the UK?"
+          options="{!v.liveOptions}"
+          value="{!v.valueWorkInUk}"
+          type="radio"
+          class="customRadioCls"
+          required="true"
+          messageWhenValueMissing="Please select an option"
+        />
+      </div>
+      <!--Jyothi hale.stop-->
+
+      <aura:iteration
+        aura:id="extraFields"
+        items="{!v.extraFields}"
+        var="curField"
+        indexVar="index"
+      >
+        <div id="sfdc_extrafield_container" class="sfdc">
+          <span id="sfdc_user" class="login-icon" data-icon="a"></span>
+          <ui:inputText
+            value="{!curField.value}"
+            aura:id="{!curField.fieldPath}"
+            placeholder="{!curField.label}"
+            keyup="{!c.onKeyUp}"
+            class="input sfdc_extrafieldinput sfdc"
+          />
+        </div>
+      </aura:iteration>
+
+      <aura:renderIf isTrue="{!v.includePasswordField}">
+        <div class="row">
+          <lightning:input
+            class="imp_reginput"
+            type="password"
+            aura:id="pw"
+            minlength="8"
+            name="password"
+            required="true"
+            value="{!v.password}"
+            label="{!v.passwordLabel}"
+            messageWhenValueMissing="Password is required"
+            placeholder="Password"
+          />
+        </div>
+
+        <div class="row">
+          <lightning:input
+            class="imp_reginput"
+            type="password"
+            aura:id="cpw"
+            name="confirmPassword"
+            required="true"
+            value="{!v.confirmPassword}"
+            label="{!v.confirmPasswordLabel}"
+            messageWhenValueMissing="Confirm Password"
+            onblur="{!c.setExpPatern}"
+            placeholder="Confirm Password"
+          />
+        </div>
+      </aura:renderIf>
+
+      <div class="sfdc">
+        <div class="sfdc">
+          <!--<ui:button aura:id="submitButton" label="{!v.submitButtonLabel}" press="{!c.startVerification}" class="sfdc_button"/>-->
+          <ui:button
+            aura:id="submitButton"
+            label="{!v.submitButtonLabel}"
+            press="{!c.startVerification}"
+            class="sfdc_button imp_regbutton"
+          />
+        </div>
+      </div>
+    </aura:renderIf>
+
+    <!-- Jyothi hale.start-->
+    <aura:renderIf isTrue="{! v.regStage ==  3}">
+      <aura:if isTrue="{!v.isROIValidation}">
+        <div class="page-message message2">
+          Thank you for your interest, unfortunately you are unable to progress
+          further at this stage due to not currently being able to work in the
+          UK. Please contact us if your circumstances change in the future.
+        </div>
+      </aura:if>
+    </aura:renderIf>
+    <!-- Jyothi hale.stop-->
+    <aura:renderIf isTrue="{! v.regStage == 1 }">
+      <div class="page-message">
+        <p>
+          Before we start your registration journey, we need to verify who you
+          are.
+        </p>
+        <br />
+        <p>
+          We have sent a verification code to the email address you have
+          provided. Please check your emails (including your junk folder).
+        </p>
+      </div>
+      <div class="row">
+        <label class="slds-text-heading_small">
+          <lightning:input
+            class="imp_reginput"
+            type="text"
+            name="code"
+            required="true"
+            value="{!v.code}"
+            label="{!v.codeLabel}"
+            messageWhenValueMissing="Code required"
+            placeholder="Enter code"
+          />
+        </label>
+      </div>
+
+      <div class="sfdc">
+        <ui:button
+          aura:id="submitCodeButton"
+          label="Submit"
+          press="{!c.handleSelfRegister}"
+          class="sfdc_button imp_regbutton"
+        />
+      </div>
+
+      <div class="sfdc">
+        <ui:button
+          aura:id="submitResendCodeButton"
+          label="Re-send verification code"
+          press="{!c.reSendVerification}"
+          class="sfdc_button imp_regbutton secondary"
+        />
+      </div>
+    </aura:renderIf>
+
+    <aura:renderIf isTrue="{! v.regStage == 2}">
+      <div class="row">
+        <div class="{!v.confMsgClass}">{!v.confirmationMsg}</div>
+      </div>
+      <div class="sfdc">
+        <ui:button
+          aura:id="confirmButton"
+          label="{!v.confButtonLabel}"
+          press="{!c.confirmRedirect}"
+          class="sfdc_button imp_regbutton"
+        />
+      </div>
+    </aura:renderIf>
+    <!--<ui:button aura:id="confirmButton2" label="Test Button" press="{!c.testMe}" class="sfdc_button"/>-->
+  </div>
+  <aura:renderIf isTrue="{! v.spinner}">
+    <c:SpinnerCmp spinnerMsg="Please wait while we are Processing" />
+  </aura:renderIf>
+</aura:component>

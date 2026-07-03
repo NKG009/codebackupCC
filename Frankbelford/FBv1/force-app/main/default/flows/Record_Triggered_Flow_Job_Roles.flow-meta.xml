@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <assignments>
+        <name>Assign_Job_Cat</name>
+        <label>Assign Job Cat</label>
+        <locationX>429</locationX>
+        <locationY>465</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.sirenum__Job_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Job_Category_Filtered__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.sirenum__AWR_Group__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Job_Category_Filtered__r.Impellam_Job_Category__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Job_Cat_Matching</name>
+        <label>Job Cat Matching</label>
+        <locationX>186</locationX>
+        <locationY>381</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No_Match</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.sirenum__Job_Type__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Job_Category_Filtered__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Job_Cat</targetReference>
+            </connector>
+            <label>No Match</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Record Triggered Flow - Job Roles {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Record Triggered Flow - Job Roles</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>142</locationX>
+        <locationY>62</locationY>
+        <connector>
+            <targetReference>Job_Cat_Matching</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Job_Category_Filtered__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>sirenum__Team__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

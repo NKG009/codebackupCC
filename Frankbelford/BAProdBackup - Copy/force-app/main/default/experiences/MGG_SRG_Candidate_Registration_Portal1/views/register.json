@@ -1,0 +1,66 @@
+{
+  "appPageId" : "899cec5e-9860-4cce-89e9-2afb28e6d75d",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "c8edcdc7-5b6d-4944-afda-4ccb7e48016e",
+  "label" : "Register",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "salesforceIdentity:communityLogo2",
+      "id" : "223fdc75-09ac-4517-99d3-049ead6e3700",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "accountId" : "0010Y00000nMsBU",
+        "confirmPasswordLabel" : "Confirm Password",
+        "emailLabel" : "Email",
+        "extraFieldsFieldSet" : "",
+        "firstnameLabel" : "First Name",
+        "includePasswordField" : true,
+        "lastnameLabel" : "Last Name",
+        "passwordLabel" : "Create Password",
+        "regConfirmUrl" : "./CheckPasswordResetEmail",
+        "startUrl" : "",
+        "submitButtonLabel" : "Register"
+      },
+      "componentName" : "salesforceIdentity:selfRegister2",
+      "id" : "37d259dd-85d4-4984-9cae-b9f73c1b517f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p><a href=\"https://application.ttlaboratoryjobs.com/Register/s/login\" target=\"_self\" style=\"font-size: 16px; color: rgb(255, 255, 255);\"><b>﻿Registration already started?</b></a></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "4f5f7a10-5848-46cf-b382-28acc30ce262",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2cd8e307-35da-4abf-a1d5-de2b625b9934",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Register"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "742468ff-23b9-44e5-93d2-f5e6f0b1308e",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0396c213-0b43-433a-bf16-12224c05573b",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Login",
+  "type" : "view",
+  "viewType" : "self-register"
+}

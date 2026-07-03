@@ -1,0 +1,80 @@
+<apex:page standardController="Contact" extensions="RequestP45Ext" showHeader="false" sidebar="false" docType="html-5.0" standardStylesheets="true" pageStyle="Account">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <style>
+            .form-errors {
+                color: red;
+                text-align:center; 
+            }
+        .mandatory-error{ 
+            color: red;
+            text-align:center; 
+        }
+        </style>
+        </head>
+        
+        <apex:form id="form">
+            <apex:pageMessages />
+                <apex:pageBlock >
+                    <div class='form-errors'> P45 process initiated successfully, You can not change records now.  </div>
+                    <p> &nbsp; </p>	  
+                    <apex:pageblocksection >
+                        <apex:inputfield value="{!contact.Reason_for_P45__c}" style="width:400px" required="true" />
+                            </apex:pageblocksection>
+                        <p> &nbsp; </p>	  
+                        <apex:pageblocksection >	
+                            <apex:inputfield value="{!contact.Reason_for_Leaving1__c}"  style="width:400px" required="true" />
+                                </apex:pageblocksection>
+                            <p> &nbsp; </p>	  
+                            
+                            <apex:pageBlockTable value="{!pps}" var="p" id="table2" rendered="{!(pps.size !=0 )}" cellpadding="2" border="1" rowClasses="odd,even" styleClass="tableClass" width="100%">
+                                <apex:column headervalue="Choose one" ><apex:inputCheckbox value="{!p.selected}"  /></apex:column>
+                                <apex:column value="{!p.conp.Name}" />
+                                    <apex:column value="{!p.conp.RecordType.name}" />
+                                        <apex:column value="{!p.conp.IP_PrimaryPayMethod__c}" />
+                                            <apex:column value="{!p.conp.IP_Status__c}" />
+                                                </apex:pageBlockTable>  
+                                            
+                                            <p > &nbsp; </p>
+                                            
+                                            <apex:pageBlockButtons location="bottom">
+                                                <apex:commandButton value="Finish" action="{!Finish}"  disabled="{!If($CurrentPage.Parameters.sx=='1',true, false)}" />
+                                                    <apex:commandButton value="Cancel" action="{!closeme}" onclick="CloseARefresh();"  />
+                                                        <!--<apex:commandButton value="Cancel" action="{!cancel}" onclick="CloseARefresh();" />-->
+                                                            </apex:pageBlockButtons>
+                                                        
+                                                        </apex:pageBlock>
+                                                        </apex:form>
+                                                        <script>
+                                                            var msg = {!$CurrentPage.Parameters.sx}
+                                                            $(".form-errors").hide();  
+        if(msg=='1')
+        {
+            $(".form-errors").show();    
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";
+            self.close();
+        }else{
+            $(".form-errors").hide();    
+        }
+        function CloseARefresh()
+        {      
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";
+            self.close();
+            // window.top.location.href="/{!$CurrentPage.parameters.oppid}";
+        }    
+        
+        function oneCheckbox(obj){ 
+            //onchange="oneCheckbox(this);"
+            if (obj.checked){
+                var inputs = document.getElementsByTagName("input");
+                for (var i = 0; i < inputs.length; i++){
+                    var oInput = inputs[i];
+                    if (oInput.type == "checkbox" && oInput.checked && oInput != obj){
+                        oInput.checked = false; 
+                    }  
+                }
+            }
+            
+        }
+        </script>
+    </apex:page>

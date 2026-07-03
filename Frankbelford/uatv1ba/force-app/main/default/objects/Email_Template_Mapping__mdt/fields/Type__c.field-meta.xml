@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <label>Type</label>
+    <required>true</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Lightning Template</fullName>
+                <default>true</default>
+                <label>Lightning Template</label>
+            </value>
+            <value>
+                <fullName>Coded in Flow</fullName>
+                <default>false</default>
+                <label>Coded in Flow</label>
+            </value>
+            <value>
+                <fullName>Coded in Apex Class</fullName>
+                <default>false</default>
+                <label>Coded in Apex Class</label>
+            </value>
+            <value>
+                <fullName>Classic Template</fullName>
+                <default>false</default>
+                <label>Classic Template</label>
+            </value>
+            <value>
+                <fullName>Visualforce Template</fullName>
+                <default>false</default>
+                <label>Visualforce Template</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

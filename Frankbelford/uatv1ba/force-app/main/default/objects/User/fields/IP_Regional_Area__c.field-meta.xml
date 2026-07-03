@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_Regional_Area__c</fullName>
+    <label>Regional Area</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>East Anglia</fullName>
+                <default>false</default>
+                <label>East Anglia</label>
+            </value>
+            <value>
+                <fullName>East Midlands</fullName>
+                <default>false</default>
+                <label>East Midlands</label>
+            </value>
+            <value>
+                <fullName>Midlands</fullName>
+                <default>false</default>
+                <label>Midlands</label>
+            </value>
+            <value>
+                <fullName>Northants, Beds and Bucks</fullName>
+                <default>false</default>
+                <label>Northants, Beds and Bucks</label>
+            </value>
+            <value>
+                <fullName>North East</fullName>
+                <default>false</default>
+                <label>North East</label>
+            </value>
+            <value>
+                <fullName>North Scotland</fullName>
+                <default>false</default>
+                <label>North Scotland</label>
+            </value>
+            <value>
+                <fullName>North West</fullName>
+                <default>false</default>
+                <label>North West</label>
+            </value>
+            <value>
+                <fullName>Outer London</fullName>
+                <default>false</default>
+                <label>Outer London</label>
+            </value>
+            <value>
+                <fullName>Rest of Scotland</fullName>
+                <default>false</default>
+                <label>Rest of Scotland</label>
+            </value>
+            <value>
+                <fullName>Shop Direct</fullName>
+                <default>false</default>
+                <label>Shop Direct</label>
+            </value>
+            <value>
+                <fullName>South East</fullName>
+                <default>false</default>
+                <label>South East</label>
+            </value>
+            <value>
+                <fullName>Thames Valley</fullName>
+                <default>false</default>
+                <label>Thames Valley</label>
+            </value>
+            <value>
+                <fullName>Wales</fullName>
+                <default>false</default>
+                <label>Wales</label>
+            </value>
+            <value>
+                <fullName>Yorkshire</fullName>
+                <default>false</default>
+                <label>Yorkshire</label>
+            </value>
+            <value>
+                <fullName>West Midlands</fullName>
+                <default>false</default>
+                <label>West Midlands</label>
+            </value>
+            <value>
+                <fullName>East England</fullName>
+                <default>false</default>
+                <label>East England</label>
+            </value>
+            <value>
+                <fullName>London</fullName>
+                <default>false</default>
+                <label>London</label>
+            </value>
+            <value>
+                <fullName>South West</fullName>
+                <default>false</default>
+                <label>South West</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

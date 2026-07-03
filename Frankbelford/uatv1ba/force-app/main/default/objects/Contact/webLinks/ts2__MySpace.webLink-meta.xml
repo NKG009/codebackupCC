@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ts2__MySpace</fullName>
+    <availability>online</availability>
+    <displayType>link</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>MySpace</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>http://searchservice.myspace.com/index.cfm?searchBy=First&amp;Submit=Find&amp;country=&amp;searchType=network&amp;fuseaction=search&amp;searchtarget=tpeople&amp;searchBoxID=HeaderWebResults&amp;interesttype=&amp;f_search_criteria={!Contact.FirstName}+{!Contact.LastName}&amp;f_first_name={!Contact.FirstName}+{!Contact.LastName}</url>
+</WebLink>

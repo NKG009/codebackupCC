@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "27ac96da-6ea4-4714-aa67-32095c5fa7f6",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "Healthandsafety__c",
+  "id" : "dbda23fb-11e3-4341-95d9-e441db565beb",
+  "label" : "Healthandsafety",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-healthandsafety",
+  "type" : "route",
+  "urlPrefix" : "healthandsafety"
+}

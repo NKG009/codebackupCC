@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1233_BAL_Milton_Keynes_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>1233-BAL Milton Keynes</label>
+    <queue>X1233_BAL_Milton_Keynes</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

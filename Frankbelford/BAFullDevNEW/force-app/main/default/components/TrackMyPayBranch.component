@@ -1,0 +1,69 @@
+<apex:component access="global" controller="VFTemplateController">
+<apex:attribute type="String" name="recipientid" description="test1"/>
+<apex:attribute type="String" name="relatedToid" description="test2"/>
+<apex:attribute type="id" name="recipientid"  description="Record Id" assignTo="{!recipient_Id}"/>
+<apex:attribute type="id" name="relatedToid"  description="Record Id2" assignTo="{!relatedTo_Id}"/>
+
+
+
+   
+ <style>
+.linkunderline{
+    text-decoration: none;
+    color: Blue;
+}
+
+</style>
+<html>    
+<table BORDER="0" CELLSPACING="0" style="width:640px;height:670px;background-image:url('{!backgroundurl}');">
+            <tr >
+                <td style="vertical-align:top;text-align:right;height:140px;width:190px;">
+                    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR4-1/c.aspx" id="theLink1"><apex:image value="{!linkdinurl}" /></apex:outputLink> &nbsp;
+                    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR5-1/c.aspx" id="theLink2"><apex:image value="{!facebookurl}" /></apex:outputLink> &nbsp; 
+                    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR6-1/c.aspx" id="theLink3"> <apex:image value="{!twitterurl}" /></apex:outputLink> &nbsp; 
+                    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR7-1/c.aspx" id="theLink4"> <apex:image value="{!youtube}" /></apex:outputLink>
+                    
+                </td>
+                <td style="text-align:right;vertical-align:middle;height:140px;width:460px;">
+                    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR8-1/c.aspx" id="theLink5"> <apex:image value="{!logourl}" /> </apex:outputLink>
+                </td>
+            </tr>
+<tr style="width:650px;">
+<td colspan="2" style="vertical-align:top;">
+<table style="width:630px;">
+<tr style="height:45px;text-align:center;"><td style="text-align:center;">
+<font size="2" face="Bahnschrift Light" color="black"><b>Blue Arrow Track MyPay Query</b></font>
+</td>
+</tr>
+<tr style="height:200px;text-align:center;"><td style="text-align:left;vertical-align:top;">
+<div style="margin-left:30px;margin-right:10px;margin-top:-10px;">
+<font size="2" face="Bahnschrift Light" color="black"></font>
+
+  <br></br>  
+Hi, <br></br><br></br>
+{!Shiftdetails.sirenum__Contact__r.Name} has queried their pay for placement: {!JobRole}, for {!ClientName} at {!siteName} , {!startDateString1} {!startTimeString1} and {!endDateString1} {!endTimeString1}. Please contact them urgently to resolve this pay query.<br></br><br></br>
+Thanks,<br></br>
+Jobscience. <br></br>
+Query: {!Query}
+
+
+    
+
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:100px;">
+    <td colspan="2" >
+        <apex:image height="60px" width="230px" value="{!ipflaturl}" />
+        
+    </td>
+    
+</tr>
+</table>
+</html>
+
+<Br></Br><Br></Br>
+</apex:component>

@@ -1,0 +1,12 @@
+<template>
+  <lightning-combobox
+    label="Site Selection"
+    value={siteSelectedByUser}
+    options={loggedInUserSites}
+    variant="label-hidden"
+    onchange={selectionChangeHandler}
+    disabled={isPicklistDisabled}
+    class="body-text"
+  >
+  </lightning-combobox>
+</template>

@@ -1,0 +1,125 @@
+/**
+ * Created by mrahman on 2021-03-23.
+ */
+.THIS .loginSection__leftPart {
+    background-image: none;
+    background: #42b5a6;
+}
+.THIS .login + label > span {
+    color: #42b5a6;
+}
+
+.THIS .login-btn {
+    margin-top: 1rem !important;
+    padding-top: 3.5rem;
+    background: #42b5a6;
+}
+
+.THIS .modal-dialog .modal-content h1 {
+    color: #42b5a6;
+}
+
+.THIS a:hover {
+    text-decoration: underline;
+}
+.THIS .errormessag {
+    color:red;
+    font-size:initial;
+}
+
+.THIS .loginSection__leftPart--content {
+    height: 100%;
+}
+
+.THIS .login + label {
+  display: block;
+  position: relative;
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #42b5a6;
+  -webkit-transition: width 0.4s ease;
+  transition: width 0.4s ease;
+  height: 0;
+}
+
+.THIS .login + label > span .fa-2x {
+  font-size: 18px;
+  font-size: 1.8rem;
+  margin-right: 0.5rem;
+}
+.THIS .login:focus + label > span {
+  top: -5rem;
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+.THIS .login:focus + label > span .fa-2x {
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+.THIS .login:valid + label > span {
+  top: -5rem;
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+.THIS .login:valid + label .fa-2x {
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+.THIS .errormessag
+{
+    color:red;
+    font-size:initial;
+    padding-top:80px;
+}
+
+.THIS h2 {
+    font-size: 4rem;
+    line-height: 1.05em; 
+    margin-top: -60px; 
+    max-width: 620px;
+}
+
+/*.THIS .texttransform{
+    text-transform: none !important;
+}*/
+.THIS .more-btn {
+    margin-top: 1rem;
+    background: white;
+    color: #42b5a6;
+    padding-top: 3.5rem;
+}
+
+.THIS .input{
+        border: none !important;
+}
+.THIS .custom-model + input{
+     border: none !important;
+}
+.THIS .removeBorderCSS{
+     border: none !important;
+}
+
+.THIS .siteforceLoadingBalls .global {
+    position: unset !important;
+}
+
+.THIS .vh-100 {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.THIS .uiContainerManager {
+    display: none !important;
+}
+
+.THIS .login-btn {
+    border: 0px !important;
+    padding-top: 2.5rem;
+}
+
+.THIS .login-btn:hover {
+    border: 0px !important;
+    color: #fff !important;
+    background-color: #333;
+}

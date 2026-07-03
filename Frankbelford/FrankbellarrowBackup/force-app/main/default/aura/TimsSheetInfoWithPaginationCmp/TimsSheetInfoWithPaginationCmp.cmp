@@ -1,0 +1,110 @@
+<aura:component controller="TimeSheetInfoWithPagination" implements="forceCommunity:availableForAllPageTypes" access="global">
+	<aura:attribute name="TimeSheets" type="List" access="global"/>
+    <aura:attribute name="currentList" type="List" access="global"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+	<aura:attribute name="page" type="integer" description="using for store page Number" access="global"/>
+    <aura:attribute name="pages" type="integer" description="using for store All Pages page Number" access="global"/>
+    <aura:attribute name="total" type="integer" description="total records count store " access="global"/>
+    <aura:attribute name="timeSheetLines" type="List" access="global"/>
+    <aura:attribute name="isOpen" type="boolean" access="global"/>
+    <aura:attribute name="timeSheetId" type="String" access="global"/>
+    <aura:attribute name="errMsg" type="String" access="global"/>
+    <aura:attribute name="recordsNotFoundMsg" type="String" access="global"/>
+    
+    <aura:attribute type="Integer" name="pageNumber" default="1" access="global"/>
+    <aura:attribute type="Integer" name="maxPage" default="1" access="global"/>
+    <aura:handler name="change" value="{!v.pageNumber}" action="{!c.renderPage}" />
+  	<aura:attribute name="sitelist" type="List" access="global"/>
+    <aura:attribute name="ContactList" type="List" access="global"/>
+    <aura:attribute name="SiteContactMap" type="Object" access="global"/>
+    <aura:handler name="searchEvent" event="c:searchEvent" action="{!c.handleSearchEvent}"/>
+	
+        <div >
+    	<c:TimeSheetFiltersCmp sitelist="{!v.sitelist}" ContactList="{!v.ContactList}" SiteContactMap="{!v.SiteContactMap}" />
+    	</div>
+      
+        <div class="slds-scrollable slds-wrap">
+		<table class="slds-no-row-hover slds-table slds-table--bordered slds-table--cell-buffer slds-table--fixed-layout" access="global">
+			<thead>
+			  <tr >
+				<th class="headingfont" scope="col" style="text-align:center;width:130px;"><u><div class="slds-truncate" title="Candidate Name">Candidate <br></br>Name</div></u></th>  
+				<th class="headingfont" scope="col" style="text-align:center;width:160px;"><u><div class="slds-truncate" title="Job Role">Job Role</div></u></th>
+				<th class="headingfont" scope="col" style="text-align:center;width:160px;"><u><div class="slds-truncate" title="Site">Site</div></u></th>
+				<th class="headingfont" scope="col" style="text-align:center;width:120px;" ><u><div class="slds-truncate" title="TimeSheet Number">TimeSheet<br></br> Number</div></u></th>  
+				<th class="headingfont" scope="col" style="text-align:center;width:100px;"><u><div class="slds-truncate" title="Week Ending">Week Ending</div></u></th>
+				<th class="headingfont" scope="col" style="text-align:center;width:100px;"><u><div class="slds-truncate" title="Total Hours">Total Hours</div></u></th>
+                <th class="headingfont" scope="col" style="text-align:center;width:120px;"><u><div class="slds-truncate" title="Actions">Actions</div></u></th>
+			  </tr>
+			</thead>
+			<tbody>         
+			  <aura:iteration items="{!v.currentList}" var="ts">
+				<tr>
+				  <td style="text-align:center;width:130px;"><div class="slds-truncate slds-grow slds-cell-wrap" title="{!ts.sirenum__Worker__r.Name}">{!ts.sirenum__Worker__r.Name}</div></td>   
+				  <td style="text-align:center;width:160px;"><div class="slds-truncate slds-grow slds-cell-wrap" title="{!ts.sirenum__Team__r.Name}">{!ts.sirenum__Team__r.Name}</div></td>
+				  <td style="text-align:center;width:160px;"><div class="slds-truncate slds-grow slds-cell-wrap" title="{!ts.sirenum__Site__r.Name}">{!ts.sirenum__Site__r.Name}</div></td>
+				  <td style="text-align:center;width:120px;"><div class="slds-truncate" title="{!ts.Name}">{!ts.IP_StandardWeeklyNumberID__c}</div></td>
+                  <td style="text-align:center;width:100px;"><lightning:formattedDateTime value="{!ts.sirenum__Week_Ending__c}" year="numeric" month="numeric" day="numeric" /></td> 
+				  <td style="text-align:center;width:100px;"><div class="slds-truncate" title="{!ts.sirenum__Total_Hours__c }">{!ts.sirenum__Total_Hours__c }</div></td>
+                  <td style="text-align:center;width:120px;"><button class="Detailsbutton slds-button slds-button_brand" onclick="{!c.getTimeSheetLines}" id="{!ts.Id+'|'+ts.IP_StandardWeeklyNumberID__c}">Detail</button></td>
+				</tr>
+			  </aura:iteration>
+			  
+			</tbody>
+		</table></div><br></br>
+		<div style="text-align:right;">
+    	 <c:PaginationCmp currentPageNumber="{!v.pageNumber}" maxPageNumber="{!v.maxPage}" />
+		</div>
+		<div class="slds-form-element__control slds-p-top_x-large">
+			<button class="slds-button slds-button_brand Backbutton" onclick="{!c.navigateBack}">Back</button>
+		</div>
+	   
+    
+    <!--Modal Box -->
+    <aura:if isTrue="{!v.isOpen}">
+      <div role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-scrollable slds-wrap">
+        <div class="slds-modal__container ">
+          <div class="slds-modal__header">
+            <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
+             <b>X</b>
+            <span class="slds-assistive-text">Close</span>
+            </button>
+            <h2 id="header" class="slds-text-heading_medium slds-hyphenate">Timesheet Lines</h2>
+          </div>
+          <div class="slds-modal__content slds-p-around_medium slds-scrollable slds-wrap">
+            <b>TimeSheet Number: </b> {!v.timeSheetId}
+              <p Style="color: red;">{!v.errMsg}</p>
+            <!--<aura:if isTrue="{!v.showError}"><p>{!v.errMsg}</p></aura:if>-->
+          	<table class=" slds-no-row-hover slds-table slds-table--bordered slds-table--cell-buffer slds-table--fixed-layout" access="global">
+			<thead>
+			  <tr >
+				<th class="headingfontpopup"  scope="col" style="text-align:center;width:80px;"><div class="slds-truncate" title="Start Date">Start<br></br> Date</div></th>  
+				<th class="headingfontpopup"  scope="col" style="text-align:center;width:100px;"><div class="slds-truncate" title="Job Role">Job Role</div></th>
+				<th class="headingfontpopup"  scope="col" style="text-align:center;width:100px;"><div class="slds-truncate" title="Site">Site</div></th>
+				<th class="headingfontpopup"  scope="col" style="text-align:center;width:60px;"><div class="slds-truncate" title="Total Hours">Total<br></br> Hours</div></th>  
+				<th class="headingfontpopup"  scope="col" style="text-align:center;width:100px;"><div class="slds-truncate" title="Approved By">Approved<br></br> By</div></th>
+                <th class="headingfontpopup" scope="col" style="text-align:center;width:110px;"><div class="slds-truncate" title="Date &#38; Time">Date &#38;<br></br>Time</div></th>
+			  </tr>
+			</thead>
+			<tbody>         
+			  <aura:iteration items="{!v.timeSheetLines}" var="tsl">
+				<tr> 
+                  <td class="slds-grow slds-cell-wrap" style="text-align:center;width:80px;"><lightning:formattedDateTime value="{!tsl.sirenum__Date__c}" year="numeric" month="numeric" day="numeric" /></td>  
+				  <td class="slds-grow slds-cell-wrap" style="text-align:center;width:100px;"><div class="slds-truncate slds-grow slds-cell-wrap" title="{!tsl.sirenum__Team__r.Name}">{!tsl.sirenum__Timesheet__r.sirenum__Team__r.Name}</div></td>
+				  <td class="slds-grow slds-cell-wrap" style="text-align:center;width:100px;"><div class="slds-truncate slds-grow slds-cell-wrap" title="{!tsl.sirenum__Site__r.Name}">{!tsl.sirenum__Timesheet__r.sirenum__Site__r.Name}</div></td>
+                  <td class="slds-grow slds-cell-wrap" style="text-align:center;width:80px;"><div class="slds-truncate" title="{!tsl.sirenum__Hours__c}">{!tsl.sirenum__Hours__c}</div></td>
+                  <td class="slds-grow slds-cell-wrap" style="text-align:center;width:100px;"><div class="slds-truncate" title="{!tsl.sirenum__Shift__r.Approved_By__r.Name}">{!tsl.sirenum__Shift__r.Approved_By__r.Name}</div></td>
+                     <td class="slds-grow slds-cell-wrap"><lightning:formattedDateTime value="{!tsl.sirenum__Shift__r.Approved_Date_Time__c}" year="numeric" month="numeric" day="numeric" hour="2-digit" minute="2-digit" /></td>
+				</tr>
+			  </aura:iteration>
+			  
+			</tbody>
+		</table>
+          </div>
+          <div class="slds-modal__footer" style="text-align:left;">
+            <button class="slds-button slds-button_brand Backbutton" onclick="{!c.closeModel}" >Back</button>
+          </div>
+        </div>
+      </div>
+      <div class="slds-backdrop slds-backdrop--open"></div>
+    </aura:if>
+</aura:component>

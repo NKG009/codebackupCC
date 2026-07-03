@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_Templates</fullName>
+    <columns>MasterLabel</columns>
+    <columns>DeveloperName</columns>
+    <columns>Brand__c</columns>
+    <columns>Type__c</columns>
+    <columns>Recipient__c</columns>
+    <columns>Schedule__c</columns>
+    <columns>TemplateId__c</columns>
+    <columns>Trigger_Point__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Email Templates</label>
+    <language>en_US</language>
+</ListView>

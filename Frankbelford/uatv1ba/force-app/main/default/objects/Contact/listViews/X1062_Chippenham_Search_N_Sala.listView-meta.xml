@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1062_Chippenham_Search_N_Sala</fullName>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>Missing_Compliance_Details__c</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>IP_PayrollStatus__c</columns>
+    <columns>IP_WorkerStartDate__c</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>Person_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>SN1,SN10,SN6,SN8,SN9,SP11,SP3,SP4,SP9</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Inactive</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>equals</operation>
+        <value>Catering,Facilities</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>,Clean,cleaner,housekeeper</value>
+    </filters>
+    <label>1062 - Chippenham Search N Sala</label>
+</ListView>

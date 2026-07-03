@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "be942e6b-19c6-458a-844d-1300e6b4c3f2",
+  "appPageId" : "6cf45250-dd45-4f57-aa5d-84e94e3c25f8",
+  "configurationTags" : [ ],
+  "devName" : "my_timesheet_week_view__c",
+  "id" : "24ac93e7-e4ac-4286-a081-75487099bc85",
+  "label" : "My Timesheet",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-my-timesheet-week-view",
+  "type" : "route",
+  "urlPrefix" : "my-timesheet-week-view"
+}

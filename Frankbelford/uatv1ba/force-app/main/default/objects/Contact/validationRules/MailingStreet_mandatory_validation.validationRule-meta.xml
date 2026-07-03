@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MailingStreet_mandatory_validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>if( MailingStreet == null , FALSE , if( NOT(REGEX(MailingStreet, &apos;.*&apos;)) ,True ,False))</errorConditionFormula>
+    <errorDisplayField>MailingStreet</errorDisplayField>
+    <errorMessage>Mailing Street should be fill all in One line without carriage returns</errorMessage>
+</ValidationRule>

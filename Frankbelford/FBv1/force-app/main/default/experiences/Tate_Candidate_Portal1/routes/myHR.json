@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "8c57e1d1-78c4-460f-9cd8-07a23cb52b95",
+  "appPageId" : "b2fa95b0-e567-41d6-a9bd-0d8201b2a4b0",
+  "configurationTags" : [ ],
+  "devName" : "My_HR__c",
+  "id" : "ef7ecb3f-2b65-41f1-a8d1-d3b24a16d3b9",
+  "label" : "My HR",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-my-hr",
+  "type" : "route",
+  "urlPrefix" : "my-hr"
+}

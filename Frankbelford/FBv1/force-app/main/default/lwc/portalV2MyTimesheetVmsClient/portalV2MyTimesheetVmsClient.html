@@ -1,0 +1,65 @@
+<template>
+  <div class="slds-var-p-top_x-large">
+    <h1 class="main__header">
+       Timesheet Details
+     <!-- <span class="bluearrow-brand-color"> {titleTimePeriodLabel}</span> Shifts
+      by
+      <span class="bluearrow-brand-color"> {titleSummaryViewLabel}</span>-->
+    </h1>
+    <div class="table__header slds-var-p-top_large">
+      <div class="supplementary__container"></div>
+      <div class="action__container"></div>
+
+      <div class="slds-grid table__header__actionbar flex__row">
+        <div class="slds-grid small__gap flex__row">
+          <!--<lightning-button variant="brand" label={viewSwitchLabel} onclick={handleViewToggleClick}>
+          </lightning-button>-->
+          <lightning-button variant="brand" label={timePeriodSwitchLabel} onclick={handleTimePeriodToggleClick}>
+          </lightning-button>
+          <template if:false={currentShiftView}>
+            <div>
+              <lightning-combobox label="Time Period" value={selectedTimePeriod} options={timePeriodOptions}
+                variant="label-hidden" onchange={selectionChangeHandler} class="body-text">
+              </lightning-combobox>
+            </div>
+          </template>
+        </div>
+        <div class="slds-grid small__gap flex__row">
+          <div class="site-switcher-container">
+            <c-portal-v2-site-switch-widget></c-portal-v2-site-switch-widget>
+          </div>
+          <lightning-button variant="base" onclick={clearFilter} label="Clear filters">
+          </lightning-button>
+          <lightning-button variant="brand" onclick={handleAdjustColumnClick} label="Adjust columns">
+          </lightning-button>
+          <lightning-button variant="brand" onclick={handleExportClick} label="Export Timesheet">
+          </lightning-button>
+        </div>
+      </div>
+    </div>
+    <div class="table__container">
+      
+        <c-portal-v2-my-timesheet-vms-client-child site-id={siteId} default-timescale={currentShiftView}
+          lookback-timescale={selectedTimePeriod} onnumrecordchanged={handleNumRecordChange}
+          grouping-column-name={jobRoleViewGroupingColumn}></c-portal-v2-my-timesheet-vms-client-child>
+      
+      
+    </div>
+    <div class="table__footer__actionbar">
+      <div class=" slds-grid slds-var-p-horizontal_medium slds-var-p-vertical_small flex__row">
+        <div class="slds-grid small__gap flex__row">
+          <!--<lightning-button variant="brand" label="View/Edit Worker Feedback" class="slds-grid_vertical-align-center"
+            onclick={handleTempFeedbackModalOpenClick} disabled={reviewButtonDisabled}>
+          </lightning-button>-->
+          
+        </div>
+        <template if:true={hasRecords}>
+          <c-portal-v2-pagination totalrecords={numberOfRecords} onpageselected={handlePageSelected}>
+          </c-portal-v2-pagination>
+        </template>
+      </div>
+
+
+    </div>
+  </div>
+</template>

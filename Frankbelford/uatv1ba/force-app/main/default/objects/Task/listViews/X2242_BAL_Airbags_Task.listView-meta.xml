@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2242_BAL_Airbags_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>2242-BAL Airbags</label>
+    <queue>X2242_BAL_Airbags</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

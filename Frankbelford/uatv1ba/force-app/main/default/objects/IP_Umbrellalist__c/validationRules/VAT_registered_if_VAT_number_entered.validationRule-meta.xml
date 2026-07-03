@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VAT_registered_if_VAT_number_entered</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(ISBLANK( VAT_Number__c )) &amp;&amp;  IP_VATRegistered__c = 0</errorConditionFormula>
+    <errorMessage>VAT Registered cannot be null if VAT number is entered</errorMessage>
+</ValidationRule>

@@ -1,0 +1,69 @@
+/**
+ * Created by charlienash on 25/10/2023.
+ */
+
+
+.signUpButtonCls {
+    width: 100%;
+    margin-bottom: 5px;
+    color: #fff;
+    background-color: #e50b7e;
+    border-color: #e50b7e;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    background-image: none;
+    border: 1px solid #e50b7e;
+    border-radius: 4px;
+    white-space: nowrap;
+    padding: 10px 12px;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    line-height: 1.42857143;
+    border-radius: 2px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: ease 0.3s background-color, ease 0.3s border;
+}
+
+.signUpButtonClsDisabled{
+
+    width: 100%;
+    margin-bottom: 5px;
+    color: #fff;
+    background-color: #aaaaaa;
+    border-color: #aaaaaa;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    background-image: none;
+    border: 1px solid #aaaaaa;
+    border-radius: 4px;
+    white-space: nowrap;
+    padding: 10px 12px;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    line-height: 1.42857143;
+    border-radius: 2px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: ease 0.3s background-color, ease 0.3s border;
+}
+
+.headerText{
+    font-size: 30px;
+    text-align: center;
+    padding: 15px;
+}
+
+.error{
+    color: red;
+}

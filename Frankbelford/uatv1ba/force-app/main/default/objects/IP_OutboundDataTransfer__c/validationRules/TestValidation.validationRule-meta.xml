@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TestValidation</fullName>
+    <active>true</active>
+    <description>TestValidation for Test class</description>
+    <errorConditionFormula>AND(NOT( ISNEW() ), TestValidation__c =&apos;test&apos;)</errorConditionFormula>
+    <errorMessage>Testing error</errorMessage>
+</ValidationRule>

@@ -1,0 +1,15 @@
+<apex:page standardController="sirenum__Location__c">
+   
+    <apex:form >
+        <apex:sectionHeader title="Site" subtitle="{!sirenum__Location__c.Name}"/>
+        <apex:pageBlock title="Account Address" mode="edit">
+            <apex:pageblockButtons >
+                <apex:commandButton value="Save" action="{!Save}" />
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageblockButtons>
+            <apex:pageBlockSection title="Address Finder">
+                <pca:AddressFinder label="Location Shipping address" record="{!sirenum__Location__c}" address="IP_LocationShippingAddress" />  
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

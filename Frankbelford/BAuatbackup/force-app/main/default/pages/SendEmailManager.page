@@ -1,0 +1,31 @@
+<apex:page standardController="Contact" recordSetVar="con" standardStylesheets="false" extensions="EmailManager" lightningStylesheets="true">
+    
+    <apex:slds />
+    <div class="slds-scope">
+        <apex:form id="form" style="height: 200px;">
+            <apex:actionFunction name="callFunction" action="{!insertResultItemRecords}" reRender="">
+                <apex:param name="IdList" assignTo="{!contactIdList}" value="IdList" />
+            </apex:actionFunction>
+            
+            <div id="spinner" class="slds-text-heading_medium slds-text-align_center slds-text-color_inverse" style="padding:0.5rem;background:rgb(84,105,141);margin-top:200px;"><b>Processing...........</b></div>
+            <apex:inputHidden value="{!IdList}"/>
+        </apex:form>
+    </div>
+
+    <script>
+    var IdList = '{!selected}';
+    //alert(IdList);
+    //alert(IdList.length);
+    
+    setTimeout(function(){ document.getElementById('spinner').className += ' slds-hide' }, 10000);
+    if(IdList.length>0){
+        callFunction(IdList);
+    }
+    else{
+       alert('You must select at least 1 Candidate.');
+       window.location.href = '/lightning/o/Contact/list?filterName=Recent';
+       
+    }
+    //callFunction(IdList);
+    </script>
+</apex:page>

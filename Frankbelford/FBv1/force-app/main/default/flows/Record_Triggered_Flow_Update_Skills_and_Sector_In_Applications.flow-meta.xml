@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <environments>Default</environments>
+    <interviewLabel>Record Triggered Flow - update Skills and Sector in applications {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Record Triggered Flow - Update Skills and Sector In Applications</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Sector_and_Skills</name>
+        <label>Update Sector and Skills</label>
+        <locationX>879</locationX>
+        <locationY>388</locationY>
+        <inputAssignments>
+            <field>IP_Skills__c</field>
+            <value>
+                <elementReference>$Record__Prior.ts2__Job__r.IP_Skills__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Sector__c</field>
+            <value>
+                <elementReference>$Record__Prior.ts2__Job__r.Sector__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>650</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Update_Sector_and_Skills</targetReference>
+        </connector>
+        <object>ts2__Application__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>InvalidDraft</status>
+</Flow>

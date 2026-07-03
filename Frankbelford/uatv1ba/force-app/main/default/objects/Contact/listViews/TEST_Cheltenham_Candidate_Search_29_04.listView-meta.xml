@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TEST_Cheltenham_Candidate_Search_29_04</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IP_2ndTierAutoID__c</field>
+        <operation>equals</operation>
+        <value>(NP1 or NP10 or NP11 or NP12 or NP13 or NP15 or NP16 or NP18 or NP19 or NP2 or NP20 or NP22 or NP23 or NP24 or NP26 or NP3 or NP4 or NP44 or NP5 or NP6 or NP7 or NP9)</value>
+    </filters>
+    <label>BBSC Candidate Search 14/05</label>
+</ListView>

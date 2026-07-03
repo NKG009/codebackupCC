@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>no_perm_borrowedtemp_for_candidate</fullName>
+    <active>true</active>
+    <description>no perm &amp; borrowedtemp for candidate</description>
+    <errorConditionFormula>If(AND(Perm_Work__c, ISPICKVAL(IP_BorrowedTemp__c,&apos;Yes&apos;)),true,false)</errorConditionFormula>
+    <errorMessage>Perm work Candidate can not be Borrowed</errorMessage>
+</ValidationRule>

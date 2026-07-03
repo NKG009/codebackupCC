@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "3b92db35-d6a8-46f0-ba56-0dccf76eafd6",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "d2525e71-cb1d-4127-ae88-590687cf3ca9",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Job_Order_vms_Client_portalV2VMSClientJobOrder_Component",
+  "id" : "3014fedb-152f-4b85-88db-59c0baff4bcd",
+  "type" : "experienceVariation"
+}

@@ -1,0 +1,79 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "b9bd2902-8f13-4bd5-8623-06bd062fa12e",
+  "label" : "Previous Bookings",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "3cb08794-614c-417b-a128-02c88e4a2d09",
+          "columns" : [ {
+            "UUID" : "444753f1-e83e-4756-a74d-0eb87a497032",
+            "columnKey" : "14c12",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "3cb08794-614c-417b-a128-02c88e4a2d09",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "currentPage" : "Previous Bookings"
+          },
+          "componentName" : "c:ClientComunityBreadcrumb",
+          "id" : "f390f09e-8c94-4715-90b4-277ffbd3e4a9",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : {
+            "status" : "Complete"
+          },
+          "componentName" : "c:JobOrderList",
+          "id" : "50e6923d-0aab-468f-bfaa-84a9216498dc",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "444753f1-e83e-4756-a74d-0eb87a497032",
+        "regionLabel" : "Column 1",
+        "regionName" : "14c12",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0135d59b-69cd-4359-ba98-ea5ee8fe03a7",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Previous Bookings"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "a7922445-c3e3-4167-9647-89345f2771b7",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8488e6d4-657f-4b40-ac35-528eb90f58bf",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Re3hqEhY1SpthYbgfoSm66kdrIuIff",
+  "type" : "view",
+  "viewType" : "custom-previous-bookings"
+}

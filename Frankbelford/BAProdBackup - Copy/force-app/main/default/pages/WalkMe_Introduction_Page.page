@@ -1,0 +1,7 @@
+<apex:page sidebar="false" showHeader="false">
+  <div id="WalkMeExtensionIframe" class="walkme_vf_page">
+    <a href="https://d2qhvajt3imc89.cloudfront.net/customers/JobScience/LandingPage/JobScienceLP.html" target="_blank">
+      <img src="/resource/WalkMeIntroPicture" alt="WalkMeIntroPic" height="210" width="200"/>
+    </a>
+  </div>
+</apex:page>

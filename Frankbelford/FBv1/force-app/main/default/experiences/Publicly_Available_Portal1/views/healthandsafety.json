@@ -1,0 +1,58 @@
+{
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "27ac96da-6ea4-4714-aa67-32095c5fa7f6",
+  "label" : "Healthandsafety",
+  "regions" : [ {
+    "id" : "6eabd9ac-6466-4a24-8ecd-1b2bf589b7fb",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Untitled2removebg.1}\" style=\"width: 254.859px; height: 64.5625px;\"></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "1b2fe7c2-2ce3-4b4b-99a5-2448c552c83f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"recordId\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!recordId}\"}]",
+        "flowName" : "Screen_Flow_Client_Health_and_Safety_Form"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "9a0631f0-c3a9-4041-8feb-b09629db7f6d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "efe8062a-4d6d-40a7-ada1-1a040cfe40f0",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "42e0b12d-5654-4593-8a2a-75f05db33311",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Healthandsafety"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "c5b01304-cbff-4318-aeab-aa8ca1a66c2f",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "134baf19-38f9-43d4-93e3-887d6a8b055f",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-healthandsafety"
+}

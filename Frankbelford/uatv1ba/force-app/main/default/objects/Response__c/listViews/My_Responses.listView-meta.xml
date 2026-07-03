@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Responses</fullName>
+    <columns>NAME</columns>
+    <columns>NHS_Job_Roles__c</columns>
+    <columns>Email__c</columns>
+    <columns>First_Name__c</columns>
+    <columns>Last_Name__c</columns>
+    <columns>Mobile__c</columns>
+    <columns>OWNER.ALIAS</columns>
+    <columns>Question_1__c</columns>
+    <columns>Question_2__c</columns>
+    <columns>Question_3__c</columns>
+    <columns>Question_4__c</columns>
+    <columns>Question_5__c</columns>
+    <filterScope>Mine</filterScope>
+    <label>My Responses</label>
+</ListView>

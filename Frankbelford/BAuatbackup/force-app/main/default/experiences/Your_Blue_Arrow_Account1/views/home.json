@@ -1,0 +1,139 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "9ffcaf58-3333-4812-81ca-277fcf248fc9",
+  "label" : "Home",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "bannerBackgroundColor" : "rgb(0, 170, 227)",
+        "bannerPosition" : "bottom",
+        "bannerSizePercent" : 20,
+        "borderRadius" : 10,
+        "boxShadow" : true,
+        "haveBanner" : false,
+        "iconBackgroundColor" : "rgb(255,255,255)",
+        "iconSize" : "large",
+        "noImageColor" : "rgb(212, 212, 212)",
+        "overlay" : "rgba(0,0,0,0.01)",
+        "templateType" : "icon",
+        "tileMenuEditor" : "Vetting_and_Compliance",
+        "titleColor" : "",
+        "titleFontSize" : "large",
+        "titleHorizontalAlign" : "center"
+      },
+      "componentName" : "community_navigation:tileMenu",
+      "id" : "8948c692-5464-49ef-9040-836902a0850a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4e596426-d0d5-4574-a29b-4056ef5d4e9c",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "label" : "Ask a Question",
+        "showDetails" : false,
+        "showTopics" : true
+      },
+      "componentName" : "forceCommunity:askCommunity",
+      "id" : "38704b02-8fd1-44af-ba97-e3589a52ef53",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "bf3b3a1f-bf43-4ffd-a93a-51818f794646",
+    "regionName" : "featured",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[]",
+        "flowName" : "Screen_Flow_Candidate_Reinstate"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "a251fe49-3f08-4a35-83fb-5f197a803c45",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowArguments" : "[]",
+        "flowName" : "GDPR_Recapture"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "2dfeac50-5ded-4914-8002-a651eeb8f1ba",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "Online_Registration_Auto_Redirect"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "c8da5106-413e-4c81-bf38-83ee7065909d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "bannerBackgroundColor" : "rgb(0, 170, 227)",
+        "bannerPosition" : "bottom",
+        "bannerSizePercent" : 20,
+        "borderRadius" : 10,
+        "haveBanner" : false,
+        "iconBackgroundColor" : "rgb(255,255,255)",
+        "iconSize" : "large",
+        "noImageColor" : "rgb(116, 116, 116)",
+        "overlay" : "rgba(0,0,0,0.01)",
+        "templateType" : "icon",
+        "tileMenuEditor" : "Home_Page_Tiles",
+        "titleColor" : "",
+        "titleFontSize" : "large",
+        "titleHorizontalAlign" : "center"
+      },
+      "componentName" : "community_navigation:tileMenu",
+      "id" : "39912d4d-1f34-4d91-94a2-7eb1be6cab80",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6136623b-0200-47e8-9a45-04cfd88e4393",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "e00638d9-144b-4dbe-9166-edf05f2b5416",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "ccfec0d1-d07c-4d17-a155-e5707d99185c",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "b7e648f6-abc9-472c-a372-20ceb9f3a169",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "cee05b0c-122e-4d54-a06a-94c1d35f6565",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "id" : "1657aa07-2ee6-4a7b-8886-e633729ab1b2",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Home",
+  "type" : "view",
+  "viewType" : "home"
+}

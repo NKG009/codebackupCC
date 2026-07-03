@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_LTDContractCertCount__c</fullName>
+    <label>LTD Contract Cert Count</label>
+    <summaryFilterItems>
+        <field>ts2__Certification__c.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>Limited Company Contract</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>ts2__Certification__c.IP_Status__c</field>
+        <operation>equals</operation>
+        <value>Current</value>
+    </summaryFilterItems>
+    <summaryForeignKey>ts2__Certification__c.ts2__Contact__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

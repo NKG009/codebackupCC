@@ -1,0 +1,68 @@
+<apex:page lightningStylesheets="true" standardcontroller="Contact" tabStyle="Contact" extensions="ContactRecordTypeSelection_ext" >
+    <apex:slds />
+    <!--<apex:image url="{!$Resource.ContactRecordType}" width="850" height="100"/><br/><br/>-->
+
+    <!--  New Pay profile <br/><br/>
+    <h1> Select Pay Profile Record Type </h1> <br/><br/> 
+    Select a record type for the new pay profile. To skip this page in the future, change your record type settings on your personal setup page.<br/><br/> -->
+
+    <div style="text-align:center;font-size: large;">New Person</div><br></br><br></br>
+    <apex:form >
+        <style>
+        .pbTitle{display:none;}
+        </style>
+        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+            <apex:slds />
+        </apex:outputPanel>
+        <apex:pageblock >
+            <apex:pageblocksection >
+                <apex:pageblocksectionItem rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+                    <b> Select Person Record Type </b> <br/><br/>
+                </apex:pageblocksectionItem><br/><br/>
+                
+                <apex:pageblocksectionItem rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+                    <apex:outputLabel value="Record Type of new record" />                       
+                    <apex:outputPanel styleClass="requiredInput" layout="block" id="a">
+                        <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                        <apex:selectList value="{!selectedrecordtype}" size="1">
+                            <apex:selectOptions value="{!allrecordtype}"> </apex:selectOptions>    
+                        </apex:selectList>   
+                    </apex:outputPanel>
+                </apex:pageblocksectionItem><br/><br/>
+                
+                <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }"  style="text-align:center;!important;">
+                <apex:pageblocksectionItem >
+                    <apex:outputLabel value="Select a record type"  style="margin-left:350px!important;margin-bottom: -110px!important;"/>                       
+                    <apex:outputPanel styleClass="requiredInput" layout="block" id="a" style="margin-left:350px!important;">
+                        <apex:outputPanel styleClass="requiredBlock" layout="block" style="margin-left:250px!important;"/>
+                        <apex:selectRadio value="{!selectedrecordtype}" layout="pageDirection"  style="margin-left:250px!important;">
+                            <apex:selectOptions value="{!allrecordtype}"> </apex:selectOptions>    
+                        </apex:selectRadio>
+                    </apex:outputPanel>
+                </apex:pageblocksectionItem><br/><br/>
+                 </apex:outputPanel>
+                
+            </apex:pageblocksection>
+
+            <apex:pageblockButtons location="bottom" style="text-align:center;">
+                <apex:commandButton value="Continue" action="{!nextpage}" styleClass="slds-vf-button_brand"/> 
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageblockButtons>
+        </apex:pageblock><br/><br/>
+        
+        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+            <b>Available Person Record Types </b><br/><br/>
+            <div style="width:50%">
+            <apex:pageBlock >
+                <apex:pageblockTable value="{!ppList}" var="p">
+                    <apex:column value="{!p.name}" />
+                    <apex:column value="{!p.Description}" />
+                </apex:pageblockTable>
+            </apex:pageBlock>
+            </div>
+        </apex:outputPanel>
+    </apex:form>
+      
+</apex:page>

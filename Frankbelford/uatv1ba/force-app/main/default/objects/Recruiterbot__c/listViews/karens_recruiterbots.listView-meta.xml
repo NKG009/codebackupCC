@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>karens_recruiterbots</fullName>
+    <columns>NAME</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Status__c</columns>
+    <columns>Question_Count__c</columns>
+    <columns>Invite_To_Register__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All recruiterbots</label>
+    <sharedTo>
+        <role>Blue_Arrow_change_team</role>
+    </sharedTo>
+</ListView>

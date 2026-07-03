@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source_ID_reqd</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(ISBLANK(SourceObject__c)) &amp;&amp; (ISBLANK(SourceID__c) || ISBLANK(SourceName__c))</errorConditionFormula>
+    <errorMessage>Please ensure that Source Name and Source ID also have a field mapping defined.</errorMessage>
+</ValidationRule>

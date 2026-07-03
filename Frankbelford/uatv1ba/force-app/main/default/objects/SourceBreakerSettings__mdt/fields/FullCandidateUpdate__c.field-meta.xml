@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FullCandidateUpdate__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If a duplicate is found (by email, phone or external ID), a &quot;Full Candidate Update&quot; will override any existing information on the record and any Skills and Employment History which has been parsed &amp; linked to the record.
+
+THE DEFAULT VALUE IS &quot;FALSE&quot;</description>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>If a duplicate is found (by email, phone or external ID), a &quot;Full Candidate Update&quot; will override any existing information on the record and any Skills and Employment History which has been parsed &amp; linked to the record.</inlineHelpText>
+    <label>Full Candidate Update</label>
+    <type>Checkbox</type>
+</CustomField>

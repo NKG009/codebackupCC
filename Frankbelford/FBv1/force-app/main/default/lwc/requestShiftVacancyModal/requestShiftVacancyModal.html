@@ -1,0 +1,109 @@
+<template>
+  <section aria-modal="true" class="slds-modal slds-fade-in-open">
+    <div class="slds-modal__container">
+      <header class="slds-modal__header">
+        <h2 class="slds-text-heading_medium">Request new shift</h2>
+        <lightning-button-icon class="slds-modal__close" variant="bare-inverse" icon-name="utility:close" size="large"
+          onclick={closeClicked}></lightning-button-icon>
+      </header>
+      <div class="slds-modal__content">
+        <div class="slds-var-p-around_large">
+          <lightning-record-edit-form object-api-name="sirenum__Shift__c" onsubmit={onSubmit} onsuccess={onSuccess}
+            onload={onLoad} record-type-id={recordTypeId}>
+            <template if:true={loading}>
+              <div class="spinner__container">
+                <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+              </div>
+            </template>
+            <template if:false={loading}>
+              <lightning-messages></lightning-messages>
+              <div class="slds-grid slds-wrap slds-gutters">
+
+                <div if:false={isNewJobRole} class="slds-size_2-of-2" title="Start typing the job title you require">
+                  <c-portal-v2-job-role-lookup-filtered label-name="Job title" placeholder="Search Job titles..."
+                    fields={lookupFields} display-fields={lookupDisplayFields} onlookup={handleJobRoleChange}
+                    account-id={accountId}></c-portal-v2-job-role-lookup-filtered>
+                </div>
+                <div class="slds-size_2-of-2 slds-grid">
+
+                  <lightning-input type="checkbox" onchange={handleNewJobRoleChange}
+                    label="Suitable job title not available" class="slds-var-p-horizontal_xx-small"></lightning-input>
+                </div>
+                <div if:true={isNewJobRole} class="slds-size_2-of-2" style="color: red;">
+                  If a suitable job title is not available then please contact your Blue Arrow representative to discuss
+                  this further.
+                </div>
+                <div class="slds-size_2-of-2">
+                  <lightning-combobox name="Site" label="Site" value={selectedSite} placeholder="Select Site"
+                    options={availableSites} onchange={handleSiteChange} disabled={isNewJobRole}  required></lightning-combobox>
+                </div>
+                <!--! Reason for requirement   -->
+                <div class="slds-size_1-of-2">
+                  <lightning-combobox name="Reason for requirement" label="Reason for requirement"
+                    value={selectedReason} placeholder="Select Reason" disabled={isNewJobRole}  options={availableReason}
+                    onchange={handleReasonforrequirementChange}></lightning-combobox>
+                </div>
+                <div class="slds-size_1-of-2">
+                  <lightning-input-field field-name="Invoice_PO_Optional__c" disabled={isNewJobRole} ></lightning-input-field>
+                </div>
+                <div class="slds-size_2-of-2 slds-grid">
+
+                  <lightning-input type="checkbox" onchange={handleMultipleWorkersChange}
+                    label="This shift requires multiple workers" class="slds-var-p-horizontal_xx-small">
+                  </lightning-input>
+
+                </div>
+
+                <!--! Start Date --> 
+                <div class="slds-size_1-of-2">
+                  <lightning-input class="slds-var-p-horizontal_xx-small" type="date" label="Start Date"
+                    onchange={handleStartDateChange} disabled={isNewJobRole} required></lightning-input>
+                </div>
+                <div class="slds-size_1-of-2">
+                  <lightning-input class="slds-var-p-horizontal_xx-small" type="time" label="Start time"
+                    onchange={handleStartTimeChange} disabled={isNewJobRole}  timezone={timezone} required></lightning-input>
+                </div>
+                <!--! End Date -->
+                <div class="slds-size_1-of-2">
+                  <lightning-input class="slds-var-p-horizontal_xx-small" type="date" label="End date"
+                    onchange={handleEndDateChange} disabled={isNewJobRole}  timezone={timezone} required></lightning-input>
+                </div>
+                <div class="slds-size_1-of-2">
+                  <lightning-input class="slds-var-p-horizontal_xx-small" type="time" label="End time"
+                    onchange={handleEndTimeChange} disabled={isNewJobRole}  timezone={timezone} required></lightning-input>
+                </div>
+
+                <!--! Optional Fields  -->
+                <template if:true={requiresMultipleWorkers}>
+                  <div class="slds-size_1-of-2">
+                    <lightning-input class="slds-var-p-horizontal_xx-small" type="number" step="1"
+                      label="Number of Workers" onchange={handleNumWorkersChange} required></lightning-input>
+                    <!-- <lightning-input-field
+                      field-name="sirenum__Broadcasts__c"
+                    ></lightning-input-field> -->
+                  </div>
+                </template>
+
+                <template if:true={isNewJobRole}>
+                  <div class="slds-size_2-of-2">
+                    <lightning-textarea label="Details of New Staff Requirement" onchange={handleDetailChange} disabled={isNewJobRole}  required>
+                    </lightning-textarea>
+                  </div>
+                </template>
+                <div class="slds-size_2-of-2 slds-grid slds-grid_align-end">
+                  <lightning-button label="Clear" variant="brand-outline"
+                    class="slds-var-m-top_medium slds-var-m-horizontal_xx-small" onclick={reset}></lightning-button>
+                  <template if:false={isNewJobRole}>
+                    <lightning-button type="submit" variant="brand" label="Send Request"
+                      class="slds-var-m-top_medium slds-var-m-horizontal_xx-small"></lightning-button>
+                  </template>
+                </div>
+              </div>
+            </template>
+          </lightning-record-edit-form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

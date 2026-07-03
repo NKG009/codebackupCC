@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2040_BAL_TS_Tech_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>2040-BAL TS Tech</label>
+    <queue>X2040_BAL_TS_Tech</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

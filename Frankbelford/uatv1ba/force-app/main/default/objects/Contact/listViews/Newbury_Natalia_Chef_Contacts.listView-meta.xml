@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Newbury_Natalia_Chef_Contacts</fullName>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>FULL_NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>Skills__c</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>equals</operation>
+        <value>1062,1350</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>includes</operation>
+        <value>Catering,Facilities,Office,Warehouse</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>contains</operation>
+        <value>OX13,OX14,OX11,OX12,OX10,OX33,OX44,OX9,OX39,OX49</value>
+    </filters>
+    <filters>
+        <field>Skills__c</field>
+        <operation>includes</operation>
+        <value>Chef/Cook,Chef de partie,Chef Manager,Commis Chef,Head Chef,Sous Chef</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>notEqual</operation>
+        <value>Inactive</value>
+    </filters>
+    <label>Newbury - Natalia Chef Contacts</label>
+    <sharedTo>
+        <role>Blue_Arrow_Newbury_Temps</role>
+    </sharedTo>
+</ListView>

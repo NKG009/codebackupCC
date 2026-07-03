@@ -1,0 +1,141 @@
+<template>
+  <div class="slds-p-top_x-large">
+    <h1 class="main__header"><span class="bluearrow-brand-color"> Job Orders </span> </h1>
+    <template if:false={showjoborderdetail}>
+      <lightning-layout horizontal-align="spread" multiple-rows>
+        <lightning-layout-item class="slds-p-top_large" size="12">
+          <div class="slds-clearfix">
+            <div class="slds-float_right">    
+              <div class="slds-button-group" role="group">           
+              <div if:true={shownewcreatebutton}>
+                <lightning-button variant="brand" label="New Job Order" class="slds-p-horizontal_xx-small"
+                  onclick={openModal}></lightning-button>
+              </div>
+              <lightning-button variant={clearFiltersVariation} label="Clear Filters" class="slds-p-horizontal_xx-small"
+                onclick={clearFilters}></lightning-button>
+                </div>
+            </div>
+          </div>
+        </lightning-layout-item>
+        <lightning-layout-item class="slds-p-top_large" size="12">
+          <div class="table__container table_layout" style="overflow-y: scroll">
+            <table class="slds-table slds-table_cell-buffer"
+              aria-labelledby="element-with-table-label other-element-with-table-label">
+              <thead>
+                <tr class="slds-line-height_reset header__row table__header__actionbar">
+                  <template for:each={mainTableColumnStatus} for:item="theColumn">
+                    <template if:true={theColumn.selected}>
+                      <th key={theColumn.fieldAPIName} scope="col" class="table__header table-header">
+                        <div title={theColumn.column} class="column-header-container">
+                          <span class="column-title-text">{theColumn.column}</span>
+
+                          <template if:true={theColumn.filterable}>
+                            <span>
+                              &nbsp;&nbsp;
+                              <img class="clickable__element" src={theColumn.filterIcon} alt={theColumn.filterType}
+                                name={theColumn.fieldAPIName} title={theColumn.column} onclick={handleFilterClick} />
+                            </span>
+                          </template>
+                        </div>
+                      </th>
+                    </template>
+                  </template>
+                </tr>
+              </thead>
+              <tbody>
+                <template if:true={hasRecords}>
+                  <template for:each={filteredShifts} for:item="jobOrder">
+                    <tr class="slds-hint-parent body__row" key={jobOrder.Id}>
+                      <template for:each={jobOrder.columns} for:item="column">
+                        <template if:true={column.display}>
+                          <template if:true={column.isJobTitle}>
+                            <td key={column.key} class="body-text" style="text-align: center">
+                              <a href={column.JobOrderLink} class="link-style bluearrow-brand-color">{column.value}</a>
+                            </td>
+                          </template>
+                          <template if:false={column.isJobTitle}>
+                            <td key={column.key} class="body-text" style="text-align: center">
+                              <div if:true={column.isNumber}>
+                                <lightning-formatted-number
+                                  value={column.value}
+                                ></lightning-formatted-number>
+                              </div>
+                              <div if:true={column.isText}>
+                              <lightning-formatted-text value={column.value}></lightning-formatted-text></div>
+                            </td>
+                          </template>
+                          <!--td key={column.key} class="body-text" style="text-align: center">
+                            <lightning-formatted-text value={column.value}></lightning-formatted-text>
+                          </td-->
+                        </template>
+                      </template>
+                    </tr>
+                  </template>
+                </template>
+                <template if:false={hasRecords}>
+                  <tr class="slds-hint-parent">
+                    <td colspan={totalColumns} style="padding: 20px; font-weight: bold; font-size: medium">
+                      {theTableMessage}
+                    </td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
+        </lightning-layout-item>
+
+      </lightning-layout>
+      <div class="table__footer__actionbar">
+        <div class="
+              slds-grid
+              slds-var-p-horizontal_medium
+              slds-var-p-vertical_small
+              flex__row
+            ">
+        </div>
+      </div>
+    </template>
+  </div>
+
+  <template if:true={isModalOpen}>
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+      <div class="slds-modal__container">
+        <!-- Modal/Popup Header -->
+        <header class="slds-modal__header">
+          <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close"
+            onclick={closeModal}>
+            <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+            <span class="slds-assistive-text">Close</span>
+          </button>
+          <h2 class="slds-text-heading_medium">New Job Order</h2>
+        </header>
+
+        <!-- Modal/Popup Body (Flow) -->
+        <div class="slds-modal__content slds-p-around_medium">
+          <lightning-flow flow-api-name={flowApiName} onstatuschange={handleFlowStatusChange}></lightning-flow>
+        </div>
+
+        <!-- Modal/Popup Footer >
+                <footer class="slds-modal__footer">
+                    <lightning-button variant="neutral" label="Close" onclick={closeModal}></lightning-button>
+                </footer-->
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+  <template if:true={openTextFilterModal}>
+    <div data-id="textFilterModal" class="filter__modal">
+      <c-portal-v2-filter-modal onclose={handleTextFilterModalClose} onapplyfilter={handleApplyFilter}
+        onresetfilter={handleResetFilter} column-label={filterColumnLabel} filter-click-type={filterClickType}
+        default-selected-values={currentFilterSelectedTerms} filter-terms={filterTerms}></c-portal-v2-filter-modal>
+    </div>
+  </template>
+  <template if:true={openDateFilterModal}>
+    <div data-id="dateFilterModal" class="filter__modal">
+      <c-portal-v2-date-filter-modal column={filterColumnLabel} selected-date-filter={selectedDateFilter}
+        onclose={handleDateFilterModalClose} onapplyfilter={handleApplyFilter}
+        default-selected-values={selectedDateFilter} onresetfilter={handleResetFilter}
+        date-range="true"></c-portal-v2-date-filter-modal>
+    </div>
+  </template>
+</template>

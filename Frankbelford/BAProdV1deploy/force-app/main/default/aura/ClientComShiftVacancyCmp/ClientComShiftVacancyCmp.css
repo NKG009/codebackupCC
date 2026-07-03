@@ -1,0 +1,85 @@
+.THIS .dashboard-section__leftNav > li ul{
+    right: -23rem !important;
+}
+.THIS .dashboard-section__leftNav div:hover{
+    background-color:#fff;
+    color:#00aae3;
+    outline:2px solid !important;
+}
+.THIS .dashboard-section__leftNav--timesheets li:hover{
+    background-color:#fff;
+    color:#00aae3;
+}
+	.THIS .background{
+background-image:url(/resource/newimage)!important;
+    background-size:32px;
+    background-position: top;
+    background-repeat: no-repeat;
+    }
+.THIS .dashboard-section__leftNav--timesheets li:hover a{
+    color : #00aae3 !important;
+}
+.THIS .dashboard-section__leftNav--vacancies li:hover{
+    background-color:#fff;
+    color:#00aae3;
+}
+.THIS .dashboard-section__leftNav--vacancies li:hover a{
+    color:#00aae3;
+}
+.THIS .dashboard-section__leftNav--temp li:hover{
+    background-color:#fff;
+    color:#00aae3
+}
+.THIS .dashboard-section__leftNav--temp li:hover a{
+   color:#00aae3;
+}
+.THIS .dashboard-section__leftNav ul li a{
+    color:#fff;
+    font-size:1.6rem;
+    padding-top:1rem;
+    padding-bottom:1rem;
+ }
+.THIS .imag
+    {
+        background-image:url('/profilephoto/005/T');
+        width:48px;
+        height:50px;
+    } 
+.THIS .headingCls{
+    font-size: 1.7rem;
+    color: #31383b;
+    padding-right: 89%;
+    display: contents;
+    margin-bottom:1.0rem!important
+}
+
+.THIS .slds-form-element__label{
+    color: #000000;
+    font-weight: bold;
+    font-size: initial;
+    padding-bottom: 10px;
+    margin-top: -10px;
+}
+.THIS .mainLoginInput::-webkit-input-placeholder {
+    font-size: 14px !important;
+}
+
+.THIS .mainLoginInput:-ms-input-placeholder {
+    font-size: 14px !important;
+}
+
+.THIS .mainLoginInput:-moz-placeholder {/* older Firefox*/
+    font-size: 14px !important;
+}
+
+.THIS .mainLoginInput::-moz-placeholder {/* Firefox 19+ */
+	font-size: 14px !important;
+}
+
+.THIS .slds-form-element__icon .slds-popover_tooltip:before,
+.THIS .slds-form-element__icon .slds-popover--tooltip:before,
+.THIS .slds-form-element__icon .slds-popover_tooltip:after,
+.THIS .slds-form-element__icon .slds-popover--tooltip:after {
+    top: 0% !important;
+    margin-top: 50px !important;
+}

@@ -1,0 +1,94 @@
+<aura:component Controller="CPHolidaysController" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="allHolidays" type="List" />
+    <aura:attribute name="currentList" type="List" />
+    <!-- create 2 aura handler with waiting and donewaiting events--> 
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    <!--create a component attributs -->
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    
+    <!-- PAGE HEADER -->
+    <div class="slds-page-header" >
+        <!-- LAYOUT GRID -->
+        <div class="slds-grid" >
+            
+        
+            
+            <!-- GRID COL -->
+            <div class="slds-col slds-has-flexi-truncate" >
+                <!-- HEADING AREA -->
+           
+                <div class="headingfont" style="height:60px;"> 
+           To request annual leave please complete the fields below:<br></br>
+Once your request is submitted it will be passed to the team in branch who will confirm your requirement within 24 hours or next working day
+
+                   
+                </div> 
+           <!--   <div class="downloadlink">  <a href="{!'/candidate/servlet/servlet.FileDownload?file=0155E000000KtxR'}" target="_blank" download="0155E000000KtxR">FE Handbook</a></div> -->
+               <br></br>
+                <div style="height:140px;">
+                    
+                    <div class="slds-form--inline" >        
+                        <div class="slds-form-element">
+                            <ui:inputDate aura:id="fromDate" label="From:" class="field" value="" displayDatePicker="true"  format="dd/MM/yyyy"/>
+                        </div>
+                        <div style="width:100px;"  class="slds-form-element"></div>
+                        <div class="slds-form-element">
+                            <ui:inputDate aura:id="toDate" label="To:" class="field" value="" displayDatePicker="true"  format="dd/MM/yyyy"/>
+                        </div>                   
+                    </div>  
+                </div>
+                <br></br>
+                
+                
+                
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col">
+                        <lightning:button label="Back" variant="brand" class="Backbutton" onclick="{!c.backtomydetails}" value="" />    
+                    </div>
+                    <div class="slds-col border" style="text-align:right;" >
+                        <!--<lightning:button label="Query" variant="brand" onclick="{!c.getQuery}" value="" />    -->
+                        <button class="slds-button Submitbutton slds-button_brand" onclick="{!c.HolidayRequest}" >Submit</button>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+    
+    <!-- timesheet details popup starts here-->   
+    <aura:if isTrue="{!v.isOpen}">
+        <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
+            <div class="slds-modal__container">
+                <form>
+                    <div class="slds-modal__header">
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
+                            X
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Query</h2>
+                    </div>
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <table class="slds-table" >                       
+                            <tr>
+                                <td style="width:100%;"><ui:inputTextArea aura:id="Query" label=""  value="" rows="5" placeholder="" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="slds-modal__footer">
+                        
+                        <ui:button aura:id="holidayQuery" class="button" label="Submit" press="{!c.QueryTo}" /> 
+                        <ui:button class="button" label="Close" press="{!c.closeModel}" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </aura:if>
+    
+    <!-- timesheet details popup starts here-->   
+</aura:component>

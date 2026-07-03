@@ -1,0 +1,28 @@
+.THIS .mainContentArea {
+    background-color:rgb(223,241,253);
+    
+}
+.THIS .navigation{
+    background-color:#009ee3;
+}
+.THIS .profileMenuRegion{
+    color:rgb(48,150,212);
+}
+
+.THIS .forceCommunityUserProfileTabs{
+    display:none;
+}
+.THIS .siteforceDesignTimeRegion{
+    background: #ffffff !important;
+} 
+
+.THIS .forceCommunityUserRecordHome{
+    background: #ffffff !important;
+}
+
+.THIS .contactSupport uiMenuItem{
+    display:none;
+}
+.THIS .firstName compoundTLRadius compoundTRRadius compoundBorderBottom form-element__row input{
+    background-color:#EBEBE4;border:1px solid #ABADB3;padding:2px 1px;
+}

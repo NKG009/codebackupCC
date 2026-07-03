@@ -1,0 +1,24 @@
+<template>
+     
+    <div class="slds-box" style="padding-left: 0;padding-right: 0; padding-bottom: 0; background:white" >
+        <div style="max-height: 400px; min-height:200px; padding-bottom:0px; overflow-y: auto;overflow-x: hidden; padding: 1rem;">
+         <template for:each={allCommentRecords} for:item="comment">
+             <div key={comment.Id} data-id={comment.Id} class={comment.Comment_Type__c}>
+             <p>{comment.Comment_Text__c}</p>
+             </div>
+         </template>
+     
+      </div>
+     <!-- Input Field -->
+     <div class="message-input-container">
+     <lightning-textarea label="" value={newComment} onchange={handleCommentChange}></lightning-textarea>
+
+     <!-- Submit Button -->
+      <div style="padding: 1rem;align-self: flex-end;padding-bottom:0;">
+       <lightning-button label="Submit" variant="brand" onclick={handleSubmitNewComment}></lightning-button>
+      </div>
+     
+     </div>
+   </div>
+    
+</template>

@@ -1,0 +1,91 @@
+<aura:component implements="flexipage:availableForRecordHome,lightning:isUrlAddressable,force:hasRecordId" 
+                controller="CreditCheckemailcontroller">
+	<!-- handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- atrributes -->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="messageDisplay" type="String" />
+    <aura:attribute name="errorMessage" type="Boolean" />
+    <aura:attribute name="successMessage" type="Boolean" />
+    <aura:attribute name="processingText" type="Boolean" />
+     <aura:attribute name="Creditvalue" type="Boolean" />
+    
+    <aura:if isTrue = "{!v.Creditvalue}">
+    	<div role="dialog" class="slds-modal slds-fade-in-open slds-backdrop slds-backdrop_open">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.handleCloseModal}">
+                            X
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h1 class="slds-text-heading--medium">Credit Services Check</h1>
+                    </div>
+                     
+                    <!--Modal Box Header-->
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <center> <p>
+                            Prior to submitting a credit check, please ensure that all company details selected using this function are correct. Failure to do so will result in the credit check being returned without competition
+                            
+                            </p></center>
+                    </div>
+                    <!--Modal Box Button-->
+                    <div class="slds-modal__footer">
+                        <button class="slds-button slds-button--brand" onclick="{!c.sendemail}">Send Request</button>
+                   		<button class="slds-button slds-button--brand" onclick="{!c.handleCloseModal}">Cancel</button>
+                    </div>
+                </div>
+            </div>
+    </aura:if>    
+    
+    <aura:if isTrue="{!v.processingText}">
+            <br/><br/><br/><br/>
+            <p style="font-size:15px;color:#1B5297;">
+                <center><b><aura:unescapedHtml value="Processing........" /></b></center>
+            </p>
+        </aura:if>
+    
+    <aura:if isTrue="{!v.successMessage}">
+        <div role="dialog" class="slds-modal slds-fade-in-open slds-backdrop slds-backdrop_open">
+                <div class="slds-modal__container">
+                    
+                     <div class="slds-modal__header">
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.handleCloseModal}">
+                            X
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h1 class="slds-text-heading--medium">Success</h1>
+                    </div>
+                    <!--Modal Box Header-->
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <center> <p style="font-size:15px;color:Green;">
+                            Credit check requested successfully.
+                            </p></center>
+                    </div>
+                    
+                </div>
+            </div>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.errorMessage}">
+		 <div role="dialog" class="slds-modal slds-fade-in-open slds-backdrop slds-backdrop_open">
+                <div class="slds-modal__container">
+                    
+                     <div class="slds-modal__header">
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.handleCloseModal}">
+                            X
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h1 class="slds-text-heading--medium">Error</h1>
+                    </div>
+                    <!--Modal Box Header-->
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <center> <p style="font-size:15px;color:red;">
+                            Account Name, Company Number and Billing Address is mandatory before sending email to Credit Services
+                            </p></center>
+                    </div>
+                    
+                </div>
+            </div>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "c63c91ad-e043-4ea5-b324-f7494accfcb1",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "Opt_out_of_registration__c",
+  "id" : "13e3cabc-bf69-48ac-b102-4d086bafebe7",
+  "label" : "Opt out of registration",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-opt-out-of-registration",
+  "type" : "route",
+  "urlPrefix" : "opt-out-of-registration"
+}

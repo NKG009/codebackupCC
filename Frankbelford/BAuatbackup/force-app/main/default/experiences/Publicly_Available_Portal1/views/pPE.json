@@ -1,0 +1,58 @@
+{
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "eeb6c66a-3621-4555-9e66-8e03e0450b5d",
+  "label" : "PPE",
+  "regions" : [ {
+    "id" : "dd7c2b1d-a81f-4a1a-83a8-e11c638990e3",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Untitled2removebg.1}\" style=\"width: 254.859px; height: 64.5625px;\"></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "99b4415f-2636-4199-b75a-86ad38e0162d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"recordId\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!ID}\"}]",
+        "flowName" : "PPE_Order_form"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "76a26a72-55e5-4117-bb5f-87b9d70ea56b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "26fd9458-a87b-49a1-9b81-5c9ee16e5cbf",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "e790b57d-8fce-4538-b8f5-489edc24b26d",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "PPE"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "6ae58a98-254f-4603-a7dc-e5aa974ac255",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1601681c-6afb-46cb-9bc5-a84fdd3f3e9f",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-ppe"
+}

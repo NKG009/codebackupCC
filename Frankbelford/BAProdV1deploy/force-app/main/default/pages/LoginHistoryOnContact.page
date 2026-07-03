@@ -1,0 +1,65 @@
+<apex:page standardController="Contact" extensions="LoginHistoryOnContactController">
+    <style>
+        #list {
+            table-layout: auto;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+
+        #form {
+            height: 100px;
+            width: 100%;
+        }
+
+        #NoHistory {
+            margin-top: 150px;
+            align-content: center;
+            float: center;
+            text-align: center;
+        }
+    </style>
+    <apex:form id="form">
+        <apex:pageBlock title="User History" rendered="{!If(display , true, false)}">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Next" action="{!Nextbtn}" disabled="{!flagfornext}" />
+                <apex:commandButton value="Previous" action="{!previousbtn}" disabled="{!flagforpre}" />
+            </apex:pageBlockButtons>
+            <apex:outputPanel >
+                <table class="list" border="0" cellpadding="0" cellspacing="0">
+                    <tr class="headerRow">
+                        <th class="headerRow"> Name </th>
+                        <th class="headerRow"> LoginTime </th>
+                        <th class="headerRow"> Browser </th>
+                        <th class="headerRow"> Login URL </th>
+                        <th class="headerRow"> Platform </th>
+                        <th class="headerRow"> Status </th>
+                    </tr>
+
+
+                    <div id="tableDiv">
+                        <!--<table class="list " border="0" cellpadding="0" cellspacing="0">-->
+                        <apex:repeat value="{!LoginHistory}" var="hist" id="repeat">
+                            <tr class="dataRow">
+                                <td class="dataCell"> {!username} </td>
+                                <td class="dataCell"> {!hist.LoginTime} </td>
+                                <td class="dataCell"> {!hist.Browser} </td>
+                                <td class="dataCell"> {!hist.LoginURL} </td>
+                                <td class="dataCell"> {!hist.Platform} </td>
+                                <td class="dataCell"> {!hist.Status} </td>
+                            </tr>
+                        </apex:repeat>
+                        <!--</table>-->
+
+                    </div>
+                </table>
+            </apex:outputPanel>
+
+        </apex:pageBlock>
+        <apex:outputPanel rendered="{!If(!display,true,false)}">
+            <div id="NoHistory">
+                No Login History Available.
+            </div>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

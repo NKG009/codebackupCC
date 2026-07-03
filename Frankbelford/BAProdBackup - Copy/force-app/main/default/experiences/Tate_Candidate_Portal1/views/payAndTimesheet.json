@@ -1,0 +1,62 @@
+{
+  "appPageId" : "b2fa95b0-e567-41d6-a9bd-0d8201b2a4b0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "33a76afe-22ee-4685-b91f-4e205deec4e8",
+  "label" : "pay-and-timesheet",
+  "regions" : [ {
+    "id" : "c76f05ba-82b0-4be6-af06-c8151d2c567f",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "bannerBackgroundColor" : "rgb(61, 56, 60)",
+        "bannerPosition" : "bottom",
+        "bannerSizePercent" : 20,
+        "borderRadius" : 10,
+        "boxShadow" : true,
+        "haveBanner" : false,
+        "iconBackgroundColor" : "rgb(255,255,255)",
+        "iconSize" : "large",
+        "noImageColor" : "rgb(212, 212, 212)",
+        "overlay" : "rgba(0,0,0,0.01)",
+        "templateType" : "icon",
+        "tileMenuEditor" : "Tile_Menu",
+        "titleColor" : "",
+        "titleFontSize" : "large",
+        "titleHorizontalAlign" : "center"
+      },
+      "componentName" : "community_navigation:tileMenu",
+      "id" : "bf9f0e2b-d668-4c05-9cc5-03483f2882be",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "60c968cf-98c9-41bb-bc89-b211391d386a",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "f3921083-3453-40c2-929b-29d75c8b6ef2",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "pay-and-timesheet"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "cc6c744e-647d-4a35-8a6d-cdd656e6686d",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "44649d4e-de81-48b1-a05e-ab330915c3d1",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-pay-and-timesheet"
+}

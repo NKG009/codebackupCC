@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "353412e8-d7b9-476a-85e9-8bac7f2a07d3",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "COBPerm__c",
+  "id" : "af45d28d-38fe-4977-8a95-7a723e7da439",
+  "label" : "COBPerm",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-cobperm",
+  "type" : "route",
+  "urlPrefix" : "cobperm"
+}

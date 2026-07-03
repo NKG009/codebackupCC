@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>smagicinteract__AllowToAddManualConsent</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>smagicinteract__AllowToEditSMSSettings</name>
+    </customPermissions>
+    <description>Added the custom permission to create consent record - related to SMS Magic</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>SMS Magic Consent Permission</label>
+</PermissionSet>

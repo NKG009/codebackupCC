@@ -1,0 +1,67 @@
+{
+  "appPageId" : "041e4717-8be1-40f6-b2cd-c2cec11d278f",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "0ca771ea-1bac-4d7e-8c50-e9d4070bf037",
+  "label" : "Register",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><img src=\"https://impellam--c.um5.content.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&amp;versionId=0684J00000GWaL9&amp;operationContext=DELIVERY&amp;contentId=05T4J000014QM84&amp;page=0&amp;d=/a/4J000000cHF2/KeP8FqstR0EYZziJHAZoMfD2dQX5su_y22jlWBHqC3I&amp;oid=00D0Y000000LzSj&amp;dpt=null&amp;viewId=\" alt=\"Tate logo sole\"></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "a42aa643-09b2-4abc-b813-61113d5a0161",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "confirmPasswordLabel" : "Confirm Password",
+        "emailLabel" : "Email",
+        "extraFieldsFieldSet" : "",
+        "firstnameLabel" : "First Name",
+        "includePasswordField" : true,
+        "lastnameLabel" : "Last Name",
+        "passwordLabel" : "Create Password",
+        "regConfirmUrl" : "/apex/SiteRegisterConfirm",
+        "startUrl" : "",
+        "submitButtonLabel" : "Sign Up"
+      },
+      "componentName" : "c:selfRegister",
+      "id" : "31caf2c4-93b8-4e89-8d43-d72fcd370b1a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: right;\"><a href=\"https://mytempagency.tate.co.uk\" rel=\"noopener noreferrer\" target=\"_self\" style=\"color: rgb(0, 0, 0); font-size: 14px; font-family: arial;\">Already Registered?</a></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "0b75fbd6-0bf4-4807-9c3b-a7d4fa5dab83",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c409d8ce-2008-4a74-aacf-ccd229d294d5",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Register"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "59c100eb-e647-45a5-a814-f468620d7eff",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "04126ac7-b2bc-4791-946f-f03028c558ba",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Login",
+  "type" : "view",
+  "viewType" : "self-register"
+}

@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "5d8f7636-3cbf-434a-8d25-2a84b4ffcb7b",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "224f6fe6-4bf1-4cde-bc52-9fa4246f6aec",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Timesheets_VMS_client_portalV2MyTimesheetVmsClient_Component",
+  "id" : "f55d2d80-7d72-47a1-8176-d6ef663ac72f",
+  "type" : "experienceVariation"
+}

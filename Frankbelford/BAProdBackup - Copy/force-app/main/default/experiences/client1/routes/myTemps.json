@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "89a2814a-e3f6-4369-955f-340b3301c20c",
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "configurationTags" : [ ],
+  "devName" : "My_Temps__c",
+  "id" : "f0966c38-3484-4e29-a5d9-58cc76af1b4b",
+  "label" : "My Temps",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-my-temps",
+  "type" : "route",
+  "urlPrefix" : "my-temps"
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_CandidateCallTypes__c</fullName>
+    <description>types of calls logged against a candidate record</description>
+    <label>Candidate Call Types</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>General Call</fullName>
+                <default>false</default>
+                <label>General Call</label>
+            </value>
+            <value>
+                <fullName>Left Message</fullName>
+                <default>false</default>
+                <label>Left Message</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

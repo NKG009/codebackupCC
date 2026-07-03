@@ -1,0 +1,31 @@
+<aura:component controller="Temp_Hours_Cnt" implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" >
+
+    <aura:attribute name="baseURL" type="String" />
+    <aura:attribute type="List" name="allshifts" />
+    <aura:attribute type="String" name="Monthlist"/>
+    <aura:attribute type="Boolean" name="ActiveVacancyFlag" />
+    <aura:attribute type="String" name="site" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.site}" action="{!c.reInit}" />
+
+    <div class="ElementDetail">
+        <div class="ElementDetail__pic-section">
+            <div class="ElementDetail__pic-section--chart">
+                <aura:if isTrue="{!v.ActiveVacancyFlag}" >
+                    <c:testlinechart Monthlist="{!v.Monthlist}"/>
+                </aura:if>
+            </div>
+        </div>
+        <div class="ElementDetail__content-section">
+            <h3>Current Shifts</h3>
+            <ul>
+                <aura:iteration items="{!v.allshifts}" var="shift">
+                    <li>{!shift.sirenum__Team__r.Name} <span>{!shift.sirenum__Site__r.Name}</span></li>
+                </aura:iteration>
+            </ul>
+        </div>
+    </div>
+    <button type="submit" class="query-btn" onclick="{!c.pastTempsNavigate}">View All</button>
+    <lightning:navigation aura:id="navService"/>
+</aura:component>

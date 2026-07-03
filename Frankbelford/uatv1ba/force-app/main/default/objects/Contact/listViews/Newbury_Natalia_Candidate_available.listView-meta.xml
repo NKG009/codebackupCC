@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Newbury_Natalia_Candidate_available</fullName>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>FULL_NAME</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>Person_Status__c</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Registration_Link_Sent__c</columns>
+    <columns>Registration_Status__c</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>IP_ReasonForRegistration__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>equals</operation>
+        <value>1062</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>nwint,O’Shaugh,cwait</value>
+    </filters>
+    <filters>
+        <field>Registration_Status__c</field>
+        <operation>equals</operation>
+        <value>Compliance,Complete</value>
+    </filters>
+    <label>Newbury -Natalia Candidate available</label>
+</ListView>

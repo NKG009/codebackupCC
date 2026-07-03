@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>This custom setting is used to activate or deactivate JS to Frost Functionality</description>
+    <enableFeeds>false</enableFeeds>
+    <label>JS to Frost Switch</label>
+    <visibility>Public</visibility>
+</CustomObject>

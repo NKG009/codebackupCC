@@ -1,0 +1,64 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "a7ec0a5a-5ca7-4985-bc09-e6702e198cdf",
+  "label" : "Bot Help",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "bannerText" : "",
+        "bannerTextWithKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineArticles\">articles</a> and <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+        "bannerTextWithoutKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+        "pageType" : "",
+        "showSubTopics" : true,
+        "title" : "Get Support",
+        "uniqueNameOrId" : ""
+      },
+      "componentName" : "forceCommunity:headline",
+      "id" : "2c27d57c-b836-49dc-bd94-04a4c1c327af",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "83342eba-ea38-448c-8fa1-923cba424517",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"font-size: 14px;\">You can get help on how to get the most from the Blue Arrow App by watching the video below.</span></p><p style=\"text-align: center;\"><br></p><div class=\"sfdcCbVideoContainer\"><iframe class=\"sfdcCbVideo\" allowfullscreen=\"true\" width=\"100%\" title=\"Video from https://www.youtube.com/embed/sVMa7JiYQVk\" src=\"https://www.youtube.com/embed/sVMa7JiYQVk\"></iframe></div><p style=\"text-align: center;\"><br></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "1e0f7367-ef9f-443b-883b-3d7d8b76f409",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b2ed779c-52bf-4516-8a0b-660137279794",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "89057355-203c-4710-ad65-2cd26c6b3238",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "Chat bot page",
+        "title" : "Bot Help"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "99edccf5-0681-4cc0-a79e-c6a631f30c76",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ee99f405-e1d6-43cf-b409-659de8225281",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-bot-help"
+}

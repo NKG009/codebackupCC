@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Generate_PDF</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Generate PDF</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>{!URLFOR(&apos;/apex/SDOC__SDCreate1&apos;, null,[id=Enhanced_Vetting__c.Id, Object=&apos;Enhanced_Vetting__c&apos;, doclist=&apos;Enhanced Vetting&apos;])}</url>
+</WebLink>

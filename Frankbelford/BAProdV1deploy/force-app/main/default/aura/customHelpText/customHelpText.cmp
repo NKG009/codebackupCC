@@ -1,0 +1,56 @@
+<aura:component >
+    <aura:attribute name="isDynamicText" type="Boolean" />
+    <aura:attribute name="helpText" type="String" default="information is not available!"/>
+    <aura:attribute name="shiftext" type="Boolean" default="false"/>
+    <aura:attribute name="candview" type="Boolean" default="false"/>
+ 
+    <div class="slds-form-element__icon">
+        <a href="javascript:void(0);" class="slds-form-element__icon slds-align-middle"
+           onclick="{!c.handleOnClick}"
+           onmouseout="{!c.handleMouseLeave}"
+           onmouseover="{!c.handleMouseEnter}"
+           tabindex="-1">
+            <button type="button" class="tooltip-btn" data-toggle="tooltip" data-placement="right" ><img src="{!$Resource.ImpellamPortal+'/ImpellamPortal/assets/img/tooltip-icon.png'}" alt="tooltip-icon"/></button>
+            <span class="slds-assistive-text">Help</span>
+        </a>
+
+        <div aura:id="divHelp" class="slds-popover_full-width slds-popover_tooltip ms-help-popup-in-header ms-help-popup-in-header slds-hide"
+             role="tooltip" aria-live="polite">
+        <!--<div aura:id="divHelp" class="{!'slds-popover_full-width slds-popover_tooltip ' + (v.isPopupLeft == true ? 'ms-help-popup-in-header-left' : 'ms-help-popup-in-header') +' slds-hide'}"
+             role="tooltip" aria-live="polite">-->
+            <aura:if isTrue="{!v.shiftext}">
+                <div class="slds-popover__body ms-help-popup-body testSize">
+                    Highlight records where actual hours match booked hours.
+                </div>
+                <aura:set attribute="else">
+                    <aura:if isTrue="{!v.candview}">
+                        <div class="slds-popover__body ms-help-popup-body testSize">
+                            Difference between actual hours and booked hours
+                        </div>
+                        <aura:set attribute="else">
+                            <aura:if isTrue="{!v.isDynamicText}">
+                                <div class="slds-popover__body ms-help-popup-body testSize">
+                                    {!v.helpText}
+                                </div>
+                                <aura:set attribute="else">
+                                    <div class="slds-popover__body ms-help-popup-body testSize">
+                                        Tell us more about your requirement including as much as you can of the following information: <br/><br/>
+                                        <ul>Job title</ul>
+                                        <ul>Pay range</ul>
+                                        <ul>Quantity of staff required</ul>
+                                        <ul>Typical working hours</ul>
+                                        <ul>Duration of requirement</ul>
+                                        <ul>Job description information</ul>
+                                        <ul>Plus anything else you think will help us find the right staff for you.</ul>
+                                        <!-- <ui:outputText value="{!v.text}" class="testSize"/>-->
+                                    </div>
+                                </aura:set>
+                            </aura:if>
+
+                        </aura:set>
+                    </aura:if>
+                </aura:set>
+            </aura:if>
+        </div>
+    </div>
+</aura:component>

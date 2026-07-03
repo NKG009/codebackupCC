@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2080_BAL_Sodexo_North_Staffs_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>2080-BAL Sodexo North Staffs</label>
+    <queue>X2080_BAL_Sodexo_North_Staffs</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,7 @@
+<!--
+ - Created by mrahman on 2020-08-03.
+ -->
+
+<design:component>
+    <design:attribute name="height" label="Height (in pixels)" default="500px" description="Component height" />
+</design:component>

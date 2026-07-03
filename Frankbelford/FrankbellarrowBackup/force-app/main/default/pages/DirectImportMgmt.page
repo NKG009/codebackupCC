@@ -1,0 +1,385 @@
+<apex:page lightningStylesheets="true" controller="directmgmtcontroller" sidebar="false">
+      <head>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <style>
+                a.disabled {
+           pointer-events: none;
+           cursor: default;
+        }
+                .form-errors {
+                    color: red;
+                    text-align:center; 
+                }
+            .mandatory-error{ 
+                color: red;
+                text-align:center; 
+            }
+            </style>
+            </head> 
+      <script>
+             var msg = {!$CurrentPage.Parameters.sx}
+             $(".form-errors").hide();  
+            if(msg=='1')
+            {
+                $(".form-errors").show();    
+                window.opener.location.href="/{!$CurrentPage.parameters.id}";
+                self.close();
+            }else{
+                $(".form-errors").hide();    
+            }
+            function CloseARefresh()
+            {      
+                window.opener.location.href="/{!$CurrentPage.parameters.id}";
+                self.close();
+            }    
+            function myFunction() {
+    location.href = "/apex/ShopDirectBatchHeader'+'?sx=2";
+     }
+    <!--window.onload = function() {
+      myFunction()
+      }; -->
+     </script>
+    <apex:actionstatus id="counterStatus">
+        <apex:facet name="start">
+            <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb; height:100%;opacity:0.65;width:100%;">
+                <div class="waitingHolder" style="top: 100px; width: 91px;">
+                <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                <span class="waitingDescription">Loading...</span>
+                </div>
+            </div>
+        </apex:facet>
+    </apex:actionstatus>
+         <apex:form id="form">
+                <apex:pageMessages id="errmsg" />
+               
+                    <apex:pageBlock title="Direct Import Management">   
+                    
+                     <apex:pageblocksection columns="1">                   
+                        
+                         
+                             <apex:pageblocksectionItem >
+                               <apex:outputPanel id="dur1">
+                              <b>   <apex:outputLabel value="Select Batch Type to Process:" /></b>
+                                    <apex:actionRegion >
+                                       
+                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      <apex:selectList styleClass="slds-vf-select" id="batchtype" size="1" value="{!selectedbatchtype}">
+                                                <apex:selectOptions value="{!batchtypeOptions}"/>
+                                                <apex:actionSupport event="onchange"  reRender="duration,durationtype,batchead,batchhead,abcpage,errmsg" action="{!updatenull}"/>
+                                        </apex:selectList>
+                                      
+                                </apex:actionRegion>
+                                 </apex:outputPanel>
+                           </apex:pageblocksectionItem>
+                            
+                         <apex:outputPanel id="duration">
+                            <apex:pageBlockSectionItem >
+                                                  
+                            <apex:outputPanel id="dur" rendered="{!IF(selectedbatchtype!=null,TRUE,FALSE)}">
+                           <b><apex:outputLabel value="Select Period:" rendered="{!IF(selectedbatchtype!=null,TRUE,FALSE)}"/>  </b>
+                             <apex:actionRegion >
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       <apex:selectList id="durationtype" size="1" value="{!selectedduration}">
+                                <apex:selectOptions value="{!Allduration}"/>
+                                <apex:actionSupport event="onchange"  reRender="batchead,batchhead,abcpage,errmsg" action="{!updatebatchnull}"/>
+                            </apex:selectList>
+                            </apex:actionRegion>
+                            </apex:outputPanel>
+                           </apex:pageBlockSectionItem>
+                            </apex:outputPanel>
+                       
+                       <apex:outputpanel id="batchead">
+                       <apex:pageblocksectionItem >
+                    
+                         <apex:outputPanel id="a" rendered="{!IF(selectedduration!=null,TRUE,FALSE)}">
+                         <b>    <apex:outputLabel value="Select Batch Header to Process:" rendered="{!IF(selectedduration!=null,TRUE,FALSE)}"/> </b>
+                             <apex:actionRegion >
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <apex:selectList id="batchhead" size="1" value="{!selectedbatchId}">
+                                <apex:selectOptions value="{!batchOptions}"/>
+                               <apex:actionSupport event="onchange"  action="{!checkstatus}" reRender="pageBlockButtonstop,pageBlockButtonsbottom"/>  
+                            </apex:selectList>
+                            </apex:actionRegion>
+                           </apex:outputPanel> 
+                           </apex:pageblocksectionItem>
+                           </apex:outputpanel>
+                           
+                            
+                        </apex:pageblocksection>   
+                                                                 
+                        <apex:pageBlockButtons location="top">
+                            <apex:outputpanel id="pageBlockButtonstop"> 
+                                <apex:commandButton styleClass="slds-vf-button_brand" value="Approve/Reprocess Batch" rendered="{!IF((status  == 'Pending Approval' || status == 'Errored'),TRUE,FALSE)}" disabled="{!If($CurrentPage.Parameters.sx=='1',true, false)}" action="{!approvebatch}" onclick="if({!checkrender== 'true'}){
+                                alert('The batch job is currently executing. Please wait for it to complete.');
+                                }else{
+                                alert('Batch process initiated'); 
+                                }">
+                                </apex:commandbutton>
+
+
+                                <apex:commandButton value="Reject Batch" rendered="{!IF(status  == 'Pending Approval',TRUE,FALSE)}" onclick="return confirm('Are you sure?');" action="{!rejectbatch}" />
+                                <apex:commandButton value="Close Batch" rendered="{!IF(status  == 'Errored',TRUE,FALSE)}" onclick="return confirm('Are you sure?');" action="{!closebatch}"/>
+                            </apex:outputpanel> 
+                        </apex:pageBlockButtons>  
+                                  
+                        <apex:pageBlockButtons location="bottom">
+                            <apex:outputpanel id="pageBlockButtonsbottom"> 
+                                <apex:commandButton status="counterStatus" reRender="check1,errmsg,myButtons" styleClass="slds-vf-button_brand" value="Show All Lines" action="{!displaylines}"/>   
+                                <apex:commandButton status="counterStatus" reRender="check1,errmsg,myButtons" styleClass="slds-vf-button_brand" value="Show Errored Lines" action="{!showerroredlines}"/>
+                            </apex:outputpanel> 
+                        </apex:pageBlockButtons>     
+                        
+                                      </apex:pageBlock>
+                                      <apex:outputPanel id="check1">
+                                      <apex:pageblock id="abcpage">
+                                      
+                                      <!---------------When there is no Data------------------>
+                                <apex:pageBlockTable value="{!batchline}" var="b"  rendered="{!ISNULL(batchline) && batchlineBoolean}">
+                                        <apex:column headerValue="Status">
+                                       </apex:column> 
+                                       
+                                        <apex:column rendered="{!IF(AND(btype != 'Capita',btype != 'Beeline'),true,false)}" headerValue="Candidate Name">
+                                       </apex:column>
+
+                                       <apex:column rendered="{!IF(btype == 'Beeline',true,false)}" headerValue="Candidate Name">
+                                       </apex:column>
+                                        
+                                       <apex:column rendered="{!IF(btype == 'Beeline',TRUE,FALSE)}">
+                                          <apex:facet name="header">Branch Name</apex:facet>
+                                        </apex:column>
+                                        
+                                        <apex:column rendered="{!IF(btype == 'Beeline',TRUE,FALSE)}">
+                                            <apex:facet name="header">Branch Cost Code</apex:facet>
+                                        </apex:column>
+                                       
+                                       <apex:column rendered="{!IF(btype == 'Capita',true,false)}" headerValue="Candidate Legacy ID">
+                                       </apex:column>   
+                                       
+                                       <apex:column rendered="{!IF(OR(btype == 'Capita',btype == 'Beeline'),true,false)}"  headerValue="Payroll ID">
+                                       </apex:column> 
+                                       
+                                        <apex:column rendered="{!IF(btype != 'Generic',TRUE,FALSE)}">
+                                          <apex:facet name="header">Week Ending</apex:facet>
+                                        </apex:column>
+                                        
+                                        <apex:column rendered="{!IF(btype == 'Generic',TRUE,FALSE)}">
+                                          <apex:facet name="header">Week Ending</apex:facet>
+                                        </apex:column>
+                                        
+                                        <apex:column >
+                                          <apex:facet name="header">Record ID</apex:facet>
+                                        </apex:column>
+                                        
+                                        <apex:column >
+                                          <apex:facet name="header">Batch Line</apex:facet> 
+                                        </apex:column>
+                                        
+                                        <apex:column rendered="{!IF(AND(btype != 'Capita',btype != 'Beeline',btype != 'Generic'),TRUE,FALSE)}">
+                                          <apex:facet name="header">Job Role</apex:facet>
+                                        </apex:column>
+                                        
+                                        <apex:column rendered="{!IF(AND(btype != 'Capita',btype != 'Beeline',btype != 'Generic'),TRUE,FALSE)}">
+                                          <apex:facet name="header">Rate Code</apex:facet>
+                                        </apex:column>
+                                        
+                                        <apex:column rendered="{!IF(OR(btype == 'Capita',btype == 'Generic'),TRUE,FALSE)}">
+                                          <apex:facet name="header">Rate Code</apex:facet>
+                                        </apex:column>
+                                        
+                                       
+                                        
+                                        <apex:column rendered="{!IF(btype == 'Beeline',TRUE,FALSE)}">
+                                          <apex:facet name="header">Rate Code</apex:facet>
+                                        </apex:column>
+                                        
+                                        <apex:column rendered="{!IF(btype == 'Beeline',TRUE,FALSE)}">
+                                          <apex:facet name="header">Hours</apex:facet> 
+                                        </apex:column>
+                                         
+                                        <apex:column >
+                                          <apex:facet name="header">Pay Rate</apex:facet> 
+                                        </apex:column>
+                                        
+                                        <apex:column >
+                                          <apex:facet name="header">Charge Rate</apex:facet>                                           
+                                        </apex:column>
+                                        
+                                        <apex:column >
+                                          <apex:facet name="header">Error Reason</apex:facet>                                           
+                                        </apex:column>
+
+                                </apex:pageBlockTable>
+                                               
+                                        <!---------------When Data exists------------------>       
+                                <apex:pageBlockTable value="{!batchline}" var="b" rendered="{!NOT(ISNULL(batchline)) && batchlineBoolean}">
+                                       <apex:column >
+                                         <apex:facet name="header">   
+                                           <apex:commandLink reRender="check1" action="{!showlines}" value="Status{!IF(sortExpression=='IP_Status__c',IF(sortDirection='ASC','▼','▲'),'')}" id="cmdSort1">
+                                             <apex:param value="IP_Status__c" name="column" assignTo="{!sortExpression}" ></apex:param>
+                                           </apex:commandLink>
+                                         </apex:facet>
+                                         <apex:outputText >{!b.IP_Status__c}</apex:outputText>
+                                       </apex:column> 
+                                       
+                                         <apex:column rendered="{!IF(btype == 'Generic',true,false)}">
+                                          <apex:facet name="header">Payroll ID</apex:facet>   
+                                           <apex:outputField value="{!b.IP_TextField2__c}"></apex:outputField>
+                                        </apex:column>
+                                       
+                                        <apex:column rendered="{!IF(AND(btype != 'Capita',btype != 'Beeline'),true,false)}">
+                                         <apex:facet name="header">   
+                                           <apex:commandLink reRender="abcpage" action="{!showlines}" value="Candidate Name{!IF(sortExpression=='IP_TextField1__c',IF(sortDirection='ASC','▼','▲'),'')}" id="cmdSort">
+                                             <apex:param value="IP_TextField1__c" name="column" assignTo="{!sortExpression}" ></apex:param>
+                                           </apex:commandLink>
+                                         </apex:facet>
+                                         <apex:outputText >{!b.IP_TextField1__c}</apex:outputText>
+                                       </apex:column>
+                                       
+                                       <apex:column rendered="{!IF(btype == 'Beeline',true,false)}">
+                                         <apex:facet name="header">   
+                                           <apex:commandLink reRender="abcpage" action="{!showlines}" value="Candidate Name{!IF(sortExpression=='IP_TextField1__c',IF(sortDirection='ASC','▼','▲'),'')}">
+                                             <apex:param value="IP_TextField1__c" name="column" assignTo="{!sortExpression}" ></apex:param>
+                                           </apex:commandLink>
+                                         </apex:facet>
+                                        <!-- <apex:outputPanel rendered="{!IF(mapBatchLineIdCandidateName[b.tbachline.id]=='',true,false)}">
+                                            <apex:outputText ></apex:outputText>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel rendered="{!IF(mapBatchLineIdCandidateName[b.tbachline.id]!='',true,false)}">
+                                            <apex:outputText >{!b.tbachline.IP_TextField1__c}</apex:outputText>
+                                        </apex:outputPanel>-->
+                                        <apex:outputText >{!b.IP_TextField1__c}</apex:outputText>
+                                       </apex:column>
+                                        
+                                       <apex:column rendered="{!IF(btype == 'Beeline',TRUE,FALSE)}">
+                                          <apex:facet name="header">Branch Name</apex:facet>
+                                          <apex:outputPanel rendered="{!IF(mapBatchLineIdCandidateBranchName[b.id]=='',true,false)}">
+                                                <apex:outputText ></apex:outputText>
+                                            </apex:outputPanel>
+                                            <apex:outputPanel rendered="{!IF(mapBatchLineIdCandidateBranchName[b.id]=='',false,true)}">
+                                                <apex:outputText >{!mapBatchLineIdCandidateBranchName[b.id]}</apex:outputText>
+                                            </apex:outputPanel>
+                                        </apex:column>
+                                        
+                                        <apex:column rendered="{!IF(btype == 'Beeline',TRUE,FALSE)}">
+                                            <apex:facet name="header">Branch Cost Code</apex:facet>
+                                            <apex:outputPanel rendered="{!IF(mapBatchLineIdCandidateBranchPostCode[b.id]=='',true,false)}">
+                                                <apex:outputText ></apex:outputText>
+                                            </apex:outputPanel>
+                                            <apex:outputPanel rendered="{!IF(mapBatchLineIdCandidateBranchPostCode[b.id]=='',false,true)}">
+                                                <apex:outputText >{!mapBatchLineIdCandidateBranchPostCode[b.id]}</apex:outputText>
+                                            </apex:outputPanel>                             
+                                        </apex:column>
+                                       
+                                       <apex:column rendered="{!IF(btype == 'Capita',true,false)}">
+                                         <apex:facet name="header">   
+                                           <apex:commandLink reRender="abcpage" action="{!showlines}" value="Candidate Legacy ID{!IF(sortExpression=='IP_TextField1__c',IF(sortDirection='ASC','▼','▲'),'')}" id="cmdSort4">
+                                             <apex:param value="IP_TextField1__c" name="column" assignTo="{!sortExpression}" ></apex:param>
+                                           </apex:commandLink>
+                                         </apex:facet>
+                                         <apex:outputText >{!b.IP_TextField1__c}</apex:outputText>
+                                       </apex:column>   
+                                       
+                                       <apex:column rendered="{!IF(OR(btype == 'Capita',btype == 'Beeline'),true,false)}">
+                                         <apex:facet name="header">   
+                                           <apex:commandLink reRender="abcpage" action="{!showlines}" value="Payroll ID{!IF(sortExpression=='IP_TextField2__c',IF(sortDirection='ASC','▼','▲'),'')}" id="cmdSort3">
+                                             <apex:param value="IP_TextField2__c" name="column" assignTo="{!sortExpression}" ></apex:param>
+                                           </apex:commandLink>
+                                         </apex:facet>
+                                         <apex:outputText >{!b.IP_TextField2__c}</apex:outputText>
+                                       </apex:column>  
+                                        <apex:column rendered="{!IF(btype != 'Generic',true,false)}">
+                                          <apex:facet name="header">Week Ending</apex:facet>   
+                                           <apex:outputField value="{!b.IP_DateField1__c}"></apex:outputField>
+                                        </apex:column>
+                                          
+                                        <apex:column rendered="{!IF(btype == 'Generic',true,false)}">
+                                          <apex:facet name="header">Week Ending</apex:facet>   
+                                           <apex:outputField value="{!b.IP_DateField2__c}"></apex:outputField>
+                                        </apex:column>
+                                        
+                                        <apex:column >
+                                          <apex:facet name="header">Record ID</apex:facet>   
+                                             <apex:outputField value="{!b.id}"></apex:outputField>
+                                       
+                                        </apex:column>
+                                        <apex:column >
+                                          <apex:facet name="header">Batch Line</apex:facet>   
+                                           <apex:outputText >{!b.Name}</apex:outputText>
+                                        </apex:column>
+                                        <apex:column rendered="{!IF(AND(btype != 'Capita',btype != 'Beeline',btype != 'Generic'),TRUE,FALSE)}">
+                                          <apex:facet name="header">Job Role</apex:facet>   
+                                           <apex:outputText >{!b.IP_TextField4__c}</apex:outputText>
+                                        </apex:column>
+                                         <apex:column rendered="{!IF(btype == 'Generic',TRUE,FALSE)}">
+                                          <apex:facet name="header">Job Role</apex:facet>   
+                                           <apex:outputText >{!b.IP_TextField5__c}</apex:outputText>
+                                        </apex:column>
+                                        <apex:column rendered="{!IF(AND(btype != 'Capita',btype != 'Beeline',btype != 'Generic'),TRUE,FALSE)}">
+                                          <apex:facet name="header">Rate Code</apex:facet>   
+                                           <apex:outputText >{!b.IP_TextField9__c}</apex:outputText>
+                                        </apex:column>
+                                        
+                                        <apex:column rendered="{!IF(OR(btype == 'Capita',btype == 'Generic'),TRUE,FALSE)}">
+                                          <apex:facet name="header">Rate Code</apex:facet>   
+                                           <apex:outputText >{!b.IP_TextField3__c}</apex:outputText>
+                                        </apex:column>
+                                        
+                                       
+                                        
+                                        <apex:column rendered="{!IF(btype == 'Beeline',TRUE,FALSE)}">
+                                          <apex:facet name="header">Rate Code</apex:facet>   
+                                           <apex:outputText >{!b.IP_TextField3__c}</apex:outputText>
+                                        </apex:column>
+                                        
+                                        <apex:column rendered="{!IF(btype == 'Beeline',TRUE,FALSE)}">
+                                          <apex:facet name="header">Hours</apex:facet>   
+                                           <apex:outputText value="{0, number, 00.00}">
+                                                  <apex:param value="{!b.IP_Number12d4Field1__c}" />
+                                            </apex:outputText>
+                                          
+                                        </apex:column>
+                                         
+                                        <apex:column >
+                                          <apex:facet name="header">Pay Rate</apex:facet>   
+                                           <apex:outputText value="{0, number, 00.00}">
+                                                  <apex:param value="{!b.IP_CurrencyField1__c}" />
+                                            </apex:outputText>
+                                         
+                                        </apex:column>
+                                        <apex:column >
+                                          <apex:facet name="header">Charge Rate</apex:facet>   
+                                          <apex:outputText value="{0, number, 00.00}">
+                                                  <apex:param value="{!b.IP_CurrencyField2__c}" />
+                                            </apex:outputText>
+                                           
+                                        </apex:column>
+                                         <apex:column >
+                                         <apex:facet name="header">   
+                                           <apex:commandLink reRender="abcpage" action="{!showlines}" value="Error Reason{!IF(sortExpression=='IP_ErrorReason__c',IF(sortDirection='ASC','▼','▲'),'')}" id="cmdSort2">
+                                             <apex:param value="IP_ErrorReason__c" name="column" assignTo="{!sortExpression}" ></apex:param>
+                                           </apex:commandLink>
+                                         </apex:facet>
+                                         <apex:outputText >{!b.IP_ErrorReason__c}</apex:outputText>
+                                       </apex:column> 
+                                       
+                                      </apex:pageBlockTable>
+                                      
+                                      
+                                    <apex:pageBlockButtons id="myButtons" rendered="{!batchlineBoolean}" >
+                                        <apex:commandLink rendered="{!DisablePrevious == False}" action="{!Previous}"  status="counterStatus" reRender="abcpage,myButtons" value="Previous" />
+                                        <apex:outputLabel rendered="{!DisablePrevious == True}" value="Previous" />  
+                                           <apex:outputLabel value=" (Page {!pageNumber} of {!totalPages} | Showing {!counter} to {!pagesize} of {!total_size}) " />
+                                            
+                                            <apex:commandLink action="{!Next}" rendered="{!DisableNext == False}"  status="counterStatus" reRender="abcpage,myButtons" value="Next" />
+                                            <apex:outputLabel rendered="{!DisableNext == True}" value="Next" />
+                              
+
+                                        </apex:pageBlockButtons> 
+                                    </apex:pageblock>
+
+                                       
+                                             
+                       
+                                 
+                                     </apex:outputPanel>
+                                  
+                                  </apex:form>
+
+    </apex:page>

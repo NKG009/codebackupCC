@@ -1,0 +1,255 @@
+<template>
+  <template if:true={displayComponent}>
+    <div class="mobile-header slds-var-p-bottom_medium">
+      <img src={blueArrowLogo} alt="Blue Arrow Logo Main" />
+      <lightning-combobox
+        label="Site Selection"
+        value={siteSelectedByUser}
+        options={loggedInUserSites}
+        variant="label-hidden"
+        onchange={selectionChangeHandler}
+        disabled={isPicklistDisabled}
+        class="slds-var-p-top_xx-small"
+      >
+      </lightning-combobox>
+    </div>
+    <!-- Edit breaks modal -->
+    <template if:true={showEditBreaksModal}>
+      <div class="modal-container slds-var-p-around_medium">
+        <div
+          if:true={loading}
+          class="full-height slds-size_1-of-1 slds-align_absolute-center"
+        >
+          <div class="spinner">
+            <lightning-spinner
+              alternative-text="Loading"
+              size="large"
+            ></lightning-spinner>
+          </div>
+        </div>
+        <template if:false={loading}>
+          <lightning-tabset>
+            <!-- Edit Breaks tab-->
+            <lightning-tab label="Edit Breaks">
+              <div class="modal-wrapper">
+                <div class="slds-var-p-around_small modal-body">
+                  <div class="slds-var-p-top_x-small">
+                    <div class="break-item table-header">
+                      <lightning-formatted-text
+                        class="field-label"
+                        value="Duration (Hours)"
+                      ></lightning-formatted-text>
+                      <lightning-formatted-text
+                        class="field-label"
+                        value="Delete"
+                      ></lightning-formatted-text>
+                    </div>
+                    <template
+                      for:each={breaksModalData}
+                      for:item="shiftBreak"
+                      for:index="index"
+                    >
+                      <div
+                        key={shiftBreak.Id}
+                        class="break-item slds-p-vertical_small"
+                      >
+                        <lightning-input
+                          data-id={shiftBreak.Id}
+                          variant="label-hidden"
+                          value={shiftBreak.sirenum__Duration__c}
+                          onchange={onRowEdit}
+                          type="number"
+                          step="0.01"
+                        ></lightning-input>
+                        <lightning-button-icon
+                          icon-name="utility:delete"
+                          alternative-text="Delete"
+                          class="slds-m-right_x-small delete-button"
+                          title="Delete"
+                          data-id={shiftBreak.Id}
+                          onclick={deleteBreakRow}
+                        ></lightning-button-icon>
+                      </div>
+                    </template>
+                    <div class="break-item table-footer slds-var-p-top_small">
+                      <div></div>
+                      <lightning-button-icon
+                        icon-name="utility:add"
+                        alternative-text="add row"
+                        class="slds-m-right_x-small delete-button"
+                        title="Add row"
+                        onclick={addBreakRow}
+                      ></lightning-button-icon>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer" slot="footer">
+                  <lightning-button
+                    label="Cancel"
+                    variant="brand-outline"
+                    onclick={handleBreakModalClose}
+                    class="slds-var-m-horizontal_x-small"
+                  ></lightning-button>
+                  <lightning-button
+                    label="Save"
+                    variant="brand"
+                    onclick={saveBreaks}
+                    class="slds-var-m-horizontal_x-small"
+                  ></lightning-button>
+                </div>
+              </div>
+            </lightning-tab>
+            <!-- Amend hours tab -->
+            <lightning-tab label="Amend Shift Information">
+              <div class="modal-wrapper">
+                <div class="slds-var-p-around_small">
+                  <lightning-input
+                    label="Start Time"
+                    onchange={onStartTimeChange}
+                    type="time"
+                    value={actualStartTime}
+                    required
+                  ></lightning-input>
+                  <lightning-input
+                    label="End Time"
+                    onchange={onEndTimeChange}
+                    type="time"
+                    value={actualEndTime}
+                    required
+                  ></lightning-input>
+                  <lightning-input
+                    label="PO Number"
+                    onchange={onPOChanged}
+                    type="text"
+                    value={poNumber}
+                  >
+                  </lightning-input>
+                </div>
+                <div class="card-footer" slot="footer">
+                  <lightning-button
+                    label="Cancel"
+                    variant="brand-outline"
+                    onclick={handleBreakModalClose}
+                    class="slds-var-m-horizontal_x-small"
+                  ></lightning-button>
+                  <lightning-button
+                    label="Save"
+                    variant="brand"
+                    onclick={updateActualShiftHours}
+                    class="slds-var-m-horizontal_x-small"
+                  ></lightning-button>
+                </div>
+              </div>
+            </lightning-tab>
+          </lightning-tabset>
+        </template>
+      </div>
+    </template>
+    <!-- Rejection modal -->
+    <template if:true={showRejectModal}>
+      <div class="modal-container slds-var-p-around_medium">
+        <div class="modal-header">
+          <lightning-formatted-text
+            class="field-label title"
+            value="Reject Shift"
+          ></lightning-formatted-text>
+        </div>
+        <div class="slds-var-p-around_small modal-body">
+          <lightning-textarea
+            name="rejectReason"
+            label="Rejection reason"
+            onchange={handleRejectionReasonChange}
+          ></lightning-textarea>
+        </div>
+        <div class="card-footer" slot="footer">
+          <lightning-button
+            label="Cancel"
+            variant="brand-outline"
+            onclick={toggleRejectModal}
+            class="slds-var-m-horizontal_x-small"
+          ></lightning-button>
+          <lightning-button
+            label="Confirm"
+            variant="brand"
+            onclick={rejectSelectedTimesheets}
+            class="slds-var-m-horizontal_x-small"
+          ></lightning-button>
+        </div>
+        <!-- </lightning-card> -->
+      </div>
+    </template>
+    <div>
+      <c-portal-v2-shift-approve-widget
+        site-id={siteSelectedByUser}
+        override-style={widgetOverrideStyle}
+        hide-nav-button
+      ></c-portal-v2-shift-approve-widget>
+    </div>
+    <div class="card-holder slds-var-p-top_medium">
+      <div class="fore-card card">
+        <template if:true={hasRecords}>
+          <div class="card-display-grid">
+            <template for:each={currentShift} for:item="column">
+              <div key={column.columnName} class="field-container">
+                <p class="field-label">{column.label}</p>
+                <template if:true={column.isText}>
+                  <lightning-formatted-text value={column.value}>
+                  </lightning-formatted-text
+                ></template>
+                <template if:true={column.isDate}>
+                  <lightning-formatted-date-time
+                    value={column.value}
+                    year="numeric"
+                    month="2-digit"
+                    day="2-digit"
+                  ></lightning-formatted-date-time>
+                </template>
+                <template if:true={column.isTime}>
+                  <lightning-formatted-date-time
+                    value={column.value}
+                    hour="numeric"
+                    minute="numeric"
+                  ></lightning-formatted-date-time>
+                </template>
+                <template if:true={column.isNumber}>
+                  <lightning-formatted-number
+                    value={column.value}
+                  ></lightning-formatted-number>
+                </template>
+              </div>
+            </template>
+          </div>
+          <div class="button-container">
+            <lightning-button
+              label="Reject"
+              variant="destructive"
+              icon-name="utility:close"
+              onclick={toggleRejectModal}
+            ></lightning-button>
+            <lightning-button
+              label="Accept"
+              variant="success"
+              icon-name="utility:check"
+              onclick={approveSelectedTimesheets}
+            ></lightning-button>
+            <lightning-button
+              label="Amend Shift"
+              variant="neutral"
+              onclick={openBreakModal}
+            ></lightning-button>
+          </div>
+        </template>
+        <template if:false={hasRecords}>
+          <div class="records-missing-view">
+            <lightning-formatted-text
+              value="Theres nothing here... You have no pending approvals."
+              class="field-label records-missing-title"
+            ></lightning-formatted-text>
+          </div>
+        </template>
+      </div>
+      <div class="mid-card card"></div>
+      <div class="back-card card"></div>
+    </div>
+  </template>
+</template>

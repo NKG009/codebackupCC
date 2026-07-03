@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_Leavers_Request</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Leaver Request</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/apex.js&quot;)}
+
+var count = &quot;{!Contact.IP_Allpayprofiles__c}&quot;
+var shiftframe = &quot;{!$Label.ShiftTimeframestart}&quot;
+var shiftframe1 = &quot;{!$Label.ShiftTimeframeend}&quot;
+var shiftnames = [];
+var timesheetnames = [];
+var timeresults = [];
+var suppreason = &quot;{!Contact.P45_Suppression_Reason__c}&quot;
+
+if(suppreason == &apos;Not Suppressed&apos; || suppreason == &apos;&apos;)
+{
+
+if(count&gt;0)
+{
+if(count==1)
+{
+var shiftrec = sforce.connection.query(&quot;Select id,sirenum__Cancelled__c,name,sirenum__Published__c,sirenum__Timesheet_summaries__c,sirenum__Billable_Calculated_Start_Time__c from sirenum__shift__c where sirenum__Contact__c =&apos;{!Contact.Id}&apos; and sirenum__Published__c= TRUE and (sirenum__Cancelled__c=false and sirenum__Timesheet_summaries__c =&apos;&apos;) and (sirenum__Billable_Calculated_Start_Time__c = null OR sirenum__Billable_Calculated_Start_Time__c=LAST_N_DAYS:&quot;+shiftframe+&quot; OR sirenum__Billable_Calculated_Start_Time__c=NEXT_N_DAYS:&quot;+shiftframe1+&quot;)&quot;);
+
+var shiftlist = shiftrec.getArray(&quot;records&quot;);
+
+var timerec = sforce.connection.query(&quot;Select id,IP_LastPassedToTempest__c,IP_Locktimesheet__c,sirenum__Timesheet__r.sirenum__Worker__c,IP_PassToTempest__c,sirenum__Timesheet__r.Name,sirenum__Timesheet__r.IP_StandardWeeklyNumberID__c from sirenum__Timesheet_Line__c where sirenum__Timesheet__r.sirenum__Worker__c=&apos;{!Contact.Id}&apos; and ((IP_LastPassedToTempest__c=null and IP_PassToTempest__c = TRUE and IP_Locktimesheet__c = FALSE) OR (IP_PassToTempest__c = TRUE and IP_Locktimesheet__c = FALSE))&quot;);
+
+var timelist = timerec.getArray(&quot;records&quot;);
+
+if(shiftlist.length&gt;0 || timelist.length&gt;0)
+{
+for(var i=0;i&lt;shiftlist.length;i++)
+{
+var name = shiftlist[i].Name;
+shiftnames.push(name);
+
+}
+
+if(timelist.length == 1)
+{
+for(var i=0;i&lt;timelist.length;i++)
+{
+var name1 = timelist[i].sirenum__Timesheet__r.IP_StandardWeeklyNumberID__c;
+
+timesheetnames.push(name1);
+timeresults.push(name1);
+}
+}
+else
+{
+for(var i=0;i&lt;timelist.length;i++)
+{
+var name1 = timelist[i].sirenum__Timesheet__r.IP_StandardWeeklyNumberID__c;
+
+timesheetnames.push(name1);
+}
+
+for (var i = 0; i &lt;= timesheetnames.length - 1; i++) {
+if (timesheetnames[i + 1] != timesheetnames[i]) {
+timeresults.push(timesheetnames[i]);
+}
+}
+}
+if(shiftlist.length&gt;0 &amp;&amp; timelist.length&gt;0)
+{
+alert(&apos;Candidate has the following timesheet(s) pending payroll. Please wait until the next payroll process has completed. \n &apos;+&apos;Timesheet ID: &apos;+timeresults + &apos;\n\nCandidate has the following active shift(s). Please cancel or reassign shifts before making Leaver Request. \n&apos;+shiftnames)
+}
+else if(shiftlist.length&gt;0)
+{
+alert(&apos;Candidate has the following active shift(s). Please cancel or reassign shifts before making Leaver Request. \n&apos;+&apos; &apos;+shiftnames);
+}
+else
+{
+alert(&apos;Candidate has the following timesheet(s) pending payroll. Please wait until the next payroll process has completed. \n&apos;+&apos;Timesheet ID: &apos;+timeresults);
+}
+}
+else
+{
+window.open(&apos;/apex/CaptureReasonforLeaving?id={! Contact.Id}&apos;, &apos;_blank&apos;, &apos;height=550,width=800,resizable=yes,scrollbars=yes,toolbar=n??o,menubar=no&apos;);
+}
+
+
+}
+else
+{
+window.open(&apos;/apex/CandidateP45Action?id={! Contact.Id}&apos;, &apos;_blank&apos;, &apos;height=550,width=800,resizable=yes,scrollbars=yes,toolbar=n??o,menubar=no&apos;);
+}
+}
+
+else
+
+{
+alert(&apos;Only candidates with active pay profile(s) are qualified for Leaver Request.&apos;);
+location.reload(true);
+}
+}
+else
+{
+alert(&apos;Candidate has been P45 suppressed. Please remove the Suppression Reason before making the leaver request.&apos;);
+location.reload(true);
+}</url>
+</WebLink>

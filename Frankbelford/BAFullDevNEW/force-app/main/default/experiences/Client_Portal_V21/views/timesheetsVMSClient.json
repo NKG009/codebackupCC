@@ -1,0 +1,46 @@
+{
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "4d3da6e3-94d9-4992-ad76-a4626b2742b2",
+  "label" : "Timesheets VMS client",
+  "regions" : [ {
+    "id" : "e1b66b3f-8503-4336-86a2-4c014b94f5b9",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2MyTimesheetVmsClient",
+      "id" : "8c2c3d06-6de1-4878-a701-c93f4bac2daa",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8a82a5c2-c6f2-460d-a023-d27074e87aa5",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "196c204c-87d7-436e-8f2d-9215490cad2e",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Timesheets VMS client"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "8411167c-7566-4fa7-84af-eb3ebfc3ce78",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f351764a-57ac-4dc7-b88f-73cd56fa7d71",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-timesheets-vms-client"
+}

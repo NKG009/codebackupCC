@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>S_Placement_Submission_Failed</fullName>
+    <columns>NAME</columns>
+    <columns>stgAtsCandidateIntegrationRef__c</columns>
+    <columns>stgSPlacementId__c</columns>
+    <columns>stgApplicationStatus__c</columns>
+    <columns>stgSubmissionStatus__c</columns>
+    <columns>stgSubmissionDatetime__c</columns>
+    <columns>stgSPlacementSubmitted__c</columns>
+    <columns>stgSubmissionError__c</columns>
+    <columns>stgFrontOfficeIntegrationSystem__c</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>stgSubmissionStatus__c</field>
+        <operation>equals</operation>
+        <value>S-Placement Submission Failed</value>
+    </filters>
+    <label>S-Placement Submission Failed</label>
+    <language>en_US</language>
+</ListView>

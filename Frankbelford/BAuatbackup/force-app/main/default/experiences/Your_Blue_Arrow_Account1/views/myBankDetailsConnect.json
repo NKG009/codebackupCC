@@ -1,0 +1,49 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "913f1326-6b8c-46e0-878a-13c7bff266fd",
+  "label" : "My Bank Details Connect",
+  "regions" : [ {
+    "id" : "dfd93ee8-09d9-4942-8700-d4c6071267b0",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[]",
+        "flowName" : "Candidate_Portal_Bank_Details"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "4c7467d2-862d-4dcf-9e64-a981587088e9",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "11af1f23-393a-484d-b6a6-517b44f1aa91",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "a28ad224-4feb-45d7-8dc3-4ab6b2536ba3",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My Bank Details Connect"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "069cc936-fda1-4f3e-bafe-35cfeeb8b0a9",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b5a69404-f2b4-4c9a-8109-237476c5fcb0",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-my-bank-details-connect"
+}

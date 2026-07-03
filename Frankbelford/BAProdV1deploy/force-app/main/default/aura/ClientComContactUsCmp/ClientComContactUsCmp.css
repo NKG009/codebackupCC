@@ -1,0 +1,125 @@
+.THIS .background{
+background-image:url(/resource/newimage)!important;
+    background-size:32px;
+    background-position: top;
+    background-repeat: no-repeat;
+    }
+.THIS .dashboard-section__leftNav > li ul{
+    right: -23rem !important;
+}
+.THIS .dashboard-section__leftNav div:hover{
+    background-color:#fff;
+    color:#00aae3;
+    outline:2px solid !important;
+}
+.THIS .dashboard-section__leftNav--timesheets li:hover{
+    background-color:#fff;
+    color:#00aae3;
+}
+.THIS .dashboard-section__leftNav--timesheets li:hover a{
+    color : #00aae3 !important;
+}
+.THIS .dashboard-section__leftNav--vacancies li:hover{
+    background-color:#fff;
+    color:#00aae3;
+}
+.THIS .dashboard-section__leftNav--vacancies li:hover a{
+    color:#00aae3;
+}
+.THIS .dashboard-section__leftNav--temp li:hover{
+    background-color:#fff;
+    color:#00aae3
+}
+.THIS .dashboard-section__leftNav--temp li:hover a{
+   color:#00aae3;
+}
+.THIS .imag
+    {
+        background-image:url('/profilephoto/005/T');
+        width:48px;
+        height:50px;
+    } 
+.THIS .slds-form-element__label{
+    color: #000000;
+    font-weight: bold;
+    font-size: initial;
+    padding-bottom: 10px;
+    margin-top: -10px;
+}
+.THIS .inputtxt{
+    height: 40px !important;
+}
+.THIS .selectpickercls{
+    height: 40px;
+    border: 1px solid #d7d7d7;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    font-size: 14px;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    font-family: DIN-Medium !important;
+}
+.THIS .datatable{
+    
+    width:500px;
+    
+    border-collapse: collapse;
+    
+    margin: 0 auto;
+}
+
+.THIS .divtable{
+    width:500px;
+    text-align:center;
+}
+
+.THIS .inputtext{
+    width:500px;
+    
+    
+}
+.THIS .Backbutton{
+    color : white;
+    background-color: #6f6f6e;
+    border-color: #6f6f6e;
+}
+.THIS .Backbutton:hover{
+    color : white;
+    background-color: #99998e;
+    border-color: #99998e;
+}
+.THIS .Submitbutton{
+    color : white;
+    background-color: #a8cd1b;
+    border-color: #a8cd1b;
+}
+
+.THIS .mainLoginInput::-webkit-input-placeholder {
+    font-size: 14px !important;
+}
+
+.THIS .mainLoginInput:-ms-input-placeholder {
+    font-size: 14px !important;
+}
+
+.THIS .mainLoginInput:-moz-placeholder {/* older Firefox*/
+    font-size: 14px !important;
+}
+
+.THIS .mainLoginInput::-moz-placeholder {/* Firefox 19+ */
+    font-size: 14px !important;
+}
+.THIS .slds-select{
+    height: 40px !important;
+    margin-top: 0px;
+    font-size: medium;
+}
+.THIS .form-element__help{
+    font-size: 15px;
+}
+.THIS .uiInput--select{
+    background-size: 20px !important;
+}

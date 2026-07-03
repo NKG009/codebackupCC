@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "eeb6c66a-3621-4555-9e66-8e03e0450b5d",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "PPE__c",
+  "id" : "11bb9570-d94a-4515-b93a-1461d887c25f",
+  "label" : "PPE",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-ppe",
+  "type" : "route",
+  "urlPrefix" : "ppe"
+}

@@ -1,0 +1,64 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "b82a7ff6-7c01-4490-a458-a24128a84b47",
+  "label" : "New Vacancy",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"font-size: 24px; color: rgb(0, 0, 0);\">New Vacancy﻿</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "45d33bc3-8031-451e-929c-ceebd17e2d85",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "858e9399-c09f-4a5f-9905-9ebde53b1cd7",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:NewVacancyCmp",
+      "id" : "e7247061-9562-41e6-ae6b-0ce321fc3888",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1fcc86ca-fe1c-4d65-aaaf-4ad1e6f09daf",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:HomeLayoutFooter",
+      "id" : "638aefe0-182c-4372-bebc-e8840b9fc53d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "db3332a0-9e2f-43fa-8792-3642235ce133",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "New Vacancy"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "a041b649-beef-4472-b5b2-ec6c8b39f650",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "34da8f64-53c1-478d-b3c6-bb291fe897cd",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "1fitOSCZL0c31jnY0VvGUv41yZqrsW",
+  "type" : "view",
+  "viewType" : "custom-new-vacancy"
+}

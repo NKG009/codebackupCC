@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "e5b0fbd5-96f9-4a45-9cd5-c182e9dacafa",
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "configurationTags" : [ ],
+  "devName" : "SRG__c",
+  "id" : "ed66b6d4-080c-4f88-a45e-a06e4fffcaa8",
+  "label" : "SRG",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-srg",
+  "type" : "route",
+  "urlPrefix" : "SRG"
+}

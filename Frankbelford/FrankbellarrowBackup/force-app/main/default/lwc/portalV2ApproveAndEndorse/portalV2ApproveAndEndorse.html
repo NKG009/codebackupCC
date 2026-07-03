@@ -1,0 +1,322 @@
+<template>
+  <section
+    aria-modal="true"
+    class="slds-modal slds-modal_medium slds-fade-in-open"
+  >
+    <div class="slds-modal__container">
+      <header class="slds-modal__header">
+        <h2 class="slds-text-heading_medium">Approve Shifts</h2>
+        <lightning-button-icon
+          class="slds-modal__close"
+          variant="bare-inverse"
+          icon-name="utility:close"
+          size="large"
+          onclick={closeClicked}
+        ></lightning-button-icon>
+      </header>
+      <div class="slds-modal__content modal-body">
+        <div class="slds-var-p-around_large full-height-container">
+          <template if:true={loading}>
+            <div class="spinner__container">
+              <lightning-spinner
+                alternative-text="Loading"
+                size="large"
+              ></lightning-spinner>
+            </div>
+          </template>
+          <template if:false={loading}>
+            <!--!Body-->
+            <table class="slds-table slds-table_cell-buffer">
+              <thead>
+                <tr class="slds-line-height_reset header__row grey-bg">
+                  <th style="text-align: start" class="table__header"></th>
+                  <th scope="col" class="table__header">
+                    <div class="slds-truncate header-title" title="Candidate">
+                      <p class="table-header">Candidate</p>
+                    </div>
+                  </th>
+                  <th scope="col" class="table__header">
+                    <div class="slds-truncate header-title" title="Job Role">
+                      <p class="table-header">Job Role</p>
+                    </div>
+                  </th>
+                  <th scope="col" class="table__header">
+                    <div class="slds-truncate header-title" title="Site">
+                      <p class="table-header">Site</p>
+                    </div>
+                  </th>
+                  <th scope="col" class="table__header">
+                    <div class="slds-truncate header-title" title="Total Hours">
+                      <p class="table-header">Total Hours</p>
+                    </div>
+                  </th>
+                  <th scope="col" class="table__header">
+                    <div
+                      class="slds-truncate header-title"
+                      title="Total Chargeable Hours"
+                    >
+                      <p class="table-header">Total Chargeable Hours</p>
+                    </div>
+                  </th>
+                  <th
+                    scope="col"
+                    class="table__header"
+                    if:true={displayEndorsementColumn}
+                  >
+                    <div
+                      class="slds-truncate header-title"
+                      title="Preferred Worker"
+                    >
+                      <p class="table-header">Preferred Worker</p>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <template iterator:parent={shiftRecords}>
+                  <!-- <div class="summary-parent flex__row" key={parent.value.id}> -->
+                  <tr class="body__row" key={parent.value.id}>
+                    <td class="flex__row slds-truncate checkbox__column">
+                      <div class="slds-grid checkbox__container">
+                        <img
+                          if:false={parent.value.hidden}
+                          alt="Toggle detailed view"
+                          onclick={toggleSubTableShow}
+                          class="slds-var-p-left_medium clickable__element carat"
+                          name={parent.value.id}
+                          src={primaryAnchorCaretOpen}
+                        />
+                        <img
+                          if:true={parent.value.hidden}
+                          alt="Toggle detailed view"
+                          onclick={toggleSubTableShow}
+                          class="slds-var-p-left_medium clickable__element carat"
+                          name={parent.value.id}
+                          src={primaryAnchorCaret}
+                        />
+                      </div>
+                    </td>
+                    <td class="text-wrap-column">
+                      <div
+                        class="slds-truncate ellipsis__truncation"
+                        title={parent.value.candidate}
+                      >
+                        <p class="body-text">{parent.value.candidate}</p>
+                      </div>
+                    </td>
+                    <td class="text-wrap-column">
+                      <div title={parent.value.jobRole}>
+                        <p class="body-text">{parent.value.jobRole}</p>
+                      </div>
+                    </td>
+                    <td class="text-wrap-column">
+                      <div title={parent.value.site}>
+                        <p class="body-text">{parent.value.site}</p>
+                      </div>
+                    </td>
+                    <td class="text-wrap-column">
+                      <div title={parent.value.totalHours}>
+                        <p class="body-text">{parent.value.totalHours}</p>
+                      </div>
+                    </td>
+                    <td class="text-wrap-column">
+                      <div title={parent.value.totalChargeableHours}>
+                        <p class="body-text">
+                          {parent.value.totalChargeableHours}
+                        </p>
+                      </div>
+                    </td>
+                    <td if:true={displayEndorsementColumn}>
+                      <div title="endorse">
+                        <lightning-button-stateful
+                          data-id={parent.value.id}
+                          label-when-off="Prefer Worker"
+                          label-when-on="Preferred Worker"
+                          label-when-hover="Preferred Worker"
+                          icon-name-when-off="utility:ribbon"
+                          icon-name-when-on="utility:check"
+                          selected={parent.value.endorsed}
+                          onclick={handleEndorsedChange}
+                        >
+                        </lightning-button-stateful>
+                      </div>
+                    </td>
+                  </tr>
+                  <template if:false={parent.value.hidden}>
+                    <tr key={parent.value.id} class="dropdown-row">
+                      <td colspan="7" class="subtable__container">
+                        <!--! Subtable start -->
+                        <table class="slds-table slds-table_cell-buffer">
+                          <thead>
+                            <tr class="slds-line-height_reset header__row">
+                              <th scope="col" class="table__header">
+                                <div
+                                  class="slds-truncate header-title"
+                                  title="Start Date"
+                                >
+                                  <p class="table-header">Start Date</p>
+                                </div>
+                              </th>
+                              <th scope="col" class="table__header">
+                                <div
+                                  class="slds-truncate header-title"
+                                  title="End Date"
+                                >
+                                  <p class="table-header">End Date</p>
+                                </div>
+                              </th>
+                              <th scope="col" class="table__header">
+                                <div
+                                  class="slds-truncate header-title"
+                                  title="Start Time"
+                                >
+                                  <p class="table-header">Start Time</p>
+                                </div>
+                              </th>
+                              <th scope="col" class="table__header">
+                                <div
+                                  class="slds-truncate header-title"
+                                  title="End Time"
+                                >
+                                  <p class="table-header">End Time</p>
+                                </div>
+                              </th>
+                              <th scope="col" class="table__header">
+                                <div
+                                  class="slds-truncate header-title"
+                                  title="Actual Hours"
+                                >
+                                  <p class="table-header">Actual Hours</p>
+                                </div>
+                              </th>
+                              <th scope="col" class="table__header">
+                                <div
+                                  class="slds-truncate header-title"
+                                  title="Chargeable Hours"
+                                >
+                                  <p class="table-header">Chargeable Hours</p>
+                                </div>
+                              </th>
+                              <th scope="col" class="table__header">
+                                <div class="slds-truncate header-title"></div>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <template iterator:record={parent.value.shifts}>
+                              <tr key={record.value.id} class="body__row">
+                                <td>
+                                  <div
+                                    class="slds-truncate"
+                                    title={record.value.startDate}
+                                  >
+                                    <lightning-formatted-date-time
+                                      value={record.value.startDate}
+                                      year="numeric"
+                                      month="2-digit"
+                                      day="2-digit"
+                                      class="body-text"
+                                    ></lightning-formatted-date-time>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div
+                                    class="slds-truncate"
+                                    title={record.value.endDate}
+                                  >
+                                    <lightning-formatted-date-time
+                                      value={record.value.endDate}
+                                      year="numeric"
+                                      month="2-digit"
+                                      day="2-digit"
+                                      class="body-text"
+                                    ></lightning-formatted-date-time>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div
+                                    class="slds-truncate"
+                                    title={record.value.startDate}
+                                  >
+                                    <lightning-formatted-date-time
+                                      value={record.value.startDate}
+                                      hour="2-digit"
+                                      minute="2-digit"
+                                      class="body-text"
+                                    ></lightning-formatted-date-time>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div
+                                    class="slds-truncate"
+                                    title={record.value.endDate}
+                                  >
+                                    <lightning-formatted-date-time
+                                      value={record.value.endDate}
+                                      hour="2-digit"
+                                      minute="2-digit"
+                                      class="body-text"
+                                    ></lightning-formatted-date-time>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div
+                                    class="slds-truncate"
+                                    title={record.value.actualHours}
+                                  >
+                                    <p class="body-text">
+                                      {record.value.actualHours}
+                                    </p>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div
+                                    class="slds-truncate"
+                                    title={record.value.chargeableHours}
+                                  >
+                                    <p class="body-text">
+                                      {record.value.chargeableHours}
+                                    </p>
+                                  </div>
+                                </td>
+                                <td>
+                                  <lightning-button-icon
+                                    icon-name="utility:close"
+                                    onclick={removeShift}
+                                    data-id={record.value.id}
+                                    data-parent={parent.value.id}
+                                    size="large"
+                                    variant="bare"
+                                    alternative-text="Remove Shift Selection"
+                                  ></lightning-button-icon>
+                                </td>
+                              </tr>
+                            </template>
+                          </tbody>
+                        </table>
+                        <!--! Subtable end  -->
+                      </td>
+                    </tr>
+                  </template>
+                </template>
+              </tbody>
+            </table>
+          </template>
+        </div>
+      </div>
+      <div class="slds-modal__footer flex-footer" if:false={loading}>
+        <lightning-button
+          label="Cancel"
+          onclick={closeClicked}
+          variant="neutral"
+        ></lightning-button>
+        <lightning-button
+          label="Approve"
+          onclick={approveClicked}
+          variant="brand"
+        ></lightning-button>
+      </div>
+    </div>
+  </section>
+  <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

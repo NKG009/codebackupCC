@@ -1,0 +1,76 @@
+.THIS .Button{
+    width:100px;
+    height:31px;
+}
+.THIS .inactivebutton{
+     background-color: #b0adab;
+    color: #fff;
+    
+}
+.THIS .datatable{
+    
+    width:1000px;
+    border: 1px solid lightgrey;
+    border-collapse: collapse;
+    background-color: #fff;
+     margin: 0 auto;
+}
+.THIS .datatable2{
+    
+    width:1000px;
+   
+     margin: 0 auto;
+}
+.THIS .divtable{
+    width:1300px;
+    text-align:center;
+}
+.THIS .trsize{
+     height:50px;
+   
+}
+.THIS .trheadersize{
+     height:40px;
+   
+}
+.THIS .headingfont{
+   font-family: Arial;
+	font-size: 15px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 26.4px;
+    color : #009ee3;
+  border-bottom: 2px solid darkgray ;
+    border-top: 2px solid darkgray ;
+    
+}
+.THIS .Weekbutton{
+    color : white;
+     background-color: #a8cd1b;
+    border-color: #a8cd1b;
+     width:110px;
+}
+.THIS .Weekbutton:hover{
+    color : white;
+     background-color: #96aa4b;
+    border-color: #96aa4b;
+     width:110px;
+}
+.THIS .InWeekbutton{
+    color : white;
+     background-color: grey;
+    border-color: grey;
+    width:110px;
+}
+
+.THIS .Backbutton{
+    color : white;
+     background-color: #6f6f6e;
+    border-color: #6f6f6e;
+}
+.THIS .Backbutton:hover{
+    color : white;
+     background-color: #99998e;
+    border-color: #99998e;
+}

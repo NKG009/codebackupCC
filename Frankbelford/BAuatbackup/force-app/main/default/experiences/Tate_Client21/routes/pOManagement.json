@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "0e62bc9e-16fe-4582-86b1-c3811c4bb259",
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "configurationTags" : [ ],
+  "devName" : "PO_Management__c",
+  "id" : "ea23f36e-f159-4423-980f-fe7331ad5e7f",
+  "label" : "PO Management",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-pomanage",
+  "type" : "route",
+  "urlPrefix" : "pomanage"
+}

@@ -1,0 +1,32 @@
+<apex:page standardController="IP_PayProfile__c" lightningStylesheets="true">
+   
+    <apex:pagemessages /> 
+    <apex:form >
+         <style>
+  .pbTitle{display:none;}
+  </style>
+ 
+      <!--  <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+            <apex:slds />
+        </apex:outputPanel> -->
+        <apex:sectionHeader title="Pay Profile" subtitle="{!IP_PayProfile__c.Name}"/>
+        <apex:pageBlock title="Pay Profile Address" mode="edit">
+            <apex:pageblockButtons location="top" style="text-align:center;">
+               <!-- <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+                    <apex:commandButton styleClass="slds-vf-button_neutral" style="visibility: hidden;" value="HideThis Command Button"/>
+                </apex:outputPanel> -->
+                <apex:commandButton value="Save" action="{!Save}" styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageblockButtons>
+            <apex:pageBlockSection title="Address Finder">        
+                <pca:AddressFinder label="Business" record="{!IP_PayProfile__c}" address="PayProfile"/>
+            </apex:pageBlockSection>
+            <apex:pageblockButtons location="bottom" style="text-align:center;">
+                <apex:commandButton value="Save" action="{!Save}" styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageblockButtons>
+        </apex:pageBlock>
+    </apex:form>  
+</apex:page>

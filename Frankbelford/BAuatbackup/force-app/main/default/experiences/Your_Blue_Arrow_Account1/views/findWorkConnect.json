@@ -1,0 +1,49 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "391d739b-8d46-4351-826b-14a6acfc4696",
+  "label" : "Find Work Connect",
+  "regions" : [ {
+    "id" : "35b96cc7-a13b-440f-b249-d7d5a8133acf",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "Candidate_Portal_Shift_Search"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "5ce2f15e-40ee-43a1-b682-b9c8f7c80a7b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "da7e5770-db14-4e3a-a4f3-01738d184aa7",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "d9ee33c8-d9e1-422d-adb2-5fe8445ac25e",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Find Work Connect"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "c0ea7621-45bb-4fe8-b8f1-b3e5f31c4ff6",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "cefde8cf-bcee-464e-95ba-ee4174bcc60b",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-find-work-connect"
+}

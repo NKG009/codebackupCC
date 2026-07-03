@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rob_Sourcing_ACTIVE_candidates</fullName>
+    <columns>Owner__c</columns>
+    <columns>Person_Status__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>ts2__Jobs_Applied_For__c</columns>
+    <columns>Missing_Compliance_Details__c</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <columns>ts2__People_Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>ts2__Desired_Salary__c</columns>
+    <columns>Perm_Notes__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Owner__c</field>
+        <operation>equals</operation>
+        <value>rob jones,simon holmes,bobby harris</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>excludes</operation>
+        <value>Office</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>OX</value>
+    </filters>
+    <label>Rob Sourcing ACTIVE candidates</label>
+</ListView>

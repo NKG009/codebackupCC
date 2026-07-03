@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ts2__Employer_1_Title</fullName>
+    <active>false</active>
+    <description>Prevents the Employer 1 Title from being longer than 255 characters.</description>
+    <errorConditionFormula>LEN( ts2__Employer1Title__c) &gt; 255</errorConditionFormula>
+    <errorDisplayField>ts2__Employer1Title__c</errorDisplayField>
+    <errorMessage>Please reduce the amount of characters in this field to be 255 characters or less.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Task_Follow_Up_Date_Required</fullName>
+    <active>true</active>
+    <description>follow up date required when status = completed for specific task types</description>
+    <errorConditionFormula>AND(
+    OR(
+        ISPICKVAL(IP_TaskType__c, &quot;Applicant Mailer&quot;),
+        ISPICKVAL(IP_TaskType__c, &quot;Competitor Check-in&quot;),
+        ISPICKVAL(IP_TaskType__c, &quot;Sales Call&quot;),
+        ISPICKVAL(IP_TaskType__c, &quot;Sales Visit&quot;),
+        ISPICKVAL(IP_TaskType__c, &quot;Spec Call&quot;),
+        ISPICKVAL(IP_TaskType__c, &quot;Mailer/E-marketing&quot;),
+        ISPICKVAL(IP_TaskType__c, &quot;Client Drop In&quot;)
+    ),
+    OR(
+        AND(
+            ISCHANGED(Status),
+            ISPICKVAL(Status, &quot;Completed&quot;),
+            ISBLANK(Follow_up_date__c),
+            NOT(No_Future_Task__c)
+        ),
+        AND(
+            ISNEW(),
+            ISPICKVAL(Status, &quot;Completed&quot;),
+            ISBLANK(Follow_up_date__c),
+            NOT(No_Future_Task__c)
+        )
+    ),
+    OR(
+        ISBLANK(WhatId),
+        NOT(BEGINS(WhatId, &quot;a8W&quot;))
+    )
+)</errorConditionFormula>
+    <errorDisplayField>Follow_up_date__c</errorDisplayField>
+    <errorMessage>When task is set to &apos;Completed&apos;, Follow up date or No Future Task is required to either automatically create your next task or ignore.</errorMessage>
+</ValidationRule>

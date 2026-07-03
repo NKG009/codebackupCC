@@ -1,0 +1,263 @@
+<template>
+  <template if:true={loading}>
+    <div class="spinner slds-align_absolute-center">
+      <lightning-spinner
+        alternative-text="loading"
+        size="large"
+      ></lightning-spinner>
+    </div>
+  </template>
+  <template if:false={loading}>
+    <table class="slds-table slds-table_cell-buffer">
+      <thead>
+        <tr class="slds-line-height_reset header__row">
+          <th style="text-align: start" class="table__header">
+            <lightning-input
+              label="Select All"
+              type="checkbox"
+              variant="label-hidden"
+              data-id="all__checkbox"
+              data-role="main"
+              onchange={handleMainSelectAll}
+            ></lightning-input>
+          </th>
+          <template for:each={mainTableColumnStatus} for:item="column">
+            <template if:true={column.selected}>
+              <th key={column.fieldAPIName} scope="col" class="table__header">
+                <div class="slds-truncate header-title" title={column.column}>
+                  <p class="table-header">{column.column}</p>
+                  <template if:true={column.filterable}>
+                    <img
+                      class="slds-var-p-horizontal_small clickable__element"
+                      src={column.filterIcon}
+                      alt={column.filterType}
+                      name={column.fieldAPIName}
+                      title={column.column}
+                      onclick={handleFilterClick}
+                    />
+                  </template>
+                </div>
+              </th>
+            </template>
+          </template>
+        </tr>
+      </thead>
+      <tbody>
+        <template iterator:record={filteredShifts}>
+          <tr class="body__row" key={record.value.Id}>
+            <td class="flex__row slds-truncate checkbox__column">
+              <div class="slds-grid checkbox__container">
+                <lightning-input
+                  variant="label-hidden"
+                  label="Select"
+                  type="checkbox"
+                  data-id={record.value.Id}
+                  data-role="main"
+                  onchange={handleSingleSelection}
+                  checked={record.value.selected}
+                ></lightning-input>
+                <img
+                  if:false={record.value.hidden}
+                  alt="Toggle detailed view"
+                  onclick={toggleSubTableShow}
+                  class="slds-var-p-left_medium clickable__element"
+                  name={record.value.Id}
+                  src={primaryAnchorCaretOpen}
+                />
+                <img
+                  if:true={record.value.hidden}
+                  alt="Toggle detailed view"
+                  onclick={toggleSubTableShow}
+                  class="slds-var-p-left_medium clickable__element"
+                  name={record.value.Id}
+                  src={primaryAnchorCaret}
+                />
+              </div>
+            </td>
+            <template for:each={record.value.columnInfo} for:item="column">
+              <template if:true={column.selected}>
+                <td key={column.key}>
+                  <div class="slds-truncate" title={column.value}>
+                    <template if:true={column.isText}>
+                      <p class="body-text">{column.value}</p>
+                    </template>
+                    <template if:true={column.isDate}>
+                      <lightning-formatted-date-time
+                        value={column.value}
+                        year="numeric"
+                        month="2-digit"
+                        day="2-digit"
+                        class="body-text"
+                      ></lightning-formatted-date-time>
+                    </template>
+                    <template if:true={column.isTime}>
+                      <lightning-formatted-date-time
+                        value={column.value}
+                        hour="2-digit"
+                        minute="2-digit"
+                        class="body-text"
+                      ></lightning-formatted-date-time>
+                    </template>
+                    <template if:true={column.isRating}>
+                      <c-portal-v2-star-rating
+                        rating={record.value.tempRating}
+                        max-stars="5"
+                        rating-out-of={record.value.tempRatingLength}
+                        has-rating={record.value.hasRating}
+                      ></c-portal-v2-star-rating>
+                    </template>
+                    <template if:true={column.isCurrentShift}>
+                      <p class="slds-text-body_regular body-text">
+                        {record.value.currentShifts}
+                      </p>
+                    </template>
+                  </div>
+                </td>
+              </template>
+            </template>
+          </tr>
+          <template if:false={record.value.hidden}>
+            <tr key={record.value.Id} class="dropdown-row">
+              <td colspan="6" class="subtable__container">
+                <!--! Subtable start -->
+                <table class="slds-table slds-table_cell-buffer">
+                  <thead>
+                    <tr class="slds-line-height_reset header__row">
+                      <th scope="col" class="table__header sub-table__header">
+                        <lightning-input
+                          variant="label-hidden"
+                          label="Select All"
+                          type="checkbox"
+                          data-role="sub"
+                          data-id="selectAll"
+                          data-parent={record.value.Id}
+                          onchange={handleSubSelectAll}
+                        ></lightning-input>
+                      </th>
+                      <template
+                        for:each={subTableColumnStatus}
+                        for:item="column"
+                      >
+                        <template if:true={column.selected}>
+                          <th
+                            key={column.fieldAPIName}
+                            scope="col"
+                            class="table__header sub-table__header"
+                          >
+                            <div class="slds-truncate" title={column.column}>
+                              <p class="table-header">{column.column}</p>
+                              <template if:true={column.filterable}>
+                                <img
+                                  class="
+                                    slds-var-p-horizontal_small
+                                    clickable__element
+                                  "
+                                  src={column.filterIcon}
+                                  alt={column.filterType}
+                                  name={column.fieldAPIName}
+                                  title={column.column}
+                                  onclick={handleFilterClick}
+                                />
+                              </template>
+                            </div>
+                          </th>
+                        </template>
+                      </template>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <template iterator:record={record.value.shifts}>
+                      <tr key={record.value.id} class="body__row">
+                        <td>
+                          <lightning-input
+                            variant="label-hidden"
+                            label="Select"
+                            type="checkbox"
+                            data-id={record.value.id}
+                            data-parent={record.value.parentId}
+                            data-role="sub"
+                            onchange={handleSubtableSingleSelection}
+                            checked={record.value.selected}
+                          ></lightning-input>
+                        </td>
+                        <template
+                          for:each={record.value.columnInfo}
+                          for:item="column"
+                        >
+                          <template if:true={column.selected}>
+                            <td key={column.key}>
+                              <div class="slds-truncate" title={column.value}>
+                                <template if:true={column.isText}>
+                                  <p class="body-text">{column.value}</p>
+                                </template>
+                                <template if:true={column.isDate}>
+                                  <lightning-formatted-date-time
+                                    value={column.value}
+                                    year="numeric"
+                                    month="2-digit"
+                                    day="2-digit"
+                                    class="body-text"
+                                  ></lightning-formatted-date-time>
+                                </template>
+                                <template if:true={column.isTime}>
+                                  <lightning-formatted-date-time
+                                    value={column.value}
+                                    hour="2-digit"
+                                    minute="2-digit"
+                                    class="body-text"
+                                  ></lightning-formatted-date-time>
+                                </template>
+                              </div>
+                            </td>
+                          </template>
+                        </template>
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
+                <!--! Subtable end  -->
+              </td>
+            </tr>
+          </template>
+        </template>
+      </tbody>
+    </table>
+    <template if:true={textFilterModalOpen}>
+      <div data-id="filterModal" class="filter__modal">
+        <c-portal-v2-filter-modal
+          filter-terms={filterTerms}
+          column-label={filterColumnLabel}
+          filter-click-type={filterClickType}
+          onclose={handleFilterModalClose}
+          onapplyfilter={handleApplyFilter}
+          onresetfilter={handleApplyFilter}
+        ></c-portal-v2-filter-modal>
+      </div>
+    </template>
+    <template if:true={dateFilterModalOpen}>
+      <div data-id="dateFilterModal" class="filter__modal">
+        <c-portal-v2-date-filter-modal
+          column={filterClickType}
+          default-selected-date={defaultSelectedDate}
+          onclose={handleDateFilterModalClose}
+          onapplyfilter={handleApplyFilter}
+          onresetfilter={handleApplyFilter}
+        ></c-portal-v2-date-filter-modal>
+      </div>
+    </template>
+    <template if:true={adjustColumnsModalOpen}>
+      <div>
+        <div data-id="adjustColumnsModal" class="column_adjust__modal">
+          <c-portalv2-column-picker
+            has-secondary-table="true"
+            main-table-column-selection={mainTableColumnStatus}
+            sub-table-column-selection={subTableColumnStatus}
+            onclose={handleCloseColumnModal}
+            onapplyfilters={handleColumPickerFilter}
+          >
+          </c-portalv2-column-picker>
+        </div>
+      </div>
+    </template>
+  </template>
+</template>

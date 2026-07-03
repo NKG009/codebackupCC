@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Swansea_Client_Contacts</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Skills__c</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Sub_Category__c</field>
+        <operation>equals</operation>
+        <value>Care Home,College,Contract Catering,Education,Estate Agents/Housing Market,Facilities,Food Production,Garden Centre,Healthcare Services (Public Sector),Private Care Home,Private Hospital,Utilities,Warehouse &amp; Distribution</value>
+    </filters>
+    <label>Swansea Client Contacts</label>
+</ListView>

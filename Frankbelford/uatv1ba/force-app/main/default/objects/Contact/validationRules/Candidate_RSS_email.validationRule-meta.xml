@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Candidate_RSS_email</fullName>
+    <active>false</active>
+    <description>Candidate emails cannot contain RSS Global</description>
+    <errorConditionFormula>AND(
+RecordTypeId =&apos;0120Y000000UW9j&apos;,
+Contains(Email,&apos;rssglobal.com&apos;))</errorConditionFormula>
+    <errorDisplayField>Email</errorDisplayField>
+    <errorMessage>Candidate emails cannot contain RSS Global</errorMessage>
+</ValidationRule>

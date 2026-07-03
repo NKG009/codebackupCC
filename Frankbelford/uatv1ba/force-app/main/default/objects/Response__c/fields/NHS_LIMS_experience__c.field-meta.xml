@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NHS_LIMS_experience__c</fullName>
+    <inlineHelpText>Please select the category which best describes your level of experience:</inlineHelpText>
+    <label>LIMS experience</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Limited - I would require a complete refresh or assistance using it</fullName>
+                <default>false</default>
+                <label>Limited - I would require a complete refresh or assistance using it</label>
+            </value>
+            <value>
+                <fullName>Intermediate - I would require a brief introduction and then would be comfortable using it</fullName>
+                <default>false</default>
+                <label>Intermediate - I would require a brief introduction and then would be comfortable using it</label>
+            </value>
+            <value>
+                <fullName>Advanced - I know how to use LIMS system and could lead and train others</fullName>
+                <default>false</default>
+                <label>Advanced - I know how to use LIMS system and could lead and train others</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

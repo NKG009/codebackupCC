@@ -1,0 +1,48 @@
+<apex:page sidebar="false" showHeader="false" docType="html-5.0" >
+
+
+<script type="text/javascript">
+
+
+
+
+function changeUrl1()
+{    
+    var url1 ="https://www.youtube.com/embed/ZYaGRHZKjUk";
+    console.log("url1");
+    document.getElementById('frame').src = url1;
+    
+    
+}
+
+function changeUrl2()
+{
+    var url2 ="https://www.youtube.com/embed/Mmo1l1H2wc8";
+    console.log("url2");
+    document.getElementById('frame').src = url2;
+    
+}
+
+
+
+
+</script>
+
+
+
+<html>
+<body>
+
+<iframe id="frame" width="420" height="345"
+src="http://www.youtube.com/v/XGSy3_Czz8k">
+</iframe>
+
+<a onclick="changeUrl1()" class="Video" name="Video1">Video1</a>
+<a onclick="changeUrl2()" class="Video" name="Video2">Video2</a>
+
+
+</body>
+</html>
+
+
+</apex:page>

@@ -1,0 +1,14 @@
+@import "c/portalV2CSSLibrary";
+
+.banner {
+  width: 100%;
+  min-height: 10em;
+  border-radius: 20px;
+  box-shadow: -15px 0px 22px #00000029;
+}
+
+.text-container {
+  /* width: 80%; */
+  padding-inline: 4em;
+  padding-block: 1em;
+}

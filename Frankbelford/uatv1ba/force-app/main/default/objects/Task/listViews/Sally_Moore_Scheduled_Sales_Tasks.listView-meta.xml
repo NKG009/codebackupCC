@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sally_Moore_Scheduled_Sales_Tasks</fullName>
+    <columns>SUBJECT</columns>
+    <columns>WHO_NAME</columns>
+    <columns>WHAT_NAME</columns>
+    <columns>DUE_DATE</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>PRIORITY</columns>
+    <columns>STATUS</columns>
+    <columns>UPDATEDBY_USER.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>STATUS</field>
+        <operation>equals</operation>
+        <value>Not Started,In Progress,Waiting on someone else</value>
+    </filters>
+    <filters>
+        <field>SUBJECT</field>
+        <operation>contains</operation>
+        <value>Call</value>
+    </filters>
+    <filters>
+        <field>SUBJECT</field>
+        <operation>notContain</operation>
+        <value>Birthday</value>
+    </filters>
+    <filters>
+        <field>WHAT_NAME</field>
+        <operation>notContain</operation>
+        <value>CDP</value>
+    </filters>
+    <filters>
+        <field>IP_TaskType__c</field>
+        <operation>equals</operation>
+        <value>Sales Call,Spec Call,General Call,Sales Visit,Service Visit,T-P / Perm,Mailer/E-marketing,Competitor Check-In,Applicant Mailer,Client Drop In</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.FULL_NAME</field>
+        <operation>contains</operation>
+        <value>Asta Paulauskiene</value>
+    </filters>
+    <label>Asta - Scheduled Sales Tasks</label>
+</ListView>

@@ -1,0 +1,46 @@
+.spinner__container {
+  height: 400px;
+  position: relative;
+}
+
+.modal-body {
+  min-height: 30em;
+}
+
+.rate-table {
+  display: grid;
+  row-gap: 1em;
+  grid-template-columns: repeat(9, 1fr);
+  justify-items: center;
+}
+
+.rate-table > div {
+  min-height: 2em;
+  display: flex;
+  place-items: center;
+}
+
+.header-cell {
+  background-color: var(--grey-bg);
+  width: 100%;
+  border: 0.5em solid var(--grey-bg);
+}
+
+.rate-table p {
+  text-align: center;
+}
+.overtime-charge-rate {
+  grid-column-start: 8;
+  grid-column-end: span 2;
+}
+
+.empty-rate-card-container {
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.full-height-container {
+  height: 100%;
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Perm_Placement_Locked</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( t2placement_PassToTempest__c ==true &amp;&amp; ISCHANGED( FirstName ) &amp;&amp; ISCHANGED( LastName ),true,false)</errorConditionFormula>
+    <errorMessage>First Name and Last Name is locked and dependent on perm placement</errorMessage>
+</ValidationRule>

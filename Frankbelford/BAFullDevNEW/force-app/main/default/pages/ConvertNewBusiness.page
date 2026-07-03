@@ -1,0 +1,107 @@
+<apex:page standardController="Inquiry__c" extensions="ConvertNewBusinessController" standardStylesheets="true" id="pageId">
+    <style>
+        tr { border-bottom: solid 1px black; }
+        .n-contact { height:20px !important; margin-bottom: 5px; }
+        .n-contact2 { height:20px; padding-bottom:5px; }
+    </style>
+    <script type="text/javascript"> 
+       function selectService (){
+           $jquery('[id$=look1]').hide();
+    }
+        function openselectedaccountpage(selectedaccountid){
+            //alert(accountSelectedId);
+            //alert(selectedaccountid);
+            if(selectedaccountid == '' && (accountSelectedId == undefined || accountSelectedId =='')){
+                alert('Please select an existing account to view details.');
+                return false;
+            }
+            if(accountSelectedId!='' && selectedaccountid==''){
+                var url = "/"+accountSelectedId+"/p";
+                accountSelectedId='';
+                window.open(url,"_blank" );
+                return false;
+            }
+            else{
+                var url = "/"+selectedaccountid+"/p";
+                accountSelectedId='';
+                window.open(url,"_blank" );
+                return false;
+            }
+        }
+        
+        function openLookupPopup(){
+            var url = "/apex/CustomAccountLookup";
+            window.open(url, 'Popup', 'height=500,width=600,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no');
+        }
+        var accountSelectedId;
+        function processAccount(accountId){
+            console.log('Inside Parent page --> AccountId passed from popup is-->'+accountId);
+            accountSelectedId = accountId;
+            //alert(accountSelectedId);
+            getAccountIdFromLookup(accountId);
+        }
+        function convertcheck(accountId){
+            var e = document.getElementsByClassName("Lista")[0];
+            var strUser = e.options[e.selectedIndex].label;
+            if(strUser=='--None--'){
+                alert('Please specify account');
+            }
+            else{
+                convertCheckAccount();
+            }
+        }
+    </script>
+    <apex:form id="formid">
+        <apex:actionfunction name="getAccountIdFromLookup" action="{!addAccountIdFromLookup}" rerender="pageId:formid:pgBlockId:pgsectionId:acct,rerenderView">
+            <apex:param value="accountId" name="accountId" assignTo="{!accountIdValue}" id="accountId"/>
+        </apex:actionfunction>
+        <apex:actionfunction name="convertCheckAccount" action="{!Convert}" rerender=""/>
+        <apex:pageBlock title="Convert Lead - Account" id="pgBlockId">
+            <apex:pageMessages />
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Convert" id="Convert" onclick="convertcheck('{!selectedAccountId}');return false;"/>
+                <apex:commandButton action="{!Cancel}" value="Cancel" id="Cancel"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection title="Account" columns="2" id="pgsectionId">
+                
+            <apex:outputpanel id="selectOpt">
+                <apex:actionRegion >
+                    <apex:outputLabel value="Account" for="acct"></apex:outputLabel>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <apex:selectList id="acct" value="{!selectedAccountId}" size="1" title="Account" style="height:20px;" styleclass="Lista" >
+                    <apex:actionSupport event="onchange" action="{!SelectedAccount}" rerender="rerenderView"/>
+                    <apex:selectOptions value="{!accOptions}"></apex:selectOptions>
+                    </apex:selectList>
+                </apex:actionRegion>
+                <a id="acc3_lkwgt" onclick="openLookupPopup();" tabindex="2" 
+                    title="Parent Account Lookup (New Window)" style="text-decoration: none;">
+                    <img src="/s.gif" alt="Parent Account Lookup (New Window)" 
+                    class="lookupIcon" 
+                    onblur="this.className = 'lookupIcon';" 
+                    onfocus="this.className = 'lookupIconOn';" 
+                    onmouseout="this.className = 'lookupIcon';this.className = 'lookupIcon';" 
+                    onmouseover="this.className = 'lookupIconOn';this.className = 'lookupIconOn';" 
+                    title="Parent Account Lookup (New Window)"/>
+                </a>
+                <!--<apex:image id="theImage" value="{!$Resource.LookUpImage}" width="25" height="20" onclick="openpopupwindow();" alt="the desc"/>-->
+            </apex:outputpanel>
+                <!--<apex:pageblockSectionItem >
+                        <apex:inputField value="{!acc.jsinq__Company__c}" id="look1">
+                            <apex:actionSupport event="onchange" action="{!viewRecord}" rerender="selectOpt,rerenderView"/>
+                        </apex:inputField>
+                </apex:pageblockSectionItem>-->
+                
+                <apex:outputpanel id="rerenderView">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLink onclick="openselectedaccountpage('{!selectedAccountId}');return false;">View</apex:outputLink>
+                    </apex:pageBlockSectionItem>
+                </apex:outputpanel>
+                
+                <apex:inputHidden value="{!accounthiddenValue}">
+                    <apex:actionSupport event="onchange"  action="{!SelectedAccount}" rerender="acct"/>
+                </apex:inputHidden>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+    </apex:form>
+    </apex:page>

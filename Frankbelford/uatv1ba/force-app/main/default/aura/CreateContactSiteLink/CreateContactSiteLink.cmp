@@ -1,0 +1,65 @@
+<aura:component implements="flexipage:availableForRecordHome,lightning:isUrlAddressable,force:hasRecordId" 
+                controller="CreateContactSiteLinkController">
+       
+    <!-- atrributes -->
+    <aura:attribute name="recordId" type="String" />
+	<aura:attribute name="contactSiteLink" type="Contact_Site_link__c" default="{'sobjectType': 'Contact_Site_link__c' }"/>
+    
+     <!-- Create attribute to store lookup value as a sObject--> 
+    <aura:attribute name="selectedLookUpRecord" type="sObject" default="{}"/>
+    
+    <div class="modal-header slds-modal__header slds-size_1-of-1">
+        <h4 class="title slds-text-heading--medium" ><b>New Contact/Site Link</b></h4>    
+    
+        <div id="divDetails" aura:id="divDetails">
+        
+            <!-- Create record form -->
+            <lightning:recordEditForm onload="{!c.doInit}"
+                                          onsubmit="{!c.saveSiteContactDetails}"
+                                          onsuccess="{!c.doSuccess}"
+                                          onerror="{!c.doError}"
+                                          objectApiName="Contact_Site_link__c">
+				<div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_2-of-12 slds-m-top_medium" style="padding-left:-50px;">
+                        <span lightning-duallistbox_duallistbox="" id="group-label-120" class="slds-form-element__label slds-form-element__legend">&nbsp;&nbsp;Site</span>
+       				</div>
+                    <div class="slds-col slds-size_1-of-2 slds-m-top_medium" style="padding-right: 17.5%;!important;">
+                        <c:customLookup objectAPIName="sirenum__Site__c" IconName="standard:account" selectedRecord="{!v.selectedLookUpRecord}"/>
+              			 <!--<lightning:inputField required="true" fieldName="IP_Site__c" aura:id="siteId" value=""/>-->
+                    </div>
+                </div>
+				
+				<div class="slds-grid slds-gutters" >
+                    <div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                        <lightning:inputField fieldName="IP_PortalType__c" aura:id="portalId" value=""/>
+                    </div>
+					<div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    </div>
+                </div>
+				
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                        <lightning:inputField required="true" fieldName="IP_Contact__c" aura:id="contactId"  disabled="true" value="{!v.recordId}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    </div>
+                </div>
+                
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                        <lightning:inputField required="true" fieldName="Account__c" aura:id="accountId" value="" disabled="true"/>
+                    </div>
+					<div class="slds-col slds-size_1-of-2 slds-m-top_medium">
+                    </div>
+                </div>  
+                
+                <footer class="slds-card__footer">
+                    <lightning:button type="reset" name="cancel" onclick="{!c.cancelClick}"
+                                      label="Cancel" variant="neutral"/>
+                    <lightning:button disabled="{!v.disabled}" type="submit" name="save"
+                                      label="Save" variant="brand"/>
+                </footer>
+            </lightning:recordEditForm>
+        </div>
+    </div>
+</aura:component>

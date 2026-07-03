@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Bypass_flow</name>
+        <label>Bypass flow</label>
+        <locationX>634</locationX>
+        <locationY>325</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Bypass_flow1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Bypass_Flows__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Define_Criteria_for_this_Action_Group</targetReference>
+            </connector>
+            <label>Bypass flow1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Define_Criteria_for_this_Action_Group</name>
+        <label>Define Criteria for this Action Group</label>
+        <locationX>768</locationX>
+        <locationY>408</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Updated_From_New_Business__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.External_ID__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Pre_Populate_fields</targetReference>
+            </connector>
+            <label>True</label>
+        </rules>
+    </decisions>
+    <description>This is replacing the below process builder:
+https://bluearrowgroup--migration.sandbox.my.salesforce-setup.com/lightning/setup/ProcessAutomation/home</description>
+    <environments>Default</environments>
+    <interviewLabel>Record Triggered Flow - Update Site Fields From Account {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Record Triggered Flow - Update Site Fields From Account</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Pre_Populate_fields</name>
+        <label>Pre Populate fields</label>
+        <locationX>1004</locationX>
+        <locationY>433</locationY>
+        <inputAssignments>
+            <field>Local_Competitor__c</field>
+            <value>
+                <elementReference>$Record.sirenum__Operating_Company__r.Local_Competitor__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>National_Competitor__c</field>
+            <value>
+                <elementReference>$Record.sirenum__Operating_Company__r.National_Competitor__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Top_Prospect__c</field>
+            <value>
+                <elementReference>$Record.sirenum__Operating_Company__r.Top_Prospect__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Updated_From_New_Business__c</field>
+            <value>
+                <elementReference>True</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>650</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Bypass_flow</targetReference>
+        </connector>
+        <object>sirenum__Site__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

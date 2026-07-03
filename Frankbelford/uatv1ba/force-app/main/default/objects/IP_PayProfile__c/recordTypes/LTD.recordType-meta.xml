@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LTD</fullName>
+    <active>true</active>
+    <label>LTD</label>
+    <picklistValues>
+        <picklist>IP_NewStarterTaxStatus__c</picklist>
+        <values>
+            <fullName>A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>IP_PayFrequency__c</picklist>
+        <values>
+            <fullName>Weekly</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>IP_PaymentType__c</picklist>
+        <values>
+            <fullName>BACS</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>IP_Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>IP_StudentLoan__c</picklist>
+        <values>
+            <fullName>N</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Y</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason_for_Leaving1__c</picklist>
+        <values>
+            <fullName>Better Opportunity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dismissal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employed by Client</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Enough Work</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pay - Incorrect</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pay - Not Enough</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unsuitable Work</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Work Break</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Worker Performance%2FCompliance Issue</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason_for_P45_Internal__c</picklist>
+        <values>
+            <fullName>Automatic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Declined work</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other dismissal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resigned</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transferred to LTD</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Identify_Onboard_Potential_Clients__c</fullName>
+    <label>Identify &amp; Onboard Potential Clients</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New business leads</fullName>
+                <default>false</default>
+                <label>New business leads</label>
+            </value>
+            <value>
+                <fullName>New business lead conversion</fullName>
+                <default>false</default>
+                <label>New business lead conversion</label>
+            </value>
+            <value>
+                <fullName>New active accounts</fullName>
+                <default>false</default>
+                <label>New active accounts</label>
+            </value>
+            <value>
+                <fullName>New active sites</fullName>
+                <default>false</default>
+                <label>New active sites</label>
+            </value>
+            <value>
+                <fullName>Sales Activity</fullName>
+                <default>false</default>
+                <label>Sales Activity</label>
+            </value>
+            <value>
+                <fullName>Service activity</fullName>
+                <default>false</default>
+                <label>Service activity</label>
+            </value>
+            <value>
+                <fullName>Future planned sales activity</fullName>
+                <default>false</default>
+                <label>Future planned sales activity</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>8</visibleLines>
+</CustomField>

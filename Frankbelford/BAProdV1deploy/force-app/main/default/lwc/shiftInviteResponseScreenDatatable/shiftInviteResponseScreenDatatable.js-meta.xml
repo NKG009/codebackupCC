@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Shift Invite Response Screen Datatable</masterLabel>
+    <description
+  >Datatable used in the Candidate - Shift Invite Response Screen flow</description>
+    <targets>
+        <target>lightning__AppPage</target>
+    </targets>
+    <targetConfigs>
+      <targetConfig targets="lightning__AppPage">
+        <property
+        label="Card Title"
+        name="cardTitle"
+        type="String"
+        default="Job offer response screen"
+      />
+      <property
+        label="Card Icon"
+        name="cardIcon"
+        type="String"
+        default="standard:contact"
+      />
+      <property
+        label="Acceptance Status"
+        name="confirmedStatus"
+        type="String"
+        default="Complete"
+        required="true"
+      />
+        <property
+        label="Rejection Status"
+        name="failedStatus"
+        type="String"
+        default="Failed"
+        required="true"
+      />
+      <property
+        label="Days since acceptance warning days"
+        description="Represents how many days since a job offer has been accepted by the candidate before a warning icon appears"
+        name="daysSinceAcceptanceWarning"
+        type="Integer"
+        default="5"
+        required="true"
+      />
+      </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

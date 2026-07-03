@@ -1,0 +1,61 @@
+<aura:component controller="MyShiftController" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction" access="global" >
+
+    <div class="slds-grid slds-grid slds-wrap slds-grid_align-center slds-grid_align-space">
+       
+       
+                <div class="slds-col" >
+                    <div style="width:170px;border:1px solid  #a8cd1b;" class="panel panel-primary">
+                         <a class="hyperlinkclass" href="javascript:void(0)" onclick="{!c.myprofile}" value="My Profile">
+                         <div style="height:110px;" class="slds-align_absolute-center">
+                           <img src="{!$Resource.MyProfileicon}"/>    
+                        </div><br></br>
+                        
+                            <div class="slds-align_absolute-center tittletext">
+                                <span class="pull-left">My Profile</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div> 
+
+               <div class="slds-col" >
+                     <div style="width:170px;border:1px solid  #a8cd1b;" class="panel panel-primary">
+                           <a class="hyperlinkclass" href="" onclick="{!c.myskills}" value="My Skills">
+                         <div style="height:110px;" class="slds-align_absolute-center">
+                           <!--<img src="{!$Resource.Coming_Soon}" style="width:106px;"/> -->
+                           <img src="{!$Resource.CandidatePortalIcons+'/MySkills.jpg'}" style="height:106px;"/>
+                        </div><br></br>
+                       
+                            <div class="slds-align_absolute-center tittletext">
+                                <span class="pull-left">My Skills</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+     
+        <div class="slds-col" >
+                <div style="width:170px;border:1px solid  #a8cd1b;" class="panel panel-primary">
+                     <a class="hyperlinkclass" href="" onclick="{!c.bankdetails}" value="shift history">
+                         <div style="height:110px;" class="slds-align_absolute-center">
+                            <img src="{!$Resource.MyBankIcon}"  />       
+                        </div><br></br>
+                        
+                            <div class="slds-align_absolute-center tittletext">
+                                <span class="pull-left">Bank Details</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+        
+           
+     
+       
+            </div>
+     <br></br> <br></br>
+     <div class="slds-truncate" style="text-align:Left;">
+                       <lightning:button class="Backbutton" label="Back" variant="Brand" onclick="{!c.getBackscreen}"   />
+                       
+                        </div>
+</aura:component>

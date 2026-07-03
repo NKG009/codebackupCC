@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>button_custom1_active__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Main controller to Show (checked) or Hide (unchecked) the Custom Action button within the Search Results.  The button will not display if the Custom1 URL is empty even if this button is checked.</description>
+    <inlineHelpText>Controls the Show (checked) / Hide (unchecked) action of the Custom1 Button within the Search Results.  However, if Custom1 URL is empty the button will not appear even if this is checked.</inlineHelpText>
+    <label>Button Custom1 Active</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

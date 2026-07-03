@@ -1,0 +1,97 @@
+<template>
+  <section aria-modal="true" class="slds-modal slds-fade-in-open">
+    <div class="slds-modal__container">
+      <header class="slds-modal__header">
+        <h2 class="slds-text-heading_medium">View Rate Card</h2>
+        <lightning-button-icon
+          class="slds-modal__close"
+          variant="bare-inverse"
+          icon-name="utility:close"
+          size="large"
+          onclick={closeClicked}
+        ></lightning-button-icon>
+      </header>
+      <div class="slds-modal__content modal-body">
+        <div class="slds-var-p-around_large full-height-container">
+          <template if:true={loading}>
+            <div class="spinner__container">
+              <lightning-spinner
+                alternative-text="Loading"
+                size="large"
+              ></lightning-spinner>
+            </div>
+          </template>
+          <template if:false={loading}>
+            <!-- Job role picker -->
+            <template if:false={singleJobRole}>
+              <lightning-combobox
+                name="Job Role"
+                label="Job Role"
+                placeholder="Select Job Role..."
+                options={jobRoleOptions}
+                onchange={handleJobRoleChange}
+              ></lightning-combobox>
+            </template>
+            <!-- Rate card picker -->
+            <lightning-combobox
+              name="Rate Card"
+              label="Rate Card"
+              placeholder="Select Rate Card..."
+              options={rateCardOptions}
+              onchange={handleRateCardChange}
+              disabled={rateCardDisabled}
+            ></lightning-combobox>
+            <!-- Info table => Rate Name | Code | Day | Pre/Post AWR (shows both pre and post, but on different lines) | Charge Rate | OT Charge rate -->
+            <div
+              if:true={hasRateCardLines}
+              class="rate-table slds-var-p-top_large"
+            >
+              <div class="header-cell"><p>Rate Name</p></div>
+              <div class="header-cell"><p>Code</p></div>
+              <div class="header-cell"><p>Day</p></div>
+              <div class="header-cell"><p>Start Hour</p></div>
+              <div class="header-cell"><p>End Hour</p></div>
+              <div class="header-cell"><p>Pre/Post AWR</p></div>
+              <div class="header-cell"><p>Charge Rate</p></div>
+              <div class="header-cell overtime-charge-rate">
+                <p>Overtime Charge Rate</p>
+              </div>
+              <template for:each={currentRateCardLines} for:item="rateCardLine">
+                <div key={rateCardLine.Id}>
+                  <p>{rateCardLine.StandardRateName}</p>
+                </div>
+                <div key={rateCardLine.Id}>
+                  <p>{rateCardLine.Code}</p>
+                </div>
+                <div key={rateCardLine.Id}>
+                  <p>{rateCardLine.Day}</p>
+                </div>
+                <div key={rateCardLine.Id}>
+                  <p>{rateCardLine.StartHour}</p>
+                </div>
+                <div key={rateCardLine.Id}>
+                  <p>{rateCardLine.EndHour}</p>
+                </div>
+                <div key={rateCardLine.Id}>
+                  <p>{rateCardLine.RateName}</p>
+                </div>
+                <div key={rateCardLine.Id}>
+                  <p>{rateCardLine.ChargeRate}</p>
+                </div>
+                <div key={rateCardLine.Id} class="overtime-charge-rate">
+                  <p>{rateCardLine.OvertimchargeRate}</p>
+                </div>
+              </template>
+            </div>
+            <div if:false={hasRateCardLines} class="empty-rate-card-container">
+              <div>
+                <p>Please select a rate card to see its details...</p>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

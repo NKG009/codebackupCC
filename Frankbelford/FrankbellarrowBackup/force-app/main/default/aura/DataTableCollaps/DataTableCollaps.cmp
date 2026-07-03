@@ -1,0 +1,158 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" description="Sample Custom Theme Layout" controller="Shifts_to_be_ApprovedCnt">
+      
+   
+    
+    <aura:attribute name="shifts" type="List" />
+    <aura:attribute name="Paginationshifts" type="List" />
+    <aura:attribute name="site" type="String" />
+    <aura:attribute name="role" type="String" />
+    <aura:attribute name="contact" type="String" />
+    <aura:attribute name="DateRange" type="String" />
+    <aura:attribute name="Match" type="Boolean" />
+    <aura:attribute name="selectshift" type="Boolean" />
+     <aura:attribute name="Search" type="Boolean" />
+    <aura:handler event="c:shiftsDataViewSearchEvent" action="{!c.ShiftSearchEvent}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+     <!-- Start Approve Reject -->
+    <aura:attribute name="approvestatus" type="boolean" default="false" />
+    <aura:attribute name="shiftsToBeApproved" type="List" />
+    <aura:attribute name="isError" type="boolean" default="false" />
+    <aura:attribute name="starthour" type="String" />
+    <aura:attribute name="endhour" type="String" />
+    <aura:attribute name="HourStatus" type="Boolean" />
+    <aura:attribute name="cancelledshift" type="List" />
+    <aura:attribute name="isOpenCancel" type="boolean" default="false" />
+    <aura:handler event="c:ShiftUpdateActualTimes" action="{!c.UpdateActualTimes}" />
+    <aura:handler event="c:ShiftApproveAllEvent" action="{!c.ApproveAll}"/>
+    <!-- End Approve Reject -->
+    
+    
+   <!-- <aura:handler name="change"	value="{!v.pageNumber}"	action="{!c.renderPage}" />-->
+     <aura:attribute type="Integer"      name="pageNumber"		default="1" />
+     <aura:attribute type="Integer"      name="maxPage"			default="1" />
+    
+    <aura:attribute type="List" name="AllAppList" />
+    
+   <div>
+          <table id="tableId" class="slds-no-row-hover slds-table slds-table_bordered slds-table_cell-buffer slds-no-row-hover slds-text-align_center" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr >
+                                       <th style="width:50px" class="tdcenter"></th>
+                                        <th class="tdcenter">Temp Name</th>
+                                        <th class="tdcenter">Job Role</th>
+                                        <th class="tdcenter">Start Date</th>
+                                        <th class="tdcenter" >Booked Time<br/>Start / End</th>
+                                        <th class="tdcenter">Actual Time<br/>Start / End</th>
+                                        <th class="tdcenter">Breaks</th>
+                                        <th class="tdcenter">Chargeable<br/>Hours</th>
+                                        <th class="tdcenter">Action</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <aura:iteration items="{!v.Paginationshifts}" var="shift" indexVar="filterIndex">
+                							<tr aura:id="tr" class="{!(v.Match==true ? (shift.sirenum__Scheduled_End_Time__c == shift.sirenum__Actual_End_Time__c ? (shift.sirenum__Scheduled_Start_Time__c == shift.sirenum__Actual_Start_Time__c ? 'Green' : '') : '') : '')  }">                           	
+                                            <td class="tdcenter">
+                                                
+                                   <aura:if isTrue="{!(v.Match==true ? (shift.sirenum__Scheduled_End_Time__c == shift.sirenum__Actual_End_Time__c ? (shift.sirenum__Scheduled_Start_Time__c == shift.sirenum__Actual_Start_Time__c ? true : false) : false) : false)  }">             
+                                      <ui:inputCheckbox class="uiheight" aura:id="select" change="{!c.Selectclicked}" name="{!shift.Id}" value="{!(v.Match==true ? (shift.sirenum__Scheduled_End_Time__c == shift.sirenum__Actual_End_Time__c ? (shift.sirenum__Scheduled_Start_Time__c == shift.sirenum__Actual_Start_Time__c ? true : false) : false) : false)  }" />
+			          			<aura:set attribute="else">
+                                             <ui:inputCheckbox class="uiheight" aura:id="select" change="{!c.Selectclicked}" name="{!shift.Id}" value="" />
+
+                                       </aura:set>	
+                                  </aura:if>
+                              		
+                                           </td>
+                                           
+                                             
+                                            <td class="tdcenter"><div class="{!(v.Match==true ? (shift.sirenum__Scheduled_End_Time__c == shift.sirenum__Actual_End_Time__c ? (shift.sirenum__Scheduled_Start_Time__c == shift.sirenum__Actual_Start_Time__c ? 'whitetextcolor slds-grow slds-cell-wrap' : 'blacktextcolor slds-grow slds-cell-wrap') : 'blacktextcolor slds-grow slds-cell-wrap') : 'blacktextcolor slds-grow slds-cell-wrap')  }" >{!shift.sirenum__Contact__r.Name}</div></td>
+                                            <td class="tdcenter"><div class="{!(v.Match==true ? (shift.sirenum__Scheduled_End_Time__c == shift.sirenum__Actual_End_Time__c ? (shift.sirenum__Scheduled_Start_Time__c == shift.sirenum__Actual_Start_Time__c ? 'whitetextcolor slds-grow slds-cell-wrap' : 'Gcolor slds-grow slds-cell-wrap') : 'Gcolor slds-grow slds-cell-wrap') : 'Gcolor slds-grow slds-cell-wrap')  }">{!shift.sirenum__Team__r.Name}</div></td>
+                                        <td class="tdcenter">
+                                            <div class="{!(v.Match==true ? (shift.sirenum__Scheduled_End_Time__c == shift.sirenum__Actual_End_Time__c ? (shift.sirenum__Scheduled_Start_Time__c == shift.sirenum__Actual_Start_Time__c ? 'whitetextcolor slds-grow slds-cell-wrap' : 'Gcolor slds-grow slds-cell-wrap') : 'Gcolor slds-grow slds-cell-wrap') : 'Gcolor slds-grow slds-cell-wrap')  }"><span class='hide'>{!shift.Scheduled_Start_Date_Text__c}</span><lightning:formattedDateTime value="{!shift.sirenum__Scheduled_Start_Time__c}" year="numeric" month="numeric" day="numeric" /></div>
+                                        </td>
+                                        <c:CandidateItemCmp record="{!shift}" Match="{!v.Match}" /> 
+                                        
+                                        <td class="tdcenter">
+                                            <button aura:id="{!shift.Id}" class="action-button accept" onclick="{!c.approve}" id="{!shift.Id}">Approve</button>
+                                           &nbsp;
+                                                    <span class="action-button decline mrgn" aura:id="{!shift.Id}" data-toggle="modal" data-target="#bookedTemp-popup" Id="{!shift.Id}" onclick="{!c.reject}">Reject</span>
+      
+                                         <!--   <button aura:id="{!shift.Id}" data-toggle="modal" data-target="#decline-popup" class="action-button decline" onclick="{!c.reject}" id="{!shift.Id}">Reject</button> -->
+                                        </td>
+                                        
+                                    </tr>
+                                    </aura:iteration>
+                                </tbody>
+                            </table>
+</div>
+    
+    	
+   <!-- <div style="text-align:right;margin-top:10px;"> <c:PaginationButton currentPageNumber="{!v.pageNumber}" 
+                                    maxPageNumber="{!v.maxPage}" /> </div> -->
+        
+       
+       <!-- <c:ReloadDesign/> -->
+         <div class="custom-model modal fade" id="bookedTemp-popup" tabindex="-1" role="dialog" aria-labelledby="bookedTemp-popup">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="height: 550px;">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="{!c.closeModelCancel}"><span aria-hidden="true">&times;</span></button>
+                        <h1>Shift Details</h1>
+                       
+                        <div style="border:0px;" class="ElementDetail__table">
+                          <table >
+                            <tr>
+                                <td class="textclass">
+                                    <u>Job Role</u>
+                                    <br/>{!v.cancelledshift[0].sirenum__Team__r.Name}
+                                </td>
+                                <td class="textclass">
+                                    <u>Site</u>
+                                    <br/>{!v.cancelledshift[0].sirenum__Site__r.Name}
+                                </td>
+                            </tr>
+                            <tr>
+                            </tr>
+                            <br/>
+                            <tr>
+                                <td class="textclass">
+                                    <u>Schedule StartTime</u>
+                                    <br/>
+                                    <lightning:formattedDateTime value="{!v.cancelledshift[0].sirenum__Scheduled_Start_Time__c}" hour="2-digit" minute="2-digit" />
+                                </td>
+                                <td class="textclass">
+                                    <u>Schedule EndTime</u>
+                                    <br/>
+                                    <lightning:formattedDateTime value="{!v.cancelledshift[0].sirenum__Scheduled_End_Time__c}" hour="2-digit" minute="2-digit" />
+                                </td>
+                            </tr>
+                        </table>
+                             
+                       
+                        </div>
+                        
+                       <div style="float:left;font-size:16px;">Enter your query</div><br></br><br></br>
+                         <ui:inputTextArea class="textheight" aura:id="Query" label="" value="" rows="4" placeholder="" />
+                        <br/>
+                       <div style="float:left; margin-top:21px;">
+                            
+                              <button type="button" style="height:50px;" class="action-button decline" data-dismiss="modal" aria-label="Close" onclick="{!c.closeModelCancel}">Back</button>
+                        </div>
+                        <div style="float:right;">
+                            <button aura:id="submitReject" class="approve-btn" data-dismiss="modal"  onclick="{!c.submitReject }" >Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         
+         
+       
+        
+                          
+    <button type="submit" class="approve-btn" onclick="{!c.ApproveAll}">Approve</button>
+                                <button type="button" class="tooltip-btn" data-toggle="tooltip" data-placement="right" title="Only show where actual matches exactly with shifts."><img src="{!$Resource.ImpellamPortal+'/ImpellamPortal/assets/img/tooltip-icon.png'}" alt="tooltip-icon"/></button>
+							
+  
+    
+    
+</aura:component>

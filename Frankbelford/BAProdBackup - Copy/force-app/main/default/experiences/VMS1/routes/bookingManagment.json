@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "4316a3a0-1c79-4be4-9993-95c6f18c6038",
+  "appPageId" : "cb4d05bc-15d6-4e33-beb3-5244832ec585",
+  "configurationTags" : [ ],
+  "devName" : "Booking_Managment__c",
+  "id" : "250c127f-1da8-411d-853e-03a4db75da83",
+  "label" : "Booking Managment",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-booking-managment",
+  "type" : "route",
+  "urlPrefix" : "booking-managment"
+}

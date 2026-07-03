@@ -1,0 +1,36 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader"  access="global" controller="SendDrivingBreachLetter">
+	
+	<!-- handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="displayMessage" type="Boolean" access="global"/>
+    <aura:attribute name="displayEmailMessage" type="Boolean" access="global"/>
+    <aura:attribute name="displayEmailErrorMessage" type="Boolean" access="global"/>
+    <aura:attribute name="displayCandidateMessage" type="Boolean" access="global"/>
+    
+    <aura:if isTrue="{!v.displayMessage}">
+        <p>A Working Hours Breach Letter used for drivers whose weekly Working Hours have exceeded 60 hours will be sent to the candidate.  Do you want to continue?</p>
+        <br/><br/>
+        <lightning:button variant="brand" label="Yes" onclick="{!c.handleClick }" />
+        <lightning:button variant="brand" label="No" onclick="{!c.cancel}" />
+    </aura:if>
+    
+     <aura:if isTrue="{!v.displayCandidateMessage}">
+        <p>Candidate does not have an Email ID</p>
+         <br/>
+         <lightning:button variant="brand" label="Ok" onclick="{!c.cancel}" />
+    </aura:if>
+    
+    <aura:if isTrue="{!v.displayEmailMessage}">
+        <p>Email sent successfully</p>
+        <br/>
+        <lightning:button variant="brand" label="Ok" onclick="{!c.cancel}" />
+    </aura:if>
+    
+    <aura:if isTrue="{!v.displayEmailErrorMessage}">
+        <p>Error occured in sending email. Your admin has been notified with the details</p>
+        <br/>
+        <lightning:button variant="brand" label="Ok" onclick="{!c.cancel}" />
+    </aura:if>
+</aura:component>

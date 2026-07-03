@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tesco_Job_Role__c</fullName>
+    <label>Tesco Job Role</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Shelf Replenisher</fullName>
+                <default>false</default>
+                <label>Shelf Replenisher</label>
+            </value>
+            <value>
+                <fullName>FF Merchandiser</fullName>
+                <default>false</default>
+                <label>F&amp;F Merchandiser</label>
+            </value>
+            <value>
+                <fullName>Team Leader</fullName>
+                <default>false</default>
+                <label>Team Leader</label>
+            </value>
+            <value>
+                <fullName>Traffic Marshal</fullName>
+                <default>false</default>
+                <label>Car Park Marshal</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,106 @@
+<apex:page controller="Ctrl_ContactSearch"  sidebar="false" showHeader="false" lightningStylesheets="true">
+      <apex:includeScript value="{!$Resource.jquery}"/>
+<html>
+        <head>
+            <META http-equiv="refresh" content="300"/>
+        </head>
+    </html>
+    <script>
+  function AvoidSpace(event) {
+    var k = event ? event.which : window.event.keyCode;
+    if (k == 32) return false;
+}
+    </script>
+    
+    <apex:form >
+    <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+            <apex:slds />
+        </apex:outputPanel>
+    <apex:outputPanel layout="block" styleClass="slds-text title slds-text-heading_medium modal-header slds-modal__header slds-size_1-of-1">
+    <apex:pageBlock title="Candidate Search"> 
+        
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton styleClass="slds-vf-button_brand" value="Search" action="{!searchContacts}" reRender="contact-table,a" />
+                    <apex:commandButton styleClass="slds-vf-button_neutral" value="Clear" action="{!Clearfilter}" reRender="contact-table,a" />
+                </apex:pageBlockButtons>
+
+            <apex:pageBlockSection id="contact-table" columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="First Name" />
+                     <apex:outputPanel styleClass="requiredInput slds-text slds-text-align_left" layout="block">
+                     <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                    <apex:inputText value="{!firstname}" required="True" html-autocomplete="off" />
+                    </apex:outputPanel>
+                    
+                     </apex:pageBlockSectionItem>
+                     <apex:pageBlockSectionItem >
+                     <apex:outputLabel value="Last Name" />
+                     <apex:outputPanel styleClass="requiredInput" layout="block">
+                     <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                    <apex:inputText value="{!lastname}" required="True" html-autocomplete="off" />
+                    </apex:outputPanel>
+
+
+                     </apex:pageBlockSectionItem>
+                     <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="NI Number" />
+                    <apex:outputPanel styleClass="requiredInput" layout="block">
+                     <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                    <apex:inputText value="{!ni_number}" html-autocomplete="off" onkeypress="return AvoidSpace(event)"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+     </apex:pageBlock> 
+     </apex:outputPanel>
+       <apex:outputPanel layout="block" styleClass="slds-text title slds-text-heading--medium modal-header slds-modal__header slds-size_1-of-1">
+             <apex:pageBlock title="Certificates" id="a">
+                
+                 <apex:pageBlockTable value="{!contacts}" var="c">
+                 
+                         <apex:column >
+                         <apex:facet name="header">Proof of Right To Work</apex:facet>   
+                          <apex:outputLink value="{!portw}&ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >Complete Form</apex:outputLink>
+                      </apex:column>
+                      
+                      <apex:column >
+                         <apex:facet name="header">Declarations</apex:facet>   
+                          <apex:outputLink value="{!declaration}&ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >Complete Form</apex:outputLink>
+                      </apex:column>
+                      
+                      <apex:column >
+                         <apex:facet name="header">WTR</apex:facet>   
+                          <apex:outputLink value="{!wtr}&ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >Complete Form</apex:outputLink>
+                      </apex:column>
+                      
+                    <!--  <apex:column >
+                         <apex:facet name="header">Equal Opportunities Questions</apex:facet>   
+                          <apex:outputLink value="{!eeq}ContactId={!c.id}&ts2_contact__c={!c.id}" >Complete Form</apex:outputLink>
+                      </apex:column>
+                      
+                      <apex:column >
+                         <apex:facet name="header">New Starter Form</apex:facet>   
+                          <apex:outputLink value="{!newstarter}ContactId={!c.id}&ts2_contact__c={!c.id}" >Complete Form</apex:outputLink>
+                      </apex:column>                                           
+                        
+                      <apex:column >
+                         <apex:facet name="header">Bank Details</apex:facet>   
+                          <apex:outputLink value="{!bankdetails}IP_Candidate__c={!c.id}">Complete Form</apex:outputLink>
+                      </apex:column>
+                      
+                       <apex:column >
+                         <apex:facet name="header">Medical</apex:facet>   
+                          <apex:outputLink value="{!medical}ContactId={!c.id}&ts2__Contact__c={!c.id}">Complete Form</apex:outputLink>
+                      </apex:column>
+                      
+                       <apex:column >
+                         <apex:facet name="header">TOE</apex:facet>   
+                          <apex:outputLink value="{!TOE}ContactId={!c.id}&ts2_contact__c={!c.id}">Complete Form</apex:outputLink>
+                      </apex:column> -->
+                </apex:pageBlockTable>
+             
+             </apex:pageBlock>
+         </apex:outputPanel>
+    </apex:form>
+</apex:page>

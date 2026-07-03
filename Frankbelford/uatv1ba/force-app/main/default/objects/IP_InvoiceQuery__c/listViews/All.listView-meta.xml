@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>IP_QueryValue__c</columns>
+    <columns>IP_BranchCode__c</columns>
+    <columns>IP_BranchName__c</columns>
+    <columns>IP_Account__c</columns>
+    <columns>IP_AccountNumber__c</columns>
+    <columns>IP_InvoiceNumber__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>IP_Invoice_Date__c</columns>
+    <columns>IP_Client__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IP_Account__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Queries with no account</label>
+    <language>en_US</language>
+</ListView>

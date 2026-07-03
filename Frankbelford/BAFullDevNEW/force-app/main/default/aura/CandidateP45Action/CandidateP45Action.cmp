@@ -1,0 +1,92 @@
+<aura:component  access="global" controller="CandidateP45ActionControllerLightning">
+    
+    <!-- handler-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> 
+    
+    <!-- atrributes -->
+    <aura:attribute name="selectedContact" type="String"/>
+    <aura:attribute name="displayContinueCancelButtons" type="Boolean"/>
+    <aura:attribute name="displayOkButton" type="Boolean"/>
+    <aura:attribute name="displayTable" type="Boolean"/>
+	<aura:attribute name="redColorMessage" type="Boolean"/>
+	<aura:attribute name="greenColorMessage" type="Boolean"/>
+	<aura:attribute name="blackColorMessage" type="Boolean"/>
+	<aura:attribute name="displayMessage" type="String"/>
+	<aura:attribute name="openCaptureReasonforLeaving" type="Boolean"/>
+    <aura:attribute name="sectionCandidateP45Action" type="Boolean" default="true"/>
+    <aura:attribute name="options" type="List" default="[
+    {'label': 'Leaving', 'value': 'Leaving'},
+    {'label': 'Switching Pay Profile (e.g. PAYE transferring to LTD Co)', 'value': 'Switching Pay Profile (e.g. PAYE transferring to LTD Co)'}
+    ]"/>
+    <aura:attribute name="value" type="String" default="Leaving"/>
+    <aura:attribute name="listPayProfiles" type="object" />
+	
+	<aura:if isTrue="{!v.openCaptureReasonforLeaving}">
+        <c:CaptureReasonforLeaving  selectedContact="{!v.selectedContact}"/>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.sectionCandidateP45Action}">
+        
+		<aura:if isTrue="{!v.greenColorMessage}">
+			<p style="font-size:15px;color:green;"><aura:unescapedHtml value="{!v.displayMessage}" /></p>
+		</aura:if>
+		
+		<aura:if isTrue="{!v.redColorMessage}">
+			<p style="font-size:15px;color:red;"><aura:unescapedHtml value="{!v.displayMessage}" /></p>
+		</aura:if>
+		
+		<aura:if isTrue="{!v.blackColorMessage}">
+			<p style="font-size:15px;color:black"><aura:unescapedHtml value="{!v.displayMessage}" /></p>
+		</aura:if>
+		
+        <br/><br/>
+        <b>Is Candidate</b><br/><br/>
+	   <lightning:radioGroup name="radioGroup"
+							  aura:id="mygroup"
+							  label=""
+							  options="{!v.options}"
+							  value="{!v.value}"
+							  onchange="{!c.handleChange}"
+							  type="radio"/>
+		<br/>
+		
+		<aura:if isTrue="{!v.displayTable}">
+			 <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+				<thead><b>Select Pay Profile to Close:</b>
+					<tr>
+						<th>Select Pay Profile</th>
+						<th>Name</th>
+						<th>RecordType Name</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- TO Check if list is not empty-->
+					<aura:if isTrue="{!v.listPayProfiles}">
+						<aura:iteration var="payProfile" items="{!v.listPayProfiles}" >
+							<tr>
+								<td><ui:inputCheckbox value="{!payProfile.selected}"/></td>
+								<td><ui:outputText value="{!payProfile.conp.Name}"/></td>
+								<td><ui:outputText value="{!payProfile.conp.RecordType.Name}"/></td>
+							</tr>
+						</aura:iteration>
+					</aura:if>
+				</tbody>
+			 </table>
+		</aura:if>
+		
+	   
+		<br/><br/>
+		<aura:if isTrue="{!v.displayContinueCancelButtons}">
+			<lightning:button variant="brand" label="{!$Label.c.ButtonP45Action1}" onclick="{!c.handleClick }" />&nbsp;&nbsp;
+			<lightning:button variant="neutral" label="{!$Label.c.ButtonP45Action2}" onclick="{!c.cancelClick }" />&nbsp;&nbsp;
+		</aura:if>
+		
+		<aura:if isTrue="{!v.displayOkButton}">
+			<lightning:button variant="brand" label="{!$Label.c.ButtonP45Action3}" onclick="{!c.oKClick}" />&nbsp;&nbsp;
+		</aura:if>
+
+		
+    </aura:if>
+	
+	    
+</aura:component>

@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "325849ae-5c84-4ef4-9749-8fd0fe21d62f",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "tileMenuEditor" : "X2nd_Tier_Candidate_Nav_Menu"
+      }
+    },
+    "targetId" : "39912d4d-1f34-4d91-94a2-7eb1be6cab80",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Home_Tile_Menu_1_Component_Properties",
+  "id" : "36ec6125-0a19-490b-bdee-44ae4d9225a6",
+  "type" : "experienceVariation"
+}

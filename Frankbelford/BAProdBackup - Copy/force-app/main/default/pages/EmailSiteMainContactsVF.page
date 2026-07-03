@@ -1,0 +1,17 @@
+<apex:page standardController="sirenum__Site__c" recordSetVar="site" extensions="EmailSiteMainContactsCtrl" lightningStylesheets="true">
+<apex:includeLightning />  
+<div id="LwcId" />
+<script>
+        $Lightning.use("c:EmailSiteMainContactsApp", function() {
+        $Lightning.createComponent("c:emailSiteMainContacts",
+        {
+            'selectedSiteIds' : "{!selectedSiteIDs}" ,
+            'selectedListViewId' : "{!listViewId}"
+        },
+        "LwcId", // the Id of div tag where your component will be rendered
+        function(cmp) {
+            console.log('Calling the LWC Component');
+        });
+    });
+</script>
+</apex:page>

@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>50.0</apiVersion>
+    <choices>
+        <name>Agreement</name>
+        <choiceText>I Agree</choiceText>
+        <dataType>Boolean</dataType>
+        <value>
+            <booleanValue>true</booleanValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Blank</name>
+        <choiceText>-None-</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>StudentLoan_N</name>
+        <choiceText>No</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>N</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>StudentLoan_Yes</name>
+        <choiceText>Yes</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Y</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>TaxA</name>
+        <choiceText>&lt;b&gt;A&lt;/b&gt; - This is my first job since 6 April and since the 6 April I’ve not received payments from any of the following:&lt;ul&gt;&lt;li&gt;Jobseeker’s Allowance&lt;/li&gt;&lt;li&gt;Employment and Support Allowance&lt;/li&gt;&lt;li&gt;Incapacity Benefit&lt;/li&gt;&lt;/ul&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>A - First job this tax year (since 6th April)</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>TaxB</name>
+        <choiceText>&lt;b&gt;B&lt;/b&gt; – Since 6 April I have had another job but I do not have a P45. And/or since 6 April I have received payments from any of the below:&lt;ul&gt;&lt;li&gt;Jobseeker’s Allowance&lt;/li&gt;&lt;li&gt;Employment and Support Allowance&lt;/li&gt;&lt;li&gt;Incapacity Benefit&lt;/li&gt;&lt;/ul&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>B - Only Job (since 6th April)</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>TaxC</name>
+        <choiceText>&lt;b&gt;C &lt;/b&gt;- Choose this statement if:&lt;ul&gt;&lt;li&gt;You have another job and/or&lt;/li&gt;&lt;li&gt;You’re in receipt of a State, Works or Private Pension&lt;/li&gt;&lt;/ul&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>C - Another Job or Pensions</stringValue>
+        </value>
+    </choices>
+    <decisions>
+        <name>PAYE_Found</name>
+        <label>PAYE Found</label>
+        <locationX>891</locationX>
+        <locationY>400</locationY>
+        <defaultConnector>
+            <targetReference>Bank_Details_Screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_PAYE</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Error</targetReference>
+            </connector>
+            <label>Found</label>
+        </rules>
+    </decisions>
+    <dynamicChoiceSets>
+        <name>account_type_set</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Account_Type__c</picklistField>
+        <picklistObject>ts2__Certification__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Gender_List</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>ts2__EEO_Gender__c</picklistField>
+        <picklistObject>Contact</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Recent_Employer_Set</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Most_Recent_Employer__c</picklistField>
+        <picklistObject>ts2__Reference__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Referee_type</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>ts2__Type__c</picklistField>
+        <picklistObject>ts2__Reference__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Tax_Status_Set</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>New_Starter_Declaration__c</picklistField>
+        <picklistObject>ts2__Certification__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Years_Known</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Known_Years__c</picklistField>
+        <picklistObject>ts2__Reference__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>YesNo</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Yes_No_Question__c</picklistField>
+        <picklistObject>Contact</picklistObject>
+    </dynamicChoiceSets>
+    <environments>Default</environments>
+    <formulas>
+        <name>CandidateID</name>
+        <dataType>String</dataType>
+        <expression>{!$User.ContactId}</expression>
+    </formulas>
+    <interviewLabel>Online Registration - Bank Details {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Online Registration - Bank Details</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_Bank_Details</name>
+        <label>Create Bank Details</label>
+        <locationX>803</locationX>
+        <locationY>679</locationY>
+        <connector>
+            <targetReference>Create_NSD</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account_Name__c</field>
+            <value>
+                <elementReference>Account_Holder</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Account_Number__c</field>
+            <value>
+                <elementReference>Account_Number</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Account_Type__c</field>
+            <value>
+                <elementReference>Account_Type_Buttons</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Building_Society_Roll_No__c</field>
+            <value>
+                <elementReference>Building_Society_Roll_No</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <stringValue>0121n000000lb6dAAA</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Sort_Code__c</field>
+            <value>
+                <elementReference>Sort_Code</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ts2__Contact__c</field>
+            <value>
+                <elementReference>CandidateID</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ts2__Certification__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_NSD</name>
+        <label>Create NSD</label>
+        <locationX>947</locationX>
+        <locationY>729</locationY>
+        <connector>
+            <targetReference>Update_NSD</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>IP_City__c</field>
+            <value>
+                <elementReference>Get_Candidate.MailingCity</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IP_Country__c</field>
+            <value>
+                <elementReference>Get_Candidate.MailingCountry</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IP_County__c</field>
+            <value>
+                <elementReference>Get_Candidate.MailingState</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IP_Postcode__c</field>
+            <value>
+                <elementReference>Get_Candidate.MailingPostalCode</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IP_Street__c</field>
+            <value>
+                <elementReference>Get_Candidate.MailingStreet</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>New_Starter_Declaration__c</field>
+            <value>
+                <elementReference>Tax_Status</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Online_Form__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <stringValue>0120Y000000FIShQAO</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Student_Loan__c</field>
+            <value>
+                <elementReference>Do_you_have_a_student_loan</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ts2__Contact__c</field>
+            <value>
+                <elementReference>CandidateID</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ts2__Certification__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Candidate</name>
+        <label>Get Candidate</label>
+        <locationX>861</locationX>
+        <locationY>227</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_PAYE</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>CandidateID</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_PAYE</name>
+        <label>Get PAYE</label>
+        <locationX>730</locationX>
+        <locationY>270</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>PAYE_Found</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IP_Candidate__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Candidate.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>0120Y000000FISY</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Reason_for_Leaving1__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>IP_PayProfile__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Candidate_0_0_0_0_0_0_0_0_0_0_0_0_0_0</name>
+        <label>Update Candidate</label>
+        <locationX>1307</locationX>
+        <locationY>712</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>CandidateID</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Birthdate</field>
+            <value>
+                <elementReference>Date_of_Birth</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ts2__EEO_Gender__c</field>
+            <value>
+                <elementReference>Gender</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_NSD</name>
+        <label>Update NSD</label>
+        <locationX>1113</locationX>
+        <locationY>567</locationY>
+        <connector>
+            <targetReference>Update_Candidate_0_0_0_0_0_0_0_0_0_0_0_0_0_0</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Update_Candidate_0_0_0_0_0_0_0_0_0_0_0_0_0_0</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Create_NSD</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Verfied__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>ts2__Certification__c</object>
+    </recordUpdates>
+    <screens>
+        <name>Bank_Details_Screen</name>
+        <label>Bank Details Screen</label>
+        <locationX>768</locationX>
+        <locationY>482</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Create_Bank_Details</targetReference>
+        </connector>
+        <fields>
+            <name>Screen3_DISPLAY_0_0_0_0_0_0_0_0_0_0</name>
+            <fieldText>&lt;p&gt;&lt;b style=&quot;font-size: 18px; color: rgb(102, 102, 102);&quot;&gt;Bank Details&lt;/b&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Account_Type_Buttons</name>
+            <choiceReferences>account_type_set</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Account Type</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Account_Holder</name>
+            <dataType>String</dataType>
+            <fieldText>Account Holder</fieldText>
+            <fieldType>InputField</fieldType>
+            <helpText>&lt;p&gt;Name as it appears on the Bank Account or Building Society Account&lt;/p&gt;</helpText>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;b style=&quot;font-size: 14px; color: rgb(211, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;Account name should not exceed 80 characters.&lt;/b&gt;&lt;/p&gt;</errorMessage>
+                <formulaExpression>LEN({!Account_Holder})&lt;30</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Account_Number</name>
+            <dataType>String</dataType>
+            <fieldText>Account Number</fieldText>
+            <fieldType>InputField</fieldType>
+            <helpText>&lt;p&gt;Account Number should be 8 digits long without spaces eg. 12345678&lt;/p&gt;</helpText>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>&lt;p&gt;Account Number must be 8 digits with no spaces&lt;/p&gt;</errorMessage>
+                <formulaExpression>REGEX({!Account_Number}, &quot;[0-9]{8}&quot;)</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Sort_Code</name>
+            <dataType>String</dataType>
+            <fieldText>Sort Code</fieldText>
+            <fieldType>InputField</fieldType>
+            <helpText>&lt;p&gt;Sort Code should be 6 digits with no space eg. 12356&lt;/p&gt;</helpText>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>&lt;p&gt;Sort Code must be 6 digits with no spaces&lt;/p&gt;</errorMessage>
+                <formulaExpression>REGEX({!Sort_Code}, &quot;[0-9]{6}&quot;)</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Building_Society_Roll_No</name>
+            <dataType>String</dataType>
+            <fieldText>Building Society Roll No.</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;span style=&quot;font-family: Arial; color: rgb(194, 57, 52); background-color: rgb(255, 255, 255); font-size: 12px;&quot;&gt;Building Society Number should be alphanumeric with a minimum of 1 number, no special characters and under 20 characters long.&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                <formulaExpression>AND(Len({!Building_Society_Roll_No})&lt;20,REGEX({!Building_Society_Roll_No},&quot;(?=.*[0-9])([a-zA-Z0-9+-/]+)&quot;))</formulaExpression>
+            </validationRule>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Account_Type_Buttons</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Building Society</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>Tax_Info</name>
+            <fieldText>&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b style=&quot;color: rgb(102, 102, 102); font-size: 18px; background-color: rgb(255, 255, 255);&quot;&gt;HMRC Tax Information&lt;/b&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Date_of_Birth</name>
+            <dataType>Date</dataType>
+            <defaultValue>
+                <elementReference>Get_Candidate.Birthdate</elementReference>
+            </defaultValue>
+            <fieldText>Date of Birth</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;b style=&quot;color: rgb(211, 0, 0); font-size: 14px; background-color: rgb(255, 255, 255);&quot;&gt;Age should be greater than 16 and less than 100.&lt;/b&gt;&lt;/p&gt;</errorMessage>
+                <formulaExpression>YEAR(TODAY())- YEAR({!Date_of_Birth}) &gt; 15</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Tax_Status</name>
+            <choiceReferences>TaxA</choiceReferences>
+            <choiceReferences>TaxB</choiceReferences>
+            <choiceReferences>TaxC</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>To ensure you tax code is correct when you start work with us, choose the statement that applies to you, either A, B or C, and tick the appropriate box.</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Gender</name>
+            <choiceReferences>Gender_List</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>Get_Candidate.ts2__EEO_Gender__c</elementReference>
+            </defaultValue>
+            <fieldText>Gender</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Do_you_have_a_student_loan</name>
+            <choiceReferences>StudentLoan_Yes</choiceReferences>
+            <choiceReferences>StudentLoan_N</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Do you have a student loan?</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Screen3_Footer_0_0_0_0_0_0_0_0_0_0_0_0</name>
+            <extensionName>qsydApps_AO:LightningFlowFooterCmp</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>showProgress</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>type</name>
+                <value>
+                    <stringValue>base</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>nextButtonLabel</name>
+                <value>
+                    <stringValue>Save &gt;</stringValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>false</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Error</name>
+        <label>Error</label>
+        <locationX>1167</locationX>
+        <locationY>260</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>P445</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;b style=&quot;color: rgb(102, 102, 102); font-size: 18px; background-color: rgb(255, 255, 255);&quot;&gt;Looks like you currently have a P45 issued by Blue Arrow, please contact your consultant to have them reinstate your profile.&lt;/b&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>false</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <stages>
+        <name>Bank_Details</name>
+        <isActive>true</isActive>
+        <label>Bank Details</label>
+        <stageOrder>110</stageOrder>
+    </stages>
+    <start>
+        <locationX>702</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Get_Candidate</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>Actionvar</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>FormFactor</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>StudentLoan</name>
+        <dataType>Picklist</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Tax_Status_Text</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

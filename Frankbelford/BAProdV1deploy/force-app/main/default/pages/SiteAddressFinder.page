@@ -1,0 +1,31 @@
+<apex:page standardController="sirenum__Site__c" lightningStylesheets="true">   
+    <apex:form >
+     <style>
+  .pbTitle{display:none;}
+  </style>
+        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+            <apex:slds />
+        </apex:outputPanel>
+        <apex:sectionHeader title="Site" subtitle="{!sirenum__Site__c.Name}"/>
+        <apex:pageBlock title="Site Address" mode="edit"><br/><br/>
+        <apex:pageMessages ></apex:pageMessages>
+            <apex:pageblockButtons location="top" style="text-align:center;">
+             <!--   <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+                    <apex:commandButton styleClass="slds-vf-button_neutral" style="visibility: hidden;" value="HideThis Command Button"/>
+                </apex:outputPanel> -->
+                <apex:commandButton value="Save" action="{!Save}" styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageblockButtons>
+            <apex:pageBlockSection title="Address Finder">
+                <pca:AddressFinder label="Site Location " record="{!sirenum__Site__c}" address="IP_SiteShippingAddress" />
+                <pca:AddressFinder label="Site Invoice " record="{!sirenum__Site__c}" address="IP_SiteInvoiceAddress" rendered="{!sirenum__Site__c.IP_ClientLastPassedToTempest__c==null && sirenum__Site__c.IP_ClientAddressLastPassedToTempest__c ==null }" />  
+            </apex:pageBlockSection>
+            <apex:pageblockButtons location="bottom" style="text-align:center;">
+                <apex:commandButton value="Save" action="{!Save}" styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageblockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

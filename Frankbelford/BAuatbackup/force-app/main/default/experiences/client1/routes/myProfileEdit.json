@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "5901eef9-a1b3-45eb-b4e0-66aa57e6d030",
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "configurationTags" : [ ],
+  "devName" : "MyProfileEdit__c",
+  "id" : "0c91f98c-10e8-4e5b-af8c-a40834dcd7eb",
+  "label" : "MyProfileEdit",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-myprofileedit",
+  "type" : "route",
+  "urlPrefix" : "myprofileedit"
+}

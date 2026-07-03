@@ -1,0 +1,14 @@
+<apex:page contentType="application/pdf" showHeader="false" standardStylesheets="false">
+    
+    <h1>Compliance Report</h1>
+	<p><strong>Candidate Name:</strong> {!$CurrentPage.parameters.candidateName}</p>
+
+    <p><strong>Proof of Right to Work in the UK:</strong><img src="/img/checkbox_checked.gif" alt="Yes"/></p>
+    
+    <p><strong>References in line with Supplier Agreement:</strong><img src="/img/checkbox_checked.gif" alt="Yes"/></p>
+    
+    <p><strong>Paid via PAYE in line with the Supplier Agreement:</strong><img src="/img/checkbox_checked.gif" alt="Yes"/></p>
+    
+    <p><strong>Submitted by:</strong> {!$CurrentPage.parameters.contactName}</p>
+    <p><strong>Submission Date:</strong> {!$CurrentPage.parameters.submissionDate}</p>
+</apex:page>

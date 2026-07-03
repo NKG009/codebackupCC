@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "b46741e1-4cd8-418f-bc86-60e3e006a430",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "a15f6bc4-3517-48b4-bb02-cc51610bba7b",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Settings_Portal_V2_ContactSite_Link_Assignment_Component",
+  "id" : "962aa3f8-c234-4d96-a16c-2801658c3b4f",
+  "type" : "experienceVariation"
+}

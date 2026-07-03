@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "29a37991-d6c1-4901-a9d9-20b8d5bf8968",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "LoginToCommunity__c",
+  "id" : "98ea086c-5b9d-4a4f-ba3c-d7b579df0523",
+  "label" : "LoginToCommunity",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-logintocommunity",
+  "type" : "route",
+  "urlPrefix" : "logintocommunity"
+}

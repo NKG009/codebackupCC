@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_ClientIDLegacySystem__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>This field is used if the client has already been created and we need to use this ID for interfacing data</description>
+    <externalId>true</externalId>
+    <inlineHelpText>Use this field where the Account has already been set-up in another system.</inlineHelpText>
+    <label>Client ID (Legacy)</label>
+    <length>10</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

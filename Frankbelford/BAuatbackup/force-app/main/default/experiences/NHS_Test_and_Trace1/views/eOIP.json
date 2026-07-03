@@ -1,0 +1,59 @@
+{
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "e151d9bf-a518-450a-b88c-8add20815b71",
+  "label" : "EOIP",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.NHS_Test_and_Trace_logo_L_Blue.1}\" style=\"width: 299.438px; height: 117.609px;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.HMGovernment.1}\" style=\"width: 401.531px; height: 146.797px;\"></p>\n<p>&nbsp;</p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "fc4827f2-a46f-4217-9fd5-81d85b54dfee",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "be8188db-c052-4dde-9262-33cc2ed9d94c",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "NHS_Lamp_Talent_Pool"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "666f7627-528e-4a07-b5ae-f695606fb90a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "eedf3e21-dcb4-41f7-b730-045a4b4cafe2",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "22671402-cf56-4314-9be9-4c5c1f04f45f",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "EOIP"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "7aab925e-f86d-437a-ac5c-8ac77571a1f7",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e42fbe2f-1e25-41bb-bde1-f9caa20cde80",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-eoip"
+}

@@ -1,0 +1,25 @@
+<apex:page controller="EmailAddressVerificationController" id="page" showHeader="false" sidebar="false" lightningStylesheets="true">
+    <apex:form id="form">       
+        <apex:pageMessages id="pgmessage"></apex:pageMessages>
+        <apex:actionFunction name="contactEmailVerificationfunc" action="{!contactEmailVerificationFunction}" reRender="form,pgmessage" immediate="true">
+            <apex:param name="firstParam" assignTo="{!contactEmail}" value="" />
+        </apex:actionFunction>
+    
+        <apex:pageBlock title="Verify The Email" id="pgblock">
+            <apex:pageBlockSection id="pgblocksection">
+                <apex:inputText value="{!contactEmailValue}" id="emailField" label="Enter your Email    "></apex:inputText>            
+                <br/><br/>
+                <apex:commandButton value="Verify" onclick="contactEmailVerification();" rerender="pgmessage"  styleClass="slds-vf-button_brand"/>
+                <apex:commandButton value="Update Email" action="{!updateEmailOnContact}" rerender="form,pgmessage" rendered="{!updateButtonDisplay}" styleClass="slds-vf-button_brand" />
+                <apex:commandButton value="Cancel" action="{!cancelEmailVerification}" rerender="form,pgmessage"/><br/><br/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    <script type="text/javascript">  
+        function contactEmailVerification(){
+            var emailValue = document.getElementById('page:form:pgblock:pgblocksection:emailField').value;
+            contactEmailVerificationfunc(emailValue);
+            //document.getElementById('page:form:pgblock:pgblocksection:emailField').value;
+        }
+   </script>
+</apex:page>

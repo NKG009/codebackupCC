@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AWR_Alert__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>If the Client is Eligible for AWR the consultant will tick this box to ensure the account owner gets an email for candidates eligible for AWR.</description>
+    <inlineHelpText>Check this to notify the account owner of any new AWR alerts for candidates</inlineHelpText>
+    <label>AWR Alert</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

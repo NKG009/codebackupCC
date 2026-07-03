@@ -1,0 +1,59 @@
+<apex:page controller="JobAcknowledgementController" action="{!sendAcknowledgement}" showHeader="false" sidebar="false">
+    <apex:outputPanel rendered="{!emailSent}">
+          <script>
+            var seconds = 5;
+            function countdownAndClose() {
+                var counterElem = document.getElementById('countdown');
+                var interval = setInterval(function() {
+                    if (seconds <= 1) {
+                        clearInterval(interval);
+                        window.close();
+                    } else {
+                        seconds--;
+                        counterElem.innerText = seconds;
+                    }
+                }, 1000);
+            }
+
+            window.onload = countdownAndClose;
+        </script>
+        
+        <div style="display: flex;
+                    justify-content: center;
+                    height: 100vh;
+                    align-items: center;
+                    background: aliceblue;">
+            <div>
+                <div style="text-align: center;">
+                    <img src="https://img.icons8.com/?size=100&id=118993&format=png&color=000000" 
+                     alt="Success Icon" 
+                     style="width: 50px; height: 50px; margin-bottom: 15px;" />
+                </div>
+                <div>
+                    <h2 style="color: green; font-size: 16px;">Your acknowledgement details have been sent to the MSP team. Feel free to close this window.</h2>
+                     This window will close in <span id="countdown">5</span> seconds.
+                </div>
+            </div>
+            
+        </div>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!errorMessage != null}">
+        <div style="display: flex;
+                    justify-content: center;
+                    height: 100vh;
+                    align-items: center;
+                    background: aliceblue;">
+            <div>
+                <div style="text-align: center;">
+                    <img src="https://img.icons8.com/?size=100&id=8oUG4ir3gagJ&format=png&color=000000" 
+                     alt="Success Icon" 
+                     style="width: 50px; height: 50px; margin-bottom: 15px;" />
+                </div>
+                <div>
+                     <h2 style="color: red; font-size: 16px;"> {!errorMessage}</h2>
+                     This window will close in <span id="countdown">5</span> seconds.
+                </div>
+            </div>
+        </div>
+    </apex:outputPanel>
+</apex:page>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_TempestID__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>ID need for passing to payroll</description>
+    <externalId>true</externalId>
+    <inlineHelpText>The ID needed for payroll detail passed</inlineHelpText>
+    <label>Tempest ID</label>
+    <length>50</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

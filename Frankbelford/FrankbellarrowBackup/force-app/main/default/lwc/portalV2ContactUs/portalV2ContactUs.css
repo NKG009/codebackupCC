@@ -1,0 +1,9 @@
+.wrapper {
+  width: 50%;
+  height: 80vh;
+}
+
+.action-container {
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "ad26f101-210e-44c0-9dee-834e32cf41cd",
+  "appPageId" : "cb4d05bc-15d6-4e33-beb3-5244832ec585",
+  "configurationTags" : [ ],
+  "devName" : "Worker_Managment__c",
+  "id" : "a2e10764-a320-4b98-8953-62b1be53bac6",
+  "label" : "Worker Managment",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-worker-managment",
+  "type" : "route",
+  "urlPrefix" : "worker-managment"
+}

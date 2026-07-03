@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>49.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <choices>
+        <name>AssociatePrincipalScientist</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/bioscientist-lead-day-shift&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Associate Principal Scientist&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Associate Principal Scientist</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>AssociatePrincipalScientistGenomics</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/associate-principle-scientist-genetic-sequencing-day&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Associate Principal Scientist (Genomics)&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Associate Principal Scientist (Genomics)</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>BOMItemMasterDataLead</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/bill-of-material-item-master-data-lead&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;BOM/Item Master Data Lead&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>BOM/Item Master Data Lead</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>ContractManager</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/contract-manager-2&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Contract Manager&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Contract Manager</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Dr</name>
+        <choiceText>Dr</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Dr</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>EnvironmentalOfficer</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/environmental-officer-1&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Environmental Officer&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Environmental Officer</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>False</name>
+        <choiceText>No</choiceText>
+        <dataType>Boolean</dataType>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </choices>
+    <choices>
+        <name>I_agree</name>
+        <choiceText>I agree</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>I agree</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>IncidentManager</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/incident-manager&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Incident Manager&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Incident Manager</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>LaboratorySupportAssociate</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/lab-support-associate-days&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Laboratory Support Associate&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Laboratory Support Associate</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Miss</name>
+        <choiceText>Miss</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Miss</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Mr</name>
+        <choiceText>Mr</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Mr</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Mrs</name>
+        <choiceText>Mrs</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Mrs</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Ms</name>
+        <choiceText>Ms</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Ms</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>None</name>
+        <choiceText>-None-</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>OtherLabLeadershipRole</name>
+        <choiceText>&lt;span style=&quot;font-size: 14px;&quot;&gt;Other Lab Leadership Role&lt;/span&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Other Lab Leadership Role</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>PrincipalScientist</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/principal-scientist-day&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt; background-color: rgb(255, 255, 255);&quot;&gt;Principal Scientist&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Principal Scientist</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>PrincipalScientistGenomics</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/principle-scientist-genetic-sequencing-day&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Principal Scientist (Genomics)&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Principal Scientist (Genomics)</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>QualityManager</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/quality-manager-6&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Quality Manager&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Quality Manager</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>QualityOfficer</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/quality-officer-7&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Quality Officer&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Quality Officer</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>RegulatoryAffairsManager</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/regulatory-affairs-manager&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Regulatory Affairs Manager&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Regulatory Affairs Manager</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Scientist</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/junior-lab-technician-day-shift-20&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Scientist&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Scientist</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>ScientistGenomics</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/scientist-genetic-sequencing-day-shift-1&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Scientist (Genomics)&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Scientist (Genomics)</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>SeniorHRBusinessPartner</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/senior-hr-business-partner&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Senior HR Business Partner&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Senior HR Business Partner</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>SeniorOccupationalHealthNurse</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/senior-occupational-health-nurse-5&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Senior Occupational Health Nurse&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Senior Occupational Health Nurse</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>SeniorScientist</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/senior-laboratory-technician-day-shift-28&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Senior Scientist&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Senior Scientist</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>SeniorScientistGenomics</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/senior-scientist-genetic-sequencing-day-shift-1&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Senior Scientist (Genomics)&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Senior Scientist (Genomics)</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>SignOutManager</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/sign-out-manager-2&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Sign Out Manager&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Sign Out Manager</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>SupplyChainAnalyst</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/supply-chain-analyst&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Supply Chain Analyst&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Supply Chain Analyst</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>True</name>
+        <choiceText>Yes</choiceText>
+        <dataType>Boolean</dataType>
+        <value>
+            <booleanValue>true</booleanValue>
+        </value>
+    </choices>
+    <choices>
+        <name>WarehouseCoordinator</name>
+        <choiceText>&lt;a href=&quot;https://www.ttlaboratoryjobs.com/job/warehouse-coordinator&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 11pt;&quot;&gt;Warehouse Coordinator&lt;/a&gt;</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Warehouse Coordinator</stringValue>
+        </value>
+    </choices>
+    <decisions>
+        <name>Bypass_flow</name>
+        <label>Bypass flow</label>
+        <locationX>942</locationX>
+        <locationY>65</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Bypass_flow1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Bypass_Flows__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>False</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Welcome_Screen</targetReference>
+            </connector>
+            <label>Bypass flow1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>CV_Uploaded</name>
+        <label>CV Uploaded</label>
+        <locationX>634</locationX>
+        <locationY>1132</locationY>
+        <defaultConnector>
+            <targetReference>PreScreen_Screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>CV_Missing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>CV_Loop</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Application_Form_Upload</targetReference>
+            </connector>
+            <label>CV Missing</label>
+        </rules>
+    </decisions>
+    <dynamicChoiceSets>
+        <name>LabList</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Lab_List__c</picklistField>
+        <picklistObject>Response__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>University</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>University__c</picklistField>
+        <picklistObject>Response__c</picklistObject>
+    </dynamicChoiceSets>
+    <environments>Default</environments>
+    <interviewLabel>NHS Pre Screener - Government {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>NHS Pre Screener - Government</label>
+    <loops>
+        <name>CV_Loop</name>
+        <label>CV Loop</label>
+        <locationX>327</locationX>
+        <locationY>1019</locationY>
+        <collectionReference>CV_ID</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>CV_Uploaded</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Application_Form_Upload</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_Content_Link</name>
+        <label>Create Content Link</label>
+        <locationX>1141</locationX>
+        <locationY>1057</locationY>
+        <connector>
+            <targetReference>Completion_Screen</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>ContentDocumentId</field>
+            <value>
+                <elementReference>CV_Loop</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LinkedEntityId</field>
+            <value>
+                <elementReference>Create_Response</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ContentDocumentLink</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Response</name>
+        <label>Create Response</label>
+        <locationX>987</locationX>
+        <locationY>973</locationY>
+        <connector>
+            <targetReference>Create_Content_Link</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Campaign__c</field>
+            <value>
+                <stringValue>University2022</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Degree_Subject__c</field>
+            <value>
+                <elementReference>Please_confirm_the_subject_of_your_degree</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Disability__c</field>
+            <value>
+                <elementReference>Do_you_have_a_disability_or_condition_which_requires_us_to_consider_reasonable_a</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Email__c</field>
+            <value>
+                <elementReference>Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>First_Name__c</field>
+            <value>
+                <elementReference>First_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Last_Name__c</field>
+            <value>
+                <elementReference>Second_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Mobile__c</field>
+            <value>
+                <elementReference>Mobile</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <stringValue>012Pv000002HXw6IAG</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>New</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>University__c</field>
+            <value>
+                <elementReference>Which_University_are_you_currently_studying_at</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Response__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <screens>
+        <name>Application_Form_Upload</name>
+        <label>Application Form Upload</label>
+        <locationX>611</locationX>
+        <locationY>874</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <backButtonLabel>&lt;- Back</backButtonLabel>
+        <connector>
+            <targetReference>CV_Loop</targetReference>
+        </connector>
+        <fields>
+            <name>CV_Text</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); font-size: 20px; font-family: &amp;quot;trebuchet ms&amp;quot;, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Application Documents&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);&quot;&gt;Please upload your application documents&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>CV</name>
+            <extensionName>forceContent:fileUpload</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Completed Application Form</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>multiple</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>recordId</name>
+                <value>
+                    <stringValue>a734J0000005vYl</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>accept</name>
+                <value>
+                    <stringValue>.pdf,.doc,.docx</stringValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <outputParameters>
+                <assignToReference>CV_ID</assignToReference>
+                <name>contentDocIds</name>
+            </outputParameters>
+        </fields>
+        <nextOrFinishButtonLabel>Next -&gt;</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Application_Process_Screen</name>
+        <label>Application Process Screen</label>
+        <locationX>864</locationX>
+        <locationY>494</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Personal_Information_Screen</targetReference>
+        </connector>
+        <fields>
+            <name>Prescreen_Screen_Text_0_0</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Recruitment Process – Laboratory Support Placement&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;You will be assessed at various stages throughout your application, these will include:&lt;/span&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Your suitability statement (500 words)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Your application.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Your knowledge of the RFL and what we do.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Your first interview stage.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&amp;nbsp;Your laboratory assessment stage.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Your face-to-face interview.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Due to the limited number of placements, we can offer, this will be a competitive recruitment process.&amp;nbsp;RFL operates to the highest standards, and we expect you to demonstrate this throughout the recruitment process.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Your suitability statement should demonstrate your knowledge of RFL, the skills and knowledge you will bring to your placement, why you should be selected to take part and what you hope to achieve through your time at RFL.&amp;nbsp;You should explain what motivates and interests you and what qualities you have that will add value to RFL.&amp;nbsp;&amp;nbsp;If you are involved in groups which add value to your local community, undertake activities which support local or national charities or have other interests which demonstrate your citizenship, please ensure you include these.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;As part of the recruitment process, you will undertake a laboratory-based assessment including sample receipt, unbagging and checking samples prior to processing &lt;/span&gt;&lt;span style=&quot;font-size: 16px; color: rgb(0, 0, 0);&quot;&gt;and pipetting concluding with a face-to-face interview.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 16px;&quot;&gt;Please download and complete the application documents below. You will be asked to upload these at a later stage in the online application process:&lt;/span&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;https://impellam.my.salesforce.com/sfc/p/#0Y000000LzSj/a/4J000000d0sY/6ygdrwWM81AEbxNvYPzaZUzcVYU2xKvTkGKDu47sbkc&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 16px;&quot;&gt;Job Description&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://impellam.my.salesforce.com/sfc/p/#0Y000000LzSj/a/4J000000d0xT/jPdGblpdetgGi3ZitrNAwxUpwWRyOxXWN5cCOJPm46U&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 16px;&quot;&gt;Application Form&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <nextOrFinishButtonLabel>Get Started</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Completion_Screen</name>
+        <label>Completion_Screen</label>
+        <locationX>1375</locationX>
+        <locationY>1008</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Completion_Text</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 24px;&quot;&gt;Your application has been submitted.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Thank you! You have successfully registered your interest to work at Rosalind Franklin Laboratory. Our team will review and will be in touch with you soon.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;You may now close this window&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>false</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Personal_Information_Screen</name>
+        <label>Personal Information Screen</label>
+        <locationX>796</locationX>
+        <locationY>742</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <backButtonLabel>&lt;- Back</backButtonLabel>
+        <connector>
+            <targetReference>Application_Form_Upload</targetReference>
+        </connector>
+        <fields>
+            <name>Text_Question1</name>
+            <fieldText>&lt;p&gt;&lt;b style=&quot;font-size: 20px; color: rgb(0, 0, 0);&quot;&gt;Applicant Information&lt;/b&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Title_Buttons</name>
+            <choiceReferences>Dr</choiceReferences>
+            <choiceReferences>Miss</choiceReferences>
+            <choiceReferences>Mr</choiceReferences>
+            <choiceReferences>Mrs</choiceReferences>
+            <choiceReferences>Ms</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Title</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>First_Name</name>
+            <dataType>String</dataType>
+            <fieldText>First Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Second_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Last Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Email</name>
+            <dataType>String</dataType>
+            <fieldText>Email</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(255, 0, 0); font-size: 14px;&quot;&gt;Email must be in a valid format&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                <formulaExpression>REGEX({!Email},&quot;([A-Z0-9a-z._%&apos;+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64})&quot;)</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Mobile</name>
+            <dataType>String</dataType>
+            <fieldText>Mobile</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Which_University_are_you_currently_studying_at</name>
+            <choiceReferences>None</choiceReferences>
+            <choiceReferences>University</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Which University are you currently studying at?</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Please_confirm_the_subject_of_your_degree</name>
+            <dataType>String</dataType>
+            <fieldText>Please confirm the subject of your degree</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Do_you_have_a_disability_or_condition_which_requires_us_to_consider_reasonable_a</name>
+            <choiceReferences>True</choiceReferences>
+            <choiceReferences>False</choiceReferences>
+            <dataType>Boolean</dataType>
+            <fieldText>Do you have a disability or condition which requires us to consider reasonable adjustments for you to undertake the role?</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Could_you_provide_some_additional_details</name>
+            <fieldText>Could you provide some additional details:</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_have_a_disability_or_condition_which_requires_us_to_consider_reasonable_a</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <nextOrFinishButtonLabel>Next -&gt;</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>PreScreen_Screen</name>
+        <label>PreScreen_Screen</label>
+        <locationX>805</locationX>
+        <locationY>977</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <backButtonLabel>&lt;- Back</backButtonLabel>
+        <connector>
+            <targetReference>Create_Response</targetReference>
+        </connector>
+        <fields>
+            <name>Prescreen_Screen_Text</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Submit&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Please note, speculative applications will not be accepted. Candidates are expected to fulfil the requirements of the role description. Candidates are also expected to submit a full completed application. If we receive a high volume of applicants, we will carry out an initial sift based on &quot;Suitability Statement&quot;.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Agreement</name>
+            <choiceReferences>I_agree</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>By selecting &quot;I Agree&quot; you confirm that you have read, understand and agree to the statement above.</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Text5</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Data Privacy Statement&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;Click Here to find information on the full privacy policy for the TT laboratory jobs website, an Impellam Group website (&quot;Our Site&quot;). The privacy notice sets out how to request an update to your marketing preferences and how Impellam Group entities Medacs Global Group Limited, Science Recruitment Group Limited and Blue Arrow Limited will manage personal data submitted via the TT laboratory jobs website and registration process.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>By_selecting_I_agree_you_confirm_that_you_have_read_understand_and_consent_to_th</name>
+            <choiceReferences>I_agree</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>By selecting &quot;I agree&quot; you confirm that you have read, understand and consent to the data privacy statement</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Captcha</name>
+            <extensionName>c:googleRecaptcha</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>secretKey</name>
+                <value>
+                    <stringValue>6LcdSscZAAAAAFYqM8ZPcsELdCy6NYP__SsTsLik</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>siteKey</name>
+                <value>
+                    <stringValue>6LcdSscZAAAAACFh67_DyRvtYCWLlx04q8ROPI1y</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>requiredOnce</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>requiredMessage</name>
+                <value>
+                    <stringValue>We just need to verify you are human before submitting these details</stringValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <nextOrFinishButtonLabel>Submit Application</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Welcome_Screen</name>
+        <label>Welcome Screen</label>
+        <locationX>923</locationX>
+        <locationY>268</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Application_Process_Screen</targetReference>
+        </connector>
+        <fields>
+            <name>Welcome_Text</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: black; font-size: 18px;&quot;&gt;Application to the Rosalind Franklin Laboratory - Laboratory Support Placement&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: black; font-size: 16px;&quot;&gt;The Rosalind Franklin Laboratory (RFL) is at the forefront of diagnostic testing not only for COVID and variants of concern but also any other future health threats. This has created an exceptional opportunity for anyone wishing to embark on a career within a laboratory environment. The RFL is the UK Health Security Agency’s flagship laboratory and has access to the latest equipment and smartest minds to offer a truly unique opportunity and supportive working environment.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: black; font-size: 16px;&quot;&gt;Our mission is to become a world-renowned diagnostic and testing laboratory.&amp;nbsp;Our world class laboratory team will use scientific innovation to accurately test at scale any known threat and we work through our values, Insightful, Impactful &amp;amp; Inclusive to achieve our mission.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: black; font-size: 16px;&quot;&gt;You will have a scientific and inquisitive mindset, be willing to learn and ready to engage proactively within the laboratory environment. As a member of the RFL team, you will be expected to apply your knowledge, act professionally and adopt a proactive approach to all tasks. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: black; font-size: 16px;&quot;&gt;In return, we will offer you a structured placement designed to build on your knowledge, provide exposure to all areas of RFL activity needed to effectively run a high-throughput laboratory and develop the all- important employability skills you will need for your future career. A dedicated Placement Co-ordinator will provide mentorship and pastoral support to ensure you are able to successfully complete the placement.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: black; font-size: 16px;&quot;&gt;The number of placements is limited. To register your interest, please begin your application now.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(51, 51, 51); font-size: 16px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;em style=&quot;color: black; font-size: 14px;&quot;&gt;Please note, although this portal is operated on behalf of the UKHSA (Health Security Agency), employment opportunities are through third party suppliers such specialist workforce providers.&lt;/em&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(51, 51, 51); font-size: 16px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <nextOrFinishButtonLabel>Get Started</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <stages>
+        <name>Contact_Details_Stage</name>
+        <isActive>true</isActive>
+        <label>Contact Details</label>
+        <stageOrder>10</stageOrder>
+    </stages>
+    <stages>
+        <name>CV_Upload_Stage</name>
+        <isActive>true</isActive>
+        <label>CV Upload</label>
+        <stageOrder>40</stageOrder>
+    </stages>
+    <stages>
+        <name>Prescreen_Stage</name>
+        <isActive>true</isActive>
+        <label>Pre-Screen Stage</label>
+        <stageOrder>5</stageOrder>
+    </stages>
+    <start>
+        <locationX>1113</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Bypass_flow</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>ChoiceCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>CV_ID</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Job_Title_Text</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Qualification_Var</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Title_Var</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>UKLocations</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,1117 @@
+<template>
+  <div class="slds-p-top_x-large">
+    <h1 class="main__header">Shift Approval</h1>
+    <lightning-layout horizontal-align="spread" multiple-rows>
+      <lightning-layout-item class="slds-p-top_large" size="12">
+        <div class="slds-clearfix">
+          <div class="slds-float_left">
+            <div class="slds-clearfix">
+              <div class="slds-float_left" style="padding: 20px">
+                <lightning-button-group>
+                  <lightning-button
+                    label="View All Shifts"
+                    onclick={clearFilters}
+                    variant={viewAllShiftsVariation}
+                  ></lightning-button>
+                  <lightning-button
+                    label="View Shifts To Be Approved"
+                    onclick={applyViewShiftsToBeApprovedFilters}
+                    variant={viewShiftsToBeApprovedVariation}
+                  ></lightning-button>
+                </lightning-button-group>
+              </div>
+              <div class="slds-float_right">
+                <div class="body-text total-hours-container">
+                  <span> Total Hours Selected: {totalHoursSelected} </span>
+                  <span>
+                    Total Chargeable Hours Selected: {totalChargeSelected}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slds-float_right">
+            <div class="slds-p-around_small" style="display: inline-block">
+              <c-portal-v2-site-switch-widget></c-portal-v2-site-switch-widget>
+            </div>
+            <lightning-button
+              variant={clearFiltersVariation}
+              label="Clear Filters"
+              class="slds-p-horizontal_xx-small"
+              onclick={clearFilters}
+            ></lightning-button>
+            <lightning-button
+              variant="brand"
+              label="Adjust Columns"
+              class="slds-p-horizontal_xx-small"
+              onclick={openAdjustColumnsModalBox}
+            ></lightning-button>
+            <lightning-button
+              variant="brand"
+              label="Export"
+              class="slds-p-horizontal_xx-small"
+              onclick={exportTimesheets}
+            ></lightning-button>
+            <!--lightning-button
+              variant="brand"
+              label="Export Timesheets"
+              class="slds-p-horizontal_xx-small"
+              onclick={handelexportDetailTimesheets}
+            ></lightning-button-->
+          </div>
+        </div>
+      </lightning-layout-item>
+      <lightning-layout-item class="slds-p-top_large" size="12">
+        <div class="table__container table_layout" style="overflow-y: scroll">
+          <table
+            class="slds-table slds-table_cell-buffer"
+            aria-labelledby="element-with-table-label other-element-with-table-label"
+          >
+            <thead>
+              <tr
+                class="slds-line-height_reset header__row table__header__actionbar"
+              >
+                <th scope="col" class="table__select__row table__header">
+                  <input
+                    type="checkbox"
+                    name="selectAll"
+                    onclick={selectAllRows}
+                    data-id="all__checkbox"
+                  />
+                </th>
+                <template for:each={mainTableColumnStatus} for:item="theColumn">
+                  <template if:true={theColumn.selected}>
+                    <th
+                      key={theColumn.fieldAPIName}
+                      scope="col"
+                      class="table__header table-header"
+                    >
+                      <div
+                        title={theColumn.column}
+                        class="column-header-container"
+                      >
+                        <span class="column-title-text"
+                          >{theColumn.column}</span
+                        >
+
+                        <template if:true={theColumn.filterable}>
+                          <span>
+                            &nbsp;&nbsp;
+                            <img
+                              class="clickable__element"
+                              src={theColumn.filterIcon}
+                              alt={theColumn.filterType}
+                              name={theColumn.fieldAPIName}
+                              title={theColumn.column}
+                              onclick={handleFilterClick}
+                            />
+                          </span>
+                        </template>
+                      </div>
+                    </th>
+                  </template>
+                </template>
+              </tr>
+            </thead>
+            <tbody>
+              <template if:true={hasRecords}>
+                <template for:each={timeSheetsData} for:item="theTimeSheet">
+                  <tr class="slds-hint-parent body__row" key={theTimeSheet.Id}>
+                    <td>
+                      <input
+                        type="checkbox"
+                        name={theTimeSheet.Id}
+                        onclick={selectSingleRow}
+                        data-id={theTimeSheet.Id}
+                        checked={theTimeSheet.isChecked}
+                      />
+                    </td>
+                    <template
+                      for:each={theTimeSheet.columns}
+                      for:item="theColumn"
+                    >
+                      <template if:true={theColumn.display}>
+                        <td
+                          key={theColumn.key}
+                          class="body-text"
+                          style="text-align: center"
+                        >
+                          <div title={theColumn.label}>
+                            <template if:true={theColumn.isText}>
+                              <template if:true={theColumn.isStatus}>
+                                <template if:true={theColumn.isStatusRejected}>
+                                  <div class={theColumn.statusColorClass}>
+                                    Rejected
+                                  </div>
+                                  <div class={theColumn.statusColorSubClass}>
+                                    Not Processed
+                                  </div>
+                                </template>
+                                <template if:false={theColumn.isStatusRejected}>
+                                  <template
+                                    if:true={theColumn.isStatusAwaitingApproval}
+                                  >
+                                    <div class={theColumn.statusColorClass}>
+                                      Not Approved
+                                    </div>
+                                    <div class={theColumn.statusColorSubClass}>
+                                      Not Processed
+                                    </div>
+                                  </template>
+                                  <template
+                                    if:true={theColumn.isStatusApprovedAndAwaitingProcessing}
+                                  >
+                                    <div class={theColumn.statusColorClass}>
+                                      Approved
+                                    </div>
+                                    <div class={theColumn.statusColorSubClass}>
+                                      Not Processed
+                                    </div>
+                                  </template>
+                                  <template
+                                    if:true={theColumn.isStatusProcessed}
+                                  >
+                                    <div class={theColumn.statusColorClass}>
+                                      Approved
+                                    </div>
+                                    <div class={theColumn.statusColorSubClass}>
+                                      Processed
+                                    </div>
+                                  </template>
+                                </template>
+                              </template>
+                              <template if:false={theColumn.isStatus}>
+                                <template if:true={theColumn.isTruncatedColumn}>
+                                  <span title={theColumn.value}
+                                    >{theColumn.theTruncatedText}</span
+                                  >
+                                </template>
+                                <template
+                                  if:false={theColumn.isTruncatedColumn}
+                                >
+                                  <lightning-formatted-text
+                                    value={theColumn.value}
+                                  ></lightning-formatted-text>
+                                </template>
+                              </template>
+                            </template>
+                            <template if:true={theColumn.isNumber}>
+                              <template if:true={theColumn.displayAsNumber}>
+                                <lightning-formatted-number
+                                  value={theColumn.value}
+                                  format-style="decimal"
+                                  minimum-fraction-digits="2"
+                                ></lightning-formatted-number>
+                              </template>
+                              <template if:false={theColumn.displayAsNumber}>
+                                <template
+                                  if:true={theColumn.isChargeableHoursColumn}
+                                >
+                                  <lightning-formatted-text
+                                    value={theColumn.chargeableHoursDisplayText}
+                                  ></lightning-formatted-text>
+                                </template>
+                                <template
+                                  if:true={theColumn.isBookedHoursColumn}
+                                >
+                                  <lightning-formatted-text
+                                    value={theColumn.bookedHoursDisplayText}
+                                  ></lightning-formatted-text>
+                                </template>
+                                <template
+                                  if:true={theColumn.isActualHoursColumn}
+                                >
+                                  <lightning-formatted-text
+                                    value={theColumn.actualHoursDisplayText}
+                                  ></lightning-formatted-text>
+                                </template>
+                              </template>
+                            </template>
+                            <template if:true={theColumn.isDate}>
+                              <lightning-formatted-date-time
+                                value={theColumn.value}
+                                year="numeric"
+                                month="2-digit"
+                                day="2-digit"
+                                time-zone={timeZone}
+                              ></lightning-formatted-date-time>
+                            </template>
+                            <template if:true={theColumn.isTime}>
+                              <lightning-formatted-date-time
+                                value={theColumn.value}
+                                hour="2-digit"
+                                minute="2-digit"
+                                time-zone={timeZone}
+                              ></lightning-formatted-date-time>
+                            </template>
+                          </div>
+                        </td>
+                      </template>
+                    </template>
+
+                    <td>
+                      <input
+                        type="checkbox"
+                        name={theTimeSheet.Id}
+                        onclick={selectSingleRow}
+                        data-id={theTimeSheet.Id}
+                        checked={theTimeSheet.isChecked}
+                      />
+                    </td>
+
+                  </tr>
+                </template>
+              </template>
+              <template if:false={hasRecordsToDisplay}>
+                <tr class="slds-hint-parent">
+                  <td
+                    colspan={totalColumns}
+                    style="padding: 20px; font-weight: bold; font-size: medium"
+                  >
+                    {theTableMessage}
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </lightning-layout-item>
+      <lightning-layout-item class="slds-p-top_large" size="12">
+        <div class="slds-clearfix table__footer__actionbar">
+          <div class="slds-float_left">
+            <lightning-button
+              disabled={buttonsDisabled}
+              variant="brand"
+              label="Amend Shift Hours"
+              class="slds-p-horizontal_xx-small"
+              onclick={openAmendShiftHoursModalBox}
+            ></lightning-button>
+            <lightning-button
+              disabled={poButtonDisabled}
+              variant="brand"
+              label="Amend PO Number"
+              class="slds-p-horizontal_xx-small"
+              onclick={openAmendPONumberModalBoxNew}
+            ></lightning-button>
+            <lightning-button
+              disabled={buttonsDisabled}
+              variant="brand"
+              label="Amend Shift Breaks"
+              class="slds-p-horizontal_xx-small"
+              onclick={openAmendBreakModalBox}
+            ></lightning-button>
+            <lightning-button
+              disabled={buttonsDisabled}
+              variant="brand"
+              label="Reject"
+              class="slds-p-horizontal_xx-small"
+              onclick={openRejectModalBox}
+            ></lightning-button>
+            <lightning-button
+              disabled={buttonsDisabled}
+              variant="brand"
+              label="Approve"
+              class="slds-p-horizontal_xx-small"
+              onclick={openEndorseApprovalModalBox}
+            ></lightning-button>
+          </div>
+          <div class="slds-float_right">
+            <template if:true={hasRecords}>
+              <template if:true={showPagination}>
+                <c-portal-v2-pagination
+                  totalrecords={totalRecords}
+                  current-page={activePage}
+                  onpageselected={loadSelectedPage}
+                ></c-portal-v2-pagination>
+              </template>
+            </template>
+          </div>
+        </div>
+      </lightning-layout-item>
+    </lightning-layout>
+  </div>
+  <template if:true={openTextFilterModal}>
+    <div data-id="textFilterModal" class="filter__modal">
+      <c-portal-v2-filter-modal
+        onclose={handleTextFilterModalClose}
+        onapplyfilter={handleApplyFilter}
+        onresetfilter={handleResetFilter}
+        column-label={filterColumnLabel}
+        filter-click-type={filterClickType}
+        default-selected-values={currentFilterSelectedTerms}
+        filter-terms={filterTerms}
+      ></c-portal-v2-filter-modal>
+    </div>
+  </template>
+  <template if:true={openDateFilterModal}>
+    <div data-id="dateFilterModal" class="filter__modal">
+      <c-portal-v2-date-filter-modal
+        column={filterColumnLabel}
+        selected-date-filter={selectedDateFilter}
+        onclose={handleDateFilterModalClose}
+        onapplyfilter={handleApplyFilter}
+        default-selected-values={selectedDateFilter}
+        onresetfilter={handleResetFilter}
+        date-range="true"
+      ></c-portal-v2-date-filter-modal>
+    </div>
+  </template>
+  <template if:true={openAdjustColumnsModal}>
+    <div data-id="adjustColumnsModal" class="column_adjust__modal">
+      <c-portalv2-column-picker
+        main-table-column-selection={mainTableColumnStatus}
+        onapplyfilters={handleColumnPickerFilter}
+        onclose={closeAdjustColumnsModalBox}
+      >
+      </c-portalv2-column-picker>
+    </div>
+  </template>
+  
+  <template if:true={openAmendShiftHoursModal}>
+    <section aria-modal="true" class="slds-modal slds-fade-in-open">
+      <div
+        class="slds-modal__container"
+        style="max-width: fit-content; width: auto !important"
+      >
+        <header class="slds-modal__header">
+          <h2 class="slds-text-heading_small">Amend Shift Hours</h2>
+          <lightning-icon
+            class="slds-modal__close"
+            icon-name="utility:close"
+            size="small"
+            onclick={closeAmendShiftHoursModalBox}
+          ></lightning-icon>
+        </header>
+        <div class="slds-modal__content modalBody table_layout">
+          <template if:true={openAmendShiftHoursModalLoading}>
+            <lightning-spinner
+              alternative-text="Loading"
+              size="medium"
+            ></lightning-spinner>
+          </template>
+          <template if:false={openAmendShiftHoursModalLoading}>
+            <table
+              class="slds-table slds-table_cell-buffer"
+              aria-labelledby="element-with-table-label other-element-with-table-label"
+            >
+              <thead>
+                <tr class="slds-line-height_reset slds-border_bottom">
+                  <th scope="col" style="text-align: center">
+                    <div title="Candidate Name">Candidate Name</div>
+                  </th>
+                  <th scope="col" style="text-align: center">
+                    <div title="Start Date">Start Date</div>
+                  </th>
+                  <th scope="col" style="text-align: center">
+                    <div title="End Date">End Date</div>
+                  </th>
+                  <th scope="col" style="text-align: center">
+                    <div title="Scheduled Start Time">Scheduled Start Time</div>
+                  </th>
+                  <th scope="col" style="text-align: center">
+                    <div title="Scheduled End Time">Scheduled End Time</div>
+                  </th>
+                  <th scope="col">
+                    <div title="Actual Start Time">Actual Start Time</div>
+                  </th>
+                  <th scope="col">
+                    <div title="Actual End Time">Actual End Time</div>
+                  </th>
+                  <th scope="col" style="text-align: center">
+                    <div title="Shift Hours">Shift Hours</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <template
+                  for:each={openAmendShiftHoursModalData}
+                  for:item="theTimesheet"
+                >
+                  <tr
+                    class="slds-hint-parent slds-border_bottom"
+                    key={theTimesheet.recordId}
+                    data-id={theTimesheet.recordId}
+                  >
+                    <td data-label="Candidate Name" style="text-align: center">
+                      <div title={theTimesheet.candidateName}>
+                        {theTimesheet.candidateName}
+                      </div>
+                    </td>
+                    <td data-label="Start Date" style="text-align: center">
+                      <div title={theTimesheet.startDate}>
+                        <lightning-formatted-date-time
+                          year="numeric"
+                          month="numeric"
+                          day="numeric"
+                          value={theTimesheet.startDate}
+                        ></lightning-formatted-date-time>
+                      </div>
+                    </td>
+                    <td data-label="End Date" style="text-align: center">
+                      <div title={theTimesheet.endDate}>
+                        <lightning-formatted-date-time
+                          year="numeric"
+                          month="numeric"
+                          day="numeric"
+                          value={theTimesheet.endDate}
+                        ></lightning-formatted-date-time>
+                      </div>
+                    </td>
+                    <td
+                      data-label="Scheduled Start Time"
+                      style="text-align: center"
+                    >
+                      <div title={theTimesheet.bookedStartTime}>
+                        <lightning-formatted-date-time
+                          value={theTimesheet.bookedStartTime}
+                          hour="2-digit"
+                          minute="2-digit"
+                          time-zone={timeZone}
+                        ></lightning-formatted-date-time>
+                      </div>
+                    </td>
+                    <td
+                      data-label="Scheduled End Time"
+                      style="text-align: center"
+                    >
+                      <div title={theTimesheet.bookedEndTime}>
+                        <lightning-formatted-date-time
+                          value={theTimesheet.bookedEndTime}
+                          hour="2-digit"
+                          minute="2-digit"
+                          time-zone={timeZone}
+                        ></lightning-formatted-date-time>
+                      </div>
+                    </td>
+                    <td
+                      data-label="Actual Start Time"
+                      style="text-align: center"
+                    >
+                      <div
+                        title={theTimesheet.actualStartTime}
+                        style="width: 85px"
+                      >
+                        <lightning-input
+                          variant="label-hidden"
+                          type="time"
+                          value={theTimesheet.actualStartTime}
+                          data-start-id={theTimesheet.recordId}
+                        ></lightning-input>
+                      </div>
+                    </td>
+                    <td data-label="Actual End Time" style="text-align: center">
+                      <div
+                        title={theTimesheet.actualEndTime}
+                        style="width: 85px"
+                      >
+                        <lightning-input
+                          variant="label-hidden"
+                          type="time"
+                          value={theTimesheet.actualEndTime}
+                          data-end-id={theTimesheet.recordId}
+                        ></lightning-input>
+                      </div>
+                    </td>
+                    <td data-label="Shift Hours" style="text-align: center">
+                      <div
+                        title={theTimesheet.shiftHours}
+                        data-shift-hours-id={theTimesheet.recordId}
+                      >
+                        {theTimesheet.shiftHours}
+                      </div>
+                    </td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </template>
+        </div>
+        <footer class="slds-modal__footer">
+          <div class="slds-clearfix">
+            <div class="slds-float_left">
+              <div class="slds-grid">
+                <div class="slds-col">
+                  <lightning-button
+                    variant="brand"
+                    label="Add To All Start"
+                    class="slds-p-around_x-small"
+                    onclick={addToAllStart}
+                  ></lightning-button>
+                </div>
+                <div class="slds-col">
+                  <lightning-input
+                    variant="label-hidden"
+                    type="time"
+                    value=""
+                    data-id="addToAllStartInputElement"
+                    style="width: 85px; display: inline-block"
+                  ></lightning-input>
+                </div>
+                <div class="slds-col">
+                  <lightning-button
+                    variant="brand"
+                    label="Add To All End"
+                    class="slds-p-around_x-small"
+                    onclick={addToAllEnd}
+                  ></lightning-button>
+                </div>
+                <div class="slds-col">
+                  <lightning-input
+                    variant="label-hidden"
+                    type="time"
+                    value=""
+                    data-id="addToAllEndInputElement"
+                    style="width: 85px; display: inline-block"
+                  ></lightning-input>
+                </div>
+              </div>
+            </div>
+            <div class="slds-float_right">
+              <lightning-button
+                variant="brand"
+                label="Apply"
+                onclick={amendAllShiftHours}
+                class="slds-p-around_x-small"
+              ></lightning-button>
+              <lightning-button
+                variant="brand"
+                label="Cancel"
+                onclick={closeAmendShiftHoursModalBox}
+                class="slds-p-around_x-small"
+              ></lightning-button>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+
+
+
+  <template if:true={openAmendPONumberModal}>
+    <section aria-modal="true" class="slds-modal slds-fade-in-open">
+      <div class="slds-modal__container" style="max-width: inherit">
+        <header class="slds-modal__header">
+          <h2 class="slds-text-heading_small">Amend PO Number</h2>
+          <lightning-icon
+            class="slds-modal__close"
+            icon-name="utility:close"
+            size="small"
+            onclick={closeAmendPONumberModalBox}
+          ></lightning-icon>
+        </header>
+        <div class="slds-modal__content modalBody table_layout">
+          <template if:true={openAmendPONumberModalLoading}>
+            <lightning-spinner
+              alternative-text="Loading"
+              size="medium"
+            ></lightning-spinner>
+          </template>
+          <template if:false={openAmendPONumberModalLoading}>
+            <table
+              class="slds-table slds-table_cell-buffer"
+              aria-labelledby="element-with-table-label other-element-with-table-label"
+            >
+              <thead>
+                <tr class="slds-line-height_reset slds-border_bottom">
+                  <th scope="col" style="text-align: center">
+                    <div title="Candidate Name">Candidate Name</div>
+                  </th>
+                  <th scope="col" style="text-align: center">
+                    <div title="Start Date">Start Date</div>
+                  </th>
+                  <th scope="col" style="text-align: center">
+                    <div title="PO Number">PO Number</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <template
+                  for:each={openAmendPONumberModalData}
+                  for:item="theTimesheet"
+                >
+                  <tr
+                    class="slds-hint-parent slds-border_bottom"
+                    key={theTimesheet.recordId}
+                    data-id={theTimesheet.recordId}
+                  >
+                    <td data-label="Candidate Name" style="text-align: center">
+                      <div title={theTimesheet.candidateName}>
+                        {theTimesheet.candidateName}
+                      </div>
+                    </td>
+                    <td data-label="Start Date" style="text-align: center">
+                      <div title={theTimesheet.startDate}>
+                        <lightning-formatted-date-time
+                          year="numeric"
+                          month="numeric"
+                          day="numeric"
+                          value={theTimesheet.startDate}
+                        ></lightning-formatted-date-time>
+                      </div>
+                    </td>
+                    <td data-label="PO Number" style="text-align: center">
+                      <div
+                        title={theTimesheet.poNumber}
+                        style="width: 150px; margin: 0 auto"
+                      >
+                        <lightning-input
+                          variant="label-hidden"
+                          type="text"
+                          value={theTimesheet.poNumber}
+                          data-id={theTimesheet.recordId}
+                        ></lightning-input>
+                      </div>
+                    </td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </template>
+        </div>
+        <footer class="slds-modal__footer">
+          <div class="slds-clearfix">
+            <div class="slds-float_left">
+              <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-2">
+                  <lightning-button
+                    variant="brand"
+                    label="Add To All"
+                    class="slds-p-around_x-small"
+                    onclick={updateInvoicePO}
+                  ></lightning-button>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                  <lightning-input
+                    variant="label-hidden"
+                    type="text"
+                    value=""
+                    data-id="addToAllInputElement"
+                  ></lightning-input>
+                </div>
+              </div>
+            </div>
+            <div class="slds-float_right">
+              <lightning-button
+                variant="brand"
+                label="Apply"
+                onclick={applyUpdateInvoicePO}
+                class="slds-p-around_x-small"
+              ></lightning-button>
+              <lightning-button
+                variant="brand"
+                label="Cancel"
+                onclick={closeAmendPONumberModalBox}
+                class="slds-p-around_x-small"
+              ></lightning-button>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+  <template if:true={openAmendBreakModal}>
+    <section aria-modal="true" class="slds-modal slds-fade-in-open">
+      <div class="slds-modal__container" style="max-width: inherit">
+        <header class="slds-modal__header">
+          <h2 class="slds-text-heading_small">Amend Shift Breaks</h2>
+          <lightning-icon
+            class="slds-modal__close"
+            icon-name="utility:close"
+            size="small"
+            onclick={closeAmendBreakModalBox}
+          ></lightning-icon>
+        </header>
+        <div class="slds-modal__content modalBody table_layout">
+          <template if:true={openAmendBreakModalLoading}>
+            <lightning-spinner
+              alternative-text="Loading"
+              size="medium"
+            ></lightning-spinner>
+          </template>
+          <template if:false={openAmendBreakModalLoading}>
+            <table
+              class="slds-table slds-table_cell-buffer slds-table--bordered"
+              aria-labelledby="element-with-table-label other-element-with-table-label"
+            >
+              <thead>
+                <tr class="slds-line-height_reset slds-border_bottom">
+                  <th scope="col" style="text-align: center">
+                    <div title="Candidate Name">Candidate Name</div>
+                  </th>
+                  <th scope="col" style="text-align: center">
+                    <div title="Start Date">Start Date</div>
+                  </th>
+                  <th scope="col" style="text-align: center">
+                    <div title="Current Breaks">Current Breaks</div>
+                  </th>
+                  <th scope="col">
+                    <div title="Amended Breaks">Amended Breaks</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <template
+                  for:each={openAmendBreakModalData}
+                  for:item="theTimesheet"
+                >
+                  <tr
+                    class="slds-hint-parent slds-border_bottom"
+                    key={theTimesheet.recordId}
+                    data-id={theTimesheet.recordId}
+                  >
+                    <td data-label="Temp Name" style="text-align: center">
+                      <div title={theTimesheet.candidateName}>
+                        {theTimesheet.candidateName}
+                      </div>
+                    </td>
+                    <td data-label="Start Date" style="text-align: center">
+                      <div title={theTimesheet.startDate}>
+                        <lightning-formatted-date-time
+                          year="numeric"
+                          month="numeric"
+                          day="numeric"
+                          value={theTimesheet.startDate}
+                        ></lightning-formatted-date-time>
+                      </div>
+                    </td>
+                    <td data-label="Current Breaks" style="text-align: center">
+                      <div title={theTimesheet.Break_Length__c}>
+                        {theTimesheet.currentBreaks}
+                      </div>
+                    </td>
+                    <td data-label="Amended Breaks" style="text-align: center">
+                      <div title={theTimesheet.amendedBreaks}>
+                        <div
+                          title={theTimesheet.amendedBreaks}
+                          style="width: 85px"
+                        >
+                          <lightning-input
+                            variant="label-hidden"
+                            type="time"
+                            value={theTimesheet.amendedBreaks}
+                            data-id={theTimesheet.recordId}
+                          ></lightning-input>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </template>
+        </div>
+        <footer class="slds-modal__footer">
+          <div class="slds-clearfix">
+            <div class="slds-clearfix">
+              <div class="slds-float_left">
+                <div class="slds-grid slds-wrap">
+                  <div class="slds-col slds-size_1-of-2">
+                    <lightning-button
+                      variant="brand"
+                      label="Add To All"
+                      class="slds-p-around_x-small"
+                      onclick={addOneToAllShiftBreaks}
+                    ></lightning-button>
+                  </div>
+                  <div class="slds-col slds-size_1-of-2">
+                    <lightning-input
+                      variant="label-hidden"
+                      type="time"
+                      value=""
+                      data-id="addOneToAllShiftBreaksInputElement"
+                      style="width: 85px; display: inline-block"
+                    ></lightning-input>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-float_right">
+                <lightning-button
+                  variant="brand"
+                  label="Apply"
+                  onclick={applyToAllShiftBreaks}
+                  class="slds-p-around_x-small"
+                ></lightning-button>
+                <lightning-button
+                  variant="brand"
+                  label="Cancel"
+                  onclick={closeAmendBreakModalBox}
+                  class="slds-p-around_x-small"
+                ></lightning-button>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+  <template if:true={openRejectModal}>
+    <section aria-modal="true" class="slds-modal slds-fade-in-open">
+      <div class="slds-modal__container" style="max-width: inherit">
+        <header class="slds-modal__header">
+          <h2 class="slds-text-heading_small">Reject Shifts</h2>
+          <lightning-icon
+            class="slds-modal__close"
+            icon-name="utility:close"
+            size="small"
+            onclick={closeRejectModalBox}
+          ></lightning-icon>
+        </header>
+        <div class="slds-modal__content modalBody table_layout">
+          <template if:true={openRejectModalLoading}>
+            <lightning-spinner
+              alternative-text="Loading"
+              size="medium"
+            ></lightning-spinner>
+          </template>
+          <template if:false={openRejectModalLoading}>
+            <table
+              class="slds-table slds-table_cell-buffer slds-table--bordered"
+              aria-labelledby="element-with-table-label other-element-with-table-label"
+            >
+              <thead>
+                <tr class="slds-line-height_reset slds-border_bottom">
+                  <th scope="col" style="text-align: center">
+                    <div title="Candidate Name">Candidate Name</div>
+                  </th>
+                  <th scope="col" style="text-align: center">
+                    <div title="Job Role">Job Role</div>
+                  </th>
+                  <th scope="col" style="text-align: center">
+                    <div title="Start Date">Start Date</div>
+                  </th>
+                  <th scope="col" style="text-align: center">
+                    <div title="Actual Hours">Actual Hours</div>
+                  </th>
+                  <th scope="col" style="text-align: center">
+                    <div title="Chargeable Hours">Chargeable Hours</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <template
+                  for:each={openRejectModalData}
+                  for:item="theTimesheet"
+                >
+                  <tr
+                    class="slds-hint-parent slds-border_bottom"
+                    key={theTimesheet.recordId}
+                    data-id={theTimesheet.recordId}
+                  >
+                    <td data-label="Temp Name" style="text-align: center">
+                      <div title={theTimesheet.candidateName}>
+                        {theTimesheet.candidateName}
+                      </div>
+                    </td>
+                    <td data-label="Job Role" style="text-align: center">
+                      <div title={theTimesheet.jobRole}>
+                        {theTimesheet.jobRole}
+                      </div>
+                    </td>
+                    <td data-label="Start Date" style="text-align: center">
+                      <div title={theTimesheet.startDate}>
+                        <lightning-formatted-date-time
+                          year="numeric"
+                          month="numeric"
+                          day="numeric"
+                          value={theTimesheet.startDate}
+                        ></lightning-formatted-date-time>
+                      </div>
+                    </td>
+                    <td data-label="Actual Hours" style="text-align: center">
+                      <div title={theTimesheet.actualHours}>
+                        {theTimesheet.actualHours}
+                      </div>
+                    </td>
+                    <td
+                      data-label="Chargeable Hours"
+                      style="text-align: center"
+                    >
+                      <div title={theTimesheet.chargeableHours}>
+                        {theTimesheet.chargeableHours}
+                      </div>
+                    </td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </template>
+        </div>
+        <footer class="slds-modal__footer">
+          <div class="slds-clearfix">
+            <div class="slds-float_left">
+              <div class="slds-clearfix">
+                <div class="slds-float_left">
+                  <lightning-button
+                    variant="brand"
+                    label="Reject"
+                    class="slds-p-around_x-small"
+                    onclick={rejectSelectedTimesheets}
+                  ></lightning-button>
+                </div>
+                <div class="slds-float_right">
+                  <template if:false={openRejectModalLoading}>
+                    <lightning-textarea
+                      data-id="rejectionReasonText"
+                      variant="label-hidden"
+                      name="rejectionReason"
+                      label="Rejection Reason"
+                      placeholder="Please provide rejection reason."
+                      style="width: 400px"
+                      maxlength="20000"
+                    ></lightning-textarea>
+                  </template>
+                </div>
+              </div>
+            </div>
+            <div class="slds-float_right">
+              <lightning-button
+                variant="brand"
+                label="Cancel"
+                onclick={closeRejectModalBox}
+                class="slds-p-around_x-small"
+              ></lightning-button>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+  <template if:true={openEndorseApproveModal}>
+    <c-portal-v2-approve-and-endorse
+      onclose={closeEndorseApprovalModal}
+      onshiftsapproved={handleShiftApproval}
+      selected-shift-records={openApproveModalData}
+    ></c-portal-v2-approve-and-endorse>
+  </template>
+  <template if:true={openAmendPONumberModalNew}>
+    <c-portal-v2-amend-p-o-modal
+      onclose={closeAmendPONumberModalBoxNew}
+      selected-shift-records={openApproveModalData}
+    ></c-portal-v2-amend-p-o-modal>
+  </template>
+  <template if:true={openApproveModal}>
+    <section aria-modal="true" class="slds-modal slds-fade-in-open">
+      <div class="slds-modal__container" style="max-width: inherit">
+        <header class="slds-modal__header">
+          <h2 class="slds-text-heading_small">Approve Shifts</h2>
+          <lightning-icon
+            class="slds-modal__close"
+            icon-name="utility:close"
+            size="small"
+            onclick={closeApproveModalBox}
+          ></lightning-icon>
+        </header>
+        <div class="slds-modal__content modalBody table_layout">
+          <template if:true={openApproveModalLoading}>
+            <lightning-spinner
+              alternative-text="Loading"
+              size="medium"
+            ></lightning-spinner>
+          </template>
+          <template if:false={openApproveModalLoading}>
+            <table
+              class="slds-table slds-table_cell-buffer slds-table--bordered"
+              aria-labelledby="element-with-table-label other-element-with-table-label"
+            >
+              <thead>
+                <tr class="slds-line-height_reset slds-border_bottom">
+                  <th scope="col" style="text-align: center">
+                    <div title="Candidate Name">Candidate Name</div>
+                  </th>
+                  <th scope="col" style="text-align: center">
+                    <div title="Job Role">Job Role</div>
+                  </th>
+                  <th scope="col" style="text-align: center">
+                    <div title="Start Date">Start Date</div>
+                  </th>
+                  <th scope="col" style="text-align: center">
+                    <div title="Actual Hours">Actual Hours</div>
+                  </th>
+                  <th scope="col" style="text-align: center">
+                    <div title="Chargeable Hours">Chargeable Hours</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <template
+                  for:each={openApproveModalData}
+                  for:item="theTimesheet"
+                >
+                  <tr
+                    class="slds-hint-parent slds-border_bottom"
+                    key={theTimesheet.recordId}
+                    data-id={theTimesheet.recordId}
+                  >
+                    <td data-label="Temp Name" style="text-align: center">
+                      <div title={theTimesheet.candidateName}>
+                        {theTimesheet.candidateName}
+                      </div>
+                    </td>
+                    <td data-label="Job Role" style="text-align: center">
+                      <div title={theTimesheet.jobRole}>
+                        {theTimesheet.jobRole}
+                      </div>
+                    </td>
+                    <td data-label="Start Date" style="text-align: center">
+                      <div title={theTimesheet.startDate}>
+                        <lightning-formatted-date-time
+                          year="numeric"
+                          month="numeric"
+                          day="numeric"
+                          value={theTimesheet.startDate}
+                        ></lightning-formatted-date-time>
+                      </div>
+                    </td>
+                    <td data-label="Actual Hours" style="text-align: center">
+                      <div title={theTimesheet.actualHours}>
+                        {theTimesheet.actualHours}
+                      </div>
+                    </td>
+                    <td
+                      data-label="Chargeable Hours"
+                      style="text-align: center"
+                    >
+                      <div title={theTimesheet.chargeableHours}>
+                        {theTimesheet.chargeableHours}
+                      </div>
+                    </td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </template>
+        </div>
+        <footer class="slds-modal__footer">
+          <div class="slds-clearfix">
+            <div class="slds-float_left">
+              <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-2">
+                  <lightning-button
+                    variant="brand"
+                    label="Approve"
+                    class="slds-p-around_x-small"
+                    onclick={approveSelectedTimesheets}
+                  ></lightning-button>
+                </div>
+              </div>
+            </div>
+            <div class="slds-float_right">
+              <lightning-button
+                variant="brand"
+                label="Cancel"
+                onclick={closeApproveModalBox}
+                class="slds-p-around_x-small"
+              ></lightning-button>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+</template>

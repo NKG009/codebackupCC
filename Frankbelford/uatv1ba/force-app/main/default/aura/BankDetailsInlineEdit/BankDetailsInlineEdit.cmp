@@ -1,0 +1,205 @@
+<aura:component controller="CPBankDetailController">
+  
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!--declare aura attributes-->
+    
+    <aura:attribute name="showSaveCancelBtn" type="boolean"/>
+    <aura:attribute name="showErrorClass2" type="boolean" default="false"/>
+    <aura:attribute name="showErrorClass3" type="boolean" default="false"/>
+    <aura:attribute name="showErrorClass4" type="boolean" default="false"/>
+    
+    <aura:attribute name="singleRec" type="sobject" default="{'sobjectType' : 'IP_PayProfile__c',
+                                                               'IP_BankAccountName__c' : '',
+                                                               'IP_SortCode__c' : '',
+                                                               'IP_AccountNumber__c' :'',
+                                                               'IP_BuildingSocietyNumber__c': '',
+                                                             'IP_SortCodeSalted__c': '',
+                                                             'IP_AccountNumberSalted__c':''
+                                                               }"/>
+    <aura:attribute name="AccountNameEditMode" type="boolean" default="false" />
+    <aura:attribute name="SortCodeEditMode" type="boolean" default="false" />
+    <aura:attribute name="AccountNumberEditMode" type="boolean" default="false" />
+    <aura:attribute name="BuildingSocietyNumberEditMode" type="boolean" default="false" />
+    
+    
+    <!--Table Row Start-->  
+  
+   <tr> <td scope="col" style="width:30%"><div class="slds-truncate headingdetails" title="Account Name">Account Name</div></td>
+        <!-- this is for account name -->
+        <aura:if isTrue="{!v.singleRec.RecordType.Name=='Umbrella'}">
+        <td>{!v.singleRec.IP_BankAccountName__c}</td>
+            <aura:set attribute="else">
+        <td ondblclick="{!c.inlineEditAccountName}"  class="{! v.showErrorClass == true ? 'slds-cell-edit slds-has-error' : 'slds-cell-edit'}">
+            <span class="slds-grid slds-grid_align-spread">
+                <!-- show input and output section based on boolean flag --> 
+                <aura:if isTrue="{!v.AccountNameEditMode == false}">
+                    <span class="slds-truncate" title="Accoun Name">{!v.singleRec.IP_BankAccountName__c}</span>
+                    <button onclick="{!c.inlineEditAccountName}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Account Name">
+                      <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button>
+                   
+                    <!-- Inline Edit Section in else case-->  
+                    <aura:set attribute="else">
+                        <section  tabindex="0" class="slds-popover slds-popover_edit" role="dialog" style="position: absolute; top: 0px">
+                            <div class="slds-popover__body">
+                                <div class="slds-form-element slds-grid slds-wrap">
+                                    <div class="slds-form-element__control slds-grow">
+                                        <ui:inputText class="slds-input inputFieldWidth"
+                                                      labelClass="slds-form-element__label slds-form-element__label_edit slds-no-flex"
+                                                      aura:id="inputId"                                                     
+                                                      required="true"
+                                                      
+                                                      label=""                                                      
+                                                      value="{!v.singleRec.IP_BankAccountName__c}" />
+                                    
+        <lightning:buttonGroup class="slds-m-around_medium">            
+            <lightning:button aura:id="Id1" value="{!v.singleRec.Id}" label="Cancel" class="Canclebutton" onclick="{!c.cancel1}"/>
+            <lightning:button aura:id="Id1" value="{!v.singleRec.Id}" class="Savebutton" label="Save" onclick="{!c.Save1}" variant="success"/>
+        </lightning:buttonGroup>
+                                    </div>
+                                </div>
+                            </div>
+                            <span id="form-end" tabindex="0"></span>
+                        </section>  
+                    </aura:set>  
+                </aura:if> 
+            </span>
+        </td>
+                </aura:set>
+        </aura:if>  
+        </tr>
+    
+        <!-- this is for account name -->
+	 <aura:if isTrue="{!v.singleRec.RecordType.Name!='Umbrella'}">
+        <tr>
+            <td scope="col"><div class="slds-truncate headingdetails" title="Sort Code">Sort Code</div></td>    	        
+        <!-- this is for sort Code -->
+        <td ondblclick="{!c.inlineEditSortCode}" class="{! v.showErrorClass2 == true ? 'slds-cell-edit slds-has-error' : 'slds-cell-edit'}">
+            <span class="slds-grid slds-grid_align-spread">
+                <!-- show input and output section based on boolean flag --> 
+                <aura:if isTrue="{!v.SortCodeEditMode == false}">
+                    <span class="slds-truncate" title="Sort Code">{!v.singleRec.IP_SortCodeSalted__c}</span>
+                    <button onclick="{!c.inlineEditSortCode}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Sort Code">
+                      <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button>
+                   
+                    <!-- Inline Edit Section in else case-->  
+                    <aura:set attribute="else">
+                        <section  tabindex="0" class="slds-popover slds-popover_edit" role="dialog" style="position: absolute; top: 0px">
+                            <div class="slds-popover__body">
+                                <div class="slds-form-element slds-grid slds-wrap">
+                                    <div class="slds-form-element__control slds-grow">
+                                        <ui:inputText class="slds-input inputFieldWidth"
+                                                      labelClass="slds-form-element__label slds-form-element__label_edit slds-no-flex"
+                                                      aura:id="inputId2"                                                      
+                                                      required="true"
+                                                      blur="{!c.onSortCodeChange}"
+                                                      label=""                                                     
+                                                      value="{!v.singleRec.IP_SortCode__c}" 
+                                                      maxlength="6" 
+                                                      />
+        <lightning:buttonGroup class="slds-m-around_medium">
+            <lightning:button aura:id="Id2" value="{!v.singleRec.Id}" label="Cancel"  class="Canclebutton" onclick="{!c.cancel2}"/>
+            <lightning:button aura:id="Id2" value="{!v.singleRec.Id}" label="Save"  class="Savebutton" onclick="{!c.Save2}" variant="success"/>
+        </lightning:buttonGroup>
+                                    </div>
+                                </div>
+                            </div>
+                            <span id="form-end" tabindex="0"></span>
+                        </section>  
+                    </aura:set>  
+                </aura:if> 
+            </span>
+        </td>
+          <!-- this is for sort Code -->
+        </tr>
+        
+        
+        
+        <tr>
+            <td scope="col"><div class="slds-truncate headingdetails" title="Account Number">Account Number</div></td>
+        <!-- this is for Account No -->
+      
+        <td ondblclick="{!c.inlineEditAccountNumber}" class="{! v.showErrorClass3 == true ? 'slds-cell-edit slds-has-error' : 'slds-cell-edit'}">
+            <span class="slds-grid slds-grid_align-spread">
+                <!-- show input and output section based on boolean flag --> 
+                <aura:if isTrue="{!v.AccountNumberEditMode == false}">
+                    <span class="slds-truncate" title="Sort Code">{!v.singleRec.IP_AccountNumberSalted__c}</span>
+                    <button onclick="{!c.inlineEditAccountNumber}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Account Number">
+                      <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button>
+                   
+                    <!-- Inline Edit Section in else case-->  
+                    <aura:set attribute="else">
+                        <section  tabindex="0" class="slds-popover slds-popover_edit" role="dialog" style="position: absolute; top: 0px">
+                            <div class="slds-popover__body">
+                                <div class="slds-form-element slds-grid slds-wrap">
+                                    <div class="slds-form-element__control slds-grow">
+                                        <ui:inputText class="slds-input inputFieldWidth"
+                                                      labelClass="slds-form-element__label slds-form-element__label_edit slds-no-flex"
+                                                      aura:id="inputId3"                                                      
+                                                      required="true"
+                                                      label=""
+                                                      value="{!v.singleRec.IP_AccountNumber__c}" 
+                                                      maxlength="8" />
+        <lightning:buttonGroup class="slds-m-around_medium">
+            <lightning:button aura:id="Id3" value="{!v.singleRec.Id}" label="Cancel" class="Canclebutton" onclick="{!c.cancel3}"/>
+            <lightning:button aura:id="Id3" value="{!v.singleRec.Id}" label="Save" class="Savebutton" onclick="{!c.Save3}" variant="success"/>
+        </lightning:buttonGroup>
+                                    </div>
+                                </div>
+                            </div>
+                            <span id="form-end" tabindex="0"></span>
+                        </section>  
+                    </aura:set>  
+                </aura:if> 
+            </span>
+        </td>
+          
+          <!-- this is for account no -->
+        </tr>
+    
+    
+      <tr>
+        <!-- this is for IP_BuildingSocietyNumber__c -->
+          <td scope="col"><div class="slds-truncate headingdetails" title="Building Society Ref">Building Society Ref</div></td>
+       
+        <td ondblclick="{!c.inlineEditBuildingSocietyNumber}" class="{! v.showErrorClass == true ? 'slds-cell-edit slds-has-error' : 'slds-cell-edit'}">
+            <span class="slds-grid slds-grid_align-spread">
+                <!-- show input and output section based on boolean flag --> 
+                <aura:if isTrue="{!v.BuildingSocietyNumberEditMode == false}">
+                    <span class="slds-truncate" title="Building Society Number">{!v.singleRec.IP_BuildingSocietyNumber__c}</span>
+                    <button onclick="{!c.inlineEditBuildingSocietyNumber}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Building Society Ref">
+                      <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button>
+                   
+                    <!-- Inline Edit Section in else case-->  
+                    <aura:set attribute="else">
+                        <section  tabindex="0" class="slds-popover slds-popover_edit" role="dialog" style="position: absolute; top: 0px">
+                            <div class="slds-popover__body">
+                                <div class="slds-form-element slds-grid slds-wrap">
+                                    <div class="slds-form-element__control slds-grow">
+                                        <ui:inputText class="slds-input inputFieldWidth"
+                                                      labelClass="slds-form-element__label slds-form-element__label_edit slds-no-flex"
+                                                      aura:id="inputId4"                                                      
+                                                      required="true"
+                                                      label=""
+                                                      value="{!v.singleRec.IP_BuildingSocietyNumber__c}" />
+        <lightning:buttonGroup class="slds-m-around_medium">
+            <lightning:button aura:id="Id4" value="{!v.singleRec.Id}" label="Cancel"  class="Canclebutton" onclick="{!c.cancel4}"/>
+            <lightning:button aura:id="Id4" value="{!v.singleRec.Id}" label="Save"  class="Savebutton" onclick="{!c.Save4}" variant="success"/>
+        </lightning:buttonGroup>
+                                    </div>
+                                </div>
+                            </div>
+                            <span id="form-end" tabindex="0"></span>
+                        </section>  
+                    </aura:set>  
+                </aura:if> 
+            </span>
+        </td>
+        
+   </tr>
+    </aura:if> 
+</aura:component>

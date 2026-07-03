@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_Term2EndDate__c</fullName>
+    <description>International student term detail</description>
+    <inlineHelpText>Only complete for International students</inlineHelpText>
+    <label>Term 2 End Date</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Date</type>
+</CustomField>

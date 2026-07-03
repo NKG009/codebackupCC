@@ -1,0 +1,189 @@
+<aura:component controller='Shifts_to_be_ApprovedCnt' implements="forceCommunity:availableForAllPageTypes" description="CandidateChild">
+    <ltng:require styles="{! $Resource.	DataTables + '/DataTables/media/css/jquery.dataTables.min.css'}"
+                  afterScriptsLoaded="{!c.scriptsLoaded}"    />
+    <aura:attribute name="record" type="sobject"/>
+    <aura:attribute name="shiftsBookedTimes" type="sobject"/>
+    <aura:attribute name="HideChargabelValue" type="boolean"/>
+    <aura:attribute name="SchStartHours" type="String"/>
+    <aura:attribute name="SchEndHours" type="String"/>
+    <aura:attribute name="SchStartMinutes" type="String"/>
+    <aura:attribute name="SchEndMinutes" type="String"/>
+    <aura:attribute name="highlight" type="Boolean"/>
+    <aura:attribute name="brktime" type="string" />
+    <aura:attribute name="chargableTime" default="00:00" type="String"/>
+    <aura:attribute name="Match" type="Boolean" />
+    <aura:attribute name="Break" type="list" />
+    <aura:attribute name="StartTimeEditMode" type="boolean" default="false" />
+    <aura:attribute name="EndTimeEditMode" type="boolean" default="false" />
+    <aura:attribute name="starthour" type="String"/>
+    <aura:attribute name="chrgstarthour" type="String"/>
+    <aura:attribute name="TunpaidBreak" type="String"/>
+    <aura:attribute name="BreakLength" type="String"/>
+    <aura:attribute name="CalculateBreakOnEndClick" type="boolean" default="false"/>
+    <aura:attribute name="BreakOnEndClick" type="String" />
+    <aura:attribute name="EndBreaks" type="String" />
+    <aura:attribute name="endhour" type="String"/>
+    <aura:attribute name="chrgendhour" type="String"/>
+    <aura:attribute name="MobileCandView" type="Boolean"/>
+    <aura:attribute name="RowCount" type="Boolean"/>
+
+
+    <aura:attribute name="currentShiftBreak" type="String"/>
+    <!--<aura:attribute name="CheckboxValue" type="Boolean" default="false"/>-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:registerEvent name="ChangesWereMadeBeforeSave" type="c:ChangesWereMadeBeforeSave"/>
+    <!--	<aura:handler name="init" value="{!this}" action="{!c.scriptsLoaded}" /> -->
+    <aura:registerEvent name="ShiftUpdateActualTimes" type="c:ShiftUpdateActualTimes"/>
+
+    <td class="time booked-time centeralign">
+        <div class="time-block" >
+            <fieldset disabled="true">
+                <aura:if  isTrue="{!or($Browser.formFactor == 'DESKTOP',(and($Browser.formFactor == 'PHONE',v.MobileCandView)))}">
+                    <span class="form-control time-blockTime">
+                        <lightning:formattedDateTime class="chargableTime" value="{!v.record.sirenum__Scheduled_Start_Time__c}" hour="2-digit" minute="2-digit" style="color:#565656;"/>
+                    </span>
+                    <hr>
+                    </hr>
+                    <span class="form-control time-blockTime">
+                        <lightning:formattedDateTime class="chargableTime" value="{!v.record.sirenum__Scheduled_End_Time__c}" hour="2-digit" minute="2-digit" style="color:#565656;"/>
+                    </span>
+                    <aura:set attribute="else">
+                        <span class="form-control time-blockTime"> {!v.record.TexsT__c} </span>
+                        <hr>
+                        </hr>
+                        <span class="form-control time-blockTime"> {!v.record.TexeT__c} </span>
+                    </aura:set>
+                </aura:if>
+            </fieldset>
+        </div>
+    </td>
+    <!--<td class="time same-time">
+    	 <lightning:input style="width:100%;color:#565656;" class="checkbox-center" type="checkbox" aura:id="checkBoxId" name="checkbox" onchange="{!c.onClickCheckBox}"/> 
+    </td>-->
+
+    <td class="time actual-time">
+        <div id="{!'actualStart'+v.record.Id}" style="display:none">{!v.starthour}</div>
+        <div id="{!'actualEnd'+v.record.Id}" style="display:none">{!v.endhour}</div>
+        <div class="time-block" >
+            <aura:if isTrue="{!or($Browser.formFactor == 'DESKTOP',(and($Browser.formFactor == 'PHONE',v.MobileCandView)))}">
+               <span style="width:100%;color:#565656;" class="slds-grid slds-grid_align-center">
+                    <aura:if isTrue="{!v.StartTimeEditMode == false}">
+                        <aura:if isTrue="{!or(v.starthour == null,v.starthour=='')}">
+                            <input type="text" id="starttext" class="form-control time-blockTime"  value="--/--" disabled="{!(v.record.IP_ClientApproved__c==true?'true':(v.record.IP_ClientRejected__c==true?'true':'false'))}" readOnly="true" />
+                            <aura:set attribute="else">
+                                <input type="text" id="starttextedit" class="form-control time-blockTime"  value="{!v.starthour}" disabled="{!(v.record.IP_ClientApproved__c==true?'true':(v.record.IP_ClientRejected__c==true?'true':'false'))}" readOnly="true"/>
+                            </aura:set>
+                        </aura:if>
+                        <lightning:button onclick="{!c.inlineEditStartTime}" class="{!(v.record.IP_ClientApproved__c==true?'time-blockEdit editbutton inactivebutton':(v.record.IP_ClientRejected__c==true?'time-blockEdit editbutton inactivebutton':'time-blockEdit editbutton'))}" value="Editstime" label="Edit"/>
+                        <!--   <button onclick="{!c.inlineEditStartTime}" class="{!(v.record.IP_ClientApproved__c==true?'time-blockEdit editbutton inactivebutton':(v.record.IP_ClientRejected__c==true?'time-blockEdit editbutton inactivebutton':'time-blockEdit editbutton'))}" value="Editstime" >Edit</button> -->
+                        <aura:set attribute="else">
+                            <input class="form-control time-blockTime" onblur="{!c.closeStartTimeEdit}" label="Time" required="required" id="inputTime" type="Time" value="{!v.starthour}" name="file" />    
+                        </aura:set>
+                    </aura:if>
+                </span>
+                <aura:set attribute="else">
+                    <input style="width:70px;"   min="00:00" max="24:00" class="time-blockTime" onblur="{!c.closeStartTimeEdit}" label="Time" required="required" id="{!'inputTimemob'+v.record.Id}" type="Time" value="{!v.starthour}" name="file" />
+                </aura:set>
+            </aura:if>
+
+            <hr/>
+            <aura:if  isTrue="{!or($Browser.formFactor == 'DESKTOP',(and($Browser.formFactor == 'PHONE',v.MobileCandView)))}">
+                <span style="width:100%;color:#565656;" class="slds-grid slds-grid_align-center">
+                    <aura:if isTrue="{!v.EndTimeEditMode == false}">
+                        <aura:if isTrue="{!or(v.endhour == null,v.endhour=='')}">
+                            <input type="text" id="endtext" class="form-control time-blockTime"  value="--/--" disabled="{!(v.record.IP_ClientApproved__c==true?'true':(v.record.IP_ClientRejected__c==true?'true':'false'))}" readOnly="true"/>
+                            <aura:set attribute="else">
+                                <input type="text" id="endtextedit" class="form-control time-blockTime"  value="{!v.endhour}" disabled="{!(v.record.IP_ClientApproved__c==true?'true':(v.record.IP_ClientRejected__c==true?'true':'false'))}" readOnly="true"/>
+                            </aura:set>
+                        </aura:if>
+                        <lightning:button onclick="{!c.inlineEditEndTime}" class="{!(v.record.IP_ClientApproved__c==true?'time-blockEdit editbutton inactivebutton':(v.record.IP_ClientRejected__c==true?'time-blockEdit editbutton inactivebutton':'time-blockEdit editbutton'))}"  value="Editetime" label="Edit"/> 
+                        <aura:set attribute="else">
+                            <input class="form-control time-blockTime" onblur="{!c.closeEndTimeEdit}" label="Time" required="required" id="inputTime1" type="Time" value="{!v.endhour}" name="file" />    
+                        </aura:set>
+                    </aura:if>
+                </span>
+                <aura:set attribute="else">
+                    <input style="width:70px;" class="form-control time-blockTime" onblur="{!c.closeEndTimeEdit}" label="Time" required="required"  id="{!'inputTime1mob'+v.record.Id}" type="Time" value="{!v.endhour}" name="file" />
+                </aura:set>
+            </aura:if>
+        </div>
+
+    </td>
+    <td class="breaks ">
+
+        <div class="centeralign">
+            <aura:if  isTrue="{!or($Browser.formFactor == 'DESKTOP',(and($Browser.formFactor == 'PHONE',v.MobileCandView)))}">
+
+                <span  data-toggle="modal" data-target="{!'#rec'+v.record.Id}" data-value="{!v.record.Id}" Id="{!v.record.Id}" onclick="{!c.getAllBreak}"  class="{!(v.record.IP_ClientApproved__c==true?'time-blockEdit editbutton inactivebutton':(v.record.IP_ClientRejected__c==true?'time-blockEdit editbutton inactivebutton':'time-blockEdit editbutton editBreakButton'))}">Edit</span>
+                <span id="{!'unpaidBreak'+v.record.Id}">{!v.record.Break_Length__c}</span>
+                <aura:set attribute="else">
+                    <span style=" color: #067ad1;font-size: small; margin-right: 10px;" data-toggle="modal" data-target="{!'#rec'+v.record.Id}" data-value="{!v.record.Id}" Id="{!v.record.Id}" onclick="{!c.getAllBreak}"  class="{!(v.record.IP_ClientApproved__c==true?'time-blockEdit mobeditbutton inactivebutton':(v.record.IP_ClientRejected__c==true?'time-blockEdit mobeditbutton inactivebutton':'time-blockEdit mobeditbutton editBreakButton'))}">Edit</span>
+                    <!--    <span  data-toggle="modal" data-target="{!'#rec'+v.record.Id}" data-value="{!v.record.Id}" Id="{!v.record.Id}" onclick="{!c.getAllBreak}"  class="{!(v.record.IP_ClientApproved__c==true?'time-blockEdit editbutton inactivebutton':(v.record.IP_ClientRejected__c==true?'time-blockEdit editbutton inactivebutton':'time-blockEdit editbutton editBreakButton'))}">Edit</span>-->
+
+                    <!--          <span id="{!'unpaidBreak'+v.record.Id}">{!v.EndBreaks}</span>  -->
+                    <input   disabled="true" value="{!v.EndBreaks}" style=" width: 41px;border: none;background-color: white;" id="{!'breakcol'+v.record.Id}" type="text"/>
+
+                </aura:set>
+            </aura:if>
+        </div>
+
+    </td>
+    <td class="breaks "  id="chargehours" >
+        <aura:if  isTrue="{!$Browser.formFactor == 'DESKTOP'}">
+            <div  id="{!'chargeableHours'+v.record.Id}" class="centeralign" >{!v.chargableTime}</div>
+            <aura:set attribute="else">
+                <div  id="{!'chargeableHours'+v.record.Id}" style="display:none;" class="centeralign" >{!v.chargableTime}</div>
+                <input   disabled="true" value="{!v.chargableTime}" style=" width: 41px;border: none;background-color: transparent;" id="{!'outcharge'+v.record.Id}" type="text"/>
+                <input   disabled="true" value="{!v.BreakLength}" style="display:none; width: 41px;border: none;background-color: transparent;;" id="{!'outcharge2'+v.record.Id}" type="text"/>
+            </aura:set>
+        </aura:if>
+    </td>
+    <aura:if  isTrue="{!v.HideChargabelValue == true}">
+        <td>
+            <aura:if  isTrue="{!v.record.sirenum__Forecast_Charge__c == NULL}">
+                <div   class="centeralign" >updating</div>
+                <aura:set attribute="else">
+                    <div   class="centeralign" >{!v.record.sirenum__Forecast_Charge__c}</div>
+                </aura:set>
+            </aura:if>
+        </td>
+    </aura:if>
+    <!--Break Popup-->
+    <div class="custom-model modal fade" id="{!'rec'+v.record.Id}" tabindex="-1" role="dialog" aria-labelledby="bookedTemp-popup">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="height: 550px;margin-top: -10px;    overflow-y: auto;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="{!c.closeModelCancels}"><span aria-hidden="true">&times;</span></button>
+                <h1>Breaks</h1>
+                <table style="border: 1px solid rgba(221, 216, 218, 1)" width="100%" id="{!'breakTable'+v.currentShiftBreak}">
+                    <thead>
+                    <th class="tdcenter">Break</th>
+                    <th class="tdcenter2">Total Minutes</th>
+                    <th class="tdcenter">Delete</th>
+
+                    </thead>
+                    <!--<tbody aura:id="itemname">-->
+                    <tbody>
+                    <aura:iteration items="{!v.Break}" var="brk" indexVar="filterIndex">
+                        <tr >
+                            <td id="{!'filterIndex'+filterIndex+v.currentShiftBreak}">{!filterIndex+1}</td>
+                            <td class="tdcenter"><input id="{!'duration'+filterIndex+v.currentShiftBreak}" aura:id="{!'dur'+brk.Id}" style="border-collapse: collapse;width:60px;text-align:center;color:black;" type="text" value="{!brk.Duration_Long__c}" data-value="{!brk.Duration_Long__c}" ></input></td>
+                            <td><button id="{!filterIndex}" onclick="{!c.removeElement}" class="DelButton">Delete</button></td>
+                        </tr>
+                    </aura:iteration>
+                    </tbody>
+
+                </table>
+                <table width="100%" class="break-data-all">
+                    <tbody>
+                    <tr>
+                        <td style="width:30%;padding-left:0px;"><button type="button" onclick="{!c.addrow}" class="add-row" id="addRow" >Add Break</button></td>
+                        <!--<td style="width:50%;">Total Unpaid Breaks = <span>{!v.unpaidBreak}</span></td>-->
+                        <td style="min-width:0px;"><button type="button" onclick="{!c.testMethod}" class="SvaeButton" data-dismiss="modal">Save</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--Break Popup-->
+</aura:component>

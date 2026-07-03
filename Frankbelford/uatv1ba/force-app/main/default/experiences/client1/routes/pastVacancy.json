@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "3fa13d94-25a3-4407-ad65-0fcb10a79bec",
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "configurationTags" : [ ],
+  "devName" : "Past_Vacancy__c",
+  "id" : "9ce5143f-e16f-4148-ad90-04859c732c3f",
+  "label" : "Past Vacancy",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-past-vacancy",
+  "type" : "route",
+  "urlPrefix" : "past-vacancy"
+}

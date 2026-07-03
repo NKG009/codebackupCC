@@ -1,0 +1,68 @@
+{
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "11d1f88d-06fa-4267-b913-63b83f327b22",
+  "label" : "Repeat Booking",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "93d0ee1c-a8ea-49c7-8d23-029c3f20c5eb",
+          "columns" : [ {
+            "UUID" : "c2d25585-25a0-45d4-a452-cf0ce5eb39ba",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "93d0ee1c-a8ea-49c7-8d23-029c3f20c5eb",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:ClientComRepeatBookingCmp",
+          "id" : "5c42b23f-2e1b-4535-bd12-7bbbcabba88a",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "c2d25585-25a0-45d4-a452-cf0ce5eb39ba",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5b24da97-a2eb-4256-9216-f40d416ea733",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Repeat Booking"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "b6f70079-63bd-466b-81d5-fa8e3e86ce69",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ec119897-cb75-4bf6-98c6-bd7c03ad7e60",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-fastbooking"
+}

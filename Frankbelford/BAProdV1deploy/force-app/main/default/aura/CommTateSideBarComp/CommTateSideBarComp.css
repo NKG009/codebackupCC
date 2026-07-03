@@ -1,0 +1,89 @@
+.THIS .background {
+    background-image: url(/resource/newimage) !important;
+    background-size: 32px;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.THIS .dashboard-section__leftNav>li.active:before {
+    content: '';
+    border-right: 1rem solid #e1f2fb;
+    border-bottom: 1rem solid transparent;
+    border-top: 1rem solid transparent;
+    position: absolute;
+    top: auto;
+    left: auto;
+    bottom: auto;
+    right: auto;
+    right: 0;
+    top: 16%;
+}
+
+.THIS .dashboard-section__leftNav div:hover {
+    background-color: #fff;
+    color: #42b5a6;
+    outline: 2px solid !important;
+}
+
+.THIS .dashboard-section__leftNav--timesheets li:hover {
+    background-color: #fff;
+    color: #42b5a6;
+}
+
+.THIS .dashboard-section__leftNav--timesheets li:hover a {
+    color: #3e9784 !important;
+}
+
+.THIS .dashboard-section__leftNav--vacancies li:hover {
+    background-color: #fff;
+    color: #42b5a6;
+}
+
+.THIS .dashboard-section__leftNav--vacancies li:hover a {
+    color: #42b5a6;
+}
+
+.THIS .dashboard-section__leftNav--temp li:hover {
+    background-color: #fff;
+    color: #42b5a6;
+}
+
+.THIS .dashboard-section__leftNav--temp li:hover a {
+    color: #42b5a6;
+}
+
+.THIS .dashboard-section__leftNav>li:first-child a {
+    padding-top: 4rem !important;
+}
+
+.THIS .bgclrclas {
+    background-color: #3e9784 !important;
+}
+
+.THIS .tate-branding {
+    background-color: #42b5a6;
+}
+
+.THIS .dashboard-section__leftNav.tate-branding>li ul {
+    -webkit-box-shadow: 9px 8px 45px -4px rgba(0, 0, 0, 0.29);
+    -moz-box-shadow: 9px 8px 45px -4px rgba(0, 0, 0, 0.29);
+    box-shadow: 9px 8px 45px -4px rgba(0, 0, 0, 0.29);
+    background-color: white !important;
+    right: -21rem !important;
+    width: 21rem !important;
+}
+
+.THIS .dashboard-section__leftNav.tate-branding>li ul li a,
+.THIS .dashboard-section__leftNav.tate-branding>li ul li {
+    color: #42b5a6 !important;
+    list-style: none;
+}
+
+.THIS .dashboard-section__leftNav.tate-branding>li ul:before {
+    border-right: 1rem solid #fff !important;
+}
+
+.THIS .dashboard-section__leftNav.tate-branding>li ul li:hover a,
+.THIS .dashboard-section__leftNav.tate-branding li:hover {
+    text-decoration: underline !important;
+}

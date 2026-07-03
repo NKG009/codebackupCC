@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MGG_LTSO_Milton_Keynes</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>DoHSc_Job_Role__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>Lab Tech Support Officer</value>
+    </filters>
+    <label>MGG - LTSO Milton Keynes</label>
+    <sharedTo>
+        <role>Blue_Arrow</role>
+        <role>MGG</role>
+    </sharedTo>
+</ListView>

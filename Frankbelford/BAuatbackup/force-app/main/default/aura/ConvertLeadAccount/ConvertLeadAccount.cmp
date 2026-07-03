@@ -1,0 +1,71 @@
+<aura:component controller="ConvertNewBusinessControllerLightning">
+	
+    <!-- handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- atrributes -->
+    <aura:attribute name="selectedNewBusinessLead" type="String"/>
+    <aura:attribute name="selectedRecord" type="sObject" default="{}" description="Use,for store SELECTED sObject Record"/>
+    <aura:attribute name="industryMap" type="Map"/>
+    <aura:attribute name="selectedValue" type="String" />
+    <aura:attribute name="selectedAccountValue" type="String" />
+    <aura:attribute name="selectedLookUpRecord" type="sObject" default="{}"/>
+    <aura:attribute name="displayConvertLeadAccountScreen" type="Boolean" />
+    <aura:attribute name="displayConvertLeadAccountCheckScreen" type="Boolean" />
+    <aura:attribute name="displayConvertLeadSiteCheckScreen" type="Boolean" />
+    <!--style to increase width-->
+    <aura:html tag="style">
+        .slds-modal__container{
+        max-width: 80rem !important;
+        width:80% !important;
+        }
+    </aura:html>
+    <!--declare events handlers-->  
+    <aura:handler name="oSelectedRecordEvent" event="c:selectedsObjectRecordEvent" action="{!c.handleComponentEvent}"/>
+    
+    <aura:if isTrue="{!v.displayConvertLeadAccountCheckScreen}">
+        <center><c:ConvertLeadAccountCheck selectedNewBusinessLead="{!v.selectedNewBusinessLead}"/></center>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.displayConvertLeadSiteCheckScreen}">
+        <center><c:ConvertLeadSitecheck selectedNewBusinessLead="{!v.selectedNewBusinessLead}" selectedAccountId="{!v.selectedValue}"/></center>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.displayConvertLeadAccountScreen}">
+        <div class="modal-header slds-modal__header slds-size_1-of-1">
+            <h3 class="title titlecolor slds-text-heading--medium" ><b>Convert Lead - Account</b></h3>
+        </div>
+        
+        <br/><br/>
+        <div class="form-group">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-2 slds-m-top_medium" style="margin-left:-120px">
+                    <b class="titlecolor">Account</b>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-m-top_medium" style="margin-left:-130px;margin-top:-9px;width:250px;">
+                    <lightning:select aura:id="industryPicklist" value="{!v.selectedValue}" onchange="{!c.handleAccountOnChange}" name="accountPicklist" label="" required="true">
+                        <aura:iteration items="{!v.industryMap}" var="ind" indexVar="key">
+                            <option text="{!ind.value}" value="{!ind.key}" selected="{!ind.key==v.selectValue}" />
+                        </aura:iteration>
+                    </lightning:select>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-m-top_medium" style="padding-right:-910px;margin-top:10px;">
+                    <c:customLookup objectAPIName="Account" IconName="standard:account" selectedRecord="{!v.selectedLookUpRecord}" />
+                    <!--<lightning:inputField required="true" fieldName="IP_Site__c" aura:id="siteId" value=""/>-->
+                </div>
+            </div>
+        </div>
+        <div class="slds-col slds-size_2-of-2 slds-m-top_medium">
+            <a href="javascript:void(0)" onclick="{!c.openAccountInformation}">
+                Click here to view this account
+            </a>
+        </div>    
+        <br/><br/>
+        <center>
+            <lightning:button variant="brand" label="{!$Label.c.Convert}" onclick="{!c.continueClick}" />&nbsp;&nbsp;
+            <lightning:button variant="neutral" label="{!$Label.c.Cancel}" onclick="{!c.cancelClick}" />&nbsp;&nbsp;
+        </center>
+    </aura:if>
+    
+    
+</aura:component>

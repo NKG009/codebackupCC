@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "8d5401ec-0663-4211-9b11-405719c2e51c",
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "configurationTags" : [ ],
+  "devName" : "Current_Shifts__c",
+  "id" : "4f691e87-f8ab-4e57-9a5b-c01763799e35",
+  "label" : "Current Shifts",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-testtemps",
+  "type" : "route",
+  "urlPrefix" : "testtemps"
+}

@@ -1,0 +1,48 @@
+{
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "2b8614f7-498f-4157-9356-961eb017d13e",
+  "label" : "Talent-Pool",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" src=\"{!contentAsset.NHS_Test_and_Trace_logo_L_Blue.1}\" style=\"width: 299.438px; height: 117.609px;\" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img class=\"sfdcCbImage\" src=\"{!contentAsset.HMGovernment.1}\" style=\"width: 401.531px; height: 146.797px;\" /></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "7af56e28-66c3-40b6-82fe-bd6e865fd0f1",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5e8355f2-050d-4147-b248-c18c084cb555",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "397b4797-dd61-42b9-9c17-068aa2880570",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "40200613-7a0f-4f76-94ae-764573f00682",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Talent-Pool"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "8bd2adbc-bec4-48a8-aff8-6be68e97f1d4",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2d9f4174-2acc-4d52-83c8-57dd48c61faf",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-talent-pool"
+}

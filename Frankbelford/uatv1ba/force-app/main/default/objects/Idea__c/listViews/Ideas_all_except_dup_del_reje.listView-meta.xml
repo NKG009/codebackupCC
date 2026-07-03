@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ideas_all_except_dup_del_reje</fullName>
+    <columns>NAME</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>IP_Headline__c</columns>
+    <columns>Status__c</columns>
+    <columns>IP_Points__c</columns>
+    <columns>IP_TotalPoints__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Idea Submitted,Thinking Forum,Duplicate,Rejected,Approved,Delivered,Requirements Gathering,Further Consideration</value>
+    </filters>
+    <label>Ideas - submitted</label>
+</ListView>

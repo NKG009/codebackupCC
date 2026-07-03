@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TermStartDatesNotGreaterThanEndDates</fullName>
+    <active>true</active>
+    <description>A Term start date must be before the end date of that term</description>
+    <errorConditionFormula>OR(IP_Term1StartDate__c &gt;= IP_Term1EndDate__c,
+   IP_Term2StartDate__c &gt;= IP_Term2EndDate__c,
+   IP_Term3StartDate__c &gt;= IP_Term3EndDate__c
+  )</errorConditionFormula>
+    <errorDisplayField>IP_Term1StartDate__c</errorDisplayField>
+    <errorMessage>A term start date must be before the end date of that term</errorMessage>
+</ValidationRule>

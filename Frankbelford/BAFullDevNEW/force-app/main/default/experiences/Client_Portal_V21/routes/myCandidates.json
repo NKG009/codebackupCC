@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "cfffac00-20fa-4208-8d03-854427d767c6",
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "configurationTags" : [ ],
+  "devName" : "My_Candidates__c",
+  "id" : "b04bb18b-0ed6-4707-bd32-db2b77e925ec",
+  "label" : "My Candidates",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-my-candidates",
+  "type" : "route",
+  "urlPrefix" : "my-candidates"
+}

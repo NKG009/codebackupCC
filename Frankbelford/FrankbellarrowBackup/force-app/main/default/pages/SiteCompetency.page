@@ -1,0 +1,150 @@
+<apex:page standardController="sirenum__Site__c" extensions="GetCompetency" showHeader="false" id="pageId">
+    <apex:includeScript value="{!$Resource.jquery}"/>
+  <style>
+   .pbTitle{
+   display:none;
+   }
+   .pbHeader{
+   text-align: center;
+   }
+.wrap {
+     width: 1000px;
+}
+
+.wrap table {
+    width: 990px;
+    table-layout: fixed;
+}
+
+table tr td {
+    padding: 5px;
+    border: 1px;
+     width: 100%;
+   
+}
+
+table.head tr td {
+    background: #f7f7f7;
+  border: 1px solid #eee; border-collapse:collapse;
+      font-weight: 600;
+}
+
+.inner_table {
+width: 99%;
+    height: 280px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: white;
+     border-left:1px solid #eee;
+      border-bottom:1px solid #eee;
+}
+   </style>
+    <script >
+    
+    var j$ = jQuery.noConflict(); 
+    j$(document).ready(function(){          
+        var validationWarningMsg = "{!validationWarning}";
+        if(validationWarningMsg != ''){  
+            if(confirm(validationWarningMsg)){
+                saveRecordAction();
+            }
+        }
+    });
+    
+    </script>
+    
+     <apex:form id="formId">
+        <apex:actionfunction name="saveRecordAction" action="{!save}" />
+        <apex:actionfunction name="displayPageFunction" action="{!displayPageCallFunction}" oncomplete="displaymessage({!displayalert})" rerender="pageId:formId"/>       
+        
+        <apex:outputPanel id="panelId" rendered="{!displayPage}">
+        <H1>
+            <center> <font size="4" color="black" face="Bahnschrift Light"> <b><br></br> Competency Conditions against Site</b> </font></center>
+    <br></br><br></br>
+</H1> 
+<div style=" width: 1080px; margin-left:100px; "> 
+    <div style=" width: 1080px; margin-left:100px; "> 
+            <apex:pageMessages id="errorMessage" />
+        </div>
+</div>
+<center>  
+    <div style=" width: 1050px; "> 
+        <apex:pageBlock >
+         <apex:pageBlockButtons location="top" >
+                <apex:commandButton value="Save" action="{!validateRecord}" rerender="errorMessage"/>
+                <apex:commandButton value="Save and New" action="{!SaveAndNew}" rerender="errorMessage"/>
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageBlockButtons>
+            <b>
+                <font size="2" color="black" face="Bahnschrift Light"> <b> Existing Competency Condition(s) applicable to Site " {!sirenum__Site__c.Name} "  </b> </font>
+            </b> 
+            <br/><br/>
+             <div class="wrap">
+    <table class="head" cellspacing="0" cellpadding="0">
+        <tr>
+        <td>Compitance Type</td>
+         <td>Sector</td>
+         <td>Job Category</td>
+         <td>Account</td>
+         <td>Site</td>
+         <td>Job Role</td>
+         <td>Severity</td>  
+         
+        </tr>
+    </table>
+    <div class="inner_table">
+    <table cellspacing="0" cellpadding="0">
+         <apex:repeat value="{!data}" var="item" id="theRepeat">
+                            <tr>
+                              <td style=" border-bottom:1px solid #eee;"><apex:outputField value="{!item.sirenum__TicketType__c}" /> </td>
+                              <td style=" border-bottom:1px solid #eee;"><apex:outputField value="{!item.sirenum__Rota__c}" /> </td>
+                              <td style=" border-bottom:1px solid #eee;"><apex:outputField value="{!item.sirenum__Job_Type__c}" /> </td>
+                              <td style=" border-bottom:1px solid #eee;"><apex:outputField value="{!item.sirenum__Client__c}" /> </td>
+                              <td style=" border-bottom:1px solid #eee;"><apex:outputField value="{!item.sirenum__Site__c}" /> </td>
+                              <td style=" border-bottom:1px solid #eee;"><apex:outputField value="{!item.sirenum__Team__c}" /> </td>
+                              <td style=" border-bottom:1px solid #eee;"><apex:outputField value="{!item.sirenum__Severity__c}" /> </td>
+                            </tr>
+        </apex:repeat>
+    </table>
+    </div>
+</div>
+                </apex:pageBlock>
+                <div style=" text-align: center;">
+        <apex:pageBlock >
+            <B>
+                <font size="2" color="black" face="Bahnschrift Light"> <b>New Competency Condition  </b> </font>
+            </B>
+            <br/><br/>
+            <br/><br/>
+            <apex:pageBlockSection columns="2" >
+                <apex:inputField value="{!newcomp.sirenum__TicketType__c}" label="Competency" required="True"/>
+                <apex:inputField html-disabled="true" value="{!sirenum__Site__c.Name}" label="Site" required="True"/>
+                <apex:inputField value="{!newcomp.sirenum__Severity__c}" label="Severity" required="True"/>
+                <apex:inputField value="{!newcomp.sirenum__Team__c}" rendered="{!check}" label="Job Role" required="true"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom"  style="width:1000px;">
+                <apex:commandButton value="Save" action="{!validateRecord}" rerender="errorMessage"/>
+                <apex:commandButton value="Save and New" action="{!SaveAndNew}" rerender="errorMessage"/>
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageBlockButtons>
+            
+        </apex:pageBlock>
+        </div>
+    </div>
+</center>
+</apex:outputpanel>
+</apex:form>
+     <script type="text/javascript">
+        onload();
+        function onload(){
+            displayPageFunction();
+        }
+        
+        function displaymessage(alertMessage){
+            if(alertMessage){
+                alert('You are not Authorised to access this Page');
+                window.location.href = '/{!getSiteId}';
+            }
+        }
+    </script>
+</apex:page>

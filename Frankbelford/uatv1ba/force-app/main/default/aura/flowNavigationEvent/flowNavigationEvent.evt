@@ -1,0 +1,7 @@
+<!--
+ - Created by mrahman on 2020-12-08.
+ -->
+
+<aura:event type="APPLICATION" description="flowNavigationEvent">
+    <aura:attribute name="action" type="String"/>
+</aura:event>

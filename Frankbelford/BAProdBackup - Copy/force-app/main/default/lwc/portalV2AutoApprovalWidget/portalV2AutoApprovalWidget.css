@@ -1,0 +1,9 @@
+@import "c/portalV2WidgetCSSLibrary";
+
+.negative-red {
+  background-color: #ffbfb8;
+}
+
+.positive-green {
+  background-color: #d7f5ea;
+}

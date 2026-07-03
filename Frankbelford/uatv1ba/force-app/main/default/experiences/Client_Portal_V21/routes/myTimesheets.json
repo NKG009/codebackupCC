@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "7f401bee-5800-4332-b8bd-8ed022c702e4",
+  "appPageId" : "6cf45250-dd45-4f57-aa5d-84e94e3c25f8",
+  "configurationTags" : [ ],
+  "devName" : "My_Timesheets__c",
+  "id" : "34dfcf19-c4c4-4128-88a4-2c78d155b721",
+  "label" : "My Timesheets",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-my-timesheets",
+  "type" : "route",
+  "urlPrefix" : "my-timesheets"
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Defines the parameters for managing data retention within the system.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>RSSGlobal_GDPR_settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

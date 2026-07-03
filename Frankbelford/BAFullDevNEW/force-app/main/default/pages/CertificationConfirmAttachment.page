@@ -1,0 +1,53 @@
+<apex:page standardController="Certification__c" extensions="CertificationConfirmAttachment" showHeader="false" sidebar="false" >
+    <apex:form >
+       
+
+        <apex:pageBlock >
+        <apex:outputPanel ><apex:pageMessages id="errMsg"/> </apex:outputPanel>
+        
+
+            <apex:pageBlockSection columns="1">
+             
+               <apex:pageBlockSectionItem >
+                   <b>Do you want to run the verify check</b>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="1">
+            <apex:pageBlockSectionItem rendered="{!Settings==true}"> 
+                <apex:inputField value="{!Certification__c.Verfied__c}"/>Are the originals seen as well?
+               </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+           
+            <apex:pageBlockSection columns="2">
+           
+              <apex:pageBlockSectionItem >
+                <apex:commandButton value="Yes" action="{!Save}"  reRender="errMsg" status="loading"/>
+                </apex:pageBlockSectionItem>
+                 <apex:pageBlockSectionItem >
+                <apex:commandButton value="No" action="{!Cancel}" onclick="CloseARefresh();"  /> 
+                     
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+    </apex:form>
+    <script>
+function CloseARefresh()
+        {      
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";
+            self.close();
+            //window.close();
+            //window.top.close();
+        }   
+    </script>
+<script>
+    var msg = {!$CurrentPage.Parameters.sx}
+        if(msg=='1')
+        {  
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";
+            self.close();
+        }
+</script>    
+    
+</apex:page>

@@ -1,0 +1,44 @@
+<aura:component controller='CPBankDetailController' implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction" access="global" >
+    
+    <!--pageload Timesheet starts-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute type="List" name="PaymentType" />
+    <aura:attribute name="selectedPayType" type="String"/>
+    <aura:attribute type="List" name="DataList" />
+    <aura:attribute name="Message" type="boolean" default="false" />
+    <aura:attribute name="AccountList" type="List" description="store account records list"/>
+    <aura:attribute name="showSaveCancelBtn" type="boolean" default="false" description="flag for rendered save and cancel buttons in aura:if "/>
+    <aura:attribute type="Integer" name="PaymentTypeCnt" />
+    
+    <!--pageload Timesheet ends-->
+    
+    <div class="slds-form--inline">
+        <table><tr><td class="headingpaye"></td>
+      <td>  
+        <lightning:select aura:id="select1-id" class="selectpay" value="{!v.selectedPayType}" onchange="{!c.getPaymentTypeList}" name="PayType"  label="Pay Type :" >          
+            <aura:iteration items="{!v.PaymentType}" var="record" indexVar="idx">
+                <option value="{!record.Id}" selected="{!record.IP_PrimaryPayMethod__c}" text="{!record.RecordType.Name}"></option>
+            </aura:iteration>
+        </lightning:select></td>
+            </tr>
+         </table>
+        <div class="slds-p-top_x-large"></div>
+    </div>
+   
+            <aura:if isTrue="{!v.Message}">
+                <div class="slds-text-color--error"> No Result Found...</div>
+            </aura:if>
+   
+      <div class="slds-scrollable slds-wrap">  
+            <aura:iteration items="{!v.AccountList}" var="record" indexVar="idx">
+              <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered">             
+               <c:BankDetailsInlineEdit singleRec="{!record}" showSaveCancelBtn="{!v.showSaveCancelBtn}"  />          
+              </table>
+            </aura:iteration>    
+    </div>
+    <div class="slds-form-element__control slds-p-top_x-large">
+    <lightning:button label="Back" class="Backbutton" variant="brand" onclick="{!c.backtomydetails}" value="" />    
+    </div>
+    
+</aura:component>

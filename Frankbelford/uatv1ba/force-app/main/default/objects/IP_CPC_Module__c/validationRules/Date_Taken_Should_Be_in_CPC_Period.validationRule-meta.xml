@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_Taken_Should_Be_in_CPC_Period</fullName>
+    <active>false</active>
+    <errorConditionFormula>Date_Taken__c &lt; CPC_Header__r.Candidate__r.CPC_Start_Date__c || Date_Taken__c &gt;  CPC_Header__r.Candidate__r.CPC_End_Date__c</errorConditionFormula>
+    <errorMessage>Date Taken Should Be in CPC Period</errorMessage>
+</ValidationRule>

@@ -1,0 +1,182 @@
+<apex:page standardController="Contact" applyBodyTag="false" applyHtmlTag="false" extensions="Drivingletter" showHeader="false" sidebar="false" renderAs="pdf" >
+
+<html>
+<head>
+<style>
+@page {
+size:portrait;
+margin-left: 0.8cm;
+margin-right: 0.8cm;
+margin-top: 1cm;
+margin-bottom: 1cm;
+size: 8.27in 10.8in;
+}
+</style>
+</head>
+<div>
+<table >
+<tr>
+<!--<td style="width:450px;vertical-align:top;">
+<apex:image url="{!$Resource.Blue_Arrow_new_logo}" width="134" height="25"/>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> -->
+<td style="text-align:right;width:700px">
+<b>Blue Arrow Ltd</b><br></br>
+{!branchstreet}<br></br>
+{!branchcity}<br></br>
+{!branchCounty}<br></br>
+{!branchpostal}<br></br>
+<b>t:</b> {!branchphone}&nbsp;&nbsp;&nbsp; <b>f:</b>{!branchFax} <br></br>
+www.bluearrow.co.uk
+</td>
+</tr>
+</table><br></br>
+<table style="width:710px;">
+<tr>
+<td style="width:200px;">
+{!Contact.name}<br></br>
+{!Contact.MailingStreet}<br></br>
+{!Contact.MailingCity},{!Contact.MailingState}<br></br>
+{!Contact.MailingPostalCode}<br></br>
+<!--{!Contact__c.MailingCountry}-->
+</td>
+</tr>
+</table>
+</div> <br></br><br></br>
+Date : <apex:outputText value="{0, date, MMMM d','  yyyy}">
+    <apex:param value="{!Today()}" />
+</apex:outputText>
+<br></br><br></br><br></br>
+<div>
+Dear {!Contact.firstname} </div> <br></br><br></br>
+<div>
+<b>ROAD TRANSPORT DIRECTIVE</b> <br></br><br></br>
+
+As discussed, the purpose of this letter is to further notify you that our records indicate you have exceeded the weekly maximum of 60 allowed working hours. <br></br> <br></br>
+
+This is not a situation we cannot allow to continue and, in an effort to aid corrective action – please re-read the rules and regulations below to ensure we are acting within them at all times. Future breaches of the regulations may result in us having no alternative other than to remove you from assignments.<br></br><br></br> 
+
+Thank you for taking the time to read this letter. Should you have any queries with regard to the working time regulations, please contact your local Blue Arrow Office<br></br><br></br>
+
+Yours sincerely<br></br><br></br>
+
+{!customsitename}
+
+
+</div>
+
+<div style="page-break-before:always;">
+<br></br><br></br> <br></br> 
+<b>Who is affected by the Road Transport Directive?</b><br></br> 
+The new rules apply to:<br></br>
+<ul>
+<li> drivers subject to tachograph rules; and<br></br> </li>
+<li> non-driving vehicle crew carried in the vehicle, where the operation is required to comply with tachograph rules.<br></br></li>
+</ul>                              
+</div>
+<div>
+<br></br>
+<b>What are the rules?</b><br></br>
+The rules are:<br></br>
+<ul>
+<li>
+   <u>a maximum <b>average 48 hour working week</b></u> – this is normally calculated over a fixed 17 week (occasionally 18 week) reference period which the Government defines. However, reference periods may be extended to up to a maximum of 26 weeks and changed to different fixed calendar periods by collective (union) or workforce agreement. We currently operate a 26 week reference period. We also have the choice to use rolling, rather than fixed reference periods. We have decided to use rolling reference periods.<br></br> <br></br>
+</li>
+<li>
+   <u>a maximum <b>cap of 60 hours</b> working time <b>in any fixed week</b></u> – the fixed week starts at 00.00 hours on each Monday and finishes at 24.00 hours the following Sunday.<br></br> <br></br>
+</li>
+<li>
+   <u>a maximum <b>limit of 10 hours</b> in any 24 hour period <b>for night workers</b></u> - for goods vehicle operations, a night worker is someone who works for any time between 00.00 hours and 04.00 hours. For passenger operations, a night worker is someone who works for any time between 01.00 hours and 05.00 hours. This night work limit may be extended (or removed) by collective or workforce agreements, but all other rules and limits still apply, including tachograph rules.<br></br> <br></br>
+</li>
+<li>
+  <u><b>breaks from work</b></u> – you may not work for more than 6 hours without a break. A 30 minute break is needed if your total working time is over 6 but not over 9 hours, or 45 minutes is needed if your total working time over 9 hours. Breaks must interrupt working time – in other words, they may not be taken at the very beginning or end of a shift. They may be sub-divided into periods of at least 15 minutes and spread over the working day. Breaks taken as breaks from driving under tachograph rules can be counted as breaks from working time, and vice versa. When looking at both working time and tachograph rules together, it is important to remember that breaks must be taken after 6 hours work or after 4.5 hours driving, whichever happens soonest.<br></br> <br></br>
+</li>
+<li>
+  <u><b>daily and weekly rest</b> as specified in the tachograph rules.</u> <br></br><br></br>
+</li>
+</ul>
+<b>What is working time?</b><br></br>
+Working time is not the same as attendance, spread-over or shift time.<br></br><br></br>
+Working time <b>includes</b> all road transport activities, such as:
+<ul>
+<li>driving</li>
+<li>loading and unloading</li>
+<li>vehicle cleaning and maintenance</li>
+<li>work to ensure the safety of the vehicle and its cargo, including daily defect checks</li>
+<li>waiting time that cannot be classed as a period of availability (see below)</li>
+<li>any other work, including administrative duties</li><br></br>
+<li>overtime</li>
+<li>job-related training associated with normal work and training that is part of the company’s commercial transport operation</li>
+<li>time worked for another road transport employer</li>
+</ul><br></br><br></br>
+
+Working time <b>does not include</b>:
+<ul>
+<li>breaks during a shift</li>
+<li>periods of availability </li>
+<li>daily rest</li>
+<li>weekly rest</li>
+<li>voluntary work, including charitable work, special constables, territorial army and retained firefighters</li>
+<li>evening classes or day-release courses</li>
+<li>routine travel between home and your normal place of work</li>
+</ul><br></br><br></br>
+
+<b>What is a period of availability?</b><br></br>
+The following three conditions apply to a period of availability:<br></br>
+<ol type="1">
+<li>You are available for work, but not required to undertake any work.<br></br><br></br></li>
+<li>You must not be ‘required’ to stay at your workstation (this will usually be the vehicle). You may choose to remain in the vehicle – as long as you have the freedom to leave the vehicle, it can still count as a period of availability<br></br><br></br>Also, if you must remain with the vehicle because of safety or security reasons, this would not in itself disqualify the time as being a period of availability. Typical examples of this might include waiting time at sites where it is unsafe for pedestrians or where vehicles are transporting goods that are dangerous or of a high value.<br></br><br></br></li>
+<li>The period and its expected duration must be known in advance. For example, if you typically expect to be delayed for a specific period of time at a customer’s premises, this will qualify as being known in advance<br></br><br></br></li>
+</ol>
+As long as the conditions stated above are met, examples of periods of availability can include:<br></br>
+<ul>
+<li>accompanying a vehicle being transported by boat or train</li>
+<li>waiting at national borders </li>
+<li>delays due to traffic prohibitions</li>
+<li>time waiting for someone else to load or unload the vehicle – as long as you are not required to be in attendance</li>
+<li>delays at a customer’s premises</li>
+<li>staying with a broken-down vehicle at the roadside, waiting for repairs or recovery</li>
+<li>time spent waiting to undertake work after you have reported for work</li>
+<li>time spent travelling in the vehicle to be available for driving (while double manning) or work</li>
+<li>time spent travelling in the vehicle as non driving crew</li><br></br><br></br>
+</ul><br></br><br></br>
+<b>Calculating average working time when leave is taken</b><br></br>
+There are special rules that apply when the following types of leave are taken:
+<ul>
+<li>statutory annual leave </li>
+<li>sick leave </li>
+<li>maternity, paternity, adoption or parental leave</li>
+</ul>
+
+When we calculate average working time over the reference period, the regulations require us to add in 48 hours for each fixed week of leave taken and 8 hours for each individual day of leave.<br></br><br></br>
+
+As we have chosen to use a rolling reference period, we have the option of using the method above, or to offset the leave taken by using actual working time outside of the reference period.<br></br><br></br>
+
+<b>What happens in emergencies?</b><br></br>
+Provided that road safety is not jeopardised, and to enable you to reach a safe stopping place, you may depart from the rules – but only to the extent necessary to ensure the safety of persons, the vehicle or its load. An emergency only applies in cases where it unexpectedly becomes impossible to comply with the working time rules and you must record all reasons for exceeding the limits.<br></br><br></br>
+
+<b>What obligations do employers and workers have under the rules?</b><br></br>
+The regulations require <b>us</b> to:
+<ul>
+<li>take all reasonable steps to ensure the limits and rules are being complied with </li>
+<li>notify you of the provisions of the regulations and the provisions of any relevant collective or workforce agreement (if applicable) </li>
+<li>request from you details in writing of any time worked by you for another employer, and include that time in working time calculations</li>
+<li>keep adequate working time records for two years</li>
+<li>provide to you on request a copy of your working time records and</li>
+<li>provide on request working time records and any other necessary documents to enforcement officers</li>
+</ul>
+
+The regulations require <b>you</b> to:
+<ul>
+<li>inform us in writing of all working time undertaken for any other employer</li>
+<li>keep within the limits set by the WTRT Rules</li>
+<li>keep adequate work records to prove you have not broken the WTRT Rules</li>
+</ul>
+Although most of the requirements for monitoring and keeping records lie with us, we both share the responsibility for complying with the rules. We are both at risk of prosecution if the rules are systematically broken.<br></br><br></br>
+
+Please contact your Blue Arrow branch if you require clarification on any of the above. 
+
+
+</div>
+
+</html>
+</apex:page>

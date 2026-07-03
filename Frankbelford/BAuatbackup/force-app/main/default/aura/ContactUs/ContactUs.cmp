@@ -1,0 +1,41 @@
+<aura:component controller="Contactusapexcontroller" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="casesubject" type="string" />
+    <aura:attribute name="casedescription" type="string" />
+    <aura:attribute name="objInfo" type="case" default="{sobjectType : 'Case'}" />
+    <div class="divtable slds-align_absolute-center" >
+     <div class="slds-form--inline">
+    <table >
+  <tr>
+      <td >
+            <label class="slds-form-element__label" for="select-01">Subject</label>
+    	<!--<ui:inputText class="inputtext" aura:id="inputsub" value="" label="Subject :"   /> 
+          <ui:inputText label="Subject :" value="{!v.casesubject}" required="true" aura:id="inputsub" />-->
+       <ui:inputSelect  aura:id="caseSubject" class="slds-select"  change="{!c.onPicklistChange}"/>
+      </td>
+
+      </tr><br></br>
+  <tr>
+      <td> <!--<textarea id="myTextarea" rows="6" cols="68" placeholder="Enter your description..." name="Query"></textarea>-->
+          <ui:inputTextArea aura:id="Query" label="Query"  value="{!v.casedescription}"  rows="6" cols="68"  placeholder="Enter your description..."  />
+      </td>
+      </tr><br></br>
+      <tr>
+          <td>
+                <div class="slds-grid slds-gutters">
+            <div class="slds-col" style="text-align:left">  
+                <lightning:button label="Back" class="Backbutton" variant="Brand" onclick="{!c.getBackscreen}"   />
+           </div>
+              <div class="slds-col border" style="text-align:right">
+               <lightning:button label="Submit" class="Submitbutton" variant="Brand" onclick="{!c.submitcase}" /> 
+             </div>  
+              </div>
+          </td>
+          
+      </tr>
+      <tr>
+      </tr>
+    </table>
+        </div>
+       </div>
+</aura:component>

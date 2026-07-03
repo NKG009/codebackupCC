@@ -1,0 +1,46 @@
+{
+  "appPageId" : "b2fa95b0-e567-41d6-a9bd-0d8201b2a4b0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "7c45ab4b-6773-4528-8d48-fae6dd380f9a",
+  "label" : "My Paylsips",
+  "regions" : [ {
+    "id" : "d6a9ef8a-f1d1-4429-aeb3-785c8cd4109a",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:Payslips",
+      "id" : "e23560d2-646f-4483-b5c4-813db6055e54",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f5178b42-8ab1-4fed-9a0d-fa2f6502545b",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "cfb9026e-e5b7-4931-9ee9-fc2cf9fd37a8",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My Paylsips"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "659a792d-c725-4a6a-87f6-e101c63de854",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ee1c740e-2a8c-45a5-87d4-93a8345d57b5",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-my-paylsips"
+}

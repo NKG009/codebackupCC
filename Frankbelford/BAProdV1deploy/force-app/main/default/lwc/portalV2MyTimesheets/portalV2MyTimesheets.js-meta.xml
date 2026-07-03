@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+	<masterLabel>Portal V2 - My TimeSheets</masterLabel>
+	<apiVersion>62.0</apiVersion>
+	<isExposed>true</isExposed>
+	<targets>
+		<target>lightningCommunity__Default</target>
+		<target>lightningCommunity__Page</target>
+	</targets>
+	<targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+        name="jobRoleViewGroupingColumnName"
+        type="String"
+        label="Job Role View Grouping Column"
+        description="Defines the column to group data by on the job role view"
+        default="Job Role"
+      />
+      <property
+        name="candidateViewGroupingColumnName"
+        type="String"
+        label="Candidate View Grouping Column"
+        description="Defines the column to group data by on the candidate view"
+        default="Name"
+      />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

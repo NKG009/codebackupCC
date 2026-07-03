@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Registration_Finished__c</fullName>
+    <description>Indicator whether candidate has completed either full or fast registration</description>
+    <formula>IF(
+  OR(NOT(ISNULL(Application_Completed_Date__c)),
+				 Compliance_Status__c = &quot;Compliant&quot;,
+				Compliance_Status__c = &quot;Partial Compliant&quot;,
+					AND(ISPICKVAL(Registration_Type__c, &quot;Fast Registration&quot;),  ISPICKVAL(Registration_Status__c, &quot;Compliance&quot;))
+				),    
+				TRUE, 
+				FALSE)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Indicator whether candidate has completed either full or fast registration</inlineHelpText>
+    <label>Registration Finished</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

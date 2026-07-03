@@ -1,0 +1,14 @@
+<apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStyleSheets="true" 
+           applyBodyTag="false" applyHtmlTag="true" standardController="Account">
+    
+    <script type = "text/javascript">
+    var compDefinition = { 
+        "componentDef" : "c:NewAccountV2Aura", 
+        "attributes" :{   
+        }
+    };
+    var encodedCompDef = btoa(JSON.stringify(compDefinition));
+    window.parent.location = "/one/one.app#"+encodedCompDef;
+    </script>
+    
+</apex:page>

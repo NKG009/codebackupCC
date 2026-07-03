@@ -1,0 +1,38 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "1f833c18-2ffa-4b15-bb18-d435a451e87c",
+  "label" : "Testbookedtemp",
+  "regions" : [ {
+    "id" : "06ddda46-4081-4756-8dbb-310093887c1f",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "32ae2fe2-7979-489f-8a74-ad2d8072ace3",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "54bd21da-9f3a-4335-8209-3423e7c567af",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Testbookedtemp"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "62e6f6b0-6f17-4dcd-ad29-86b39b23ef86",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7acad621-6147-42d5-9cd5-e8fc57b09a3d",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "eYoZMlEpYXjci8rpbahxHXve025C3S",
+  "type" : "view",
+  "viewType" : "custom-testbookedtemp"
+}

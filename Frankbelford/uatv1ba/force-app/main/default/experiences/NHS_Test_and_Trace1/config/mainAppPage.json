@@ -1,0 +1,11 @@
+{
+  "cmsSettings" : { },
+  "currentThemeId" : "cec9cc4e-be26-43d3-81cd-74c952fdc69e",
+  "headMarkup" : "<!-- Google Tag Manager -->\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,'script','dataLayer','GTM-N9TJR2Q');</script>\n<!-- End Google Tag Manager -->\n\n<!-- Google Tag Manager (noscript) -->\n<noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-N9TJR2Q\"\nheight=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n<!-- End Google Tag Manager (noscript) -->\n\n<!-- Global site tag (gtag.js) - Google Analytics -->\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-48407008-7\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n \n\n  gtag('config', 'UA-48407008-7');\n</script>\n\n<!-- Begin INDEED conversion code -->\n\n<script type=\"text/javascript\">\n\n/* <![CDATA[ */\n\nvar indeed_conversion_id = '9268140388061497';\n\nvar indeed_conversion_label = '';\n\n/* ]]> */\n\n</script>\n\n<script type=\"text/javascript\" src=\"//conv.indeed.com/applyconversion.js\">\n\n</script>\n\n<noscript>\n\n<img height=1 width=1 border=0 src=\"//conv.indeed.com/pagead/conv/9268140388061497/?script=0\">\n\n</noscript>\n\n<!-- End INDEED conversion code -->\n\n<!-- Begin INDEED conversion code -->\n<script type=\"text/javascript\">\n/* <![CDATA[ */\nvar indeed_conversion_id = '3592893147046001';\nvar indeed_conversion_label = '';\n/* ]]> */\n</script>\n<script type=\"text/javascript\" src=\"//conv.indeed.com/applyconversion.js\">\n</script>\n<noscript>\n<img height=1 width=1 border=0 src=\"//conv.indeed.com/pagead/conv/3592893147046001/?script=0\">\n</noscript>\n<!-- End INDEED conversion code -->",
+  "id" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "isLockerServiceEnabled" : true,
+  "isRelaxedCSPLevel" : true,
+  "label" : "main",
+  "templateName" : "Service Community Template",
+  "type" : "appPage"
+}

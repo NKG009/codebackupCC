@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sussex_Leisure</fullName>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ts2__Preferred_Name__c</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.PHONE5</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.DEPARTMENT</field>
+        <operation>equals</operation>
+        <value>Sussex - Leisure</value>
+    </filters>
+    <label>Sussex - Leisure</label>
+</ListView>

@@ -1,0 +1,288 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" description="Sample Custom Theme Layout" controller="Shifts_to_be_ApprovedCnt">
+    <ltng:require styles="{!join(',',
+                          $Resource.Tjcss2+'/assets/css/main.css',
+                         $Resource.Tjcss2+'/assets/css/custom.css'
+                          )
+                          }"
+                  scripts="{!join(',',
+                           $Resource.Tjcss2+'/assets/js/main.min.js',
+                           $Resource.Tjcss2+'/assets/js/zoom.js'
+                           
+                           )}" />
+    <ltng:require styles="{! $Resource.	DataTables + '/DataTables/media/css/jquery.dataTables.min.css'}" />
+
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+
+    <!--component attributs -->
+    <aura:attribute name="spinner" type="boolean" default="FALSE"/>
+
+    <aura:attribute name="ShiftList" type="List"/>
+    <aura:attribute name="contact" type="String"/>
+    <aura:attribute name="site" type="String"/>
+    <aura:attribute name="PaginationList" type="list"/>
+    <aura:attribute name="isConsultant" type="boolean"/>
+
+    <!-- Start Approve Reject -->
+    <aura:attribute name="approveAll" type="Boolean" default="false" />
+    <aura:attribute name="approvestatus"  type="boolean" default="false"/>
+    <aura:attribute name="shiftsToBeApproved" type="List"/>
+    <aura:attribute name="isError" type="boolean" default="true"/>
+    <aura:attribute name="starthour" type="String"/>
+    <aura:attribute name="endhour" type="String"/>
+    <aura:attribute name="HourStatus" type="Boolean"/>
+    <aura:attribute name="checkforchange" type="Boolean" default="false"/>
+    <aura:attribute name="app" type="Boolean" default="false"/>
+    <aura:attribute name="cancelledshift" type="List"/>
+    <aura:attribute name="isOpenCancel" type="boolean" default="false"/>
+    <aura:handler event="c:ShiftUpdateActualTimes" action="{!c.UpdateActualTimes}"/>
+    <aura:handler event="c:ChangesWereMadeBeforeSave" action="{!c.handleIfChangesMade}" />
+    <aura:attribute name="candidateIdForRejectAllFeature" type="String"/>
+    <!-- End Approve Reject -->
+
+    <!--loading spinner start-->
+    <aura:if isTrue="{!v.spinner}">
+        <div aura:id="spinnerId" class="slds-spinner_container">
+            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                <span class="slds-assistive-text">Loading...</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+    <!-- Loading spinner end-->
+
+    <aura:handler name="change"	value="{!v.pageNumber}"	action="{!c.renderPage}" />
+    <aura:attribute type="Integer"      name="pageNumber"		default="1" />
+    <aura:attribute type="Integer"      name="maxPage"			default="1" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:attribute name="allData" type="List"/>
+    <aura:attribute name="currentPageNumber" type="Integer" default="1"/>
+    <aura:attribute name="pageSize" type="Integer" default="5"/>
+    <aura:attribute name="totalPages" type="Integer" default="0"/>
+    <aura:attribute name="pageList" type="List"/>
+
+    <aura:attribute name="startendBlank" type="Boolean" Default="False"/>
+    <aura:attribute name="Pagination" type="Boolean"/>
+    <aura:attribute name="OnePage" type="Boolean" Default="True"/>
+    <aura:handler event="c:ShiftApproveAllEvent" action="{!c.ApproveAllCand}"/>
+
+
+    <div>
+        <div >
+            <aura:iteration items="{!v.PaginationList}" var="shift" indexVar="i">
+                <div class="panel panel-default panel-accepted">
+                    <div class="ElementDetail__table" role="tab" id="headingOne">
+                        <table id="candViewTable">
+                            <aura:if isTrue="{!(i==0)}">
+                                <thead>
+                                <tr class="panel panel-default">
+                                    <th class="centeralign">Temp Name</th>
+                                    <th class="centeralign">Job Role</th>
+                                    <th class="centeralign">Booked Hours</th>
+                                    <th class="centeralign">Actual Hours</th>
+                                    <th class="centeralign">Difference <c:customHelpText candview="True" />
+                                    </th>
+                                    <th class="centeralign">Invoice PO</th>
+                                    <th id="headeraction" class="centeralign">Action</th>
+                                </tr>
+                                </thead>
+                            </aura:if>
+                            <tbody>
+                            <tr class="{!(shift.Action=='Approved' ? '' : (shift.Action=='Rejected' ? '' : (shift.Action=='Completed' ? '' : 'whitecolor')))}">
+                                <!--<td data-th="Candidate Name" class="centeralign"   style="font-weight:bold;"> <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="{!'#collapseOne'+(i)}" aria-expanded="true" aria-controls="collapseOne" ><span class="glyphicon glyphicon-menu-right"></span> <b>{!shift.CandidateName}</b></a></td>-->
+                                <td data-th="Candidate Name" class="centeralign"   > <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="{!'#collapseOne'+(i)}" aria-expanded="true" aria-controls="collapseOne" ><span class="glyphicon glyphicon-menu-right"></span><aura:if  isTrue="{!$Browser.formFactor == 'DESKTOP'}"> <c:ForecastChargeTooltip forecastview="True" forecastvalue="{!shift.ForecastCharge}"/>&nbsp;</aura:if> <b style="font-weight:bold;">{!shift.CandidateName}</b></a></td>
+                                <td class="centeralign" data-th="Job Role">{!shift.JobRole}</td>
+                                <td class="centeralign" data-th="Booked Hours">{!shift.stBookedHourse}</td>
+                                <td class="centeralign" data-th="Job Role">{!shift.stActualHourse}</td>
+                                <td class="centeralign" data-th="Difference">{!shift.stDiff}</td>
+
+                                <td class="centeralign" onclick="{!c.poReadonly}" data-value="{!i}" data-th="Invoice PO"><input id="{!i}" class="InvoicePO" type="text" value="{!shift.InvoicePO}" data-value="{!shift.shiftInfo[0].Id}" onchange="{!c.poSubmit}"></input></td>
+
+                                <td id="lastcol" class="centeralign" data-th="Action">
+                                    <aura:if isTrue="{!shift.Action=='Approved'}" >
+                                        <span class="status complete">Approved</span>
+                                        <aura:set attribute="else">
+                                            <aura:if isTrue="{!shift.Action=='Rejected'}" >
+                                                <span class="status reject">Reject</span>
+                                                <aura:set attribute="else">
+                                                    <aura:if isTrue="{!shift.Action=='Completed'}" >
+                                                        <span class="status complete">Complete</span>
+                                                        <aura:set attribute="else">
+                                                            <button class="action-button accept" id="{!shift.CandidateId}" onclick="{!c.ApproveAllCand}">Approve</button>
+                                                            <button class="action-button decline" data-toggle="modal" data-target="#bookedTemp-RejectAll" id="{!shift.CandidateId}" onclick="{!c.rejectAllShifts}">Reject</button>
+                                                        </aura:set>
+                                                    </aura:if>
+                                                </aura:set>
+                                            </aura:if>
+                                        </aura:set>
+                                    </aura:if>
+                                </td>
+                                <td id="Consultant">
+                                    <button  class="search-btn fitWidth" id="{!shift.CandidateId}" onclick="{!c.saveAllCand}">Save</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="{!'collapseOne'+(i)}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            <div class="searchDetail-section">
+                                <table class="tableId searchDetail_table">
+
+                                    <thead>
+                                    <tr>
+                                        <th class="centeralign">Start Date</th>
+                                        <th class="centeralign booked-time">Booked Time Start / End</th>
+                                        <!--<th class="centeralign">Same as previous</th>-->
+                                        <th class="centeralign actual-time">Actual Time Start / End</th>
+                                        <th  class="centeralign">Breaks</th>
+                                        <th class="centeralign">Chargeable Hours</th>
+                                        <th class="centeralign">Estimated Charge</th>
+                                        <th id="headeraction1" class="centeralign">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <aura:iteration items="{!shift.shiftInfo}" var="shiftObj" >
+                                        <tr class="{!(shiftObj.sirenum__Scheduled_Start_Time__c != shiftObj.sirenum__Actual_Start_Time__c ) ? '': ( shiftObj.sirenum__Scheduled_End_Time__c == shiftObj.sirenum__Actual_End_Time__c ? 'selected-rows' :'' )}">
+                                            <td class="centeralign">
+                                                <lightning:formattedDateTime value="{!shiftObj.sirenum__Scheduled_Start_Time__c}" year="numeric" month="numeric" day="numeric" />
+                                            </td>
+                                            <c:CandidateItemCmp record="{!shiftObj}" Match="false"/>
+
+                                            <td id="lastcol1"  style="width:210px;" class="centeralign">
+                                                <aura:if isTrue="{!shiftObj.IP_ClientApproved__c}" >
+                                                    <span class="status complete">Approved</span>
+                                                    <aura:set attribute="else">
+                                                        <aura:if isTrue="{!shiftObj.IP_ClientRejected__c}" >
+                                                            <span class="status reject">Reject</span>
+                                                            <aura:set attribute="else">
+                                                                <aura:if isTrue="{!v.isConsultant}">
+                                                                    <button  class="search-btn" onclick="{!c.save}" id="{!shiftObj.Id+'-'+shift.CandidateId}">Save</button>
+
+                                                                    <aura:set attribute="else">
+                                                                        <button  class="action-button accept" onclick="{!c.approve}" id="{!shiftObj.Id+'-'+shift.CandidateId}">Approve</button>
+
+                                                                        <button  class="action-button decline" onclick="{!c.reject}" data-toggle="modal" data-target="#bookedTemp-popup"  id="{!shiftObj.Id+'-'+shift.CandidateId}">Reject</button>
+
+                                                                    </aura:set>
+                                                                </aura:if>
+                                                            </aura:set>
+                                                        </aura:if>
+                                                    </aura:set>
+                                                </aura:if>
+                                            </td>
+                                        </tr>
+                                    </aura:iteration>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aura:iteration>
+        </div>
+
+    </div>
+
+    <aura:if isTrue="{!v.Pagination}" >
+        <ul class="custom-pagination text-right">
+            <li class="{! if(v.OnePage ==False ,'paginate_button previous disabled','paginate_button previous ')}"><a onclick="{!c.onPrev}">Previous</a></li>
+            <aura:if isTrue="{!v.OnePage}" >
+                <!--  <span class="slds-p-horizontal_xxx-small">
+                    <a>...</a>
+                </span> -->
+                <aura:iteration items="{!v.pageList}" var="item">
+                    <li class="{! (v.currentPageNumber == item) ? 'paginate_button active' : 'paginate_button '}">
+                        <a onclick="{!c.processMe}" name="{!item}"
+                        >{!item}</a>
+                    </li>
+                </aura:iteration>
+                <!-- <span class="slds-p-horizontal_xxx-small">
+                    <a>...</a>
+                </span> -->
+                <aura:set attribute="else">
+                    <li class="{! (v.OnePage == False) ? 'paginate_button disabled active' : 'paginate_button'}">
+                        <a onclick="{!c.processMe}" name="1">1</a>
+                    </li>
+                </aura:set>
+            </aura:if>
+            <li class="{! if(v.currentPageNumber == v.totalPages,'paginate_button next disabled','paginate_button next')}"  ><a onclick="{!c.onNext}">Next</a></li>
+        </ul>
+    </aura:if>
+
+    <!-- Model Reject -->
+    <div class="custom-model modal fade" id="bookedTemp-popup" tabindex="-1" role="dialog" aria-labelledby="bookedTemp-popup">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="height: 550px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="{!c.closeModelCancel}"><span aria-hidden="true">&times;</span></button>
+                <h1>Shift Details</h1>
+
+                <div style="border:0px;" class="ElementDetail__table">
+                    <table >
+                        <tr>
+                            <td class="textclass">
+                                <u>Job Role</u>
+                                <br/>{!v.cancelledshift[0].sirenum__Team__r.Name}
+                            </td>
+                            <td class="textclass">
+                                <u>Site</u>
+                                <br/>{!v.cancelledshift[0].sirenum__Site__r.Name}
+                            </td>
+                        </tr>
+                        <tr>
+                        </tr>
+                        <br/>
+                        <tr>
+                            <td class="textclass">
+                                <u>Schedule StartTime</u>
+                                <br/>
+                                <lightning:formattedDateTime value="{!v.cancelledshift[0].sirenum__Scheduled_Start_Time__c}" hour="2-digit" minute="2-digit" />
+                            </td>
+                            <td class="textclass">
+                                <u>Schedule EndTime</u>
+                                <br/>
+                                <lightning:formattedDateTime value="{!v.cancelledshift[0].sirenum__Scheduled_End_Time__c}" hour="2-digit" minute="2-digit" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="float:left;font-size:16px;">Please let us know the reason for rejecting this shift:</div><br></br><br></br>
+                <ui:inputTextArea class="textheight" aura:id="Query" label="" value="" rows="4" placeholder="" />
+                <br/>
+                <div style="float:left; margin-top:21px;">
+
+                    <button type="button" style="height:50px;" class="action-button decline" data-dismiss="modal" aria-label="Close" onclick="{!c.closeModelCancel}">Back</button>
+                </div>
+                <div style="float:right;">
+                    <button style="margin-top: 21px;" aura:id="submitReject" class="approve-btn" data-dismiss="modal"  onclick="{!c.submitReject }" >Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Model Reject -->
+
+    <!-- Reject All Modal Box -->
+    <div class="custom-model modal fade" id="bookedTemp-RejectAll" tabindex="-1" role="dialog" aria-labelledby="bookedTemp-RejectAll">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="height: 550px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="{!c.closeModelCancel}"><span aria-hidden="true">&times;</span></button>
+                <h1>Reject All Shifts</h1>
+
+                <div style="float:left;font-size:16px;">Please let us know the reason for rejecting these shifts:</div><br></br><br></br>
+               	<ui:inputTextArea class="textheight" aura:id="rejectAllQuery" label="" value="" rows="4" placeholder=""/>
+                <br/>
+                <div style="float:left; margin-top:21px;">
+                    <button type="button" style="height:50px;" class="action-button decline" data-dismiss="modal" aria-label="Close" onclick="{!c.closeModelCancel}">Back</button>
+                </div>
+                <div style="float:right;">
+					<button style="margin-top: 21px;" aura:id="submitReject" class="approve-btn" data-dismiss="modal" onclick="{!c.RejectAllCand}">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Reject All Modal Box -->
+</aura:component>

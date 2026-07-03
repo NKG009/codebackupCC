@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Task_View_All_Tasks_Demo</fullName>
+    <columns>PRIORITY</columns>
+    <columns>SUBJECT</columns>
+    <columns>DUE_DATE</columns>
+    <columns>STATUS</columns>
+    <columns>WHO_NAME</columns>
+    <columns>WHAT_NAME</columns>
+    <columns>IP_TaskType__c</columns>
+    <columns>ts2__Client__c</columns>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>STATUS</field>
+        <operation>equals</operation>
+        <value>Not Started,In Progress,Waiting on someone else,Deferred</value>
+    </filters>
+    <filters>
+        <field>WHAT_NAME</field>
+        <operation>equals</operation>
+        <value>Ludgrove School - Wokingham - Ludgrove School Trust Ltd</value>
+    </filters>
+    <label>Task View All Tasks Demo</label>
+</ListView>

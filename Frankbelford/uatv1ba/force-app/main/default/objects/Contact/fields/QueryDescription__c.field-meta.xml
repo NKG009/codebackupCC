@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QueryDescription__c</fullName>
+    <description>It contains the skills query from candidate portal</description>
+    <inlineHelpText>It contains the skills query from candidate portal</inlineHelpText>
+    <label>QueryDescription</label>
+    <length>32768</length>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

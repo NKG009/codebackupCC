@@ -1,0 +1,64 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "952571b7-c22a-4ad5-96f7-0996af42e934",
+  "label" : "Shifts to be approved",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"font-size: 28px; color: rgb(0, 0, 0);\">Shifts to be Approved</span></p><p style=\"text-align: center;\"><br></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "2ac9c77d-98a5-4d27-b875-6c7819132695",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c9170daf-d0cb-4593-926f-8d27459fcde5",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:ShiftToBeApproved",
+      "id" : "7856581d-297d-4008-83dd-e4905fc18501",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "351cb539-e48c-48ab-b209-8015f750fda2",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:HomeLayoutFooter",
+      "id" : "a2f47e19-500c-42a0-a2ae-9cd7227b8bc7",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "86688a75-40cd-41d5-ab60-49f07c16596a",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Shifts to be approved"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "6022ca23-c71d-4810-a7bd-34b3f5b09aeb",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "05795e66-a0ca-469b-8f8e-314d1a75d359",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "BaeIvxdmVNAi846Z78i1VuYgMbv85a",
+  "type" : "view",
+  "viewType" : "custom-shifts-to-be-approved"
+}

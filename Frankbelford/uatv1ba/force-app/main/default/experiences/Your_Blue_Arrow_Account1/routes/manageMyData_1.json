@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "48972c18-95d2-40b8-a2f8-62cdb8151958",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "Manage_My_Data_1__c",
+  "id" : "26fe8efa-9009-492a-8b12-0f9d1ef695cd",
+  "label" : "Manage My Data",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-managemydata",
+  "type" : "route",
+  "urlPrefix" : "managemydata"
+}

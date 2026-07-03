@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1352_BAL_National_Perm_Centre_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>1352-BAL National Perm Centre</label>
+    <queue>X1352_BAL_National_Perm_Centre</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

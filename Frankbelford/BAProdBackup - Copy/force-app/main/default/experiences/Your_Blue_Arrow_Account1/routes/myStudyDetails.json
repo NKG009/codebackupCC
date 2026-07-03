@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "7450dbe2-9153-4569-bde1-6eee24a3e44a",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "My_Study_Details__c",
+  "id" : "11961b0b-daba-4b92-a2fa-7cde3afc9481",
+  "label" : "My Study Details",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-my-study-details",
+  "type" : "route",
+  "urlPrefix" : "my-study-details"
+}

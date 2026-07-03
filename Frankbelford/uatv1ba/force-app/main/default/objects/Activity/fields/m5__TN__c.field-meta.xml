@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>m5__TN__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The M5 phone number that made or received this call.</description>
+    <label>M5 Telephone Number</label>
+    <required>false</required>
+    <type>Phone</type>
+</CustomField>

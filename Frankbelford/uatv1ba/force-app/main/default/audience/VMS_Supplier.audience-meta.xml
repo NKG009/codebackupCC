@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Audience xmlns="http://soap.sforce.com/2006/04/metadata">
+    <audienceName>VMS Supplier</audienceName>
+    <container>Client Portal V2</container>
+    <criteria>
+        <criterion>
+            <criteriaNumber>1</criteriaNumber>
+            <criterionValue>
+                <entityField>Contact.$Contact.VMS_Contact__c</entityField>
+                <entityType>User</entityType>
+                <fieldValue>true</fieldValue>
+            </criterionValue>
+            <operator>Equal</operator>
+            <type>FieldBased</type>
+        </criterion>
+    </criteria>
+    <formulaFilterType>AllCriteriaMatch</formulaFilterType>
+    <isDefaultAudience>false</isDefaultAudience>
+    <targets>
+        <target>
+            <groupName>0ff1723c-5b2f-4043-ab43-9c2daf9956a0$#$18d5e55f-2fc0-4780-b896-5c40471fe6b1</groupName>
+            <priority>1</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>My_Job_Order_Portal_V2_My_Job_Order_Component</targetValue>
+        </target>
+        <target>
+            <groupName>49fc4156-f3d8-454e-bee2-67619269f026$#$c9abd8c4-7af0-409f-893a-c7b16236a21d</groupName>
+            <priority>1</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>Hour_Submission_Portal_V2_Hour_Submission_Component</targetValue>
+        </target>
+        <target>
+            <groupName>528c3f94-7d0c-4c33-b725-9e46c02de780$#$af8a02d1-f50e-4db7-9afa-19254c120254</groupName>
+            <priority>1</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>My_Candidates_Portal_V2_My_Candidates_Component</targetValue>
+        </target>
+        <target>
+            <groupName>7f401bee-5800-4332-b8bd-8ed022c702e4$#$7e717ced-c123-4b80-afd6-a9d3481bccbd</groupName>
+            <priority>1</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>My_Timesheets_Portal_V2_My_TimeSheets_Component</targetValue>
+        </target>
+    </targets>
+</Audience>

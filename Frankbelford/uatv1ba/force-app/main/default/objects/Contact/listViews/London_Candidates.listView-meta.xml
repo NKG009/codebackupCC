@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>London_Candidates</fullName>
+    <columns>CONTACT.LAST_UPDATE</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>ts2__Current_Salary__c</columns>
+    <columns>ts2__Desired_Salary__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>contains</operation>
+        <value>CR,WD,EN,HA,NW,RG,RM,SE,EC,DA,BR,SM,CT,SW,TW,UB,SL N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,E1,E2,E3,E4,E5,E6,E7,E8,E9,E10,W1,W2,W3,W4,W5,W6,W7,W8,W9,W10</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>equals</operation>
+        <value>Catering</value>
+    </filters>
+    <label>London Candidates</label>
+</ListView>

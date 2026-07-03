@@ -1,0 +1,36 @@
+.THIS .slds-checkbox_faux{
+    height: 20px;
+    width: 20px;
+
+}
+.THIS .dataTables_wrapper table thead th:nth-child(-n+4):after{
+        display:none;
+    }
+    
+    
+.THIS .Red{
+    background-color: #EDEBEB;
+}
+.THIS .Green{
+    background-color: #c8e280;
+}    
+  .THIS .whitetextcolor{
+    color: white;
+}    
+   .THIS .blacktextcolor{
+    color: black;
+}   
+    .THIS .Gcolor
+    {
+        color:#565656;
+    }
+    .THIS .tdcenter{
+    text-align:center;
+}
+       .THIS .textheight{
+    height:150px;
+}
+    .THIS .uiheight{
+    height:20px;
+    width:20px;
+}

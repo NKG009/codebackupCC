@@ -1,0 +1,69 @@
+<template>
+  <div class="body-wrapper">
+    <div class="header-container">
+      <img src={headerLogo} />
+    </div>
+
+    <div class="input-container">
+      <div class="general-error-container">
+        <div>
+          <div
+            role="general-error"
+            class="general-error hidden slds-var-m-top_medium"
+          >
+            <p>{generalError}</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <lightning-input
+          type="email"
+          label={emailLabel}
+          onchange={emailChange}
+          message-when-type-mismatch="Please enter a valid email address."
+        ></lightning-input>
+        <div role="email-error" class="error hidden">
+          <p>{emailError}</p>
+        </div>
+      </div>
+      <div>
+        <lightning-input
+          type="password"
+          label={passwordLabel}
+          onchange={passwordChange}
+        ></lightning-input>
+        <div role="password-error" class="error hidden">
+          <p>{passwordError}</p>
+        </div>
+      </div>
+      <lightning-button
+        label="Forgotten password?"
+        onclick={forgottenPasswordClick}
+        variant="base"
+        class="forgotten-password"
+      ></lightning-button>
+      <button
+        onclick={loginClick}
+        class="login-button slds-button slds-button_brand slds-var-m-top_medium"
+      >
+        Sign in
+      </button>
+      <div class="slds-var-p-top_small">
+        <p class="candidate-text-container">Are you a Blue Arrow worker?</p> 
+        <p class="candidate-text-container"><a href="https://mytempagency.bluearrow.co.uk/s/login/?ec=302&startURL=%2Fs%2Fmyshifts" target="_blank">Click here to log into your portal</a></p>
+      </div>
+    </div>
+    <div class="footer-container">
+      <a href="https://www.bluearrow.co.uk/" target="_blank">
+        <img class="social-logo" src={baLogoSmall}></img></a>
+      <a href="https://www.facebook.com/BlueArrowJobs/" target="_blank">
+      <img class="social-logo" src={facebookLogo}></img></a>
+      <a href="https://www.linkedin.com/company/blue-arrow/" target="_blank">
+      <img class="social-logo" src={linkedInLogo}></img></a>
+      <a href="https://twitter.com/bluearrowgroup" target="_blank">
+      <img class="social-logo" src={twitterLogo}></img></a>
+      <a href="https://www.youtube.com/channel/UCN1X-rcqNOXv0fLbhtNnJJQ" target="_blank">
+      <img class="social-logo" src={youtubeLogo}></img></a>
+    </div>
+  </div>
+</template>

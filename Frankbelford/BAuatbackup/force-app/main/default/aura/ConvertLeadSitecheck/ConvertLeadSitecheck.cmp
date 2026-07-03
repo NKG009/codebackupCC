@@ -1,0 +1,84 @@
+<aura:component controller="ConvertNewBusinessControllerLightning">
+     <!-- handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+     <!-- atrributes -->
+    <aura:attribute name="selectedNewBusinessLead" type="String"/>
+    <aura:attribute name="selectedAccountId" type="String"/>
+    <aura:attribute name="checkboxSelected" type="Integer" />
+    <aura:attribute name="selectedSiteIds" type="List"/>
+    <aura:attribute name="selectedSiteValue" type="String" />
+    <aura:attribute name="displayConvertLeadSiteCheckScreen" type="Boolean" />
+    <aura:attribute name="displayConvertLeadContactCheckScreen" type="Boolean" />
+    <aura:attribute name="messageDisplay" type="String" />
+    <aura:attribute name="errorMessage" type="Boolean" />
+    <aura:attribute name="displayTable" type="Boolean" />
+    <aura:attribute name="listMatchingSites" type="object"/>
+   
+    <aura:if isTrue="{!v.displayConvertLeadSiteCheckScreen}">
+        <div class="modal-header slds-modal__header slds-size_1-of-1">
+            <h3 class="title titlecolor slds-text-heading--medium" ><b>Convert Lead - Site Check</b></h3>
+        </div>
+        <br/><br/>
+        <aura:if isTrue="{!v.errorMessage}">
+            <br/><br/><br/><br/>
+            <p style="font-size:15px;color:red;">
+                 <center><b><aura:unescapedHtml value="{!v.messageDisplay}" /></b></center>
+            </p>
+        </aura:if>
+        	
+        <div class="demo-only slds-text-align_left" style="padding:0.5rem;background:#1B5297;">
+        	<div class="slds-text-color_inverse"><b>Convert to Existing Site</b></div>
+        </div><br/>
+			 <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Site Name</th>
+						<th>Status</th>
+                        <th>Owner</th>
+						<th>Last Modified Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- TO Check if list is not empty-->
+                    <aura:if isTrue="{!v.displayTable}">
+                            <aura:iteration var="siteWrap" items="{!v.listMatchingSites}" >
+                                <tr>
+                 					<td><ui:inputCheckbox aura:id="taskCheckBox" value="{!siteWrap.selected}" text="{!siteWrap.site.Id}" change="{!c.onCheck}"/></td>
+                                    <td><ui:outputURL value="{!'/'+siteWrap.site.Id}" label="{!siteWrap.site.Name}" aura:id="detailSiteURL" target="_new"/></td>
+                                    <!--<td><ui:outputText value="{!siteWrap.site.Name}"/></td>-->
+                                    <td><ui:outputText value="{!siteWrap.site.Status__c}"/></td>
+                                    <td><ui:outputURL value="{!'/'+siteWrap.site.Owner.Id}" label="{!siteWrap.site.Owner.Name}" aura:id="detailOwnerURL" target="_new"/></td>
+                                    <!--<td><ui:outputText value="{!siteWrap.site.Owner.Name}"/></td>-->
+                                    <td><lightning:formattedDateTime value="{!siteWrap.site.LastModifiedDate}" year="numeric" month="numeric" day="numeric" hour="2-digit" minute="2-digit" timeZone="{!$Locale.timezone}" hour12="false"/></td>
+                                </tr>
+                            </aura:iteration>
+                        </aura:if>
+					
+                    <aura:if isTrue="{!!v.displayTable}">
+                        <!-- TO Check if list is empty-->
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </aura:if>
+				</tbody>
+			 </table>
+        <br/><br/>
+        <center>
+            <lightning:button variant="brand" label="{!$Label.c.ConvertToSelectedSite}" onclick="{!c.convertToSelectedSite}" />&nbsp;&nbsp;
+            <lightning:button variant="brand" label="{!$Label.c.ConvertToNewSite}" onclick="{!c.convertToNewSite}" />&nbsp;&nbsp;
+            <lightning:button variant="neutral" label="{!$Label.c.Cancel}" onclick="{!c.cancelClick}" />&nbsp;&nbsp;
+        </center>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.displayConvertLeadContactCheckScreen}">
+        <center><c:ConvertLeadContactCheck selectedNewBusinessLead="{!v.selectedNewBusinessLead}" 
+                                        selectedAccountId="{!v.selectedAccountId}" selectedSiteId="{!v.selectedSiteValue}"/></center>
+    </aura:if>
+	
+</aura:component>

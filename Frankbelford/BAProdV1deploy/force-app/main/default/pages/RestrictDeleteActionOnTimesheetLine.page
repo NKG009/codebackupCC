@@ -1,0 +1,14 @@
+<apex:page sidebar="false" standardController="sirenum__Timesheet_Line__c" action="{!deletemethod}" extensions="RestrictDeleteActionTLController">
+
+<apex:form >
+<apex:pageMessages />
+
+
+<apex:outputPanel >
+<script> window.open('{!reportsURL}', '_self'); </script>
+</apex:outputPanel>
+
+  <apex:commandButton style="margin-left:20px;" value="Back" id="recordSubmit" rendered="{!check}" action="{!move}"/>
+</apex:form>
+
+</apex:page>

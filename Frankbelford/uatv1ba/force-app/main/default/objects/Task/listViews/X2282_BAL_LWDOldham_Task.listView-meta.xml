@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2282_BAL_LWDOldham_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>2282-BAL LWDOldham</label>
+    <queue>X2282_BAL_LWDOldham</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,49 @@
+{
+  "appPageId" : "b2fa95b0-e567-41d6-a9bd-0d8201b2a4b0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "3b962e1f-f1f1-4af3-93f9-2681b22131d6",
+  "label" : "Confirm My Hours",
+  "regions" : [ {
+    "id" : "112b84fb-173b-4038-b3c8-8d6f29bc965f",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "Candidate_Portal_Shift_Approval_Tate"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "47b20a6b-7a7d-4e3a-8867-642b1211bf36",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ab4698ba-320f-41ac-820e-8b1d84aa6caf",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "410e8529-9866-401c-907e-c0434534aa04",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Confirm My Hours"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "4c8fc137-261b-4ccf-a163-9fa481355945",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6765c820-3def-451e-87ff-fd50f6fcb0b0",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-confirm-my-hours"
+}

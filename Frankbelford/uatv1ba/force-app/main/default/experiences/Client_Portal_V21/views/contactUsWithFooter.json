@@ -1,0 +1,66 @@
+{
+  "appPageId" : "6cf45250-dd45-4f57-aa5d-84e94e3c25f8",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "af501b99-c922-4a30-b336-ce02a323cc45",
+  "label" : "Contact Us with Footer",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div class=\"slds-var-p-top_x-large\"><h1 style=\"font-size: 2vw;\">Contact Us</h1></div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "1b19b47a-7956-47fe-94a3-dc6bb86ba8e2",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "20369d97-0358-45ee-a47c-5ba64c35292c",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2ContactUs",
+      "id" : "87f023d7-f268-45a7-8226-c6311b0c01ab",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b192d071-756f-43b6-9c14-a8744fba0019",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"display: flex; flex-direction: row; justify-content: space-between;\">\n    <p>© Blue Arrow, All rights reserved 2022.</p>\n    <p>Registered Address: 33 Soho Square, London, England, W1D 3QU. Company No: 641659</p>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "8a62d1e5-b7f0-4348-964e-45ff5dc9cbc4",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ab988649-4e33-4977-ae64-49b37e855b06",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Contact Us"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "40451fdc-72da-4666-9a47-780f6d5941ea",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "cdbef409-41c0-44f3-8630-cb9d4912737c",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-contact-us"
+}

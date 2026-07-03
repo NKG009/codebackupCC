@@ -1,0 +1,104 @@
+<aura:component controller="NewShiftCreationForFastBooking" implements="forceCommunity:availableForAllPageTypes" access="global">
+   <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+   <aura:attribute name="siteList" type="List" access="global"/> 
+   <aura:attribute name="jobSiteList" type="List" access="global"/>
+   <aura:attribute name="isOpen" type="boolean" access="global"/> 
+   <aura:attribute name="message" type="String" access="global"/> 
+   <aura:attribute name="startTime" type="String" access="global"/>
+   <aura:attribute name="isSiteEmpty" type="boolean" access="global"/>
+    <aura:attribute name="isJobRoleEmpty" type="boolean" access="global"/>
+   <aura:attribute name="isStaffEmpty" type="boolean" access="global"/>
+   <aura:attribute name="isStartDateEmpty" type="boolean" access="global"/>
+   <aura:attribute name="isEndDateEmpty" type="boolean" access="global"/>
+   <aura:attribute name="isStartTimeEmpty" type="boolean" access="global"/>
+   <aura:attribute name="isEndTimeEmpty" type="boolean" access="global"/>
+   <div  class="slds-grid  slds-scrollable ">
+		<div class="slds-col slds-size_1-of-12 "></div>
+        <div style="width:340px;" class="slds-col slds-size_4-of-12 slds-border_top slds-border_bottom slds-border_left .slds-align_absolute-center backgroundCssCol1" >
+           <lightning:select name="siteSelect" label="Site" aura:id="siteId" required="true">
+                <aura:iteration items="{!v.siteList}" var="item">
+                    <option text="{!item.label}" value="{!item.value}"/>
+                </aura:iteration>
+            </lightning:select>
+            <aura:if isTrue="{!v.isSiteEmpty}">
+            	<p Style="color: #c23934;">Complete this field.</p>
+            </aura:if>
+            <br></br>
+            
+            <lightning:select name="jobRoleSelect"  label="Job Role" aura:id="jobRoleId" required="true">
+                <aura:iteration items="{!v.jobSiteList}" var="item">
+                    <option text="{!item.label}" value="{!item.value}"/>
+                </aura:iteration>
+            </lightning:select>
+            <aura:if isTrue="{!v.isJobRoleEmpty}">
+            	<p Style="color: #c23934;">Complete this field.</p>
+            </aura:if>
+            <br></br>
+            <lightning:input aura:id="requiredStaff" min="0" type="number" label="Required Staff" name="requiredStaff" step="1" required="true" class="headingdetails"/>
+       		<aura:if isTrue="{!v.isStaffEmpty}">
+            	<p Style="color: #c23934;">Complete this field.</p>
+            </aura:if> 
+       </div>
+       
+	    <div style="width:340px;" class="slds-col slds-size_3-of-12 slds-border_top slds-border_bottom .slds-align_absolute-center backgroundCssCol2">
+			<b><span Style="color: #c23934;">*</span><u class="headingdetails">Start</u></b> 
+            <div class="datewidth">
+            	<ui:inputDate aura:id="startDate" displayDatePicker="true" format="dd/MM/yyyy" required="true"/>
+		    </div>
+            <aura:if isTrue="{!v.isStartDateEmpty}">
+            	<p Style="color: #c23934;">Complete this field.</p>
+            </aura:if>
+            <br></br> 
+		   <b><span Style="color:  #c23934;">*</span><u class="headingdetails">Start Time</u></b> 
+			<input id="startTime" type="time" name="startTime" label="Start time" variant = "label-hidden" class="timefield" required="true"/>
+            <aura:if isTrue="{!v.isStartTimeEmpty}">
+            	<p Style="color: #c23934;">Complete this field.</p>
+            </aura:if>
+		</div>
+		<div style="width:350px;" class="slds-col slds-size_3-of-12 slds-border_top slds-border_bottom slds-border_right .slds-align_absolute-center backgroundCssCol2">
+			<b><span Style="color:  #c23934;">*</span><u class="headingdetails">End</u></b> 
+            <div class="datewidth">
+				<ui:inputDate aura:id="endDate" displayDatePicker="true"  format="dd/MM/yyyy" required="true"/>
+            </div>
+            <aura:if isTrue="{!v.isEndDateEmpty}">
+            	<p Style="color: #c23934;">Complete this field.</p>
+            </aura:if>
+            <br></br>
+			<b><span Style="color:  #c23934;">*</span><u class="headingdetails">End Time</u></b> 
+			<input aura:id="endTime" id="endTime" type="time" name="endTime" label="End Time" variant = "label-hidden" class="timefield" required="true"/>
+			<aura:if isTrue="{!v.isEndTimeEmpty}">
+            	<p Style="color: #c23934;">Complete this field.</p>
+            </aura:if>
+            <div style="padding-top: 99px;padding-right: 10px;">
+            	<button class="Submitbutton slds-button slds-button--brand slds-float_right" onclick="{!c.createNewShift}" >Submit</button>    
+      		</div>
+        </div>
+		<div class="slds-col slds-size_1-of-12"></div>
+	</div> 
+    <div class="slds-form-element__control slds-p-top_x-large" style="padding-left: 100px;">
+        <button class="Backbutton slds-button slds-button_brand" onclick="{!c.navigateBack}">Back</button>
+    </div>
+    <!--Modal Box -->
+    <aura:if isTrue="{!v.isOpen}">
+      <div role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+          <div class="slds-modal__header">
+            <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
+             <b>X</b>
+            <span class="slds-assistive-text">Close</span>
+            </button>
+            <h2 id="header" class="slds-text-heading_medium slds-hyphenate">Info</h2>
+          </div>
+          <div class="slds-modal__content slds-p-around_medium">
+            <p> {!v.message}
+            </p>
+          </div>
+          <div class="slds-modal__footer">
+            <button class="slds-button slds-button_brand" onclick="{!c.closeModel}" >Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="slds-backdrop slds-backdrop--open"></div>
+    
+ </aura:if>
+</aura:component>

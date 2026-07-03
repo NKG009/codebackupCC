@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DBS_Details__c</fullName>
+    <label>DBS Details</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>DBS_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>DBS Enhanced: Adult Workforce</fullName>
+                <default>false</default>
+                <label>DBS Enhanced: Adult Workforce</label>
+            </value>
+            <value>
+                <fullName>DBS Enhanced: Child &amp; Adult Workforce</fullName>
+                <default>false</default>
+                <label>DBS Enhanced: Child &amp; Adult Workforce</label>
+            </value>
+            <value>
+                <fullName>DBS Enhanced: Child Workforce</fullName>
+                <default>false</default>
+                <label>DBS Enhanced: Child Workforce</label>
+            </value>
+            <value>
+                <fullName>DBS Enhanced: Other Workforce</fullName>
+                <default>false</default>
+                <label>DBS Enhanced: Other Workforce</label>
+            </value>
+            <value>
+                <fullName>DBS Standard: Adult Workforce</fullName>
+                <default>false</default>
+                <label>DBS Standard: Adult Workforce</label>
+            </value>
+            <value>
+                <fullName>DBS Standard: Child &amp; Adult Workforce</fullName>
+                <default>false</default>
+                <label>DBS Standard: Child &amp; Adult Workforce</label>
+            </value>
+            <value>
+                <fullName>DBS Standard: Child Workforce</fullName>
+                <default>false</default>
+                <label>DBS Standard: Child Workforce</label>
+            </value>
+            <value>
+                <fullName>DBS Standard: Other Workforce</fullName>
+                <default>false</default>
+                <label>DBS Standard: Other Workforce</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Standard</controllingFieldValue>
+            <valueName>DBS Standard: Adult Workforce</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Standard</controllingFieldValue>
+            <valueName>DBS Standard: Child &amp; Adult Workforce</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Standard</controllingFieldValue>
+            <valueName>DBS Standard: Child Workforce</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Standard</controllingFieldValue>
+            <valueName>DBS Standard: Other Workforce</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Enhanced</controllingFieldValue>
+            <valueName>DBS Enhanced: Adult Workforce</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Enhanced</controllingFieldValue>
+            <valueName>DBS Enhanced: Child &amp; Adult Workforce</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Enhanced</controllingFieldValue>
+            <valueName>DBS Enhanced: Child Workforce</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Enhanced</controllingFieldValue>
+            <valueName>DBS Enhanced: Other Workforce</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

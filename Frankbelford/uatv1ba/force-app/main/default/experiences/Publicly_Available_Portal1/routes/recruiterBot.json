@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "aa1ecdab-c285-431c-8255-d44deded6e86",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "RecruiterBot__c",
+  "id" : "9a28e1ce-7006-42f8-8dbc-87660d126a88",
+  "label" : "RecruiterBot",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-recruiterbot",
+  "type" : "route",
+  "urlPrefix" : "recruiterbot"
+}

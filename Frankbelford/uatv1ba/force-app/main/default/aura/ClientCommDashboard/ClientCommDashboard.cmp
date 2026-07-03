@@ -1,0 +1,171 @@
+<aura:component controller="Shifts_to_be_ApprovedCnt" implements="lightning:isUrlAddressable,forceCommunity:availableForAllPageTypes" access="global" description="ClientCommDashboard">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <meta http-equiv="X-UA-Compatible" content="IE=11" />
+
+        <ltng:require
+                scripts="{!join(',',
+                               $Resource.Tjcss2+'/assets/js/main.min.js',
+                               $Resource.Tjcss2+'/assets/js/zoom.js',
+                               $Resource.webUI+'/assets/js/custom.js',
+                               $Resource.amchart+'/amcharts/amcharts.js',
+                               $Resource.amchart+'/amcharts/gauge.js',
+                               $Resource.amchart+'/amcharts/export.min.js',
+                               $Resource.amchart+'/amcharts/none.js',
+                               $Resource.amchart+'/amcharts/mdb.min.js',
+                               $Resource.amchart+'/amcharts/canvasjs.min.js',
+                               
+                               $Resource.jquery224,
+                               $Resource.DataTables + '/DataTables/media/js/jquery.dataTables.min.js'
+                               )}"
+                afterScriptsLoaded="{!c.scriptsLoaded}"
+        />
+    </head>
+    <aura:attribute name="checksearchA" type="boolean" default="false" />
+    <aura:attribute name="SiteList" type="List"/>
+    <aura:attribute name="site" type="String" />
+    <aura:attribute name="brandName" type="String" default="Impellam"/>
+    <aura:attribute name="Name" type="String"/>
+    <aura:attribute name="Hideshift" type="String"/>
+    <aura:attribute name="Hidecontact" type="String"/>
+    <aura:attribute name="Hidetemp" type="String"/>
+    <aura:attribute name="Hidebookedtemp" type="String"/>
+    <aura:attribute name="Hideinvoicedetails" type="String" default="hide"/>
+    <aura:attribute name="Hidetemphours" type="String"/>
+
+    <aura:attribute name="isCandidateOpen" type="boolean" default="false"/>
+    <aura:attribute name="isDashboardOpen" type="boolean" default="false"/>
+    <aura:attribute name="isTimesheetApprovalOpen" type="boolean" default="false"/>
+    <aura:attribute name="isCurrentVacancies" type="boolean" default="false"/>
+    <aura:attribute name="userInfo" type="User" access="global"/>
+    <aura:attribute name="checkBrowser" type="boolean" default="false"/>
+    <aura:attribute name="doRender" type="boolean" default="true"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:ClientCommunityThemeEvent" action="{! c.onChange }"/>
+    <aura:handler name="change" value="{!v.site}" action="{!c.reInit}" />
+
+
+    <!--<div class="timesheet-section__right-part">-->
+        <aura:renderIf isTrue="{!v.doRender}">
+            <div class="col-sm-12 col-xs-12">
+                <form class="headeNav__selectpicker">
+                    <ui:inputSelect aura:id="widget" label="" class="slselect" change="{! c.addChild }">
+                        <option >Add your widget</option>
+                        <aura:if isTrue="{!v.Hideshift!=null}">
+                            <option value="Shift_Approval" >Shift Approval</option>
+                        </aura:if>
+                        <aura:if isTrue="{!v.Hidecontact!=null}">
+                            <option value="My_Blue_Arrow_Contact">My contact</option>
+                        </aura:if>
+                        <aura:if isTrue="{!v.Hidetemp!=null}">
+                            <option value="My_Temps">My Temps</option>
+                        </aura:if>
+                        <aura:if isTrue="{!v.Hidebookedtemp!=null}">
+                            <option value="Booked_Temps">BOOKED Temps</option>
+                        </aura:if>
+
+                        <aura:if isTrue="{!v.Hidetemphours!=null}">
+                            <option value="Temp_Hours">Temp Hours</option>
+                        </aura:if>
+                    </ui:inputSelect>
+                </form>
+            </div>
+
+            <aura:if isTrue="{!v.Hideshift==null}">
+                <div  class="col-sm-12 col-xs-12 col-md-6" aura:id="Shift_Approval">
+                    <div class=" dashboard-section__right-part--singleElement" style="height400px;">
+                        <h2>APPROVE SHIFTS FOR PAYMENT</h2>
+                        <p>Details of shifts worked and awaiting your approval for payment</p>
+                        <span class="modify-icon"><i class="fas fa-ellipsis-v"></i></span>
+                        <div class="modify-block">
+                            <span class="modify-block__close"></span>
+                            <ul class="modify-block__edit-block">
+                                <li class="modify-block__edit-block--delete" onclick="{!c.hideShift_Approval}">Delete</li>
+                            </ul>
+                        </div>
+                        <aura:if isTrue="{!v.site}">
+                            <c:Shift_Approval site="{!v.site}" ></c:Shift_Approval>
+                        </aura:if>
+                    </div>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.Hidecontact==null}">
+                <div class="col-sm-12 col-xs-12 col-md-6" aura:id="My_Blue_Arrow_Contact">
+                    <div  class="dashboard-section__right-part--singleElement">
+                        <h2>My {!v.brandName} contact</h2>
+                        <span class="modify-icon"><i class="fas fa-ellipsis-v"></i></span>
+                        <div class="modify-block">
+                            <span class="modify-block__close"></span>
+                            <ul class="modify-block__edit-block">
+                                <li class="modify-block__edit-block--delete" onclick="{!c.hideContact}">Delete</li>
+                            </ul>
+                        </div>
+                        <aura:if isTrue="{!v.site}">
+                            <c:My_Blue_Arrow_Contact site="{!v.site}"></c:My_Blue_Arrow_Contact>
+                        </aura:if>
+                    </div>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.Hidetemp==null}">
+                <div class="col-sm-12 col-xs-12 col-md-6" aura:id="My_Temps">
+                    <div class="dashboard-section__right-part--singleElement">
+                        <h2>My Temps</h2>
+                        <p>Temps scheduled to be on site today</p>
+                        <span class="modify-icon"><i class="fas fa-ellipsis-v"></i></span>
+                        <div class="modify-block">
+                            <span class="modify-block__close"></span>
+                            <ul class="modify-block__edit-block">
+                                <li class="modify-block__edit-block--delete" onclick="{!c.hideMyTemps}">Delete</li>
+                            </ul>
+                        </div>
+                        <aura:if isTrue="{!v.site}">
+                            <!--<c:My_Temps site="{!v.site}" checksearchA="{!v.checksearchA}"></c:My_Temps>-->
+                            <c:NewTempsUpdated site="{!v.site}" checksearchA="{!v.checksearchA}"/>
+                        </aura:if>
+                    </div>
+                </div>
+            </aura:if>
+
+
+            <aura:if isTrue="{!v.Hidebookedtemp==null}">
+                <div class="col-sm-12 col-xs-12 col-md-6" aura:id="Booked_Temps">
+                    <div class="dashboard-section__right-part--singleElement">
+                        <h2>BOOKED Temps</h2>
+                        <p>Details on temps booked for future shifts (Click on temp name) </p>
+                        <span class="modify-icon"><i class="fas fa-ellipsis-v"></i></span>
+                        <div class="modify-block">
+                            <span class="modify-block__close"></span>
+                            <ul class="modify-block__edit-block">
+                                <li class="modify-block__edit-block--delete" onclick="{!c.hideBookedTemps}">Delete</li>
+                            </ul>
+                        </div>
+                        <aura:if isTrue="{!v.site}">
+                            <c:Booked_Temps site="{!v.site}"></c:Booked_Temps>
+                        </aura:if>
+                    </div>
+                </div>
+            </aura:if>
+
+
+            <aura:if isTrue="{!v.Hidetemphours==null}">
+                <div class="col-sm-12 col-xs-12 col-md-6" aura:id="Temp_Hours">
+                    <div class="dashboard-section__right-part--singleElement">
+                        <h2>Temp Hours</h2>
+                        <p>Hours worked by your temps per month</p>
+                        <span class="modify-icon"><i class="fas fa-ellipsis-v"></i></span>
+                        <div class="modify-block">
+                            <span class="modify-block__close"></span>
+                            <ul class="modify-block__edit-block">
+                                <li class="modify-block__edit-block--delete" onclick="{!c.hideTempHours}">Delete</li>
+                            </ul>
+                        </div>
+                        <aura:if isTrue="{!v.site}">
+                            <c:Temp_Hours site="{!v.site}"></c:Temp_Hours>
+                        </aura:if>
+                    </div>
+                </div>
+            </aura:if>
+        </aura:renderIf>
+    <!--</div>-->
+</aura:component>

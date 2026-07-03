@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "20624443-8147-4ac6-9996-cccf8f693c40",
+  "appPageId" : "6cf45250-dd45-4f57-aa5d-84e94e3c25f8",
+  "configurationTags" : [ ],
+  "devName" : "Todays_Workforce__c",
+  "id" : "b014615f-45f8-4cae-9e99-50e83f9c45ea",
+  "label" : "Todays Workforce",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-todays-workforce",
+  "type" : "route",
+  "urlPrefix" : "todays-workforce"
+}

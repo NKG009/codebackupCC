@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "7e37e221-fade-4782-bc8e-7635934dfc0e",
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "configurationTags" : [ ],
+  "devName" : "Shift_or_vacancy_request__c",
+  "id" : "f1a96ae6-675e-43d3-946e-d77ba05e2ae7",
+  "label" : "Shift or vacancy request",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-shift-or-vacancy-request",
+  "type" : "route",
+  "urlPrefix" : "shift-or-vacancy-request"
+}

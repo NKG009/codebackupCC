@@ -1,0 +1,206 @@
+<apex:page controller="Ctrl_ContactReg"  sidebar="false" showHeader="false" docType="html-5.0">
+    
+    <html>
+        <head>
+            <META http-equiv="refresh" content="1200"/>
+        </head>
+    </html>
+    <table BORDER="0" CELLSPACING="20px" style="width:800px;height:1700px;margin-left: auto;margin-right: auto;background-image:url('{!URLFOR($Resource.Bluearrowheader)}');">
+        <tr>
+            <td style="vertical-align: top;text-align: left;width:800px;height:300px;">
+            </td>
+        </tr>
+        
+        <tr>
+            <td style="vertical-align: top;text-align: left;width:700px;height:200px;">
+                <apex:form >
+                    <apex:pageBlock >
+                        <apex:pageBlockButtons location="bottom">
+                            <apex:commandButton value="Search" action="{!searchContacts}" reRender="contact-table,a" style="width: 100px; height: 40px;font-size: 25px;" />
+                            <apex:commandButton value="Clear" action="{!Clearfilter}" reRender="contact-table,a" style="width: 100px; height: 40px;font-size: 25px;"/>
+                        </apex:pageBlockButtons>
+                        <apex:pageBlockSection id="contact-table" columns="1">
+                            <apex:outputText style="color: #009FE3;font-family: Arial;font-size: 28px;font-weight: bold" value="Your details">
+                            </apex:outputText>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="First name" style="font-size: 20px;"/>
+                                <apex:outputPanel styleClass="requiredInput" layout="block">
+                                    <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                                    <apex:inputText value="{!firstname}" required="True" html-autocomplete="off" style="width: 180px; height: 26px;font-size: 19px;color: #828181" />
+                                </apex:outputPanel>        
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="Last name" style="font-size: 20px;"/>
+                                <apex:outputPanel styleClass="requiredInput" layout="block">
+                                    <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                                    <apex:inputText value="{!lastname}" required="True" html-autocomplete="off" style="width: 180px; height: 26px;font-size: 19px;color: #828181"/>
+                                </apex:outputPanel> 
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="Date of Birth" style="font-size: 20px;"/>
+                                <apex:outputPanel styleClass="requiredInput" layout="block">
+                                    <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                                    <apex:input type="date" value="{!dob}" required="True" html-autocomplete="off" style="width: 180px; height: 26px;font-size: 19px;color: #828181"/>
+                                </apex:outputPanel> 
+                            </apex:pageBlockSectionItem>
+                        </apex:pageBlockSection>
+                    </apex:pageBlock>
+                </apex:form>
+            </td>
+        </tr> 
+        
+        
+        <apex:form >
+            <tr>
+                <td style="vertical-align: top;text-align: left;width:800px;height:300;">
+                    <apex:pageBlock id="a">
+                        <apex:outputText style="color: #009FE3;font-family: Arial;font-size: 28px;font-weight: bold" value="Mandatory forms">
+                        </apex:outputText>
+                        <apex:pageBlockTable value="{!contacts}" var="c">
+                            <apex:column >
+                                
+                                <!-- <apex:outputLink value="{!portw}ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >-->
+                                <apex:outputLink value="{!urlPORTW}&ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >
+                                    <apex:image url="{!$Resource.PORTW}">
+                                    </apex:image>
+                                </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <!-- <apex:outputLink value="{!ipad}ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >-->
+                                <apex:outputLink value="{!UrliPadcontact}&ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >         
+                                    <apex:image url="{!$Resource.iPadcontact}">
+                                    </apex:image>
+                                </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <!--<apex:outputLink value="{!eeq}ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" > -->
+                                <apex:outputLink value="{!UrleqlOpps}&ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >
+                                    <apex:image url="{!$Resource.EEQ}">
+                                    </apex:image>
+                                </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <!-- <apex:outputLink value="{!GDPR}ContactId={!c.id}&id={!c.id}" target="_blank" > -->
+                                <apex:outputLink value="{!UrlGDPR}&ContactId={!c.id}&id={!c.id}" target="_blank" >
+                                    <apex:image url="{!$Resource.GDPR}">
+                                    </apex:image>
+                                </apex:outputLink>
+                            </apex:column>
+                            
+                        </apex:pageBlockTable>
+                        <apex:outputText style="color: #009FE3;font-family: Arial;font-size: 28px;font-weight: bold" value="Temporary work forms">
+                        </apex:outputText>
+                        <apex:pageBlockTable value="{!contacts}" var="c">
+                            
+                            <apex:column >
+                                
+                                <!-- <apex:outputLink value="{!declaration}ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" > -->
+                                <apex:outputLink value="{!UrlDeclarations}&ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >
+                                    <apex:image url="{!$Resource.Declarations}">
+                                    </apex:image>
+                                </apex:outputLink>
+                            </apex:column> 
+                            
+                            <apex:column >
+                                <!--<apex:outputLink value="{!wtr}ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >-->
+                                <apex:outputLink value="{!UrlWTR}&ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >
+                                    <apex:image url="{!$Resource.WTR}">
+                                    </apex:image>
+                                </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <!--<apex:outputLink value="{!toe}ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" > -->
+                                <apex:outputLink value="{!UrlTOE}&ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >
+                                    <apex:image url="{!$Resource.TOE}">
+                                    </apex:image>
+                                </apex:outputLink>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                        <apex:pageBlockTable value="{!contacts}" var="c">
+                            
+                            <apex:column >
+                                <!-- <apex:outputLink value="{!med}ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >-->
+                                <apex:outputLink value="{!UrlMedical}&ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" > 
+                                    <apex:image url="{!$Resource.Medical}">
+                                    </apex:image>
+                                </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <!-- <apex:outputLink value="{!nsd}ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >-->
+                                <apex:outputLink value="{!UrlNSF}&ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >
+                                    <apex:image url="{!$Resource.NSD}">
+                                    </apex:image></apex:outputLink>
+                            </apex:column>
+                            
+                            
+                            
+                            <apex:column >
+                                <!-- <apex:outputLink value="{!bank}ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" > -->
+                                <apex:outputLink value="{!UrlBank}&ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >
+                                    <apex:image url="{!$Resource.bank}">
+                                    </apex:image>
+                                </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <!-- <apex:outputLink value="{!ref}ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >-->
+                                <apex:outputLink value="{!UrlRReq}&ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >        
+                                    <apex:image url="{!$Resource.References}">
+                                    </apex:image>
+                                </apex:outputLink>
+                            </apex:column>
+                            
+                        </apex:pageBlockTable>
+                        <apex:outputText style="color: #009FE3;font-family: Arial;font-size: 28px;font-weight: bold" value="Permanent work forms">
+                        </apex:outputText>
+                        <apex:pageBlockTable value="{!contacts}" var="c">
+                            <apex:column >
+                                <!-- <apex:outputLink value="{!perm}ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" > -->
+                                <apex:outputLink value="{!UrlPerm}&ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >
+                                    <apex:image url="{!$Resource.perm}">
+                                    </apex:image>
+                                </apex:outputLink>
+                            </apex:column>
+                            
+                            
+                        </apex:pageBlockTable>
+                        
+                        <apex:outputText style="color: #009FE3;font-family: Arial;font-size: 28px;font-weight: bold" value="Driving work forms">
+                        </apex:outputText>
+                        <apex:pageBlockTable value="{!contacts}" var="c">
+                            <apex:column >
+                                <!-- <apex:outputLink value="{!drive}ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >-->
+                                <apex:outputLink value="{!UrlDriving}&ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >
+                                    <apex:image url="{!$Resource.drive}">
+                                    </apex:image>
+                                </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <!--<apex:outputLink value="{!WTRT}ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" > -->
+                                <apex:outputLink value="{!UrlWTRT}&ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >
+                                    <apex:image url="{!$Resource.WTRT}">
+                                    </apex:image>
+                                </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <apex:outputLink value="{!UrlIreland}&ContactId={!c.id}&ts2__Contact__c={!c.id}" target="_blank" >
+                                    <apex:image url="{!$Resource.Ireland}">
+                                    </apex:image>
+                                </apex:outputLink>
+                            </apex:column>
+                            
+                            
+                        </apex:pageBlockTable>
+                    </apex:pageBlock>
+                </td>
+            </tr>
+        </apex:form>
+    </table>  
+</apex:page>

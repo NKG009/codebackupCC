@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>N_Miller_left_messages</fullName>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>COMPLETED_DATE_TIME</columns>
+    <columns>IP_TaskType__c</columns>
+    <columns>SUBJECT</columns>
+    <columns>DUE_DATE</columns>
+    <columns>WHAT_NAME</columns>
+    <columns>WHO_NAME</columns>
+    <columns>STATUS</columns>
+    <columns>PRIORITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>Nmill</value>
+    </filters>
+    <filters>
+        <field>DUE_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>1/1/2024 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>DUE_DATE</field>
+        <operation>lessOrEqual</operation>
+        <value>1/30/2024 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>IP_TaskType__c</field>
+        <operation>contains</operation>
+        <value>Left Message</value>
+    </filters>
+    <label>N Miller- left messages</label>
+    <sharedTo>
+        <role>Blue_Arrow_Newbury_Temps</role>
+    </sharedTo>
+</ListView>

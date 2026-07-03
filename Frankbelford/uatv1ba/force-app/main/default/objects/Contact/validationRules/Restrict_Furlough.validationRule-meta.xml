@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Furlough</fullName>
+    <active>true</active>
+    <errorConditionFormula>And(
+$User.ProfileId = &quot;00e0Y000000viGl&quot;,
+ischanged(Furlough__c),
+Furlough__c = True)</errorConditionFormula>
+    <errorDisplayField>Furlough__c</errorDisplayField>
+    <errorMessage>You cannot change the Furlough status to checked</errorMessage>
+</ValidationRule>

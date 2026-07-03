@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2097_BAL_Honda_Logistics_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>2097-BAL Honda Logistics</label>
+    <queue>X2097_BAL_Honda_Logistics</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

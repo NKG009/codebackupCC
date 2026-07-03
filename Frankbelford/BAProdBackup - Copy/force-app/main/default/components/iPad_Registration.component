@@ -1,0 +1,89 @@
+<apex:component access="global">
+<apex:attribute type="String" name="con" description="test5"/> 
+<apex:attribute type="String" name="conname" description="test7"/>
+<apex:attribute type="String" name="conownername" description="test8"/>
+<apex:attribute type="String" name="conownertitle" description="test8"/>
+<apex:attribute type="String" name="conowneremail" description="test8"/>
+<apex:attribute type="String" name="conownerphone" description="test8"/>
+
+ <style>
+.linkunderline{
+    text-decoration: none;
+    color: Blue;
+}
+
+</style>
+<html>    
+<table BORDER="0" CELLSPACING="0" style="width:640px;height:800px;background-image:url('https://c.eu18.visual.force.com/resource/1560553146000/ipademailbackground');">
+<tr >
+    <td style="vertical-align:top;text-align:right;height:140px;width:190px;">
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR4-1/c.aspx" id="theLink1"><apex:image url="https://c.eu18.visual.force.com/resource/1560765438000/Pic1" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR5-1/c.aspx" id="theLink2"><apex:image url="https://c.eu18.visual.force.com/resource/1560765468000/Pic2" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR6-1/c.aspx" id="theLink3"><apex:image url="https://c.eu18.visual.force.com/resource/1560765528000/Pic3" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR7-1/c.aspx" id="theLink4"><apex:image url="https://c.eu18.visual.force.com/resource/1560765585000/Pic4" /></apex:outputLink>
+   
+    </td>
+      <td style="text-align:right;vertical-align:middle;height:140px;width:460px;">
+     <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR8-1/c.aspx" id="theLink5"> <apex:image url="https://c.eu18.visual.force.com/resource/1560765697000/Bluearrowlogov2" /> </apex:outputLink>
+    </td>
+</tr>
+<tr style="width:650px;">
+<td colspan="2" style="vertical-align:top;">
+<table style="width:630px;">
+<tr style="height:45px;text-align:center;"><td style="text-align:center;">
+<font size="2" face="Bahnschrift Light" color="black"><b>Blue Arrow - Flexible Employee Handbook</b></font>
+</td>
+</tr>
+<tr style="height:200px;text-align:center;"><td style="text-align:left;vertical-align:top;">
+<div style="margin-left:30px;margin-right:10px;margin-top:-10px;">
+<font size="2" face="Bahnschrift Light" color="black">
+
+    
+<br></br>
+    
+Hi {!conname}, <br></br><br></br>
+    
+        Thank you for registering for work at Blue Arrow
+    <br></br>
+    <br></br>
+        Please find the attached Flexible Employee Handbook (BABA - 0619-FETOE.pdf)
+    <br></br>
+    <br></br>
+        The Flexible Employee Handbook, gives details of the terms and conditions upon which you are employed by the Company, as of the date of your first assignment.
+        It contains the initial employment particulars required by the Employment Rights Act 1996 s1 or Employment Rights Order (Northern Ireland) 1996 as applicable.
+   
+    <br></br>
+    <br></br>
+
+
+Best regards,<br></br> 
+<font size="2" face="Arial" color="#26ADE7"><b>{!conownername}</b></font>
+<br></br>
+<font size="2" face="Arial" color="#26ADE7">{!conownertitle}</font>
+<br></br>
+<apex:image height="80px" width="250px" url="https://c.eu18.visual.force.com/resource/1560550029000/emailsig" />
+<br></br>
+<font size="2" face="Arial" color="#26ADE7"><b>{!conowneremail}</b></font>
+<br></br>
+<font size="2" face="Arial" color="#26ADE7">{!conownerphone}</font>
+<br></br>
+
+</font>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:140px;">
+<td colspan="2" >
+<apex:image height="80px" width="250px" url="https://c.eu18.visual.force.com/resource/1560765287000/plat19" />
+
+</td>
+
+</tr>
+</table>
+</html>
+
+<Br></Br><Br></Br>
+</apex:component>

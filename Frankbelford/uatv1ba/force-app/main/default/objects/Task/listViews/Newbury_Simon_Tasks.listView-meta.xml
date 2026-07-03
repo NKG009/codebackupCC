@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Newbury_Simon_Tasks</fullName>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>COMPLETED_DATE_TIME</columns>
+    <columns>IP_TaskType__c</columns>
+    <columns>SUBJECT</columns>
+    <columns>DUE_DATE</columns>
+    <columns>WHAT_NAME</columns>
+    <columns>WHO_NAME</columns>
+    <columns>STATUS</columns>
+    <columns>PRIORITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IP_TaskType__c</field>
+        <operation>equals</operation>
+        <value>Sales Call,Spec Call,General Call,Left Message,Sales Visit,Service Visit,Feedback,T-P / Perm,Mailer/E-marketing,Competitor Check-In,Applicant Mailer,Client Drop In</value>
+    </filters>
+    <filters>
+        <field>STATUS</field>
+        <operation>notEqual</operation>
+        <value>Completed</value>
+    </filters>
+    <filters>
+        <field>OWNER_ROLE</field>
+        <operation>contains</operation>
+        <value>newbury</value>
+    </filters>
+    <filters>
+        <field>DUE_DATE</field>
+        <operation>greaterThan</operation>
+        <value>8/1/2024 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>SUBJECT</field>
+        <operation>notContain</operation>
+        <value>birthday,check</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.FULL_NAME</field>
+        <operation>contains</operation>
+        <value>simon</value>
+    </filters>
+    <label>Newbury -Simon Tasks</label>
+    <sharedTo>
+        <role>Blue_Arrow_Newbury_Temps</role>
+    </sharedTo>
+</ListView>

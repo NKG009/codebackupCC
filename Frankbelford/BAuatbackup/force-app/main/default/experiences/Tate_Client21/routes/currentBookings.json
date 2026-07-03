@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "f887254a-cbd1-47ea-a81c-1609b82c909a",
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "configurationTags" : [ ],
+  "devName" : "Current_Bookings__c",
+  "id" : "74dadff7-c5ef-43d8-8f47-de592de8dd90",
+  "label" : "Current Bookings",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-current-bookings",
+  "type" : "route",
+  "urlPrefix" : "current-bookings"
+}

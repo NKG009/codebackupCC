@@ -1,0 +1,57 @@
+<template>
+        <template if:true={isEditMode}>
+            <template if:true={billingSection}>
+                <lightning-input label="BillingStreet" value={billStreet} onchange={handleChange} data-id="billStreet">
+                </lightning-input>
+                <lightning-input label="BillingCity" value={billCity} onchange={handleChange} data-id="billCity">
+                </lightning-input>
+                <lightning-input label="BillingState" value={billCounty} onchange={handleChange} data-id="billCounty">
+                </lightning-input>
+                <lightning-input label="BillingPostalCode" value={billPostalCode} onchange={handleChange}
+                    data-id="billPostalCode">
+                </lightning-input>
+                <lightning-input label="BillingCountry" value={billCountry} onchange={handleChange}
+                    data-id="billCountry">
+                </lightning-input>
+                <lightning-button variant="base" label="Update" onclick={updateBillingAddRecord}></lightning-button>
+            </template>
+            <template if:true={shippingSection}>
+                <lightning-input label="ShippingStreet" value={shipStreet} onchange={handleChange} data-id="shipStreet">
+                </lightning-input>
+                <lightning-input label="ShippingCity" value={shipCity} onchange={handleChange} data-id="shipCity">
+                </lightning-input>
+                <lightning-input label="ShippingState" value={shipCounty} onchange={handleChange} data-id="shipCounty">
+                </lightning-input>
+                <lightning-input label="ShippingPostalCode" value={shipPostalCode} onchange={handleChange}
+                    data-id="shipPostalCode">
+                </lightning-input>
+                <lightning-input label="ShippingCountry" value={shipCountry} onchange={handleChange}
+                    data-id="shipCountry">
+                </lightning-input>
+                <lightning-button variant="base" label="Update" onclick={updateShippingAddRecord}></lightning-button>
+            </template>
+        </template>
+
+
+        <template if:false={isEditMode}>
+            <template if:true={billingSection}>
+                <p><strong>Account Billing Address</strong></p>
+                <p>{billStreet}</p>
+                <p>{billCity}</p>
+                <p>{billCounty}</p>
+                <p>{billPostalCode}</p>
+                <p>{billCountry}</p>
+                <lightning-button variant="base" label="Edit" onclick={toggleEdit}></lightning-button>
+            </template>
+
+            <template if:true={shippingSection}>
+                <p><strong>Account Shipping Address</strong></p>
+                <p>{shipStreet}</p>
+                <p>{shipCity}</p>
+                <p>{shipCounty}</p>
+                <p>{shipPostalCode}</p>
+                <p>{shipCountry}</p>
+                <lightning-button variant="base" label="Edit" onclick={toggleEdit}></lightning-button>
+            </template>
+        </template>    
+</template>

@@ -1,0 +1,68 @@
+{
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "0e62bc9e-16fe-4582-86b1-c3811c4bb259",
+  "label" : "PO Management",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "cd156f42-097c-4d21-86f7-5543f60657a0",
+          "columns" : [ {
+            "UUID" : "eaafe4f1-b47f-4f99-8efe-54f5551f627f",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "cd156f42-097c-4d21-86f7-5543f60657a0",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:ClientComPOManagementCmp",
+          "id" : "b8a9910b-1702-4ee6-b78e-731308ac38a5",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "eaafe4f1-b47f-4f99-8efe-54f5551f627f",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1c401c68-bdc7-4bb6-bbbf-d7974451296a",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "PO Management"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "f203473b-28c9-4a4f-a29e-e3c663269805",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "355bac4e-eb6e-4a11-bf9b-7b91191b396c",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-pomanage"
+}

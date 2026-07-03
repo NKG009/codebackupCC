@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_PrimaryPayMethod__c</fullName>
+    <description>count field to verify that there is &lt;=1 primary pay method for the worker</description>
+    <label>Primary Pay Method</label>
+    <summaryFilterItems>
+        <field>IP_PayProfile__c.IP_PrimaryPayMethod__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>IP_PayProfile__c.IP_Candidate__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

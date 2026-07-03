@@ -1,0 +1,92 @@
+<apex:component controller="Reinstatedtemplatedata" access="global" extensions="DynamicUrl">
+
+<apex:attribute type="String" name="con" description="test1"/>
+<apex:attribute type="String" name="conname" description="test2"/>
+<apex:attribute type="String" name="conownername" description="test3"/>
+<apex:attribute type="Boolean" name="dec" description="test4"/>
+<apex:attribute type="Boolean" name="WTR" description="test5"/>
+<apex:attribute type="Boolean" name="TOE" description="test6"/>
+<apex:attribute type="Boolean" name="med" description="test7"/>
+<apex:attribute type="Boolean" name="newstart" description="test8"/>
+<apex:attribute type="Integer" name="ppcount" description="test9"/>
+<apex:attribute name="con" description="Record Id" type="id" assignTo="{!con_id}"/> 
+<apex:attribute type="Id" name="cont" description="test5" assignTo="{!record_Id}"/>
+
+    
+<style>
+.linkunderline{
+    text-decoration: none;
+    color: Blue;
+}
+
+</style>
+    
+ <html>
+<table BORDER="0" CELLSPACING="0" style="width:640px;height:700px;background-image:url('{!URLFOR($Resource.Backgroundimg,'backgroundimage/background.jpg')}');">
+<tr >
+    <td style="vertical-align:top;text-align:right;height:140px;width:190px;">
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR4-1/c.aspx" id="theLink1"><apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic1.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR5-1/c.aspx" id="theLink2"><apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic2.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR6-1/c.aspx" id="theLink3"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic3.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR7-1/c.aspx" id="theLink4"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic4.jpg')}" /></apex:outputLink>
+   
+    </td>
+      <td style="text-align:right;vertical-align:middle;height:140px;width:460px;">
+     <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR8-1/c.aspx" id="theLink5"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/logo.png')}" /> </apex:outputLink>
+    </td>
+</tr>
+<tr style="width:650px;">
+<td colspan="2" style="vertical-align:top;">
+<table style="width:630px;">
+<tr style="height:45px;text-align:center;"><td style="text-align:center;">
+<font size="2" face="Bahnschrift Light" color="black"><b>Reinstated Candidate Information Request Forms – Ltd Co</b></font>
+</td>
+</tr>
+<tr style="height:200px;text-align:center;"><td style="text-align:left;vertical-align:top;">
+<div style="margin-left:30px;margin-right:10px;margin-top:-10px;">
+<font size="2" face="Bahnschrift Light" color="black">
+
+        
+    
+Dear {!conname}, <br></br><br></br>
+        
+In order for us to re-register you to work with Blue Arrow we need you to provide some information. Once these have been completed we will be in touch to move to the next stage in the process.
+<br></br><br></br>
+Please click on the links below to complete:<Br></Br>
+<br></br><div style="font-size:13px;">
+<apex:outputLink styleClass="linkunderline" rendered="{!dec = False}" value="{!Decalartion}"
+id="theLink02">• <b>Declarations</b> <br></br></apex:outputLink> 
+
+<apex:outputLink styleClass="linkunderline" rendered="{!portwcount123 = true}"  value="{!RightToWork}"
+id="theLink01">• <b>Proof of Right to Work</b> <br></br></apex:outputLink>  
+
+<apex:outputLink styleClass="linkunderline" rendered="{!med = False}" value="{!FullMedical}"
+id="theLink03">• <b>Medical Questionnaire</b> <br></br></apex:outputLink>    
+
+<apex:outputLink styleClass="linkunderline" rendered="{!IF(allpaycount123 = 1 && certcount123 = true ,true,false)}" value="{!DriverLicense}"
+id="theLink07">• <b>Driver’s Licence</b> <br></br></apex:outputLink> <br></br>
+
+<apex:outputText value="In line with Blue Arrow’s policy on driving licence checks, we are committed to checking all licences on a rolling three month basis. Please click the link to the DVLA website below to create a ‘check code’, If you can please email me the check code once created (please note it is case sensitive)" rendered="{!IF(allpaycount123 = 1 && certcount123 = true ,true,false)}" /> <br></br>
+<apex:outputLink styleClass="linkunderline" rendered="{!IF(allpaycount123 = 1 && certcount123 = true,true,false)}" value="https://www.gov.uk/view-driving-licence"  id="theLink08">• <b>DVLA Code</b> <br></br></apex:outputLink> </div>
+
+<br></br>
+Kind Regards<br></br>
+    
+{!conownername}   
+</font>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:160px;">
+<td colspan="2" >
+<apex:image height="80px" width="250px" url="{!URLFOR($Resource.TemplatePics,'picsfolder/IIP_PLAT_19.jpg')}" />
+
+</td>
+
+</tr>
+</table>
+</html>
+</apex:component>

@@ -1,0 +1,56 @@
+{
+  "appPageId" : "6cf45250-dd45-4f57-aa5d-84e94e3c25f8",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "6d596fc0-aa67-4bc6-83ec-28d2441f3bdd",
+  "label" : "My Shifts",
+  "regions" : [ {
+    "id" : "a17ad7b9-2fac-4903-9b44-379b02b9a795",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2MyShifts",
+      "id" : "954ae70f-878b-496b-b5e0-0ba56c475d23",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7587dfbd-fb4c-4397-ad88-06949c5c6639",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"display: flex; flex-direction: row; justify-content: space-between;\">\n    <p>© Blue Arrow, All rights reserved 2022.</p>\n    <p>Registered Address: 33 Soho Square, London, England, W1D 3QU. Company No: 641659</p>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "231f224b-07f7-45fe-9b8d-b03d2d55b3eb",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "76e5764f-5e21-486f-a20b-ae8d175b0457",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Workforce Management"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "974446e1-99b0-4171-bcab-9f1bb1ac4bf7",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "adb56042-bcbf-4dde-b333-527fd9c66ddb",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "d1VXNxyzzGmpNOmN5wt8zoMCNGnDgO",
+  "type" : "view",
+  "viewType" : "custom-my-shifts"
+}

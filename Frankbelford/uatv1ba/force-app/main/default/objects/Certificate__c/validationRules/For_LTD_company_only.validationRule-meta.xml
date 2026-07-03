@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>For_LTD_company_only</fullName>
+    <active>true</active>
+    <errorConditionFormula>Pay_Profile__r.RecordType.DeveloperName != &apos;LTD&apos;</errorConditionFormula>
+    <errorMessage>This certificate is for LTD company only</errorMessage>
+</ValidationRule>

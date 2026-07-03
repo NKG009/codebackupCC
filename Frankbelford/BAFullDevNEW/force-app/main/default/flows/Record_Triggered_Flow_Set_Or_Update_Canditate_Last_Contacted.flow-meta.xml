@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Bypass_flow</name>
+        <label>Bypass flow</label>
+        <locationX>478</locationX>
+        <locationY>298</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Bypass_flow1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Bypass_Flows__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Inbound_and_candidate_linked1</targetReference>
+            </connector>
+            <label>Bypass flow1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Inbound_and_candidate_linked1</name>
+        <label>Inbound and candidate linked</label>
+        <locationX>771</locationX>
+        <locationY>402</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Inbound_and_candidate_linked</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SetOrUpdateContact</targetReference>
+            </connector>
+            <label>True</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>Inbound_and_candidate_linked</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(ISPICKVAL({!$Record.smagicinteract__Direction__c}, &quot;IN&quot;), NOT(ISBLANK({!$Record.smagicinteract__Contact__c} )))</expression>
+    </formulas>
+    <formulas>
+        <name>SetOrUpdateContactformula</name>
+        <dataType>Date</dataType>
+        <expression>IF(ISBLANK({!$Record.smagicinteract__Contact__r.IP_LastContactedGDPR__c}),
+TODAY(),
+IF({!$Record.smagicinteract__CreatedOn__c} &gt;
+DATETIMEVALUE(
+TEXT(YEAR({!$Record.smagicinteract__Contact__r.IP_LastContactedGDPR__c}))&amp;&quot;-&quot;&amp; TEXT(MONTH({!$Record.smagicinteract__Contact__r.IP_LastContactedGDPR__c}))&amp;&quot;-&quot;&amp;
+TEXT(DAY({!$Record.smagicinteract__Contact__r.IP_LastContactedGDPR__c})) &amp;&quot; &quot;&amp;
+&quot;00:00:00&quot;
+) ,
+DATEVALUE({!$Record.smagicinteract__CreatedOn__c}),
+{!$Record.smagicinteract__Contact__r.IP_LastContactedGDPR__c}
+)
+)</expression>
+    </formulas>
+    <interviewLabel>Record Triggered Flow - Set Or Update Canditate Last Contacted {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Record Triggered Flow - Set Or Update Canditate Last Contacted</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>SetOrUpdateContact</name>
+        <label>SetOrUpdateContact</label>
+        <locationX>941</locationX>
+        <locationY>393</locationY>
+        <inputAssignments>
+            <field>IP_GDPRContactedCandidate__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IP_GDPRDeleConsentPortalStatus__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IP_LastContactedGDPR__c</field>
+            <value>
+                <elementReference>SetOrUpdateContactformula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IP_MarkedForDeletion__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.smagicinteract__Contact__r</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>650</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Bypass_flow</targetReference>
+        </connector>
+        <object>smagicinteract__smsMagic__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "498690be-77e6-4636-890b-acbd973691ce",
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "configurationTags" : [ ],
+  "devName" : "Rate_Information__c",
+  "id" : "5bcf8ed8-f06e-4bef-9c56-6ec41a7763e7",
+  "label" : "Rate Information",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-rateinfo",
+  "type" : "route",
+  "urlPrefix" : "rateinfo"
+}

@@ -1,0 +1,68 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "5b994d32-c2fb-41d9-980b-a492cc8580cc",
+  "label" : "Home",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"font-family: arial; font-size: 28px;\">Welcome</span></p><p style=\"text-align: center;\"><br></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "60128a67-610e-4a27-afe1-bf56842c6859",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "54156fae-94eb-4515-8273-2bf0e5ed3e33",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:ClientHomePageTiles",
+      "id" : "583c003f-a8b5-40e5-bba6-3f0b4fd2fb4d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8db075fb-8999-4898-b2f3-aaf2bbf051a3",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "799e0b2c-0eb7-4051-8f34-1a36d3d9bd9c",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:HomeLayoutFooter",
+      "id" : "813cdaaa-7cec-40c6-91a9-b104c0e73faf",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e30c456e-bbb1-4feb-9eba-9c9cc74754a2",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "1b671a40-3beb-430c-bd79-fd8d55521b01",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "44ead59d-6c85-4eea-bd8c-2976a47b7022",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "DY9o28eEVLoOmlsBk0Y8L5KBTnaP4s",
+  "type" : "view",
+  "viewType" : "home"
+}

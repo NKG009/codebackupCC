@@ -1,0 +1,45 @@
+.THIS .datewidth{
+	width:235px
+}
+
+.THIS .backgroundCssCol1{
+    background-color: white;
+    padding-top:30px;
+    padding-left:40px;
+}
+
+.THIS .backgroundCssCol2{
+    background-color: white;
+    padding-top:30px;
+    padding-left: 55px
+}
+
+.THIS .backgroundCssCol3{
+    background-color: white;
+    padding-top:30px;
+}
+.THIS .Backbutton{
+    color : white;
+     background-color: #6f6f6e;
+    border-color: #6f6f6e;
+}
+.THIS .Backbutton:hover{
+    color : white;
+     background-color: #99998e;
+    border-color: #99998e;
+}
+.THIS .Submitbutton{
+    color : white;
+     background-color: #a8cd1b;
+    border-color: #a8cd1b;
+}
+.THIS .Submitbutton:hover{
+    color : white;
+     background-color: #96aa4b;
+    border-color: #96aa4b;
+}
+.THIS .headingdetails{
+     font-family: Arial;
+     color : #009ee3;
+    
+}

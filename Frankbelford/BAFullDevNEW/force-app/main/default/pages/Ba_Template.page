@@ -1,0 +1,191 @@
+<apex:page applyHtmlTag="false" applyBodyTag="false" showHeader="false" standardStylesheets="false" controller="bh4fdocgen.PdfGeneratorController"
+renderAs="pdf">
+    <head>
+        <apex:stylesheet value="{!URLFOR($Resource.BATemplateCss)}" />
+    </head>
+    <body>
+        <apex:pageMessages />
+
+        <div id="firstPageContainer">
+        
+            <div style="width: 30%; float: right; padding-right:0rem" id="firstHeader">
+                <img src="{!URLFOR($Resource.BALogo)}"  style="float: right;"/>
+            </div>
+
+            <!-- Contact Section -->
+            <bh4fdocgen:hasMapEntry data="{!data['parentSections']}" section="Contact">
+                <div id="contactSummary">
+                    <div id="introductionCandidate">
+                        <apex:outputPanel >
+                            <bh4fdocgen:hasMapEntry data="{!data.parentSections}" section="Contact" field="FirstName">
+                                <bh4fdocgen:getFieldValue field="{!data['parentSections']['Contact']['FirstName']}" />&nbsp;
+                            </bh4fdocgen:hasMapEntry>
+                            <bh4fdocgen:hasMapEntry data="{!data.parentSections}" section="Contact" field="LastName">
+                                <bh4fdocgen:getFieldValue field="{!data['parentSections']['Contact']['LastName']}" />
+                            </bh4fdocgen:hasMapEntry>
+                        </apex:outputPanel>
+                    </div>
+
+                    <bh4fdocgen:hasMapEntry data="{!data.parentSections}" section="Contact" field="Birthdate">
+                        <div class="candidateFields row">
+                            <div class="candidateFields cell left">Date of birth</div>
+                            <div class="candidateFields cell right"><bh4fdocgen:getFieldValue field="{!data['parentSections']['Contact']['Birthdate']}" /></div>
+                        </div>
+                    </bh4fdocgen:hasMapEntry>
+
+                    <bh4fdocgen:hasMapEntry data="{!data.parentSections}" section="Contact" field="TR1__Birthdate__c">
+                        <div class="candidateFields row">
+                            <div class="candidateFields cell left">Date of birth</div>
+                            <div class="candidateFields cell right"><bh4fdocgen:getFieldValue field="{!data['parentSections']['Contact']['TR1__Birthdate__c']}" /></div>
+                        </div>
+                    </bh4fdocgen:hasMapEntry>
+
+                    <bh4fdocgen:hasMapEntry data="{!data.parentSections}" section="Contact" field="MailingCity">
+                        <div class="candidateFields row">
+                            <div class="candidateFields cell left">City</div>
+                            <div class="candidateFields cell right"><bh4fdocgen:getFieldValue field="{!data['parentSections']['Contact']['MailingCity']}" /></div>
+                        </div>
+                    </bh4fdocgen:hasMapEntry>
+
+                    <bh4fdocgen:hasMapEntry data="{!data.parentSections}" section="Contact" field="OtherCity">
+                        <div class="candidateFields row">
+                            <div class="candidateFields cell left">City</div>
+                            <div class="candidateFields cell right"><bh4fdocgen:getFieldValue field="{!data['parentSections']['Contact']['OtherCity']}" /></div>
+                        </div>
+                    </bh4fdocgen:hasMapEntry>
+
+                    <bh4fdocgen:hasMapEntry data="{!data.parentSections}" section="Contact" field="Email">
+                        <div class="candidateFields row">
+                            <div class="candidateFields cell left">Email</div>
+                            <div class="candidateFields cell right"><bh4fdocgen:getFieldValue field="{!data['parentSections']['Contact']['Email']}" /></div>
+                        </div>
+                    </bh4fdocgen:hasMapEntry>
+
+                    <bh4fdocgen:hasMapEntry data="{!data.parentSections}" section="Contact" field="Description">
+                        <div class="candidateFields row">
+                            <div class="candidateFields cell left">Description</div>
+                            <div class="candidateFields cell right"><bh4fdocgen:getFieldValue field="{!data['parentSections']['Contact']['Description']}" /></div>
+                        </div>
+                    </bh4fdocgen:hasMapEntry>
+                </div>
+            </bh4fdocgen:hasMapEntry>
+
+        </div>
+
+        <div id="firstFooter">
+            <!--<img src="{!URLFOR($Resource.syngImg)}"/>-->
+        </div>
+
+        <bh4fdocgen:hasMapEntry data="{!data['childSections']}">
+            <div id="pageBreak" />
+
+            <div id="content">
+                <!-- Employment_History block start -->
+                <bh4fdocgen:hasMapEntry data="{!data['childSections']}" section="Employment_History">
+                    <bh4fdocgen:hasRecords list="{!data['childSections']}" section="Employment_History">
+                        <div class="childSectionHeader">Employment History</div>
+                        <table>
+                            <apex:repeat value="{!data.childSections['Employment_History']}" var="employment">
+                                <tr>
+                                    <td class="cell left">
+                                        <bh4fdocgen:hasChildEntry childSectionName="Employment_History" recordId="{!employment['Id']}" field="TR1__StartDate__c">
+                                            <bh4fdocgen:getFieldValue field="{!employment['TR1__StartDate__c']}" />
+                                        </bh4fdocgen:hasChildEntry>
+                                        <bh4fdocgen:hasChildEntry childSectionName="Employment_History" recordId="{!employment['Id']}" field="TR1__EndDate__c">
+                                            -&nbsp;
+                                            <bh4fdocgen:getFieldValue field="{!employment['TR1__EndDate__c']}" />
+                                        </bh4fdocgen:hasChildEntry>
+                                    </td>
+
+                                    <td class="cell right">
+                                        <bh4fdocgen:hasChildEntry childSectionName="Employment_History" recordId="{!employment['Id']}" field="TR1__Title__c">
+                                            <b><bh4fdocgen:getFieldValue field="{!employment['TR1__Title__c']}" /></b> <br/>
+                                        </bh4fdocgen:hasChildEntry>
+                                        <bh4fdocgen:hasChildEntry childSectionName="Employment_History" recordId="{!employment['Id']}" field="TR1__OrganizationName__c">
+                                            <b><bh4fdocgen:getFieldValue field="{!employment['TR1__OrganizationName__c']}" /></b> <br/>
+                                        </bh4fdocgen:hasChildEntry>
+                                        <bh4fdocgen:hasChildEntry childSectionName="Employment_History" recordId="{!employment['Id']}" field="TR1__Description__c">
+                                            <div class="preWrap">
+                                                <bh4fdocgen:getFieldValue field="{!employment['TR1__Description__c']}" /> <br/>
+                                            </div>
+                                        </bh4fdocgen:hasChildEntry>
+                                    </td>
+                                </tr>
+                            </apex:repeat>
+                        </table>
+                    </bh4fdocgen:hasRecords>
+                </bh4fdocgen:hasMapEntry>
+                <!-- Education_History block end -->
+
+                <!-- Education_History block start -->
+                <bh4fdocgen:hasMapEntry data="{!data['childSections']}" section="Education_History">
+                    <bh4fdocgen:hasRecords list="{!data['childSections']}" section="Education_History">
+                        <div class="childSectionHeader">Education History</div>
+                        <table>
+                            <apex:repeat value="{!data.childSections['Education_History']}" var="education">
+                                <tr>
+                                    <td class="cell left">
+                                        <bh4fdocgen:hasChildEntry childSectionName="Education_History" recordId="{!education['Id']}" field="TR1__StartDate__c">
+                                            <bh4fdocgen:getFieldValue field="{!education['TR1__StartDate__c']}" />
+                                        </bh4fdocgen:hasChildEntry>
+                                        <bh4fdocgen:hasChildEntry childSectionName="Education_History" recordId="{!education['Id']}" field="TR1__EndDate__c">
+                                            -&nbsp;
+                                            <bh4fdocgen:getFieldValue field="{!education['TR1__EndDate__c']}" />
+                                        </bh4fdocgen:hasChildEntry>
+                                    </td>
+
+                                    <td class="cell right">
+                                        <bh4fdocgen:hasChildEntry childSectionName="Education_History" recordId="{!education['Id']}" field="TR1__DegreeName__c">
+                                            <b><bh4fdocgen:getFieldValue field="{!education['TR1__DegreeName__c']}" /></b><br/>
+                                        </bh4fdocgen:hasChildEntry>
+
+                                        <bh4fdocgen:hasChildEntry childSectionName="Education_History" recordId="{!education['Id']}" field="TR1__SchoolName__c">
+                                            <bh4fdocgen:getFieldValue field="{!education['TR1__SchoolName__c']}" />
+                                        </bh4fdocgen:hasChildEntry>
+
+                                        <bh4fdocgen:hasChildEntry childSectionName="Education_History" recordId="{!education['Id']}" field="TR1__DegreeType__c">
+                                            -&nbsp;
+                                            <bh4fdocgen:getFieldValue field="{!education['TR1__DegreeType__c']}" />
+                                        </bh4fdocgen:hasChildEntry>
+                                    </td>
+                                </tr>
+                            </apex:repeat>
+                        </table>
+                    </bh4fdocgen:hasRecords>
+                </bh4fdocgen:hasMapEntry>
+                <!-- Education_History block end -->
+
+                <!-- Skill block start -->
+                <bh4fdocgen:hasMapEntry data="{!data['childSections']}" section="Skills">
+                    <bh4fdocgen:hasRecords list="{!data['childSections']}" section="Skills">
+                        <div class="childSectionHeader">Skills</div>
+                        <apex:repeat value="{!data.childSections['Skills']}" var="skill">
+                            <tr>
+                                <td class="cell left">
+                                    <bh4fdocgen:hasChildEntry childSectionName="Skills" recordId="{!skill['Id']}" field="TR1__Start_Date__c">
+                                        <bh4fdocgen:getFieldValue field="{!skill['TR1__Start_Date__c']}" />
+                                    </bh4fdocgen:hasChildEntry>
+
+                                    <bh4fdocgen:hasChildEntry childSectionName="Skills" recordId="{!skill['Id']}" field="TR1__End_Date__c">
+                                        -&nbsp;
+                                        <bh4fdocgen:getFieldValue field="{!skill['TR1__End_Date__c']}" />
+                                    </bh4fdocgen:hasChildEntry>
+                                </td>
+                                <td class="cell right">
+                                    <bh4fdocgen:hasChildEntry childSectionName="Skills" recordId="{!skill['Id']}" field="TR1__Master_Skill_Name__c">
+                                        <b><bh4fdocgen:getFieldValue field="{!skill['TR1__Master_Skill_Name__c']}" /></b><br/>
+                                    </bh4fdocgen:hasChildEntry>
+                                    <bh4fdocgen:hasChildEntry childSectionName="Skills" recordId="{!skill['Id']}" field="TR1__Type__c">
+                                        <bh4fdocgen:getFieldValue field="{!skill['TR1__Type__c']}" />
+                                    </bh4fdocgen:hasChildEntry>
+                                </td>
+                            </tr>
+                        </apex:repeat>
+                    </bh4fdocgen:hasRecords>
+                </bh4fdocgen:hasMapEntry>
+                <!-- Skill block end -->
+            </div>
+        </bh4fdocgen:hasMapEntry>
+
+    </body>
+</apex:page>

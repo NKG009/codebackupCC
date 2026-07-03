@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2041_Harrow_RST_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>2041-Harrow RST</label>
+    <queue>X2041_Harrow_RST</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

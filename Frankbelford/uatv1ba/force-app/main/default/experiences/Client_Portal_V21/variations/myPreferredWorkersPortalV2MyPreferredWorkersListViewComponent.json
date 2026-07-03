@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "b79f6d9a-0db8-4228-bc73-c0cc0aac4694",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "44367086-ddab-4803-858f-40cc070d4422",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "My_Preferred_Workers_portalV2MyPreferredWorkersListView_Component",
+  "id" : "70890607-d9f0-45f3-9c51-aef69aa65a33",
+  "type" : "experienceVariation"
+}

@@ -1,0 +1,40 @@
+<template>
+  <div class="wrapper">
+    <form>
+      <div>
+        <lightning-combobox
+          name="subject"
+          label="Subject"
+          value={subjectValue}
+          placeholder="-- None --"
+          options={subjectOptions}
+          onchange={onSubjectChange}
+        ></lightning-combobox>
+      </div>
+      <div if:false={vmscontact}>
+        <lightning-combobox
+          name="site"
+          label="Site"
+          value={siteId}
+          placeholder="-- None --"
+          options={siteOptions}
+          onchange={onSiteChange}
+        ></lightning-combobox>
+      </div>
+      <div>
+        <lightning-textarea
+          name="description"
+          label="Your Query"
+          onchange={onDescriptionChange}
+        ></lightning-textarea>
+      </div>
+      <div class="action-container">
+        <lightning-button
+          label="Submit"
+          onclick={submit}
+          variant="brand"
+        ></lightning-button>
+      </div>
+    </form>
+  </div>
+</template>

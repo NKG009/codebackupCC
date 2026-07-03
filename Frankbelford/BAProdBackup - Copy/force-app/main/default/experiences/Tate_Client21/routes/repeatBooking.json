@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "11d1f88d-06fa-4267-b913-63b83f327b22",
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "configurationTags" : [ ],
+  "devName" : "Repeat_Booking__c",
+  "id" : "a6adb49b-13cd-4683-bd44-008a4f364dd2",
+  "label" : "Repeat Booking",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-fastbooking",
+  "type" : "route",
+  "urlPrefix" : "fastbooking"
+}

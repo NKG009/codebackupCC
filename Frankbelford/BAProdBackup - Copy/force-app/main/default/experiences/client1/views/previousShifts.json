@@ -1,0 +1,38 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "8aa24f3c-b77b-4789-8a89-d16bd63159f9",
+  "label" : "Previous Shifts",
+  "regions" : [ {
+    "id" : "7ed92f43-9061-492d-afd2-549a55850246",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "b657bdd1-9f62-4d38-8b65-b45ab63d026d",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "9a462f36-2f2d-4655-a6ba-a18980e2fae9",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Previous Shifts"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "7c47b770-9480-4bfa-b8d2-c72874106eba",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "854cfc6a-1760-4445-8392-194f6a3835d4",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "gXewMeXtiH9OMkt5li3XPQ1zspifnL",
+  "type" : "view",
+  "viewType" : "custom-testpastvacancynew"
+}

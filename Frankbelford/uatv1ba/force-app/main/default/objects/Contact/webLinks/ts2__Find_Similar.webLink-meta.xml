@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ts2__Find_Similar</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Apply To Jobs</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/50.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/50.0/apex.js&quot;)}
+
+var id = &apos;{!Contact.Id}&apos;;
+var url = &quot;/apex/ts2__ApplyJobPage?id=&quot; + id + &apos;&amp;src=page&apos;;
+var features = &apos;directories=no,menubar=no,titlebar=no,toolbar=no,width=550,height=460,scrollbars=yes&apos;;
+win = window.open(url,&apos;&apos;, features);
+win.focus();</url>
+</WebLink>

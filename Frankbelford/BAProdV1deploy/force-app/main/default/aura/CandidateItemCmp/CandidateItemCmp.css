@@ -1,0 +1,222 @@
+.THIS .hideinput {
+    display: none;
+}
+
+.THIS .SvaeButton {
+    background-image: url(/client/resource/Tjcss2/assets/img/sprite.png);
+    background-position: -75px -848px;
+    background-repeat: no-repeat;
+    background-size: initial;
+    background-color: #42b5a6;
+    margin-right: -1.5rem;
+    padding-left: 2.5rem;
+    padding-right: 1rem;
+    padding-top: 0.8rem;
+    padding-bottom: 1rem;
+    color: #fff;
+    font-family: arial;
+    cursor: pointer;
+    font-size: 14px;
+    font-size: 1.4rem;
+    border: 0;
+    display: inline-block;
+    min-width: 8.7rem;
+    float: right;
+    transition: all ease-in-out 0.3s;
+}
+
+.THIS .SvaeButton:hover {
+    background-color: #2B7B71 !important;
+}
+
+
+.THIS .DelButton {
+    background-image: url(/client/resource/Tjcss2/assets/img/sprite.png);
+    background-position: -70px -977px;
+    background-repeat: no-repeat;
+    background-size: initial;
+    background-color: #706e6f;
+    padding-left: 2.5rem;
+    padding-right: 1rem;
+    padding-top: 0.8rem;
+    padding-bottom: 1rem;
+    color: #fff;
+    font-family: arial;
+    cursor: pointer;
+    font-size: 14px;
+    font-size: 1.4rem;
+    border: 0;
+    display: inline-block;
+    min-width: 8.7rem;
+    transition: all ease-in-out 0.3s;
+}
+
+.THIS .DelButton:hover {
+    background-color: #555555 !important;
+}
+
+
+.THIS .custom-model2 {
+    margin-top: -150px;
+}
+
+.THIS .editbutton {
+    right: 10% !important;
+}
+
+.THIS .uiheight2 {
+    margin-left: 20px;
+    height: 20px;
+    width: 20px;
+}
+
+.THIS .tdcenter2 {
+    text-align: center;
+    width: 100px;
+}
+
+.THIS .inactivebutton {
+    display: none;
+}
+
+.THIS .inputclass {
+    width: 80px;
+}
+
+.THIS.breaks {
+    width: 5%;
+}
+
+.THIS .centeralign {
+    text-align: center;
+}
+
+.THIS .backcolor {
+    background-color: #f4f5f6;
+    border: blue;
+}
+
+.THIS .editbutton {
+    background: none;
+    border: none;
+}
+
+.THIS .chargein {
+    width: 41px;
+    border: none;
+    background-color: white;
+}
+
+.THIS .newBreakForm {
+    border: 1px solid #ccc;
+}
+
+.THIS .createNewBreak {
+    background-position: -75px -848px;
+    background-repeat: no-repeat;
+    background-size: initial;
+    background-color: #42b5a6;
+    margin-right: .5rem;
+    margin-bottom: .5rem;
+    float: left;
+    height: 30px;
+}
+
+.THIS .selectpickercls {
+    height: 2rem;
+    border: 1px solid #d7d7d7;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    font-size: 2.0rem;
+    margin-bottom: 1.5rem;
+    font-family: DIN-Medium !important;
+}
+
+.THIS .submitNewBreak {
+    background-position: -75px -848px;
+    background-repeat: no-repeat;
+    background-size: initial;
+    background-color: #42b5a6;
+    margin-right: .5rem;
+    margin-bottom: .5rem;
+    float: right;
+    height: 30px;
+}
+
+.THIS .break-data-all td {
+    color: #42b5a6;
+    font-weight: 600;
+}
+
+.THIS .TotalUnpaidBreaks {
+    font-size: medium;
+    float: right;
+}
+
+.THIS .editBreakButton {
+    float: left;
+    width: 50%;
+    margin-left: 71%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #42b5a6;
+}
+
+.THIS .delete-row {
+    background-image: url(https://impellam--systest--c.cs86.visual.force.com/resource/1575901925000/Delete);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+    text-indent: -999px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 24px;
+    height: 25px;
+}
+
+.THIS .checkbox-center {
+    text-align: center;
+
+}
+
+.THIS .checkbox-center span.slds-checkbox_faux {
+    margin: 0 !important;
+}
+
+.THIS .checkbox-center span.slds-form-element__label {
+    padding: 0 !important;
+}
+
+.THIS .same-time {
+    padding-right: 1rem !important;
+}
+
+.THIS .add-row {
+    background-image: url(https://impellam--systest--c.cs86.visual.force.com/resource/1576077655000/AddBreak);
+    background-size: 30px 30px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+    white-space: nowrap;
+    padding: 10px 0 10px 40px;
+    color: #42b5a6;
+    font-weight: 600;
+}
+
+.THIS .save-close {
+    background-image: url(https://impellam--systest--c.cs86.visual.force.com/resource/1575912149000/SaveRows);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+    text-indent: -999px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 32px;
+    height: 33px;
+}

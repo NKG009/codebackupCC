@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Bypass_flow</name>
+        <label>Bypass flow</label>
+        <locationX>586</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Bypass_flow1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Bypass_Flows__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ByPass_User</targetReference>
+            </connector>
+            <label>Bypass flow1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>ByPass_User</name>
+        <label>ByPass User</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Check_Top_Prospect_Field</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>ByPassUserYes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Bypass_Flows__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Top_Prospect_Field</name>
+        <label>Check Top Prospect Field</label>
+        <locationX>297</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Check_Top_Prospect_Status</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Check_Top_Prospect_Field_True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Check_Top_Prospect_Field_FORMULA</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Check_Top_Prospect_Field</targetReference>
+            </connector>
+            <label>Check Top Prospect Field True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Top_Prospect_Status</name>
+        <label>Check Top Prospect Status</label>
+        <locationX>528</locationX>
+        <locationY>647</locationY>
+        <defaultConnector>
+            <targetReference>Check_Top_Prospect_Status_True2</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Check_Top_Prospect_Status_True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Check_Top_Prospect_Status_FORMULA</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Check_Top_Prospect_Status</targetReference>
+            </connector>
+            <label>Check Top Prospect Status True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Top_Prospect_Status3</name>
+        <label>Check Top Prospect Status3</label>
+        <locationX>726</locationX>
+        <locationY>1055</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Check_Top_Prospect_Status4</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>CheckTopProspectStatus3</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Check_Top_Prospect_Field4</targetReference>
+            </connector>
+            <label>Check Top Prospect Status3</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Top_Prospect_Status_True2</name>
+        <label>Check Top Prospect Status True</label>
+        <locationX>726</locationX>
+        <locationY>755</locationY>
+        <defaultConnector>
+            <targetReference>Check_Top_Prospect_Status3</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Check_Top_Prospect_Status_True_2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Check_Top_Prospect_Status_FORMULA2</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Check_Top_Prospect_Field3</targetReference>
+            </connector>
+            <label>Check Top Prospect Status True 2</label>
+        </rules>
+    </decisions>
+    <description>This flor will replace the below process builder:
+https://bluearrowgroup--migration.sandbox.my.salesforce-setup.com/lightning/setup/ProcessAutomation/home</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Check_Top_Prospect_Field_FORMULA</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW() &amp;&amp; {!$Record.Top_Prospect__c} = False</expression>
+    </formulas>
+    <formulas>
+        <name>Check_Top_Prospect_Status_FORMULA</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(ISCHANGED({!$Record.Top_Prospect__c} ), PRIORVALUE({!$Record.Top_Prospect__c} ) = False)</expression>
+    </formulas>
+    <formulas>
+        <name>Check_Top_Prospect_Status_FORMULA2</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(ISCHANGED({!$Record.Top_Prospect__c} ), PRIORVALUE({!$Record.Top_Prospect__c} ) = True)</expression>
+    </formulas>
+    <formulas>
+        <name>CheckTopProspectStatus3</name>
+        <dataType>Boolean</dataType>
+        <expression>AND({!$Record.Top_Prospect__c}  = False,{!$Record.Top_Prospect__c}   = True)</expression>
+    </formulas>
+    <interviewLabel>Record Triggered Flow - Check Top Prospect {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Record Triggered Flow - Check Top Prospect</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Check_Top_Prospect_Field</name>
+        <label>Update Check Top Prospect Field</label>
+        <locationX>66</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Check_Top_Prospect__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Check_Top_Prospect_Field3</name>
+        <label>Update Check Top Prospect Field</label>
+        <locationX>594</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>Check_Top_Prospect_Status3</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Check_Top_Prospect__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Check_Top_Prospect_Field4</name>
+        <label>Update Check Top Prospect Field4</label>
+        <locationX>594</locationX>
+        <locationY>1163</locationY>
+        <inputAssignments>
+            <field>Check_Top_Prospect__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Check_Top_Prospect_Status</name>
+        <label>Update Check Top Prospect Status</label>
+        <locationX>330</locationX>
+        <locationY>755</locationY>
+        <inputAssignments>
+            <field>Check_Top_Prospect__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>460</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Bypass_flow</targetReference>
+        </connector>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

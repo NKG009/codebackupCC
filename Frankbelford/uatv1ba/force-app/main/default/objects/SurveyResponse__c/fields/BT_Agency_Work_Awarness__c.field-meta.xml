@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BT_Agency_Work_Awarness__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Are you aware that you will be working on a shift basis and on a flexible contract via an agency?</inlineHelpText>
+    <label>Agency Work Awarness</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

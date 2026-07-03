@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>m5__Campaign_TN__c</fullName>
+    <deprecated>false</deprecated>
+    <label>Campaign TN</label>
+    <required>false</required>
+    <type>Phone</type>
+</CustomField>

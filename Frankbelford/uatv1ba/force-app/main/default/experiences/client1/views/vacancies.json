@@ -1,0 +1,64 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "41150533-64d2-46de-8f4b-c3291bc4970d",
+  "label" : "Vacancies",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"color: rgb(0, 0, 0); font-size: 28px;\">Vacancies</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "4e4b1060-8af2-4df7-b36f-d2bbc55e2123",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d7b38590-db5b-4851-be30-8852fe24310c",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:ClientVacanciesTiles",
+      "id" : "a27bfd33-2bff-4965-ba47-521af4cc4530",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "15402203-2fe8-4461-b4ef-1c6ccfb8ed0a",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:HomeLayoutFooter",
+      "id" : "f386ea9a-62df-49d1-8926-a26ac490ca80",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "de1fdec9-dfae-4d65-8b03-aec5fd2554ad",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Vacancies"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "11237f79-ba95-4d70-bbd0-b3d6107e6246",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "aa0b82bf-8b8f-48ce-afde-7042f1bea48e",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "BaeIvxdmVNAi846Z78i1VuYgMbv85a",
+  "type" : "view",
+  "viewType" : "custom-vacancies"
+}

@@ -1,0 +1,7 @@
+<!--
+ - Created by mrahman
+ -->
+
+<design:component label="Address Finder">
+    <design:attribute name="recordId" label="Salesforce RecordId"/>
+</design:component>

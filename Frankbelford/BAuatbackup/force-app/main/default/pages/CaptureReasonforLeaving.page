@@ -1,0 +1,73 @@
+<apex:page controller="CaptureReasonforLeavingcontroller">
+
+<head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <style>
+            .form-errors {
+                color: red;
+                text-align:center; 
+            }
+        .mandatory-error{ 
+            color: red;
+            text-align:center; 
+        }
+        </style>
+        </head> 
+  <script>
+         var msg = {!$CurrentPage.Parameters.sx}
+         $(".form-errors").hide();  
+        if(msg=='1')
+        {
+            $(".form-errors").show();    
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";
+            self.close();
+        }else{
+            $(".form-errors").hide();    
+        }
+        function CloseARefresh()
+        {      
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";
+            self.close();
+            // window.top.location.href="/{!$CurrentPage.parameters.oppid}";
+        }    
+        
+        </script>
+        
+        <apex:form >
+        <apex:pageMessages ></apex:pageMessages>
+    <apex:pageblock >
+   <!-- <apex:pageblockSection > -->
+  <b>  <apex:outputLabel value="{!$Label.P45_Reason_for_Leaving}" /> </b>
+                    <!--    <apex:outputPanel styleClass="requiredInput"> -->
+                      <!--  <apex:outputPanel styleClass="requiredBlock" layout="block"/> -->
+                       <apex:selectRadio value="{!selectedleavingreason}" layout="pagedirection">
+                                        <apex:selectOptions value="{!allleavingreason}"> </apex:selectOptions>    
+                                        </apex:selectRadio>  
+                     <!--   </apex:outputPanel> -->
+  <!--  </apex:pageblockSection> -->
+    <apex:pageBlockButtons location="bottom">
+    <apex:commandButton value="{!$Label.ButtonP45Action1}" action="{!processprofiles}" rendered="{!IF(check1 ==null && check2 ==null ,true,false)}"/>
+    <apex:commandButton value="{!$Label.ButtonP45Action2}" onclick="CloseARefresh();"  rendered="{!IF(check1 ==null && check2 ==null ,true,false)}"/>
+    <apex:commandButton value="{!$Label.ButtonP45Action3}" onclick="CloseARefresh();"  rendered="{!IF(check1 !=null || check2 !=null ,true,false)}"/>
+    </apex:pageBlockButtons>
+    </apex:pageblock>
+</apex:form> 
+  <script>
+                       var msg = {!$CurrentPage.Parameters.sx}
+                    $(".form-errors").hide();  
+       if(msg=='1')
+        {
+            $(".form-errors").show();    
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";           
+            self.close();
+        }else{
+            $(".form-errors").hide();    
+        }
+        function CloseARefresh()
+        {      
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";
+            self.close();
+        } 
+        
+        </script>
+</apex:page>

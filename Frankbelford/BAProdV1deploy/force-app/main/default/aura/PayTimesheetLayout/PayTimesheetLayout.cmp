@@ -1,0 +1,22 @@
+<aura:component implements="forceCommunity:themeLayout" access="global" description="Sample Custom Theme Layout">
+    <aura:attribute name="search" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="profileMenu" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="navBar" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="newHeader" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="Footer" type="Aura.Component[]" required="false"/>
+    <div class="main">
+        <div class="profileMenuRegion slds-clearfix" >
+            
+            <div class="slds-float_right slds-clearfix">
+                {!v.profileMenu}
+            </div>
+        </div>
+        <div class="navigation">
+            {!v.navBar}
+        </div>
+        <div class="mainContentArea" >            
+            {!v.body}
+        </div>
+       
+    </div>
+</aura:component>

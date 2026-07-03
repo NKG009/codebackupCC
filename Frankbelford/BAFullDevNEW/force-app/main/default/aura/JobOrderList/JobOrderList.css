@@ -1,0 +1,37 @@
+/**
+ * Created by mrahman on 2020-08-29.
+ */
+
+.THIS .slds-dropdown {
+    font-size : 10pt;
+}
+
+.THIS .slds-th__action {
+    color: #00aae3;
+    padding-top : 3rem;
+}
+
+.THIS .slds-th__action { /*.slds-table th {*/
+    font-size : 13pt;
+    color: #00aae3;
+    /*padding-bottom : 10px;
+    padding-top : 10px;*/
+    /*color: #00aae3;*/
+}
+
+.THIS .slds-hyphenate {
+    font-size : 12pt;
+}
+
+.THIS .ui-widget {
+    width : 1000px;
+}
+
+.THIS th {
+    border-bottom : 1px;
+    height : 25px;
+}
+
+.THIS .uiTooltip .tooltip-trigger {
+    display: none;
+}

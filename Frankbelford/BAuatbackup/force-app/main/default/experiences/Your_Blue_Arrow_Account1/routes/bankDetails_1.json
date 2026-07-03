@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "27e57fc7-bcb5-4bd0-a06b-8348baabb4d3",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "BankDetails__c",
+  "id" : "ef46edcc-f06d-421c-a0fd-d3a7dfbc7010",
+  "label" : "BankDetails",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-bankdetails",
+  "type" : "route",
+  "urlPrefix" : "bankdetails"
+}

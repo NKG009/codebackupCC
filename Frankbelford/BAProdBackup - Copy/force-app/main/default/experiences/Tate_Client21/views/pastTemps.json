@@ -1,0 +1,68 @@
+{
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "7473464b-148f-4464-8ca1-d7c1dff2827e",
+  "label" : "Past Temps",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "9767a2aa-dda7-4a0e-a062-a704dcf4c21b",
+          "columns" : [ {
+            "UUID" : "3f5c4989-47fa-4ff9-80ef-9e94875f93f0",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "9767a2aa-dda7-4a0e-a062-a704dcf4c21b",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:ClientComPastTempsCmp",
+          "id" : "dac260b1-0821-4d23-87fa-a43a324f315d",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "3f5c4989-47fa-4ff9-80ef-9e94875f93f0",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8a81f07b-2aee-4622-b7da-8c0e6304055e",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Past Temps"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "ca21b70d-917e-4742-9181-08e2ff5a30c3",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a3cfa599-e341-41ae-a4e9-71d160dab651",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-pasttemps"
+}

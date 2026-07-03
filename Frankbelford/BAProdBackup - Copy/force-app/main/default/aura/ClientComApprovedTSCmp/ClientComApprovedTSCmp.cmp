@@ -1,0 +1,176 @@
+<aura:component controller="TimeSheetInfoWithPagination" implements="forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" description="ClientComApprovedTSCmp" >
+
+    <ltng:require styles="{! $Resource.	DataTables + '/DataTables/media/css/jquery.dataTables.min.css'}"
+                  afterScriptsLoaded="{!c.scriptsLoaded}"
+    />
+    <ltng:require styles="{!join(',',
+                              $Resource.assetsTest+'/assets/css/jquery-ui.css',
+                              $Resource.webUI+'/assets/css/all.css',
+                              $Resource.webUI+'/assets/css/fontawesome.css',
+                              $Resource.webUI+'/assets/css/fontawesome.min.css',
+                              $Resource.webUI+'/assets/css/dataTables.bootstrap.min.css',
+                              $Resource.webUI+'/assets/css/jquery.dataTables.min.css',
+                              $Resource.webUI+'/assets/css/responsive.bootstrap.min.css',
+                              $Resource.Tjcss2+'/assets/css/main.css',
+                              $Resource.Tjcss2+'/assets/css/custom.css'
+                              )}"
+                  scripts="{!join(',',
+                               $Resource.Tjcss2+'/assets/js/main.min.js',
+                               $Resource.Tjcss2+'/assets/js/zoom.js',
+                               $Resource.webUI+'/assets/js/custom.js'
+                               )}"
+
+    />
+
+    <aura:attribute type="boolean" name="checkparam" default="false" />
+    <aura:attribute name="SiteList" type="List"/>
+    <aura:attribute name="site" type="String" access="global" />
+    <aura:attribute name="Name" type="String"/>
+    <aura:attribute name="TimeSheets" type="List" access="global"/>
+    <aura:attribute name="currentList" type="List" access="global"/>
+
+    <aura:attribute name="page" type="integer" description="using for store page Number" access="global"/>
+    <aura:attribute name="pages" type="integer" description="using for store All Pages page Number" access="global"/>
+    <aura:attribute name="total" type="integer" description="total records count store " access="global"/>
+    <aura:attribute name="timeSheetLines" type="List" access="global"/>
+    <aura:attribute name="isOpen" type="boolean" access="global"/>
+    <aura:attribute name="timeSheetId" type="String" access="global"/>
+    <aura:attribute name="errMsg" type="String" access="global"/>
+    <aura:attribute name="recordsNotFoundMsg" type="String" access="global"/>
+    <aura:attribute type="Integer" name="pageNumber" default="1" access="global"/>
+    <aura:attribute type="Integer" name="maxPage" default="1" access="global"/>
+
+    <aura:attribute name="ContactList" type="List" access="global"/>
+    <aura:attribute name="SiteContactMap" type="Object" access="global"/>
+
+    <aura:attribute name="userInfo" type="User" access="global"/>
+    <aura:attribute name="isSelectAll" type="boolean" default="false"/>
+    <!--<aura:handler event="aura:waiting" action="{!c.showSpinner}"/>		    
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>	-->
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:ClientCommunityThemeEvent" action="{! c.onChange }"/>
+
+    <aura:handler name="change" value="{!v.pageNumber}" action="{!c.renderPage}" />
+    <aura:handler name="searchEvent" event="c:searchEvent" action="{!c.handleSearchEvent}"/>
+
+    <div class="container-fluid">
+        <div class="timesheet-section__right-part">
+            <c:TimesheetChildFilter site="{!v.site}" SiteContactMap="{!v.SiteContactMap}" />
+            <aura:if isTrue="{!v.site}">
+                <div style="float:right">
+                    <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">
+                        <lightning:input type="text" label="PO Number:" aura:id="PONumber" class="inputbulk"/>
+                        <lightning:button variant="brand" class="exportButton" label="Apply" title="Apply" onclick="{!c.BulkPOUpload}" />
+                    </aura:if>
+                    <lightning:button variant="brand" class="exportButton" label="Export" title="Export" onclick="{!c.downloadCsv}" />
+                </div>
+                <div class="searchDetail-section w-100">
+
+                    <table id="tableId" class="searchDetail_table" cellspacing="0" width="100%">
+                        <div id="overlay">
+                            <img src="{!$Resource.Loadingimage}"  width="120" height="100" alt=""/>
+                        </div>
+                        <thead>
+                        <tr>
+                            <!-- <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}"> -->
+                            <th class="cth centeralign"> <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}"> <ui:inputCheckbox value="{!v.isSelectAll}" class="checkstyle" change="{!c.handleSelectAllTimesheet}" aura:id="selectAll"/></aura:if></th>
+                            <!-- </aura:if> -->
+                            <th class="cth centeralign">Temp Name</th>
+                            <th class="cth centeralign">Job Role</th>
+                            <th class="cth centeralign">Timesheet No.</th>
+                            <th class="cth centeralign">Week Ending</th>
+                            <th class="cth centeralign">Total Hours</th>
+                            <th class="cth centeralign">Charge</th>
+                            <th class="cth centeralign">Invoice PO</th>
+                            <th class="cth centeralign">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <aura:iteration items="{!v.currentList}" var="ts">
+                            <tr>
+                                <!--  <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">-->
+                                <td class="cth centeralign"><aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}"><ui:inputCheckbox aura:id="checkTimesheet" class="checkstyle" value="" text="{!ts.Id}"/></aura:if></td>
+                                <!-- </aura:if>-->
+                                <td class="ctd centeralign">{!ts.sirenum__Worker__r.Name}</td>
+                                <td class="ctd centeralign">{!ts.sirenum__Team__r.Name}</td>
+                                <td class="ctd centeralign">{!ts.IP_StandardWeeklyNumberID__c}</td>
+                                <td class="ctd centeralign">
+                                    <span class="hide">{!ts.WeekendingPortal__c}</span>{!ts.sirenum__Week_Ending__c}
+                                </td>
+                                <td class="ctd centeralign">{!ts.sirenum__Total_Hours__c }</td>
+                                <td class="ctd centeralign"> <span class="hide">{!ts.sirenum__Total_Charge__c}</span> {!ts.Formula_total_charge__c}</td>
+                                <!--<td class="ctd centeralign">{!ts.sirenum__Total_Charge__c}</td>-->
+                                <aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">
+                                    <td class="centeralign" data-th="Invoice PO"><input id="{!ts.Id}" onchange="{!c.updatePO}" style="border-collapse: collapse;width:100px;text-align:center;" type="text" value="{!ts.IP_Client_Invoice_PO__c}" data-value="{!ts.IP_Client_Invoice_PO__c}"></input></td>
+                                </aura:if>
+                                <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">
+                                    <td class="ctd centeralign">{!ts.IP_Client_Invoice_PO__c}</td>
+                                </aura:if>
+                                <td class="ctd centeralign">
+                                    <!--           <button onclick="{!c.getTimeSheetLines}"  >Details</button> -->
+                                    <span class="edit_action popup-btn" data-toggle="modal" name="spn" onclick="{!c.getTimeSheetLines}" id="{!ts.Id+'|'+ts.IP_StandardWeeklyNumberID__c}" data-target="#edit-popup">Details</span>
+                                    <!--    <button class="edit_action popup-btn custBtn" name="detailbutton" onclick="{!c.getTimeSheetLines}" id="{!ts.Id+'|'+ts.IP_StandardWeeklyNumberID__c}">Detail</button> -->
+                                </td>
+                            </tr>
+
+                        </aura:iteration>
+
+                        </tbody>
+                    </table>
+
+
+                    <!--<br/><br/>
+                    <div style="text-align:right;margin-bottom: -57px;">
+                        <c:PaginationButton currentPageNumber="{!v.pageNumber}" maxPageNumber="{!v.maxPage}" />
+                    </div>-->
+
+                </div>
+
+            </aura:if>
+
+            <!--Modal Box -->
+            <div class="custom-model modal fade" id="edit-popup" tabindex="-1" role="dialog" aria-labelledby="edit-popup">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1>Timesheet Lines</h1>
+                <h3>Timesheet No: {!v.timeSheetId}</h3>
+                <p Style="color: red;">{!v.errMsg}</p>
+                <div class="ElementDetail__table">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Start Date</th>
+                            <th>Job Role</th>
+                            <th>Total Hours</th>
+                            <th>Charge</th>
+                            <th>Approved by</th>
+                            <th>Date &amp; Time</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <aura:iteration items="{!v.timeSheetLines}" var="tsl">
+                            <tr>
+                                <td data-th="Start Date"><lightning:formattedDateTime value="{!tsl.sirenum__Date__c}" year="numeric" month="numeric" day="numeric" /></td>
+                                <td data-th="Job Role">{!tsl.sirenum__Timesheet__r.sirenum__Team__r.Name}</td>
+                                <td data-th="Total Hours">{!tsl.sirenum__Hours__c}</td>
+                                <td data-th="Charge">
+                                    <ui:outPutNumber format="#,##,###.##" value="{! tsl.sirenum__Hours__c * tsl.sirenum__Charge__c}"/>
+                                </td>
+                                <td data-th="Approved by">{!tsl.sirenum__Shift__r.Approved_By__r.Name}</td>
+                                <td data-th="Date  Time"><lightning:formattedDateTime value="{!tsl.sirenum__Shift__r.Approved_Date_Time__c}" year="numeric" month="numeric" day="numeric" hour="2-digit" minute="2-digit" /></td>
+                            </tr>
+                        </aura:iteration>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+
+</aura:component>

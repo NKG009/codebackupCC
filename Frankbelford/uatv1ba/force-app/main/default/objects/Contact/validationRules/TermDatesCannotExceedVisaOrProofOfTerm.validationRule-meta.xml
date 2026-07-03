@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TermDatesCannotExceedVisaOrProofOfTerm</fullName>
+    <active>true</active>
+    <description>Term dates cannot Exceed the period of the student Visa or  the proof of study times</description>
+    <errorConditionFormula>OR(IP_FirstRecordedTermDate__c  &gt;  IP_Term1StartDate__c ,
+   IP_FirstRecordedTermDate__c  &gt;  IP_Term2StartDate__c ,
+   IP_FirstRecordedTermDate__c  &gt;  IP_Term3StartDate__c ,
+   IP_LastRecordedTermdate__c  &lt;  IP_Term1EndDate__c ,
+   IP_LastRecordedTermdate__c  &lt;  IP_Term2EndDate__c ,
+   IP_LastRecordedTermdate__c  &lt;  IP_Term3EndDate__c ,
+   IP_Term1EndDate__c &gt;  IP_EarliestExpiringComplianceDate__c,
+   IP_Term2EndDate__c &gt;  IP_EarliestExpiringComplianceDate__c,
+   IP_Term3EndDate__c &gt;  IP_EarliestExpiringComplianceDate__c,
+   AND(OR(IP_Term1StartDate__c &gt; DATE(1,1,1),IP_Term2StartDate__c &gt; DATE(1,1,1),IP_Term3StartDate__c &gt; DATE(1,1,1)),
+       ISBLANK(IP_FirstRecordedTermDate__c))
+  )</errorConditionFormula>
+    <errorDisplayField>IP_Term1StartDate__c</errorDisplayField>
+    <errorMessage>Term dates cannot Exceed the period of the student Visa or  the proof of study times</errorMessage>
+</ValidationRule>

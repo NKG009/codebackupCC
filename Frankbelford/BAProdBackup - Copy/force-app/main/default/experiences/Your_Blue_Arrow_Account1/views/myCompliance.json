@@ -1,0 +1,49 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "67989620-2594-45ff-807f-abe359673c5b",
+  "label" : "MyCompliance",
+  "regions" : [ {
+    "id" : "f4639595-3991-44c2-bb4b-ffa7a6cf1e52",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[]",
+        "flowName" : "Vetting_and_Compliance_Candidate_Flow"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "9bac56d9-3f9d-4903-a9cf-b91f98de35cb",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b57d6b35-2b71-4ecd-8013-808070d86bd0",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "47174e75-90c1-4f24-998d-b548db3885c5",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "MyCompliance"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "b1d0dd5b-b2b7-43e9-9ded-ec9b6ca80585",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "248ce613-b19e-4252-b666-f9e9b3b90a42",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-mycompliance"
+}

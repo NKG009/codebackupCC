@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SPH_CHEF_Database_Chefs_Temps</fullName>
+    <columns>CONTACT.LAST_UPDATE</columns>
+    <columns>Owner__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>Last_Shift__c</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>contains</operation>
+        <value>dbirch,vmunt,ddavi,Kkacz,bwood,rowen</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Pending</value>
+    </filters>
+    <label>SPH - CHEF Database - Chefs (Temps)</label>
+</ListView>

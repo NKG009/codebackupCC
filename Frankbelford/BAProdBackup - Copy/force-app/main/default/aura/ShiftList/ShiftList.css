@@ -1,0 +1,58 @@
+.THIS .Red{
+    background-color: #EDEBEB;
+}
+
+.THIS .headingfont{
+   font-family: Arial;
+	font-size: 14.5px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 26.4px;
+    color : #009ee3;
+    border-bottom: 1px solid  #6f6f6e;
+    border-top: 1px solid  #6f6f6e;
+    
+}
+
+.THIS .slds-checkbox_faux{
+    border:solid #a8cd1b 1px;
+}
+
+.THIS .textclass{
+     font-family: Arial;
+    
+}
+
+.THIS .Approvebutton{
+    color : white;
+     background-color: #a8cd1b;
+    border-color: #a8cd1b;
+    width:85px;
+}
+.THIS .Approvebutton:hover{
+    color : white;
+     background-color: #96aa4b;
+    border-color: #96aa4b;
+}
+.THIS .Rejectbutton{
+    color : white;
+     background-color: #e50b7e;
+    border-color: #e50b7e;
+    width:80px;
+}
+.THIS .Rejectbutton:hover{
+    color : white;
+     background-color: #d65399;
+    border-color: #d65399;
+}
+.THIS .Backbutton{
+    color : white;
+     background-color: #6f6f6e;
+    border-color: #6f6f6e;
+}
+.THIS .Backbutton:hover{
+    color : white;
+     background-color: #99998e;
+    border-color: #99998e;
+}

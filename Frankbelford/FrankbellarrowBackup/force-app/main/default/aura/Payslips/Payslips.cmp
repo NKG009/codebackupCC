@@ -1,0 +1,92 @@
+<aura:component Controller="CPpayslipController" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction" access="global" >
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    
+    <!--listing Payslips start-->
+    <aura:attribute type="List"    name="allpayslips" />
+    <aura:attribute type="List"    name="currentList" />
+    <!--listing Payslips start-->
+    
+    <aura:attribute name="attachment" type="String" />
+    <aura:attribute name="Message" type="boolean" default="false" description="use for display no record found message"/>
+    <aura:attribute name="startDate" type="date"/>
+    <aura:attribute name="endDate" type="date"/>
+    <!-- create 2 aura handler with waiting and donewaiting events--> 
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    <!--create a component attributs -->
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    
+     <!--Pagination Timesheet start -->
+    <aura:attribute type="Integer" name="pageNumber" default="1" />
+    <aura:attribute type="Integer" name="maxPage" default="1" />
+    <aura:handler name="change"	value="{!v.pageNumber}"	action="{!c.renderPage}" />
+    <!-- Pagination Timesheet end-->
+    
+ 
+           
+         <div class="slds-form--inline">        
+                <div class="slds-form-element datesize">
+                    <ui:inputDate aura:id="date1" label="From" class="field" value="{!v.startDate}" displayDatePicker="true" required="true" format="dd/MM/yyyy"/>
+                </div>
+                <div class="slds-form-element datesize">
+                    <ui:inputDate aura:id="date2" label="To" class="field" value="{!v.endDate}" displayDatePicker="true" required="true" format="dd/MM/yyyy"/>
+                </div>
+                <div class="slds-form-element slds-p-top_small">
+                    <button   class="slds-button slds-button_brand Printbutton" onclick="{!c.SearchPaySlip}" >Search</button>
+                </div>
+                
+                <div class="slds-p-top_x-large"></div>
+            </div>
+            
+            <!--loading spinner start... style=Brand Medium (blue dots)-->
+            <aura:if isTrue="{!v.Spinner}">
+                <div aura:id="spinnerId" class="slds-spinner_container">
+                    <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                        <span class="slds-assistive-text">Loading</span>
+                        <div class="slds-spinner__dot-a"></div>
+                        <div class="slds-spinner__dot-b"></div>
+                    </div>
+                </div>
+            </aura:if>
+            <div class="slds-scrollable slds-wrap">   
+            <!-- Loading spinner end-->   
+            <table class=" slds-no-row-hover slds-table slds-table_bordered slds-table_cell-buffer ">
+                <thead>
+                    <tr>
+                        <!--<th scope="col"><div  title="Payslip Number">Payslip Number</div></th>-->
+                        <th class="headingfont" scope="col"><div class="slds-text-align_center" title="Week Ending">Week Ending</div></th>
+                        <th class="headingfont" scope="col"><div class="slds-text-align_center" title="Net Pay">Net Pay </div></th>
+                        <th class="headingfont" scope="col"><div class="slds-text-align_center" title="Action">Action</div></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:if isTrue="{!v.Message}"> 
+                        <tr>
+                            <td colspan="4"><div class="slds-text-color--error"> No results found. Please try again.</div></td>
+                        </tr>
+                    </aura:if>   	
+                    <aura:iteration items="{!v.currentList}" var="record" indexVar="idx">
+                        <tr>
+                            <!--<td><div class="slds-truncate">{!record.employerReference}</div></td>-->
+                            <td><div class="slds-text-align_center">{!record.paymentReference}</div></td>
+                            <td><div class="slds-text-align_center">£ {!record.netPay}</div></td>
+                            <td><div class="slds-text-align_center">    
+                                <lightning:button label="Print" class="Printbutton" variant="brand" onclick="{!c.PayslipPrint}" value="{!'#'+record.employerReference+'#'+record.personnelReference+'#'+record.resourceReference}"  />
+                                </div>
+                            </td>
+                        </tr>
+                    </aura:iteration> 
+                    </tbody>
+                </table></div><br></br>
+            <div style="text-align:right;"> 
+               <c:PaginationButton currentPageNumber="{!v.pageNumber}" 
+                                    maxPageNumber="{!v.maxPage}" />
+            </div>
+            <div class="slds-form-element__control slds-p-top_x-large">
+                <button class="slds-button slds-button_brand Backbutton" onclick="{!c.backtopayntimesheet}" >Back</button>
+            </div>
+       
+    
+</aura:component>

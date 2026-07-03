@@ -1,0 +1,193 @@
+<apex:page standardController="Certification__c" extensions="AttachmentController" sidebar="false" showHeader="true">
+    <apex:stylesheet value="{!URLFOR($Resource.slds, 'assets/styles/salesforce-lightning-design-system.min.css')}" />
+
+    <!-- Custom CSS to make the page fullscreen -->
+    <style>
+        body, html {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fullscreen-container {
+            width: 1000px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fullscreen-content {
+            flex: 1;
+            overflow: hidden;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .slds-carousel__panels {
+            display: flex;
+            flex-direction: row;
+            overflow-x: hidden;
+        }
+
+        .slds-carousel__panel {
+            flex: 0 0 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        iframe, img {
+            max-width: 100%;
+            max-height: 100%;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .pdf-container, .doc-container {
+            width: 650px;
+            height: 750px;
+        }
+
+        .image-container {
+            width: 650px;
+            height: 750px;
+        }
+
+        .header {
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .slds-carousel__caption {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .nav-arrow {
+            font-size: 24px;
+            cursor: pointer;
+            user-select: none;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        #prev {
+            left: 10px;
+        }
+
+        #next {
+            right: 10px;
+        }
+    </style>
+
+    <div class="fullscreen-container">
+        <apex:form >
+            <div class="header">
+                <!-- Link to the ContentDocument record will be dynamically inserted here -->
+                <a id="fileLink" href="#" target="_blank" style="display:none;">Click here to view full file</a>
+            </div>
+            <div class="fullscreen-content">
+                <span id="prev" class="nav-arrow">&#9664;</span>
+                <div class="slds-carousel">
+                    <apex:repeat value="{!attachments}" var="attachmentWrapper">
+                        <div class="slds-carousel__panels">
+                            <div class="slds-carousel__panel" role="tabpanel" aria-hidden="false" data-url="{!attachmentWrapper.previewUrl}" data-doc-url="{!attachmentWrapper.contentDocUrl}">
+                                <figure class="slds-carousel__figure">
+                                    <apex:outputPanel rendered="{!OR(
+                                        CONTAINS(LOWER(attachmentWrapper.fileType), 'jpg'),
+                                        CONTAINS(LOWER(attachmentWrapper.fileType), 'jpeg'),
+                                        CONTAINS(LOWER(attachmentWrapper.fileType), 'png')
+                                    )}">
+                                        <div class="image-container">
+                                            <img src="{!attachmentWrapper.previewUrl}" alt="{!attachmentWrapper.title}" />
+                                        </div>
+                                    </apex:outputPanel>
+                                    <apex:outputPanel rendered="{!OR(
+                                        CONTAINS(LOWER(attachmentWrapper.fileType), 'pdf'),
+                                        CONTAINS(LOWER(attachmentWrapper.fileType), 'doc'),
+                                        CONTAINS(LOWER(attachmentWrapper.fileType), 'docx'),
+                                        CONTAINS(LOWER(attachmentWrapper.fileType), 'word_x'),
+                                        CONTAINS(LOWER(attachmentWrapper.fileType), 'vnd.openxmlformats-officedocument.wordprocessingml.document')
+                                    )}">
+                                        <div class="doc-container">
+                                            <iframe src="{!attachmentWrapper.previewUrl}" frameborder="0" style="width: 1000px; height: 750px;"></iframe>
+                                        </div>
+                                    </apex:outputPanel>
+                                    <apex:outputPanel rendered="{!NOT(
+                                        OR(
+                                            CONTAINS(LOWER(attachmentWrapper.fileType), 'jpg'),
+                                            CONTAINS(LOWER(attachmentWrapper.fileType), 'jpeg'),
+                                            CONTAINS(LOWER(attachmentWrapper.fileType), 'png'),
+                                            CONTAINS(LOWER(attachmentWrapper.fileType), 'pdf'),
+                                            CONTAINS(LOWER(attachmentWrapper.fileType), 'word_x'),
+                                            CONTAINS(LOWER(attachmentWrapper.fileType), 'doc'),
+                                            CONTAINS(LOWER(attachmentWrapper.fileType), 'docx'),
+                                            CONTAINS(LOWER(attachmentWrapper.fileType), 'vnd.openxmlformats-officedocument.wordprocessingml.document')
+                                        )
+                                    )}">
+                                        <p>Unsupported file type: {!attachmentWrapper.fileType}</p>
+                                    </apex:outputPanel>
+                                    <figcaption class="slds-carousel__caption">Filename: {!attachmentWrapper.title} ({!attachmentWrapper.fileType})</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </apex:repeat>
+                </div>
+                <span id="next" class="nav-arrow">&#9654;</span>
+            </div>
+        </apex:form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slds-carousel__panel');
+            const totalSlides = slides.length;
+            const fileLink = document.getElementById('fileLink');
+
+            const showSlide = (index) => {
+                slides.forEach((slide, i) => {
+                    slide.setAttribute('aria-hidden', i !== index);
+                    slide.style.display = i === index ? 'block' : 'none';
+                });
+
+                // Update file link based on the current slide
+                const linkHref = slides[index].getAttribute('data-doc-url');
+                fileLink.href = linkHref;
+                fileLink.style.display = 'inline'; // Show the link
+            };
+
+            const nextSlide = () => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            };
+
+            const prevSlide = () => {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                showSlide(currentSlide);
+            };
+
+            document.querySelector('#next').addEventListener('click', nextSlide);
+            document.querySelector('#prev').addEventListener('click', prevSlide);
+
+            showSlide(currentSlide);
+        });
+    </script>
+</apex:page>

@@ -1,0 +1,49 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "5b7399e6-d3ef-4b16-9c6d-89d2d56e4f9f",
+  "label" : "My Skills Connect",
+  "regions" : [ {
+    "id" : "3d29410e-f2e7-45c7-9d09-8cf7b59a986f",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "Candidate_Portal_Competency_Managment"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "09848edf-0db0-44bc-855f-477674da19f3",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "eedde166-c5b8-4ea5-80f4-9c0a3085de2c",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "f154e07d-dbc5-4721-aa8f-9ebd2de3c9e3",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My Skills Connect"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "3e0097af-906a-40ae-9d6a-61c9adb297c7",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3a4c66dc-b49f-4f1d-8c20-614ebf781e45",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-my-skills-connect"
+}

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "056a395f-200c-48e2-a652-a35c52a6d790",
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "configurationTags" : [ ],
+  "devName" : "Active_Vacancy__c",
+  "id" : "71f06aa7-7edd-46cd-8e17-086d1852a346",
+  "label" : "Active Vacancy",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-active-vacancy",
+  "type" : "route",
+  "urlPrefix" : "active-vacancy"
+}

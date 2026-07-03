@@ -1,0 +1,36 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader"  access="global" 
+                controller="creditnotecontroller">
+    
+    <!-- handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- atrributes -->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="messageDisplay" type="String" />
+    <aura:attribute name="errorMessage" type="Boolean" />
+    <aura:attribute name="processingText" type="Boolean" />
+    <aura:attribute name="missingdetails" type="Boolean" />
+
+     <aura:if isTrue="{!v.processingText}">
+         <br/><br/><br/><br/>
+         <p style="font-size:15px;color:#1B5297;">
+             <center><b><aura:unescapedHtml value="Processing........" /></b></center>
+         </p>
+    </aura:if>
+
+    <aura:if isTrue="{!v.errorMessage}">
+        <br/><br/><br/><br/>
+        <p style="font-size:15px;color:red;">
+             <center><b><aura:unescapedHtml value="{!v.messageDisplay}" /></b></center>
+        </p>
+    </aura:if>
+  
+     <aura:if isTrue="{!v.missingdetails}">
+        <br/><br/><br/><br/>
+        <p style="font-size:15px;color:red;">
+             <center><b><aura:unescapedHtml value="{!v.messageDisplay}" /></b></center>
+        </p>
+    </aura:if>
+
+   
+</aura:component>

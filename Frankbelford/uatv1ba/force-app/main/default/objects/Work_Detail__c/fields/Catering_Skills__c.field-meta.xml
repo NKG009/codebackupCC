@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Catering_Skills__c</fullName>
+    <label>Catering Skills</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Food &amp; Hygiene</fullName>
+                <default>false</default>
+                <label>Food &amp; Hygiene</label>
+            </value>
+            <value>
+                <fullName>Food Safety</fullName>
+                <default>false</default>
+                <label>Food Safety</label>
+            </value>
+            <value>
+                <fullName>Care Worker</fullName>
+                <default>false</default>
+                <label>Care Worker</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

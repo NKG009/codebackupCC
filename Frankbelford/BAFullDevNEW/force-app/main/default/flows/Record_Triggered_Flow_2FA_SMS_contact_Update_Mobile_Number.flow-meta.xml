@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Bypass_flow</name>
+        <label>Bypass flow</label>
+        <locationX>448</locationX>
+        <locationY>53</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Bypass_flow1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Bypass_Flows__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_user_profile</targetReference>
+            </connector>
+            <label>Bypass flow1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Does_mobile_phone_number_Match_SF_formatting</name>
+        <label>Does mobile phone number Match SF formatting</label>
+        <locationX>551</locationX>
+        <locationY>384</locationY>
+        <defaultConnector>
+            <targetReference>Mobile_Phone_field</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Mobile_number_is_changed</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.MobilePhone</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>+44 </stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MobilePhone</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>+353 </stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_user_only</targetReference>
+            </connector>
+            <label>Mobile number is changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Mobile_Phone_field</name>
+        <label>Mobile Phone field</label>
+        <locationX>775</locationX>
+        <locationY>387</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Uk_Number</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.MobilePhone</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>07</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MobilePhone</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>7</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_user_Mobile_Phone_number</targetReference>
+            </connector>
+            <label>Uk Number</label>
+        </rules>
+        <rules>
+            <name>Irish_Number</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.MobilePhone</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>00353</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MobilePhone</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>0353</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MobilePhone</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>353</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_user_Mobile_Phone_number_0</targetReference>
+            </connector>
+            <label>Irish Number</label>
+        </rules>
+        <rules>
+            <name>Other_Number</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.MobilePhone</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>+447</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MobilePhone</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>+440</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_user_Mobile_Phone_number_Other</targetReference>
+            </connector>
+            <label>Other Number</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>MobileIsChanged</name>
+        <dataType>Boolean</dataType>
+        <expression>ISCHANGED({!$Record.MobilePhone})</expression>
+    </formulas>
+    <formulas>
+        <name>NewIrelandMobilenumberwithSFformatting</name>
+        <dataType>String</dataType>
+        <expression>&quot;+353 &quot; &amp; RIGHT({!$Record.MobilePhone}, 10)</expression>
+    </formulas>
+    <formulas>
+        <name>NewMobilenumberwithSFformatting</name>
+        <dataType>String</dataType>
+        <expression>&quot;+44 &quot; &amp; RIGHT(SUBSTITUTE({!$Record.MobilePhone}, &quot; &quot;, &quot;&quot;), 10)</expression>
+    </formulas>
+    <formulas>
+        <name>NewMobilenumberwithSFformattingOther</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    LEFT({!$Record.MobilePhone}, 4) = &quot;+447&quot;,
+    &quot;+44 7&quot; &amp; MID({!$Record.MobilePhone}, 5, 9),
+    IF(
+        LEFT({!$Record.MobilePhone}, 5) = &quot;+4407&quot;,
+        &quot;+44 7&quot; &amp; MID({!$Record.MobilePhone}, 6, 9),
+        IF(
+            LEFT({!$Record.MobilePhone}, 5) = &quot;+44 7&quot;,
+            &quot;+44 7&quot; &amp; MID({!$Record.MobilePhone}, 6, 9),
+            {!$Record.MobilePhone}
+        )
+    )
+)</expression>
+    </formulas>
+    <interviewLabel>2FA SMS contact - Update SMS {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Record Triggered Flow - 2FA SMS contact - Update Mobile Number</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_user_profile</name>
+        <label>Get user profile</label>
+        <locationX>434</locationX>
+        <locationY>262</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Does_mobile_phone_number_Match_SF_formatting</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProfileId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>00ePv000003cRVJ</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_user_contact_number</name>
+        <label>Update user contact number</label>
+        <locationX>1264</locationX>
+        <locationY>190</locationY>
+        <inputAssignments>
+            <field>MobilePhone</field>
+            <value>
+                <elementReference>NewMobilenumberwithSFformatting</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_user_contact_number_0</name>
+        <label>Update user contact number</label>
+        <locationX>1115</locationX>
+        <locationY>161</locationY>
+        <inputAssignments>
+            <field>MobilePhone</field>
+            <value>
+                <elementReference>NewIrelandMobilenumberwithSFformatting</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_user_Mobile_Phone_number</name>
+        <label>Update user Mobile Phone number</label>
+        <locationX>937</locationX>
+        <locationY>576</locationY>
+        <inputAssignments>
+            <field>MobilePhone</field>
+            <value>
+                <elementReference>NewMobilenumberwithSFformatting</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Users</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_user_Mobile_Phone_number_0</name>
+        <label>Update user Mobile Phone number</label>
+        <locationX>1098</locationX>
+        <locationY>384</locationY>
+        <inputAssignments>
+            <field>MobilePhone</field>
+            <value>
+                <elementReference>NewIrelandMobilenumberwithSFformatting</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Users</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_user_Mobile_Phone_number_Other</name>
+        <label>Update user Mobile Phone number Other</label>
+        <locationX>784</locationX>
+        <locationY>575</locationY>
+        <inputAssignments>
+            <field>MobilePhone</field>
+            <value>
+                <elementReference>NewMobilenumberwithSFformattingOther</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Users</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_user_only</name>
+        <label>Update user only</label>
+        <locationX>556</locationX>
+        <locationY>591</locationY>
+        <inputAssignments>
+            <field>MobilePhone</field>
+            <value>
+                <elementReference>$Record.MobilePhone</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Users</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>639</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Bypass_flow</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>012QH000001ptGVYAY</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>MobilePhone</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "64aee20f-d928-447d-b539-3ef66bb329a6",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "HGV_Driver_Referred_Trainees__c",
+  "id" : "ae119b35-9958-47ff-b0d5-71be706c3e9a",
+  "label" : "HGV Driver - Referred Trainees",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-hgv-driver-referred-trainees",
+  "type" : "route",
+  "urlPrefix" : "hgv-driver-referred-trainees"
+}

@@ -1,0 +1,52 @@
+{
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "componentName" : "siteforce:sldsTwoCol84Layout",
+  "dataProviders" : [ ],
+  "id" : "3ea41b60-2d77-4baf-89b1-55def0deb386",
+  "label" : "Home-Build In",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "brandName" : "Impellam"
+      },
+      "componentName" : "c:ClientCommDashboard",
+      "id" : "72cade4e-4585-4ddd-8ba5-1f37b4a79b52",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ea8cb1df-970f-4e78-b78e-0d8bb16a6cfc",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "d2f32f89-84d9-45b6-979a-4d0af2595b98",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "b2607344-16d0-450f-b3bb-f17a8f3f600b",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "db48cc5f-44b6-442d-804b-3ec815c26615",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "b18a6f9d-398f-450a-8f8f-3ad9d7ae53f6",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c41c4dde-5fd6-4b30-afeb-790bca68e72b",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "home"
+}

@@ -1,0 +1,182 @@
+<aura:component Controller="MyShiftController" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction" access="global" >
+    
+    <!--pageload Shift starts-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!--pageload Shift ends-->
+    
+    <!--listing Shift start-->
+    <aura:attribute type="List"    name="allshifts" />
+    <aura:attribute type="List"    name="currentList" />
+    <!--listing Shift end-->
+    <!--Changes for Cancel Reason-->
+    <aura:attribute name="isCandidateLogin" type="Boolean" default="true"/>
+    <aura:attribute name="isClientLogin" type="Boolean" default="false"/>
+    <aura:attribute name="supCancelRsns" type="List"/> 
+    <aura:attribute name="cancelRsn" type="String" default="Cancelled by Worker"/> 
+    <aura:attribute name="selectedSupCancelRsn" type="String" default="--None--"/>
+    <!--End-->
+   <!-- Cancle Popup -->
+      <aura:attribute name="isOpenCancle" type="boolean" default="false"/>
+     <aura:attribute type="List" name="CancleShiftList" />
+     <aura:attribute type="Date" name="scheduletime" />
+     <aura:attribute type="Boolean" name="OpenButton" default="false"/>
+    <aura:attribute type="Boolean" name="hyperclick1" default="false"/>
+    <aura:attribute type="Boolean" name="hyperclick2" default="false"/>
+    <aura:attribute type="Boolean" name="hyperclick3" default="false"/>
+    <aura:attribute type="Boolean" name="hyperclick4" default="false"/>
+    <!-- -->
+    <!--Pagination Shift start -->
+    <aura:attribute type="Integer" name="pageNumber" default="1" />
+    <aura:attribute type="Integer" name="maxPage" default="1" />
+    <aura:handler name="change"	value="{!v.pageNumber}"	action="{!c.renderPage}" />
+    <!-- Pagination Shift end-->
+    
+   <aura:if isTrue="{!v.hyperclick1}"> 
+         
+    <a href="javascript:void(0)"  name="Today" style="color:red;" onclick="{!c.getList1}">Today</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <aura:set attribute="else">
+       <a href="javascript:void(0)"  name="Today" onclick="{!c.getList1}">Today</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   
+    </aura:set>
+    </aura:if>  
+  <aura:if isTrue="{!v.hyperclick2}">   
+    <a href="javascript:void(0)" name="Tomorrow" style="color:red;" onclick="{!c.getList1}">Tomorrow</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <aura:set attribute="else">
+  <a href="javascript:void(0)" name="Tomorrow" onclick="{!c.getList1}">Tomorrow</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+    </aura:set>
+    </aura:if>  
+     <aura:if isTrue="{!v.hyperclick3}">  
+       <a href="javascript:void(0)" name="Next_7_days" style="color:red;" onclick="{!c.getList1}">Next 7 Days</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <aura:set attribute="else">
+      <a href="javascript:void(0)" name="Next_7_days" onclick="{!c.getList1}">Next 7 Days</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     </aura:set>
+    </aura:if>      
+  
+    <aura:if isTrue="{!v.hyperclick4}"> 
+    <a href="javascript:void(0)" name="Next_30_days" style="color:red;" onclick="{!c.getList1}">Next 30 Days</a>
+
+    <aura:set attribute="else">
+        <a href="javascript:void(0)" name="Next_30_days" onclick="{!c.getList1}">Next 30 Days</a>
+   
+      </aura:set>
+    </aura:if> 
+   <br></br><br></br>
+    <div class="slds-scrollable slds-wrap">
+    <table class="slds-table slds-no-row-hover slds-table--bordered slds-table--cell-buffer slds-table--fixed-layout">
+        <thead>
+            <tr >
+                <th class="headingfont" scope="col" style="width:130px;text-align:center;"><div  title="Created Date">Start Date</div></th>
+                <th class="headingfont" scope="col" style="width:300px;text-align:center;"><div class="slds-truncate" title="Job Role">Job Role</div></th>
+                <th class="headingfont" scope="col" style="width:200px;text-align:center;"><div class="slds-truncate" title="Site">Site</div></th>
+                <th class="headingfont" scope="col" style="width:200px;text-align:center;"><div class="slds-truncate" title="Site">Directions to Site</div></th>
+                <th class="headingfont" scope="col" style="width:120px;text-align:center;"><div class="slds-truncate" title="Start Time">Start Time</div></th>
+                <th class="headingfont" scope="col" style="width:120px;text-align:center;"><div class="slds-truncate" title="End Time">End Time</div></th>
+                <th class="headingfont" scope="col" style="text-align:center;width:150px;"><div class="slds-truncate" title="Action">Action</div></th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.currentList}" var="record" indexVar="idx">
+                <tr>
+                    <td style="text-align:center;width:130px;"><div class="slds-truncate"><lightning:formattedDateTime value="{!record.sirenum__Scheduled_Start_Time__c}" year="numeric" month="numeric" day="numeric" /></div></td>
+                    <td style="text-align:center;"><div class="slds-truncate slds-grow slds-cell-wrap">{!record.sirenum__Team__r.Name}</div></td>
+                    <td style="text-align:center;"><div class="slds-truncate slds-grow slds-cell-wrap" >{!record.sirenum__Site__r.Name}</div></td>
+                    <td style="text-align:center;"><div class="slds-truncate "><a href="{!record.sirenum__Directions_to_Site__c}" target="_blank">{!record.sirenum__Directions_to_Site__c}</a></div></td>
+                    <td style="text-align:center;"><div style="text-align:center;"><lightning:formattedDateTime hour12="false" hour="2-digit" minute="2-digit" value="{!record.sirenum__Scheduled_Start_Time__c}" /></div></td>
+                    <td style="text-align:center;"><div style="text-align:center;"><lightning:formattedDateTime hour12="false" hour="2-digit" minute="2-digit" value="{!record.sirenum__Scheduled_End_Time__c}" /></div></td>
+                    <td style="text-align:center;"><div class="slds-truncate" style="text-align:center;">
+                       <lightning:button label="Cancel" class="Nobutton" variant="destructive" onclick="{!c.getShiftDetails}" value="{!record.Id}"  />
+                       
+                        </div></td>
+                </tr>
+            </aura:iteration>    
+        </tbody>
+    </table>
+    </div>    <br></br>
+    <div style="text-align:right;"> <c:PaginationButton currentPageNumber="{!v.pageNumber}" 
+                                    maxPageNumber="{!v.maxPage}" /> </div>
+      <aura:if isTrue="{!v.isOpenCancle}">
+        <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open slds-scrollable slds-wrap">
+             <div class="slds-modal__container">
+                  <form>
+            <div class="slds-modal__header" >
+                Thank you for informing us that you wish to cancel the below shift.
+                    <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModelCancle}">
+                        X
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </div>
+          <div class="slds-modal__content slds-p-around--medium slds-scrollable" >
+              	
+              <div class="TextHeader">Shift Details</div><br></br>
+              <table class="slds-wrap slds-scrollable" style="border:none;">
+                   <aura:iteration items="{!v.CancleShiftList}" var="shift" indexVar="idx">
+                       <tr><td><u class="headingdetails">Job Role</u><br></br><div class=" slds-grow slds-cell-wrap">{!shift.sirenum__Team__r.Name}</div></td>&nbsp;
+                           <td><u class="headingdetails">Site</u><br></br><div class=" slds-grow slds-cell-wrap">{!shift.sirenum__Site__r.Name}</div></td>
+                       </tr><tr><br></br></tr>
+                  <tr><td><u class="headingdetails">Scheduled Start Time</u><br></br><lightning:formattedDateTime hour12="false" hour="2-digit" minute="2-digit" value="{!shift.sirenum__Scheduled_Start_Time__c}" /></td>&nbsp;
+                     <td><u class="headingdetails">Scheduled End Time</u><br></br><lightning:formattedDateTime hour12="false" hour="2-digit" minute="2-digit" value="{!shift.sirenum__Scheduled_End_Time__c}" /></td>
+                  </tr><tr><br></br></tr>
+                       <!--Cancellation Reasons-->
+                       <aura:if isTrue="{!v.OpenButton}">    
+                       <lightning:recordEditForm aura:id="recordEditForm" objectApiName="sirenum__Shift__c">	
+                               <tr><td style="display:none">
+                                   <lightning:inputField fieldName="sirenum__CancellationReason__c"  variant="label-hidden" value="{!v.cancelRsn}" width="100%" id="CancelRsn" onchange="{!c.handleCanRsnChange}"/> </td>&nbsp;
+                                   <td><u class="headingdetails">
+                                       <lightning:formattedText value="*" style="color:red;"/>
+                                       <lightning:formattedText value="Cancellation Reason" required="true"/></u><br></br>
+                                 <lightning:select name="SupCancelRsn" label="" value="{!v.selectedSupCancelRsn}">
+                                    <aura:iteration items="{!v.supCancelRsns}" var="supCancelRsn">
+                                        <option text="{!supCancelRsn.label}" value="{!supCancelRsn.value}" selected="{!supCancelRsn.selected}"/>
+                                    </aura:iteration>
+                                </lightning:select>
+                           </td>
+                          </tr><tr><br></br></tr>
+                       </lightning:recordEditForm>
+                       </aura:if>
+                       <!--End Cancellation Reasons-->
+                  </aura:iteration>
+              </table>
+              <br></br><br></br><br></br>
+            <aura:if isTrue="{!v.OpenButton}">
+              <div>
+                    <aura:iteration items="{!v.CancleShiftList}" var="shift" indexVar="idx">
+                  
+              Are you sure you wish to cancel?  &nbsp;
+              
+               <lightning:button label="Yes" variant="brand"  class="Yesbutton" onclick="{!c.cancleshift}" value="{!shift.Id}"  />      
+              <lightning:button label="No" variant="brand"  class="Nobutton" onclick="{!c.closeModelCancle}" value="{!shift.Id}"  />               
+              
+                  </aura:iteration>   
+              </div>
+                <aura:set attribute="else">
+					<div class="RedText">
+                    As your shift is due to start, please contact the branch immediately
+<br></br><br></br>
+						Telephone 
+                        <aura:iteration items="{!v.CancleShiftList}" var="shift" indexVar="idx">
+                        <aura:if isTrue="{!shift.Phonedepartment__c==null}">
+                            
+                            <aura:set attribute="else">
+                            {!shift.Phonedepartment__c}
+                                </aura:set>
+                            </aura:if>
+                        </aura:iteration>
+                    </div>
+                </aura:set>
+                  </aura:if>
+              
+                </div>
+                
+        
+                </form>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </aura:if>
+
+    <div class="slds-truncate" style="text-align:Left;">
+                       <lightning:button class="Backbutton" label="Back" variant="Brand" onclick="{!c.getBackscreen}"   />
+                       
+                        </div>
+</aura:component>

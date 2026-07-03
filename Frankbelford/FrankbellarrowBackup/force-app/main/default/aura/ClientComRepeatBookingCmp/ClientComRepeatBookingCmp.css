@@ -1,0 +1,206 @@
+.THIS .dashboard-section__leftNav>li ul {
+    right: -23rem !important;
+}
+
+.THIS .dashboard-section__leftNav div:hover {
+    background-color: #fff;
+    color: #00aae3;
+    outline: 2px solid !important;
+}
+
+.THIS .dashboard-section__leftNav--timesheets li:hover {
+    background-color: #fff;
+    color: #00aae3;
+}
+
+.THIS .background {
+    background-image: url(/resource/newimage) !important;
+    background-size: 32px;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.THIS .dashboard-section__leftNav--timesheets li:hover a {
+    color: #00aae3 !important;
+}
+
+.THIS .dashboard-section__leftNav--vacancies li:hover {
+    background-color: #fff;
+    color: #00aae3;
+}
+
+.THIS .dashboard-section__leftNav--vacancies li:hover a {
+    color: #00aae3;
+}
+
+.THIS .dashboard-section__leftNav--temp li:hover {
+    background-color: #fff;
+    color: #00aae3
+}
+
+.THIS .dashboard-section__leftNav--temp li:hover a {
+    color: #00aae3;
+}
+
+.THIS .dashboard-section__leftNav ul li a {
+    color: #fff;
+    font-size: 1.6rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.THIS .slds-modal__container h2 {
+    color: #42b5a6 !important;
+    font-size: 30px !important;
+    margin-bottom: 0px !important;
+}
+
+.THIS .slds-modal__header {
+    border-bottom: 0px !important;
+    padding-top: 3rem;
+}
+
+.THIS .slds-modal__footer {
+    border-top: 0px !important;
+    padding-bottom: 3rem;
+    padding-right: 3rem;
+}
+
+.THIS .slds-button {
+    border: 1px solid transparent !important;
+    border-radius: 0px !important;
+    background-color: #42b5a6 !important;
+    padding: 1.2rem !important;
+    color: #fff !important;
+}
+
+.THIS .slds-button:hover {
+    border: 1px solid transparent !important;
+    background-color: #2B7B71 !important;
+    color: #fff !important;
+}
+
+.THIS .slds-button:focus {
+    box-shadow: 0px 0px 3px 1px #42B5A6 !important;
+}
+
+.THIS button.slds-modal__close {
+    font-size: 5rem !important;
+    background-color: transparent !important;
+    top: 2rem !important;
+    right: 2rem !important;
+    color: #000 !important;
+    opacity: 0.3;
+}
+
+.THIS button.slds-modal__close:hover {
+    color: #000 !important;
+    font-size: 5rem !important;
+    background-color: transparent !important;
+    opacity: 0.6;
+}
+
+
+.THIS .slds-modal__content {
+    text-align: center;
+}
+
+.THIS .imag {
+    background-image: url('/profilephoto/005/T');
+    width: 48px;
+    height: 50px;
+}
+
+.THIS .datetimepicker {
+    font-size: 2.0rem;
+}
+
+.THIS .global-input {
+    font-size: 2.0rem;
+}
+
+.THIS .decline {
+    margin-top: 13px !important;
+}
+
+.THIS .uiInputDateTime .display {
+    display: none;
+}
+
+.THIS .global-input {
+    font-size: 15px !important;
+}
+
+.THIS form .action-button.decline {
+    margin-left: 1rem !important;
+}
+
+.THIS .slds-select_container {
+    width: 100% !important;
+}
+
+.THIS .global-input-box {
+    height: 5rem;
+    border: 1px solid #d7d7d7;
+    width: 100%;
+    font-size: 2rem;
+}
+
+.THIS .selectpickercls {
+    height: 5rem;
+    border: 1px solid #d7d7d7;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    font-size: 2.0rem;
+    margin-bottom: 1.5rem;
+    font-family: DIN-Medium !important;
+}
+
+.THIS .timesheet-section {
+    width: 100%;
+}
+
+.THIS .headingdetails {
+    height: 5rem;
+    border: 1px solid #d7d7d7;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    font-size: 14px;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    font-family: DIN-Medium !important;
+
+}
+
+.THIS .mainLoginInput::-webkit-input-placeholder {
+    font-size: 14px !important;
+}
+
+.THIS .mainLoginInput:-ms-input-placeholder {
+    font-size: 14px !important;
+}
+
+.THIS .mainLoginInput:-moz-placeholder {
+    /* older Firefox*/
+    font-size: 14px !important;
+}
+
+.THIS .mainLoginInput::-moz-placeholder {
+    /* Firefox 19+ */
+    font-size: 14px !important;
+}
+
+.THIS .toastMessage.forceActionsText {
+    white-space: pre-line !important;
+    font-size: 14px !important;
+}
+
+.THIS .wk_warning {
+    background: #FFB75D !important;
+}

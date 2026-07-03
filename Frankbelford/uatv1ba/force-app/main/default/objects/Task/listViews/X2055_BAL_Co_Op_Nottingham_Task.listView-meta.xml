@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2055_BAL_Co_Op_Nottingham_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>2055-BAL Co-Op Nottingham</label>
+    <queue>X2055_BAL_Co_Op_Nottingham</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

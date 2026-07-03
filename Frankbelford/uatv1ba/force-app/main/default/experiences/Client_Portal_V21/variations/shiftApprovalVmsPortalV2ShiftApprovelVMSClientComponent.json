@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "7466b492-3656-4f23-9cf8-67582dba410f",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "53a853bc-d0dc-4e03-9f40-69b63db919a4",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Shift_Approval_vms_portalV2ShiftApprovelVMSClient_Component",
+  "id" : "0c789fe3-c1ba-4830-9c77-ee4b7e0b4a9b",
+  "type" : "experienceVariation"
+}

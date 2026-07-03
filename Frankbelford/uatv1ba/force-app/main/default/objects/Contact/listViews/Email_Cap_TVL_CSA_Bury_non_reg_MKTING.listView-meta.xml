@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_Cap_TVL_CSA_Bury_non_reg_MKTING</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <columns>IP_Email__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>BL0,BL2,BL8,BL9,M25,M26,M45,M8</value>
+    </filters>
+    <filters>
+        <field>Compliance_Status__c</field>
+        <operation>notEqual</operation>
+        <value>compliant</value>
+    </filters>
+    <filters>
+        <field>IP_Email__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Brand__c</field>
+        <operation>equals</operation>
+        <value>Blue Arrow</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>CONTACT.EMAIL</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>notEqual</operation>
+        <value>Driving,Facilities,Technical,Industrial</value>
+    </filters>
+    <label>Email:Cap TVL -CSA Bury -non reg -MKTING</label>
+    <sharedTo>
+        <role>Capita_Manchester</role>
+    </sharedTo>
+</ListView>

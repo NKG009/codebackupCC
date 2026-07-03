@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HW_Furloughed_FE_s</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Furlough_Effective_Date__c</columns>
+    <columns>Furlough_End_Date__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>equals</operation>
+        <value>2173</value>
+    </filters>
+    <filters>
+        <field>Furlough__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>HW - Furloughed FE&apos;s</label>
+    <sharedTo>
+        <role>Blue_Arrow_High_Wycombe</role>
+    </sharedTo>
+</ListView>

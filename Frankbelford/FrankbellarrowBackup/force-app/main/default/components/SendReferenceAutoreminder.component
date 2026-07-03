@@ -1,0 +1,113 @@
+<apex:component controller="referenceDetailsAutoReminder" access="global">
+<apex:attribute name="recordId" description="Record Id" type="id" assignTo="{!record_Id}"/> 
+        
+<style>
+.linkunderline{
+    text-decoration: none;
+    color: blue;
+    font-family:arial;
+}
+
+</style>
+<html>
+<table BORDER="0" CELLSPACING="0" style="width:640px;font-family:arial;height:600px;background-image:url('{!URLFOR($Resource.TemplatePics,'picsfolder/xxlargebackground.jpg')}');">
+<tr >
+    <td style="vertical-align:top;text-align:right;height:140px;width:190px;">
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR4-1/c.aspx" id="theLink1"><apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic1.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR5-1/c.aspx" id="theLink2"><apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic2.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR6-1/c.aspx" id="theLink3"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic3.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR7-1/c.aspx" id="theLink4"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic4.jpg')}" /></apex:outputLink>
+   
+    </td>
+      <td style="text-align:right;vertical-align:middle;height:140px;width:460px;">
+     <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR8-1/c.aspx" id="theLink5"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/logo.png')}" /> </apex:outputLink>
+    </td>
+</tr>
+<tr style="width:650px;">
+<td colspan="2" style="vertical-align:top;">
+<table style="width:630px;">
+<tr style="height:25px;text-align:center;"><td style="text-align:center;">
+<font size="2" face="Bahnschrift Light" color="black"><b>Reference Request Reminder</b></font>
+</td>
+</tr>
+<tr style="height:200px;text-align:center;"><td style="text-align:left;vertical-align:top;">
+<div style="margin-left:30px;margin-right:10px;margin-top:-10px;font-family:arial;">
+<font size="2" face="Bahnschrift Light" color="black">
+
+<br></br><br/>
+
+Dear {!referenceid.ts2__Name__c},<br/><br/>
+We emailed you on   
+
+
+&nbsp;<apex:outputpanel rendered="{!IF(Day(referenceRequestSentDate) = 1 || Day(referenceRequestSentDate) = 21 || Day(referenceRequestSentDate) = 31 , TRUE, FALSE) }">
+<apex:outputText value="{0,date,dd}<sup>st</sup> {0,date,MMMM} {0,date,YYYY}" escape="false"> 
+<apex:param value="{!referenceRequestSentDate}" />
+</apex:outputText>
+</apex:outputpanel>
+
+
+<apex:outputpanel rendered="{!IF(Day(referenceRequestSentDate) = 2 || Day(referenceRequestSentDate) = 22  , TRUE, FALSE) }">
+<apex:outputText value="{0,date,dd}<sup>nd</sup> {0,date,MMMM} {0,date,YYYY}" escape="false"> 
+<apex:param value="{!referenceRequestSentDate}" />
+</apex:outputText>
+</apex:outputpanel>
+
+
+<apex:outputpanel rendered="{!IF(Day(referenceRequestSentDate) = 3 || Day(referenceRequestSentDate) = 23  , TRUE, FALSE) }">
+<apex:outputText value="{0,date,dd}<sup>rd</sup> {0,date,MMMM} {0,date,YYYY}" escape="false"> 
+<apex:param value="{!referenceRequestSentDate}" />
+</apex:outputText>
+</apex:outputpanel>
+
+
+<apex:outputpanel rendered="{!IF(Day(referenceRequestSentDate) != 1 && Day(referenceRequestSentDate) != 21 && Day(referenceRequestSentDate) != 21 && Day(referenceRequestSentDate) != 31 && Day(referenceRequestSentDate) != 2 && Day(referenceRequestSentDate) != 22 && Day(referenceRequestSentDate) != 3 && Day(referenceRequestSentDate) != 23, TRUE, FALSE) }">
+<apex:outputText value="{0,date,dd}<sup>th</sup> {0,date,MMMM} {0,date,YYYY}" escape="false"> 
+<apex:param value="{!referenceRequestSentDate}" />
+</apex:outputText>
+</apex:outputpanel>
+
+&nbsp;in regards to {!referenceid.Candidate_Name_Text__c} who listed yourself as a referee. <br/><br/>
+We very much value your time and appreciate you are likely busy however our records show we have not yet had a reply. <br/><br/>
+In order to assist {!referenceid.ts2__Candidate__r.FirstName} in finding their next role we require the below reference request form to be completed.<br></br><br></br>
+<!-- 21/03/2022 PT1-363 Wen Replaced Jobscience reference form with Flow
+<apex:outputLink styleClass="linkunderline" rendered="{!referenceid.Recordtype.Name = 'Professional'}" value="{!FullFormUrl}"
+id="theLink01">Click here to open reference form</apex:outputLink>  
+
+<apex:outputLink styleClass="linkunderline" rendered="{!referenceid.Recordtype.Name = 'Personal'}" value="{!FullFormUrl}"
+id="theLink02">Click here to open reference form</apex:outputLink>  
+
+<apex:outputLink styleClass="linkunderline" rendered="{!referenceid.Recordtype.Name = 'Academic'}" value="{!FullFormUrl}"
+id="theLink03">Click here to open reference form</apex:outputLink>
+-->
+<apex:outputLink styleClass="linkunderline" rendered="true" value="https://yourcompanyportal-15728bf70b1.force.com/Application/s/reference-survey?recordId={!referenceid}">Click here to open reference form</apex:outputLink>  
+<br></br><br></br>
+
+If you are not the intended recipient, please <apex:outputLink styleClass="linkunderline" rendered="true" value="https://yourcompanyportal-15728bf70b1.force.com/Application/s/incorrect-referee-email?recordId={!referenceid}"> click here </apex:outputLink> to let us know. 
+
+<br></br><br></br>  
+
+Thank you so much in advance.  
+
+<br/><br/><div style="font-size:13px;font-family:arial;"> </div> 
+
+Kind regards, <br/>
+The Blue Arrow Team <br/>
+{!branchphone}
+   
+<br></br>
+</font>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:120px;">
+<td colspan="2" >
+<apex:image height="80px" width="250px" url="{!URLFOR($Resource.TemplatePics,'picsfolder/IIP_PLAT_19.jpg')}" />
+</td>
+</tr>
+</table>
+</html>
+</apex:component>

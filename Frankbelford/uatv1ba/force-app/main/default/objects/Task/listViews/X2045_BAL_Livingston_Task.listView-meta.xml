@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2045_BAL_Livingston_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>2045-BAL Livingston</label>
+    <queue>X2045_BAL_Livingston</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

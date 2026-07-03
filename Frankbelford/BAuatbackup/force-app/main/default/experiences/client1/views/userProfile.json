@@ -1,0 +1,64 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "0d8c71cc-add1-4a52-afed-46293e73b054",
+  "label" : "User Profile",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"font-size: 28px; font-family: arial;\">My Profile</span></p><p style=\"text-align: center;\"><br></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "f212d9bb-d4f5-41e5-9fb2-1493ba419db4",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "50cd1d42-dfdd-4654-8df4-83defa6d0cbb",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "id" : "{!recordId}",
+        "profileTabLabel" : "Profile",
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" src=\"https://sandboxb-yourcompanyportal-15728bf70b1--live.cs84.force.com/sfsites/c/img/community/cpt/cpt-profile-banner.png\"></p>",
+        "settingsTabLabel" : "Settings & Preferences",
+        "showBannerImage" : false,
+        "showSettingsTab" : false
+      },
+      "componentName" : "forceCommunity:userProfileWithBanner",
+      "id" : "ef83e2b2-4708-434e-a162-487076e9580c",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1fae3834-c820-4127-b1e2-db6d564e1972",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:BackButtonMySettings",
+      "id" : "183e9f9a-bd3b-4ed0-b659-912fa1373725",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8b4915ad-0a75-4ff0-a29b-ad00a10403a8",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "id" : "d55c20f7-2f16-412f-919f-aa82ac66bc1e",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "f343fd6d-6efb-4153-bc54-28ede3e412e9",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "1fitOSCZL0c31jnY0VvGUv41yZqrsW",
+  "type" : "view",
+  "viewType" : "detail-005"
+}

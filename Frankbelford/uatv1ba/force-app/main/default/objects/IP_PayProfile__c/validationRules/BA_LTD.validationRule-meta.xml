@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BA_LTD</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				RecordType.Id = &quot;0120Y000000FISX&quot;,
+				 Text($User.Brand__c) = &quot;Blue Arrow&quot;
+)</errorConditionFormula>
+    <errorMessage>Blue Arrow users cannot create/modify LTD pay profiles</errorMessage>
+</ValidationRule>

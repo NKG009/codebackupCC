@@ -1,0 +1,37 @@
+<template>
+  <div class="card__size">
+    <lightning-card title={cardTitle}>
+      <lightning-button-icon
+        icon-name="utility:close"
+        alternative-text="Close"
+        title="Close"
+        onclick={closeHandler}
+        variant="bare"
+        slot="actions"
+      ></lightning-button-icon>
+
+      <c-standalone-date-picker
+        default-selected-values={defaultSelectedValues}
+        ondateselect={handleStartDateSelection}
+        ondateselectend={handleEndDateSelection}
+        date-range={dateRange}
+      ></c-standalone-date-picker>
+
+      <div slot="footer">
+        <lightning-button
+          label="Reset filter"
+          variant="brand-outline"
+          onclick={clearFilter}
+          class="slds-var-m-horizontal_x-small"
+        ></lightning-button>
+        <lightning-button
+          label="Apply"
+          variant="brand"
+          onclick={applyFilter}
+          disabled={filterButtonDisabled}
+          class="slds-var-m-horizontal_x-small"
+        ></lightning-button>
+      </div>
+    </lightning-card>
+  </div>
+</template>

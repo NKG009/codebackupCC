@@ -1,0 +1,55 @@
+<apex:page controller="CandidateP45ActionController" sidebar="false">
+<apex:form >
+<apex:pageBlock >
+ <apex:pageMessages escape="false"></apex:pageMessages>
+ <apex:actionregion >
+Is Candidate
+<apex:selectRadio value="{!leavingoptions}" layout="pagedirection">
+            <apex:selectOptions value="{!items}"/>
+            <apex:actionSupport event="onchange" reRender="outerOutputPanel" action="{!selectOnClick}"/>
+            </apex:selectRadio><p/>
+            
+         
+            <apex:outputPanel id="outerOutputPanel" layout="block">
+                <apex:outputPanel id="op1" layout="block" rendered="{!IF(leavingoptions=='Switching Pay Profile (e.g. PAYE transferring to LTD Co)',true,false)}">
+                  <b> <apex:outputLabel > Select Pay Profile to Close: </apex:outputLabel> </b>
+                         <apex:pageBlockTable value="{!ppList}" var="p" id="table2" rendered="{!(ppList.size !=0 )}" cellpadding="2" border="1" rowClasses="odd,even" styleClass="tableClass" width="100%">
+                                            <apex:column headervalue="Select Pay Profile" ><apex:inputCheckbox value="{!p.selected}"  /></apex:column>
+                                            <apex:column value="{!p.conp.Name}" />
+                                                <apex:column value="{!p.conp.RecordType.name}" />
+                                                            </apex:pageBlockTable>  
+                                                        
+                                                        <p > &nbsp; </p>
+                </apex:outputPanel>
+            </apex:outputPanel>
+
+          
+          
+      </apex:actionregion>    
+ <apex:pageBlockButtons location="bottom">
+  <apex:commandButton value="{!$Label.ButtonP45Action1}"  action="{!checkandproceed}" rendered="{!flag==null}"/>
+  <apex:commandButton value="{!$Label.ButtonP45Action2}" onclick="CloseARefresh();" rendered="{!flag==null}" />
+  <apex:commandButton value="{!$Label.ButtonP45Action3}" onclick="CloseARefresh();"  rendered="{!flag!=null}"/>
+ </apex:pageBlockButtons>
+  
+ </apex:pageBlock>
+</apex:form>
+  <script>
+                       var msg = {!$CurrentPage.Parameters.sx}
+                    $(".form-errors").hide();  
+       if(msg=='1')
+        {
+            $(".form-errors").show();    
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";           
+            self.close();
+        }else{
+            $(".form-errors").hide();    
+        }
+        function CloseARefresh()
+        {      
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";
+            self.close();
+        } 
+        
+        </script>
+</apex:page>

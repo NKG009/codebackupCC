@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_of_Andyt_Frasers_HR_and_GM_s</fullName>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>CONTACT.FIRST_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>IP_JobTitle__c</field>
+        <operation>contains</operation>
+        <value>cluster,Operations director,Ops manager,Area manager,Regional Manager,regional operations manager,Head of operations,HR,operations manager,human</value>
+    </filters>
+    <filters>
+        <field>FULL_NAME</field>
+        <operation>notContain</operation>
+        <value>DNU,LEFT</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>notEqual</operation>
+        <value>Inactive</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>contains</operation>
+        <value>frasers,malmaison,hotel du vin</value>
+    </filters>
+    <filters>
+        <field>ts2__Firstname__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Copy of Andyt - Frasers HR and GM&apos;s</label>
+</ListView>

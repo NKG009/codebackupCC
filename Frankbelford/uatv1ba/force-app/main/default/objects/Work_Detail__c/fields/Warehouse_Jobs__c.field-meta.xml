@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Warehouse_Jobs__c</fullName>
+    <label>Warehouse Jobs</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Care Worker</fullName>
+                <default>false</default>
+                <label>Care Worker</label>
+            </value>
+            <value>
+                <fullName>Fork Lift Driver</fullName>
+                <default>false</default>
+                <label>Fork Lift Driver</label>
+            </value>
+            <value>
+                <fullName>Goods In</fullName>
+                <default>false</default>
+                <label>Goods In</label>
+            </value>
+            <value>
+                <fullName>Goods Out</fullName>
+                <default>false</default>
+                <label>Goods Out</label>
+            </value>
+            <value>
+                <fullName>Loader/Unloader</fullName>
+                <default>false</default>
+                <label>Loader/Unloader</label>
+            </value>
+            <value>
+                <fullName>Mail Room</fullName>
+                <default>false</default>
+                <label>Mail Room</label>
+            </value>
+            <value>
+                <fullName>Narrow Aisle Fork Lift Driver</fullName>
+                <default>false</default>
+                <label>Narrow Aisle Fork Lift Driver</label>
+            </value>
+            <value>
+                <fullName>Picker/Packer</fullName>
+                <default>false</default>
+                <label>Picker/Packer</label>
+            </value>
+            <value>
+                <fullName>Postal Worker</fullName>
+                <default>false</default>
+                <label>Postal Worker</label>
+            </value>
+            <value>
+                <fullName>Reach FLT Driver</fullName>
+                <default>false</default>
+                <label>Reach FLT Driver</label>
+            </value>
+            <value>
+                <fullName>Shunter</fullName>
+                <default>false</default>
+                <label>Shunter</label>
+            </value>
+            <value>
+                <fullName>Site Manager</fullName>
+                <default>false</default>
+                <label>Site Manager</label>
+            </value>
+            <value>
+                <fullName>Sorter</fullName>
+                <default>false</default>
+                <label>Sorter</label>
+            </value>
+            <value>
+                <fullName>Stores Person</fullName>
+                <default>false</default>
+                <label>Stores Person</label>
+            </value>
+            <value>
+                <fullName>Supervisor</fullName>
+                <default>false</default>
+                <label>Supervisor</label>
+            </value>
+            <value>
+                <fullName>Warehouse Operative</fullName>
+                <default>false</default>
+                <label>Warehouse Operative</label>
+            </value>
+            <value>
+                <fullName>Yards Person</fullName>
+                <default>false</default>
+                <label>Yards Person</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Banksman</fullName>
+                <default>false</default>
+                <label>Banksman</label>
+            </value>
+            <value>
+                <fullName>Manufacturing Operative</fullName>
+                <default>false</default>
+                <label>Manufacturing Operative</label>
+            </value>
+            <value>
+                <fullName>Recycling Operative</fullName>
+                <default>false</default>
+                <label>Recycling Operative</label>
+            </value>
+            <value>
+                <fullName>360 Excavator Operator</fullName>
+                <default>false</default>
+                <label>360 Excavator Operator</label>
+            </value>
+            <value>
+                <fullName>Power Tool Operative</fullName>
+                <default>false</default>
+                <label>Power Tool Operative</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

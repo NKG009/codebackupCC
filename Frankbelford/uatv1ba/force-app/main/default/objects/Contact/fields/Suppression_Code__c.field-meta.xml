@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Suppression_Code__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL( P45_Suppression_Reason__c , &quot;Not Suppressed&quot;), 0, 
+ IF(ISPICKVAL( P45_Suppression_Reason__c , &quot;Long Term Sick&quot;), 1, 
+ IF(ISPICKVAL( P45_Suppression_Reason__c , &quot;Extended Maternity Leave&quot;), 2 ,
+IF(ISPICKVAL( P45_Suppression_Reason__c , &quot;Employee Grievance&quot;), 3 ,
+IF(ISPICKVAL( P45_Suppression_Reason__c , &quot;Tribunal&quot;), 4 ,
+IF(ISPICKVAL( P45_Suppression_Reason__c , &quot;Death&quot;), 5 ,
+IF(ISPICKVAL( P45_Suppression_Reason__c , &quot;Pregnancy related absence due to sickness&quot;), 6 ,
+IF(ISPICKVAL( P45_Suppression_Reason__c , &quot;Public Duties&quot;), 7 ,
+IF(ISPICKVAL( P45_Suppression_Reason__c , &quot;Industrial Action&quot;), 8 ,
+IF(ISPICKVAL( P45_Suppression_Reason__c , &quot;Contractually Agreed&quot;), 9 ,
+IF(ISPICKVAL( P45_Suppression_Reason__c , &quot;Other&quot;), 10 ,0
+)))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Suppression Code</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

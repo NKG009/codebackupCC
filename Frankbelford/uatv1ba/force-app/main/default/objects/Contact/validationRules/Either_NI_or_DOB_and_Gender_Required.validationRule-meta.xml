@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Either_NI_or_DOB_and_Gender_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF((RecordType.Name = &apos;2nd Tier Candidate&apos; &amp;&amp; ISBLANK( sirenum__National_Insurance__c )), (ISBLANK(Birthdate) || ISBLANK( TEXT(ts2__EEO_Gender__c) )),FALSE)</errorConditionFormula>
+    <errorMessage>Birthdate and Gender is required if NI is blank</errorMessage>
+</ValidationRule>

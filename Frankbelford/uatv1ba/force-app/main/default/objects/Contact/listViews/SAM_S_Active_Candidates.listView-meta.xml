@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SAM_S_Active_Candidates</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Person_Status__c</columns>
+    <columns>Perm_Work__c</columns>
+    <columns>Perm_Notes__c</columns>
+    <columns>ts2__Desired_Salary__c</columns>
+    <columns>Driving_Licence__c</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>IP_MailingAddressLine2__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>,shods,Asull,Cvill</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <label>SAM&apos;S Active Candidates</label>
+</ListView>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <description>When a candidates compliance is set to Partial Compliant then Date stamp the First Compliance Date field.</description>
+    <environments>Default</environments>
+    <interviewLabel>Record Triggered Flow - Update First Compliance Date {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Record Triggered Flow - Update First Compliance Date</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_First_Compliance_Date</name>
+        <label>Update First Compliance Date</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <inputAssignments>
+            <field>IP_First_ComplianceDate__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_First_Compliance_Date</targetReference>
+        </connector>
+        <filterLogic>(1 OR 2) AND 3</filterLogic>
+        <filters>
+            <field>Compliance_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Partial Compliant</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Compliance_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Compliant</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>IP_First_ComplianceDate__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

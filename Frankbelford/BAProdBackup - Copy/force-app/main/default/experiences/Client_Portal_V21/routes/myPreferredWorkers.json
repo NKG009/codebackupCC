@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "e811bceb-beeb-464e-ae09-7f8b70c61bca",
+  "appPageId" : "6cf45250-dd45-4f57-aa5d-84e94e3c25f8",
+  "configurationTags" : [ ],
+  "devName" : "My_Preferred_Workers__c",
+  "id" : "dca2bd06-9c85-477a-a187-342f3b8fbed2",
+  "label" : "My Preferred Workers",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-my-preferred-workers",
+  "type" : "route",
+  "urlPrefix" : "my-preferred-workers"
+}

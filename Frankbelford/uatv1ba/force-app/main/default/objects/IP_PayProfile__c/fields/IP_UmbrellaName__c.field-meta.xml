@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_UmbrellaName__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Umbrella Company</label>
+    <referenceTo>IP_Umbrellalist__c</referenceTo>
+    <relationshipLabel>Pay Profiles</relationshipLabel>
+    <relationshipName>Pay_Profiles</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

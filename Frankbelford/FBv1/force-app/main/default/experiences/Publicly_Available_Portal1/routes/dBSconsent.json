@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "831a98ba-f73c-4125-86f5-0e0d215fabc1",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "DBSconsent__c",
+  "id" : "7d7dd392-934e-4493-bc47-3fb4266d57dc",
+  "label" : "DBSconsent",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-dbsconsent",
+  "type" : "route",
+  "urlPrefix" : "dbsconsent"
+}

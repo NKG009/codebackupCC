@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>job_match_field__c</fullName>
+    <defaultValue>&quot;Job_Description__c&quot;</defaultValue>
+    <description>This field identifies the field on the Job Object that will be used to perform the search against.  The default field is, Job_Description__c.  The Full API Name is required to be entered into this field to work properly.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field identifies the field on the Contact Object that will be used to perform the search against.  The default field is, Job_Description__c.</inlineHelpText>
+    <label>Job Match Field</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

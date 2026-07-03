@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Task_Outcome_Required_1</fullName>
+    <active>true</active>
+    <description>Task Outcome is required for tasks with Outcome Required set to TRUE</description>
+    <errorConditionFormula>AND
+(
+				 ISPICKVAL(Status, &quot;Completed&quot;),
+				 Outcome_Required__c = TRUE,
+				 ISPICKVAL(Task_Outcome__c , &quot;&quot;) 
+				)</errorConditionFormula>
+    <errorDisplayField>Task_Outcome__c</errorDisplayField>
+    <errorMessage>Please provide Task Outcome</errorMessage>
+</ValidationRule>

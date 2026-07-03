@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_MCPAYE__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( IP_ActivePAYEPayProfiles__c &gt; 0,
+IF( Declaration_Completed__c , &quot;&quot;, &quot;Declaration,&quot;) &amp; 
+IF( PORTW_Completed__c, &quot;&quot;, &quot;PORTW,&quot;) &amp; 
+IF( TOE_Completed__c, &quot;&quot;, &quot;TOE,&quot;)&amp; 
+IF( Medical_Completed__c, &quot;&quot;, &quot;Medical,&quot;) &amp; 
+IF( New_Starter_Form__c , &quot;&quot;, &quot;New Starter Form ,&quot;)&amp; 
+IF( Equal_Opportunity_Completed__c , &quot;&quot;, &quot;Equal Opportunity&quot;), &quot;&quot;)</formula>
+    <label>Missing Compliance Detail PAYE</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

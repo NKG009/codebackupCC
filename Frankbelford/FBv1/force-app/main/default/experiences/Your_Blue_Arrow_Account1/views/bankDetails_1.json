@@ -1,0 +1,54 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "27e57fc7-bcb5-4bd0-a06b-8348baabb4d3",
+  "label" : "BankDetails",
+  "regions" : [ {
+    "id" : "61bc2d3b-06be-4877-9ac3-65dc8efdbf2b",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "cc3ec023-6713-4b3a-956c-550818b5e480",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:BankDetailList",
+      "id" : "00ce8fa3-e26f-4c46-92d9-d4333b0884d0",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a22fc986-b82f-42f5-a7a2-38a0f9771fa6",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "7d5e2fb0-6bc4-46f8-9c41-c0e6226ec379",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "id" : "566182a8-09a4-4ffe-9e5b-10771eac7a78",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "BankDetails"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "5ba2e848-c763-4f4b-a25b-fd679111e3bf",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1aa45ff4-6be7-4aba-8d3a-ea86b2c3d754",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-bankdetails"
+}

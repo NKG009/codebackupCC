@@ -1,0 +1,222 @@
+<template>
+  <div class="slds-var-p-top_x-large">
+    <div class="slds-var-p-top_medium">
+      <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+          <h2 class="table-header slds-var-m-vertical_small">My Profile</h2>
+          <lightning-record-form
+            object-api-name={contactApiName}
+            record-id={contactRecordId}
+            fields={contactFields}
+            mode="view"
+          ></lightning-record-form>
+        </div>
+        <div class="slds-size_1-of-2">
+          <template if:false={hasMultipleSites}>
+            <div class="slds-col">
+              <h2 class="table-header slds-var-m-vertical_small">
+                Site Details
+              </h2>
+              <div>
+                <lightning-record-form
+                  object-api-name={siteApiName}
+                  record-id={displayedSiteId}
+                  fields={siteFields}
+                  mode="readonly"
+                ></lightning-record-form>
+              </div>
+              <h2 class="table-header slds-var-m-vertical_small">
+                Main Contact
+              </h2>
+              <div>
+                <template if:true={hasMainContact}>
+                  <div>
+                    <div class="slds-form-element">
+                      <label
+                        class="slds-form-element__label"
+                        for="main-contact-first-name-input"
+                        >First Name</label
+                      >
+                      <div
+                        class="slds-form-element__control slds-border_bottom"
+                      >
+                        <input
+                          id="main-contact-first-name-input"
+                          type="text"
+                          readonly=""
+                          placeholder=""
+                          class="slds-input"
+                          value={siteRecord.IP_MainContact__r.FirstName}
+                        />
+                      </div>
+                    </div>
+                    <div class="slds-form-element slds-border_bottom">
+                      <label
+                        class="slds-form-element__label"
+                        for="main-contact-last-name-input"
+                        >Last Name</label
+                      >
+                      <div class="slds-form-element__control">
+                        <input
+                          id="main-contact-last-name-input"
+                          type="text"
+                          readonly=""
+                          placeholder=""
+                          class="slds-input"
+                          value={siteRecord.IP_MainContact__r.LastName}
+                        />
+                      </div>
+                    </div>
+                    <div class="slds-form-element slds-border_bottom">
+                      <label
+                        class="slds-form-element__label"
+                        for="main-contact-email-input"
+                        >Email</label
+                      >
+                      <div class="slds-form-element__control">
+                        <input
+                          id="main-contact-email-input"
+                          type="text"
+                          readonly=""
+                          placeholder=""
+                          class="slds-input"
+                          value={siteRecord.IP_MainContact__r.Email}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </template>
+                <template if:false={hasMainContact}
+                  ><p>No main contact specified</p></template
+                >
+              </div>
+              <h2 class="table-header slds-var-m-vertical_small">
+                Emergency Contact
+              </h2>
+              <div>
+                <template if:true={hasEmergencyContact}>
+                  <div>
+                    <div class="slds-form-element slds-border_bottom">
+                      <label
+                        class="slds-form-element__label"
+                        for="emergency-contact-first-name-input"
+                        >First Name</label
+                      >
+                      <div class="slds-form-element__control">
+                        <input
+                          id="emergency-contact-first-name-input"
+                          type="text"
+                          readonly=""
+                          placeholder=""
+                          class="slds-input"
+                          value={siteRecord.Emergency_Contact__r.FirstName}
+                        />
+                      </div>
+                    </div>
+                    <div class="slds-form-element slds-border_bottom">
+                      <label
+                        class="slds-form-element__label"
+                        for="emergency-contact-last-name-input"
+                        >Last Name</label
+                      >
+                      <div class="slds-form-element__control">
+                        <input
+                          id="emergency-contact-last-name-input"
+                          type="text"
+                          readonly=""
+                          placeholder=""
+                          class="slds-input"
+                          value={siteRecord.Emergency_Contact__r.LastName}
+                        />
+                      </div>
+                    </div>
+                    <div class="slds-form-element slds-border_bottom">
+                      <label
+                        class="slds-form-element__label"
+                        for="emergency-contact-email-input"
+                        >Email</label
+                      >
+                      <div class="slds-form-element__control">
+                        <input
+                          id="emergency-contact-email-input"
+                          type="text"
+                          readonly=""
+                          placeholder=""
+                          class="slds-input"
+                          value={siteRecord.Emergency_Contact__r.Email}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </template>
+                <template if:false={hasEmergencyContact}
+                  ><p>No emergency contact specified</p></template
+                >
+              </div>
+              <h2 class="table-header slds-var-m-vertical_small">
+                List of Approvers
+              </h2>
+              <template for:each={siteLinks} for:item="siteLink">
+                <div key={siteLink.Id} class="slds-var-p-bottom_x-large">
+                  <div class="slds-form-element slds-border_bottom">
+                    <label class="slds-form-element__label">First Name</label>
+                    <div class="slds-form-element__control">
+                      <input
+                        type="text"
+                        readonly=""
+                        placeholder=""
+                        class="slds-input"
+                        value={siteLink.IP_Contact__r.FirstName}
+                      />
+                    </div>
+                  </div>
+                  <div class="slds-form-element slds-border_bottom">
+                    <label class="slds-form-element__label">Last Name</label>
+                    <div class="slds-form-element__control">
+                      <input
+                        type="text"
+                        readonly=""
+                        placeholder=""
+                        class="slds-input"
+                        value={siteLink.IP_Contact__r.LastName}
+                      />
+                    </div>
+                  </div>
+                  <div class="slds-form-element slds-border_bottom">
+                    <label class="slds-form-element__label">Email</label>
+                    <div class="slds-form-element__control">
+                      <input
+                        type="text"
+                        readonly=""
+                        placeholder=""
+                        class="slds-input"
+                        value={siteLink.IP_Contact__r.Email}
+                      />
+                    </div>
+                  </div>
+                  <div class="slds-form-element slds-border_bottom">
+                    <label class="slds-form-element__label">Portal Type</label>
+                    <div class="slds-form-element__control">
+                      <input
+                        type="text"
+                        readonly=""
+                        placeholder=""
+                        class="slds-input"
+                        value={siteLink.IP_PortalType__c}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </template>
+          <template if:true={hasMultipleSites}>
+            <h2 class="table-header slds-var-m-vertical_small">
+              Please select an individual site to see its details.
+            </h2>
+          </template>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

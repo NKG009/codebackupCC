@@ -1,0 +1,168 @@
+:host {
+  --sds-c-checkbox-color-background-checked: #029de4;
+  --sds-c-checkbox-mark-color-foreground: #ffffff;
+  --sds-c-button-brand-color-background: #029de4;
+  --sds-c-button-brand-color-background-hover: #029de4;
+  --sds-c-button-brand-color-border: #029de4;
+  --sds-c-button-brand-color-border-hover: #029de4;
+  --sds-c-button-outline-brand-color-border: #029de4;
+  --grey-bg: #f9f9f9;
+}
+
+.main__header {
+  font-size: 2vw;
+}
+
+.flex__row {
+  flex-direction: row;
+}
+
+.table__header__actionbar {
+  padding: 0.5rem 0 0.5rem 0;
+  background-color: var(--grey-bg);
+}
+
+.table__header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--grey-bg);
+}
+
+.table__footer__actionbar {
+  padding: 0.5rem 0 0.5rem 0;
+  background-color: var(--grey-bg);
+}
+
+.brand__button__radius {
+  border-radius: 50px;
+}
+
+.table__select__row {
+  width: 3.25rem;
+}
+
+.body__row,
+.checkbox__column {
+  height: 7vh;
+}
+
+.column_adjust__modal {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  left: 70%;
+}
+
+.clickable__element:hover {
+  cursor: pointer;
+}
+
+.filter__modal {
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  z-index: 2;
+}
+
+.status_box {
+  border-radius: 5px;
+  width: auto;
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
+  color: #53565a;
+  font-size: 16px;
+}
+
+.status_awaiting_approval {
+  background-color: rgb(243, 243, 243);
+}
+
+.status_awaiting_approval_sub_class {
+  background-color: rgb(243, 243, 243);
+}
+
+.status_approved_and_awaiting_processing {
+  background-color: #d7f5ea;
+}
+
+.status_approved_and_awaiting_processing_sub_class {
+  background-color: rgb(243, 243, 243);
+}
+
+.status_processed {
+  background-color: rgb(145, 219, 139);
+}
+
+.status_processed_sub_class {
+  background-color: rgb(145, 219, 139);
+}
+
+.status_rejected {
+  background-color: #ffbfb8;
+}
+
+.status_rejected_sub_class {
+  background-color: rgb(243, 243, 243);
+}
+
+.modalBody {
+  position: relative;
+  min-height: 200px;
+}
+
+.word_wrap {
+  display: inline-table;
+  word-break: break-word;
+}
+
+@media only screen and (min-height: 768px) {
+  .table_layout {
+    overflow-x: auto;
+    max-height: 62vh;
+  }
+}
+
+@media only screen and (min-height: 1000px) {
+  .table_layout {
+    overflow-x: auto;
+    max-height: 69vh;
+  }
+}
+
+.table-header {
+  font-size: 0.88rem;
+  color: #53565a;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+
+.body-text {
+  font-size: 0.88rem;
+  color: #53565a;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.total-hours-container {
+  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+.column-title-text {
+  max-width: 11ch;
+}
+
+.column-header-container {
+  min-width: max-content;
+  display: flex;
+  flex-direction: row;
+  overflow-wrap: break-word;
+  white-space: normal;
+  justify-content: center;
+  text-align: center;
+}

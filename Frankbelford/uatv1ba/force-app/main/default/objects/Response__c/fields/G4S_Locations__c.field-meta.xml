@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>G4S_Locations__c</fullName>
+    <label>G4S Locations</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>G4S_Region__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Bexley - Abbeywood Bexle</fullName>
+                <default>false</default>
+                <label>Bexley - Abbeywood Bexle</label>
+            </value>
+            <value>
+                <fullName>Bexley - LTS 221 Erith Road</fullName>
+                <default>false</default>
+                <label>Bexley - LTS 221 Erith Road</label>
+            </value>
+            <value>
+                <fullName>Bexley - Vine Christian Community Church</fullName>
+                <default>false</default>
+                <label>Bexley - Vine Christian Community Church</label>
+            </value>
+            <value>
+                <fullName>Bexley - Welling Westwood Lane Car Park</fullName>
+                <default>false</default>
+                <label>Bexley - Welling Westwood Lane Car Park</label>
+            </value>
+            <value>
+                <fullName>Birmingham - Aston University Birmingham</fullName>
+                <default>false</default>
+                <label>Birmingham - Aston University Birmingham</label>
+            </value>
+            <value>
+                <fullName>Birmingham- Birmingham Airport</fullName>
+                <default>false</default>
+                <label>Birmingham- Birmingham Airport</label>
+            </value>
+            <value>
+                <fullName>Boston - Castle Market</fullName>
+                <default>false</default>
+                <label>Boston - Castle Market</label>
+            </value>
+            <value>
+                <fullName>Bradford</fullName>
+                <default>false</default>
+                <label>Bradford</label>
+            </value>
+            <value>
+                <fullName>Bromley - Cotmandene Car Park</fullName>
+                <default>false</default>
+                <label>Bromley - Cotmandene Car Park</label>
+            </value>
+            <value>
+                <fullName>Bromley - Crystal Palace Park</fullName>
+                <default>false</default>
+                <label>Bromley - Crystal Palace Park</label>
+            </value>
+            <value>
+                <fullName>Coventry  - Broad Steet Health Centre</fullName>
+                <default>false</default>
+                <label>Coventry  - Broad Steet Health Centre</label>
+            </value>
+            <value>
+                <fullName>Greenwich - Abery Street Car Park</fullName>
+                <default>false</default>
+                <label>Greenwich - Abery Street Car Park</label>
+            </value>
+            <value>
+                <fullName>Greenwich - De Vere LTS testing site</fullName>
+                <default>false</default>
+                <label>Greenwich - De Vere LTS testing site</label>
+            </value>
+            <value>
+                <fullName>Greenwich - RTS Covid-19 Testing site</fullName>
+                <default>false</default>
+                <label>Greenwich - RTS Covid-19 Testing site</label>
+            </value>
+            <value>
+                <fullName>Lambeth -  Angela Davis Industrial Estate</fullName>
+                <default>false</default>
+                <label>Lambeth -  Angela Davis Industrial Estate</label>
+            </value>
+            <value>
+                <fullName>Lambeth - Streatham Common Car Park</fullName>
+                <default>false</default>
+                <label>Lambeth - Streatham Common Car Park</label>
+            </value>
+            <value>
+                <fullName>Lewisham - Molesworth Molesworth Street Car Park</fullName>
+                <default>false</default>
+                <label>Lewisham - Molesworth Molesworth Street Car Park</label>
+            </value>
+            <value>
+                <fullName>Lewisham - Vanguard Street Car Park</fullName>
+                <default>false</default>
+                <label>Lewisham - Vanguard Street Car Park</label>
+            </value>
+            <value>
+                <fullName>Newham - LTS Hilda Road</fullName>
+                <default>false</default>
+                <label>Newham - LTS Hilda Road</label>
+            </value>
+            <value>
+                <fullName>Peterborough</fullName>
+                <default>false</default>
+                <label>Peterborough</label>
+            </value>
+            <value>
+                <fullName>Southwark - Belair Car Park</fullName>
+                <default>false</default>
+                <label>Southwark - Belair Car Park</label>
+            </value>
+            <value>
+                <fullName>Southwark - Park Burgess Park Car Park</fullName>
+                <default>false</default>
+                <label>Southwark - Park Burgess Park Car Park</label>
+            </value>
+            <value>
+                <fullName>Southwark - Wheatsheaf Community Hall</fullName>
+                <default>false</default>
+                <label>Southwark - Wheatsheaf Community Hall</label>
+            </value>
+            <value>
+                <fullName>Southwood - University of Greenwich Avery Hill Campus</fullName>
+                <default>false</default>
+                <label>Southwood - University of Greenwich Avery Hill Campus</label>
+            </value>
+            <value>
+                <fullName>Wellingborough - Market Square</fullName>
+                <default>false</default>
+                <label>Wellingborough - Market Square</label>
+            </value>
+            <value>
+                <fullName>Wigan</fullName>
+                <default>false</default>
+                <label>Wigan</label>
+            </value>
+            <value>
+                <fullName>Worcester - RTS County Hall</fullName>
+                <default>false</default>
+                <label>Worcester - RTS County Hall</label>
+            </value>
+            <value>
+                <fullName>Wychavon -  Pershore Civic Centre</fullName>
+                <default>false</default>
+                <label>Wychavon -  Pershore Civic Centre</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Midlands</controllingFieldValue>
+            <valueName>Birmingham - Aston University Birmingham</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Midlands</controllingFieldValue>
+            <valueName>Birmingham- Birmingham Airport</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Midlands</controllingFieldValue>
+            <valueName>Boston - Castle Market</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Midlands</controllingFieldValue>
+            <valueName>Coventry  - Broad Steet Health Centre</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Midlands</controllingFieldValue>
+            <valueName>Peterborough</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Midlands</controllingFieldValue>
+            <valueName>Wellingborough - Market Square</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Midlands</controllingFieldValue>
+            <valueName>Worcester - RTS County Hall</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Midlands</controllingFieldValue>
+            <valueName>Wychavon -  Pershore Civic Centre</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>London</controllingFieldValue>
+            <valueName>Bexley - Abbeywood Bexle</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>London</controllingFieldValue>
+            <valueName>Bexley - LTS 221 Erith Road</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>London</controllingFieldValue>
+            <valueName>Bexley - Vine Christian Community Church</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>London</controllingFieldValue>
+            <valueName>Bexley - Welling Westwood Lane Car Park</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>London</controllingFieldValue>
+            <valueName>Bromley - Cotmandene Car Park</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>London</controllingFieldValue>
+            <valueName>Bromley - Crystal Palace Park</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>London</controllingFieldValue>
+            <valueName>Greenwich - Abery Street Car Park</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>London</controllingFieldValue>
+            <valueName>Greenwich - De Vere LTS testing site</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>London</controllingFieldValue>
+            <valueName>Greenwich - RTS Covid-19 Testing site</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>London</controllingFieldValue>
+            <valueName>Lambeth -  Angela Davis Industrial Estate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>London</controllingFieldValue>
+            <valueName>Lambeth - Streatham Common Car Park</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>London</controllingFieldValue>
+            <valueName>Lewisham - Molesworth Molesworth Street Car Park</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>London</controllingFieldValue>
+            <valueName>Lewisham - Vanguard Street Car Park</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>London</controllingFieldValue>
+            <valueName>Newham - LTS Hilda Road</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>London</controllingFieldValue>
+            <valueName>Southwark - Belair Car Park</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>London</controllingFieldValue>
+            <valueName>Southwark - Park Burgess Park Car Park</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>London</controllingFieldValue>
+            <valueName>Southwark - Wheatsheaf Community Hall</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>London</controllingFieldValue>
+            <valueName>Southwood - University of Greenwich Avery Hill Campus</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>North</controllingFieldValue>
+            <valueName>Bradford</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>North</controllingFieldValue>
+            <valueName>Wigan</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,5 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction" access="global" >
+   <div class="slds-scrollable_x slds-wrap"> <c:ShiftSearch /></div>
+    <c:ShiftList />
+       
+</aura:component>

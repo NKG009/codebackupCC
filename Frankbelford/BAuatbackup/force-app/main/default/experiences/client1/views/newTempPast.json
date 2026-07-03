@@ -1,0 +1,38 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "48933c7b-e4ca-4963-9692-6146263b726b",
+  "label" : "NewTempPast",
+  "regions" : [ {
+    "id" : "2a6f61fa-4ea0-44aa-a553-00a9f3e64dd0",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "a6292632-552c-4f82-9edc-12c76eba971e",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "6536eac0-ca4a-4000-bc03-e7a632c90167",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "NewTempPast"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "59451888-8906-4d3a-aaec-ec4d91fc5957",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "fafad0ef-17c4-4bd1-be34-7de33b8996b0",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "deMDfO4qwpSMhrrmLqjeQflIbZDiTC",
+  "type" : "view",
+  "viewType" : "custom-pasttemps"
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Peterborough_Daily_Responses_BA</fullName>
+    <columns>NAME</columns>
+    <columns>Status__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Work_Time__c</columns>
+    <columns>Shift_Patterns__c</columns>
+    <columns>NHS_Location__c</columns>
+    <columns>NHS_Job_Roles__c</columns>
+    <columns>Brand__c</columns>
+    <columns>NHS_Source__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>contains</operation>
+        <value>New</value>
+    </filters>
+    <filters>
+        <field>NHS_Location__c</field>
+        <operation>equals</operation>
+        <value>Leicester,Peterborough</value>
+    </filters>
+    <filters>
+        <field>NHS_Job_Roles__c</field>
+        <operation>includes</operation>
+        <value>Biomedical Assistant,Lab Assistant</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Response__c.Blue_Arrow_Response,Response__c.NHS_Test_and_Trace</value>
+    </filters>
+    <filters>
+        <field>Brand__c</field>
+        <operation>equals</operation>
+        <value>Blue Arrow</value>
+    </filters>
+    <label>Peterborough Daily Responses - BA</label>
+</ListView>

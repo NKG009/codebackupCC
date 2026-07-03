@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RECENT_WORKERS</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CONTACT.LAST_UPDATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>6/1/2022 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.LAST_ACTIVITY</field>
+        <operation>greaterOrEqual</operation>
+        <value>6/1/2022</value>
+    </filters>
+    <filters>
+        <field>CONTACT.LAST_UPDATE</field>
+        <operation>lessThan</operation>
+        <value>2/14/2023 12:00 AM</value>
+    </filters>
+    <label>RECENT WORKERS</label>
+</ListView>

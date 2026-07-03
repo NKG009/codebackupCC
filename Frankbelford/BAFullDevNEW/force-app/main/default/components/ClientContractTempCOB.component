@@ -1,0 +1,73 @@
+<apex:component access="global" controller="DynamicUrl">
+<apex:attribute type="String" name="clientid" description="client id"/>
+<apex:attribute type="String" name="contactid" description="test5" assignTo="{!record_Id}"/>
+<apex:attribute type="String" name="contactname" description="contact name"/>
+<apex:attribute type="String" name="firstname" description="first name"/>
+<apex:attribute type="String" name="email" description="email"/>
+
+ <style>
+.linkunderline{
+    text-decoration: none;
+    color: Blue;
+}
+
+</style>
+<html>    
+<table BORDER="0" CELLSPACING="0" style="width:640px;height:700px;background-image:url('{!URLFOR($Resource.ClientContractbackground)}');">
+<tr >
+    <td style="vertical-align:top;text-align:right;height:140px;width:190px;">
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR4-1/c.aspx" id="theLink1"><apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic1.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR5-1/c.aspx" id="theLink2"><apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic2.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR6-1/c.aspx" id="theLink3"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic3.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR7-1/c.aspx" id="theLink4"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic4.jpg')}" /></apex:outputLink>
+   
+    </td>
+      <td style="text-align:right;vertical-align:middle;height:140px;width:460px;">
+     <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR8-1/c.aspx" id="theLink5"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/logo.png')}" /> </apex:outputLink>
+    </td>
+</tr>
+<tr style="width:650px;">
+<td colspan="2" style="vertical-align:top;">
+<br></br>
+<table style="width:630px;">
+<tr style="height:45px;text-align:center;"><td style="text-align:center;">
+<font size="2" face="Arial" color="black"><b>Conditions of Business</b></font>
+</td>
+</tr>
+<tr style="height:200px;text-align:center;"><td style="text-align:left;vertical-align:top;">
+<div style="margin-left:30px;margin-right:10px;margin-top:-10px;">
+<font size="2" face="Arial" color="black">
+
+ 
+     
+Dear {!firstname}, <br></br><br></br>
+
+
+Please click on the link below to read and acknowledge Blue Arrow’s Conditions of Business for the Supply of Flexible Workers:-<br></br><br></br><div style="font-size:13px;">
+<apex:outputLink styleClass="linkunderline"  value="{!TempCOBURL}"
+>• Conditions of Business for the Supply of Flexible Workers <br></br><br></br></apex:outputLink>  </div>
+
+Thanks<br></br>
+    
+Blue Arrow <br></br>
+
+</font>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:100px;">
+<td colspan="2" >
+<apex:image height="80px" width="250px" url="{!URLFOR($Resource.TemplatePics,'picsfolder/IIP_PLAT_19.jpg')}" />
+
+</td>
+
+</tr>
+</table>
+</html>
+
+
+
+</apex:component>

@@ -1,0 +1,17 @@
+:host {
+    --sds-c-checkbox-color-background-checked: #029de4;
+    --sds-c-checkbox-mark-color-foreground: #ffffff;
+    --sds-c-button-brand-color-background: #029de4;
+    --sds-c-button-brand-color-background-hover: #029de4;
+    --sds-c-button-brand-color-border: #029de4;
+    --sds-c-button-brand-color-border-hover: #029de4;
+    --sds-c-button-outline-brand-color-border: #029de4;
+}
+
+.next-previous-button {
+    cursor: pointer;
+}
+
+.next-previous-button-disabled {
+    cursor: default;
+}

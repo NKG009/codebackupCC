@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validation_Format_Check</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF( 
+NOT(ISBLANK(Invoice_PO_Number_Format__c)), 
+AND( 
+NOT(REGEX(Invoice_PO_Number_Format__c, &quot;[!Aa#]+&quot;)) 
+),False 
+)</errorConditionFormula>
+    <errorMessage>Only A,a,# or ! allowed in Validation Format</errorMessage>
+</ValidationRule>

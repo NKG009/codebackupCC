@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Email_to_Payroll</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Send Email to Payroll</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/31.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+
+
+var count = sforce.connection.query(&quot;SELECT count() FROM Attachment where ParentId =&apos;{!IP_PayProfile__c.Id}&apos;&quot;);
+
+var abc = sforce.connection.query(&quot;SELECT IP_PayrollID__c FROM IP_PayProfile__c where Id=&apos;{!IP_PayProfile__c.Id}&apos;&quot;);
+
+records = abc.getArray(&quot;records&quot;); 
+
+var payroll = records[0].IP_PayrollID__c; 
+
+// alert (&quot;&quot;+count);
+
+if(count.size == 0 )
+{
+           alert(&quot;No Documents attached with this Pay profile&quot;);
+}
+
+else{
+   if(payroll==null)           
+{
+ alert(&quot;No PayrollId mentioned to this Pay profile&quot;);
+}
+else
+{
+sforce.apex.execute(&quot;SendemailController&quot;,&quot;sendEmailFunction&quot;,{pid:&quot;{!IP_PayProfile__c.Id}&quot;});
+alert(&apos;Email Sent&apos;);
+window.location.reload( true );
+}
+}</url>
+</WebLink>

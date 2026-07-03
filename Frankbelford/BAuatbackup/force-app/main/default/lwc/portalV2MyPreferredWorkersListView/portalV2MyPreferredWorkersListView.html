@@ -1,0 +1,50 @@
+<template>
+
+  <template if:true={loading}>
+    <div class="spinner slds-align_absolute-center">
+      <lightning-spinner
+        alternative-text="loading"
+        size="large"
+      ></lightning-spinner>
+    </div>
+  </template>
+  <template if:false={loading}>
+    <div class="slds-var-p-top_x-large">
+    
+      <h1 class="main__header">
+        {viewPreferred}
+      </h1>
+      
+      <div class="table__header slds-var-p-top_large">
+        <div class="supplementary__container"></div>
+        <div class="action__container"></div>
+  
+        <div class="slds-grid table__header__actionbar flex__row">
+          <lightning-button
+            variant="brand"
+            label={viewSwitchLabel}
+            onclick={handleViewToggleClick}          >
+          </lightning-button>
+        </div>
+      </div>
+      <div class="table__container">
+
+        
+        
+          <template if:true={isPreferredWorker}>
+            <c-portal-v2-my-preferred-datatable is-preferred-worker={isPreferredWorker} site-id={siteId}
+            ></c-portal-v2-my-preferred-datatable>
+          </template>
+          <template if:false={isPreferredWorker}>
+            <c-portal-v2-my-preferred-datatable is-preferred-worker={isPreferredWorker} site-id={siteId}
+            ></c-portal-v2-my-preferred-datatable>
+          </template>
+        
+      </div>
+      <div class="table__footer__actionbar">
+        
+   
+      </div>
+    </div>
+    </template>
+  </template>

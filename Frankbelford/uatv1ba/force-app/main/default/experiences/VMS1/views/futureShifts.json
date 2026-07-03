@@ -1,0 +1,49 @@
+{
+  "appPageId" : "cb4d05bc-15d6-4e33-beb3-5244832ec585",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "ac3a2e27-e92a-4c3d-8edd-ff6e3f10a693",
+  "label" : "Future Shifts",
+  "regions" : [ {
+    "id" : "827abeaf-9422-4956-abc1-0a12a0232aac",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "VMS_Supplier_Future_Shifts"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "f249e104-1732-45e6-9f2b-faa6e30ac4b2",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9fb98218-4bda-44a0-a3e7-4426ec9a3aea",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "16c2cd8f-1400-4aac-b571-9b38b22dc411",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Future Shifts"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "46086860-9a87-402e-9d10-4b49ebf7c411",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b97a1975-6325-4b88-ac19-68d6a09852e9",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-future-shifts"
+}

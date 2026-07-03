@@ -1,0 +1,3 @@
+<design:component label="Client Community Dashboard">
+    <design:attribute name="brandName"/>
+</design:component>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hovis_Location__c</fullName>
+    <label>Hovis Location</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Avonmouth</fullName>
+                <default>false</default>
+                <label>Avonmouth</label>
+            </value>
+            <value>
+                <fullName>Belfast</fullName>
+                <default>false</default>
+                <label>Belfast</label>
+            </value>
+            <value>
+                <fullName>Bradford</fullName>
+                <default>false</default>
+                <label>Bradford</label>
+            </value>
+            <value>
+                <fullName>Dagenham</fullName>
+                <default>false</default>
+                <label>Dagenham</label>
+            </value>
+            <value>
+                <fullName>Erith</fullName>
+                <default>false</default>
+                <label>Erith</label>
+            </value>
+            <value>
+                <fullName>Forest Gate</fullName>
+                <default>false</default>
+                <label>Forest Gate</label>
+            </value>
+            <value>
+                <fullName>Glasgow</fullName>
+                <default>false</default>
+                <label>Glasgow</label>
+            </value>
+            <value>
+                <fullName>Golborne</fullName>
+                <default>false</default>
+                <label>Golborne</label>
+            </value>
+            <value>
+                <fullName>Nottingham</fullName>
+                <default>false</default>
+                <label>Nottingham</label>
+            </value>
+            <value>
+                <fullName>Sebon</fullName>
+                <default>false</default>
+                <label>Sebon</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

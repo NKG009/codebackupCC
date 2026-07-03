@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Candidates23432432</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>IP_PayrollStatus__c</columns>
+    <columns>IP_MissingPayrollDetail__c</columns>
+    <columns>IP_WorkerStartDate__c</columns>
+    <filterScope>Mine</filterScope>
+    <label>Natalie Jones Candidates</label>
+</ListView>

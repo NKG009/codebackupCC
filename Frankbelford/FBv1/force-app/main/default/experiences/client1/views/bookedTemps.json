@@ -1,0 +1,64 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "e455caff-276a-45dc-9662-b4a3f2eceef6",
+  "label" : "Booked Temps",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"color: rgb(0, 0, 0); font-size: 28px;\">Booked Temps</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "4b31017a-7604-4c89-9595-13bc913fc1c8",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d5395793-66d9-4e27-a4eb-523910b34311",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:BookedTemps",
+      "id" : "c5bfe3a5-5ffb-4d59-9ab9-e21603ba0998",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "76d4922d-17a3-40ec-a68e-2086688872b1",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:HomeLayoutFooter",
+      "id" : "1cd6194b-4a1f-489c-9527-5cb14d5410cb",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "599bde4d-db67-49c4-a29f-eee6f104d752",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Booked Temps"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "da4f747b-f3e7-40f6-8a70-c40225476927",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d0db5c2f-ae73-4558-bb3e-3763cfd58222",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "BaeIvxdmVNAi846Z78i1VuYgMbv85a",
+  "type" : "view",
+  "viewType" : "custom-booked-temps"
+}

@@ -1,0 +1,56 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "f6156ea5-e2d3-4967-af22-ada341790cc0",
+  "label" : "My HR",
+  "regions" : [ {
+    "id" : "126bc016-6c33-44b3-86a0-f300622c5008",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "38c28588-2d86-4036-a7e5-17e1e81471a9",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><strong style=\"font-size: 22px;\">My Benefits</strong></p>\n<p><br></p>\n<p><span style=\"font-size: 20px;\">Click the image below to find out more about Blue Arrows Free Flexible Employee Assistance Programme</span></p>\n<p><br></p>\n<p><a href=\"https://impellam.lightning.force.com/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Png&amp;versionId=068Q500000DFrMS&amp;operationContext=CHATTER&amp;contentId=05TQ500000HOFRy\" rel=\"noopener noreferrer\" target=\"_blank\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Blue_Arrow_Flexible_Employee_Assist1.4}\" style=\"width: 255.234px; height: 360.891px;\"></a></p>\n<p><a href=\"https://impellam--test.sandbox.my.salesforce.com/sfc/p/3L0000000lMO/a/3L0000001GsQ/K3p5NRQ97aqtUPaHM0KPPXt4XVBRkDrlIGTrhl_G7T0\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Blue_Arrow_Flexible_Employee_Assist.1}\"></a></p>\n<p><strong style=\"font-size: 20px;\">My HR Policies &amp; Flexible employee handbook</strong></p>\n<p><br></p>\n<p><span style=\"font-size: 20px;\">See list below for all available documents, click on a document name to view and download a copy</span></p>\n<p><br></p>\n<p><a href=\"https://impellam.my.salesforce.com/sfc/p/0Y000000LzSj/a/4J0000003KzW/1FdJnvpElF4r6AscHggluOltXQIFgZPoYPq4wEV1IOo\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial;\">Blue Arrow - FE Handbook</a></p>\n<p><a href=\"https://impellam.my.salesforce.com/sfc/p/#0Y000000LzSj/a/4J000000j8Dz/2a9UJr2IfoKXoXCpcJnsonOMmFC4JyHaREUJQTklB8M\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial;\">Blue Arrow - FE Public Interest Disclosure (Whistleblowing) Policy</a></p>\n<p><a href=\"https://impellam.my.salesforce.com/sfc/p/0Y000000LzSj/a/4J000000j8E4/Bf8Gd5FwvOJsCIG7ikx5sIuZWFLrTOzZhjQcnJPQF14\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial;\">Blue Arrow - FE Adoption and Surrogacy Policy</a></p>\n<p><a href=\"https://blue-arrow.my.salesforce.com/sfc/p/0Y000000LzSj/a/Q5000001yDY5/xUllreg42X2..FEN1m_OAtmsnf2b9z19UUCPwPnq1II\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial;\">Blue Arrow - FE Dependant Care Leave Policy</a></p>\n<p><a href=\"https://impellam.my.salesforce.com/sfc/p/0Y000000LzSj/a/4J000000j8EE/bvLVd4FusVqaVXpof6wXwK8AeC6u4jElHv1m5trPTNw\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial;\">Blue Arrow - FE Dignity at Work Policy</a></p>\n<p><a href=\"https://impellam.my.salesforce.com/sfc/p/0Y000000LzSj/a/4J000000j8EA/vw0pNvCzydzCky7qO7m2SSj.cipArH.RsoNxTba788o\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial;\">Blue Arrow - FE Disciplinary Policy &amp; Procedure</a></p>\n<p><a href=\"https://impellam.my.salesforce.com/sfc/p/0Y000000LzSj/a/4J000000j8EJ/d1FvVeY2Rtddc9894Xbx8etAvzqNNhlFtGKSSss90KI\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial;\">Blue Arrow - FE Equality Policy</a></p>\n<p><a href=\"https://impellam.file.force.com/sfc/dist/version/renditionDownload?rendition=JPGZ&amp;versionId=068Q500000AWvtX&amp;operationContext=DELIVERY&amp;contentId=05TQ500000DpPdV&amp;page=0&amp;d=/a/Q5000001yDg9/iImozPrP6wpAZtn6wmEml773uwyDqbUqNDC3tXnP2jM&amp;oid=00D0Y000000LzSj&amp;dpt=null&amp;viewId=\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial;\">Blue Arrow - FE Flexible Working Policy</a></p>\n<p><a href=\"https://impellam.my.salesforce.com/sfc/p/0Y000000LzSj/a/4J000000j8ET/DXmxN1Og0YMzwO0G2Cg9KNckX6Jlh1wKa0V_L_pzAmE\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial;\">Blue Arrow - FE Grievance Policy &amp;Procedure</a></p>\n<p><a href=\"https://impellam.my.salesforce.com/sfc/p/0Y000000LzSj/a/4J000000j8Ed/QnJ2hw1Z8R3oBGN7U1RLPYbRp.KGRXo4ECfe9a7AQZE\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial;\">Blue Arrow - FE Health &amp; Safety Policy</a></p>\n<p><a href=\"https://impellam.my.salesforce.com/sfc/p/0Y000000LzSj/a/4J000000j8Ei/om5ni9qAlFgMG6ZDUOmPMqYGuNNj0X5tSmdBssisaqY\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial;\">Blue Arrow - FE Maternity Leave Policy</a></p>\n<p><a href=\"https://blue-arrow.my.salesforce.com/sfc/p/#0Y000000LzSj/a/Q5000004x6FB/yrcOZwcfEPq_biRdPAUhQs7EL_pACP2uCxu0Ity_74I\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(0, 71, 178); font-size: 20px; font-family: arial;\">Blue Arrow - FE Neonatal Care Leave Policy</a></p>\n<p><a href=\"https://impellam.my.salesforce.com/sfc/p/0Y000000LzSj/a/4J000000j8KM/A1n0Peiw867ohD5mYh_3ADQKtu8z7rslX_AJAuUCj4I\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial;\">Blue Arrow - FE Parental Leave Policy</a></p>\n<p><a href=\"https://impellam.file.force.com/sfc/dist/version/renditionDownload?rendition=JPGZ&amp;versionId=068Q500000AWnZU&amp;operationContext=DELIVERY&amp;contentId=05TQ500000DpiPK&amp;page=0&amp;d=/a/Q5000001yDGL/dfxdLD4ExflFusON192Tld4AhuWQAhW_lYYWqoBWkCY&amp;oid=00D0Y000000LzSj&amp;dpt=null&amp;viewId=\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial;\">Blue Arrow - FE Paternity Leave Policy</a></p>\n<p><a href=\"https://impellam.my.salesforce.com/sfc/p/0Y000000LzSj/a/4J000000j8Ex/eo6QOCUgMAseE0Wbs6PN2C5KTSo_g9HdYvuIWaIG274\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial;\">Blue Arrow - FE Shared Parental Leave Policy</a></p>\n<p><a href=\"https://impellam.my.salesforce.com/sfc/p/0Y000000LzSj/a/4J000000j8Ej/iL5l3alth1W45OfcbcOkAxL_K4diUI_3k.WBvJ_2qgc\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial;\">Blue Arrow - FE Sickness Absence Policy &amp; Procedure</a></p>\n<p><a href=\"https://impellam.my.salesforce.com/sfc/p/0Y000000LzSj/a/4J000000j8F2/V4PH1Zivcked_EhAZ1uu9IaaImhJwNABgUZEZsIjCq0\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial;\">Blue Arrow - FE Stop &amp; Search Policy</a></p>\n<p><a href=\"https://impellam.my.salesforce.com/sfc/p/0Y000000LzSj/a/4J000000j8F7/mdaRsqX2VoHiWxRKxmWtcYcb9Btc.5JC3zbZ1C3VUgo\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial;\">Blue Arrow - FE Volunteer Reserve Forces Policy</a></p>\n<p><a href=\"https://impellam.my.salesforce.com/sfc/p/0Y000000LzSj/a/4J000000c4aX/oR41F7KlqMuAkomWqQy8a8dff7Db81ymj1cD8MDb7Ls\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial;\">Blue Arrow - FE Parental Bereavement Leave Policy &amp; Procedure</a></p>\n<p><a href=\"https://impellam.my.salesforce.com/sfc/p/0Y000000LzSj/a/Q50000029Ell/ooqzUzdqDZtFvvFJu7z7EgO_eFKNYtJXGxVpiX9xECE\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"background-color: rgb(223, 241, 253); font-size: 20px; font-family: arial;\">Blue Arrow - FE Complaints Policy</a></p>\n<p><a href=\"https://blue-arrow.my.salesforce.com/sfc/p/#0Y000000LzSj/a/Q5000004nlMs/PjDwPqTW5J.NdcAd7NPh_Z.BxCQ_BlCWCaLPHjSRRAg\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"background-color: rgb(223, 241, 253); font-size: 20px; font-family: arial; color: rgb(0, 71, 178);\">Blue Arrow - FE </a><a href=\"https://blue-arrow.my.salesforce.com/sfc/p/#0Y000000LzSj/a/Q5000004nlMs/PjDwPqTW5J.NdcAd7NPh_Z.BxCQ_BlCWCaLPHjSRRAg\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 20px; font-family: arial; color: rgb(0, 71, 178);\">Bullying Harassment Policy</a></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "9213cf02-1ead-4105-b7ab-8058ce7c692e",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "79e873a2-4b55-4f59-b8fd-eba8de192d9a",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "6c90e7ef-8640-448c-924b-f4712f56cf51",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "id" : "42725ea5-2472-451b-9c2c-315e2d05e918",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My HR and Benefits"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "c6fdd2ee-68e3-48e3-a077-c06d96e32339",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9242517e-fbcf-4420-9be8-178844077a7a",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-my-hr"
+}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Request_Candidate_Consent</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Send GDPR Consent Email</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/apex.js&quot;)}
+
+
+try{ 
+var sheet = sforce.connection.query(&quot;Select id,IP_Last_Consent_Requested__c,IP_Last_Consent_Requested_By__c from Contact where id=&apos;{!Contact.Id}&apos;&quot;); 
+
+records = sheet.getArray(&quot;records&quot;); 
+var requestdate = records[0].IP_Last_Consent_Requested__c; 
+var requestby =  records[0].IP_Last_Consent_Requested_By__c;
+
+var checktime = new Date(requestdate);
+var checkdate = checktime.toLocaleDateString();
+var checktime = checktime.toLocaleTimeString() ;
+var requestdateformula = checkdate + &apos; &apos; + checktime;
+
+if(requestdate==null &amp;&amp; requestby==null) 
+{ 
+
+var callresult = sforce.apex.execute(&quot;CandidateConsentcall&quot;,&quot;sendcall&quot;,{ConID:&quot;{! 
+Contact.Id}&quot;});
+if(callresult == &apos;Created&apos; || callresult == &apos;Updated&apos; || callresult == &apos;Duplicate&apos;)
+{ 
+var c= new sforce.SObject(&quot;Contact&quot;); 
+c.id=&quot;{!Contact.Id}&quot;;
+c.IP_Last_Consent_Requested__c =  new Date(); 
+var user = sforce.connection.getUserInfo(); 
+c.IP_Last_Consent_Requested_By__c = &quot;{!$User.FirstName}&quot; + &apos; &apos; + &quot;{!$User.LastName}&quot;; 
+var results= sforce.connection.update([c]); 
+alert(&apos;Record sent to data store successfully&apos;);
+}
+else {
+alert(&apos;Request could not be sent to data store as : &apos;+callresult);
+} 
+window.location.reload(); 
+} 
+else
+{
+var x = confirm(&apos;Consent for this Candidate was last requested on &apos;+ requestdateformula  + &apos; by &apos; +requestby); 
+if(x==true) 
+{ 
+var callresult = sforce.apex.execute(&quot;CandidateConsentcall&quot;,&quot;sendcall&quot;,{ConID:&quot;{! 
+Contact.Id}&quot;});
+if(callresult == &apos;Created&apos; || callresult == &apos;Updated&apos; || callresult == &apos;Duplicate&apos;)
+{
+var c= new sforce.SObject(&quot;Contact&quot;); 
+c.id=&quot;{!Contact.Id}&quot;;
+
+c.IP_Last_Consent_Requested__c =  new Date(); 
+var user = sforce.connection.getUserInfo(); 
+c.IP_Last_Consent_Requested_By__c = &quot;{!$User.FirstName}&quot; + &apos; &apos; + &quot;{!$User.LastName}&quot;; 
+var results= sforce.connection.update([c]); 
+alert(&apos;Record sent to data store successfully&apos;);
+}
+else {
+alert(&apos;Request could not be sent to data store as : &apos;+callresult);
+} 
+window.location.reload(); 
+} 
+else 
+{ 
+window.location.reload(); 
+}
+}
+}
+catch(e){ 
+alert( 
+&quot;An unexpected Error has Occurred. Error: &quot; + 
+e 
+); 
+}</url>
+</WebLink>

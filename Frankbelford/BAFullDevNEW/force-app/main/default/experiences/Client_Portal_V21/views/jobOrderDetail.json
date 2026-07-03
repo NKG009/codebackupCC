@@ -1,0 +1,55 @@
+{
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "2a56710f-4321-4a1d-b42c-d656c48647ed",
+  "label" : "Job Order Detail",
+  "regions" : [ {
+    "id" : "d5fa2e26-eec2-4cc4-a684-a28c1d733f56",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "forceCommunity:recordHeadline",
+      "id" : "ffdd22e6-6c21-460d-aa0a-2797bfa5a4f9",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2MyJobOrderDetailPage",
+      "id" : "ac28f5b1-bd0f-47d6-9200-a5288ba07bb1",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1193796f-c3e6-461d-9d46-693f99837a16",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "cac9c1dc-a1fb-46ce-94cf-a4823091410b",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "{!Record._Object}: {!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "188d8ab1-b940-4a52-a3fc-401a96991fdd",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e2473ac2-042f-4ea5-af17-06430b710385",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-a5i"
+}

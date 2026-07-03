@@ -1,0 +1,38 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "7a00087e-b57c-4999-88c9-0b9039422601",
+  "label" : "Repeat Booking",
+  "regions" : [ {
+    "id" : "2ed162e9-b90a-40ee-8c94-d2750e20546c",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "e57c8782-19a2-424b-b4cb-8957050971ca",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "850119f2-47df-489c-813c-50ed341cadcb",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Repeat Booking"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "4408dfec-bd7d-49b5-82e9-15329fdf1dbb",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "962d4601-1373-48b3-a780-2ad627e123e5",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "u2tHjmM6wxboQcFRlsPJIuFVHKaFzK",
+  "type" : "view",
+  "viewType" : "custom-fastbooking"
+}

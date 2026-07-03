@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2240_BAL_Worcester_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>2240-BAL Worcester</label>
+    <queue>X2240_BAL_Worcester</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

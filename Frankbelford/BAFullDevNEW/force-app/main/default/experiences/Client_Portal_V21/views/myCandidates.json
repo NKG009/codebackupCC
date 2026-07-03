@@ -1,0 +1,46 @@
+{
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "cfffac00-20fa-4208-8d03-854427d767c6",
+  "label" : "My Candidates",
+  "regions" : [ {
+    "id" : "88228d37-ce43-4a44-91f2-684777cc733d",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2MyCandidates",
+      "id" : "091fd301-e345-4b62-a40e-ec2e121a3c00",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7db68f9f-a600-4e70-90af-9dc3d9aa6300",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "9a80fde6-ff3a-4a33-adcd-047ca706d799",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My Candidates"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "5c9ced6f-8b4b-46e6-973d-c63893c22d7c",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9081d146-3b91-475e-a586-0b074b368d92",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-my-candidates"
+}

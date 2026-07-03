@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "1513d95f-9b94-4222-bca7-bcbb0368bdd6",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "PermForm__c",
+  "id" : "dd9e6403-008f-4759-a53d-611f36d1c33c",
+  "label" : "PermForm",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-permform",
+  "type" : "route",
+  "urlPrefix" : "permform"
+}

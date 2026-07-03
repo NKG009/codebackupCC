@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Trigger_Point__c</fullName>
+    <description>Component from which the email template is triggered from.</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Component from which the email template is triggered from</inlineHelpText>
+    <label>Trigger Point</label>
+    <required>true</required>
+    <type>TextArea</type>
+</CustomField>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2364_Burton_Accounts</fullName>
+    <columns>IP_PORequired__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>IP_InvoiceQueryValue__c</columns>
+    <columns>ACCOUNT.IS_CUSTOMERSUCCESS</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>ts2__Active__c</field>
+        <operation>equals</operation>
+        <value>Yes</value>
+    </filters>
+    <label>2364 - Burton Accounts</label>
+</ListView>

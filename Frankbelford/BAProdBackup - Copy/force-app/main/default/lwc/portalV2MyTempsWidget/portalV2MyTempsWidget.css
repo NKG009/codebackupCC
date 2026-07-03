@@ -1,0 +1,6 @@
+@import "c/portalV2WidgetCSSLibrary";
+
+.scrollable-datatable {
+  height: 200px;
+  overflow-y: auto;
+}

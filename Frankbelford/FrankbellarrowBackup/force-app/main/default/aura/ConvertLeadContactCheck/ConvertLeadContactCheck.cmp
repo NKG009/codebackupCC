@@ -1,0 +1,82 @@
+<aura:component  controller="ConvertNewBusinessControllerLightning">
+    <!-- handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+     <!-- atrributes -->
+    <aura:attribute name="selectedNewBusinessLead" type="String"/>
+    <aura:attribute name="selectedAccountId" type="String"/>
+    <aura:attribute name="selectedSiteId" type="String"/>
+    <aura:attribute name="listMatchingContacts" type="object"/>
+    <aura:attribute name="displayTable" type="Boolean" />
+    <aura:attribute name="messageDisplay" type="String" />
+    <aura:attribute name="errorMessage" type="Boolean" />
+    <aura:attribute name="createNewContactCheckbox" type="Boolean" default="false"/>
+    
+    	<div class="modal-header slds-modal__header slds-size_1-of-1">
+            <h3 class="title titlecolor slds-text-heading--medium" ><b>Convert Lead - Contact Check</b></h3>
+        </div>
+    	<br/><br/>    	
+        <aura:if isTrue="{!v.errorMessage}">
+            <br/><br/><br/><br/>
+            <p style="font-size:15px;color:red;">
+                 <center><b><aura:unescapedHtml value="{!v.messageDisplay}" /></b></center>
+            </p>
+        </aura:if>
+    
+    	<div class="demo-only slds-text-align_left" style="padding:0.5rem;background:#1B5297;">
+        	<div class="slds-text-color_inverse">Contact</div>
+        </div><br/>
+    	<ui:inputCheckbox aura:id="checkbox" label="Create New Contact" change="{!c.onCheck}"/>
+        <br/><br/>
+    
+    	<div class="demo-only slds-text-align_left" style="padding:0.5rem;background:#1B5297">
+        	<div class="slds-text-color_inverse">Matching Contacts</div>
+        </div>
+        <br/><br/>
+    
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead><b></b>
+                <tr>
+                    <th>Name</th>
+                    <th>Job Title</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Owner</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <aura:if isTrue="{!v.displayTable}">
+                        <!-- TO Check if list is not empty-->
+                        <aura:iteration var="contact" items="{!v.listMatchingContacts}" >
+                            <tr>
+                                <td><ui:outputURL value="{!'/'+contact.Id}" label="{!contact.Name}" aura:id="detailCntURL" target="_new"/></td>
+                                <td><ui:outputText value="{!contact.IP_JobTitle__c}"/></td>
+                                <td><ui:outputText value="{!contact.Phone}"/></td>
+                                <td><ui:outputText value="{!contact.Email}"/></td>
+                                <td><ui:outputURL value="{!'/'+contact.Owner.Id}" label="{!contact.Owner.Name}" aura:id="detailOwnerURL" target="_new"/></td>
+                                <td><ui:outputText value="{!contact.Person_Status__c}"/></td>
+                            </tr>
+                        </aura:iteration>
+                    </aura:if>
+                    <aura:if isTrue="{!!v.displayTable}">
+                        <!-- TO Check if list is empty-->
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </aura:if>
+                </tbody>
+        </table>
+            
+		
+        <br/><br/>
+        <center>
+            <lightning:button variant="brand" label="{!$Label.c.Convert}" onclick="{!c.ConvertNewContact}" />&nbsp;&nbsp;
+			<lightning:button variant="neutral" label="{!$Label.c.Cancel}" onclick="{!c.cancelClick}" />&nbsp;&nbsp;
+        </center>
+    
+</aura:component>

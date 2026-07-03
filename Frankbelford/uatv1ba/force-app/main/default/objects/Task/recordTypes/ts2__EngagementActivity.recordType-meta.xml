@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ts2__EngagementActivity</fullName>
+    <active>true</active>
+    <label>Engagement Activity</label>
+    <picklistValues>
+        <picklist>IP_ActivityType__c</picklist>
+        <values>
+            <fullName>Check-In</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Migration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Feedback</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Left Message</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Network</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Send Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Send Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spec Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-P %2F Perm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Visit</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>IP_CandidateCallTypes__c</picklist>
+        <values>
+            <fullName>General Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Left Message</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>IP_EventType__c</picklist>
+        <values>
+            <fullName>Interview</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Visit</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>IP_TaskType__c</picklist>
+        <values>
+            <fullName>Applicant Mailer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Client Drop In</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitor Check-In</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Feedback</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General Task</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Left Message</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mailer%2FE-marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spec Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-P %2F Perm</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Interview__c</picklist>
+        <values>
+            <fullName>Cancelled By Candidate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Show</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rejected By Client</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Successful</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unsuccessful</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority</picklist>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Normal</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status</picklist>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deferred</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Started</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Waiting on someone else</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Subject</picklist>
+        <values>
+            <fullName>To Do</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Task_Outcome__c</picklist>
+        <values>
+            <fullName>Future Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Immediate Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Current Requirement move to CDP</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meeting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ts2__Status__c</picklist>
+        <values>
+            <fullName>accepted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>bounced</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>clicked</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>delivered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>opened</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>sent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>unsubscribed</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

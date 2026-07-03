@@ -1,0 +1,266 @@
+<template>
+    <template if:true={isLoading}>
+        <lightning-spinner size="large" alternative-text="Loading..."></lightning-spinner>
+    </template>
+    <article class="slds-card">
+        <div style="display: flex; justify-content: left;font-size: 1rem;font-weight: 500; border-top-left-radius: 4px;
+                            border-top-right-radius: 4px;
+    background: #e2e2e2;;
+    padding: .5rem;">
+            <lightning-icon icon-name="standard:job_profile" size="small" style="margin-right: 0.5rem;"></lightning-icon>
+            Vend Details
+        </div>
+
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                    <!--<h2 class="slds-card__header-title" style="margin-top:1rem;">
+                        <div style="width: 30%; position: relative;">
+                            <label for="siteInput">Select Site</label>
+                            <input type="text" id="siteInput" class="slds-input" value={searchTerm}
+                        onkeyup={handleSearchChange} onfocus={showDrop} onblur={hideDrop}
+                        placeholder="Type to search site..." style="margin-top: .15rem;"/>
+
+                            <template if:true={isDropdownVisible}>
+                                <ul class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid custom-dropdown">
+                                    <template for:each={filteredSites} for:item="site">
+                                        <li key={site.value} class="slds-dropdown__item" onclick={handleSelectSite}
+                                            data-id={site.value}>
+                                            <span>{site.label}</span>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </template>
+                        </div>
+                    </h2>-->
+                    <template if:true={showtable}>
+                        <div
+                            style="display: flex; justify-content: center;font-size: 1rem; margin-top:1rem; font-weight: 500;">
+                            Site Details
+                        </div>
+                        <hr style="margin-bottom: .5rem; margin-top: .2rem;" />
+
+                        <lightning-layout>
+                            <lightning-layout-item class="slds-p-around_x-small" size="4">
+                                <div class="header-column" style="font-weight:700">
+                                    Site Name : <a class="hovereffect" href={siteRecordUrl} target="_blank">
+                                        {siteName}
+                                    </a>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item class="slds-p-around_x-small" size="4">
+                                <div class="header-column" style="font-weight:700">
+                                    Main Contact : <a class="hovereffect" href={contactRecordUrl} target="_blank">
+                                        {siteMainContact}
+                                    </a>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item class="slds-p-around_x-small" size="4">
+                                <div class="header-column" style="font-weight:700">
+                                    Street Address : <span style="font-weight:500">{siteStreetAddress}</span>
+                                </div>
+                            </lightning-layout-item>
+                        </lightning-layout>
+
+                        <lightning-layout>
+                            <lightning-layout-item class="slds-p-around_x-small" size="4">
+                                <div class="header-column" style="font-weight:700">
+                                    City : <span style="font-weight:500">{siteCity}</span>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item class="slds-p-around_x-small" size="4">
+                                <div class="header-column" style="font-weight:700">
+                                    Postal Code : <span style="font-weight:500">{sitePostalCode}</span>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item class="slds-p-around_x-small" size="4">
+                            </lightning-layout-item>
+                        </lightning-layout>
+
+                        <div
+                            style="display: flex; justify-content: center;font-size: 1rem; margin-top:2rem; margin-bottom:.2rem; font-weight: 500;">
+                            Job Order
+                        </div>
+                        <div>
+                            <div style="overflow: auto;">
+                                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                                    <thead>
+                                        <tr>
+                                            <!--th>Name</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th>Job Role</th>-->
+                                            <th>Instant Vend</th>
+                                            <th>Vended Tier</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <template for:each={allJobOrders} for:item="item">
+                                            <tr key={item.id}>
+                                                <!--<td style="word-wrap: break-word; overflow-wrap: break-word;white-space: normal; max-width: 200px;"><a class="hovereffect" href={item.jobOrderUrl} target="_blank">
+                                                        {item.name}
+                                                    </a></td>
+                                                <td>{item.startDate}</td>
+                                                <td>{item.endDate}</td>
+                                                <td><a class="hovereffect" href={item.jobRoleUrl} target="_blank">
+                                                        {item.jobRoleName}
+                                                    </a>
+                                                </td>-->
+                                                <td>
+                                                    <lightning-input style="display: flex;justify-content: center;"
+                                                        type="checkbox" checked={item.isInstaVended} data-id={item.id}
+                                                        onchange={handleCheckboxChange}>
+                                                    </lightning-input>
+                                                </td>
+                                                <td>{item.InstaVendTier}</td>
+                                            </tr>
+                                        </template>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <template if:false={isjobOrderData}>
+                                <div
+                                    style="display: flex;justify-content: center;padding: 2rem;color: crimson;font-weight: 600;">
+                                    No Job Orders for Site {siteName}.
+                                </div>
+                            </template>
+                            <template if:true={isjobOrderData}>
+                                <div
+                                    style="display: flex;margin-top: .5rem; margin-right: 3rem; justify-content: flex-end;">
+                                    <div class="slds-m-bottom_medium">
+                                        <label style="padding-right:.5rem; font-weight: 500;" for="tierSelect">Vend to Tier</label>
+                                        <select style="border-radius: 5px; padding: 3px;" id="tierSelect" name="tierSelect" onchange={handleTierSelection}>
+                                         <option value="">--None--</option>
+                                         <option value="All Tier">All Tier</option>
+                                         <option value="Tier 1">Tier 1</option>
+                                         <option value="Tier 2">Tier 2</option>
+                                         </select>
+                                    </div>
+                                </div>
+                                <div style="display: flex;margin-top: .1rem; justify-content: center;">
+                                    <div>
+                                        <div class="">
+                                            <lightning-button label="Update" variant="brand"
+                                                onclick={handelupdateJobOrders}>
+                                            </lightning-button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </template>
+
+                        </div>
+
+                        <div
+                            style="display: flex; justify-content: center;font-size: 1rem; margin-top:2rem; margin-bottom:.2rem; font-weight: 500;">
+                            Suppliers
+                        </div>
+                        <div>
+                            <div style="overflow: auto;">
+                                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                                    <thead>
+                                        <tr>
+                                            <th>Supplier</th>
+                                            <!--<th>Active</th>
+                                            <th>SLA</th>-->
+                                            <th>Tier</th>
+                                            <th>Generate Link</th>
+                                            <!--<th>Vended Date/Time</th>-->
+                                            <th>Site Supplier Link</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <template if:true={isSuppliersView}>
+                                            <template for:each={allSuppliers} for:item="supplier">
+                                                <tr key={supplier.Id}>
+                                                    <td><a class="hovereffect" href={supplier.SuppliersUrl}
+                                                            target="_blank">
+                                                            {supplier.SupplierName}
+                                                        </a></td>
+
+                                                    <!--<td>
+                                                        <lightning-input type="checkbox" checked={supplier.Active__c}
+                                                            disabled></lightning-input>
+                                                    </td>
+                                                    <td>{supplier.SLA__c}</td>-->
+
+                                                    <td>
+                                                        <select onchange={handleTierChange} data-id={supplier.Id} style=" border-radius: 3px; text-align: center;" disabled>
+                                                        <template for:each={supplier.tierOption} for:item="option">
+                                                            <option key={option.value} value={option.value} selected={option.selected}>{option.label}</option>
+                                                        </template>
+                                                    </select>
+                                                    </td>
+                                                    <td style="display: flex; justify-content: center;">
+                                                        <button style="font-size: 12px;padding: 8px; height: 20px; border-radius: 7px;" class="slds-button slds-button_success"
+                                                        data-id={supplier.Id} data-name={supplier.SupplierName} onclick={genrateLink}>Link</button>
+                                                    </td>
+                                                    <!--<td>
+                                                        <lightning-formatted-date-time
+                                                            value={supplier.InstantVendDateTime} year="numeric"
+                                                            month="numeric" day="numeric" hour="2-digit"
+                                                            minute="2-digit" time-zone="UTC" time-zone-name="short"
+                                                            hour12={ampm}></lightning-formatted-date-time>
+                                                    </td>-->
+                                                    <td style="text-align: center;">
+                                                        <template if:true={supplier.SiteSupplierLinksId}>
+                                                            <a class="" href={supplier.SiteSupplierLinkUrl}
+                                                                target="_blank">
+                                                                View Details
+                                                            </a>
+                                                        </template>
+                                                    </td>
+                                                </tr>
+                                            </template>
+                                        </template>
+                                    </tbody>
+                                </table>
+                                <template if:true={isChangesfound}>
+                                    <div style="display:flex; justify-content: center;">
+                                        <lightning-button label="Update Tier" onclick={handleSave} variant="brand"
+                                            class="slds-m-top_medium"></lightning-button>
+                                    </div>
+                                </template>
+                            </div>
+                            <template if:false={isSuppliersData}>
+                                <div
+                                    style="display: flex;justify-content: center;padding: 2rem;color: crimson;font-weight: 600;">
+                                    No Suppliers found.
+                                </div>
+                            </template>
+
+                        </div>
+
+
+
+                    </template>
+                </div>
+
+            </header>
+        </div>
+    </article>
+    <!-- Confirmation Modal -->
+    <template if:true={isVendPopupVisible}>
+        <section class="slds-modal slds-fade-in-open" aria-hidden="false" style="width:100%;">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium">Confirmation</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" style="display: flex;justify-content: center;">
+                    <p>Are you sure you want to update the Vend status for&nbsp;
+                        <span style="font-weight: 500;color: #0176D3;">{selectedSuppliername}</span> ?
+                    </p>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button label="Cancel" onclick={hideVendConfirmationPopup}></lightning-button>
+                    <lightning-button style="padding-left:1rem;" label="Confirm" variant="brand"
+                        onclick={handleVendConfirmed}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+</template>

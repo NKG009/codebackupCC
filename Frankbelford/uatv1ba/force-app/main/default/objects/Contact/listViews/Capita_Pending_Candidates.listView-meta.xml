@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Capita_Pending_Candidates</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Registration_Status__c</columns>
+    <columns>ts2__Jobs_Applied_For__c</columns>
+    <columns>CONTACT.LAST_UPDATE</columns>
+    <columns>UPDATEDBY_USER.ALIAS</columns>
+    <columns>Person_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Pending</value>
+    </filters>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>equals</operation>
+        <value>1375</value>
+    </filters>
+    <filters>
+        <field>Registration_Status__c</field>
+        <operation>equals</operation>
+        <value>KID,Contact Details,Work Details,Compliance,No Show</value>
+    </filters>
+    <label>Capita Pending Candidates</label>
+</ListView>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Module_Value__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ OR(
+  ISPICKVAL( Module_Name__c , &quot;Cost Reduction (1M)&quot;),
+  ISPICKVAL(Module_Name__c, &quot;Customer Service (1M)&quot;),
+ISPICKVAL(Module_Name__c, &quot;DCPC First Aid (1M)&quot;),
+ISPICKVAL(Module_Name__c, &quot;Depot Safety (1M)&quot;),
+ISPICKVAL(Module_Name__c, &quot;Other (1M)&quot;),
+ISPICKVAL(Module_Name__c, &quot;Roadside Safety – Recovery Vehicle (1M)&quot;),
+ISPICKVAL(Module_Name__c, &quot;Safe Culture (1M)&quot;),
+ISPICKVAL(Module_Name__c, &quot;Urban (1M)&quot;),
+ISPICKVAL(Module_Name__c, &quot;Smiths Training (1M)&quot;)
+  ),
+ 1,
+ 0.5
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Module Value</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

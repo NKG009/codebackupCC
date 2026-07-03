@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>For_P45_batch__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field to check that we do not face any issue with batch in the trigger of pay profile</description>
+    <label>For P45 batch</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

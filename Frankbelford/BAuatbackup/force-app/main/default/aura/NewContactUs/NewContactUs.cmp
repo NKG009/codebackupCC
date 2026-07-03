@@ -1,0 +1,177 @@
+<!-- NewContactUs -->
+<aura:component implements="forceCommunity:availableForAllPageTypes,forceCommunity:themeLayout,lightning:isUrlAddressable" access="global" controller="ContactUsController">
+    <ltng:require styles="{!join(',',
+                          $Resource.assetsTest+'/assets/css/jquery-ui.css',
+ 						$Resource.webUI+'/assets/css/all.css',
+                          $Resource.webUI+'/assets/css/fontawesome.css',
+                          $Resource.webUI+'/assets/css/fontawesome.min.css',
+                          $Resource.webUI+'/assets/css/dataTables.bootstrap.min.css',
+                          $Resource.webUI+'/assets/css/jquery.dataTables.min.css',
+                          $Resource.webUI+'/assets/css/responsive.bootstrap.min.css',
+                          $Resource.Tjcss2+'/assets/css/main.css'
+  
+                          )
+                          }"
+                  scripts="{!join(',',
+                           $Resource.Tjcss+'/assets/js/main.min.js',
+                           $Resource.webUI+'/assets/js/custom.js'
+                           )}"
+                  />
+    <aura:attribute name="siteList" type="List" access="global"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="UserName" type="String"/>
+    <aura:attribute name="errors" type="String"/>
+    <aura:attribute name="casesubject" type="string" />
+    <aura:attribute name="casedescription" type="string" />
+    <aura:attribute name="objInfo" type="case" default="{sobjectType : 'Case'}" />
+    <aura:attribute name="userInfo" type="User" access="global"/>
+    <aura:attribute name="selectedSite" type="String"/>
+    <head>
+        <title>Impellam Project</title>
+    </head>
+    <body>
+        
+        
+        <div class="container-fluid">
+            
+            <nav class="headeNav">
+                <div class="visible-xs mobile-nav">
+                    <img src="{!$Resource.Tjcss + '/assets/img/mobile-nav.png'}" alt="Mobile Icon" title="Click to slide"/>
+                </div>
+                <a href="" class="logo" title="BlueArrow">
+                    <img src="{!$Resource.Tjcss + '/assets/img/impellam-logo-blue.png'}" alt="Impellam Logo" Title="Impellam"/>
+                </a>
+                
+                <ul class="headeNav__right">
+                    <li>
+                        <a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="hidden-xs hidden-sm">{!v.userInfo.Name}</span> 
+			          		  <aura:if isTrue="{!v.userInfo.User_Image__c != null}">
+                                <img src="{!v.userInfo.User_Image__c}" alt=""/>
+                                <aura:set attribute="else">
+                                    <img src="" class="imag" alt=""/>
+                                </aura:set> 
+                            </aura:if>
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="" onclick="{!c.myProfileNavigate}" title="My Profile">My Profile</a></li>
+			            	<li><a href="" onclick="{!c.siteManagementNavigate}" title="Setting">Site Management</a></li>
+			            	<li><a href="" onclick="{!c.logout}" title="Logout">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="col-sm-4 col-md-3 headeNav__selectpicker">
+                    <div class="btn-group bootstrap-select">
+                           <ui:inputSelect aura:id="siteId" class="slselect" label="Site Name" change="{! c.siteChanged }">
+                     <aura:iteration items="{!v.siteList}" var="item" >
+                            <option text="{!item.label}" value="{!item.value}" selected="{!item.selected}"/>
+         </aura:iteration>
+                    </ui:inputSelect>      
+                      
+                    </div>
+                </div>
+                <!--<span class="headeNav__search">
+                    <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <img src="{!$Resource.Tjcss+'/assets/img/notify-icon.png'}" alt="User"/> 
+                        <span class="badge">2</span>
+                    </a>
+                </span>
+                <span class="headeNav__search">
+                    <input type="search" name="Search" placeholder="Search"/>
+                    <img src="{!$Resource.Tjcss+'/assets/img/search-icon.png'}" alt="User"/> 
+                </span>-->
+            </nav>
+            <div class="timesheet-section">
+                
+                <ul class="dashboard-section__leftNav">
+                    <li class="dashboard-section__leftNav--dashboard">
+                        <a href="javascript:void(0)" onclick="{!c.dashboardnavigate}" title="Dashboard"><div>Dashboard</div></a>
+                    </li>
+                    <li class="dashboard-section__leftNav--timesheets"> 
+                        <a href="" title="Timesheets"><div>Timesheets</div></a> 
+                        <ul> 
+                             <li>
+                                <a href="javascript:void(0)" onclick="{!c.shiftsToBeApprovedDataView}" title="Shifts to be approved">Shifts to be approved</a>
+                            </li> 
+                            <li>
+                                <a href="javascript:void(0)" onclick="{!c.candidateView}" title="Shifts by temp name">Shifts by temp name</a>
+                            </li> 
+                            <li>
+                                <a href="javascript:void(0)" onclick="{!c.gotoApprovedTimesheet}" title="Approved Timesheets">Approved Timesheets</a>
+                            </li> 
+                        </ul> 
+                    </li>
+                     <li class="dashboard-section__leftNav--timesheets background"> 
+                        <a href="" title="My Rates &amp; Costs" onclick="{!c.myrates}"><div>My Rates &amp; Costs</div></a> 
+                    
+                    </li> 
+                    <li class="dashboard-section__leftNav--vacancies">
+                        <a href="" title="My Shifts"><div>My Shifts</div></a>
+                        <ul> 
+                            <li>
+                                    <a href="" onclick="{!c.activeVacancy}" title="Current Shits">Current Shifts</a>
+                                </li> 
+                                <li>
+                                    <a href="" onclick="{!c.pastVacancyNavigate}" title="Previous Shifts">Previous Shifts</a>
+                                </li> 
+                                <li>
+                                    <a href="" onclick="{!c.fastBookingNavigate}" title="Repeat Booking">Repeat Booking</a>
+                                </li> 
+                                <li>
+                                    <a href="" onclick="{!c.newVacancyNavigate}" title="Shift/Vacancy Request">Shift/Vacancy Request</a>
+                                </li>
+                        </ul> 
+                    </li>
+                    <li class="dashboard-section__leftNav--temp">
+                        <a href="" title="My Temps"><div>My Temps---</div></a>
+                        <ul> 
+							<li>
+								<a href="" onclick="{!c.bookedTempsNavigate}" title="Booked Temps">Booked Temps</a>
+							</li> 
+							<li>
+								<a href="" onclick="{!c.pastTempsNavigate}" title="Past Temps">Past Temps</a>
+							</li>
+						</ul>
+                    </li>
+                    <li class="dashboard-section__leftNav--contact active">
+                        <a href="" onclick="{!c.contactUsNavigate}" title="Contact Us"><div>Contact Us</div></a>
+                    </li>
+                </ul>
+                
+                <div class="timesheet-section__right-part">
+                    <ol class="breadcrumb">
+                        <li><a href="javascript:void(0)" onclick="{!c.dashboardnavigate}" title="Dashboard">Dashboard</a></li>
+                        <li class="active">Contact Us</li>
+                    </ol>
+                    <div class="search-section vacancies-section">
+                        
+                        <form class="row">
+                            <div class="col-sm-12">
+                                <label class="global-label">Subject</label>
+                                <ui:inputSelect  aura:id="caseSubject" class="slds-select mainLoginInput" />
+                            </div>&nbsp; &nbsp; &nbsp;
+                            <div class="col-sm-12">
+                                <label class="global-label mainLoginInput">Your Query</label>&nbsp;
+                                <ui:inputTextArea aura:id="Query" label=""  value="{!v.casedescription}"  rows="10" cols="68"  placeholder="Enter your description..."  class="mainLoginInput"/>
+                            </div>
+                            <div class="col-sm-12 text-right">
+                                <lightning:button label="Submit" class="action-button accept" variant="Brand" onclick="{!c.submitcase}" /> 
+                                <button type="reset" class="action-button decline">Clear</button>
+                            </div>
+                        </form>
+                    </div>
+                    <footer>
+                        <div class="row">
+                            <div class="col-sm-6"><p> &copy; Blue Arrow, All rights reserved 2019.</p></div>
+                            <div class="col-sm-6"><p>Regd Address:  800 The Boulevard, Capability Green, Luton, Bedfordshire, LU1 3BA. Company No. 00641659</p></div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+        <div class="sidenav-overlay"></div>
+        <div class="search-overlay"></div>
+        
+    </body>
+    
+</aura:component>

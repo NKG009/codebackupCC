@@ -1,0 +1,65 @@
+.THIS a:hover {
+    text-decoration: underline;
+}
+.THIS .errormessag
+{
+    color:red;
+    font-size:initial;
+   
+}
+.THIS .login + label {
+  display: block;
+  position: relative;
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #8acaf4;
+  -webkit-transition: width 0.4s ease;
+  transition: width 0.4s ease;
+  height: 0;
+}
+
+.THIS .login + label > span .fa-2x {
+  font-size: 18px;
+  font-size: 1.8rem;
+  margin-right: 0.5rem;
+}
+.THIS .login:focus + label > span {
+  top: -5rem;
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+.THIS .login:focus + label > span .fa-2x {
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+.THIS .login:valid + label > span {
+  top: -5rem;
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+.THIS .login:valid + label .fa-2x {
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+.THIS .errormessag
+{
+    color:red;
+    font-size:initial;
+    padding-top:80px;
+}
+.THIS .login-btn{
+    margin-top: 1rem !important;
+}
+.THIS .texttransform{
+    text-transform: none !important;
+}
+.THIS .input{
+        border: none !important;
+}
+.THIS .custom-model + input{
+     border: none !important;
+}
+.THIS .removeBorderCSS{
+     border: none !important;
+}

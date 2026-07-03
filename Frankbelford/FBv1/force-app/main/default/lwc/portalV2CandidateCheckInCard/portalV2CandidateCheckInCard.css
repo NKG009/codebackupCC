@@ -1,0 +1,183 @@
+@import "c/portalV2CSSLibrary";
+
+.card-small {
+  width: var(--card-small-width);
+  height: var(--card-small-height);
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px #00000029;
+}
+
+/*
+    Typography
+*/
+.time-display-text {
+  font-size: 0.6rem;
+  color: #53565a;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.name-text-large {
+  font-size: 1.25rem;
+  text-align: center;
+}
+.name-text-medium {
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.started-finished-text {
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 1921px) {
+  /*
+    Typography
+*/
+  .time-display-text {
+    font-size: 1.25rem;
+    color: #53565a;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
+  .name-text-large {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .name-text-medium {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .started-finished-text {
+    font-size: 1.25rem;
+  }
+}
+
+.grid-container {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  padding-inline: 5%;
+  padding-block: 2.5%;
+  grid-template-rows: 1fr 4fr 1fr 3fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "confirmed confirmed"
+    "name name"
+    "started-text finished-text"
+    "started-icon finished-icon"
+    "started-time finished-time";
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+
+/*
+    Grid areas
+*/
+.confirmed-container {
+  grid-area: confirmed;
+  gap: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.candidate-name {
+  grid-area: name;
+  display: flex;
+}
+.started-text {
+  grid-area: started-text;
+}
+.finished-text {
+  grid-area: finished-text;
+}
+.started-icon {
+  grid-area: started-icon;
+  position: relative;
+}
+.finished-icon {
+  grid-area: finished-icon;
+  position: relative;
+}
+.started-time {
+  grid-area: started-time;
+}
+.finished-time {
+  grid-area: finished-time;
+}
+
+/*
+    Icons
+*/
+.confirmed-check {
+  --sds-c-icon-color-foreground-default: var(--colour-positive-green);
+  min-width: 2em;
+}
+/* .confirmed-check >  */
+.accepted-icon {
+  --sds-c-icon-color-background: var(--colour-positive-green);
+}
+.rejected-icon {
+  --sds-c-icon-color-background: var(--colour-negative-red);
+}
+
+/*
+  Modal
+*/
+
+.triangle {
+  position: relative;
+}
+.triangle::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin-left: -0.5em;
+  top: 0em;
+  left: 59.5%;
+  box-sizing: border-box;
+  border: 1em solid black;
+  border-color: transparent transparent var(--colour-white) var(--colour-white);
+  transform-origin: 0 0;
+  transform: rotate(135deg);
+  box-shadow: -4px 2px 4px 0px #00000029;
+}
+
+.finish-shift-modal-container {
+  position: absolute;
+  top: 60%;
+}
+
+.modal-body-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+
+  width: 20em;
+  height: fit-content;
+
+  border-radius: 10px;
+  margin: 2em;
+  padding: 1em;
+
+  background-color: var(--colour-white);
+  box-shadow: 0px 4px 4px 0px #00000029;
+}
+
+.time-input {
+  width: 100%;
+}
+.submit-button {
+  align-self: flex-end;
+}

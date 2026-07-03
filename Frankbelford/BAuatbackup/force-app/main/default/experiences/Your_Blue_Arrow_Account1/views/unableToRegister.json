@@ -1,0 +1,170 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "0ee53a8a-546c-4593-aa50-427038a3732c",
+  "label" : "Unable to register",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "73f4eea6-f6e9-43d3-bcaf-1ba768bb0a29",
+          "columns" : [ {
+            "UUID" : "e77ede0f-9390-49dd-83fa-d95c3630c6fe",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "73f4eea6-f6e9-43d3-bcaf-1ba768bb0a29",
+      "regions" : [ {
+        "id" : "e77ede0f-9390-49dd-83fa-d95c3630c6fe",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "9e7c6f07-0c22-4cf1-9002-d7ed0eccff1c",
+          "columns" : [ {
+            "UUID" : "9312cc6a-4ba0-46c6-854b-7cad5e9f406f",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "3",
+            "seedComponents" : [ ]
+          }, {
+            "UUID" : "6a1b7ab8-6cc8-43c9-a414-b21bef44eaa5",
+            "columnKey" : "35271",
+            "columnName" : "Column 2",
+            "columnWidth" : "6",
+            "seedComponents" : [ ]
+          }, {
+            "UUID" : "d45336cc-e613-4c29-bc96-487d249b4d7a",
+            "columnKey" : "aea9e",
+            "columnName" : "Column 3",
+            "columnWidth" : "3",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "9e7c6f07-0c22-4cf1-9002-d7ed0eccff1c",
+      "regions" : [ {
+        "id" : "9312cc6a-4ba0-46c6-854b-7cad5e9f406f",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "richTextValue" : "<p style=\"text-align: center;\"><img class=\"sfdcCbImage\" src=\"{!contentAsset.BA_logo_White_2017_Transparent3.1}\" alt=\"\" style=\"width: 412.469px; height: 70.0781px;\"></p>"
+          },
+          "componentName" : "forceCommunity:richTextInline",
+          "id" : "2ccff032-9ac2-4fa2-9b35-5b596024d230",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : {
+            "richTextValue" : "<div style=\"min-height: 150px\">\n    <div style=\"\ncontent: '';\n    position: absolute;\n    top: -100px;\n    bottom: -100px;\n    left: 160px;\n    right: 160px;\n    padding: 20px;\n    z-index: -1;\n    background-color: var(--lwc-CardBackgroundColor,rgb(0, 171, 227));\n    border-radius: 4px;\n    \">\n        <div style=\"\n           display: inline;\n           position: absolute;\n           top: 40%;\n           left: 15%;\n           right: 15%;\n           bottom: -100px;\">\n            <p style=\"font-size: 16px;\">Thank you for your interest, unfortunately you are unable to progress further at this stage due to not currently being able to work in the UK.</p>\n            <br>\n            <p style=\"font-size: 16px;\">Please contact us if your circumstances change in the future.</p>\n        </div>\n    </div>\n</div>"
+          },
+          "componentName" : "forceCommunity:htmlBlock",
+          "id" : "b2168123-1d2b-4631-83bd-55f4597796b6",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : {
+            "richTextValue" : "<p><a href=\"https://mytempagency.bluearrow.co.uk\" rel=\"noopener noreferrer\" target=\"_self\" style=\"color: rgb(255, 255, 255); font-size: 24px;\"><strong>Already Registered?</strong></a></p>"
+          },
+          "componentName" : "forceCommunity:richTextInline",
+          "id" : "ac04bec7-6a70-44f2-9b3f-cc126e34497d",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "6a1b7ab8-6cc8-43c9-a414-b21bef44eaa5",
+        "regionLabel" : "Column 2",
+        "regionName" : "35271",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "id" : "d45336cc-e613-4c29-bc96-487d249b4d7a",
+        "regionLabel" : "Column 3",
+        "regionName" : "aea9e",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "a64837b1-e36d-45f2-a0cc-36506dd2cf35",
+          "columns" : [ {
+            "UUID" : "2882f90c-29c8-43f2-8934-ec87f88d2363",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "a64837b1-e36d-45f2-a0cc-36506dd2cf35",
+      "regions" : [ {
+        "id" : "2882f90c-29c8-43f2-8934-ec87f88d2363",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9a4efed0-f2e4-4e00-8b39-3c1a11d2c03d",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Unable to register"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "8a59a1ef-9f4c-492f-bd3d-74ad1ad53c24",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6941464b-2472-47e0-8669-3fbedd47853f",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-unable-to-register"
+}

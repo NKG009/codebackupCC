@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stop_updating_to_Sirenum_Impellam_Admin</fullName>
+    <active>true</active>
+    <description>This validation rule stops consultants updating the candidates ownership to Sirenum Impellam Admin.</description>
+    <errorConditionFormula>AND(
+NOT($Profile.Name = &apos;System Administrator&apos;),
+Owner__c = &apos;Blue Arrow Admin&apos;,
+ISCHANGED(Owner__c)
+)</errorConditionFormula>
+    <errorMessage>Candidate cannot be owned by Sirenum Impellam Admin, please transfer ownership to a Blue Arrow member of staff.</errorMessage>
+</ValidationRule>

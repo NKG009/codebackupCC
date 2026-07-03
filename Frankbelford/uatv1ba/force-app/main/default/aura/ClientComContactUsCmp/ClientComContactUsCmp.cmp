@@ -1,0 +1,50 @@
+<!-- NewContactUs -->
+<aura:component implements="forceCommunity:availableForAllPageTypes,lightning:isUrlAddressable" access="global" controller="ContactUsController" description="ClientComContactUsCmp">
+    <ltng:require styles="{!join(',',
+                            $Resource.assetsTest+'/assets/css/jquery-ui.css',
+ 						    $Resource.webUI+'/assets/css/all.css',
+                            $Resource.webUI+'/assets/css/fontawesome.css',
+                            $Resource.webUI+'/assets/css/fontawesome.min.css',
+                            $Resource.webUI+'/assets/css/dataTables.bootstrap.min.css',
+                            $Resource.webUI+'/assets/css/jquery.dataTables.min.css',
+                            $Resource.webUI+'/assets/css/responsive.bootstrap.min.css',
+                            $Resource.Tjcss2+'/assets/css/main.css')}"
+                  scripts="{!join(',',
+                           $Resource.Tjcss+'/assets/js/main.min.js',
+                           $Resource.webUI+'/assets/js/custom.js'
+                           )}"
+    />
+    <aura:attribute name="site" type="String" access="global"/>
+    <aura:attribute name="UserName" type="String"/>
+    <aura:attribute name="errors" type="String"/>
+    <aura:attribute name="casesubject" type="string" />
+    <aura:attribute name="casedescription" type="string" />
+    <aura:attribute name="objInfo" type="case" default="{sobjectType : 'Case'}" />
+    <aura:attribute name="userInfo" type="User" access="global"/>
+    <aura:attribute name="selectedSite" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="timesheet-section__right-part">
+        <ol class="breadcrumb">
+            <li><a href="javascript:void(0)" onclick="{!c.dashboardNavigate}" title="Dashboard">Dashboard</a></li>
+            <li class="active">Contact Us</li>
+        </ol>
+        <div class="search-section vacancies-section">
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <label class="global-label">Subject</label>
+                    <ui:inputSelect  aura:id="caseSubject" class="slds-select mainLoginInput" />
+                </div>&nbsp; &nbsp; &nbsp;
+                <div class="col-sm-12">
+                    <label class="global-label mainLoginInput">Your Query</label>&nbsp;
+                    <ui:inputTextArea aura:id="Query" label=""  value="{!v.casedescription}"  rows="10" cols="68"  placeholder="Enter your description..."  class="mainLoginInput"/>
+                </div>
+                <div class="col-sm-12 text-right">
+                    <lightning:button label="Submit" class="action-button accept" variant="Brand" onclick="{!c.submitCase}" />
+                    <button type="reset" class="action-button decline">Clear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

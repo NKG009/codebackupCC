@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DBS_Nottingham_Recruiterbot_responses</fullName>
+    <columns>NAME</columns>
+    <columns>Question_1__c</columns>
+    <columns>Question_2__c</columns>
+    <columns>Question_3__c</columns>
+    <columns>Question_4__c</columns>
+    <columns>Question_5__c</columns>
+    <columns>Question_6__c</columns>
+    <columns>Email__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Campaign__c</field>
+        <operation>equals</operation>
+        <value>NE AH Jobs Fair Nottingham</value>
+    </filters>
+    <filters>
+        <field>Question_4__c</field>
+        <operation>equals</operation>
+        <value>Yes</value>
+    </filters>
+    <label>DBS Nottingham Recruiterbot responses</label>
+</ListView>

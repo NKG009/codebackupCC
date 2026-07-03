@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>50.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <choices>
+        <name>Blank</name>
+        <choiceText>-None-</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>No</name>
+        <choiceText>No</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>No</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Yes</name>
+        <choiceText>Yes</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Yes</stringValue>
+        </value>
+    </choices>
+    <decisions>
+        <name>Bypass_flow</name>
+        <label>Bypass flow</label>
+        <locationX>221</locationX>
+        <locationY>528</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Bypass_flow1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Bypass_Flows__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Retail_Screen</targetReference>
+            </connector>
+            <label>Bypass flow1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Retail_Competencies</name>
+        <label>Retail Competencies</label>
+        <locationX>780</locationX>
+        <locationY>312</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Care_Worker</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>What_type_of_Retail_work_are_you_interested_in</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Care Worker</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Create_Care_Worker</leftValueReference>
+                <operator>WasVisited</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Care_Worker</targetReference>
+            </connector>
+            <label>Care Worker</label>
+        </rules>
+        <rules>
+            <name>Cashier</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>What_type_of_Retail_work_are_you_interested_in</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Cashier</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Create_Cashier</leftValueReference>
+                <operator>WasVisited</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Cashier</targetReference>
+            </connector>
+            <label>Cashier</label>
+        </rules>
+        <rules>
+            <name>Merchandiser</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>What_type_of_Retail_work_are_you_interested_in</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Merchandiser</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Create_Merchandiser</leftValueReference>
+                <operator>WasVisited</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Merchandiser</targetReference>
+            </connector>
+            <label>Merchandiser</label>
+        </rules>
+        <rules>
+            <name>Shelf_Replenishment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>What_type_of_Retail_work_are_you_interested_in</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Shelf Replenishment</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Create_Shelf_Replenishment</leftValueReference>
+                <operator>WasVisited</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Shelf_Replenishment</targetReference>
+            </connector>
+            <label>Shelf Replenishment</label>
+        </rules>
+    </decisions>
+    <description>PT1 - 1396 Fast Registration</description>
+    <dynamicChoiceSets>
+        <name>CategoryofWork</name>
+        <dataType>Multipicklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Category_of_Work__c</picklistField>
+        <picklistObject>Work_Detail__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Catering_Jobs</name>
+        <dataType>Multipicklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Catering_Jobs__c</picklistField>
+        <picklistObject>Work_Detail__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Driving_Jobs_Set</name>
+        <dataType>Multipicklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Driving_Jobs__c</picklistField>
+        <picklistObject>Work_Detail__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Facilities_Jobs_Set</name>
+        <dataType>Multipicklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Facilities_Jobs__c</picklistField>
+        <picklistObject>Work_Detail__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Manufacturing_Jobs_Set</name>
+        <dataType>Multipicklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Manufacturing_Jobs__c</picklistField>
+        <picklistObject>Work_Detail__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Office_Job_Set</name>
+        <dataType>Multipicklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Office_Jobs__c</picklistField>
+        <picklistObject>Work_Detail__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Other_Jobs_Set</name>
+        <dataType>Multipicklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Other_Jobs__c</picklistField>
+        <picklistObject>Work_Detail__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Part_Full_Time</name>
+        <dataType>Multipicklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Part_Full_Time__c</picklistField>
+        <picklistObject>Work_Detail__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Perm_Temp_Work</name>
+        <dataType>Multipicklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Temp_Perm_Work__c</picklistField>
+        <picklistObject>Work_Detail__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Retail_Job_Set</name>
+        <dataType>Multipicklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Retail_Jobs__c</picklistField>
+        <picklistObject>Work_Detail__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Road_Knowledge_Set</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>How_comprehensive_is_your_UK_geography__c</picklistField>
+        <picklistObject>Work_Detail__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Sector_Set</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Sector__c</picklistField>
+        <picklistObject>Work_Detail__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Timeofdayset</name>
+        <dataType>Multipicklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Time_of_Day__c</picklistField>
+        <picklistObject>Work_Detail__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Warehouse_Jobs_Set</name>
+        <dataType>Multipicklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Warehouse_Jobs__c</picklistField>
+        <picklistObject>Work_Detail__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Weekday_Weekend_Set</name>
+        <dataType>Multipicklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Days_Available__c</picklistField>
+        <picklistObject>Work_Detail__c</picklistObject>
+    </dynamicChoiceSets>
+    <environments>Default</environments>
+    <formulas>
+        <name>CandidateID</name>
+        <dataType>String</dataType>
+        <expression>{!$User.ContactId}</expression>
+    </formulas>
+    <interviewLabel>Online Registration - Retail Work Details {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Online Registration - Retail Work Detail</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_Care_Worker</name>
+        <label>Create Care Worker</label>
+        <locationX>1251</locationX>
+        <locationY>429</locationY>
+        <connector>
+            <targetReference>Retail_Competencies</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>sirenum__Owner__c</field>
+            <value>
+                <elementReference>CandidateID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>sirenum__TicketType__c</field>
+            <value>
+                <stringValue>a6uPv0000008Aw1IAE</stringValue>
+            </value>
+        </inputAssignments>
+        <object>sirenum__Ticket__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Cashier</name>
+        <label>Create Cashier</label>
+        <locationX>901</locationX>
+        <locationY>142</locationY>
+        <connector>
+            <targetReference>Retail_Competencies</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>sirenum__Owner__c</field>
+            <value>
+                <elementReference>CandidateID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>sirenum__TicketType__c</field>
+            <value>
+                <stringValue>a6uPv0000008AsqIAE</stringValue>
+            </value>
+        </inputAssignments>
+        <object>sirenum__Ticket__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Merchandiser</name>
+        <label>Create Merchandiser</label>
+        <locationX>1068</locationX>
+        <locationY>222</locationY>
+        <connector>
+            <targetReference>Retail_Competencies</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>sirenum__Owner__c</field>
+            <value>
+                <elementReference>CandidateID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>sirenum__TicketType__c</field>
+            <value>
+                <stringValue>a6uPv0000008As9IAE</stringValue>
+            </value>
+        </inputAssignments>
+        <object>sirenum__Ticket__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Shelf_Replenishment</name>
+        <label>Create Shelf Replenishment</label>
+        <locationX>1238</locationX>
+        <locationY>306</locationY>
+        <connector>
+            <targetReference>Retail_Competencies</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>sirenum__Owner__c</field>
+            <value>
+                <elementReference>CandidateID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>sirenum__TicketType__c</field>
+            <value>
+                <stringValue>a6uPv0000008ApGIAU</stringValue>
+            </value>
+        </inputAssignments>
+        <object>sirenum__Ticket__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Retail_Work_Detail_Creation</name>
+        <label>Retail Work Detail Creation</label>
+        <locationX>621</locationX>
+        <locationY>343</locationY>
+        <connector>
+            <targetReference>Retail_Competencies</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Candidate__c</field>
+            <value>
+                <elementReference>CandidateID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Other_work__c</field>
+            <value>
+                <elementReference>Please_let_us_know_what_other_experience_you_have</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <stringValue>012Pv000002Jr4VIAS</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Retail_Jobs__c</field>
+            <value>
+                <elementReference>What_type_of_Retail_work_are_you_interested_in</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Years_Experience__c</field>
+            <value>
+                <elementReference>How_many_years_experience_do_you_have_working_within_the_Retail_industry</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Work_Detail__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <screens>
+        <name>Retail_Screen</name>
+        <label>Retail Screen</label>
+        <locationX>639</locationX>
+        <locationY>523</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Retail_Work_Detail_Creation</targetReference>
+        </connector>
+        <fields>
+            <name>Progress_Bar</name>
+            <extensionName>qsydApps_AO:LightningFlowProgressIndicatorCmp</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>activeStages</name>
+                <value>
+                    <elementReference>$Flow.ActiveStages</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>currentStage</name>
+                <value>
+                    <elementReference>$Flow.CurrentStage</elementReference>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <fields>
+            <name>Screen2_DISPLAY_0_0_0_0_0_0_0_0</name>
+            <fieldText>&lt;p&gt;&lt;b style=&quot;background-color: rgb(255, 255, 255); font-size: 18px; color: rgb(102, 102, 102);&quot;&gt;Retail Details&lt;/b&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Do_you_have_experience_working_in_the_Retail_industry</name>
+            <choiceReferences>Yes</choiceReferences>
+            <choiceReferences>No</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Do you have experience working in the Retail industry?</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>What_type_of_Retail_work_are_you_interested_in</name>
+            <choiceReferences>Retail_Job_Set</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>What type of Retail work do you have experience in?</fieldText>
+            <fieldType>MultiSelectCheckboxes</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_have_experience_working_in_the_Retail_industry</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>Please_let_us_know_what_other_experience_you_have</name>
+            <dataType>String</dataType>
+            <fieldText>Please let us know what other experience you have:</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>What_type_of_Retail_work_are_you_interested_in</leftValueReference>
+                    <operator>Contains</operator>
+                    <rightValue>
+                        <stringValue>Other</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>How_many_years_experience_do_you_have_working_within_the_Retail_industry</name>
+            <dataType>Number</dataType>
+            <fieldText>How many years experience do you have working within the Retail industry?</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <scale>0</scale>
+        </fields>
+        <fields>
+            <name>Screen2_Footer_0_0_0_0_0_0_0_0</name>
+            <extensionName>qsydApps_AO:LightningFlowFooterCmp</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>showProgress</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>type</name>
+                <value>
+                    <stringValue>base</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>nextButtonLabel</name>
+                <value>
+                    <stringValue>Next</stringValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>false</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <stages>
+        <name>Retail_Stage</name>
+        <isActive>false</isActive>
+        <label>Retail Stage</label>
+        <stageOrder>36</stageOrder>
+    </stages>
+    <start>
+        <locationX>103</locationX>
+        <locationY>365</locationY>
+        <connector>
+            <targetReference>Bypass_flow</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>DrivingLicenceID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>FormFactor</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

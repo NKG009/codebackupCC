@@ -1,0 +1,25 @@
+@import "c/portalV2MyShiftsCSSLibrary";
+@import "c/portalV2CSSLibrary";
+
+.flex-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
+}
+
+.carat {
+  min-width: 2em;
+  min-height: 2em;
+}
+
+.spinner__container {
+  height: 400px;
+  position: relative;
+}
+.full-height-container {
+  height: 100%;
+}
+
+:host {
+  --lwc-colorTextIconDefault: red;
+}

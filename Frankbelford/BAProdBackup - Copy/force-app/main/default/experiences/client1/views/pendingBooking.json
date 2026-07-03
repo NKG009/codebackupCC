@@ -1,0 +1,79 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "6baeadfc-12a5-4c9e-8040-d8ea46375b56",
+  "label" : "Pending Booking",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "e5fe2139-6be2-4ad2-aa3e-735fe68a38d8",
+          "columns" : [ {
+            "UUID" : "98fcb423-d53b-4c4c-b70e-e9920b3573d9",
+            "columnKey" : "d0b45",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "e5fe2139-6be2-4ad2-aa3e-735fe68a38d8",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "currentPage" : "Pending Booking"
+          },
+          "componentName" : "c:ClientComunityBreadcrumb",
+          "id" : "ab0fd3b7-d990-4835-a866-9421eccfc3cf",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : {
+            "status" : "Pending"
+          },
+          "componentName" : "c:JobOrderList",
+          "id" : "ae8098ea-d224-4d14-af86-88d95deb9a4a",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "98fcb423-d53b-4c4c-b70e-e9920b3573d9",
+        "regionLabel" : "Column 1",
+        "regionName" : "d0b45",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c1638715-f4d4-47c5-a3f7-2a683dde7d9b",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Pending Booking"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "816eb1af-0853-4c05-92e1-4bda3d8726e9",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "febac0e5-2fcd-4c18-8b69-324774027de5",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Re3hqEhY1SpthYbgfoSm66kdrIuIff",
+  "type" : "view",
+  "viewType" : "custom-pending-booking"
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NEWBURY_Office_clients</fullName>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>Skills__c</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>CONTACT.LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>equals</operation>
+        <value>1062,2188,1282,1350,1287</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>includes</operation>
+        <value>Manufacturing,Office,Retail,Warehouse</value>
+    </filters>
+    <filters>
+        <field>Sub_Category__c</field>
+        <operation>excludes</operation>
+        <value>Healthcare Services (Public Sector),Healthcare Services and Equipment (Private Sector),Public Sector</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>notContain</operation>
+        <value>Inactive</value>
+    </filters>
+    <filters>
+        <field>Skills__c</field>
+        <operation>equals</operation>
+        <value>Administrator,Assistant Accountant,Barista,Credit Control,Customer Service,Manufacturing Operative,Tele Sales</value>
+    </filters>
+    <label>NEWBURY - Office clients</label>
+</ListView>

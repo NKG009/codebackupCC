@@ -1,0 +1,49 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "6101c5d9-3fba-471d-9c04-774380c88555",
+  "label" : "Upload Additional Documentation",
+  "regions" : [ {
+    "id" : "9daaae72-ddba-4089-9a56-4a67310f7942",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[]",
+        "flowName" : "Candidate_Portal_Upload_additional_Documentation"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "7cf7f48a-5eb5-4dd6-90e9-dc83e76ae06a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "607563e9-a15a-414c-a135-55e118c92697",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "b0472bb1-2f7f-499c-8e27-f91ae0dacaaa",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Upload Additional Documentation"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "59a0dfcb-3910-4f89-aded-3c31b55fb101",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "39a67dc5-a3f6-4219-8051-85d19beb53ca",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-upload-additional-documentation"
+}

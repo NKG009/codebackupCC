@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Driving_licence_check__c</fullName>
+    <label>Driving licence check</label>
+    <summaryFilterItems>
+        <field>sirenum__Ticket__c.sirenum__TicketType__c</field>
+        <operation>equals</operation>
+        <value>a3k0Y000000tk0e</value>
+    </summaryFilterItems>
+    <summaryForeignKey>sirenum__Ticket__c.sirenum__Owner__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

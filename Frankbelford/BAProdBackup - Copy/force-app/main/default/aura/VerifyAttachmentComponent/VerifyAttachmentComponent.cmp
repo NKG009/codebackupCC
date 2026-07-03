@@ -1,0 +1,53 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader"  access="global" 
+                controller="CertificationConfirmAttachmentLightning">
+	
+    <!-- handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- atrributes -->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="messageDisplay" type="String" />
+    <aura:attribute name="errorMessage" type="Boolean" />
+    <aura:attribute name="successMessage" type="Boolean" />
+	<aura:attribute name="processingText" type="Boolean" />
+    <aura:attribute name="verifyCheckbox" type="Boolean" />
+    <aura:attribute name="runVerifyCheck" type="Boolean" />
+    <aura:attribute name="verifiedRecord" type="Boolean" />
+    
+    <aura:if isTrue="{!v.processingText}">
+        <br/><br/><br/><br/>
+        <p style="font-size:15px;color:#1B5297;">
+            <center><b><aura:unescapedHtml value="Processing........" /></b></center>
+        </p>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.successMessage}">
+        <br/><br/><br/><br/>
+        <p style="font-size:15px;color:green;">
+            <center><b><aura:unescapedHtml value="{!v.messageDisplay}" /></b></center>
+        </p>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.errorMessage}">
+        <br/><br/><br/><br/>
+        <p style="font-size:15px;color:red;">
+             <center><b><aura:unescapedHtml value="{!v.messageDisplay}" /></b></center>
+        </p>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.verifyCheckbox}">
+		<center><br/><br/><br/><br/>
+        <b>Do you want to run the verify check</b><br/><br/>
+        <p style="font-size:15px;color:#1B5297;"><b><lightning:input type="checkbox" label="Are the originals seen as well?" onchange="{!c.handleCheck}" name="verify" checked="{!v.verifiedRecord}" aura:id="verify"/>
+    	</b><br/><br/></p>
+        <lightning:button variant="brand" label="Yes" title="Yes" onclick="{!c.handleClick}"/>
+        <lightning:button variant="Neutral" label="No" title="No" onclick="{!c.cancelClick}"/></center>
+   </aura:if>
+    
+    <aura:if isTrue="{!v.runVerifyCheck}">
+		<center><br/><br/><br/><br/>
+        <p style="font-size:15px;color:#1B5297;"><b>Do you want to run the verify check</b><br/><br/></p>
+        <lightning:button variant="brand" label="Yes" title="Yes" onclick="{!c.handleClick}"/>
+        <lightning:button variant="Neutral" label="No" title="No" onclick="{!c.cancelClick}"/></center>
+    </aura:if>
+</aura:component>

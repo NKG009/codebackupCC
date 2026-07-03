@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>button_custom1_url__c</fullName>
+    <description>This field must contain the Visualforce Page that controls the action of the button.  If this Field is empty, the button will not appear on the page even if Custom1 Active is selected (Checked).
+
+Format Example: /apex/&lt;name space&gt;__&lt;page name&gt; (i.e. /apex/c_ApplyTo)
+
+Pages that are not part of a package must have &quot;c__&quot; before the Visualforce Page Name as outlined above.</description>
+    <inlineHelpText>This field must contain the Visualforce Page that controls the action of the custom button.
+
+Format Example: /apex/&lt;page name&gt; (i.e. /apex/c_ApplyTo)
+
+Note: Pages that are not part of a package must start with &quot;c__&quot; prior to the VF Page name.</inlineHelpText>
+    <label>Button Custom1 URL</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+</CustomField>

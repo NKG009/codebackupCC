@@ -1,0 +1,21 @@
+@import "c/portalV2MyShiftsCSSLibrary";
+@import "c/portalV2CSSLibrary";
+
+.flex-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
+}
+
+.carat {
+  width: 1rem;
+  height: 1rem;
+}
+
+.spinner__container {
+  height: 400px;
+  position: relative;
+}
+.full-height-container {
+  height: 100%;
+}

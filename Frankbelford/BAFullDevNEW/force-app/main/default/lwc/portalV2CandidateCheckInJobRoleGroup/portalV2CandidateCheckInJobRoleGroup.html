@@ -1,0 +1,132 @@
+<template lwc:render-mode="light">
+
+  <h1 class="main__header">
+    Today's Workforce
+  </h1>
+
+  <div class="job-role-card">
+    <div class="job-role-grid-container">
+      <div class="name-component">
+        <div class="indicatorTop">
+          <table>
+
+            <tr style="width: 100%;">
+              <td>
+                <lightning-icon
+                        icon-name="action:approval"
+                        alternative-text="Approve"
+                        title="Approve"
+                        size="xx-small"
+                ></lightning-icon>
+              </td>
+              <td>
+                <h2>A worker has 'started' their shift on their app or portal</h2>
+              </td>
+            </tr>
+
+            <tr style="width: 100%;">
+              <td>
+                <lightning-icon
+                        icon-name="action:reject"
+                        alternative-text="Reject"
+                        class="rejected-icon"
+                        title="Reject"
+                        size="xx-small"
+                ></lightning-icon>
+              </td>
+              <td>
+                <h2>A worker has not yet 'started' their shift on their app or portal</h2>
+              </td>
+            </tr>
+
+          </table>
+        </div>
+        <!--<h2 class="title-text" style="padding-bottom: 10px;">Today's Workforce</h2>-->
+        <h2 style="font-weight: bold; padding-bottom: 10px;">Hours are not approved for payroll on this screen</h2>
+        <h2>{jobRoleName}</h2>
+      </div>
+      <div class="time-component">
+        <lightning-icon
+          icon-name="utility:date_input"
+          alternative-text="Shift Date"
+          title="Shift Time"
+          class="icon-blue"
+        ></lightning-icon>
+        <p class="time-display-title-text">
+          <lightning-formatted-date-time
+            value={startTime}
+            day="2-digit"
+            month="2-digit"
+            year="numeric"
+          ></lightning-formatted-date-time>
+        </p>
+
+        <lightning-icon
+          icon-name="utility:clock"
+          alternative-text="Shift Time"
+          title="Shift Time"
+          class="icon-blue"
+        ></lightning-icon>
+        <p class="time-display-title-text">
+          <lightning-formatted-date-time
+            value={startTime}
+            hour="2-digit"
+            minute="2-digit"
+            hour12={hour12}
+          ></lightning-formatted-date-time
+          >-
+          <lightning-formatted-date-time
+            value={endTime}
+            hour="2-digit"
+            minute="2-digit"
+            hour12={hour12}
+          ></lightning-formatted-date-time>
+        </p>
+      </div>
+      <div class="summary-component">
+        <p>Signed in:</p>
+        <div>
+          <lightning-icon
+            icon-name="action:user"
+            alternative-text="Candidate Icon"
+            title="Candidate Icon"
+            class="icon-blue"
+            size="xx-small"
+          ></lightning-icon>
+          <div class={signedInBackgroundClass}>
+            <p>{signedInSummaryValue}</p>
+          </div>
+        </div>
+        <p>Signed out:</p>
+        <div>
+          <lightning-icon
+            icon-name="action:user"
+            alternative-text="Candidate Icon"
+            title="Candidate Icon"
+            class="icon-blue"
+            size="xx-small"
+          ></lightning-icon>
+          <div class={signedOutBackgroundClass}>
+            <p>{signedOutSummaryValue}</p>
+          </div>
+        </div>
+      </div>
+      <div class="body-component">
+        <template for:each={shiftList} for:item="shift">
+          <c-portal-v2-candidate-check-in-card
+            key={shift.id}
+            candidate-name={shift.candidate}
+            started-shift={shift.startedShift}
+            finished-shift={shift.finishedShift}
+            time-shift-started={shift.timeShiftStarted}
+            time-shift-finished={shift.timeShiftFinished}
+            candidate-confirmed-attendance={shift.candidateConfirmed}
+            scheduled-start-time={startTime}
+            scheduled-end-time={endTime}
+            shift-id={shift.id}
+          ></c-portal-v2-candidate-check-in-card>
+        </template>
+      </div>
+    </div>
+  </div>
+</template>

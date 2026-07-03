@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_Time__c</fullName>
+    <externalId>false</externalId>
+    <formula>RIGHT(TEXT(VALUE(TEXT(DAY(TODAY())))+100),2)
+&amp; &apos;/&apos;
+&amp; RIGHT(TEXT(VALUE(TEXT(MONTH(TODAY())))+100),2)
+&amp; &apos;/&apos;
+&amp; TEXT(YEAR(TODAY()))
+&amp; &apos; &apos;
+&amp; RIGHT(TEXT(VALUE(TEXT(HOUR(TIMENOW())))+100),2)
+&amp; &apos;:&apos;
+&amp; RIGHT(TEXT(VALUE(TEXT(MINUTE(TIMENOW())))+100),2)
+&amp; &apos;:&apos;
+&amp; RIGHT(TEXT(VALUE(TEXT(SECOND(TIMENOW())))+100),2)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Date Time</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

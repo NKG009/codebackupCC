@@ -1,0 +1,119 @@
+<!-- NewVacancyComponent -->
+<aura:component controller="SendEmailOnNewVacancy" implements="forceCommunity:availableForAllPageTypes" access="global" description="ClientComShiftVacancyCmp">
+    <ltng:require styles="{!join(',',
+                          $Resource.webUI+'/assets/css/all.css',
+                          $Resource.webUI+'/assets/css/fontawesome.css',
+                          $Resource.webUI+'/assets/css/fontawesome.min.css',
+                          $Resource.webUI+'/assets/css/custom.css',
+                          $Resource.Tjcss2+'/assets/css/main.css',
+                           $Resource.Tjcss2+'/assets/css/custom.css'
+                          )
+                          }"
+                  scripts="{!join(',',
+                           $Resource.Tjcss+'/assets/js/main.min.js',
+                           $Resource.Tjcss2+'/assets/js/zoom.js',
+                           $Resource.webUI+'/assets/js/custom.js'
+                           )}"
+    />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="siteList" type="List" access="global"/>
+    <aura:attribute name="jobSiteList" type="List" access="global"/>
+    <aura:attribute name="isOpen" type="boolean" access="global"/>
+    <aura:attribute name="message" type="String" access="global"/>
+    <aura:attribute name="isSiteEmpty" type="boolean" access="global"/>
+    <aura:attribute name="isStartDateEmpty" type="boolean" access="global"/>
+    <aura:attribute name="isEndDateEmpty" type="boolean" access="global"/>
+    <aura:attribute name="startDateSelected" type="Date" access="global" />
+    <aura:attribute name="endDateSelected" type="Date" access="global"/>
+    <aura:attribute name="textAreaValue" type="String" access="global"/>
+    <aura:attribute name="selectedSite" type="String" access="global"/>
+    <aura:attribute name="userInfo" type="User"/>
+    <aura:attribute name="site" type="String" />
+
+ 
+<!--
+    <div class="container-fluid">
+        <nav class="headeNav">
+            <div class="visible-xs mobile-nav">
+                <img src="{!$Resource.Tjcss + '/assets/img/mobile-nav.png'}" alt="Mobile Icon" title="Click to slide"/>
+            </div>
+            <a href="" class="logo" title="BlueArrow">
+                <img src="{!$Resource.Tjcss + '/assets/img/impellam-logo-blue.png'}" lt="Impellam Logo" Title="Impellam"/>
+            </a>
+
+            <ul class="headeNav__right">
+                <li>
+                    <a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="hidden-xs hidden-sm">{!v.userInfo.Name}</span>
+                        <aura:if isTrue="{!v.userInfo.User_Image__c != null}">
+                            <img src="{!v.userInfo.User_Image__c}" alt=""/>
+                            <aura:set attribute="else">
+                                <img src="" class="imag" alt=""/>
+                            </aura:set>
+                        </aura:if>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="" onclick="{!c.myProfileNavigate}" title="My Profile">My Profile</a></li>
+                        <li><a href="" onclick="{!c.siteManagementNavigate}" title="Setting">Site Management</a></li>
+                        <li><a href="" onclick="{!c.logout}" title="Logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="col-sm-4 col-md-3 headeNav__selectpicker">
+                <div class="btn-group bootstrap-select">
+                    <ui:inputSelect aura:id="siteId" class="slselect" label="Site Name" change="{! c.siteChanged }">
+                        <aura:iteration items="{!v.siteList}" var="item" >
+                            <option text="{!item.label}" value="{!item.value}" selected="{!item.selected}"  />
+                        </aura:iteration>
+                    </ui:inputSelect>
+
+
+                </div>
+            </div>
+        </nav>
+
+        <div class="timesheet-section">
+            <c:BlueBarComp site="{!v.site}" ></c:BlueBarComp>
+-->
+            <div class="timesheet-section__right-part">
+                <ol class="breadcrumb">
+                    <li><a href="javascript:void(0)" onclick="{!c.dashboardnavigate}" title="Dashboard">Dashboard</a></li>
+                    <li>My Shifts</li>
+                    <li class="active">Shift/Vacancy Request</li>
+                </ol>
+                <div class="search-section vacancies-section">
+                    <p>Please complete this form with details of your new staffing requirement</p>
+                    <form class="row">
+                        <div  class="col-sm-12"><label></label></div>
+                        <div class="col-sm-6">
+                            <label class="global-label">Start Date</label>
+                            <input autocomplete="off" type="text" class="global-input datetimepicker mainLoginInput" name="Date" id="startDateTime" placeholder="DD/MM/YY" maxlength="8" onclick="{!c.handleOnClick}"
+                                   onkeypress="{!c.handleKeyPress}" onmouseover="{!c.handleMouseEnter}" onmouseout="{!c.handleMouseLeave}"/>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="global-label">End Date</label>
+                            <input autocomplete="off" type="text" class="global-input datetimepicker mainLoginInput" name="Date" id="endDateTime" placeholder="DD/MM/YY" maxlength="8" onclick="{!c.handleOnClick}"
+                                   onkeypress="{!c.handleKeyPress}" onmouseover="{!c.handleMouseEnter}" onmouseout="{!c.handleMouseLeave}"/>
+                        </div>
+                        <div class="col-sm-12">
+                            <label class="global-label mainLoginInput" style="margin-bottom:1.0rem!important">Details of New Staff Requirement</label>&nbsp;
+                            <c:customHelpText/>
+                            <textarea rows="10" placeholder="Write your new vacancy description here..." value="{!v.textAreaValue}" id="description" class="mainLoginInput"></textarea>
+                        </div>
+                        <div class="col-sm-12 text-right">
+                            <lightning:button label="Submit" class="action-button accept" onclick="{!c.sendEmailToSiteOwner}"/>
+                            <button type="reset" class="action-button decline">Clear</button>
+                        </div>
+                    </form>
+                </div>
+                <!--<footer>
+                    <div class="row">
+                        <div class="col-sm-6"><p> &copy; Blue Arrow, All rights reserved 2019.</p></div>
+                        <div class="col-sm-6"><p>Regd Address:  800 The Boulevard, Capability Green, Luton, Bedfordshire, LU1 3BA. Company No. 00641659</p></div>
+                    </div>
+                </footer>-->
+            </div>
+<!--
+        </div>
+    </div>-->
+</aura:component>

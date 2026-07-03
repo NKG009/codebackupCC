@@ -1,0 +1,6 @@
+.card__size {
+  width: 18rem;
+  height: 40rem;
+  filter: drop-shadow(10px 10px 22px #00000029);
+  border-radius: 16px;
+}

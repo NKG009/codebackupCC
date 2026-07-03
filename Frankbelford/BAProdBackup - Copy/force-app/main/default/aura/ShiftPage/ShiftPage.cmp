@@ -1,0 +1,173 @@
+<aura:component controller="ShiftPageApexController"  implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:attribute name="shifts" type="List"/> 
+    <aura:attribute name="detailshifts" type="List"/> 
+     <aura:attribute name="popouthour" type="string" />
+    <aura:attribute name="popouthour2" type="string" />
+    <aura:attribute name="brktime" type="string" />
+     <aura:attribute name="Hours" type="string" />
+     <aura:attribute name="detailshift" type="List"/>
+     <aura:attribute type="List"    name="currentList" />
+  <aura:attribute name="page" type="integer" description="using for store page Number"/>
+    <aura:attribute name="pages" type="integer" description="using for store All Pages page Number"/>
+    <aura:attribute name="total" type="integer" description="total records count store "/>
+   <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name="isParentOpen" type="boolean" default="false"/>
+      <aura:attribute name="isOpenQuery" type="boolean" default="false" />
+    <aura:handler name="change" value="{!v.isParentOpen}" action="{!c.onParentAttrChange}"/>
+    <aura:attribute name="nameEditMode" type="boolean" default="false" />
+    <aura:attribute name="TimeEditMode" type="boolean" default="false" />
+    <aura:attribute name="showErrorClass" type="boolean" default="false"/>
+      <aura:attribute type="Integer"      name="pageNumber"		default="1" />
+     <aura:attribute type="Integer"      name="maxPage"			default="1" />
+  <aura:handler name="change"	value="{!v.pageNumber}"	action="{!c.renderPage}" />
+  <div class="slds-scrollable slds-wrap">  
+    <table class="slds-scrollable
+ slds-no-row-hover slds-wrap slds-table slds-table--bordered slds-table--cell-buffer slds-table--fixed-layout" >
+    <thead>
+      <tr class="headingfont">
+     <!--   <th scope="col" style="width:100px;"><u><div class="slds-truncate" title="Id">S.No</div></u></th> -->
+        <th scope="col" style="text-align:center;width:110px;color:#009ee3;border-bottom: 1px solid darkgray ;border-top: 1px solid darkgray ;"><div title="StartDate"><b>Start Date</b></div></th>
+        <th scope="col" style="text-align:center;width:180px;color:#009ee3;border-bottom: 1px solid darkgray;border-top: 1px solid darkgray;"><div  title="Job Role"><b>Job Role</b></div></th>
+        <th scope="col" style="text-align:center;width:180px;color:#009ee3;border-bottom: 1px solid darkgray;border-top: 1px solid darkgray;"><div  title="Site"><b>Site</b></div></th>
+        <th scope="col" style="text-align:center;width:100px;color:#009ee3;border-bottom: 1px solid darkgray;border-top: 1px solid darkgray;"><div class=" myCustomClass" title="Start Time"><b>Start Time</b></div></th>
+        <th scope="col" style="text-align:center;width:100px;color:#009ee3;border-bottom: 1px solid darkgray;border-top: 1px solid darkgray;"><div class=" myCustomClass" title="End Time"><b>End Time</b></div></th>
+        <th scope="col" style="width:100px; text-align:center;color:#009ee3;border-bottom: 1px solid darkgray;border-top: 1px solid darkgray;"><div  title="Action"><b>Breaks</b></div></th>
+        <th scope="col" style="width:105px;text-align:center;color:#009ee3;border-bottom: 1px solid darkgray;border-top: 1px solid darkgray;" ><div title="Action"><b>Total<br></br> Hours</b></div></th>
+        <th scope="col" style="text-align:center;width:160px;color:#009ee3;border-bottom: 1px solid darkgray;border-top: 1px solid darkgray;"><div class="myCustomStatus" title="Status"><b>Status</b></div></th>
+        <th scope="col" colspan="3"  style="text-align:center;width:250px;color:#009ee3;border-bottom: 1px solid darkgray;border-top: 1px solid darkgray;"><div title="Action" class="slds-grow slds-cell-wrap"><b>Action</b></div></th>
+      </tr>
+    </thead>
+    <tbody>
+   
+      <aura:iteration items="{!v.currentList}" var="shift" indexVar="sNo">
+        <tr>
+          <c:Shiftchildcomp singleRec="{!shift}" sNo="{!sNo + 1}" /> 
+             <td>
+                 <lightning:button  label="Details" value="{!shift.Id}" class="slds-button Detailsbutton slds-button_brand" onclick="{!c.details}" variant="brand" />   
+                 
+                 </td>
+            <td>
+             <lightning:button  label="Query" value="{!shift.Id}" class="slds-button Querybutton slds-button_brand" onclick="{!c.openModelQuery}" variant="brand" />   
+                
+
+            </td>
+      </tr>
+          </aura:iteration>
+     
+    </tbody>
+  </table> 
+   </div>   
+  <!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->   
+    <aura:if isTrue="{!v.isOpen}">
+      
+   <!--###### MODAL BOX Start From Here ######--> 
+       
+      <div role="dialog" tabindex="-1" aria-labelledby="header99" class=" slds-modal slds-fade-in-open slds-scrollable">
+       <div class="slds-modal__container">
+          <div class="slds-modal__content slds-p-around--medium slds-scrollable ">
+              <h1><div class="headingdetails"><u>Shift Details</u></div></h1>
+              <table class="slds-wrap slds-table slds-table--bordered slds-table--cell-buffer slds-table--fixed-layout slds-scrollable" >
+              <tr>
+                  <td><u class="headingdetails">Job Role</u><br></br><div class=" slds-grow slds-cell-wrap">{!v.detailshift[0].sirenum__Team__r.Name}</div></td>
+                  <td><u class="headingdetails">Site</u><br></br><div class=" slds-grow slds-cell-wrap">{!v.detailshift[0].sirenum__Site__r.Name}</div></td>
+                </tr>
+                  <tr>
+                      <td class="slds-grow slds-cell-wrap"><u class="headingdetails">Scheduled Start Time</u><br></br>
+                     <lightning:formattedDateTime hour="2-digit" minute="2-digit" value="{!v.detailshift[0].sirenum__Scheduled_Start_Time__c}" /></td>
+                      <td class="slds-grow slds-cell-wrap"><u class="headingdetails">Scheduled End Time</u><br></br>
+                     <lightning:formattedDateTime hour="2-digit" minute="2-digit" value="{!v.detailshift[0].sirenum__Scheduled_End_Time__c}" /></td>
+                </tr>
+                 <tr>
+                     <td class="slds-grow slds-cell-wrap"><u class="headingdetails">Actual Start Time</u><br></br>
+                 <lightning:formattedDateTime hour="2-digit" minute="2-digit" value="{!v.detailshift[0].sirenum__Actual_Start_Time__c}" />
+                  </td>
+                     <td class="slds-grow slds-cell-wrap"><u class="headingdetails">Actual End Time</u><br></br>
+                    <lightning:formattedDateTime hour="2-digit" minute="2-digit" value="{!v.detailshift[0].sirenum__Actual_End_Time__c}" />
+                     
+                     </td>
+                </tr>
+                 <tr>
+                     <td><u class="headingdetails">Break Length</u><br></br>
+                     
+                          <aura:if isTrue="{!v.brktime==null}">
+            {!v.detailshift[0].Break_Length__c}
+             <aura:set attribute="else">
+                {!v.brktime}   
+               </aura:set>
+            </aura:if>
+                  </td>
+                     <td></td>
+                </tr>
+              </table><br></br>
+              <div style="text-align:left;">
+                                 <lightning:button label="Back" class="slds-button slds-button--neutral Backbutton" onclick="{!c.closeModel}" variant="brand"/>
+       </div>
+          </div>
+          </div>
+        </div>
+      <!-- </div> -->
+        
+      <div class="slds-backdrop slds-backdrop--open" ></div>
+      <!--###### MODAL BOX Part END Here ######-->
+    
+ </aura:if> 
+    
+         <aura:if isTrue="{!v.isOpenQuery}">
+        <div role="dialog"  tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open slds-scrollable">
+          <div class="slds-modal__container">
+          <div class="slds-modal__content slds-p-around--medium" >
+              <h1><div class="headingdetails"><u><b>Query</b></u></div></h1><br></br>
+             <table class="slds-scrollable ">
+             <tr>
+                 <td ><b class="headingdetails">Job Role</b> : <ui:outputText class="slds-cell-wrap" aura:id="QuerySite" value="{!v.detailshift[0].sirenum__Team__r.Name}"/></td>
+             </tr>
+             <tr>
+                 <td ><b class="headingdetails ">Site</b> : <ui:outputText class="slds-cell-wrap" aura:id="QuerySite" value="{!v.detailshift[0].sirenum__Site__r.Name}"/></td>    
+             </tr>
+             <tr>
+                 <td><b class="headingdetails">Start Time</b> : <lightning:formattedDateTime hour="2-digit" hour12="false" minute="2-digit" value="{!v.detailshift[0].sirenum__Scheduled_Start_Time__c}" /></td>
+             </tr>
+             <tr>
+                 <td><b class="headingdetails">End Time</b> : <lightning:formattedDateTime hour="2-digit" hour12="false" minute="2-digit" value="{!v.detailshift[0].sirenum__Scheduled_End_Time__c}" /></td>
+             </tr>
+               <br></br>
+             <tr>
+                  
+           <!--   <textarea id="myTextarea" rows="6" cols="70" placeholder="Enter your query..." name="Query"></textarea>      -->               
+ 			  <td style="width:100%;"><ui:inputTextArea aura:id="Query" label=""  value="" rows="5" placeholder="" /></td>
+              </tr>
+             </table>
+              
+              
+                    <div style="text-align:right;">
+                  <table>
+                      <tr>
+                      <td style="text-align:left"><button class="Backbutton slds-button slds-button--neutral" style="vertical-align:right;" onclick="{!c.closeModelQuery}" >Back</button></td>
+                  <td  style="text-align:right"><lightning:button label="Submit" class="Submitbutton" variant="Brand" onclick="{!c.SendQueryEmail}" value="{!v.detailshift[0].Id}"  /> </td>
+                 </tr>
+                      </table>
+                     
+                       
+       </div>
+                </div>
+            </div> 
+        
+            
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </aura:if>
+   <br></br>
+       <aura:if  isTrue="{!v.isParentOpen==false}">
+          <div style="text-align:right;"> <c:PaginationButton currentPageNumber="{!v.pageNumber}" 
+                                    maxPageNumber="{!v.maxPage}" /> </div>
+     
+    <div class="slds-truncate" style="text-align:Left;">
+                       <lightning:button class="Backbutton" label="Back" variant="Brand" onclick="{!c.getBackscreen}"   />
+                       
+                        </div>    
+       
+           </aura:if> 
+ 
+   
+ </aura:component>

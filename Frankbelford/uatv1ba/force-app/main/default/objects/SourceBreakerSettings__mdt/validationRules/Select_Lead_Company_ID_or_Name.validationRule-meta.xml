@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Select_Lead_Company_ID_or_Name</fullName>
+    <active>true</active>
+    <errorConditionFormula>!ISBLANK(CompanyID__c) &amp;&amp; !ISBLANK(CompanyName__c)</errorConditionFormula>
+    <errorDisplayField>CompanyID__c</errorDisplayField>
+    <errorMessage>Please select either a Company ID or Company Name mapping.  Most environments do not support both together.</errorMessage>
+</ValidationRule>

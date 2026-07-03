@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "c1cc9871-0462-4f81-bc4d-44c45f801dd4",
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "configurationTags" : [ ],
+  "devName" : "Job_Order_List__c",
+  "id" : "e403701b-0ef7-400c-bc35-c99e525a2be8",
+  "label" : "Job Order List",
+  "objectApiName" : "sirenum__JobOrder__c",
+  "routeType" : "list-a6w",
+  "type" : "route",
+  "urlPrefix" : "joborder"
+}

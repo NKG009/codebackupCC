@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Clients2</fullName>
+    <booleanFilter>1 AND (2 OR 7) AND 3 AND 4 AND 5 AND 6</booleanFilter>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>FULL_NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>Skills__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>equals</operation>
+        <value>RG31 7RN,RG8 7DP,RG2 9FW,RG4 6SU,RG4 8LR,RG2 6UW,Rg7 4SA,Rg2 6AD,Rg2 6Gp,Rg7 6QD,Rg1 5NA,Rg1 1EP,RG9 4NR,Rg1 8FR,Rg1 1DP,RG6 1RA,RG2 6GE,RG7 5SH,RG4 7UG,RG10 0PS,Rg2 7DE,RG2 9BL,RG30 2JH,RG20 9BD,RG75TD,RG2 9BY,RG8 8LA,RG8 7SF,RG1 5DZ</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>FULL_NAME</field>
+        <operation>notContain</operation>
+        <value>Fahim Qureshi,Nick Drew,Adrienn Farkas,Erika Musinskiene,Paul Verney,Michael Deller-Merricks,Jackie Mergarity,Tom Jennings,Jan Ward,Reena Gurrm,Stephanie Forster,Jodie Dingwall,Thomas Garnier,Robert Stewart,Heidi Shuttleworth,Kate Saunders</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notContain</operation>
+        <value>Reading Blue Coat School,Highdown School and Sixth Form Centre,Accor UK Business and Leisure Hotels Ltd,The Leighton Park Trust,The Abbey Senior School,St Gabriels School,Crosfields school trust limited</value>
+    </filters>
+    <filters>
+        <field>FULL_NAME</field>
+        <operation>notContain</operation>
+        <value>Charmaine Pugh,Adrian MacPherson-Moore,David Broad,Sarah Murphy,Debbie Woodage,Lisa McBeath,Steve Hayes,Rajneesh Roy,Michelle Howard,Georgia White,Samantha Cook,Glenn Coles</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>equals</operation>
+        <value>RG7 5NX,RG27 0LG,RG14 3BE,RG8 8QA,RG14 2DU,RG25 3DS,RG20 8NJ,RG27 0PN,RG27 0JD</value>
+    </filters>
+    <label>1350 Abbie&apos;s Clients</label>
+    <sharedTo>
+        <roleAndSubordinates>Blue_Arrow_Newbury_Perm_hub</roleAndSubordinates>
+        <roleAndSubordinates>Blue_Arrow_Newbury_Temps</roleAndSubordinates>
+    </sharedTo>
+</ListView>

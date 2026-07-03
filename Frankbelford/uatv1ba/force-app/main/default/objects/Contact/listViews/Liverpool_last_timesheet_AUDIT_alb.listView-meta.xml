@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Liverpool_last_timesheet_AUDIT_alb</fullName>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Person_Status__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>Temp_Work__c</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>KID_Acknowledgement__c</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ts2__People_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>Chef</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_CITY</field>
+        <operation>equals</operation>
+        <value>Brighton,Eastbourne</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>equals</operation>
+        <value>Catering</value>
+    </filters>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>equals</operation>
+        <value>1161</value>
+    </filters>
+    <label>Liverpool  - last timesheet - AUDIT-alb</label>
+</ListView>

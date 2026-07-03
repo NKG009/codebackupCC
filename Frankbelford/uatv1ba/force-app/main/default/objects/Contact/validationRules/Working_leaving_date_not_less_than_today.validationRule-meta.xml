@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Working_leaving_date_not_less_than_today</fullName>
+    <active>true</active>
+    <description>worker leaving date cannot be earlier than today unless the reason for leaving is Automatic</description>
+    <errorConditionFormula>IF(AND( ISCHANGED(IP_WorkerLeavingDate__c), IP_WorkerLeavingDate__c &lt; Today(),NOT(ISPICKVAL( Reason_for_P45__c ,&quot;Automatic&quot;))),TRUE,FALSE)</errorConditionFormula>
+    <errorDisplayField>IP_WorkerLeavingDate__c</errorDisplayField>
+    <errorMessage>Worker leaving date cannot be earlier than today unless its an automatic P45 update</errorMessage>
+</ValidationRule>

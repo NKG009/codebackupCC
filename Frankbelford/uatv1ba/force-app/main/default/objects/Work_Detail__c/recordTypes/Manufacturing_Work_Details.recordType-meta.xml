@@ -1,0 +1,1226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manufacturing_Work_Details</fullName>
+    <active>true</active>
+    <label>Manufacturing Work Details</label>
+    <picklistValues>
+        <picklist>Category_of_Work__c</picklist>
+        <values>
+            <fullName>Catering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Driving</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Facilities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manufacturing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Office</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warehouse</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Catering_Jobs__c</picklist>
+        <values>
+            <fullName>Bar Staff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Barista</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Butler</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Catering Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Catering Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chamber Person</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chef</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chef Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chef de partie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commis Chef</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cook</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deli Bar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Event Staff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Food Services Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Front of House</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Head Chef</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hospitality Staff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>House Keeper</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kitchen Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kitchen Porter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Laundry Person</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Silver Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sous Chef</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Steward</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supervisor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting Staff</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Catering_Skills__c</picklist>
+        <values>
+            <fullName>Food %26 Hygiene</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Food Safety</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DBS_Details__c</picklist>
+        <values>
+            <fullName>DBS Enhanced%3A Adult Workforce</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DBS Enhanced%3A Child %26 Adult Workforce</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DBS Enhanced%3A Child Workforce</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DBS Enhanced%3A Other Workforce</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DBS Standard%3A Adult Workforce</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DBS Standard%3A Child %26 Adult Workforce</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DBS Standard%3A Child Workforce</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DBS Standard%3A Other Workforce</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DBS_Type__c</picklist>
+        <values>
+            <fullName>Enhanced</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Standard</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Days_Available__c</picklist>
+        <values>
+            <fullName>Weekdays</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Weekends</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Driving_Jobs__c</picklist>
+        <values>
+            <fullName>Chauffer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Counterbalance FLT Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Drivers Mate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fork Lift Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LGV ADR Category C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LGV ADR Category C%2BE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LGV ADR Category C1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LGV C Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LGV C%2BE Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LGV C%2BE Driver %28102 Restriction%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LGV C1 Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LGV HIAB Category C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCV Driver %28Bus%2FCoach%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCV Driver %28Minibus%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supervisor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telescopic Fork Lift Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Van Driver</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Facilities_Jobs__c</picklist>
+        <values>
+            <fullName>Car Park Attendant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Caretaker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cleaner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gardener</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Grounds Maintenance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Handy Person</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hospital Porter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internal - Cleaning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Janitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Litter Picker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Platform Staff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Porter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supervisor</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>How_comprehensive_is_your_UK_geography__c</picklist>
+        <values>
+            <fullName>County Specific</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SatNav Dependent</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Manufacturing_Jobs__c</picklist>
+        <values>
+            <fullName>Assembler</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Carpenter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chemical Operative</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cleanroom Operative</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engineer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fitter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Food Packing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Line Supervisor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MIG Welder</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Machine Operator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mechanical fitter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Production Operative</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quality Checkers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sewing machinist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shovel Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Site Duty Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Solderer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TIG Welder</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Office_Jobs__c</picklist>
+        <values>
+            <fullName>Administrator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Assistant Accountant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Audio Secretary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Call Centre</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultant Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit Control</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DTP%2FGraphic Operator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Engineering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Entry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Filing Clerk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HR Admin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HR Advisor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Health %26 Safety</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IT Administrator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IT Helpdesk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IT Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Legal Secretary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medical Secretary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Personal Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Receptionist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Secretary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supervisor</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Other_Jobs__c</picklist>
+        <values>
+            <fullName>Carpenter%2FJoiner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Electrician</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Labourer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Polisher</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Refuse Collector</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Road Worker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technical Assistant</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Part_Full_Time__c</picklist>
+        <values>
+            <fullName>Full-Time</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Part-Time</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Retail_Jobs__c</picklist>
+        <values>
+            <fullName>Cashier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Merchandiser</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail Staff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shelf Replenishment</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sector__c</picklist>
+        <values>
+            <fullName>Catering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Driving</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Facilities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manufacturing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Office</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warehouse</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Skill_Level__c</picklist>
+        <values>
+            <fullName>Level 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Level 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Level 3</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Temp_Perm_Work__c</picklist>
+        <values>
+            <fullName>Perm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Temp</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Time_of_Day__c</picklist>
+        <values>
+            <fullName>Days</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Earlies</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nights</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type_of_Work__c</picklist>
+        <values>
+            <fullName>Administrator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Assembler</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Assistant Accountant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Audio Secretary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bar Staff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Barista</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Butler</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Call Centre</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Car Park Attendant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Caretaker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Carpenter%2FJoiner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cashier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Catering Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Catering Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chamber Person</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chauffer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chef</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chef Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chef de partie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cleaner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commis Chef</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultant Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cook</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Counterbalance FLT Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit Control</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DTP%2FGraphic Operator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Engineering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Entry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deli Bar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Drivers Mate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Electrician</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Event Staff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Event Staff - Non Catering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Filing Clerk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Food Packing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Food Services Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fork Lift Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Front of House</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gardener</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Goods In</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Goods Out</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Grounds Maintenance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HR Admin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HR Advisor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Handy Person</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Head Chef</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Health %26 Safety</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hospital Porter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hospitality Staff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>House Keeper</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IT Administrator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IT Helpdesk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IT Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Impellam Internal Admin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internal - Cleaning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Janitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kitchen Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kitchen Porter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LGV ADR Category C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LGV ADR Category C%2BE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LGV ADR Category C1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LGV C Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LGV C%2BE Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LGV C%2BE Driver %28102 Restriction%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LGV C1 Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LGV HIAB Category C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Labourer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Laundry Person</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Legal Secretary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Litter Picker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Loader%2FUnloader</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MIG Welder</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mail Room</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medical Secretary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Merchandiser</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Narrow Aisle Fork Lift Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non LGV Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Offshore Installation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCV Driver %28Bus%2FCoach%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCV Driver %28Minibus%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Personal Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Picker%2FPacker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Plate Waiting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Platform Staff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Polisher</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Porter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Porter %28FAC%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Postal Worker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Production Operative</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reach FLT Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Receptionist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Refuse Collector</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail Staff %28Com%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail Staff%28Ind%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Road Worker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales %26 Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Secretary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shelf Replenishment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shop Direct Warehouse Operative</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shunter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Silver Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Site Duty Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sorter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sous Chef</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Specialist Chef</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Steward</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stores Person</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supervisor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TIG Welder</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technical Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telescopic Fork Lift Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Van Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting Staff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warehouse Operative</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yards Person</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Warehouse_Jobs__c</picklist>
+        <values>
+            <fullName>Fork Lift Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Goods In</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Goods Out</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Loader%2FUnloader</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mail Room</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Narrow Aisle Fork Lift Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Picker%2FPacker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Postal Worker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reach FLT Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shunter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Site Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sorter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stores Person</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supervisor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warehouse Operative</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yards Person</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

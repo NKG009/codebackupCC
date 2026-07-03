@@ -1,0 +1,55 @@
+<aura:component access="global" controller="CaptureReasonLeavingcontrollerLightning">
+	
+    <!-- handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- atrributes -->
+    <aura:attribute name="selectedContact" type="String" access="global"/>
+    <aura:attribute name="displayContinueCancelButtons" type="Boolean"/>
+    <aura:attribute name="displayOkButton" type="Boolean"/>
+    <aura:attribute name="colorOfMessageConfirm" type="Boolean"/>
+    <aura:attribute name="colorOfMessageError" type="Boolean"/>
+    <aura:attribute name="options" type="List" default="[
+    {'label': 'Pay - Not Enough', 'value': 'Pay - Not Enough'},
+    {'label': 'Pay - Incorrect', 'value': 'Pay - Incorrect'},
+	{'label': 'Unsuitable Work', 'value': 'Unsuitable Work'},
+	{'label': 'Not Enough Work', 'value': 'Not Enough Work'},
+	{'label': 'Work Break', 'value': 'Work Break'},
+	{'label': 'Better Opportunity', 'value': 'Better Opportunity'},
+	{'label': 'Worker Performance/Compliance Issue', 'value': 'Worker Performance/Compliance Issue'},
+	{'label': 'Employed by Client', 'value': 'Employed by Client'},
+	{'label': 'Dismissal', 'value': 'Dismissal'}
+    ]"/>
+    <aura:attribute name="value" type="String"/>
+    <aura:attribute name="message" type="String"/>
+  
+    <aura:if isTrue="{!v.colorOfMessageConfirm}">
+        <p style="font-size:15px;color:green;">ResultMessage : <ui:outputText value="{!v.message}"/></p>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.colorOfMessageError}">
+        <p style="font-size:15px;color:red;">ResultMessage : <ui:outputText value="{!v.message}"/></p>
+    </aura:if>
+	
+    <b style="font-size:15px;"><ui:outputText value="{!$Label.c.P45_Reason_for_Leaving}"/></b>
+    <br/>
+    <lightning:radioGroup name="radioGroup"
+                          aura:id="mygroup"
+                          label=""
+                          options="{!v.options }"
+                          value="{!v.value }"
+						  onchange="{!c.handleChange}"
+                          type="radio"/>
+	<br/><br/>			
+    
+    <aura:if isTrue="{!v.displayContinueCancelButtons}">
+        <lightning:button variant="brand" label="{!$Label.c.ButtonP45Action1}" onclick="{!c.handleClick }" />&nbsp;&nbsp;
+		<lightning:button variant="neutral" label="{!$Label.c.ButtonP45Action2}" onclick="{!c.cancelClick }" />&nbsp;&nbsp;
+    </aura:if>
+	
+    <aura:if isTrue="{!v.displayOkButton}">
+		<lightning:button variant="brand" label="{!$Label.c.ButtonP45Action3}" onclick="{!c.oKClick }" />&nbsp;&nbsp;
+    </aura:if>
+	
+	
+</aura:component>

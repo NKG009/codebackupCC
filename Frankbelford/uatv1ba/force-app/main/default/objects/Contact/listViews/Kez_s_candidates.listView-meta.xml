@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Kez_s_candidates</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Person_Status__c</columns>
+    <columns>TOE_Completed__c</columns>
+    <columns>CONTACT.FIRST_NAME</columns>
+    <columns>CONTACT.LAST_NAME</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>IP_CompleteReferences__c</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Pending</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>equals</operation>
+        <value>Catering,Retail,N/A</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>contains</operation>
+        <value>DE1,DE5,DE55,DE56,DE7,DE75,NG14,NG15,NG16,NG17,NG18,NG19,NG20,NG21,NG22,NG25,NG3,NG5,NG6,NG70,S41,S42,S44,S45</value>
+    </filters>
+    <label>Kez&apos;s candidates</label>
+</ListView>

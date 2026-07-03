@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ts2__Match_Jobs</fullName>
+    <availability>online</availability>
+    <description>Opens Job Match for a candidate</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Match Jobs</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/50.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/50.0/apex.js&quot;)}
+
+if({!ISNULL(Contact.ts2__Longitude__c) || ISNULL(Contact.ts2__Latitude__c)}) {
+    alert(&apos;Contact has no geolocation fields populated&apos;);
+} else {
+    var cId = &apos;{!Contact.Id}&apos;;
+    var url = &quot;/apex/ts2__JobMatch?cId=&quot; + cId;
+    win = window.open(url);
+    win.focus();
+}</url>
+</WebLink>

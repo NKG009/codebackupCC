@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "04ea0e97-ab19-4052-81a4-68807c39ded8",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "Shift__c",
+  "id" : "e58ff631-00b7-48a3-9aff-c6c60ebd4df5",
+  "label" : "Shift",
+  "pageAccess" : "Public",
+  "routeType" : "custom-shift",
+  "type" : "route",
+  "urlPrefix" : "shift"
+}

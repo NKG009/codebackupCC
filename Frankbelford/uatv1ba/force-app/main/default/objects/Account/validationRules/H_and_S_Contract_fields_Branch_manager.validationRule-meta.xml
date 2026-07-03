@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>H_and_S_Contract_fields_Branch_manager</fullName>
+    <active>true</active>
+    <description>Only branch managers can update centrally managed H&amp;S contracts</description>
+    <errorConditionFormula>AND(
+    OR(
+        ISCHANGED(Central_H_S_Contract__c),
+        ISCHANGED(Contracts_managed_by__c)
+    ),
+    NOT($Permission.Branch_Managers)
+)</errorConditionFormula>
+    <errorMessage>Central H&amp;S Contract or Contracts managed by can only be updated by managers</errorMessage>
+</ValidationRule>

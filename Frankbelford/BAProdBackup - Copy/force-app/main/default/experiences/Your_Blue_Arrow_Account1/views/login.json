@@ -1,0 +1,56 @@
+{
+  "appPageId" : "886f015d-392a-4a9f-a14c-7d28c544c256",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "58651ef8-39e5-4a5a-bee4-ca23727b5a8d",
+  "label" : "Login",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" src=\"{!contentAsset.BA_logo_White_2017_Transparent3.1}\" /></p>\n<p><br /></p>\n<p style=\"text-align: center;\"><br /></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "5c4acbf2-5100-48a0-9af1-d0dbfe779a59",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "forgotPasswordLabel" : "Forgot your password?",
+        "forgotPasswordUrl" : "/ForgotPassword",
+        "loginButtonLabel" : "Log in",
+        "passwordLabel" : "Password",
+        "selfRegisterLabel" : "New user register here?",
+        "selfRegisterUrl" : "/SelfRegister",
+        "startUrl" : "",
+        "usernameLabel" : "Email"
+      },
+      "componentName" : "salesforceIdentity:loginForm2",
+      "id" : "3fce8672-b9a1-424d-9582-c02503e7d877",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "58613743-b98a-475d-9ff5-f4c639454215",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "Find flexible, part-time and temporary jobs in the UK. Stay updated with job alerts and manage your schedule all in one place.",
+        "title" : "Login"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "04bdd47d-fb39-499d-b623-b5e71c7a22e8",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "706188d4-6dc1-42d5-8806-33a5687758e1",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Login",
+  "type" : "view",
+  "viewType" : "login-home"
+}

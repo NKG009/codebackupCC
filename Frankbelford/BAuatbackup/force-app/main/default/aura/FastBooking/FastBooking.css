@@ -1,0 +1,121 @@
+.THIS .dashboard-section__leftNav > li ul{
+    right: -23rem !important;
+}
+.THIS .dashboard-section__leftNav div:hover{
+    background-color:#fff;
+    color:#00aae3;
+    outline:2px solid !important;
+}
+.THIS .dashboard-section__leftNav--timesheets li:hover{
+    background-color:#fff;
+    color:#00aae3;
+}
+	.THIS .background{
+background-image:url(/resource/newimage)!important;
+    background-size:32px;
+    background-position: top;
+    background-repeat: no-repeat;
+    }
+.THIS .dashboard-section__leftNav--timesheets li:hover a{
+    color : #00aae3 !important;
+}
+.THIS .dashboard-section__leftNav--vacancies li:hover{
+    background-color:#fff;
+    color:#00aae3;
+}
+.THIS .dashboard-section__leftNav--vacancies li:hover a{
+    color:#00aae3;
+}
+.THIS .dashboard-section__leftNav--temp li:hover{
+    background-color:#fff;
+    color:#00aae3
+}
+.THIS .dashboard-section__leftNav--temp li:hover a{
+   color:#00aae3;
+}
+.THIS .dashboard-section__leftNav ul li a{
+    color:#fff;
+    font-size:1.6rem;
+    padding-top:1rem;
+    padding-bottom:1rem;
+ }
+.THIS .imag
+    {
+        background-image:url('/profilephoto/005/T');
+        width:48px;
+        height:50px;
+    } 
+.THIS .datetimepicker {
+    font-size: 2.0rem;
+}
+.THIS .global-input{
+    font-size: 2.0rem;
+}
+
+.THIS .global-input-box{
+    height: 5rem;
+    border: 1px solid #d7d7d7;
+    width: 100%;
+    font-size: 2rem;
+}
+
+.THIS .decline{
+    margin-top: 13px !important;
+}
+.THIS .uiInputDateTime .display {
+    display: none;
+}
+
+
+.THIS .selectpickercls{
+    height: 5rem;
+    border: 1px solid #d7d7d7;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    font-size: 2.0rem;
+    margin-bottom: 1.5rem;
+    font-family: DIN-Medium !important;
+}
+.THIS .timesheet-section{
+    width: 100%;
+}
+.THIS .headingdetails{
+    height: 5rem;
+    border: 1px solid #d7d7d7;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    font-size: 14px;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    font-family: DIN-Medium !important;
+    
+}
+
+.THIS .mainLoginInput::-webkit-input-placeholder {
+    font-size: 14px !important;
+}
+
+.THIS .mainLoginInput:-ms-input-placeholder {
+    font-size: 14px !important;
+}
+
+.THIS .mainLoginInput:-moz-placeholder {/* older Firefox*/
+    font-size: 14px !important;
+}
+
+.THIS .mainLoginInput::-moz-placeholder {/* Firefox 19+ */
+	font-size: 14px !important;
+}
+.THIS .toastMessage.forceActionsText{
+     white-space : pre-line !important;
+    font-size: 14px !important;
+}
+.THIS .wk_warning {
+    background : #FFB75D !important;
+}

@@ -1,0 +1,4 @@
+<apex:page standardController="Contact" extensions="CreateInstantPortalUserController" action="{!createUser}">
+  <!-- call this one -->
+  <apex:pageMessages id="showmsg"></apex:pageMessages>
+</apex:page>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "ac3a2e27-e92a-4c3d-8edd-ff6e3f10a693",
+  "appPageId" : "cb4d05bc-15d6-4e33-beb3-5244832ec585",
+  "configurationTags" : [ ],
+  "devName" : "Future_Shifts__c",
+  "id" : "cd1152d5-68d9-4a45-bb95-c2ccc94a6ee6",
+  "label" : "Future Shifts",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-future-shifts",
+  "type" : "route",
+  "urlPrefix" : "future-shifts"
+}

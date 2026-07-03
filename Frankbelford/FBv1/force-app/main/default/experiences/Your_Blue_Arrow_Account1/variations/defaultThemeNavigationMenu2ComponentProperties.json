@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "84038c59-05b6-4cbe-976e-46e4d1266ac2",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "navigationMenuEditorRefresh" : "X2nd_Tier_Candidate_Nav_Menu"
+      }
+    },
+    "targetId" : "7f0d4796-9c14-4aa7-9ffb-509a0665973f",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Default_Theme_Navigation_Menu_2_Component_Properties",
+  "id" : "101ace69-b793-4818-93fe-c1ccaf628e07",
+  "type" : "experienceVariation"
+}

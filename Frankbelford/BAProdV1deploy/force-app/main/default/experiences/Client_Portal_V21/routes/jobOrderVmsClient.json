@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "75cb11be-1c02-4d8a-bdd9-7707fd283579",
+  "appPageId" : "6cf45250-dd45-4f57-aa5d-84e94e3c25f8",
+  "configurationTags" : [ ],
+  "devName" : "Job_Order_vms_Client__c",
+  "id" : "76744d47-2918-4fbc-b4fb-4b787ae32c6c",
+  "label" : "Job Order vms Client",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-job-order-vms-client",
+  "type" : "route",
+  "urlPrefix" : "job-order-vms-client"
+}

@@ -1,0 +1,68 @@
+{
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "e046c774-f98a-4289-a9fe-fc2693fd8a18",
+  "label" : "shifts-to-be-approved",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "14be27f5-0bfd-4ca6-a6e3-4acc8c0e9c7f",
+          "columns" : [ {
+            "UUID" : "ea49e4fe-4b35-4d73-9cc1-ef1e40886b24",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "14be27f5-0bfd-4ca6-a6e3-4acc8c0e9c7f",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:ClientComShiftToBeAprvd",
+          "id" : "cfa872b8-a064-4cb9-ab77-91d8f1e4844c",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "ea49e4fe-4b35-4d73-9cc1-ef1e40886b24",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9795c9f4-19cd-4a3b-8f90-f12c6279d78d",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "shifts-to-be-approved"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "a2b2309c-0d9c-4a37-b063-e5197da441fa",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b681f80e-f3de-49a5-b6b7-a79e42f0f206",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-shiftdateview"
+}

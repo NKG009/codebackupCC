@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Better_Email_Bulk_Action</name>
+        <label>Send Better Email Bulk Action</label>
+        <locationX>176</locationX>
+        <locationY>1058</locationY>
+        <actionName>SendBetterEmailBulk</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>SucessScreen</targetReference>
+        </connector>
+        <flowTransactionModel>Automatic</flowTransactionModel>
+        <inputParameters>
+            <name>emailRequests</name>
+            <value>
+                <elementReference>varBetterEmailReqLst</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>SendBetterEmailBulk</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_BetterEmailRequest</name>
+        <label>Assign BetterEmailRequest</label>
+        <locationX>264</locationX>
+        <locationY>782</locationY>
+        <assignmentItems>
+            <assignToReference>varBetterEmailReqLst</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>varSendBetterEmailRequest</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>LoopSelectedSiteIds</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignMainContactEmail</name>
+        <label>Assign Main Contact Email</label>
+        <locationX>264</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>CurrentMainContactEmail</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>LoopSelectedSiteIds.IP_MainContact__r.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CurrentContactId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>LoopSelectedSiteIds.IP_MainContact__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>assignSendBetterEmailRequest</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>assignSendBetterEmailRequest</name>
+        <label>assignSendBetterEmailRequest</label>
+        <locationX>264</locationX>
+        <locationY>674</locationY>
+        <assignmentItems>
+            <assignToReference>varSendBetterEmailRequest.HTMLbody</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>EmailBodyRichText.value</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varSendBetterEmailRequest.subject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Subject</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varSendBetterEmailRequest.UseSalesforceSignature</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varSendBetterEmailRequest.SendTOthisOneEmailAddress</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>CurrentMainContactEmail</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varSendBetterEmailRequest.targetObjectIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CurrentContactId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_BetterEmailRequest</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>CheckIfMainContactExists</name>
+        <label>Check If Main Contact Exists</label>
+        <locationX>396</locationX>
+        <locationY>458</locationY>
+        <defaultConnector>
+            <targetReference>LoopSelectedSiteIds</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>IsMainContactExists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>LoopSelectedSiteIds.IP_MainContact__r.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>LoopSelectedSiteIds.IP_MainContact__r.IP_Email__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AssignMainContactEmail</targetReference>
+            </connector>
+            <label>Is Main Contact Exists</label>
+        </rules>
+    </decisions>
+    <description>Removing CC&apos;ed email address</description>
+    <environments>Default</environments>
+    <interviewLabel>Screen Flow - Send Email to Site Main Contacts {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Screen Flow - Send Email to Site Main Contacts</label>
+    <loops>
+        <name>LoopSelectedSiteIds</name>
+        <label>Loop Selected Sites</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <collectionReference>GetSites</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>CheckIfMainContactExists</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Send_Better_Email_Bulk_Action</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>GetSites</name>
+        <label>Get Sites</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>LoopSelectedSiteIds</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>In</operator>
+            <value>
+                <elementReference>SelectedSiteIds</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>IP_MainContact__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>sirenum__Site__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <screens>
+        <name>EditEmail</name>
+        <label>Edit Email</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>GetSites</targetReference>
+        </connector>
+        <fields>
+            <name>EditEmail_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>EditEmail_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Subject</name>
+                    <dataType>String</dataType>
+                    <fieldText>Email Subject</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>EmailBodyRichText</name>
+                    <extensionName>c:inputRichTextFSC</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Email Body</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>value</name>
+                        <value>
+                            <elementReference>EmailBody</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>4</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>EditEmail_Section1_Column2</name>
+                <fieldType>Region</fieldType>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>4</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>EditEmail_Section1_Column3</name>
+                <fieldType>Region</fieldType>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>4</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+        </fields>
+        <nextOrFinishButtonLabel>Click here to Send Email</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>SucessScreen</name>
+        <label>Sucess Screen</label>
+        <locationX>176</locationX>
+        <locationY>1166</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>SuccessScreen</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(1, 150, 56);&quot;&gt;Email Successfully Sent!&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>EditEmail</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>EmailTemplate</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-left: 50px;
+            background-color: #ffffff; /* Set the background of the entire email to white */
+        }
+        .email-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff; /* Set the background of the email content to white */
+            border: 0px solid #ffffff; /* Remove the visible outline */
+        }
+        .header, .footer {
+            width: 100%;
+            text-align: left; /* Align content to the left */
+            padding-left: 20px; /* Add padding to the left */
+            padding-right: 20px; /* Add padding to the right */
+        }
+        .email-body {
+            padding: 20px; /* Add padding on all sides */
+            padding-left: 70px; /* Extra left padding to ensure the text is away from the edge */
+            padding-right: 20px; /* Right padding for balance */
+            //text-align: left; /* Align text to the left */
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;email-container&quot;&gt;
+        &lt;!-- Header --&gt;
+        &lt;div class=&quot;header&quot;&gt;
+            &lt;img src=&quot;https://blue-arrow.my.salesforce.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&amp;versionId=068Q500000Fv8ml&amp;operationContext=DELIVERY&amp;contentId=05TQ500000Kb0BS&amp;page=0&amp;d=/a/Q5000002vhWv/JxM6.pZBQW14kqIIfCI4jVBeP_QWhH0qKbCtlm146KI&amp;oid=00DS9000004ak5G&amp;dpt=null&amp;viewId=&quot; alt=&quot;Header Image&quot; style=&quot;width: 100%; max-width: 600px;&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Email Body --&gt;
+        &lt;div class=&quot;email-body&quot;&gt;
+            {!EmailBody} 
+
+            &lt;br&gt;&lt;br&gt;
+
+            {!$User.Name__c}&lt;br&gt;
+            {!$User.Title}&lt;br&gt;
+            T: {!$User.Phone}
+&lt;br&gt;&lt;br&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Footer --&gt;
+        &lt;div class=&quot;footer&quot;&gt;
+            &lt;img src=&quot;https://blue-arrow.my.salesforce.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&amp;versionId=068Q500000FvF9y&amp;operationContext=DELIVERY&amp;contentId=05TQ500000Kb6xy&amp;page=0&amp;d=/a/Q5000002vhVJ/SfowOFQ4Vs3mRPayKUIgVyK3oluVF.Vjkh_3UawkZUk&amp;oid=00DS9000004ak5G&amp;dpt=null&amp;viewId=&quot; alt=&quot;Footer Image&quot; style=&quot;width: 100%; max-width: 600px;&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>CurrentContactId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>CurrentMainContactEmail</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>EmailBody</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>EmailBodyRichText.value</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>emailMessage</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>EmailMessage</objectType>
+    </variables>
+    <variables>
+        <name>EmailMsgLst</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>EmailMessage</objectType>
+    </variables>
+    <variables>
+        <name>SelectedSiteIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>sendBetterEmailRequest</name>
+        <apexClass>SendBetterEmailRequest</apexClass>
+        <dataType>Apex</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>SiteMainContactIdLst</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varBetterEmailReqLst</name>
+        <apexClass>SendBetterEmailRequest</apexClass>
+        <dataType>Apex</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varSendBetterEmailRequest</name>
+        <apexClass>SendBetterEmailRequest</apexClass>
+        <dataType>Apex</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

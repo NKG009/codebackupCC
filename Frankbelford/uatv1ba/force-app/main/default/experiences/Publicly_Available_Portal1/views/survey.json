@@ -1,0 +1,59 @@
+{
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "5ac3e662-e582-4e66-809b-5acb4de1a34c",
+  "label" : "Survey",
+  "regions" : [ {
+    "id" : "fecaf1d6-1311-46c9-a26b-dcdcbfae568b",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Untitled2removebg.1}\" style=\"width: 254.859px; height: 64.5625px;\"></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "0044f63f-8c9d-4aac-8866-9b72863641b9",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8a1483ed-4241-4447-979f-1ea8ef3c2e12",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"recordId\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!recordId}\"}]",
+        "flowName" : "Survey_Main_Flow_Test"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "d9d9b77d-ec9c-4f54-85cb-8a8f0acad667",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "037b92e3-121f-43c3-b052-31b50954229d",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Survey"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "f2003bf6-6481-47a4-8c26-069f97d0cda9",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "05218ef4-5bcf-4867-a50f-24b453e96c5a",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-survey"
+}

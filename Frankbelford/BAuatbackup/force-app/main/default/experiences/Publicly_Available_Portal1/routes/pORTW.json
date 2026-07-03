@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "8929c343-a42f-422a-b61b-75dd72fd16de",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "PORTW__c",
+  "id" : "be08e32a-3b28-4669-a9e5-915b9aec7aa0",
+  "label" : "PORTW",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-portw",
+  "type" : "route",
+  "urlPrefix" : "portw"
+}

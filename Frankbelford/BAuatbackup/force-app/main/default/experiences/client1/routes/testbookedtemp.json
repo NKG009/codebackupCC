@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "1f833c18-2ffa-4b15-bb18-d435a451e87c",
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "configurationTags" : [ ],
+  "devName" : "Testbookedtemp__c",
+  "id" : "c41ccf4d-a129-441a-af69-91cf4fb036bd",
+  "label" : "Testbookedtemp",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-testbookedtemp",
+  "type" : "route",
+  "urlPrefix" : "testbookedtemp"
+}

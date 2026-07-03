@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>National_Account__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicate whether a client contact is solely used for national account central sales.</description>
+    <inlineHelpText>Indicate whether a client contact is solely used for national account central sales.</inlineHelpText>
+    <label>National Account Contact</label>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

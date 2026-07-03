@@ -1,0 +1,22 @@
+<aura:component implements="forceCommunity:themeLayout">
+  <aura:attribute name="navigation" type="Aura.Component[]" />
+  <aura:attribute name="sidebar" type="Aura.Component[]" />
+  <aura:attribute name="formFactor" type="String" />
+
+  <div class="slds-grid">
+    <aura:if
+      isTrue="{!$Browser.formFactor == 'PHONE' || $Browser.formFactor == 'TABLET'}"
+    >
+      <!-- <div class="slds-col slds-size_2-of-12">{!v.navigation}</div> -->
+      <div class="slds-col slds-size_12-of-12">{!v.body}</div>
+      <!-- <div class="slds-col slds-size_2-of-12">{!v.sidebar}</div> -->
+      <aura:set attribute="else">
+        <!-- <div class="slds-grid"> -->
+        <div class="slds-col slds-size_2-of-12">{!v.navigation}</div>
+        <div class="slds-col slds-size_8-of-12">{!v.body}</div>
+        <div class="slds-col slds-size_2-of-12">{!v.sidebar}</div>
+        <!-- </div> -->
+      </aura:set>
+    </aura:if>
+  </div>
+</aura:component>

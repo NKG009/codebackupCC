@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lisa_Candidates3</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>IP_PayrollStatus__c</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>IP_WorkerStartDate__c</columns>
+    <columns>IP_Reference_count__c</columns>
+    <columns>IP_POTRWCertCount__c</columns>
+    <columns>Reference_Status__c</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>dkale,Kmacm,pskow</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>equals</operation>
+        <value>Facilities,Manufacturing,Retail,Warehouse,N/A</value>
+    </filters>
+    <label>Lisa Candidates</label>
+</ListView>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "a2e01c63-6286-4b16-9300-9ca23f6325cf",
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "configurationTags" : [ ],
+  "devName" : "ShiftsApprovalDate__c",
+  "id" : "78a59554-815c-425d-9d3e-e5621ad5737d",
+  "label" : "ShiftsApprovalDate",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-shiftdateview",
+  "type" : "route",
+  "urlPrefix" : "shiftdateview"
+}

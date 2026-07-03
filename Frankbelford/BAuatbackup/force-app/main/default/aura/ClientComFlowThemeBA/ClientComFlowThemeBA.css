@@ -1,0 +1,139 @@
+/**
+ * Created by mrahman on 2020-08-21.
+ */
+
+.THIS .dashboard-section__right-part {
+    padding-top: 0rem !important;
+}
+
+.THIS .dashboard-section__leftNav > li ul {
+    right: -21rem !important;
+}
+.THIS .flowruntimeRichTextWrapper .uiOutputRichText {
+
+    font-size : 12pt;
+}
+.THIS .slds-truncate{
+    font-size : 12pt;
+    height : 3rem;
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: black;
+}
+.THIS .uiInput--input {
+    font-size : 12pt;
+}
+.THIS .uiInput--textarea.textarea {
+    font-size : 12pt;
+}
+.THIS .ui-widget button {
+    font-size : 10pt;
+}
+.THIS .slds-form-element__label {
+    font-size : 12pt;
+    padding-top : 10pt;
+}
+.THIS .slds-form-element {
+    font-size : 10pt;
+}
+.THIS .slds-input-has-icon .slds-input__icon {
+    width: 1rem;
+    height: 1rem;
+}
+.THIS .slds-select_container .slds-select {
+    font-size : 10pt;
+    color : black;
+}
+.THIS .slds-datepicker thead > tr > th {
+    font-size : 10pt;
+}
+.THIS .slds-day {
+    font-size : 10pt;
+}
+/* DATE PICKER FORMATTING */
+/*.THIS .slds-datepicker h2 {
+    font-size : 14pt;
+    color: #00aae3;
+}*/
+.THIS .slds-datepicker__filter_month h2 {
+    font-size : 12pt;
+    color: #00aae3;
+}
+.THIS .slds-progress__item.slds-is-active .slds-progress__marker {
+    width: 15pt;
+    height: 15pt;
+}
+/* END OF DATE PICKER FORMATTING  */
+.THIS .slds-radio .slds-radio_faux {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.THIS .slds-checkbox .slds-checkbox_faux {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.THIS .forceCommunityTabset>.uiTabBar .uiTabItem .tabHeader {
+    font-size: 20px;
+}
+.THIS .slds-form-element__help {
+    font-size : 12pt;
+}
+/*FOOTER FONT SIZE*/
+.THIS .cHomeLayoutFooter {
+    font-size : 10pt !important;
+}
+/*FOR JOB ORDER DETAILS PAGE LAYOUT*/
+.THIS .slds-icon.slds-icon_small {
+    display: flex;
+}
+.THIS .slds-form-element__static {
+    font-size : 12pt;
+}
+.THIS .forceHighlightsStencilDesktop .entityNameTitle {
+    font-size: 15pt;
+    color: #07a9e3;
+}
+.THIS .forceHighlightsStencilDesktop .clip-text {
+    font-size: 15pt;
+    color: #07a9e3;
+}
+.THIS .slds-media__figure {
+    width: 40px !important;
+    height: 40px !important;
+}
+.THIS .forceEntityIcon .uiImage {
+    width : 40px;
+    height : 40px;
+}
+.THIS .forcePageBlockItemView .slds-form-element__static {
+    padding-top: 0;
+    padding-bottom: 10pt;
+}
+.THIS .outputLookupLink{
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: black;
+}
+.THIS .slds-hyphenate {
+    font-size : 12pt;
+}
+/*END OF JOB ORDER DETAILS PAGE LAYOUT*/
+.THIS .uiTooltip {
+    display: none !important;
+}
+.THIS .flowruntimeInputWrapper .slds-button.slds-button_icon-bare {
+    display: none;
+}
+.THIS .slds-form-element__control {
+    padding-top : 8pt;
+}
+/*CHANGES FOR SCHEDULE TAB*/
+.THIS .slds-box_x-small {
+    font-size : 12pt;
+}
+
+.THIS .w-100 {
+    width: 100vw !important;
+}

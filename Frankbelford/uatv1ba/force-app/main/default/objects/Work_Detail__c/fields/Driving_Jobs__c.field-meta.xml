@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Driving_Jobs__c</fullName>
+    <label>Driving Jobs</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Chauffer</fullName>
+                <default>false</default>
+                <label>Chauffer</label>
+            </value>
+            <value>
+                <fullName>Counterbalance FLT Driver</fullName>
+                <default>false</default>
+                <label>Counterbalance FLT Driver</label>
+            </value>
+            <value>
+                <fullName>Driver</fullName>
+                <default>false</default>
+                <label>Driver</label>
+            </value>
+            <value>
+                <fullName>Drivers Mate</fullName>
+                <default>false</default>
+                <label>Drivers Mate</label>
+            </value>
+            <value>
+                <fullName>Fork Lift Driver</fullName>
+                <default>false</default>
+                <label>Fork Lift Driver</label>
+            </value>
+            <value>
+                <fullName>LGV ADR Category C</fullName>
+                <default>false</default>
+                <label>LGV ADR Category C</label>
+            </value>
+            <value>
+                <fullName>LGV ADR Category C+E</fullName>
+                <default>false</default>
+                <label>LGV ADR Category C+E</label>
+            </value>
+            <value>
+                <fullName>LGV ADR Category C1</fullName>
+                <default>false</default>
+                <label>LGV ADR Category C1</label>
+            </value>
+            <value>
+                <fullName>LGV C+E Driver</fullName>
+                <default>false</default>
+                <label>LGV C+E Driver</label>
+            </value>
+            <value>
+                <fullName>LGV C+E Driver (102 Restriction)</fullName>
+                <default>false</default>
+                <label>LGV C+E Driver (102 Restriction)</label>
+            </value>
+            <value>
+                <fullName>LGV C1 Driver</fullName>
+                <default>false</default>
+                <label>LGV C1 Driver</label>
+            </value>
+            <value>
+                <fullName>LGV C Driver</fullName>
+                <default>false</default>
+                <label>LGV C Driver</label>
+            </value>
+            <value>
+                <fullName>LGV HIAB Category C</fullName>
+                <default>false</default>
+                <label>LGV HIAB Category C</label>
+            </value>
+            <value>
+                <fullName>LGV HIAB Category C+E</fullName>
+                <default>false</default>
+                <label>LGV HIAB Category C+E</label>
+            </value>
+            <value>
+                <fullName>PCV Driver (Bus/Coach)</fullName>
+                <default>false</default>
+                <label>PCV Driver (Bus/Coach)</label>
+            </value>
+            <value>
+                <fullName>PCV Driver (Minibus)</fullName>
+                <default>false</default>
+                <label>PCV Driver (Minibus)</label>
+            </value>
+            <value>
+                <fullName>Supervisor</fullName>
+                <default>false</default>
+                <label>Supervisor</label>
+            </value>
+            <value>
+                <fullName>Telescopic Fork Lift Driver</fullName>
+                <default>false</default>
+                <label>Telescopic Fork Lift Driver</label>
+            </value>
+            <value>
+                <fullName>Van Driver</fullName>
+                <default>false</default>
+                <label>Van Driver</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

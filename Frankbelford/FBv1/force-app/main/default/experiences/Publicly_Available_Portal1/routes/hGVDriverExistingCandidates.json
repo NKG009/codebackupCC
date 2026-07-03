@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "d02874a9-088a-4084-8893-c94431e84321",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "Driving_Training_Programme_Talent_Pool__c",
+  "id" : "46264de5-f1b1-4046-ae9b-d5a1c12c76c4",
+  "label" : "HGV Driver - Existing Candidates",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-driving-training-programme-talent-pool",
+  "type" : "route",
+  "urlPrefix" : "hgv-driver-existing-candidates"
+}

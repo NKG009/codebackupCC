@@ -1,0 +1,35 @@
+<template>
+  <div class="slds-grid">
+    <lightning-layout horizontal-align="spread" multiple-rows>
+      <lightning-layout-item class="slds-p-around_xx-large" size="12">
+        <a href={theBasePath}>
+          <img src={blueArrowLogo} alt="Blue Arrow Logo Main" />
+        </a>
+      </lightning-layout-item>
+      <lightning-layout-item
+        class="slds-p-left_xx-large slds-p-bottom_xx-large"
+        size="12"
+      >
+        <div class="slds-grid slds-grid_vertical">
+          <template for:each={menuItems} for:item="item">
+            <template if:true={item.showMenuItem}>
+              <div class="slds-m-top_large" key={item.id}>
+                <c-portal-v2-navigation-menu-item
+                  item={item}
+                  data-id={item.target}
+                  onmenuitemclicked={handleMenuItemClick}
+                ></c-portal-v2-navigation-menu-item>
+              </div>
+            </template>
+          </template>
+        </div>
+      </lightning-layout-item>
+      <lightning-layout-item class="slds-p-around_xx-large settings" size="12">
+        <a href={settingsPath}>
+          <!-- "/cpv2/s/settings"> -->
+          <img src={informationLogo} alt="Information" />
+        </a>
+      </lightning-layout-item>
+    </lightning-layout>
+  </div>
+</template>

@@ -1,0 +1,71 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+	<div class="slds-grid slds-wrap slds-grid_align-center slds-grid_align-space">
+      
+                <div class="slds-col" >
+                    <div style="width:170px;border:1px solid  #a8cd1b;" class="panel panel-primary">
+                         <a class="hyperlinkclass" href="" onclick="{!c.Confirmyourhours}" value="track-my-pay">
+                         <div style="height:92px;" class="slds-align_absolute-center">
+                           <img src="{!$Resource.confirmhrsicon}"/>    
+                        </div><br></br>
+                        
+                            <div class="slds-align_absolute-center tittletext">
+                                <span class="pull-left">Confirm My Hours</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>  
+   
+                <div class="slds-col" >
+                     <div style="width:170px;border:1px solid  #a8cd1b;" class="panel panel-primary">
+                           <a class="hyperlinkclass" href="" onclick="{!c.TrackMyPay}" value="track-my-pay">
+                         <div class="slds-align_absolute-center">
+                           <img src="{!$Resource.trackmypay}"/>    
+                        </div><br></br>
+                       
+                            <div class="slds-align_absolute-center tittletext">
+                                <span class="pull-left">Track My Pay</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+        
+               <div class="slds-col" >
+                    <div style="width:170px;border:1px solid  #a8cd1b;" class="panel panel-primary">
+                         <a class="hyperlinkclass" href="" onclick="{!c.payslip}" value="PaySlips">
+                         <div class="slds-align_absolute-center">
+                           <img src="{!$Resource.payslipicon}"/>    
+                        </div><br></br>
+                        
+                            <div class="slds-align_absolute-center tittletext">
+                                <span class="pull-left">Payslips</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+        
+               <div class="slds-col" >
+                     <div style="width:170px;border:1px solid  #a8cd1b;" class="panel panel-primary">
+                          <a class="hyperlinkclass" href="" onclick="{!c.myTimesheet}" value="mytimesheet">
+                         <div class="slds-align_absolute-center">
+                           <img src="{!$Resource.timesheetiocon}"/>    
+                        </div><br></br>
+                        
+                            <div class="slds-align_absolute-center tittletext">
+                                <span class="pull-left">My Timesheets</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+    
+            </div>
+    <br></br> <br></br>
+     <div class="slds-truncate" style="text-align:Left;">
+                       <lightning:button class="Backbutton" label="Back" variant="Brand" onclick="{!c.getBackscreen}"   />
+                       
+                        </div>
+   
+</aura:component>

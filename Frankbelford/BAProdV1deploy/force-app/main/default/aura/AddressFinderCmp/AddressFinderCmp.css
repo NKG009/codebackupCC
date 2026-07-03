@@ -1,0 +1,78 @@
+/**
+ * Created by mrahman on 2020-11-28.
+ */
+.THIS {
+    
+}
+
+.THIS .content{
+  width: 450px;
+  margin: auto;
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #ddefee;
+}
+
+.THIS .fieldWrap{
+    width: 100%;
+    clear: both;
+}
+
+.THIS .seperator{
+    margin-bottom: 15px;
+    display: none;
+}
+
+.THIS .outputArea{
+    display: none;
+    padding-left: 5px;
+}
+
+.THIS .searchInput{
+    width: 70%;
+    height: 25px;
+    padding: 5px;
+    font-size: 18px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #D9D8D7;
+    background: white;
+    font-family: monospace;
+}
+
+.THIS .searchInput::placeholder{
+    font-size: 18px;
+}
+
+.THIS .searchInput:focus {
+    border-bottom: 1px solid #12ada6;
+    outline: 0;
+}
+
+.THIS .clear{
+    display: none;
+    position: relative;
+    background: #bbb8b8;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    border-radius: 20px;
+    float: right;
+    padding: 2px;
+    color: white;
+    font-size: 14px;
+    right: 30px;
+    top: 8px;
+    line-height: 18px;
+}
+
+.THIS .clear:hover{
+    background: #969696;
+    cursor: pointer;
+}
+
+.THIS .error{
+	background: #f5b355;
+	padding: 10px;
+	margin-top: 15px;
+	display: none;
+}

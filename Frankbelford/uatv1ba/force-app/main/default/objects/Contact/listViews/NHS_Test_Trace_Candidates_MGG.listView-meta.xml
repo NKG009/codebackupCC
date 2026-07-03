@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NHS_Test_Trace_Candidates_MGG</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Person_Status__c</columns>
+    <columns>DoHSc_Stages__c</columns>
+    <columns>DoHSc_Job_Role__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>Compliance_Status__c</columns>
+    <columns>ts2__People_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>NHS Test&amp;Trace Candidates - MGG</label>
+</ListView>

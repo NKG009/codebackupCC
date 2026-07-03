@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Covering_Branches</fullName>
+    <columns>NAME</columns>
+    <columns>Branch__c</columns>
+    <columns>Postcode_District__c</columns>
+    <columns>OBJECT_ID</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Postcode_District__c</field>
+        <operation>startsWith</operation>
+        <value>BH</value>
+    </filters>
+    <label>All Covering Branches</label>
+</ListView>

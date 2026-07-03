@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Details__c</fullName>
+    <formula>IF( ISBLANK( sirenum__Payment_Account__c ) , False, True)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Account_Details</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

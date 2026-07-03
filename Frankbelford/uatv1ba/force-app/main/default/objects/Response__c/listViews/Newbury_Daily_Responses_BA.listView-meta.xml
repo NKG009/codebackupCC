@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Newbury_Daily_Responses_BA</fullName>
+    <columns>NAME</columns>
+    <columns>Status__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Work_Time__c</columns>
+    <columns>Shift_Patterns__c</columns>
+    <columns>NHS_Location__c</columns>
+    <columns>NHS_Job_Roles__c</columns>
+    <columns>Brand__c</columns>
+    <columns>NHS_Source__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Unite_Student_Role__c</field>
+        <operation>equals</operation>
+        <value>Student Experience Team Member – Days (Shifts between 7am and 11pm),Student Experience Team Member – Nights (Shifts between 10pm and 7am)</value>
+    </filters>
+    <label>Newbury Daily Responses - BA</label>
+</ListView>

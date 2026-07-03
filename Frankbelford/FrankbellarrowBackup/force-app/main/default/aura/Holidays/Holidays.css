@@ -1,0 +1,41 @@
+.THIS.slds-spinner_container {  
+  z-index: 10000;
+  position: fixed;   
+}
+.THIS .headingfont{
+   font-family: Arial;
+	font-size: 12.5px;
+	font-style: Italic;
+	font-variant: normal;
+	font-weight: bold;
+    
+}
+.THIS .downloadlink{
+   font-family: Arial;
+	font-size: 11.5px;
+
+	font-variant: normal;
+	font-weight: bold;
+     text-decoration: underline;
+    
+}
+.THIS .Backbutton{
+    color : white;
+     background-color: #6f6f6e;
+    border-color: #6f6f6e;
+}
+.THIS .Backbutton:hover{
+    color : white;
+     background-color: #99998e;
+    border-color: #99998e;
+}
+.THIS .Submitbutton{
+    color : white;
+     background-color: #a8cd1b;
+    border-color: #a8cd1b;
+}
+.THIS .Submitbutton:hover{
+    color : white;
+     background-color: #96aa4b;
+    border-color: #96aa4b;
+}

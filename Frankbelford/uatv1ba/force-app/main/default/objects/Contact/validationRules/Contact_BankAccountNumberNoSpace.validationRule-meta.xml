@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_BankAccountNumberNoSpace</fullName>
+    <active>false</active>
+    <description>Bank Account Cannot contain spaces or non number charactors</description>
+    <errorConditionFormula>OR(
+LEN( sirenum__Payment_Account__c )&gt;8, 
+LEN(sirenum__Payment_Account__c )&lt;8, 
+CONTAINS(sirenum__Payment_Account__c , &quot;/&quot;), 
+CONTAINS(sirenum__Payment_Account__c , &quot; &quot;), 
+CONTAINS(sirenum__Payment_Account__c , &quot;-&quot;) 
+)</errorConditionFormula>
+    <errorMessage>Bank Account Number must not contain spaces and must be 8 digits</errorMessage>
+</ValidationRule>

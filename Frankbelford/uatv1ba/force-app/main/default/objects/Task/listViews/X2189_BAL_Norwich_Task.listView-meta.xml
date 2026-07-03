@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2189_BAL_Norwich_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>2189-BAL Norwich</label>
+    <queue>X2189_BAL_Norwich</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,70 @@
+<aura:component controller="ShiftApprovalController" description="shiftListItem">
+    
+    <aura:attribute name="recordID" type="ID"/>
+    <aura:attribute name="SchStartHours" type="String"/>
+    <aura:attribute name="SchEndHours" type="String"/>
+    <aura:attribute name="SchStartMinutes" type="String"/>
+    <aura:attribute name="SchEndMinutes" type="String"/>
+    <aura:attribute name="highlight" type="Boolean"/>
+     <aura:attribute name="brktime" type="string" />
+    <aura:attribute name="chargableTime" type="String"/>
+    <aura:attribute name="record" type="sobject"/>
+    <aura:attribute name="StartTimeEditMode" type="boolean" default="false" />
+    <aura:attribute name="EndTimeEditMode" type="boolean" default="false" />
+    <aura:attribute name="starthour" type="String"/> 
+    <aura:attribute name="endhour" type="String"/> 
+    
+    <aura:method name="selectAll" action="{!c.SelectAllClicked}" access="PUBLIC">
+        <aura:attribute name="checkedAll" type="boolean" />
+    </aura:method>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:ShiftMatchedOnly" action="{!c.HighlightRow}"/>
+    
+    <td aura:id="td" style="text-align:center"><div class="slds-truncate slds-grow slds-cell-wrap">{!v.record.sirenum__Contact__r.Name}</div></td>
+    <td aura:id="td" style="text-align:center"><div class="slds-truncate slds-grow slds-cell-wrap">{!v.record.sirenum__Team__r.Name} - {!v.record.sirenum__Site__r.Name}</div></td>
+    <td aura:id="td" style="text-align:center"><div class="slds-truncate"><lightning:formattedDateTime value="{!v.record.sirenum__Scheduled_Start_Time__c}" year="numeric" month="numeric" day="numeric" /></div></td>
+    <td aura:id="td" style="text-align:center"><div style="background-color:  lightgrey;" class="slds-truncate"><lightning:formattedDateTime class="chargableTime" value="{!v.record.sirenum__Scheduled_Start_Time__c}" hour="2-digit" minute="2-digit"/></div></td>
+    <td aura:id="td" style="text-align:center"><div style="background-color:  lightgrey;" class="slds-truncate"><lightning:formattedDateTime class="chargableTime" value="{!v.record.sirenum__Scheduled_End_Time__c}" hour="2-digit" minute="2-digit"/></div></td>                        
+    
+    <td aura:id="td" ondblclick="{!c.inlineEditStartTime}">
+        <span style="width:120px;" class="slds-grid slds-grid_align-center">
+            <aura:if isTrue="{!v.StartTimeEditMode == false}">
+                <div class="slds-truncate">{!v.starthour}</div>
+                <button onclick="{!c.inlineEditStartTime}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Time">
+                    <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                </button>
+                
+                <aura:set attribute="else">
+                   <input onblur="{!c.closeStartTimeEdit}" label="Time" required="required" style="width:70px;" id="inputTime" type="Time" value="{!v.starthour}" name="file" />    
+                  </aura:set>  
+            </aura:if> 
+        </span>
+    </td>
+    
+    <td aura:id="td" ondblclick="{!c.inlineEditEndTime}">
+        <span style="width:120px;" class="slds-grid slds-grid_align-center">
+            <aura:if isTrue="{!v.EndTimeEditMode == false}">
+                <div class="slds-truncate">{!v.endhour}</div>
+                <button onclick="{!c.inlineEditEndTime}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Time">
+                    <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                </button>
+                
+                <aura:set attribute="else">
+                    
+                    <input onblur="{!c.closeEndTimeEdit}" label="Time" required="required" style="width:70px;" id="inputTime1" type="Time" value="{!v.endhour}" name="file" />    
+          
+                </aura:set>  
+            </aura:if> 
+        </span>
+    </td>
+    <td aura:id="td" style="text-align:center;width:90px;"><div class="slds-truncate" style="background-color:  lightgrey; width:90px;">
+        <aura:if isTrue="{!v.brktime==null}">
+           {!v.record.Break_Length__c}
+             <aura:set attribute="else">
+                {!v.brktime}   
+               </aura:set>
+            </aura:if>
+        </div></td>
+    <td aura:id="td" style="text-align:center"><div class="slds-truncate" style="background-color:  lightgrey;">{!v.chargableTime}</div></td>
+</aura:component>

@@ -1,0 +1,55 @@
+<template>
+  <div class="card grey-background-color">
+    <template if:true={loading}>
+      <div class="full-height slds-size_1-of-1 slds-align_absolute-center">
+        <div class="spinner">
+          <lightning-spinner
+            alternative-text="Loading"
+            size="large"
+          ></lightning-spinner>
+        </div>
+      </div>
+    </template>
+    <template if:false={loading}>
+      <div class="slds-var-m-horizontal_x-large">
+        <!-- Title -->
+        <div class="top-bar slds-var-p-top_large">
+          <h2 class="header-text font-dark-grey">Shift fulfilment</h2>
+        </div>
+      </div>
+
+      <div class="slds-grid body-container">
+        <!-- Left box -->
+        <div class="stacked-grid">
+          <div>
+            <h1 class="indicator-number font-blue-arrow-primary">
+              {numShifts}
+            </h1>
+          </div>
+          <div><p class="label font-dark-grey">Shifts requested</p></div>
+          <div>
+            <lightning-button
+              variant="brand"
+              label="View shift requests"
+              onclick={navigate}
+            ></lightning-button>
+          </div>
+        </div>
+        <!-- Right box -->
+        <div class={fulfilmentClass}>
+          <div>
+            <h1 class="indicator-number slds-var-p-horizontal_medium">
+              {fulfilment}
+            </h1>
+          </div>
+          <div>
+            <p class="font-dark-grey slds-var-p-horizontal_medium">
+              Shifts fulfilled
+            </p>
+          </div>
+          <div></div>
+        </div>
+      </div>
+    </template>
+  </div>
+</template>

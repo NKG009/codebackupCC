@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StudentWorkHoursCannotBeBlankIfActive</fullName>
+    <active>true</active>
+    <description>Student work hours cannot be blank for an international student</description>
+    <errorConditionFormula>AND(ISBLANK(TEXT(IP_StudentWorkHours__c)),
+    Student__c = TRUE,
+    IP_CitizenshipGroup__c = &quot;Citizen of a country outside of the EU&quot;
+   )</errorConditionFormula>
+    <errorDisplayField>IP_StudentWorkHours__c</errorDisplayField>
+    <errorMessage>Student work hours cannot be blank for an international student</errorMessage>
+</ValidationRule>

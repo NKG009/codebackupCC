@@ -1,0 +1,86 @@
+<aura:component controller='Shifts_to_be_ApprovedCnt' implements="forceCommunity:availableForAllPageTypes" access="global" description="ClientCommShiftsByTempCmp">
+
+    <ltng:require styles="{!join(',',
+                          $Resource.assetsTest+'/assets/css/jquery-ui.css',
+                          $Resource.webUI+'/assets/css/all.css',
+                          $Resource.webUI+'/assets/css/fontawesome.css',
+                          $Resource.webUI+'/assets/css/fontawesome.min.css',
+                          $Resource.Tjcss+'/assets/css/dataTables.bootstrap.min.css',
+                          $Resource.Tjcss+'/assets/css/jquery.dataTables.min.css',
+                          $Resource.Tjcss+'/assets/css/responsive.bootstrap.min.css',
+                          $Resource.Tjcss2+'/assets/css/main.css'
+                          )
+                          }"
+                  scripts="{!join(',',
+                           $Resource.Tjcss2+'/assets/js/main.min.js',
+                           $Resource.webUI+'/assets/js/custom.js'
+                           
+                           )}"
+    />
+
+    <aura:attribute name="baseURL" type="String" />
+    <aura:attribute name="truly" type="Boolean" />
+    <aura:attribute name="ShiftList" type="List" />
+    <aura:attribute name="CandidateName" type="String" />
+    <aura:attribute type="List" name="SiteList" />
+    <aura:attribute name="selectedSite" type="String" />
+    <aura:attribute type="List" name="shift" />
+    <aura:attribute name="Name" type="String"/>
+    <aura:attribute name="userInfo" type="User" access="global"/>
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    <aura:attribute name="site" type="String" />
+
+    <aura:registerEvent name="AllAproved" type="c:ShiftApproveAllEvent"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:ClientCommunityThemeEvent" action="{! c.onSiteChange }"/>
+
+    <div class="container-fluid w-100">
+        <div class="timesheet-section__right-part">
+            <ol class="breadcrumb">
+                <li><a href="javascript:void(0)" onclick="{!c.dashboardnavigate}" title="Dashboard">Dashboard</a></li>
+                <li>Timesheets</li>
+                <li class="active">Shifts by temp Name</li>
+            </ol>
+            <div class="search-section">
+                <form class="row">
+                    <div onkeypress="{!c.keyCheck}" class="col-md-6 col-lg-9">
+                        <label class="global-label">Temp Name</label>
+                        <ui:inputText label="" aura:id="cand" class="selectrole" value="{!v.CandidateName}" placeholder="Search Temp Name" />
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-3">
+
+                            <input type="button" class="search-btn" name="Search" value="Search" onclick="{!c.search}" />
+                            <input type="button" class="clearAll-btn" name="Clear" value="Clear All" onclick="{!c.resetAllValues}" />
+                        
+                    </div>
+
+                </form>
+            </div>
+            <div class="tab-section">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="">By Temp Name</a></li>
+                    <li role="presentation"><a class="hlink" href="javascript:void(0)" onclick="{!c.shiftsToBeApprovedDataView}" title="Shifts to be Approved">By Date</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active">
+                        <div class="panel-group custom-accordian" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="ElementDetail__table" role="tab">
+                                </div>
+                            </div>
+                            <aura:if isTrue="{!v.truly}">
+                                <c:CandidateChild ShiftList="{!v.ShiftList}" contact="{!v.CandidateName}" site="{!v.selectedSite}" aura:id="childC" />
+                                <!-- <c:DataView ShiftList="{!v.ShiftList}" contact="{!v.CandidateName}" site="{!v.selectedSite}" aura:id="childC" />  -->
+                                <div id="overlay">
+                                    <img src="{!$Resource.Loadingimage}"  width="120" height="100" alt=""/>
+                                </div>
+                            </aura:if>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

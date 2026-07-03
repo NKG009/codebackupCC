@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MGG_Gateshead</fullName>
+    <columns>DoHSc_Job_Role__c</columns>
+    <columns>DoHSc_Stages__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>Gateshead</value>
+    </filters>
+    <filters>
+        <field>DoHSc_Job_Role__c</field>
+        <operation>includes</operation>
+        <value>Lab Assistant,Lab Technician,Senior Lab Technician</value>
+    </filters>
+    <filters>
+        <field>DoHSc_Stages__c</field>
+        <operation>notContain</operation>
+        <value>Unsuitable,Offer,Placed</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>notContain</operation>
+        <value>Vfalc</value>
+    </filters>
+    <label>MGG -  Gateshead</label>
+    <sharedTo>
+        <role>Blue_Arrow</role>
+        <role>MGG</role>
+        <role>SRG</role>
+    </sharedTo>
+</ListView>

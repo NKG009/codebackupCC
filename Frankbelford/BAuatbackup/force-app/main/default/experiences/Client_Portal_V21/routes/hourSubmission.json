@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "49fc4156-f3d8-454e-bee2-67619269f026",
+  "appPageId" : "6cf45250-dd45-4f57-aa5d-84e94e3c25f8",
+  "configurationTags" : [ ],
+  "devName" : "Hour_Submission__c",
+  "id" : "2d3816a3-9466-4d93-9341-5b6a05d89a6d",
+  "label" : "Hour Submission",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-hour-submission",
+  "type" : "route",
+  "urlPrefix" : "hour-submission"
+}

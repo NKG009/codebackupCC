@@ -1,0 +1,46 @@
+{
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "052746b9-2b33-4e9d-bf08-ada8aea6dfff",
+  "label" : "My Job Order",
+  "regions" : [ {
+    "id" : "57af1fa5-3609-40b5-8724-6e4980014157",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2MyJobOrders",
+      "id" : "63953091-fdac-40a4-8cd7-f974c450eb79",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ebe09e53-48fa-4b67-a0fe-cf13e4a0a96c",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "e1e29df9-758e-4c46-a794-3a8dd52aab95",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My Job Order"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "ffd4ea0a-8fac-412d-bcaf-f2e24c3f0f3c",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b9b11466-4ca3-4af8-8bb9-969c78161adf",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-my-job-order"
+}

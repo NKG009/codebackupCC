@@ -1,0 +1,69 @@
+<apex:component access="global" controller="ShifttobeApprovedController">
+<apex:attribute type="String" name="recipientid" description="test1"/>
+<apex:attribute type="String" name="relatedToid" description="test2"/>
+<apex:attribute type="id" name="recipientid"  description="Record Id" assignTo="{!recipient_Id}"/>
+<apex:attribute type="id" name="relatedToid"  description="Record Id2" assignTo="{!relatedTo_Id}"/>
+
+
+   
+ <style>
+.linkunderline{
+    text-decoration: none;
+    color: Blue;
+}
+
+</style>
+<html>    
+<table BORDER="0" CELLSPACING="0" style="width:640px;height:560px;background-image:url('{!URLFOR($Resource.TemplatePics,'picsfolder/background.jpg')}');">
+<tr >
+    <td style="vertical-align:top;text-align:right;height:140px;width:190px;">
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR4-1/c.aspx" id="theLink1"><apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic1.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR5-1/c.aspx" id="theLink2"><apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic2.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR6-1/c.aspx" id="theLink3"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic3.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR7-1/c.aspx" id="theLink4"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic4.jpg')}" /></apex:outputLink>
+   
+    </td>
+      <td style="text-align:right;vertical-align:middle;height:140px;width:460px;">
+     <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR8-1/c.aspx" id="theLink5"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/logo.png')}" /> </apex:outputLink>
+    </td>
+</tr>
+<tr style="width:650px;">
+<td colspan="2" style="vertical-align:top;">
+<table style="width:630px;">
+<tr style="height:45px;text-align:center;"><td style="text-align:center;">
+<font size="2" face="Bahnschrift Light" color="black"><b>Blue Arrow Shift to be Approved</b></font>
+</td>
+</tr>
+<tr style="height:200px;text-align:center;"><td style="text-align:left;vertical-align:top;">
+<div style="margin-left:30px;margin-right:10px;margin-top:-10px;">
+<font size="2" face="Bahnschrift Light" color="black">
+    
+Hi {!userDetails}, <br></br><br></br>
+        
+Please be aware that you have {!Shiftdetails} shifts awaiting your approval. Please could you log into your portal by <a href="{!comURL}"> clicking here</a> and approve these by Monday 5pm in order to ensure that your temps are paid on time. <br/><br/>
+
+
+
+<br></br>
+Best regards, <br></br>
+Blue Arrow<Br></Br>
+    
+</font>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:140px;">
+<td colspan="2" >
+<apex:image height="80px" width="250px" url="{!URLFOR($Resource.TemplatePics,'picsfolder/IIP_PLAT_19.jpg')}" />
+
+</td>
+
+</tr>
+</table>
+</html>
+
+<Br></Br><Br></Br>
+</apex:component>

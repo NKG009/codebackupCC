@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Environment__c</fullName>
+    <description>These values, line up to variables within the SbHelper Class.  And are required to ensure the correct environment mapping is used.</description>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>If unsure of the namespace or package installed, please use &apos;Salesforce&apos; for generic mappings (ie Contact/Lead)</inlineHelpText>
+    <label>Environment</label>
+    <required>true</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bullhorn</fullName>
+                <default>false</default>
+                <label>Bullhorn</label>
+            </value>
+            <value>
+                <fullName>TalentRover</fullName>
+                <default>false</default>
+                <label>TalentRover</label>
+            </value>
+            <value>
+                <fullName>Salesforce</fullName>
+                <default>false</default>
+                <label>Salesforce</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

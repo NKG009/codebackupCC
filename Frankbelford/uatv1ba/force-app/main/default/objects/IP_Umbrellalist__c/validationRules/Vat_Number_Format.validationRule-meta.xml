@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vat_Number_Format</fullName>
+    <active>true</active>
+    <errorConditionFormula>IP_VATRegistered__c = 1 &amp;&amp; ( VAT_Number__c = &apos;&apos; || NOT(REGEX(VAT_Number__c , &quot;[0-9]{9}&quot;)))</errorConditionFormula>
+    <errorMessage>Vat number is required and should be 9 numeric</errorMessage>
+</ValidationRule>

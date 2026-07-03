@@ -1,0 +1,30 @@
+<apex:page sidebar="false" controller="SbAppController">
+    <style>
+        table#bodyTable {border-collapse: collapse;} 
+        table#bodyTable td {padding: 0;}
+    </style>
+
+    iFrame: https://sonar.uat.sourcebreaker.dev
+    <apex:iframe src="https://sonar.uat.sourcebreaker.dev/crm/salesforce/authentication?authCode={!vfAuthCode}" scrolling="true" id="SbApp" width="100%" height="100%"/>
+
+
+    <script>
+        (function() {
+            var windowOnload = window.onload;
+            window.onload = function() {
+                if (windowOnload) windowOnload(); 
+                document.getElementById('SbApp').height = window.innerHeight - 20;
+                document.getElementById('SbApp').width = window.innerWidth;
+            };
+        }());
+
+        (function() { 
+            var windowOnresize = window.onresize;
+            window.onresize = function() {
+                if (windowOnresize) windowOnresize(); 
+                document.getElementById('SbApp').height = window.innerHeight - 10;
+                document.getElementById('SbApp').width = window.innerWidth;
+            };
+        }());
+    </script>
+</apex:page>

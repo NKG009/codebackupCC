@@ -1,0 +1,58 @@
+.THIS .slds-icon {
+    width: 2.5rem !important;
+    margin-top: -6px !important;
+}
+
+.THIS .ms-help-popup-in-header {
+    display: inline-block;
+    position: absolute !important;
+    background-color: #00aae3;
+    top: -10px !important;
+    left: 55px !important;
+    margin-left: -1rem !important;
+    max-width: 20rem !important;
+    overflow: visible !important;
+    text-transform: none !important;
+}
+
+.THIS .ms-help-popup-in-header:before,
+.THIS .ms-help-popup-in-header:after {
+    width: 0.8rem !important;
+    height: 0.8rem !important;
+    position: absolute;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    content: '';
+    background-color: #FFF;
+    top: 50%;
+    left: -0.4rem !important;
+    margin-top: -.8rem !important;
+}
+
+.THIS .ms-help-popup-body {
+    white-space: unset !important;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    width: auto;
+}
+
+.THIS .testSize {
+    font-size: 1.6rem;
+}
+
+.THIS .slds-popover__body {}
+
+.THIS .slds-popover_tooltip {
+    width: 400px !important;
+    max-width: 100rem !important;
+    background: #00aae3;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+}
+
+.THIS tbody .slds-popover_tooltip {
+    top: 20px !important;
+  }

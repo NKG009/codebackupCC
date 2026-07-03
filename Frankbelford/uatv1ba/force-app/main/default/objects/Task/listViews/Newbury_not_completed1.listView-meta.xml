@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Newbury_not_completed1</fullName>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>COMPLETED_DATE_TIME</columns>
+    <columns>IP_TaskType__c</columns>
+    <columns>SUBJECT</columns>
+    <columns>DUE_DATE</columns>
+    <columns>WHAT_NAME</columns>
+    <columns>WHO_NAME</columns>
+    <columns>STATUS</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>PRIORITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>STATUS</field>
+        <operation>notEqual</operation>
+        <value>Completed</value>
+    </filters>
+    <filters>
+        <field>OWNER_ROLE</field>
+        <operation>contains</operation>
+        <value>newbury,swindon,oxford</value>
+    </filters>
+    <filters>
+        <field>DUE_DATE</field>
+        <operation>greaterThan</operation>
+        <value>9/1/2024 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>SUBJECT</field>
+        <operation>notContain</operation>
+        <value>sent email,happy birthday,first day,reference,COB,new vacancy,check</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.FULL_NAME</field>
+        <operation>notContain</operation>
+        <value>katie anne wood</value>
+    </filters>
+    <label>Newbury -  tasks not completed</label>
+    <sharedTo>
+        <role>Blue_Arrow_Newbury_Temps</role>
+    </sharedTo>
+</ListView>

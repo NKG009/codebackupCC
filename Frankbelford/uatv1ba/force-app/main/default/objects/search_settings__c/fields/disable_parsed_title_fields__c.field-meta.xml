@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>disable_parsed_title_fields__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If selected, a keyword search using the Title input field will not search the parsed Employer Title 1, Employer Title 2, and Employer Title 3 fields on the Contact record. The Job Title on the Employment History object will be searched.</description>
+    <inlineHelpText>If selected, a keyword search using the Title input field will not search the parsed Employer Title 1, Employer Title 2, and Employer Title 3 fields on the Contact record. The Job Title on the Employment History object will be searched.</inlineHelpText>
+    <label>Disable Parsed Title fields</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

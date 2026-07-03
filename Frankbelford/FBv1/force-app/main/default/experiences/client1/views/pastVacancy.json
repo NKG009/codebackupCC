@@ -1,0 +1,64 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "3fa13d94-25a3-4407-ad65-0fcb10a79bec",
+  "label" : "Past Vacancy",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"color: rgb(0, 0, 0); font-size: 28px; font-family: arial;\">Past Vacancy</span></p><p style=\"text-align: center;\"><br></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "5e0cf206-bcad-4c9e-ba92-87df0cb11546",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c4ceb92b-11c5-476d-b60d-0454de06fc3a",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:ClientPortal_Slide7",
+      "id" : "5073dc4b-5b0f-4e80-bb38-89a585cbb904",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "77f67789-16de-4b6f-a278-c495607b9afa",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:HomeLayoutFooter",
+      "id" : "53439199-608d-416d-835a-d4b1cc9972e1",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "60bc775e-70bd-421f-adf9-1b5a5fb08e71",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Past Vacancy"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "c8a6b805-b74b-4a8f-a708-e646bd32c762",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "81a471bf-29b0-4385-9031-a2573e74dd13",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "BaeIvxdmVNAi846Z78i1VuYgMbv85a",
+  "type" : "view",
+  "viewType" : "custom-past-vacancy"
+}

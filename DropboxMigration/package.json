@@ -1,0 +1,29 @@
+{
+  "name": "dropboxmigrationapc",
+  "version": "1.0.0",
+  "main": "migrate.js",
+  "bin": "migrate.js",
+  "scripts": {
+    "build": "pkg ."
+  },
+  "dependencies": {
+    "axios": "^1.14.0",
+    "dropbox": "^10.34.0",
+    "form-data": "^4.0.5",
+    "fs-extra": "^11.3.4",
+    "node-fetch": "^2.7.0",
+    "p-limit": "^3.1.0",
+    "xlsx": "^0.18.5"
+  },
+  "pkg": {
+    "targets": [
+      "node18-win-x64"
+    ],
+    "scripts": [
+      "migrate.js"
+    ],
+    "assets": [
+      "node_modules/**/*"
+    ]
+  }
+}

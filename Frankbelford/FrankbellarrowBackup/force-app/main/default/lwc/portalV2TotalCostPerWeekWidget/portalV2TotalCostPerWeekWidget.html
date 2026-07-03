@@ -1,0 +1,73 @@
+<template>
+  <div class="card">
+    <!-- Loading -->
+    <div
+      if:true={loading}
+      class="full-height slds-size_1-of-1 slds-align_absolute-center"
+    >
+      <div class="spinner">
+        <lightning-spinner
+          alternative-text="Loading"
+          size="large"
+        ></lightning-spinner>
+      </div>
+    </div>
+    <!-- Body -->
+    <div
+      if:false={loading}
+      class="
+        slds-var-m-horizontal_x-large
+        slds-grid slds-grid_vertical
+        grid_align-vertical-spread
+        full-height
+      "
+    >
+      <div
+        class="
+          top-bar
+          slds-grid slds-grid_align-spread slds-grid_vertical-align-end
+          slds-var-p-top_large
+        "
+      >
+        <h1 class="header-text font-dark-grey">{title}</h1>
+        <lightning-button
+          label={toggleButtonLabel}
+          variant="brand"
+          class="slds-var-m-top_x-small"
+          onclick={toggleTotalHoursView}
+        ></lightning-button>
+      </div>
+      <div if:false={hasData} class="full-height">
+        <div
+          if:true={totalCostView}
+          class="slds-align_absolute-center full-height"
+        >
+          <p>No total cost per week data could be found...</p>
+        </div>
+        <div
+          if:false={totalCostView}
+          class="slds-align_absolute-center full-height"
+        >
+          <p>No total hours per week data could be found...</p>
+        </div>
+      </div>
+
+      <div if:true={hasData} class="slds-grid slds-grid_align-center">
+        <div class="slds-size_12-of-12">
+          <c-chart type="line" responsive="true">
+             <c-dataset labels={xAxisValues}>
+                <c-data
+                label={title}
+                detail={data}
+                bordercolor="rgba(2,157,228,1)"
+              ></c-data>
+               </c-dataset
+            >
+            <c-layout padding-bottom="50" padding-top="10"></c-layout>
+            <!--  <c-title text="Total cost per week"></c-title> -->
+          </c-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

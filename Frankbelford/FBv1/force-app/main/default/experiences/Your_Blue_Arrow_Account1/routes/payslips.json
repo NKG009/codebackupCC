@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "6220fafd-5551-4145-9b69-86cc2b4928e1",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "payslips__c",
+  "id" : "51e7b2f3-74bf-4fa9-b70f-7987950d193b",
+  "label" : "payslips",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-payslips",
+  "type" : "route",
+  "urlPrefix" : "payslips"
+}

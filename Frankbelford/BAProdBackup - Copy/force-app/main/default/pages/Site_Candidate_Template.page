@@ -1,0 +1,133 @@
+<apex:page standardController="sirenum__Site__c" applyBodyTag="false" applyHtmlTag="false" extensions="sitetemplatedata" showHeader="false" sidebar="false" renderAs="pdf" >
+
+<html>
+<head>
+<style>
+@page {
+size:portrait;
+margin-left: 0.8cm;
+margin-right: 0.8cm;
+margin-top: 0.8cm;
+margin-bottom: 0.8cm;
+size: 8.27in 11.2in;
+}
+
+table {
+    -fs-table-paginate: paginate;
+    }
+ 
+div.footer {
+   display: block;
+   padding: 10px;                      
+   position: running(footer);
+   line-height: 2px;
+   z-index: 3;
+   color: #A9A9A9;
+              
+}
+
+div.header {
+   display: block;                     
+   position: running(header);
+               
+}
+ 
+</style>
+</head>
+
+
+<div>
+<table >
+<tr>
+<td style="width:450px;vertical-align:top;">
+<apex:image url="{!$Resource.Blue_Arrow_new_logo}" width="134" height="25"/>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td style="text-align:right;width:600px">
+{!customsitename}<br></br>
+{!branchstreet}<br></br>
+{!branchcity}<br></br>
+{!branchCounty}<br></br>
+{!branchCountry}<br></br>
+{!branchpostal}
+</td>
+</tr>
+</table><br></br>
+<table style="width:710px;">
+<tr>
+<td style="width:550px;">
+<b>Private and Confidential</b><br></br>
+{!sirenum__Site__c.IP_MainContact__r.Name}<br></br>
+{!sirenum__Site__c.IP_MainContact__r.MailingStreet}<br></br>
+{!sirenum__Site__c.IP_MainContact__r.MailingPostalCode}<br></br>
+{!sirenum__Site__c.IP_MainContact__r.MailingCity}<br></br>
+{!sirenum__Site__c.IP_MainContact__r.MailingState}<br></br>
+{!sirenum__Site__c.IP_MainContact__r.MailingCountry}
+</td>
+<td style="text-align:right;vertical-align:top;width:400px;">
+Phone : {!branchphone}<br></br>
+Email : {!branchemail}<br></br>
+Fax: {!branchFax}
+</td>
+</tr>
+</table>
+</div> <br></br><br></br>
+Date : <apex:outputText value="{0, date, MMMM d','  yyyy}">
+    <apex:param value="{!Today()}" />
+</apex:outputText>
+
+<br></br><br></br>
+<div>
+Dear {!sirenum__Site__c.IP_MainContact__r.FirstName} </div> <br></br>
+<div>
+I can confirm that the candidates named below are scheduled to work in the next 24 hours at:  {!Sitename}<br></br> 
+{!sirenum__Site__c.sirenum__Street_Address__c}<br></br> 
+{!sirenum__Site__c.sirenum__City__c} <br></br> 
+{!sirenum__Site__c.sirenum__County__c} <br></br>
+{!sirenum__Site__c.sirenum__Country__c} <br></br> 
+{!sirenum__Site__c.sirenum__Postal_Code__c} <br></br>
+ </div><br></br>
+
+<div>
+    I can confirm that the candidate has experience,training, qualifications stipulated by your business.
+</div><br></br>
+
+   <body>
+
+<table cellpadding="3" cellspacing="0" styleclass="table" width="16cm" border="0.1" style="left: 2.00cm; text-align:center; font-size:10pt;">
+        <THEAD>
+            <tr>
+                <th style="border:1px solid #000000;border-right:1;">Name</th>
+                <th style="border:1px solid #000000;border-right:1;">Start Time/Date</th>
+                <th style="border:1px solid #000000;border-right:1;">End Time/Date</th>
+                <th style="border:1px solid #000000;border-right:1;">Job Category</th>
+            </tr>
+        </THEAD>
+            <apex:repeat value="{!shifts}" var="cx">
+        <TBODY>
+            <tr>
+                <td style="border:1px solid #000000;border-top:0;border-right:1;">{!cx.sirenum__Placement__r.sirenum__Contact__r.Name}</td>
+                <td style="border:1px solid #000000;border-top:0;border-right:1;">
+                 <apex:outputField value="{!cx.sirenum__Scheduled_Start_Time__c}"/>
+                </td>
+                <td style="border:1px solid #000000;border-top:0;border-right:1;">
+                <apex:outputField value="{!cx.sirenum__Scheduled_End_Time__c}"/>
+                </td>
+                <td style="border:1px solid #000000;border-top:0;border-right:1;">{!cx.sirenum__Placement__r.sirenum__Job_Role__r.sirenum__Job_Type__r.Name}</td>
+            </tr>
+        </TBODY>
+        </apex:repeat>
+</table>
+</body>
+
+ <br></br><br></br> 
+ 
+
+
+If you have any queries please feel free to contact me on the phone number above.<br></br><br></br>
+ 
+Yours sincerely <br></br><br></br>
+ 
+{!sirenum__Site__c.Owner.name}<br></br>
+
+</html> 
+</apex:page>

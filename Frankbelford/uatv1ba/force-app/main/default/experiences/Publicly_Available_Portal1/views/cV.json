@@ -1,0 +1,58 @@
+{
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "22849772-c564-4418-b0b2-f92500bf6016",
+  "label" : "CV",
+  "regions" : [ {
+    "id" : "1b44bd22-0748-4f8f-b2cf-f5fbc93822c5",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" src=\"{!contentAsset.Untitled2removebg.1}\" style=\"width: 254.859px; height: 64.5625px;\" /></p>\n<p><span style=\"color: var(--lwc-colorTextDefault,#222222); background-color: var(--lwc-colorContentAreaBackground,rgb(255, 255, 255));\">&nbsp;</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "387e2e84-ecdb-437b-b3e8-53e507d98d13",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowArguments" : "[]",
+        "flowName" : "Public_Flow_BA_CV_Upload"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "2786a960-a14c-4325-9453-a27bedb72836",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0d5a33a6-9345-4bc6-909c-3e075c19c28b",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "40f7ddb9-0d03-47e6-ba6e-37bb77cc3efb",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "CV"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "2909968f-3137-4791-9116-babdef0a78c7",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "aca9ebb5-6694-431a-a186-7f79cbf0e08c",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-cv"
+}

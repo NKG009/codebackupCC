@@ -1,0 +1,289 @@
+<aura:component controller='Shifts_to_be_ApprovedCnt' implements="forceCommunity:themeLayout,force:appHostable,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes" access="global" >
+    
+    <ltng:require styles="{!join(',',
+                          $Resource.assetsTest+'/assets/css/jquery-ui.css',
+                          $Resource.webUI+'/assets/css/all.css',
+                          $Resource.webUI+'/assets/css/fontawesome.css',
+                          $Resource.webUI+'/assets/css/fontawesome.min.css',
+                          $Resource.webUI+'/assets/css/dataTables.bootstrap.min.css',
+                          $Resource.webUI+'/assets/css/jquery.dataTables.min.css',
+                          $Resource.webUI+'/assets/css/responsive.bootstrap.min.css',
+                          $Resource.Tjcss+'/assets/css/main.css'
+                          )
+                          }" 
+                  scripts="{!join(',',
+                           $Resource.Tjcss2+'/assets/js/main.min.js',
+                           $Resource.Tjcss2+'/assets/js/custom.js'
+                           )}"
+                  />
+    
+    <ltng:require styles="{! $Resource.	DataTables + '/DataTables/media/css/jquery.dataTables.min.css'}" 
+                  scripts="{!join(',', 
+                           $Resource.jquery224 , 
+                           $Resource.DataTables + '/DataTables/media/js/jquery.dataTables.min.js')
+                           }" afterScriptsLoaded="{!c.scriptsLoaded}"/>
+    
+    
+    <lightning:navigation aura:id="navService" />
+    
+    <aura:attribute name="shifts" type="List"/>	
+    <aura:attribute name="truly" type="Boolean"/>
+    <aura:attribute name="checktrue" type="Boolean" default="false"/>
+    <aura:attribute name="Match" type="Boolean" default="true"/>
+    <aura:attribute name="CandidateList" type="List"/>
+    <aura:attribute name="siteList" type="List"/>
+    
+    <aura:attribute name="roleList" type="List"/>
+    <aura:attribute name="roleSelected" type="String" />
+    
+    <aura:attribute name="CandidateSelected" type="String" />
+    <aura:attribute name="DateSelected" type="String" />
+    <aura:attribute name="SiteSelected" type="String" />
+    <!--<aura:method name="reload" action="{!c.doInit}" />-->
+    
+    <aura:attribute type="List" name="SiteList1" />
+    <aura:attribute name="selectedSite" type="String"/>
+    <aura:attribute name="userInfo" type="User" access="global"/>
+    
+    <aura:registerEvent name="AllAproved" type="c:ShiftApproveAllEvent"/>
+    
+    <aura:attribute name="search" type="Boolean"/>
+    <aura:attribute name="SearchBtn" type="Boolean"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="Name" type="String"/>
+    
+    <aura:handler event="c:RealoadDataViewEvent" action="{!c.search}" />
+    
+    <!--<aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>-->
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    <!--loading spinner start... style=Brand Medium (blue dots)-->
+    <!--<aura:if isTrue="{!v.Spinner}">
+        <div aura:id="spinnerId" class="slds-spinner_container">
+            <lightning:spinner class="spins" size="large" variant="brand" alternativeText="Loading" />
+        </div>
+     </aura:if>-->
+    <!-- Loading spinner end--> 
+    
+    <div class="container-fluid">
+        
+        <nav class="headeNav">
+            <div class="visible-xs mobile-nav">
+                <img src="{!$Resource.Tjcss+'/assets/img/mobile-nav.png'}" alt="Mobile Icon" title="Click to slide"/>
+            </div>
+            <a href="" class="logo" title="BlueArrow">
+                <img src="{!$Resource.Tjcss+'/assets/img/impellam-logo-blue.png'}" alt="Impellam Logo" Title="Impellam"/>
+            </a>
+            <ul class="headeNav__right">
+                <li>
+                    <a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="hidden-xs hidden-sm">{!v.Name}</span> 
+                        <aura:if isTrue="{!v.userInfo.User_Image__c != null}">
+                            <img src="{!v.userInfo.User_Image__c}" alt=""/>
+                            <aura:set attribute="else">
+                                <img src="" class="imag" alt=""/>
+                            </aura:set> 
+                        </aura:if>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="" onclick="{!c.MyProfileNavigate}" title="My Profile">My Profile</a></li>
+                        <li><a href="" onclick="{!c.SiteManagementNavigate}" title="Setting">Site Management</a></li>
+                        <li><a href="" onclick="{!c.logout}" title="Logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="col-sm-4 col-md-3 headeNav__selectpicker">
+                <lightning:select class="spicker" label="Site Name"  aura:id="site" tabindex = "-98" onchange="{!c.onChangeSiteVal}">
+                    <aura:iteration items="{!v.SiteList1}" var="item">
+                        <option class="spickeres" text="{!item.label}" value="{!item.value}" selected="{!item.selected}"/>
+                    </aura:iteration>
+                </lightning:select>
+            </div>
+        </nav> 
+        
+        <div class="timesheet-section">
+            
+            <ul class="dashboard-section__leftNav">
+                
+                
+                
+                <li class="dashboard-section__leftNav--dashboard">
+                    <a href="" onclick="{!c.dashboardnavigate}" title="Dashboard">Dashboard</a>
+                </li>
+                <li class="dashboard-section__leftNav--timesheets active"> 
+                    <a href="" title="Timesheets">Timesheets</a> 
+                    <ul> 
+                        <li>
+                            <a href="javascript:void(0)" onclick="{!c.shiftsToBeApprovedDataView}" title="Shifts to be approved">Shifts to be approved</a>
+                        </li> 
+                        <li>
+                            <a href="javascript:void(0)" onclick="{!c.candidateView}" title="Shifts by temp name">Shifts by temp name</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" onclick="{!c.gotoApprovedTimesheet}" title="Approved Timesheets">Approved Timesheets</a>
+                        </li> 
+                    </ul> 
+                </li>
+                <li class="dashboard-section__leftNav--vacancies">
+                    <a href="" title="My Shifts">My Shifts</a>
+                    <ul> 
+                        <li>
+                            <a href="" onclick="{!c.activeVacancy}" title="Current Shits">Current Shifts</a>
+                        </li> 
+                        <li>
+                            <a href="" onclick="{!c.pastVacancyNavigate}" title="Previous Shifts">Previous Shifts</a>
+                        </li> 
+                        <li>
+                            <a href="" onclick="{!c.fastBookingNavigate}" title="Repeat Booking">Repeat Booking</a>
+                        </li> 
+                        <li>
+                            <a href="" onclick="{!c.newVacancyNavigate}" title="Shift/Vacancy Request">Shift/Vacancy Request</a>
+                        </li>
+                    </ul> 
+                </li>
+                <li class="dashboard-section__leftNav--temp">
+                    <a href="" title="My Temps">My Temps</a>
+                    <ul> 
+                        <li>
+                            <a href="" onclick="{!c.bookedTempsNavigate}" title="Booked Temps">Booked Temps</a>
+                        </li> 
+                        <li>
+                            <a href="" onclick="{!c.pastTempsNavigate}" title="Past Temps">Past Temps</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dashboard-section__leftNav--contact">
+                    <a href="" onclick="{!c.contactUsNavigate}" title="Contact Us">Contact Us</a>
+                </li>
+                
+                
+            </ul>
+            
+            <div class="timesheet-section__right-part">
+                <ol class="breadcrumb">
+                    <li><a href="javascript:void(0)" onclick="{!c.dashboardnavigate}" title="Dashboard">Dashboard</a></li>
+                    <li>Timesheets</li>
+                    <li class="active">Shifts to be approved</li>
+                </ol>
+                <div class="search-section">
+                    
+                    <form class="row">
+                        <div class="col-sm-6 col-md-4 col-lg-2">
+                            <label class="global-label">Temp Name</label>
+                            
+                            <!-- <ui:inputSelect  label=""  class="selectrole" change="{!c.onChangeCandidateVal}">
+                                    <aura:iteration items="{!v.CandidateList}" var="item">
+                                        <option text="{!item.label}" value="{!item.value}"/>
+                                    </aura:iteration>
+                               </ui:inputSelect> -->
+                            
+                            <lightning:select class="spicker" label=""  aura:id="site1" tabindex = "-98" onchange="{!c.onChangeCandidateVal}">
+                                <aura:iteration items="{!v.CandidateList}" var="item">
+                                    <option class="spickeres" text="{!item.label}" value="{!item.value}"/>
+                                </aura:iteration>
+                            </lightning:select>
+                            
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <label class="global-label">Job Role</label>
+                            <!-- <ui:inputSelect  label=""  class="selectrole" change="{!c.onChangeRoleVal}">
+                                    <aura:iteration items="{!v.roleList}" var="item">
+                                  <option text="{!item.label}" value="{!item.value}"/>
+                              </aura:iteration>
+        </ui:inputSelect>-->
+                            
+                            <lightning:select class="spicker" label=""  aura:id="site2" tabindex = "-98" onchange="{!c.onChangeRoleVal}">
+                                <aura:iteration items="{!v.roleList}" var="item">
+                                    <option class="spickeres" text="{!item.label}" value="{!item.value}"/>
+                                </aura:iteration>
+                            </lightning:select>
+                            
+                        </div>
+                        <div style="margin-top: 2px;" class="col-sm-6 col-md-4 col-lg-2">
+                            <label class="global-label">Date</label>
+                            
+                            <!-- <ui:inputText label=""  class="selectrole"   value="{!v.DateSelected}" placeholder="Select Time Period"/> -->
+                            
+                            <input type="text" class="global-input" name="Date" aura:id="timePeriod" id="timePeriod" placeholder="Select Date" value="{!v.DateSelected}" onclick="{!c.handleOnClick}"
+                                   onkeypress="{!c.handleKeyPress}" onmouseover="{!c.handleMouseEnter}" onmouseout="{!c.handleMouseLeave}" /> 
+                        </div>
+                        <div style="margin-top: 2px;" class="col-sm-6 col-md-3 col-lg-2">
+                            <button type="button" class="tooltip-btn" data-toggle="tooltip" data-placement="right" title="Only show where actual matches exactly with shifts."><img src="{!$Resource.ImpellamPortal+'/ImpellamPortal/assets/img/tooltip-icon.png'}" alt="tooltip-icon"/></button>
+                            <div class="match-shift">
+                                
+                                <ui:inputCheckbox class="uiheight" aura:id="checkbox" value="true" change="{!c.Matched}" />
+                                
+                                <label class="custom-checkbox shift-checkbox">
+                                    Match Shifts
+                                    <!--  <input type="checkbox" id="match" name="match" onchange="{!c.Matched}" checked="{!v.Match}"/>Match Shifts
+          <span class="checkmark"></span> -->
+                                </label> 
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                            
+                            <lightning:button variant="brand" class="search-bttn" label="Search" onclick="{!c.search}" />
+                            <input type="reset" class="clearAll-btn" name="Clear" value="Clear All" onclick="{!c.resetAllValues}"/>
+                            <!--    <lightning:button variant="brand" class="clearAll-btn" label="Clear All" onclick="{!c.getTime}" />-->
+                        </div>
+                    </form>
+                    <!-- calendar starts -->
+                    <section class="calendar-pop">
+                        <div class="calendar">
+                            <div class="control-bar">
+                                <ul>
+                                    <!-- <li id="today"><a href="">Today</a></li>
+                                        <li id="yesterday"><a href="">Yesterday</a></li>
+                                        <li id="lastweek"><a href="">Last 7 days</a></li>
+                                        <li id="all"><a href="">All</a></li>
+                                        <li id="range"><a href="">Select Range</a></li>-->
+                                    <li id="today"><a href="">Today</a></li>
+                                    <li id="yesterday"><a href="">Yesterday</a></li>
+                                    <li id="lastweek"><a href="">Last 7 days</a></li>
+                                    <li id="lastmonth"><a href="">Last 30 days</a></li>
+                                    <li id="lasttwomonth"><a href="">Last 60 days</a></li> 
+                                    
+                                </ul>
+                            </div>
+                            <div id="datepicker"></div>
+                        </div>
+                    </section>
+                    <!-- calendar ends -->
+                </div>
+                
+                <div class="tab-section" >
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation"><a href="javascript:void(0)" onclick="{!c.candidateView}" title="">By Temp Name</a></li>
+                        <li role="presentation" class="active"><a href="">By Date</a></li>
+                    </ul>
+                    
+                    <!-- Tab panes -->
+                    
+                    <div class="tab-content" >
+                        <div role="tabpanel" class="tab-pane">dfdsfjhfjsdf</div>
+                        
+                        <div role="tabpanel" class="tab-pane active" >
+                            <aura:if isTrue="{!v.truly}">
+                                <div aura:id="childC">
+                                    <!-- <div class="searchDetail-section" aura:id="childC"> -->
+                                    <c:DataTableCollaps shifts="{!v.shifts}"  site="{!v.selectedSite}" role="{!v.roleSelected}" contact="{!v.CandidateSelected}" DateRange="{!v.DateSelected}" Match="{!v.Match}" Search="{!v.SearchBtn}"/> 
+                                    <!--    <c:DataView shifts="{!v.shifts}"/> -->
+                                </div>
+                            </aura:if>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+                <footer>
+                    <div class="row">
+                        <div class="col-sm-6"><p> &copy; Blue Arrow, All rights reserved 2019.</p></div>
+                        <div class="col-sm-6"><p>Regd Address:  800 The Boulevard, Capability Green, Luton, Bedfordshire, LU1 3BA. Company No. 00641659</p></div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,102 @@
+<apex:component access="global" controller="DynamicUrl" >
+    <apex:attribute type="Boolean" name="EqualOpportunities" description="test3"/>
+<apex:attribute type="Boolean" name="Medical" description="test1"/>
+<apex:attribute type="Boolean" name="NewStarter" description="test2"/>
+<apex:attribute type="Boolean" name="TOE" description="test3"/>
+<apex:attribute type="Id" name="con" description="test4" assignTo="{!record_Id}"/> 
+<apex:attribute type="String" name="conname" description="test5"/>
+<apex:attribute type="String" name="conownername" description="test6"/>
+    <apex:attribute type="Integer" name="BankDetails" description="test7"/>
+    <apex:attribute type="String" name="ownph" description="test8"/>
+<apex:attribute type="String" name="ownemail" description="test9"/>
+    
+    <style>
+.linkunderline{
+    text-decoration: none;
+    color: Blue;
+}
+
+</style>
+<html>
+<table BORDER="0" CELLSPACING="0" style="width:640px;height:600px;background-image:url('{!URLFOR($Resource.TemplatePics,'picsfolder/xlargebackground.jpg')}');">
+<tr >
+    <td style="vertical-align:top;text-align:right;height:140px;width:190px;">
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR4-1/c.aspx" id="theLink1"><apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic1.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR5-1/c.aspx" id="theLink2"><apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic2.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR6-1/c.aspx" id="theLink3"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic3.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR7-1/c.aspx" id="theLink4"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic4.jpg')}" /></apex:outputLink>
+   
+    </td>
+      <td style="text-align:right;vertical-align:middle;height:140px;width:460px;">
+     <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR8-1/c.aspx" id="theLink5"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/logo.png')}" /> </apex:outputLink>
+    </td>
+</tr>
+<tr style="width:650px;">
+<td colspan="2" style="vertical-align:top;">
+<table style="width:630px;">
+<tr style="height:45px;text-align:center;"><td style="text-align:center;">
+<font size="2" face="Arial" color="black"><b>Driving Post Interview Request Form</b></font>
+</td>
+</tr>
+<tr style="height:200px;text-align:center;"><td style="text-align:left;vertical-align:top;">
+<div style="margin-left:30px;margin-right:10px;margin-top:-10px;">
+<font size="2" face="Arial" color="black">
+
+   
+Dear {!conname}, <br></br><br></br>
+
+Congratulations on passing the interview stage of your registration, below are several links to provide us with the remaining information we require to complete your registration with Blue Arrow.<br></br>
+<div style="font-size:13px;">
+<apex:outputLink styleClass="linkunderline" rendered="{!EqualOpportunities = False}" value="{!EOQ}"
+                 id="theLink01"><br></br>• Equal Opportunities Questionnaire </apex:outputLink>
+<apex:outputLink styleClass="linkunderline" rendered="{!Medical = False}" value="{!FullMedical }"
+                 id="theLink02"><br></br>• Medical Questionnaire </apex:outputLink> 
+<apex:outputLink styleClass="linkunderline" rendered="{!NewStarter = False}" value="{!NSD}"
+                 id="theLink03"><br></br>• New Starter Declaration Form</apex:outputLink>
+<apex:outputLink styleClass="linkunderline" rendered="{!TOE = False}" value="{!TOEURL}"
+                 id="theLink04"><br></br>• Terms of Employment <br></br></apex:outputLink>
+<apex:outputLink styleClass="linkunderline" rendered="{!BankDetails = 0}" value="{!BankDetailsURL}"
+                 id="theLink05">• Bank Details <br></br></apex:outputLink>
+                 <apex:outputLink styleClass="linkunderline"  value="{!DataConsent}"
+id="theLink09">• General Data Protection Regulation Consent <br></br>
+</apex:outputLink>
+<Br></Br>
+We need to speak with your references so we can make a determination on your recent application. Please click below and fill in at least 3 references.
+<Br></Br> 
+<br></br>
+<apex:outputLink styleClass="linkunderline"  value="{!RefereeRequest}"
+id="theLink08">• Referee Request Form <br></br>
+</apex:outputLink>
+<br></br>
+
+
+Also please find the attached copy of your flexible employee handbook. Should you have any questions on this please don’t hesitate to email me or contact the office. <br></br><br></br>
+</div>
+
+
+
+Kind Regards<br></br>
+{!conownername}<br></br>
+{!ownph}
+{!ownemail}<br></br><br></br>
+</font>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:110px;">
+<td colspan="2" >
+<apex:image height="80px" width="250px" url="{!URLFOR($Resource.TemplatePics,'picsfolder/IIP_PLAT_19.jpg')}" />
+
+</td>
+
+</tr>
+</table>
+</html>
+
+
+
+
+</apex:component>

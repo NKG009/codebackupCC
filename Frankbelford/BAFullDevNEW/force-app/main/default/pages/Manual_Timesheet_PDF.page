@@ -1,0 +1,75 @@
+<apex:page standardController="sirenum__Placement__c" extensions="ManualPDFgenerate" showHeader="false" sidebar="false" docType="html-5.0" standardStylesheets="true" pageStyle="sirenum__Placement__c">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <style>
+            .form-errors {
+                color: red;
+                text-align:center; 
+            }
+        .mandatory-error{ 
+            color: red;
+            text-align:center; 
+        }
+        </style>
+        </head> 
+  <script>
+         var msg = {!$CurrentPage.Parameters.sx}
+         $(".form-errors").hide();  
+        if(msg=='1')
+        {
+            $(".form-errors").show();    
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";
+            self.close();
+        }else{
+            $(".form-errors").hide();    
+        }
+        function CloseARefresh()
+        {      
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";
+            self.close();
+            // window.top.location.href="/{!$CurrentPage.parameters.oppid}";
+        }    
+        
+        </script>
+      
+        <apex:form id="form">
+            
+                <apex:pageBlock title="Timesheet Generation">   
+                <apex:pageMessages />                 
+                    <apex:pageblocksection >
+                        <apex:selectList id="week" size="1" label="Payroll Week" onChange="setpayrollweek(this.value);" value="{!selectedpayrollweek}" required="true">
+                            <apex:selectOptions value="{!payrollweek}"/>
+                        </apex:selectList>
+                        <apex:selectList id="year" size="1" label="Payroll Year" onChange="setpayrollyear(this.value);" value="{!selectedpayrollyear}" required="true">
+                            <apex:selectOptions value="{!payrollyear}"/>
+                        </apex:selectList>
+                    </apex:pageblocksection>                                                            
+                                 <apex:pageBlockButtons location="bottom">
+                                 <apex:commandButton value="Save" action="{!saverecord}"  disabled="{!If($CurrentPage.Parameters.sx=='1',true, false)}"/> 
+                                 <apex:commandButton value="Cancel" action="{!closepage}"  onclick="CloseARefresh();"/>  
+                                 <apex:commandButton value="Print Timesheet" action="{!printt}"/>                                 
+                                 </apex:pageBlockButtons>
+                                                        
+                                  </apex:pageBlock>
+                              </apex:form>
+                          <script>
+                       var msg = {!$CurrentPage.Parameters.sx}
+                    $(".form-errors").hide();  
+       if(msg=='1')
+        {
+            $(".form-errors").show();    
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";           
+            self.close();
+        }else{
+            $(".form-errors").hide();    
+        }
+        function CloseARefresh()
+        {      
+            window.opener.location.href="/{!$CurrentPage.parameters.id}";
+            self.close();
+        } 
+         function confirmation(){
+        alert('Email Sent');
+        }  
+        </script>
+    </apex:page>

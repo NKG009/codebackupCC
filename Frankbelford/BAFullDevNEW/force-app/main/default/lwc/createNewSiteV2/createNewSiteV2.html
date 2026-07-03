@@ -1,0 +1,239 @@
+<template>
+
+    <lightning-card>
+
+        <template if:true={showRTScreen}>
+            <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+                class="slds-modal slds-fade-in-open slds-modal_small">
+                <div class="slds-modal__container">
+                    <button class="slds-button slds-button_icon slds-modal__close" onclick={handleRadioCancel}>
+                        <lightning-icon icon-name="utility:close" size="small" alternative-text="Warning!" title="Warning"></lightning-icon>
+                    </button>
+                    <div class="slds-modal__header">
+                        <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate" tabindex="-1">New Site
+                        </h1>
+                    </div>
+                    <div class="slds-modal__content slds-p-around_medium " id="modal-content-id-1">
+                        <div class="slds-align_absolute-center">
+                            <lightning-radio-group name="radioGroup" label="Select a record type" options={options}
+                                variant="label-inline" value={selectedRecordTypeId} required
+                                onchange={handleRadioButtonChange} type="radio"></lightning-radio-group>
+                        </div>
+
+                    </div>
+                    <div class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" aria-label="Cancel and close"
+                            onclick={handleRadioCancel}>Cancel</button>
+                        <button class="slds-button slds-button_brand" onclick={handleRadioSave}>Save</button>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+
+        </template>
+
+        <template if:true={showRecordForm}>
+            <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+                class="slds-modal slds-fade-in-open slds-modal_full">
+                <div class="slds-modal__container">
+
+                    <template if:true={showSpinner}>
+                        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                    </template>
+
+                    <button class="slds-button slds-button_icon slds-modal__close" onclick={handleRadioCancel}>
+                        <lightning-icon icon-name="utility:close" size="small" alternative-text="Warning!" title="Warning"></lightning-icon>
+                    </button>
+                    <div class="slds-modal__header">
+                        <h1 id="modal-heading-02" class="slds-modal__title slds-hyphenate" tabindex="-1">New Site</h1>
+                    </div>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                        <div class="slds-p-around_medium">
+                            <lightning-record-edit-form object-api-name="sirenum__Site__c" onsuccess={handleSuccess}
+                                onsubmit={handleSubmit} onerror={handleError}>
+
+                                <div class="slds-section slds-is-open">
+                                    <h3 class="slds-section__title">
+                                        <button aria-controls="expando-unique-id" aria-expanded="true"
+                                            class="slds-button slds-section__title-action">
+                                            <span class="slds-truncate" title="Section Title">Information</span>
+                                        </button>
+                                    </h3>
+                                    <div class="slds-grid slds-wrap slds-gutters">
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="Name" required></lightning-input-field>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="OwnerId" variant="label-inline" disabled>
+                                            </lightning-input-field>
+                                        </div>
+
+                                        <template if:true={isSiteFromAccount}>
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                                <lightning-input-field field-name="sirenum__Operating_Company__c"
+                                                    value={operationCompany} required></lightning-input-field>
+                                            </div>
+                                        </template>
+
+                                        <template if:false={isSiteFromAccount}>
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                                <lightning-input-field field-name="sirenum__Operating_Company__c"
+                                                     required></lightning-input-field>
+                                            </div>
+                                        </template>
+
+
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="Status__c" required>
+                                            </lightning-input-field>
+                                        </div>
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="IP_MainContact__c">
+                                            </lightning-input-field>
+                                        </div>
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="IP_Costcode__c"></lightning-input-field>
+                                        </div>
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="HSContact__c"></lightning-input-field>
+                                        </div>
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="IP_Timesheet_Method__c">
+                                            </lightning-input-field>
+                                        </div>
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="sirenum__Phone1__c">
+                                            </lightning-input-field>
+                                        </div>
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="Drivers_Negligence__c">
+                                            </lightning-input-field>
+                                        </div>
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="IP_PublicSector__c">
+                                            </lightning-input-field>
+                                        </div>
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="sirenum__Travel_Instructions__c">
+                                            </lightning-input-field>
+                                        </div>
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="IP_Public_Sector__c">
+                                            </lightning-input-field>
+                                        </div>
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12"></div>
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="Email_Shifts_to_Client__c">
+                                            </lightning-input-field>
+                                        </div>
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="sirenum__Comments__c">
+                                            </lightning-input-field>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+
+                                <div class="slds-section slds-is-open">
+                                    <h3 class="slds-section__title">
+                                        <button aria-controls="expando-unique-id" aria-expanded="true"
+                                            class="slds-button slds-section__title-action">
+                                            <span class="slds-truncate" title="Section Title">Billing Information </span>
+                                        </button>
+                                    </h3>
+                                    <div class="slds-grid slds-wrap slds-gutters">
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="GlobalClientName__c">
+                                            </lightning-input-field>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="IP_InvoiceContactText__c">
+                                            </lightning-input-field>
+                                        </div>
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="IP_ClientInvoiceName__c">
+                                            </lightning-input-field>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="IP_InvoicePONumber__c">
+                                            </lightning-input-field>
+                                        </div>
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="Unit_ID__c"></lightning-input-field>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="IP_InvoiceContactEmail__c">
+                                            </lightning-input-field>
+                                        </div>
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="IP_InvoiceContactMobile__c">
+                                            </lightning-input-field>
+                                        </div>
+
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                            <lightning-input-field field-name="IP_InvoiceContactPhone__c">
+                                            </lightning-input-field>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </lightning-record-edit-form>
+                        </div>
+                    </div>
+                    <div class="slds-modal__footer ">
+                        <button class="slds-button slds-button_neutral" aria-label="Cancel and close"
+                            onclick={handleFormCancelButton}>Previous/Cancel</button>
+                        <button class="slds-button slds-button_brand" onclick={handleCustomSubmitButton}>Save & Add Address</button>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+        </template>
+
+        <template if:true={showFlow}>
+            <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+                class="slds-modal slds-fade-in-open slds-modal_large">
+                <div class="slds-modal__container">
+                    <button class="slds-button slds-button_icon slds-modal__close" onclick={handleRadioCancel}>
+                        <lightning-icon icon-name="utility:close" size="small" alternative-text="Warning!" title="Warning"></lightning-icon>
+                    </button>
+                    <div class="slds-modal__header">
+                        <h1 id="modal-heading-03" class="slds-modal__title slds-hyphenate" tabindex="-1">Site Address
+                        </h1>
+                    </div>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-3">
+                        <lightning-flow flow-api-name="Address_Capture" flow-input-variables={inputVariables}
+                            onstatuschange={handleStatusChange}>
+                        </lightning-flow>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+
+        </template>
+    </lightning-card>
+</template>

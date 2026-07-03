@@ -1,0 +1,49 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "493d248c-d447-4404-8be6-0c1480475dc7",
+  "label" : "My Contact Details Connect",
+  "regions" : [ {
+    "id" : "874ad6bd-1ab9-4e25-b849-cf68a2b823f4",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "Candidate_Portal_Contact_Details"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "bd39d9c9-0cda-4e6a-bf3f-650b44138489",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b252352e-2802-4350-aa4a-759e6d9c8dd6",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "d0af4d64-d032-452a-abd1-34fb2cc1561a",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "My Contact Details Connect"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "db0a581a-a774-4502-80d6-8de4e313fbd4",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0c87eea2-561a-464b-944b-9b3d2babfc2d",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "JPbHJNUDsg8glGnugEFK32Eg5FKpc8",
+  "type" : "view",
+  "viewType" : "custom-my-contact-details-connect"
+}

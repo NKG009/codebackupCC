@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Derby_Candidates4</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>Person_Status__c</columns>
+    <columns>sirenum__Payment_method__c</columns>
+    <columns>IP_LTDPayProfileCount__c</columns>
+    <columns>IP_LTDCount__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>Compliance_Status__c</field>
+        <operation>notEqual</operation>
+        <value>Compliant</value>
+    </filters>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>equals</operation>
+        <value>2043,2237</value>
+    </filters>
+    <label>Derby Candidates</label>
+    <sharedTo>
+        <role>Blue_Arrow_Derby</role>
+    </sharedTo>
+</ListView>

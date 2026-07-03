@@ -1,0 +1,11 @@
+.custom-container{
+	color : black;
+}
+.slds-form-element__control .slds-radio, .slds-form-element__control .slds-checkbox {
+    display: block;
+    margin-top: 1rem !important;
+}
+
+span.slds-radio {
+	margin-top: 1rem !important;
+}

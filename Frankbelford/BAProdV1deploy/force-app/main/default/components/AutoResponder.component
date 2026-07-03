@@ -1,0 +1,74 @@
+<apex:component controller="autoresponse" access="global">
+    
+   <apex:attribute name="recordId" description="Record Id" type="id" assignTo="{!record_Id}"/>
+<apex:attribute type="String" name="conownername" description="test8"/>
+  <!--<apex:attribute type="String" name="branchphone" description="test8"/>-->
+     <apex:attribute type="String" name="branchaddress" description="test8"/>
+       <style>
+.linkunderline{
+    text-decoration: none;
+    color: blue;
+}
+           </style>
+<html>
+<table BORDER="0" CELLSPACING="0" style="width:640px;height:600px;background-image:url('https://c.um5.content.force.com/servlet/servlet.ImageServer?id=0154J000000IVqZ&oid=00D0Y000000LzSj');">
+<tr >
+      <td style="vertical-align:top;text-align:right;height:140px;width:190px;">
+        <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR4-1/c.aspx" id="theLink1"><apex:image value="{!'https://c.um5.content.force.com/servlet/servlet.ImageServer?id=0154J000000IVq5&oid=00D0Y000000LzSj'}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR5-1/c.aspx" id="theLink2"><apex:image value="{!'https://c.um5.content.force.com/servlet/servlet.ImageServer?id=0154J000000IVqA&oid=00D0Y000000LzSj'}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR6-1/c.aspx" id="theLink3"> <apex:image value="{!'https://c.um5.content.force.com/servlet/servlet.ImageServer?id=0154J000000IVqF&oid=00D0Y000000LzSj'}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR7-1/c.aspx" id="theLink4"> <apex:image value="{!'https://c.um5.content.force.com/servlet/servlet.ImageServer?id=0154J000000IVqK&oid=00D0Y000000LzSj'}" /></apex:outputLink>
+   
+    </td>
+       <td style="text-align:right;vertical-align:middle;height:140px;width:460px;">
+     <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR8-1/c.aspx" id="theLink5"> <apex:image value="{!'https://c.um5.content.force.com/servlet/servlet.ImageServer?id=0154J000000IVqP&oid=00D0Y000000LzSj'}" /> </apex:outputLink>
+    </td>
+</tr>
+<tr style="width:650px;">
+<td colspan="2" style="vertical-align:top;">
+<table style="width:630px;">
+<tr style="height:25px;text-align:center;"><td style="text-align:center;">
+    <font size="2" face="Calibri" color="black"><b> Update on your recent application</b></font>
+</td>
+</tr>
+     <tr style="height:200px;text-align:center;"><td style="text-align:left;vertical-align:top;">
+<div style="margin-left:30px;margin-right:10px;margin-top:-10px;">
+<font size="2" face="Calibri" color="black">
+    <br></br>Thank You for your application, we're sorry that your CV has not been selected for this vacancy.<br></br>&nbsp;<br></br>
+    This can be for a couple of reasons, typically; <br></br> <br></br> 
+• There are other CV's that match the employer's criteria more closely. <br></br>
+• The employer has not selected your CV and has not given us their reasons for why...we know <br></br>
+    &nbsp;&nbsp;&nbsp; this is extremely frustrating. We always get as much feedback as we can and let employers<br></br>
+   &nbsp;&nbsp;&nbsp;&nbsp;know just how important their feedback is to you.  <br></br><br></br>
+  
+<b><U>So what next? </U></b><br></br>
+We believe we can find you what you're looking for, so we'll keep your CV on file for up to 6 months and contact you if a similar opportunity comes up. <br></br> <br></br>
+Our Consultants call as soon as they've found something they believe you'll be interested in and will call you between Monday to Friday 8am-5.30pm. <br></br> <br></br>
+In the meantime, we have a couple of email updates and news that you may find helpful. <br></br><br></br>
+<apex:outputLink styleClass="linkunderline"  value="https://www.bluearrow.co.uk/newslettersignup"
+                 id="theLink01">Click here to find if there's anything of use to you.<br></br></apex:outputLink><br></br>
+ Warm Regards,<br></br>
+{!conownername} <br></br>
+Blue Arrow<br></br>
+{!branchphone}<br></br>
+{!branchstreet}, {!branchcity}, {!branchcounty}, {!branchpostal }, {!branchCountry}
+
+</font>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<br></br>
+<tr style="height:100px;">
+<td colspan="2" >
+<apex:image height="80px" width="210px" value="{!'https://c.um5.content.force.com/servlet/servlet.ImageServer?id=0154J000000IVqU&oid=00D0Y000000LzSj'}"/>
+
+</td>
+
+</tr>
+</table>
+</html>
+
+</apex:component>

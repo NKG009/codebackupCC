@@ -1,0 +1,77 @@
+<template>
+  <template if:true={isloading}>
+    <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+  </template>
+  <lightning-card title="">
+    <!-- Filters Section -->
+    <div class="slds-var-m-around_medium slds-var-p-bottom_medium slds-grid">
+      <div class="slds col slds-size_12-of-12">
+        <div class="slds-grid slds-gutters">
+          <div class="slds-col slds-size_1-of-6">
+            <c-custom-lookup-cmp obj-name="Account" object-label="Account" icon-name="standard:account"
+              label-name="Account" placeholder="Filter by account" fields={accountFields} display-fields={accountFields}
+              onlookup={handleAccountLookup} default-selected-record={accountFilter}>
+            </c-custom-lookup-cmp>
+          </div>
+          <div class="slds-col slds-size_1-of-6">
+            <c-custom-lookup-cmp obj-name="User" object-label="User" icon-name="standard:user" label-name="Job Owner"
+              placeholder="Filter by Job owner" fields={shiftOwnerFields} display-fields={shiftOwnerDisplayFields}
+              onlookup={handleShiftOwnerLookup} default-selected-record={shiftOwnerFilter}>
+            </c-custom-lookup-cmp>
+          </div>
+          <div class="slds-col slds-size_1-of-6">
+            <c-custom-lookup-cmp obj-name="Account" object-label="Account" icon-name="standard:account"
+              label-name="Supplier Agency" placeholder="Filter by supplier agency" fields={supplierAgencyFields}
+              display-fields={supplierAgencyFields} onlookup={handleSupplierAgencyLookup}
+              default-selected-record={supplierAgencyFilter}>
+            </c-custom-lookup-cmp>
+          </div>
+
+          <div class="slds-col slds-size_1-of-6">
+            <c-custom-lookup-cmp obj-name="sirenum__Team__c" object-label="Job Role" icon-name="custom:custom47"
+              label-name="Job Role" placeholder="Filter by job role" fields={jobRoleFields}
+              display-fields={jobRoleDisplayFields} onlookup={handleJobRoleLookup}
+              default-selected-record={jobRoleFilter}>
+            </c-custom-lookup-cmp>
+          </div>
+          <div class="slds-col slds-size_1-of-6">
+            <c-custom-lookup-cmp obj-name="sirenum__Site__c" object-label="Site" icon-name="custom:custom50"
+              label-name="Site" placeholder="Filter by site" fields={siteFields} display-fields={siteFields}
+              onlookup={handleSiteLookup} default-selected-record={siteFilter}>
+            </c-custom-lookup-cmp>
+          </div>
+          <div class="slds-col slds-size_1-of-6">
+            <lightning-combobox name="statusFilter" label="Filter by Status" value={selectedStatus}
+              options={statusOptions} onchange={handleStatusChange}>
+            </lightning-combobox>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <lightning-layout multiple-rows="true">
+      <lightning-layout-item padding="around-small" size="12" style="padding-right: 0px;">
+        <!--div style="overflow-y: auto; max-height: 570px; min-height: 300px;"-->
+        <div style="height: 550px;min-height: 300px;">
+        <lightning-datatable key-field="id" data={filteredParsedData} columns={JobOrderAllCandidatescolumns}
+          onrowselection={handleRowSelection} max-row-selection="1" single-row-selection-mode="checkbox">
+        </lightning-datatable>
+        </div>
+      </lightning-layout-item>
+      <lightning-layout-item padding="around-small" size="9">
+        <button class="slds-button slds-button_success"  disabled={buttondisabled} onclick={handleAccept}>Accept</button>
+        <button class="slds-button slds-button_destructive"  disabled={buttondisabled} onclick={handleReject}>Reject</button>
+      </lightning-layout-item>
+      <!--<lightning-layout-item padding="around-small" size="3" style="padding-top:0px;">
+        <lightning-combobox name="statusFilter" label="Filter by Status" value={selectedStatus} options={statusOptions}
+          onchange={handleStatusChange}>
+        </lightning-combobox>
+      </lightning-layout-item>-->
+
+
+
+
+
+    </lightning-layout>
+  </lightning-card>
+</template>

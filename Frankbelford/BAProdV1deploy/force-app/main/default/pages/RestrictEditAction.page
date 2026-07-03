@@ -1,0 +1,117 @@
+<apex:page sidebar="false" lightningStylesheets="true" standardController="sirenum__Sirenum_Condition_Membership__c"  action="{!deletemethod}" extensions="RestrictEditActionController">
+
+<apex:form >
+<apex:pageMessages />
+
+
+<apex:outputPanel >
+<script> window.open('{!reportsURL}', '_self'); </script>
+</apex:outputPanel>
+
+  <apex:commandButton style="margin-left:20px;" value="Back" id="recordSubmit" rendered="{!check}" action="{!move}"/>
+   <apex:outputPanel rendered="{!check == False}">   
+   <b>  Competency Condition Edit</b><br></br>
+  <font size="5"> {!records.Name}</font>
+  </apex:outputPanel>
+  <br></br><br></br>
+      <apex:outputPanel rendered="{!check == False}">
+    
+   <apex:pageBlock title="Information"> 
+     <apex:pageBlockButtons location="top">
+                        <apex:commandButton Value="Save" style="float:center" action="{!Updaterecord}"/>
+                        
+                        <apex:commandButton value="Cancel" action="{!cancel}" style="float:center"/>
+                    </apex:pageBlockButtons>  
+      
+
+   <table style="width:1200px;margin-left:50px;"> 
+   <tr>  
+   <td> 
+            <table>
+           <tr>
+           <td style="height:28px;">
+          <b> Rule Group Membership Name</b> &nbsp;&nbsp;</td><td><apex:outputText value="{!records.Name}"/> 
+           </td>
+           </tr>
+          
+           <tr>
+           <td style="height:28px;text-align:right;">
+           <b>Competency</b>&nbsp;&nbsp; </td><td> <apex:inputField value="{!records.sirenum__TicketType__c }"/>
+           </td>
+           </tr>
+           
+           <tr>
+           <td style="height:28px;text-align:right;">
+           <b>Notification Email</b>&nbsp;&nbsp; </td><td> <apex:inputField value="{!records.sirenum__Notification_Email__c }"/>
+           </td>
+           </tr>
+           
+            <tr>
+           <td style ="height:28px;">
+           </td>
+           </tr>
+        
+            <tr>
+            <td style ="height:28px;">   
+           </td>
+           </tr>
+           
+            <tr>
+           <td style ="height:28px;">
+           </td>
+           </tr>
+           
+           </table>
+     </td>
+     <td>      
+            <table>
+           <tr>
+           <td style="height:28px;text-align:right;">
+          <b> Severity</b> &nbsp;&nbsp;</td><td><apex:inputField value="{!records.sirenum__Severity__c}"/> 
+           </td>
+           </tr>
+          
+           <tr>
+           <td style="height:28px;text-align:right;">
+           <b>Sector</b>&nbsp;&nbsp; </td><td> <apex:inputField value="{!records.sirenum__Rota__c}"/>
+           </td>
+           </tr>
+           
+           <tr>
+           <td style="height:28px;text-align:right;">
+           <b>Category</b>&nbsp;&nbsp; </td><td> <apex:inputField value="{!records.sirenum__Job_Type__c}"/>
+           </td>
+           </tr>
+           
+            <tr>
+           <td style="height:28px;text-align:right;">
+           <b>Account</b>&nbsp;&nbsp; </td><td> <apex:inputField value="{!records.sirenum__Client__c}"/>
+           </td>
+           </tr>
+           
+            <tr>
+           <td style="height:28px;text-align:right;">
+           <b>Job Role</b>&nbsp;&nbsp; </td><td> <apex:inputField value="{!records.sirenum__Team__c}"/>
+           </td>
+           </tr>
+           
+            <tr>
+           <td style="height:28px;text-align:right;">
+           <b>Site</b>&nbsp;&nbsp; </td><td> <apex:inputField value="{!records.sirenum__Site__c}"/>
+           </td>
+           </tr>
+           </table>
+   </td>
+   </tr>
+   </table>  
+     <apex:pageBlockButtons location="Bottom">
+                        <apex:commandButton Value="Save" style="float:center" action="{!Updaterecord}"/>
+                        
+                        <apex:commandButton value="Cancel" action="{!cancel}" style="float:center"/>
+                    </apex:pageBlockButtons>  
+    </apex:pageBlock> 
+          </apex:outputPanel>
+      
+</apex:form>
+
+</apex:page>

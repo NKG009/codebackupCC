@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NHS_Test_and_Trace_Uni_Placement</fullName>
+    <columns>NAME</columns>
+    <columns>Status__c</columns>
+    <columns>Candidate__c</columns>
+    <columns>Email__c</columns>
+    <columns>Mobile__c</columns>
+    <columns>NHS_Job_Roles__c</columns>
+    <columns>TownCity__c</columns>
+    <columns>NHS_Job_Role_Other__c</columns>
+    <columns>NHS_Location__c</columns>
+    <columns>NHS_Location_Other__c</columns>
+    <columns>Work_Time__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Response__c.NHS_Test_and_Trace</value>
+    </filters>
+    <filters>
+        <field>Brand__c</field>
+        <operation>equals</operation>
+        <value>MGG</value>
+    </filters>
+    <filters>
+        <field>Campaign__c</field>
+        <operation>equals</operation>
+        <value>NHS Test and Trace - Uni Placement</value>
+    </filters>
+    <label>NHS Test&amp;Trace Responses - Uni</label>
+</ListView>

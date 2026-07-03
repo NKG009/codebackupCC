@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Task__c</fullName>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Sales Task</label>
+    <referenceTo>Sales_Task_Configs__mdt</referenceTo>
+    <relationshipLabel>Sales Junctions</relationshipLabel>
+    <relationshipName>Sales_Junctions</relationshipName>
+    <required>false</required>
+    <type>MetadataRelationship</type>
+    <unique>false</unique>
+</CustomField>

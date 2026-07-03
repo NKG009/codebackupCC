@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Remove_HTML_Markup</name>
+        <label>Remove HTML Markup</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <actionName>StripHtml</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Update_Job_Role</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>richText</name>
+            <value>
+                <elementReference>$Record.IP_Job_Description__c</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>StripHtml</nameSegment>
+        <outputParameters>
+            <assignToReference>$Record.BH_JobDescriptionText__c</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    <apiVersion>61.0</apiVersion>
+    <decisions>
+        <name>Job_Description_Populated_Updated</name>
+        <label>Job Description Populated/Updated?</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Update_Job_Role</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Strip_HTML</name>
+            <conditionLogic>(1 AND 2) OR 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.IP_Job_Description__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>forB_IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IP_Job_Description__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Remove_HTML_Markup</targetReference>
+            </connector>
+            <label>Strip HTML</label>
+        </rules>
+    </decisions>
+    <description>Checks if the Job Description has been changed and if so, calls apex to strip the HTML Markup and populate the plain version in BH_JobDescriptionText__c</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>forB_IsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>YesterdayDate</name>
+        <dataType>Date</dataType>
+        <expression>TODAY() - 1</expression>
+    </formulas>
+    <interviewLabel>Record Triggered Flow - Job Role Description {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Record Triggered Flow - Job Role Description</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Job_Role</name>
+        <label>Update Job Role</label>
+        <locationX>182</locationX>
+        <locationY>623</locationY>
+        <inputAssignments>
+            <field>BH_JobDescriptionText__c</field>
+            <value>
+                <elementReference>$Record.BH_JobDescriptionText__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Job_Description_Populated_Updated</targetReference>
+        </connector>
+        <object>sirenum__Team__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <triggerOrder>1</triggerOrder>
+</Flow>

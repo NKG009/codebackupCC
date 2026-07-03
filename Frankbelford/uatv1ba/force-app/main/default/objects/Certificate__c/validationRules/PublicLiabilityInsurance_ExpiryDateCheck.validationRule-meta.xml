@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PublicLiabilityInsurance_ExpiryDateCheck</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( NOT( Public_Liability_Insurance__c ),IF( ISBLANK( Public_Liability_Insurance_Expiry_Date__c ),false,true))</errorConditionFormula>
+    <errorMessage>Expiry Date for Public Liability Insurance can&apos;t be set if Public Liability Insurance is not checked.</errorMessage>
+</ValidationRule>

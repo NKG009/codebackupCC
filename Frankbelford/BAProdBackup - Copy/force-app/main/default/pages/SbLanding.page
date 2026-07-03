@@ -1,0 +1,45 @@
+<apex:page sidebar="true" showHeader="true" >
+   
+    <apex:includeScript value="/lightning/lightning.out.js" />
+    <apex:stylesheet value="/resource/slds0120/assets/styles/salesforce-lightning-design-system-vf.css"/>
+    <apex:includeLightning />
+
+    <div class="slds" style="margin-top:10px;margin-left:10px;"> 
+        <div id="lightning" />
+    </div>
+   
+    <script>
+        let param = "{!$CurrentPage.parameters.inputParam}";
+        let page = "{!$CurrentPage.parameters.inputPage}";
+        console.log('Page: ' + page);
+        if(page.toLowerCase() == "update" || page==""){
+            $Lightning.use("c:SbLanding", function() {
+                $Lightning.createComponent(
+                    "c:SbLandingCmp",
+                    {inputParam : param, 
+                     inLexApp : true,
+                     inCreateMode : false}, 
+                    "lightning",
+                    function(cmp) {
+                        console.log("Update Component done");
+                    });
+                });        
+        }
+        else{
+            //use the SbLanding but with paramater for recordId removed
+            $Lightning.use("c:SbLanding", function() {
+                $Lightning.createComponent(
+                    "c:SbLandingCmp",
+                    {inputParam : param, 
+                     inLexApp : true,
+                     inCreateMode : true}, 
+                    "lightning",
+                    function(cmp) {
+                        console.log("Create Component done");
+                    });
+                });        
+        }
+    </script>
+
+
+</apex:page>

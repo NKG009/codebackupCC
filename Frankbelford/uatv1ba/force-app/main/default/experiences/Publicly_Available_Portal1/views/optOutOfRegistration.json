@@ -1,0 +1,58 @@
+{
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "c63c91ad-e043-4ea5-b324-f7494accfcb1",
+  "label" : "Opt out of registration",
+  "regions" : [ {
+    "id" : "60186f9f-92f0-4a39-96d8-43e93c7a9a63",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Untitled2removebg.1}\" style=\"width: 254.859px; height: 64.5625px;\"></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "e8922e56-f0d5-46b3-abfe-1d1d62a02b90",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"RecordID\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!ID}\"}]",
+        "flowName" : "Online_Registration_Drop_Out_Reason"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "9ae05a58-af90-491c-86aa-5b907fce0e7d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "baddae39-9fef-4ab0-88f8-3bea1ddb01db",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "041d7da9-682c-4ea3-8da8-0931f3b5e116",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Opt out of registration"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "e5393127-6527-4565-83d8-8bed5c22275d",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a52dbd00-1958-4b80-a66a-3ac3ea91ad9e",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-opt-out-of-registration"
+}

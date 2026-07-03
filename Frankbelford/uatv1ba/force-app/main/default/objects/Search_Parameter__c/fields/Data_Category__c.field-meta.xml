@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Category__c</fullName>
+    <label>Data Category</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Admin</fullName>
+                <default>false</default>
+                <label>Admin</label>
+            </value>
+            <value>
+                <fullName>ADR Specific</fullName>
+                <default>false</default>
+                <label>ADR Specific</label>
+            </value>
+            <value>
+                <fullName>Bus/Coach</fullName>
+                <default>false</default>
+                <label>Bus/Coach</label>
+            </value>
+            <value>
+                <fullName>Catering</fullName>
+                <default>false</default>
+                <label>Catering</label>
+            </value>
+            <value>
+                <fullName>Chef</fullName>
+                <default>false</default>
+                <label>Chef</label>
+            </value>
+            <value>
+                <fullName>Customer Service</fullName>
+                <default>false</default>
+                <label>Customer Service</label>
+            </value>
+            <value>
+                <fullName>Driving Generic</fullName>
+                <default>false</default>
+                <label>Driving Generic</label>
+            </value>
+            <value>
+                <fullName>Driving Related</fullName>
+                <default>false</default>
+                <label>Driving Related</label>
+            </value>
+            <value>
+                <fullName>FLT</fullName>
+                <default>false</default>
+                <label>FLT</label>
+            </value>
+            <value>
+                <fullName>LGV Various</fullName>
+                <default>false</default>
+                <label>LGV Various</label>
+            </value>
+            <value>
+                <fullName>Management</fullName>
+                <default>false</default>
+                <label>Management</label>
+            </value>
+            <value>
+                <fullName>Manual/Physical Labour</fullName>
+                <default>false</default>
+                <label>Manual/Physical Labour</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

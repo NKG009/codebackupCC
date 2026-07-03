@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fred_s_Candidates_Reading_Bracknell_Wok</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>PORTW_Verification_Date__c</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_CITY</field>
+        <operation>equals</operation>
+        <value>Reading,Bracknell,Wokingham</value>
+    </filters>
+    <label>Fred&apos;s Candidates(Reading Bracknell Wok)</label>
+</ListView>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tesco_Festive</fullName>
+    <columns>NAME</columns>
+    <columns>First_Name__c</columns>
+    <columns>Last_Name__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Candidate__c</columns>
+    <columns>Tesco_Job_Role__c</columns>
+    <columns>Tesco_Locations__c</columns>
+    <columns>Email__c</columns>
+    <columns>Mobile__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Campaign__c</field>
+        <operation>equals</operation>
+        <value>Tesco Festive</value>
+    </filters>
+    <label>Tesco Festive</label>
+    <language>en_US</language>
+</ListView>

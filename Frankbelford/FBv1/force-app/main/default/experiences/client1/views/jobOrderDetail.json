@@ -1,0 +1,118 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "2c73aa5e-3ca9-446b-a991-847640a566ea",
+  "label" : "Job Order Detail",
+  "regions" : [ {
+    "id" : "74b7ece4-6626-4868-937b-a9eb268b1d5a",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "currentPage" : "Booking Details"
+      },
+      "componentName" : "c:ClientComunityBreadcrumb",
+      "id" : "d24230b9-ad65-43d7-8ec1-f6393d66456a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "forceCommunity:recordHeadline",
+      "id" : "babb4924-7a4b-4c86-b5c6-709697541fc5",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "tabsetConfig" : {
+          "UUID" : "801f90f2-2017-4699-bb98-f0e17a766b82",
+          "activeTab" : "",
+          "tabs" : [ {
+            "UUID" : "1e0ee389-975c-4c39-9cb7-80f5da821513",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "1",
+            "tabName" : "Booking Details"
+          }, {
+            "UUID" : "79af5e0d-1900-4d25-8666-bf20a6c3dc03",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "2",
+            "tabName" : "Schedule"
+          } ],
+          "useOverflowMenu" : false
+        }
+      },
+      "componentName" : "forceCommunity:tabset",
+      "id" : "801f90f2-2017-4699-bb98-f0e17a766b82",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "recordId" : "{!recordId}"
+          },
+          "componentName" : "forceCommunity:recordDetail",
+          "id" : "acc71060-ef8f-4cc0-aa57-eb00b60cf50c",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "1e0ee389-975c-4c39-9cb7-80f5da821513",
+        "regionLabel" : "Booking Details",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "definitionName" : "JobOrder_Full",
+            "minimumHeight" : "30em",
+            "recordId" : "{!recordId}"
+          },
+          "componentName" : "sirenum:schedule",
+          "id" : "88530dc7-f0f2-4629-b094-948f7b8cc5ce",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "79af5e0d-1900-4d25-8666-bf20a6c3dc03",
+        "regionLabel" : "Schedule",
+        "regionName" : "2",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "323d86ff-3f12-4792-b897-ebdaec68d85a",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "d747cca4-c912-4548-b1a0-9ce09fb8072b",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "{!Record._Object}: {!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "0ecbdc94-d226-4e42-8391-12759ae6d682",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "153c51cb-10b9-4963-a02c-8b7f452cff05",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Re3hqEhY1SpthYbgfoSm66kdrIuIff",
+  "type" : "view",
+  "viewType" : "detail-a6w"
+}

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Facilities_Jobs__c</fullName>
+    <label>Facilities Jobs</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Caretaker</fullName>
+                <default>false</default>
+                <label>Caretaker</label>
+            </value>
+            <value>
+                <fullName>Care Worker</fullName>
+                <default>false</default>
+                <label>Care Worker</label>
+            </value>
+            <value>
+                <fullName>Car Park Attendant</fullName>
+                <default>false</default>
+                <label>Car Park Attendant</label>
+            </value>
+            <value>
+                <fullName>Cleaner</fullName>
+                <default>false</default>
+                <label>Cleaner</label>
+            </value>
+            <value>
+                <fullName>Gardener</fullName>
+                <default>false</default>
+                <label>Gardener</label>
+            </value>
+            <value>
+                <fullName>Grounds Maintenance</fullName>
+                <default>false</default>
+                <label>Grounds Maintenance</label>
+            </value>
+            <value>
+                <fullName>Handy Person</fullName>
+                <default>false</default>
+                <label>Handy Person</label>
+            </value>
+            <value>
+                <fullName>Hospital Porter</fullName>
+                <default>false</default>
+                <label>Hospital Porter</label>
+            </value>
+            <value>
+                <fullName>Internal - Cleaning</fullName>
+                <default>false</default>
+                <label>Internal - Cleaning</label>
+            </value>
+            <value>
+                <fullName>Janitor</fullName>
+                <default>false</default>
+                <label>Janitor</label>
+            </value>
+            <value>
+                <fullName>Litter Picker</fullName>
+                <default>false</default>
+                <label>Litter Picker</label>
+            </value>
+            <value>
+                <fullName>Platform Staff</fullName>
+                <default>false</default>
+                <label>Platform Staff</label>
+            </value>
+            <value>
+                <fullName>Porter</fullName>
+                <default>false</default>
+                <label>Porter</label>
+            </value>
+            <value>
+                <fullName>Supervisor</fullName>
+                <default>false</default>
+                <label>Supervisor</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Security</fullName>
+                <default>false</default>
+                <label>Security</label>
+            </value>
+            <value>
+                <fullName>Hygiene operative</fullName>
+                <default>false</default>
+                <label>Hygiene operative</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

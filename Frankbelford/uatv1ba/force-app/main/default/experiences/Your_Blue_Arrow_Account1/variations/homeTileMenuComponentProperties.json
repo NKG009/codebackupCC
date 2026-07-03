@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "2a6600a1-0b76-4eab-af90-fc85bec6cf45",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "tileMenuEditor" : "No_Navigation"
+      }
+    },
+    "targetId" : "39912d4d-1f34-4d91-94a2-7eb1be6cab80",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Home_Tile_Menu_Component_Properties",
+  "id" : "a5b7736b-7e18-4376-92f4-60a9f9c528b7",
+  "type" : "experienceVariation"
+}

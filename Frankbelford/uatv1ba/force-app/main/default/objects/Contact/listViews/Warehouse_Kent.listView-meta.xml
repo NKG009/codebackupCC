@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Warehouse_Kent</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>equals</operation>
+        <value>BD2,BD3,BD4,BD5,BD6,BD7,BD8,BD9,BD97,BD98,BD99,HD6,HG3,HX3,LS1,LS10,LS11,LS12,LS13,LS14,LS15,LS16,LS17,LS18,LS19,LS2,LS20,LS21,LS22,LS23,LS24,LS25,LS26,LS27,LS28,LS29,LS3,LS4,LS5,LS6,LS7,LS8,LS88,LS9,LS98,LS99</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>equals</operation>
+        <value>Catering,Facilities,Commercial,Industrial</value>
+    </filters>
+    <label>Warehouse Kent</label>
+</ListView>

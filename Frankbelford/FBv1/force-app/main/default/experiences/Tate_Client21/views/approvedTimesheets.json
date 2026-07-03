@@ -1,0 +1,68 @@
+{
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "591c8f67-079c-4b1e-87cc-6814d5d7ff4a",
+  "label" : "Approved Timesheets",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "6b1084b8-e2e0-4e05-bf7b-f91398bd4d92",
+          "columns" : [ {
+            "UUID" : "09c51ec4-1ef0-4bca-9e7b-2bdd4b914e49",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "6b1084b8-e2e0-4e05-bf7b-f91398bd4d92",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:ClientComApprovedTSCmp",
+          "id" : "0fc027d8-17ab-4652-9732-ef01f94e4d4a",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "09c51ec4-1ef0-4bca-9e7b-2bdd4b914e49",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0b6772c1-85bd-46d7-b7cd-ce029581d046",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Approved Timesheets"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "f1f3c05e-0d6a-4f4d-bd31-682b72bc3e67",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a507f713-4ee3-46f5-9ca9-24a761f83bdb",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-approved-time-sheets-new"
+}

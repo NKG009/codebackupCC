@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "e151d9bf-a518-450a-b88c-8add20815b71",
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "configurationTags" : [ ],
+  "devName" : "EOIP__c",
+  "id" : "0cd74001-ce6a-434a-bc80-f33882ce8c32",
+  "label" : "EOIP",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-eoip",
+  "type" : "route",
+  "urlPrefix" : "eoip"
+}

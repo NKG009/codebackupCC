@@ -1,0 +1,68 @@
+{
+  "appPageId" : "ab0fb279-314a-41ff-ae74-a5f6318cf3e1",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "7e37e221-fade-4782-bc8e-7635934dfc0e",
+  "label" : "Shift or vacancy request",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "75596b82-a889-4bbb-98d3-daf3d2d688cc",
+          "columns" : [ {
+            "UUID" : "69566714-45e8-4316-892c-bf0fd3b88e9f",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "75596b82-a889-4bbb-98d3-daf3d2d688cc",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:ClientComShiftVacancyCmp",
+          "id" : "ccc92e35-2859-4eb3-8d10-ca0da200e909",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "69566714-45e8-4316-892c-bf0fd3b88e9f",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7f3bc848-7f83-45b7-b535-6bda3a35c405",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Shift or vacancy request"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "1a53b0d2-3d8f-48f6-b6a3-ef9d9e198d2c",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "dc01bfe8-882c-42b0-8b47-5b565195157f",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-shift-or-vacancy-request"
+}

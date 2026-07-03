@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>disable_parsed_school_fields__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If selected, a keyword search using the School input field will not search the parsed Education School 1 and Education School 2 fields on the Contact record. The School Name on the Employment History object will be searched.</description>
+    <inlineHelpText>If selected, a keyword search using the School input field will not search the parsed Education School 1 and Education School 2 fields on the Contact record. The School Name on the Employment History object will be searched.</inlineHelpText>
+    <label>Disable Parsed School fields</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

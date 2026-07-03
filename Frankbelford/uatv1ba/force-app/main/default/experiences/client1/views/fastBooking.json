@@ -1,0 +1,64 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "b216acc8-d4f5-4ef7-bda7-72a1ea56789d",
+  "label" : "Fast Booking",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"color: rgb(0, 0, 0); font-size: 24px;\">Fast Booking</span><span style=\"color: rgb(0, 0, 0);\"><span class=\"ql-cursor\">﻿</span></span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "0fb4688a-56a5-47a9-93e0-28d0ea3cb2c2",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b5e5e258-03d4-40e6-9859-24d1da76f546",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:FastBookingsCmp",
+      "id" : "fca4c202-b973-4b46-81f0-35d3f240048e",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c2ef4823-a25a-4891-a012-03fa62d9b030",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:HomeLayoutFooter",
+      "id" : "80300d3c-c0c9-4fa0-9e79-0d87139bd375",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3a0a2ed0-63e5-47f1-8a3d-6dbdf1baa830",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Fast Booking"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "da9c6aeb-2295-4e24-8d84-a2cd7a32f705",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2d73bdf8-917f-40b4-8906-9b4d7b0f476a",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "1fitOSCZL0c31jnY0VvGUv41yZqrsW",
+  "type" : "view",
+  "viewType" : "custom-fast-booking"
+}

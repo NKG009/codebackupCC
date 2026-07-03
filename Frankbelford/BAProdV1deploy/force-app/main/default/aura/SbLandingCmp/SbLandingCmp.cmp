@@ -1,0 +1,333 @@
+<aura:component implements="force:hasRecordId,lightning:isUrlAddressable" controller="SbUrlController" access="global" >
+    
+    <!--to present toast messages/etc-->
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
+    <!--variables for the UI/control of the form that loads-->
+    <aura:attribute name="showSpinner" type="Boolean" default="true"/>
+    <aura:attribute name="saved" type="Boolean" default="false"/>
+    <aura:attribute name="error" type="String" default=""/>
+    <aura:attribute name="cardIcon" type="String" default="standard:record"/>
+    <aura:attribute name="cardTitle" type="String" default=""/>
+    <aura:attribute name="layoutSections" type="List" />
+
+    <!--variables used to control modal vs in app/classic support-->
+    <aura:attribute name="inLexApp" type="Boolean" default="false"/>
+    <aura:attribute name="inCreateMode" type="Boolean" default="false"/>
+    
+    <!--variables used to populate the field values or for Sb Callout on success-->
+    <aura:attribute name="inputParam" type="String" default=""/>
+    <aura:attribute name="jsonObject" type="Object"/>
+    <aura:attribute name="sourceId" type="Id"/>
+    <aura:attribute name="objectType" type="String" default="Contact"/>
+    <aura:attribute name="sbNotify" type="String"/>
+    <aura:attribute name="callOutURL" type="String" default=""/>
+   
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    
+    <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner alternativeText="Loading"/>
+    </aura:if>
+
+    <aura:if isTrue="{!!v.saved}">
+
+        <!-- CUSTOM ERROR HANDLING (IF USED IN CONTROLLER) -->
+        <aura:if isTrue="{!!empty(v.error)}">
+            <lightning:textarea name="errorMessage" value="{!v.error}" label="Error: "/>
+        </aura:if>     
+
+        <!-- IF IN LIGHTNING UI, DISPLAY MODAL -->
+        <aura:if isTrue="{!!v.inLexApp}">
+            <div class="slds-modal__container"> 
+                
+                <header class="slds-modal__header">
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">
+                        <ui:outputText value="{!v.cardTitle}"/>
+                    </h2>
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" onclick="{!c.handleCancel}" title="Close">
+                        <lightning:icon iconName="utility:close" size="small" variant="bare"/>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </header>
+                
+                
+                <!-- EDIT/UPDATE MODE (IE WITH A RECORD ID) -->
+                <aura:if isTrue="{!!v.inCreateMode}">
+                    <div class="slds-modal__content slds-p-around_large" id="modal-content-id-1">
+                        <lightning:recordEditForm aura:id="formUpdateModal"
+                                                recordId="{!v.recordId}"
+                                                objectApiName="{!v.objectType}"
+                                                onload="{!c.handleOnload}"
+                                                onsuccess="{!c.handleOnSuccess}"
+                                                onerror="{!c.handleOnError}"
+                                                >
+                            
+                            
+                            <!-- render component here  -->
+                            <!--<c:SbRenderFields jsonObject="{!v.jsonObject}" objectType="{!v.objectType}"/>-->
+                            <!-- ********************************* -->
+                            <aura:iteration items="{!v.layoutSections}" var="section">
+                                <div class="slds-section slds-is-open">
+                                    
+                                    <div class="slds-p-left_x-small">
+                                        <h5 class="slds-section__title">
+                                            {!section.label}
+                                        </h5>
+                                    </div>
+                                    <div class="slds-section__content">
+                                        <lightning:layout multipleRows="{!section.totalColumns > 1 }">
+                                            <aura:iteration items="{!section.lstFields}" var="field">
+                                                <lightning:layoutItem size="{! 12/section.totalColumns }" flexibility="auto" padding="around-small">
+                                                    <aura:if isTrue="{!(!field.isReadOnly)}">
+                                                        <lightning:inputField fieldName="{!field.fieldName}" required="{!field.isRequired}" aura:id="customSectionFields" /><!-- customSectionFields referenced in helper.autoCompleteFields-->
+                                                        <aura:set attribute="else">
+                                                            <lightning:outputField fieldName="{!field.fieldName}" required="{!field.isRequired}"/>
+                                                        </aura:set>
+                                                    </aura:if>
+                                                </lightning:layoutItem>
+                                            </aura:iteration>
+                                        </lightning:layout>
+                                    </div>
+                                </div>
+                            </aura:iteration>
+                            <!-- ********************************* -->
+                            <lightning:button variant="neutral"
+                                        label="Cancel"
+                                        title="Cancel"
+                                        onclick="{!c.handleCancel}"/>
+                        	<lightning:button variant="brand"
+                                        type="submit"
+                                        label="Save"
+                                        title="Save"
+                                       />
+                        </lightning:recordEditForm>
+                    </div>
+                    
+                    <!--
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral"
+                                        label="Cancel"
+                                        title="Cancel"
+                                        onclick="{!c.handleCancel}"/>
+                        <lightning:button variant="brand"
+                                        type="submit"
+                                        label="Save"
+                                        title="Save"
+                                        onclick="{!c.handleSubmit}"/>
+                    </footer>-->
+                    
+                </aura:if>
+                    
+                <!-- CREATE MODE  (IE WITH NO RECORD ID PROVIDED) -->
+                <aura:if isTrue="{!v.inCreateMode}">
+                    <div class="slds-modal__content slds-p-around_large" id="modal-content-id-1">
+                        <lightning:recordEditForm aura:id="formCreateModal"
+                                                objectApiName="{!v.objectType}"
+                                                onload="{!c.handleOnload}"
+                                                onsuccess="{!c.handleOnSuccess}"
+                                                onerror="{!c.handleOnError}"
+                                                >
+                            
+                            <!-- render component here  -->
+                            <!--<c:SbRenderFields jsonObject="{!v.jsonObject}" objectType="{!v.objectType}"/>-->
+                            
+                            <!-- ********************************* -->
+                            <aura:iteration items="{!v.layoutSections}" var="section">
+                                <div class="slds-section slds-is-open">
+                                    
+                                    <div class="slds-p-left_x-small">
+                                        <h5 class="slds-section__title">
+                                            {!section.label}
+                                        </h5>
+                                    </div>
+                                    <div class="slds-section__content">
+                                        <lightning:layout multipleRows="{!section.totalColumns > 1 }">
+                                            <aura:iteration items="{!section.lstFields}" var="field">
+                                                
+                                                <lightning:layoutItem size="{! 12/section.totalColumns }" flexibility="auto" padding="around-small">
+                                                    <aura:if isTrue="{!(!field.isReadOnly)}">
+                                                        <lightning:inputField fieldName="{!field.fieldName}" required="{!field.isRequired}" aura:id="customSectionFields" /><!-- customSectionFields referenced in helper.autoCompleteFields-->
+                                                        <aura:set attribute="else">
+                                                            <lightning:outputField fieldName="{!field.fieldName}" />
+                                                        </aura:set>
+                                                    </aura:if>
+                                                </lightning:layoutItem>
+                                                
+                                            </aura:iteration>
+                                        </lightning:layout>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </aura:iteration>
+                                 <lightning:button variant="neutral"
+                                        label="Cancel"
+                                        title="Cancel"
+                                        onclick="{!c.handleCancel}"/>
+                        		<lightning:button variant="brand"
+                                        type="submit"
+                                        label="Save"
+                                        title="Save"
+                                       />
+                        </lightning:recordEditForm>
+                    </div>
+                    
+                    <!--
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral"
+                                        label="Cancel"
+                                        title="Cancel"
+                                        onclick="{!c.handleCancel}"/>
+                        <lightning:button variant="brand"
+                                        type="submit"
+                                        label="Save"
+                                        title="Save"
+                                        onclick="{!c.handleSubmit}"/>
+                    </footer>-->
+                    
+                </aura:if>
+            </div>
+        
+        </aura:if>
+        
+
+        <!-- IF IN LEX APP, DISPLAY FORM IN CARD FORMAT INSTEAD -->
+        <aura:if isTrue="{!v.inLexApp}">
+            <lightning:card title="{!v.cardTitle}" iconName="{!v.cardIcon}">
+                <p></p>
+
+                <!-- IN CREATE MODE      IE. HIDE RECORDID FROM RECORD EDIT FORM -->
+                <aura:if isTrue="{!v.inCreateMode}">
+                    <div class="slds-card__body slds-card__body_inner">
+                        <lightning:recordEditForm aura:id="formCreateApp"
+                                                objectApiName="{!v.objectType}"
+                                                onload="{!c.handleOnload}"
+                                                onsuccess="{!c.handleOnSuccess}"
+                                                onerror="{!c.handleOnError}"
+                                                >
+                        <lightning:messages/>    
+                            
+                        <aura:iteration items="{!v.layoutSections}" var="section">
+                            <div class="slds-section slds-is-open">
+                                
+                                <div class="slds-p-left_x-small">
+                                    <h5 class="slds-section__title">
+                                        {!section.label}
+                                    </h5>
+                                </div>
+                                <div class="slds-section__content">
+                                    <lightning:layout multipleRows="{!section.totalColumns > 1 }">
+                                        <aura:iteration items="{!section.lstFields}" var="field">
+                                            
+                                            <lightning:layoutItem size="{! 12/section.totalColumns }" flexibility="auto" padding="around-small">
+                                                <aura:if isTrue="{!(!field.isReadOnly)}">
+                                                    <lightning:inputField fieldName="{!field.fieldName}" required="{!field.isRequired}" aura:id="customSectionFields" /><!-- customSectionFields referenced in helper.autoCompleteFields-->
+                                                    <aura:set attribute="else">
+                                                        <lightning:outputField fieldName="{!field.fieldName}" />
+                                                    </aura:set>
+                                                </aura:if>
+                                            </lightning:layoutItem>
+                                            
+                                        </aura:iteration>
+                                    </lightning:layout>
+                                </div>
+                            </div>
+                        </aura:iteration>
+                        
+                             <lightning:button variant="neutral"
+                                        label="Cancel"
+                                        title="Cancel"
+                                        onclick="{!c.handleCancel}"/>
+                        	<lightning:button variant="brand"
+                                        type="submit"
+                                        label="Save"
+                                        title="Save"
+                                       />
+                        </lightning:recordEditForm> 
+                    </div>      
+                            
+                    <!--  
+                    <footer class="slds-card__footer">
+                        <lightning:button variant="neutral"
+                                        label="Cancel"
+                                        title="Cancel"
+                                        onclick="{!c.handleCancel}"/>
+                        <lightning:button variant="brand"
+                                        type="submit"
+                                        label="Save"
+                                        title="Save"
+                                        onclick="{!c.handleSubmit}"/>
+                    </footer>-->
+                    
+                </aura:if>
+
+                <!-- IN EDIT/UDPATE MODE - USE RECORDID FROM RECORD EDIT FORM -->
+                <aura:if isTrue="{!!v.inCreateMode}">
+                    <div class="slds-card__body slds-card__body_inner">
+                        <lightning:recordEditForm aura:id="formUpdateApp"
+                                                objectApiName="{!v.objectType}"
+                                                recordId="{!v.recordId}"
+                                                onload="{!c.handleOnload}"
+                                                onsuccess="{!c.handleOnSuccess}"
+                                                onerror="{!c.handleOnError}"
+                                                >
+                        <lightning:messages/>    
+                            
+                        <aura:iteration items="{!v.layoutSections}" var="section">
+                            <div class="slds-section slds-is-open">
+                                
+                                <div class="slds-p-left_x-small">
+                                    <h5 class="slds-section__title">
+                                        {!section.label}
+                                    </h5>
+                                </div>
+                                <div class="slds-section__content">
+                                    <lightning:layout multipleRows="{!section.totalColumns > 1 }">
+                                        <aura:iteration items="{!section.lstFields}" var="field">
+                                            
+                                            <lightning:layoutItem size="{! 12/section.totalColumns }" flexibility="auto" padding="around-small">
+                                                <aura:if isTrue="{!(!field.isReadOnly)}">
+                                                    <lightning:inputField fieldName="{!field.fieldName}" required="{!field.isRequired}" aura:id="customSectionFields" /><!-- customSectionFields referenced in helper.autoCompleteFields-->
+                                                    <aura:set attribute="else">
+                                                        <lightning:outputField fieldName="{!field.fieldName}" />
+                                                    </aura:set>
+                                                </aura:if>
+                                            </lightning:layoutItem>
+                                            
+                                        </aura:iteration>
+                                    </lightning:layout>
+                                </div>
+                            </div>
+                        </aura:iteration>
+                             <lightning:button variant="neutral"
+                                        label="Cancel"
+                                        title="Cancel"
+                                        onclick="{!c.handleCancel}"/>
+                        	<lightning:button variant="brand"
+                                        type="submit"
+                                        label="Save"
+                                        title="Save"
+                                       />
+                        </lightning:recordEditForm> 
+                    </div>      
+                            
+                    <!--
+                    <footer class="slds-card__footer">
+                        <lightning:button variant="neutral"
+                                        label="Cancel"
+                                        title="Cancel"
+                                        onclick="{!c.handleCancel}"/>
+                        <lightning:button variant="brand"
+                                        type="submit"
+                                        label="Save"
+                                        title="Save"
+                                        onclick="{!c.handleSubmit}"/>
+                    </footer>-->
+                </aura:if>
+       		</lightning:card>
+            
+        </aura:if>
+
+    </aura:if>
+    
+</aura:component>

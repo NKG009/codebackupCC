@@ -1,0 +1,74 @@
+<aura:component controller="Placementdisplay" implements="force:lightningQuickAction,forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable,flexipage:availableForRecordHome" access="global" >
+                <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    <aura:attribute name="rec" type="List" /> 
+  <aura:attribute name="allrecords" type="List" />
+  <aura:attribute name="todaydt" type="Date" />  
+     <!--Pagination Shift start -->
+    <aura:attribute type="Integer" name="pageNumber" default="1" />
+    <aura:attribute type="Integer" name="maxPage" default="1" />
+    <aura:attribute type="Boolean" name="Bttonenable" default="false" />
+     <aura:attribute type="Date" name="tdate"  />
+    
+    <aura:handler name="change"	value="{!v.pageNumber}"	action="{!c.renderPage}" />
+    <!-- Pagination Shift end-->
+  <aura:attribute type="String" name="url"  />
+<div class="slds-scrollable slds-wrap">
+ <table class="slds-no-row-hover datatable slds-scrollable slds-wrap slds-table slds-table--bordered slds-table--cell-buffer slds-table--fixed-layout">
+    <thead>
+      <tr class="trheadersize">
+        <th class="headingfont" scope="col" style="text-align:center;width:175px;"><div  title="Job Role">Job Role</div></th>
+        <th class="headingfont" scope="col" style="text-align:center;width:175px;"><div  title="Site">Site</div></th>
+        <th class="headingfont" scope="col" style="text-align:center;width:100px;"><div  title="Start Date">Start Date</div></th>
+        <th class="headingfont" scope="col" style="text-align:center;width:100px;"><div title="End Date">End Date</div></th>
+        <th class="headingfont" scope="col"  style="text-align:center;width:230px"><div title="Print">Print</div></th>
+      </tr>
+    </thead>
+    <tbody>
+   
+                  
+         <aura:iteration items="{!v.rec}" var="record">
+        <tr class="trsize">
+          <td class="slds-grow slds-cell-wrap"  style="text-align:center; width:240px;border-bottom: 1px solid lightgrey;">{!record.sirenum__Job_Role__r.Name}</td>
+          <td class="slds-grow slds-cell-wrap"  style="text-align:center; width:240px;border-bottom: 1px solid lightgrey;">{!record.sirenum__Site__r.Name}</td>
+          <td  style="text-align:center; width:100px;border-bottom: 1px solid lightgrey;"><lightning:formattedDateTime value="{!record.sirenum__Start_Date__c}" year="numeric" month="numeric" day="numeric" /></td> 
+          <td  style="text-align:center; width:100px;border-bottom: 1px solid lightgrey;"><lightning:formattedDateTime value="{!record.sirenum__End_Date__c }" year="numeric" month="numeric" day="numeric" /></td> 
+          <td style="text-align:center; width:200px;border-bottom: 1px solid lightgrey;">
+   <aura:if isTrue="{!record.DateThisWeek__c=='This Week'}" >
+     <lightning:button label="This Week" class="Button Weekbutton" variant="Brand" onclick="{!c.getthisweek}" value="{!record.Id}"  /> 
+  <aura:set attribute="else">
+     <lightning:button label="This Week" class="inactivebutton InWeekbutton" disabled="true" variant="Brand" onclick="{!c.getthisweek}" value="{!record.Id}"  /> 
+   
+       </aura:set>          
+   </aura:if>  
+     <aura:if isTrue="{!record.DateNextWeek__c=='Next Week'}" >
+     <lightning:button class="Button Weekbutton" onclick="{!c.getPlacementID}" value="{!record.Id}" label="Next Week" variant="brand" />
+      <aura:set attribute="else">
+        <lightning:button class="inactivebutton InWeekbutton" disabled="true" onclick="{!c.getPlacementID}" value="{!record.Id}" label="Next Week" variant="brand" />
+  
+         </aura:set>
+              </aura:if>   
+              </td>
+        
+           </tr>
+      </aura:iteration>
+    </tbody>
+  </table> 
+   
+   
+        <br></br>
+  
+   <table class="datatable2">
+       <tr>
+       <div style="text-align:right;"> <c:Pagination currentPageNumber="{!v.pageNumber}" 
+                                    maxPageNumber="{!v.maxPage}" /> </div></tr>
+    <tr>  <div class="slds-truncate" style="text-align:Left;">
+                       <lightning:button class="Backbutton" label="Back" variant="Brand" onclick="{!c.getBackscreen}"   />
+                       
+                        </div>   </tr>
+       </table>
+      </div>  
+  
+
+  <br></br><br></br>
+
+</aura:component>

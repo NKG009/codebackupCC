@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_PayrollStatus__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL( IP_Status__c , &quot;Inactive&quot;) ,(IMAGE(&quot;/resource/Images/PayProfileInactiveBlack.png&quot;, &quot;Pay Profile Inactive&quot;)),IF((P45_Requested__c = TRUE &amp;&amp; RecordType.Name = &apos;PAYE&apos;),(IMAGE(&quot;/servlet/servlet.FileDownload?file=0151n000002u0Mx&quot;, &quot;Leaver&quot;)),IF( NOT( ISBLANK( IP_MissingPayrollDetail__c ) ) , (IMAGE(&quot;/resource/Images/PayProfileIncompleteRed.png&quot;, &quot;Pay Profile Incomplete&quot;)), (IMAGE(&quot;/resource/Images/PayProfileCompleteGreen.png&quot;, &quot;Pay Profile complete&quot;)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Payroll Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

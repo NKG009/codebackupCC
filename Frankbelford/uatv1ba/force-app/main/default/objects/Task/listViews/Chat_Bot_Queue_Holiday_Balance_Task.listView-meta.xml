@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Chat_Bot_Queue_Holiday_Balance_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Chat Bot Queue - Holiday Balance</label>
+    <queue>Chat_Bot_Queue_Holiday_Balance</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

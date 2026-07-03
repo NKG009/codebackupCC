@@ -1,0 +1,58 @@
+{
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "0601775e-efa2-495f-bf08-a5c9211c8958",
+  "label" : "Proof of Address",
+  "regions" : [ {
+    "id" : "861092b6-2bd3-4401-aabf-025b6a84d723",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Untitled2removebg.1}\" style=\"width: 254.859px; height: 64.5625px;\"></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "c02d68fa-cb83-499b-9784-4a595280d793",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"RecordId\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!ID}\"}]",
+        "flowName" : "Online_Registration_Proof_of_Address"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "7500c450-98a8-4e00-8c44-7c5b8fd2a19c",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e0649001-9933-4029-b1ab-c829d71225c5",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "2847dbd0-9384-47ee-96e5-2da9775bcd16",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Proof of Address"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "80e9960d-a12d-4966-8b66-2b21d123bf80",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "cd01e8d4-c824-4cca-991d-85dcbd7467b7",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-proof-of-address"
+}

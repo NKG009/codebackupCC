@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Right_to_Work__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Do you have the right to work in the UK? (a valid UK passport and /or a valid visa)</inlineHelpText>
+    <label>Right to Work in the UK</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

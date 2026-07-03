@@ -1,0 +1,31 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader" access="global" controller="DeleteBtnTimesheetLineApex" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="ConfirmMessage" type="Boolean" />
+    <aura:attribute name="processingText" type="Boolean" />
+    <aura:attribute name="Message" type="String" default="Processing........" />
+    
+    
+    <aura:if isTrue="{!v.ConfirmMessage}">
+        <br/>
+        <p style="font-size:20px;color:#1B5297;" class="testtt">
+            <center><b><aura:unescapedHtml value="Are you sure?" /></b></center>
+        </p>
+        <center>
+            <br/>
+            <br/>
+            <lightning:button variant="brand" type="button" 
+                              label="Ok" title="Ok"  onclick="{!c.SubmitBtn}"/> 
+            <lightning:button variant="brand" type="button" 
+                              label="Cancel" title="Cancel"  onclick="{!c.cancelAction}"/> 
+        </center>
+    </aura:if>
+    <aura:if isTrue="{!v.processingText}">
+        <br/><br/><br/><br/>
+        <p style="font-size:15px;color:#1B5297;" class="testtt">
+            <center><b><aura:unescapedHtml value="{!v.Message}" /></b></center>
+        </p>
+    </aura:if>
+    
+    
+</aura:component>

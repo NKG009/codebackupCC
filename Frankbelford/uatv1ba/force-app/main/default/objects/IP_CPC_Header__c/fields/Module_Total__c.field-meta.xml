@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Module_Total__c</fullName>
+    <label>Module Total</label>
+    <summarizedField>IP_CPC_Module__c.Module_Value__c</summarizedField>
+    <summaryForeignKey>IP_CPC_Module__c.CPC_Header__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

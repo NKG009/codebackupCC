@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Abbie_s_CDP</fullName>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>FULL_NAME</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>Sub_Category__c</columns>
+    <columns>Skills__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.Contact</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>RG41 5DJ,RG20 8JU,RG1 5DZ,RG20 9BD,RG2 7DE,RG7 4NG</value>
+    </filters>
+    <filters>
+        <field>FULL_NAME</field>
+        <operation>equals</operation>
+        <value>Misbah Amin,Darren Fairminer,Emma Jenkins,julie Carroll,annica eskelius,leon hicks,Alessandro Albanese</value>
+    </filters>
+    <label>Abbie&apos;s CDP</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Blue_Arrow_Newbury_Perm_hub</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

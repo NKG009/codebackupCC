@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Furlough_End_date</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				ischanged(Furlough_End_Date__c),
+								Furlough_End_Date__c &lt; (Furlough_Effective_Date__c + 20))</errorConditionFormula>
+    <errorDisplayField>Furlough_End_Date__c</errorDisplayField>
+    <errorMessage>Furlough End date must be at least 3 weeks from the effective date</errorMessage>
+</ValidationRule>

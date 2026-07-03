@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Consent_Last_Updated_Blank__c</fullName>
+    <formula>ISBLANK( IP_Consent_from_Data_Store__c )</formula>
+    <label>Consent Last Updated Blank</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

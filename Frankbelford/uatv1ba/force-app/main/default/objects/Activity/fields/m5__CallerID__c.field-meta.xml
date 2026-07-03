@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>m5__CallerID__c</fullName>
+    <deprecated>false</deprecated>
+    <description>CallerID of the caller</description>
+    <inlineHelpText>If the calling number is not blocked, the calling number is displayed on the handset or base station of the called party. It will be captured in this field.</inlineHelpText>
+    <label>CallerID</label>
+    <required>false</required>
+    <type>Phone</type>
+</CustomField>

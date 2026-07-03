@@ -1,0 +1,81 @@
+<apex:page standardcontroller="sirenum__Site__c" lightningStylesheets="true" extensions="SiteAddressController">
+   <!-- <apex:image url="{!$Resource.NewSitePage}" width="700" height="60" rendered="{! $User.UIThemeDisplayed == 'Theme3' }"/><br/><br/>
+    <apex:image url="{!$Resource.SitePageLightning}" width="700" height="60" rendered="{! $User.UIThemeDisplayed == 'Theme4d' }"/><br/><br/> -->
+    <br></br><br></br>
+    <div style="text-align:center;font-size: large;">New Site</div><br></br><br></br>
+
+    <apex:form >
+    <style>
+  .pbTitle{display:none;}
+  </style>
+      <!--  <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+            <apex:slds />
+        </apex:outputPanel>-->
+        
+        <apex:pageBlock mode="edit">
+        <apex:pageMessages ></apex:pageMessages>
+
+        <apex:pageblockButtons style="text-align:center;">
+            <apex:commandButton value="Save & Add Address" action="{!saveandredirect}" styleClass="slds-vf-button_brand"/>
+            <apex:commandButton value="Cancel" action="{!cancelredirect}" immediate="true"/>
+        </apex:pageblockButtons><br></br>
+        
+        <apex:pageblocksection title="Information" collapsible="false">
+            <apex:inputfield value="{!siterecords.Name}" required="true" />
+            <apex:outputtext label="Owner" value="{!ownername}"/>
+            <apex:inputField value="{!siterecords.sirenum__Operating_Company__c}" required="true" rendered="{!checkacc}"/>
+            <apex:inputField value="{!siterecords.sirenum__Operating_Company__c}" required="true" rendered="{!IF(NOT(checkacc),true,false)}"/> 
+            <!-- <apex:inputfield value="{!siterecords.sirenum__Operating_Company__c}"/>-->
+            <apex:inputField value="{!siterecords.Status__c}" required="true"/>
+            <!--   <apex:inputfield value="{!siterecords.sirenum__Inactive__c}"/>-->
+            <apex:inputfield value="{!siterecords.IP_MainContact__c}"/>
+            <apex:inputfield value="{!siterecords.Weekly_rebook_reminder__c}"/>
+            <apex:inputfield value="{!siterecords.IP_Costcode__c}"/>
+            <apex:inputfield value="{!siterecords.HSContact__c}"/>
+            <apex:inputfield value="{!siterecords.IP_Timesheet_Method__c}"/>
+            <apex:inputfield value="{!siterecords.sirenum__Phone1__c}"/>
+            <apex:inputfield value="{!siterecords.Drivers_Negligence__c}"/>
+            <apex:inputfield value="{!siterecords.IP_PublicSector__c}" />
+            <apex:inputfield value="{!siterecords.sirenum__Travel_Instructions__c}"/>           
+            <apex:inputfield value="{!siterecords.IP_Public_Sector__c}"/>
+            <apex:outputLabel ></apex:outputLabel>            
+            <apex:inputfield value="{!siterecords.Email_Shifts_to_Client__c}"/>
+            <apex:inputfield value="{!siterecords.sirenum__Comments__c}"/>
+            <!--   <apex:outputField value="{!siterecords.IP_ScheduledAutoApproval__c}"/> -->
+        </apex:pageblocksection>
+        
+        <apex:pageblocksection title="Billing Information" collapsible="false">
+            <apex:inputfield value="{!siterecords.GlobalClientName__c}"/>              
+            <apex:inputfield value="{!siterecords.IP_InvoiceContactText__c}"/>
+            <apex:inputfield value="{!siterecords.IP_ClientInvoiceName__c}"/>
+          <!--  <apex:inputfield value="{!siterecords.IP_InvoiceContactEmail__c}"/> -->
+            <apex:inputfield value="{!siterecords.IP_InvoicePONumber__c}"/> 
+            <apex:inputfield value="{!siterecords.Unit_ID__c}"/>
+            <apex:inputfield value="{!siterecords.IP_InvoiceContactEmail__c}"/>
+             <apex:outputText ><br/></apex:outputText>                                                     
+            <apex:inputfield value="{!siterecords.IP_InvoiceContactMobile__c}"/>
+            <!-- <apex:inputfield value="{!siterecords.IP_ClientIDLegacy__c}" />-->
+            <apex:outputText ><br/></apex:outputText>
+            <apex:inputfield value="{!siterecords.IP_InvoiceContactPhone__c}"/>
+        </apex:pageblocksection>
+        <!--  <apex:pageblocksection title="System Information" collapsible="false">
+        <apex:inputfield value="{!siterecords.IP_PassClientToTempest__c}"/>
+        <apex:inputfield value="{!siterecords.IP_PassClientAddressToTempest__c}"/>
+
+        </apex:pageblocksection> -->
+        </apex:pageBlock>
+    </apex:form>
+    <!--<script type="text/javascript">
+        window.onload=changeHelpImageSize ;
+        function changeHelpImageSize(){
+            if(typeof sforce !== 'undefined' && sforce !== null && '{!$User.UIThemeDisplayed}' === 'Theme4d'){
+                var helperImage = document.getElementsByClassName('helpOrb');
+                for( var i = 0; i < helperImage.length; i++ ) {
+                    helperImage[i].setAttribute("style", "width:15px;")
+                }
+            }
+        }
+    </script>-->
+</apex:page>

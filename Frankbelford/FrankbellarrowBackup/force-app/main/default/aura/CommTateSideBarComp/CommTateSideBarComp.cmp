@@ -1,0 +1,116 @@
+<!--implements="lightning:isUrlAddressable,forceCommunity:themeLayout,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"-->
+<aura:component controller="BlueBarCompController" extensible="true" extends="forceCommunity:navigationMenuBase"
+                implements="forceCommunity:availableForAllPageTypes,lightning:isUrlAddressable"
+                description="CommTateSideBarComp"
+                access="global" >
+    <head>
+        <ltng:require styles="{!join(',',
+                                $Resource.assetsTest+'/assets/css/jquery-ui.css',
+                                $Resource.webUI+'/assets/css/all.css',
+                                $Resource.webUI+'/assets/css/fontawesome.css',
+                                $Resource.webUI+'/assets/css/fontawesome.min.css',
+                                $Resource.webUI+'/assets/css/dataTables.bootstrap.min.css',
+                                $Resource.webUI+'/assets/css/responsive.bootstrap.min.css',
+                                $Resource.Tjcss2+'/assets/css/main.css')}"
+                      scripts="{!join(',',
+                                $Resource.Tjcss2+'/assets/js/main.min.js',
+                                $Resource.webUI+'/assets/js/custom.js')}"/>
+    </head>
+
+    <aura:attribute name="height" type="String" default="5px"/>
+    <aura:attribute name="baseURL" type="String" />
+    <aura:attribute name="site" type="String" />
+    <aura:attribute name="isVMSClient" type="Boolean" default="false"/>
+
+    <aura:handler event="c:ClientCommunityThemeEvent" action="{! c.onSiteChange }"/>
+    <aura:handler name="init" value="{! this}" action="{! c.doInit}" />
+
+    <div style="{#'height:' + v.height}">
+
+        <ul class="dashboard-section__leftNav tate-branding">
+            <li class="dashboard-section__leftNav--dashboard">
+                <a href="" onclick="{!c.dashboardNavigate}" title="Dashboard"><div>Dashboard</div></a>
+            </li>
+            <aura:if isTrue="{! v.isVMSClient}">
+                <li class="dashboard-section__leftNav--timesheets">
+                    <!--<lightning:icon iconName="standard:skill_requirement" size="large" title="skill_requirement" />-->
+                    <a href="" title="My Job Orders" onclick=""><div>My Bookings</div></a>
+                    <ul >
+                        <li>
+                            <a href="" onclick="{!c.currentJobOrders}" title="Current Bookings">Current Bookings</a>
+                        </li>
+                        <li>
+                            <a href="" onclick="{!c.pendingJobOrders}" title="Pending Bookings">Pending Bookings</a>
+                        </li>
+                        <li>
+                            <a href="" onclick="{!c.createNewJobOrder}" title="Create New Booking">Create New Booking</a>
+                        </li>
+                        <li>
+                            <a href="" onclick="{!c.previousJobOrders}" title="Previous Bookings">Previous Bookings</a>
+                        </li>
+                        <li>
+                            <a href="" onclick="{!c.notificationSettings}" title="Notification Settings">Notification Settings</a>
+                        </li>
+                    </ul>
+                </li>
+            </aura:if>
+            <li class="dashboard-section__leftNav--timesheets">
+                <a href="" title="Timesheets"><div>Timesheets</div></a>
+                <ul >
+                    <li><a href="javascript:void(0);" onclick="{!c.shiftsToBeApprovedDataView}" title="Shifts To Be Approved">Shifts To Be Approved</a></li>
+                    <li><a href="javascript:void(0);" onclick="{!c.candidateView}" title="Shifts By Temp Name">Shifts By Temp Name</a></li>
+                    <li><a href="javascript:void(0);" onclick="{!c.gotoApprovedShifts}" title="Approved Shifts">Approved Shifts</a></li>
+                    <li><a href="javascript:void(0);" onclick="{!c.gotoApprovedTimesheet}" title="Approved Timesheets">Approved Timesheets</a></li>
+                </ul>
+            </li>
+            <aura:if  isTrue="{!$Browser.formFactor == 'DESKTOP'}">
+                <li class="dashboard-section__leftNav--timesheets background">
+                    <a href="" title="My Rates &amp; Costs" onclick=""><div>My Rates &amp; Costs</div></a>
+                    <ul >
+                        <li>
+                            <a href="" onclick="{!c.myRates}" title="Rate Information">Rate Information</a>
+                        </li>
+                        <li>
+                            <a href="" onclick="{!c.poManagement}" title="PO Management">PO Management</a>
+                        </li>
+                    </ul>
+                </li>
+            </aura:if>
+
+            <li class="dashboard-section__leftNav--vacancies">
+                <a href="" title="My Shifts"><div>My Shifts</div></a>
+                <ul >
+                    <li>
+                        <a href="" onclick="{!c.activeVacancy}" title="Current Shits">Current Shifts</a>
+                    </li>
+                    <li>
+                        <a href="" onclick="{!c.pastVacancyNavigate}" title="Previous Shifts">Previous Shifts</a>
+                    </li>
+                    <aura:if isTrue="{! !v.isVMSClient}">
+                        <li>
+                            <a href="" onclick="{!c.fastBookingNavigate}" title="Repeat Booking">Repeat Booking</a>
+                        </li>
+                        <li>
+                            <a href="" onclick="{!c.newVacancyNavigate}" title="Shift/Vacancy Request">Shift/Vacancy Request</a>
+                        </li>
+                    </aura:if>
+                </ul>
+            </li>
+            <li class="dashboard-section__leftNav--temp">
+                <a href="" title="My Temps"><div>My Temps</div></a>
+                <ul>
+                    <li>
+                        <a href="" onclick="{!c.bookedTempsNavigate}" title="Booked Temps">Booked Temps</a>
+                    </li>
+                    <li>
+                        <a href="" onclick="{!c.pastTempsNavigate}" title="Past Temps">Past Temps</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dashboard-section__leftNav--contact active">
+                <a href="" onclick="{!c.contactUsNavigate}" title="Contact Us"><div>Contact Us</div></a>
+            </li>
+        </ul>
+        <lightning:navigation aura:id="navService"/>
+    </div>
+</aura:component>

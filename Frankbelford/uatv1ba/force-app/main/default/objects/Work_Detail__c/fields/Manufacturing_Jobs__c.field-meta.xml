@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manufacturing_Jobs__c</fullName>
+    <label>Manufacturing Jobs</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Assembler</fullName>
+                <default>false</default>
+                <label>Assembler</label>
+            </value>
+            <value>
+                <fullName>Food Packing</fullName>
+                <default>false</default>
+                <label>Food Packing</label>
+            </value>
+            <value>
+                <fullName>Line Supervisor</fullName>
+                <default>false</default>
+                <label>Line Supervisor</label>
+            </value>
+            <value>
+                <fullName>MIG Welder</fullName>
+                <default>false</default>
+                <label>MIG Welder</label>
+            </value>
+            <value>
+                <fullName>Production Operative</fullName>
+                <default>false</default>
+                <label>Production Operative</label>
+            </value>
+            <value>
+                <fullName>Site Duty Manager</fullName>
+                <default>false</default>
+                <label>Site Duty Manager</label>
+            </value>
+            <value>
+                <fullName>TIG Welder</fullName>
+                <default>false</default>
+                <label>TIG Welder</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Sewing machinist</fullName>
+                <default>false</default>
+                <label>Sewing machinist</label>
+            </value>
+            <value>
+                <fullName>Engineer</fullName>
+                <default>false</default>
+                <label>Engineer</label>
+            </value>
+            <value>
+                <fullName>Fitter</fullName>
+                <default>false</default>
+                <label>Fitter</label>
+            </value>
+            <value>
+                <fullName>Mechanical fitter</fullName>
+                <default>false</default>
+                <label>Mechanical fitter</label>
+            </value>
+            <value>
+                <fullName>Quality Checkers</fullName>
+                <default>false</default>
+                <label>Quality Checkers</label>
+            </value>
+            <value>
+                <fullName>Cleanroom Operative</fullName>
+                <default>false</default>
+                <label>Cleanroom Operative</label>
+            </value>
+            <value>
+                <fullName>Chemical Operative</fullName>
+                <default>false</default>
+                <label>Chemical Operative</label>
+            </value>
+            <value>
+                <fullName>Machine Operator</fullName>
+                <default>false</default>
+                <label>Machine Operator</label>
+            </value>
+            <value>
+                <fullName>Solderer</fullName>
+                <default>false</default>
+                <label>Solderer</label>
+            </value>
+            <value>
+                <fullName>Carpenter</fullName>
+                <default>false</default>
+                <label>Carpenter</label>
+            </value>
+            <value>
+                <fullName>Shovel Driver</fullName>
+                <default>false</default>
+                <label>Shovel Driver</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

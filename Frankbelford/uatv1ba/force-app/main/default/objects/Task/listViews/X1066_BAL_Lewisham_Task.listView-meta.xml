@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1066_BAL_Lewisham_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>1066-BAL Lewisham</label>
+    <queue>X1066_BAL_Lewisham</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

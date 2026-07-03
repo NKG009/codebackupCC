@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>chef_edinburgh1</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Person_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>chef</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>contains</operation>
+        <value>EH1,EH10,EH11,EH12,EH13,EH14,EH15,EH16,EH17,EH18,EH19,EH2,EH20,EH21,EH22,EH23,EH24,EH25,EH26,EH27,EH28,EH29,EH3,EH30,EH31,EH32,EH33,EH34,EH35,EH36,EH37,EH38,EH39,EH4,EH41,EH45,EH46,EH49,EH5,EH51,EH52,EH53,EH54,EH55,EH6,EH7,EH8,EH9,KY</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>notEqual</operation>
+        <value>Inactive</value>
+    </filters>
+    <filters>
+        <field>sirenum__Last_Timesheet__c</field>
+        <operation>greaterThan</operation>
+        <value>1/1/2022</value>
+    </filters>
+    <label>chef edinburgh</label>
+</ListView>

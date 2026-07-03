@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sourcebreaker_imports_1068</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>Missing_Compliance_Details__c</columns>
+    <columns>IP_PayrollStatus__c</columns>
+    <columns>IP_MissingPayrollDetail__c</columns>
+    <columns>Person_Status__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>IP_LastContactedGDPR__c</columns>
+    <columns>Owner__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IP_TempestDepartment__c</field>
+        <operation>equals</operation>
+        <value>1068</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>CONTACT.CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>9/12/2024 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>ts2__Candidate_Source__c</field>
+        <operation>contains</operation>
+        <value>sourcebreaker</value>
+    </filters>
+    <filters>
+        <field>Owner__c</field>
+        <operation>equals</operation>
+        <value>Sam Norris</value>
+    </filters>
+    <label>sourcebreaker imports 1068</label>
+</ListView>

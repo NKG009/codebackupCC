@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NHS_Test_Trace_Responses_SRG</fullName>
+    <columns>NHS_Job_Roles__c</columns>
+    <columns>NAME</columns>
+    <columns>Email__c</columns>
+    <columns>NHS_Location__c</columns>
+    <columns>Mobile__c</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <columns>NHS_Job_Role_Other__c</columns>
+    <columns>DoHSc_Stage__c</columns>
+    <columns>Candidate__c</columns>
+    <columns>NHS_Location_Other__c</columns>
+    <columns>Work_Time__c</columns>
+    <columns>Status__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Brand__c</field>
+        <operation>equals</operation>
+        <value>SRG</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>New</value>
+    </filters>
+    <filters>
+        <field>NHS_Location__c</field>
+        <operation>includes</operation>
+        <value>Berkshire,Bracknell,London</value>
+    </filters>
+    <filters>
+        <field>NHS_Job_Roles__c</field>
+        <operation>includes</operation>
+        <value>Lab Support Associate,Sample Handler,Warehouse Operative – Days</value>
+    </filters>
+    <label>NHS Test&amp;Trace Responses - SRG</label>
+</ListView>

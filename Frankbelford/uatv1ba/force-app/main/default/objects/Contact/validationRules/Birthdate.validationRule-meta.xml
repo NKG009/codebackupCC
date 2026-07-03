@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Birthdate</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(YEAR(TODAY())-  YEAR(Birthdate) &lt; 15 || YEAR(TODAY())-  YEAR(Birthdate) &gt;100,True,False)</errorConditionFormula>
+    <errorMessage>Age should be between 16 and 100</errorMessage>
+</ValidationRule>

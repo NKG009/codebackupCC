@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Outcome_Required__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Tick for tasks requiring outcome recorded</inlineHelpText>
+    <label>Outcome Required</label>
+    <type>Checkbox</type>
+</CustomField>

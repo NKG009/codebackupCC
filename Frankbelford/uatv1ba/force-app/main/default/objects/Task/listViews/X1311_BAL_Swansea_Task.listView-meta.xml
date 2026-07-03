@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1311_BAL_Swansea_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>1311-BAL Swansea</label>
+    <queue>X1311_BAL_Swansea</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_for_Leaving1__c</fullName>
+    <label>Reason for Leaving</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pay - not enough</fullName>
+                <default>false</default>
+                <label>Pay - not enough</label>
+            </value>
+            <value>
+                <fullName>Pay - incorrect</fullName>
+                <default>false</default>
+                <label>Pay - incorrect</label>
+            </value>
+            <value>
+                <fullName>Unsuitable work</fullName>
+                <default>false</default>
+                <label>Unsuitable work</label>
+            </value>
+            <value>
+                <fullName>Not enough work</fullName>
+                <default>false</default>
+                <label>Not enough work</label>
+            </value>
+            <value>
+                <fullName>Work break</fullName>
+                <default>false</default>
+                <label>Work break</label>
+            </value>
+            <value>
+                <fullName>Better opportunity</fullName>
+                <default>false</default>
+                <label>Better opportunity</label>
+            </value>
+            <value>
+                <fullName>Worker performance/compliance issue</fullName>
+                <default>false</default>
+                <label>Worker performance/compliance issue</label>
+            </value>
+            <value>
+                <fullName>Employed by Client</fullName>
+                <default>false</default>
+                <label>Employed by Client</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,58 @@
+{
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "f5748a0a-7c09-4ce9-9c2f-1d0db7af355d",
+  "label" : "Reference Survey",
+  "regions" : [ {
+    "id" : "3bd004ae-e836-421f-9550-0fd6d9cfc72b",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Untitled2removebg.1}\" style=\"width: 254.859px; height: 64.5625px;\"></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "ebad3104-094e-4a16-b91d-2180b26f069f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"recordID\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!recordId}\"}]",
+        "flowName" : "Screen_Flow_Send_Reference"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "9f824031-7080-4ea3-a945-c1cebe9d0e47",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c98e013a-46a9-4d5f-a344-1dfff8becf21",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "e1106c1f-458b-428c-b16e-1d8e931b4b49",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Reference Survey"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "2635e895-87ed-4b1b-a449-affbb15a3d5d",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7a33984f-41b4-44c5-9297-8031d8752ac8",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-reference-survey"
+}

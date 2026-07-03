@@ -1,0 +1,41 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">
+    
+    <ltng:require styles="{!join(',',
+                          $Resource.webUI+'/assets/css/all.css',
+                          $Resource.webUI+'/assets/css/fontawesome.css',
+                          $Resource.webUI+'/assets/css/fontawesome.min.css',
+                          $Resource.webUI+'/assets/css/main.css'
+                          )
+                          }" 
+                  scripts="{!join(',',
+                           $Resource.ImpellamPortal+'/ImpellamPortal/assets/js/main.min.js',
+                           $Resource.ImpellamPortal+'/ImpellamPortal/assets/js/custom.js'
+                           )}"
+                  />
+    <aura:attribute name="invoiceList" type="List" access="global"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+            
+            <div class="ElementDetail">
+                <div class="ElementDetail__pic-section">
+                    <div class="ElementDetail__pic-section--chart">
+                        <!-- It's a dummy Image -->
+                        <canvas id="myChart" style="height: 300px; width: 100%; max-width: 300px;"></canvas>
+                    </div>
+                </div>
+                <div class="ElementDetail__content-section">
+                    <h3>Month</h3>
+                    <ul class="month-with-PDF">
+                        <li>January <span><a><img src="{!$Resource.webUI+'/assets/img/pdf-icon.png'}" alt="PDF Icon" /></a></span></li>
+                        <li>February <span><a><img src="{!$Resource.webUI+'/assets/img/pdf-icon.png'}" alt="PDF Icon"/></a></span></li>
+                        <li>March <span><a><img src="{!$Resource.webUI+'/assets/img/pdf-icon.png'}" alt="PDF Icon"/></a></span></li>
+                        <li>April <span><a><img src="{!$Resource.webUI+'/assets/img/pdf-icon.png'}" alt="PDF Icon"/></a></span></li>
+                    </ul>
+                    
+                </div>
+            </div>
+            
+            <button type="submit" class="query-btn">View All</button>
+        
+    
+</aura:component>

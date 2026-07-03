@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "8643d8fe-1d81-4824-a92b-86f9a792ca36",
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "configurationTags" : [ ],
+  "devName" : "Uni__c",
+  "id" : "bd556181-3241-407a-a451-5d7e0478bb23",
+  "label" : "Uni",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-uni",
+  "type" : "route",
+  "urlPrefix" : "uni"
+}

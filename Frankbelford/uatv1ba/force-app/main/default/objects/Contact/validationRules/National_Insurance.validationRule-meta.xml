@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>National_Insurance</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(sirenum__National_Insurance__c!=null,OR(NOT(REGEX(sirenum__National_Insurance__c,&quot;[ABCEGHJKLMNOPRSTWXYZ]{1}[ABCEGHJKLMNPRSTWXYZ]{1}[0-9]{6}[A-DMF]{1}&quot;)),CONTAINS(&quot;BG:GB:NK:KN:NT:ZZ&quot;, LEFT(sirenum__National_Insurance__c, 2))),false)</errorConditionFormula>
+    <errorDisplayField>sirenum__National_Insurance__c</errorDisplayField>
+    <errorMessage>National Insurance Number is not valid or must be in Upper Case</errorMessage>
+</ValidationRule>

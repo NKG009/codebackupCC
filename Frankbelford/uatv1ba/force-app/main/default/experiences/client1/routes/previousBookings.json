@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "b9bd2902-8f13-4bd5-8623-06bd062fa12e",
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "configurationTags" : [ ],
+  "devName" : "Previous_Bookings__c",
+  "id" : "a929cf3c-1ea8-444c-a6c9-ca6e096e982d",
+  "label" : "Previous Bookings",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-previous-bookings",
+  "type" : "route",
+  "urlPrefix" : "previous-bookings"
+}

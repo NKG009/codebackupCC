@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Regional_Newbury_Oxford_Candidates</fullName>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>Skills__c</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>Owner__c</columns>
+    <columns>Person_Status__c</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>OX1,OX2,OX3,OX4,OX5,oX6,OX7,OX8,OX9,OX10,OX11,OX12,OX13,OX14,OX15,OX16,OX17,OX18,OX20,OX25,OX26,OX27,OX28,OX29,OX33,OX39,OX44,OX49</value>
+    </filters>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Pending</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>FOH</value>
+    </filters>
+    <label>Regional Newbury - Oxford  Candidates</label>
+</ListView>

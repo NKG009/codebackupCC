@@ -1,0 +1,58 @@
+{
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "64aee20f-d928-447d-b539-3ef66bb329a6",
+  "label" : "HGV Driver - Referred Trainees",
+  "regions" : [ {
+    "id" : "0c96d00e-a5af-4673-8bdb-cdf2e4a73119",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" src=\"{!contentAsset.Untitled2removebg.1}\" style=\"width: 254.859px; height: 64.5625px;\"></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "c4d58065-a6a7-4088-bdf4-fb2a7b6c3f81",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowArguments" : "[]",
+        "flowName" : "Pre_Screener_HGV_Driver_Referred_Trainees"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "68e64805-80e3-4195-99e5-aa9cac12c745",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c44e1d44-a67e-4791-bc92-25b4b50fe09b",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "906e9659-176e-47ce-b4c1-04be78b1d5fa",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "HGV Driver - Referred Trainees"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "0cbe6662-1447-48b6-9f6b-f5a9dc70f9b4",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2012474d-c95e-410b-b534-9dd911a46ba0",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-hgv-driver-referred-trainees"
+}

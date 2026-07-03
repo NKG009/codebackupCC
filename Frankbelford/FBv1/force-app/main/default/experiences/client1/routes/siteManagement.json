@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "82652a72-b55f-4aad-8465-17d21c497f48",
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "configurationTags" : [ ],
+  "devName" : "SiteManagement__c",
+  "id" : "69b76d07-a8e8-41b1-962c-189e8079e332",
+  "label" : "SiteManagement",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-sitemanagement",
+  "type" : "route",
+  "urlPrefix" : "sitemanagement"
+}

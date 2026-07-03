@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sams_responses</fullName>
+    <columns>NAME</columns>
+    <columns>Question_1__c</columns>
+    <columns>Question_2__c</columns>
+    <columns>Question_3__c</columns>
+    <columns>Question_4__c</columns>
+    <columns>Question_5__c</columns>
+    <columns>Candidate__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Campaign__c</field>
+        <operation>equals</operation>
+        <value>Blue Arrow 04102022 Service Consultant</value>
+    </filters>
+    <label>sams responses</label>
+    <sharedTo>
+        <role>Blue_Arrow_Burton</role>
+    </sharedTo>
+</ListView>

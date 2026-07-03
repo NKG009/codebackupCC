@@ -1,0 +1,10 @@
+<aura:event type="APPLICATION" description="Event template" >
+
+    
+    <aura:attribute name="site" type="String" />
+    <aura:attribute name="role" type="String" />
+    <aura:attribute name="contact" type="String" />
+    <aura:attribute name="DateRange" type="String" />
+    
+    
+</aura:event>

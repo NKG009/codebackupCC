@@ -1,0 +1,56 @@
+{
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "d427a725-b6fe-4e35-a192-8c437790da2c",
+  "label" : "Shift Management",
+  "regions" : [ {
+    "id" : "78a967d8-08e7-477e-bfb7-5a7d252a9408",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalV2Timesheets",
+      "id" : "a89d45ee-34b0-4b68-9513-e4721373f9d7",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0a7b6dcf-c035-4a84-8df6-dfe04e6fe781",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"display: flex; flex-direction: row; justify-content: space-between;\">\n    <p>© Blue Arrow, All rights reserved 2022.</p>\n    <p>Registered Address: 33 Soho Square, London, England, W1D 3QU. Company No: 641659</p>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "cce12486-08f2-4928-97fc-9a88e3291d62",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0a1424da-af72-413d-9aa8-25deec185553",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Shift Management"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "2dbe8b6e-8bcc-47cd-a5ac-27260e456ab8",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a8ecd6e9-8b33-4eff-b3d8-e23c6683c827",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-shift-management"
+}

@@ -1,0 +1,38 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "b4d9a3f8-f8bc-453d-a24f-763cca42e64b",
+  "label" : "ContactUs",
+  "regions" : [ {
+    "id" : "2394b175-1a77-412c-af37-ee3dc7b68303",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "5b42d5ae-c4b5-4d1b-9f17-e29ed1d701e2",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "ea9ef90b-309c-44c4-918d-a5d6c307ab67",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "ContactUs"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "30b511b2-77f4-4dd9-8a99-f83d6ade169c",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "320ae02d-5e3c-4cc8-b3f1-709f828493e1",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "ciShrDqBnaFl0M05KQ6pX7n79c4wYA",
+  "type" : "view",
+  "viewType" : "custom-newcontactus"
+}

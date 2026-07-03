@@ -1,0 +1,58 @@
+{
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "aa1ecdab-c285-431c-8255-d44deded6e86",
+  "label" : "RecruiterBot",
+  "regions" : [ {
+    "id" : "65740701-4abd-46b8-b38a-5d672118298c",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Untitled2removebg.1}\" style=\"width: 254.859px; height: 64.5625px;\"></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "d656be66-de3a-4722-9f14-aea7fa3f0352",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"recordId\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!recordId}\"}]",
+        "flowName" : "RecruiterBot_Main_Flow"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "3173074e-db9e-4148-acac-0bd0a5a19827",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7776336d-0252-4209-b6fd-699fde0b0857",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "1e422619-c1e4-4374-9a1a-bf70100c475f",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "RecruiterBot"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "e7a8b091-c8e5-4e6a-94c7-057546e3d723",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1bfb193c-de62-4329-8e22-93d9548db25e",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-recruiterbot"
+}

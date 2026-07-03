@@ -1,0 +1,113 @@
+<template>
+    <lightning-modal-header label="Candidate Search" size="full"></lightning-modal-header>
+    <lightning-modal-body>
+        <!-- <lightning-combobox name="Search Type" label="Search Type" value={Searchvalue}
+            placeholder="Please Select Search Type..." options={Searchoptions}
+            onchange={handleSearchChange}></lightning-combobox>
+        <p>Selected value is: {Searchvalue}</p>-->
+        <div if:false={manualcomponentshowboolean}>
+            <div class="slds-grid slds-gutters slds-align_absolute-center">
+
+                <div class="slds-col slds-size_1-of-2 slds-align_absolute-center">
+                    <lightning-button variant="brand" label="Manual Search"
+                        onclick={handleManualSearchClick}></lightning-button>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-align_absolute-center">
+                    <lightning-button variant="brand" label="Automatic Search"
+                        onclick={handleAutomaticSearchClick}></lightning-button>
+                </div>
+            </div>
+        </div>
+
+        <div if:true={manualcomponentshowboolean}>
+            <lightning-card title="Manual Search" icon-name="utility:search">
+                <lightning-combobox slot="actions" name="Advance Filter" label="Advance Filter" value={Filtervalue}
+                    placeholder="Please Select filters..." options={Filteroptions}
+                    onchange={handleFilterChange}></lightning-combobox>
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-3 ">
+                        <span><lightning-input type="text" label="Job Title"
+                                value={dataJobTitle}></lightning-input></span>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <span> <lightning-input type="text" label="Experience"
+                                value={dataExperience}></lightning-input></span>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <span> <lightning-input type="text" label="Skill" value={dataSkill}></lightning-input></span>
+                    </div>
+                </div>
+                <lightning-card>
+                    <p slot="footer"></p>
+                </lightning-card>
+            
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-6" if:true={DisciplineFShow}>
+                        <div class="slds-align_absolute-center">
+                            <lightning-input type="text" label="Discipline"
+                                value={dataDiscipline}></lightning-input><lightning-button-icon
+                                icon-name="utility:close" variant="bare" alternative-text="Remove" title="Remove"
+                                onclick={removeDisciplineField}></lightning-button-icon>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-6" if:true={SpecialtyFShow}>
+                        <div class="slds-align_absolute-center">
+                            <lightning-input type="text" label="Specialty" value={dataSpecialty}></lightning-input>
+                            <lightning-button-icon icon-name="utility:close" variant="bare" alternative-text="Remove"
+                                title="Remove" onclick={removeSpecialtyField}></lightning-button-icon>
+                        </div>
+
+                    </div>
+                    <div class="slds-col slds-size_1-of-6" if:true={CityFShow}>
+                        <div class="slds-align_absolute-center">
+                            <lightning-input type="text" label="City"
+                                value={dataCity}></lightning-input><lightning-button-icon icon-name="utility:close"
+                                variant="bare" alternative-text="Remove" title="Remove"
+                                onclick={removeCityField}></lightning-button-icon>
+                        </div>
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-6" if:true={StateFShow}>
+                        <div class="slds-align_absolute-center">
+                            <lightning-input type="text" label="State"
+                                value={dataState}></lightning-input><lightning-button-icon icon-name="utility:close"
+                                variant="bare" alternative-text="Remove" title="Remove"
+                                onclick={removeStateField}></lightning-button-icon>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-6" if:true={PostalCodeFShow}>
+                        <div class="slds-align_absolute-center">
+                            <lightning-input type="text" label="PostalCode"
+                                value={dataPostalCode}></lightning-input><lightning-button-icon
+                                icon-name="utility:close" variant="bare" alternative-text="Remove" title="Remove"
+                                onclick={removePostalCodeField}></lightning-button-icon>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-6" if:true={EducationRequirementsFShow}>
+                        <div class="slds-align_absolute-center">
+                            <lightning-input type="text" label="EducationRequirements"
+                                value={dataEducationRequirements}></lightning-input><lightning-button-icon
+                                icon-name="utility:close" variant="bare" alternative-text="Remove" title="Remove"
+                                onclick={removeEducationRequirementsField}></lightning-button-icon>
+                        </div>
+                    </div>
+                </div>
+            </lightning-card>
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-6" if:true={DistanceFShow}>
+                        <div class="slds-align_absolute-center">
+                            <lightning-input type="number" label="Distance"
+                                value={dataDistance}></lightning-input><lightning-button-icon icon-name="utility:close"
+                                variant="bare" alternative-text="Remove" title="Remove"
+                                onclick={removeDistanceField}></lightning-button-icon>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <div if:true={manualcomponentshowboolean}>
+            <lightning-button label="Search" onclick={handleSearch}></lightning-button>
+        </div>
+    </lightning-modal-footer>
+</template>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EEO_Gender_Validation</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF( RecordType.DeveloperName ==&apos;PAYE&apos;,
+     ISBLANK(TEXT(IP_Candidate__r.ts2__EEO_Gender__c)),
+       ISBLANK(IP_Candidate__r.sirenum__National_Insurance__c)
+)</errorConditionFormula>
+    <errorMessage>EEO Gender required on Candidate Page</errorMessage>
+</ValidationRule>

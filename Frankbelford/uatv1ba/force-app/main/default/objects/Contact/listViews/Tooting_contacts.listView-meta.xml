@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tooting_contacts</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <columns>Skills__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.DEPARTMENT</field>
+        <operation>contains</operation>
+        <value>TOOTING</value>
+    </filters>
+    <filters>
+        <field>CONTACT.DEPARTMENT</field>
+        <operation>notEqual</operation>
+        <value>TOOTING - DO NOT CONTACT</value>
+    </filters>
+    <filters>
+        <field>CONTACT.DEPARTMENT</field>
+        <operation>notEqual</operation>
+        <value>TOOTING - DO NOT USE</value>
+    </filters>
+    <filters>
+        <field>CONTACT.DEPARTMENT</field>
+        <operation>notEqual</operation>
+        <value>TOOTING - DUPLICATE</value>
+    </filters>
+    <filters>
+        <field>CONTACT.DEPARTMENT</field>
+        <operation>notEqual</operation>
+        <value>TOOTING – DO NOT USE</value>
+    </filters>
+    <filters>
+        <field>CONTACT.DEPARTMENT</field>
+        <operation>notEqual</operation>
+        <value>TOOTING – DO NOT CONTACT</value>
+    </filters>
+    <filters>
+        <field>CONTACT.DEPARTMENT</field>
+        <operation>notEqual</operation>
+        <value>TOOTING- DO NOT CONTACT</value>
+    </filters>
+    <filters>
+        <field>CONTACT.DEPARTMENT</field>
+        <operation>notEqual</operation>
+        <value>TOOTING- DO NOT USE</value>
+    </filters>
+    <filters>
+        <field>CONTACT.DEPARTMENT</field>
+        <operation>notContain</operation>
+        <value>PUB</value>
+    </filters>
+    <label>Tooting contacts</label>
+    <sharedTo>
+        <role>Blue_Arrow_Tooting</role>
+    </sharedTo>
+</ListView>

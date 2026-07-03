@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>View_All_Sites</fullName>
+    <active>true</active>
+    <description>if view all sites = true then portal type is required</description>
+    <errorConditionFormula>AND(
+    View_All_Sites__c = TRUE,
+    ISPICKVAL(Portal_Type__c, &quot;&quot;)
+)</errorConditionFormula>
+    <errorDisplayField>Portal_Type__c</errorDisplayField>
+    <errorMessage>Portal type is required because view all sites is selected.</errorMessage>
+</ValidationRule>

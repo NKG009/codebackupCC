@@ -1,0 +1,64 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "dc903f2a-da1e-4505-b12a-3d4d546a0aff",
+  "label" : "client approved timesheets",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"font-size: 28px;\">Approved Timesheets</span></p><p style=\"text-align: center;\"><br></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "ca18f840-02be-4805-b183-f6b4f1ea77dc",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "aed74092-557c-4cc3-9d90-bbc65148b72f",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:ClientApproveTimesheetTiles",
+      "id" : "9cb0f6b1-f887-4caa-9570-d11710c66de0",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "bd41e0bf-27e2-470a-9fd6-f6face18b4c3",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:HomeLayoutFooter",
+      "id" : "b05757c7-0b9b-4eaa-8b08-3093a9d2eb59",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "da44a5d4-081e-49d7-8e0f-4fcdb0dade2f",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "client approved timesheets"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "9658d19b-9b0c-478c-9b5b-cd2bf3ac7953",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "67b0e343-2405-414f-955f-f0544c903baf",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "BaeIvxdmVNAi846Z78i1VuYgMbv85a",
+  "type" : "view",
+  "viewType" : "custom-client-approved-timesheets"
+}

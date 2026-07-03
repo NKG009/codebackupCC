@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Community_Background_Completed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Created for JPC-1957 Belfast - Recording Religion - Part 1</description>
+    <label>Community Background Completed?</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

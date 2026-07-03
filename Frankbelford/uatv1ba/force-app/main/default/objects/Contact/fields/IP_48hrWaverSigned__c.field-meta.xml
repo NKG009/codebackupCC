@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_48hrWaverSigned__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Flag field to monitor if a 48hr wave has been signed. This should be a system controlled field</description>
+    <label>48hr Waiver Signed</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

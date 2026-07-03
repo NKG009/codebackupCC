@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Borrowed_temp_cantbecheckedwith_PayProfi</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL( IP_BorrowedTemp__c , &apos;Yes&apos;) &amp;&amp; 
+ PayProfileCount__c &gt;0</errorConditionFormula>
+    <errorMessage>Borrowed Temp cannot be Yes if Pay Profile exists.</errorMessage>
+</ValidationRule>

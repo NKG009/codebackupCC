@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "21eb7bf9-89c9-47f0-a379-88b757bdd55e",
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "configurationTags" : [ ],
+  "devName" : "LAMP__c",
+  "id" : "fb9d3814-0e05-43e4-a835-2a22d0b4fcb5",
+  "label" : "LAMP",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-lamp",
+  "type" : "route",
+  "urlPrefix" : "lamp"
+}

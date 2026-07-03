@@ -1,0 +1,9 @@
+<apex:page title="New Contact / Site link"  standardController="Contact" extensions="CreateContactSiteLinkController">
+    <script>
+        if(typeof sforce !== 'undefined' && sforce !== null && '{!$User.UIThemeDisplayed}' === 'Theme4d'){
+            sforce.one.navigateToURL('{!'/lightning/cmp/c__CreateContactSiteLink?c__ids=' & LEFT(Contact.Id,15) }');
+        } else {
+            window.top.location = '/a5K/e?CF00N1n00000STyCN={!Contact.Name}&CF00N1n00000STyCN_lkid={!Contact.Id}&CF00N1n00000STyCM={!Contact.Account.Name}&retURL=%2F{!Contact.Id}';
+        }
+    </script>
+</apex:page>

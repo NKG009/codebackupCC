@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>University__c</fullName>
+    <label>University</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Abertay University</fullName>
+                <default>false</default>
+                <label>Abertay University</label>
+            </value>
+            <value>
+                <fullName>Aberystwyth University</fullName>
+                <default>false</default>
+                <label>Aberystwyth University</label>
+            </value>
+            <value>
+                <fullName>Anglia Ruskin University</fullName>
+                <default>false</default>
+                <label>Anglia Ruskin University</label>
+            </value>
+            <value>
+                <fullName>Arden University</fullName>
+                <default>false</default>
+                <label>Arden University</label>
+            </value>
+            <value>
+                <fullName>Aston University</fullName>
+                <default>false</default>
+                <label>Aston University</label>
+            </value>
+            <value>
+                <fullName>Bangor University</fullName>
+                <default>false</default>
+                <label>Bangor University</label>
+            </value>
+            <value>
+                <fullName>Bath Spa University</fullName>
+                <default>false</default>
+                <label>Bath Spa University</label>
+            </value>
+            <value>
+                <fullName>Birmingham City University</fullName>
+                <default>false</default>
+                <label>Birmingham City University</label>
+            </value>
+            <value>
+                <fullName>Bishop Grosseteste University</fullName>
+                <default>false</default>
+                <label>Bishop Grosseteste University</label>
+            </value>
+            <value>
+                <fullName>Bournemouth University</fullName>
+                <default>false</default>
+                <label>Bournemouth University</label>
+            </value>
+            <value>
+                <fullName>BPP University</fullName>
+                <default>false</default>
+                <label>BPP University</label>
+            </value>
+            <value>
+                <fullName>Brunel University</fullName>
+                <default>false</default>
+                <label>Brunel University</label>
+            </value>
+            <value>
+                <fullName>Buckinghamshire New University</fullName>
+                <default>false</default>
+                <label>Buckinghamshire New University</label>
+            </value>
+            <value>
+                <fullName>Canterbury Christ Church University</fullName>
+                <default>false</default>
+                <label>Canterbury Christ Church University</label>
+            </value>
+            <value>
+                <fullName>Cardiff Metropolitan University (formerly University of Wales Institute Cardiff)</fullName>
+                <default>false</default>
+                <label>Cardiff Metropolitan University (formerly University of Wales Institute Cardiff)</label>
+            </value>
+            <value>
+                <fullName>Cardiff University</fullName>
+                <default>false</default>
+                <label>Cardiff University</label>
+            </value>
+            <value>
+                <fullName>Coventry University</fullName>
+                <default>false</default>
+                <label>Coventry University</label>
+            </value>
+            <value>
+                <fullName>Cranfield University</fullName>
+                <default>false</default>
+                <label>Cranfield University</label>
+            </value>
+            <value>
+                <fullName>De Montfort University</fullName>
+                <default>false</default>
+                <label>De Montfort University</label>
+            </value>
+            <value>
+                <fullName>Durham University</fullName>
+                <default>false</default>
+                <label>Durham University</label>
+            </value>
+            <value>
+                <fullName>Edge Hill University</fullName>
+                <default>false</default>
+                <label>Edge Hill University</label>
+            </value>
+            <value>
+                <fullName>Edinburgh Napier University</fullName>
+                <default>false</default>
+                <label>Edinburgh Napier University</label>
+            </value>
+            <value>
+                <fullName>Falmouth University</fullName>
+                <default>false</default>
+                <label>Falmouth University</label>
+            </value>
+            <value>
+                <fullName>Glasgow Caledonian University</fullName>
+                <default>false</default>
+                <label>Glasgow Caledonian University</label>
+            </value>
+            <value>
+                <fullName>Harper Adams University</fullName>
+                <default>false</default>
+                <label>Harper Adams University</label>
+            </value>
+            <value>
+                <fullName>Hartpury University</fullName>
+                <default>false</default>
+                <label>Hartpury University</label>
+            </value>
+            <value>
+                <fullName>Heriot-Watt University</fullName>
+                <default>false</default>
+                <label>Heriot-Watt University</label>
+            </value>
+            <value>
+                <fullName>Imperial College London</fullName>
+                <default>false</default>
+                <label>Imperial College London</label>
+            </value>
+            <value>
+                <fullName>Keele University</fullName>
+                <default>false</default>
+                <label>Keele University</label>
+            </value>
+            <value>
+                <fullName>Kingston University</fullName>
+                <default>false</default>
+                <label>Kingston University</label>
+            </value>
+            <value>
+                <fullName>Lancaster University</fullName>
+                <default>false</default>
+                <label>Lancaster University</label>
+            </value>
+            <value>
+                <fullName>Leeds Arts University</fullName>
+                <default>false</default>
+                <label>Leeds Arts University</label>
+            </value>
+            <value>
+                <fullName>Leeds Beckett University</fullName>
+                <default>false</default>
+                <label>Leeds Beckett University</label>
+            </value>
+            <value>
+                <fullName>Leeds Trinity University</fullName>
+                <default>false</default>
+                <label>Leeds Trinity University</label>
+            </value>
+            <value>
+                <fullName>Liverpool Hope University</fullName>
+                <default>false</default>
+                <label>Liverpool Hope University</label>
+            </value>
+            <value>
+                <fullName>Liverpool John Moores University</fullName>
+                <default>false</default>
+                <label>Liverpool John Moores University</label>
+            </value>
+            <value>
+                <fullName>London Metropolitan University</fullName>
+                <default>false</default>
+                <label>London Metropolitan University</label>
+            </value>
+            <value>
+                <fullName>London South Bank University</fullName>
+                <default>false</default>
+                <label>London South Bank University</label>
+            </value>
+            <value>
+                <fullName>Loughborough University</fullName>
+                <default>false</default>
+                <label>Loughborough University</label>
+            </value>
+            <value>
+                <fullName>Manchester Metropolitan University</fullName>
+                <default>false</default>
+                <label>Manchester Metropolitan University</label>
+            </value>
+            <value>
+                <fullName>Middlesex University</fullName>
+                <default>false</default>
+                <label>Middlesex University</label>
+            </value>
+            <value>
+                <fullName>Newcastle University</fullName>
+                <default>false</default>
+                <label>Newcastle University</label>
+            </value>
+            <value>
+                <fullName>Newman University</fullName>
+                <default>false</default>
+                <label>Newman University</label>
+            </value>
+            <value>
+                <fullName>Northumbria University</fullName>
+                <default>false</default>
+                <label>Northumbria University</label>
+            </value>
+            <value>
+                <fullName>Norwich University of the Arts</fullName>
+                <default>false</default>
+                <label>Norwich University of the Arts</label>
+            </value>
+            <value>
+                <fullName>Nottingham Trent University</fullName>
+                <default>false</default>
+                <label>Nottingham Trent University</label>
+            </value>
+            <value>
+                <fullName>Oxford Brookes University</fullName>
+                <default>false</default>
+                <label>Oxford Brookes University</label>
+            </value>
+            <value>
+                <fullName>Plymouth Marjon University</fullName>
+                <default>false</default>
+                <label>Plymouth Marjon University</label>
+            </value>
+            <value>
+                <fullName>Queen&apos;s University Belfast</fullName>
+                <default>false</default>
+                <label>Queen&apos;s University Belfast</label>
+            </value>
+            <value>
+                <fullName>Queen Margaret University</fullName>
+                <default>false</default>
+                <label>Queen Margaret University</label>
+            </value>
+            <value>
+                <fullName>Ravensbourne University London</fullName>
+                <default>false</default>
+                <label>Ravensbourne University London</label>
+            </value>
+            <value>
+                <fullName>Regent&apos;s University London</fullName>
+                <default>false</default>
+                <label>Regent&apos;s University London</label>
+            </value>
+            <value>
+                <fullName>Roehampton University</fullName>
+                <default>false</default>
+                <label>Roehampton University</label>
+            </value>
+            <value>
+                <fullName>Royal Agricultural University</fullName>
+                <default>false</default>
+                <label>Royal Agricultural University</label>
+            </value>
+            <value>
+                <fullName>Sheffield Hallam University</fullName>
+                <default>false</default>
+                <label>Sheffield Hallam University</label>
+            </value>
+            <value>
+                <fullName>Solent University</fullName>
+                <default>false</default>
+                <label>Solent University</label>
+            </value>
+            <value>
+                <fullName>Staffordshire University</fullName>
+                <default>false</default>
+                <label>Staffordshire University</label>
+            </value>
+            <value>
+                <fullName>St Mary&apos;s University</fullName>
+                <default>false</default>
+                <label>St Mary&apos;s University</label>
+            </value>
+            <value>
+                <fullName>Swansea University</fullName>
+                <default>false</default>
+                <label>Swansea University</label>
+            </value>
+            <value>
+                <fullName>Teesside University</fullName>
+                <default>false</default>
+                <label>Teesside University</label>
+            </value>
+            <value>
+                <fullName>The Arts University Bournemouth</fullName>
+                <default>false</default>
+                <label>The Arts University Bournemouth</label>
+            </value>
+            <value>
+                <fullName>The Open University</fullName>
+                <default>false</default>
+                <label>The Open University</label>
+            </value>
+            <value>
+                <fullName>The Robert Gordon University</fullName>
+                <default>false</default>
+                <label>The Robert Gordon University</label>
+            </value>
+            <value>
+                <fullName>Ulster University</fullName>
+                <default>false</default>
+                <label>Ulster University</label>
+            </value>
+            <value>
+                <fullName>University College Birmingham</fullName>
+                <default>false</default>
+                <label>University College Birmingham</label>
+            </value>
+            <value>
+                <fullName>University for the Creative Arts</fullName>
+                <default>false</default>
+                <label>University for the Creative Arts</label>
+            </value>
+            <value>
+                <fullName>University of Aberdeen</fullName>
+                <default>false</default>
+                <label>University of Aberdeen</label>
+            </value>
+            <value>
+                <fullName>University of Bath</fullName>
+                <default>false</default>
+                <label>University of Bath</label>
+            </value>
+            <value>
+                <fullName>University of Bedfordshire</fullName>
+                <default>false</default>
+                <label>University of Bedfordshire</label>
+            </value>
+            <value>
+                <fullName>University of Birmingham</fullName>
+                <default>false</default>
+                <label>University of Birmingham</label>
+            </value>
+            <value>
+                <fullName>University of Bolton</fullName>
+                <default>false</default>
+                <label>University of Bolton</label>
+            </value>
+            <value>
+                <fullName>University of Bradford</fullName>
+                <default>false</default>
+                <label>University of Bradford</label>
+            </value>
+            <value>
+                <fullName>University of Brighton</fullName>
+                <default>false</default>
+                <label>University of Brighton</label>
+            </value>
+            <value>
+                <fullName>University of Bristol</fullName>
+                <default>false</default>
+                <label>University of Bristol</label>
+            </value>
+            <value>
+                <fullName>University of Buckingham</fullName>
+                <default>false</default>
+                <label>University of Buckingham</label>
+            </value>
+            <value>
+                <fullName>University of Cambridge</fullName>
+                <default>false</default>
+                <label>University of Cambridge</label>
+            </value>
+            <value>
+                <fullName>University of Central Lancashire</fullName>
+                <default>false</default>
+                <label>University of Central Lancashire</label>
+            </value>
+            <value>
+                <fullName>University of Chester</fullName>
+                <default>false</default>
+                <label>University of Chester</label>
+            </value>
+            <value>
+                <fullName>University of Chichester</fullName>
+                <default>false</default>
+                <label>University of Chichester</label>
+            </value>
+            <value>
+                <fullName>University of Cumbria</fullName>
+                <default>false</default>
+                <label>University of Cumbria</label>
+            </value>
+            <value>
+                <fullName>University of Derby</fullName>
+                <default>false</default>
+                <label>University of Derby</label>
+            </value>
+            <value>
+                <fullName>University of Dundee</fullName>
+                <default>false</default>
+                <label>University of Dundee</label>
+            </value>
+            <value>
+                <fullName>University of East Anglia</fullName>
+                <default>false</default>
+                <label>University of East Anglia</label>
+            </value>
+            <value>
+                <fullName>University of East London</fullName>
+                <default>false</default>
+                <label>University of East London</label>
+            </value>
+            <value>
+                <fullName>University of Edinburgh</fullName>
+                <default>false</default>
+                <label>University of Edinburgh</label>
+            </value>
+            <value>
+                <fullName>University of Essex</fullName>
+                <default>false</default>
+                <label>University of Essex</label>
+            </value>
+            <value>
+                <fullName>University of Exeter</fullName>
+                <default>false</default>
+                <label>University of Exeter</label>
+            </value>
+            <value>
+                <fullName>University of Glasgow</fullName>
+                <default>false</default>
+                <label>University of Glasgow</label>
+            </value>
+            <value>
+                <fullName>University of Gloucestershire</fullName>
+                <default>false</default>
+                <label>University of Gloucestershire</label>
+            </value>
+            <value>
+                <fullName>University of Greenwich</fullName>
+                <default>false</default>
+                <label>University of Greenwich</label>
+            </value>
+            <value>
+                <fullName>University of Hertfordshire</fullName>
+                <default>false</default>
+                <label>University of Hertfordshire</label>
+            </value>
+            <value>
+                <fullName>University of Huddersfield</fullName>
+                <default>false</default>
+                <label>University of Huddersfield</label>
+            </value>
+            <value>
+                <fullName>University of Hull</fullName>
+                <default>false</default>
+                <label>University of Hull</label>
+            </value>
+            <value>
+                <fullName>University of Kent</fullName>
+                <default>false</default>
+                <label>University of Kent</label>
+            </value>
+            <value>
+                <fullName>University of Law</fullName>
+                <default>false</default>
+                <label>University of Law</label>
+            </value>
+            <value>
+                <fullName>University of Leeds</fullName>
+                <default>false</default>
+                <label>University of Leeds</label>
+            </value>
+            <value>
+                <fullName>University of Leicester</fullName>
+                <default>false</default>
+                <label>University of Leicester</label>
+            </value>
+            <value>
+                <fullName>University of Lincoln</fullName>
+                <default>false</default>
+                <label>University of Lincoln</label>
+            </value>
+            <value>
+                <fullName>University of Liverpool</fullName>
+                <default>false</default>
+                <label>University of Liverpool</label>
+            </value>
+            <value>
+                <fullName>University of London</fullName>
+                <default>false</default>
+                <label>University of London</label>
+            </value>
+            <value>
+                <fullName>University of Manchester</fullName>
+                <default>false</default>
+                <label>University of Manchester</label>
+            </value>
+            <value>
+                <fullName>University of Northampton</fullName>
+                <default>false</default>
+                <label>University of Northampton</label>
+            </value>
+            <value>
+                <fullName>University of Nottingham</fullName>
+                <default>false</default>
+                <label>University of Nottingham</label>
+            </value>
+            <value>
+                <fullName>University of Oxford</fullName>
+                <default>false</default>
+                <label>University of Oxford</label>
+            </value>
+            <value>
+                <fullName>University of Plymouth</fullName>
+                <default>false</default>
+                <label>University of Plymouth</label>
+            </value>
+            <value>
+                <fullName>University of Portsmouth</fullName>
+                <default>false</default>
+                <label>University of Portsmouth</label>
+            </value>
+            <value>
+                <fullName>University of Reading</fullName>
+                <default>false</default>
+                <label>University of Reading</label>
+            </value>
+            <value>
+                <fullName>University of Salford</fullName>
+                <default>false</default>
+                <label>University of Salford</label>
+            </value>
+            <value>
+                <fullName>University of Sheffield</fullName>
+                <default>false</default>
+                <label>University of Sheffield</label>
+            </value>
+            <value>
+                <fullName>University of Southampton</fullName>
+                <default>false</default>
+                <label>University of Southampton</label>
+            </value>
+            <value>
+                <fullName>University of South Wales</fullName>
+                <default>false</default>
+                <label>University of South Wales</label>
+            </value>
+            <value>
+                <fullName>University of St Andrews</fullName>
+                <default>false</default>
+                <label>University of St Andrews</label>
+            </value>
+            <value>
+                <fullName>University of Stirling</fullName>
+                <default>false</default>
+                <label>University of Stirling</label>
+            </value>
+            <value>
+                <fullName>University of Strathclyde</fullName>
+                <default>false</default>
+                <label>University of Strathclyde</label>
+            </value>
+            <value>
+                <fullName>University of Suffolk</fullName>
+                <default>false</default>
+                <label>University of Suffolk</label>
+            </value>
+            <value>
+                <fullName>University of Sunderland</fullName>
+                <default>false</default>
+                <label>University of Sunderland</label>
+            </value>
+            <value>
+                <fullName>University of Surrey</fullName>
+                <default>false</default>
+                <label>University of Surrey</label>
+            </value>
+            <value>
+                <fullName>University of Sussex</fullName>
+                <default>false</default>
+                <label>University of Sussex</label>
+            </value>
+            <value>
+                <fullName>University of the Arts London</fullName>
+                <default>false</default>
+                <label>University of the Arts London</label>
+            </value>
+            <value>
+                <fullName>University of the Highlands &amp; Islands</fullName>
+                <default>false</default>
+                <label>University of the Highlands &amp; Islands</label>
+            </value>
+            <value>
+                <fullName>University of the West of England</fullName>
+                <default>false</default>
+                <label>University of the West of England</label>
+            </value>
+            <value>
+                <fullName>University of the West of Scotland</fullName>
+                <default>false</default>
+                <label>University of the West of Scotland</label>
+            </value>
+            <value>
+                <fullName>University of Ulster</fullName>
+                <default>false</default>
+                <label>University of Ulster</label>
+            </value>
+            <value>
+                <fullName>University of Wales</fullName>
+                <default>false</default>
+                <label>University of Wales</label>
+            </value>
+            <value>
+                <fullName>University of Warwick</fullName>
+                <default>false</default>
+                <label>University of Warwick</label>
+            </value>
+            <value>
+                <fullName>University of West London</fullName>
+                <default>false</default>
+                <label>University of West London</label>
+            </value>
+            <value>
+                <fullName>University of Westminster</fullName>
+                <default>false</default>
+                <label>University of Westminster</label>
+            </value>
+            <value>
+                <fullName>University of Winchester</fullName>
+                <default>false</default>
+                <label>University of Winchester</label>
+            </value>
+            <value>
+                <fullName>University of Wolverhampton</fullName>
+                <default>false</default>
+                <label>University of Wolverhampton</label>
+            </value>
+            <value>
+                <fullName>University of Worcester</fullName>
+                <default>false</default>
+                <label>University of Worcester</label>
+            </value>
+            <value>
+                <fullName>University of York</fullName>
+                <default>false</default>
+                <label>University of York</label>
+            </value>
+            <value>
+                <fullName>Wrexham GlyndÅµr University</fullName>
+                <default>false</default>
+                <label>Wrexham GlyndÅµr University</label>
+            </value>
+            <value>
+                <fullName>York St John University</fullName>
+                <default>false</default>
+                <label>York St John University</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

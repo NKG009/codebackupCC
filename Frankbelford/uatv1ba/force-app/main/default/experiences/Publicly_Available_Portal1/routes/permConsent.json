@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "954cda63-a21f-45b7-88ee-92559a740349",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "PermConsent__c",
+  "id" : "05d21a38-ca9e-4079-a725-7640173d3766",
+  "label" : "PermConsent",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-permconsent",
+  "type" : "route",
+  "urlPrefix" : "permconsent"
+}

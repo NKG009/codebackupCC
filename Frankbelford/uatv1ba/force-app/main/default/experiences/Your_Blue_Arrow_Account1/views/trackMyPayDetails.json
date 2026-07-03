@@ -1,0 +1,38 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "a72d77f2-c09b-4b6f-a65c-6d3b72e74ade",
+  "label" : "Track My Pay Details",
+  "regions" : [ {
+    "id" : "4011e909-c7bc-4a36-9a6c-d42f46a7cecd",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "3afc212f-8ad6-4456-aa39-53ca90376b2e",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "57b731ea-3f30-4bd9-be68-a8559e2b6dec",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Track My Pay Details"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "489dc8e0-0dc5-49a0-a728-fc8347110dcd",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0e81b9ce-d9e4-42e2-801f-8a22a367b60a",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-track-my-pay-details"
+}

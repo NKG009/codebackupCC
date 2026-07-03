@@ -1,0 +1,171 @@
+<template>
+      <div class="slds-p-top_x-large">
+    <h1 class="main__header"><span class="bluearrow-brand-color"> Weekly View </span> </h1>
+    <template if:false={showjoborderdetail}>
+      <lightning-layout horizontal-align="spread" multiple-rows>
+        <lightning-layout-item class="slds-p-top_large" size="12">
+          <div class="slds-clearfix">
+            <div class="slds-float_right">
+              <!--div class="slds-p-around_small" style="display: inline-block">
+              <c-portal-v2-site-switch-widget></c-portal-v2-site-switch-widget>
+            </div>
+            <lightning-button variant={clearFiltersVariation} label="Clear Filters" class="slds-p-horizontal_xx-small"
+              onclick={clearFilters}></lightning-button-->
+              <!--lightning-button variant="brand" label="Adjust Columns" class="slds-p-horizontal_xx-small"
+                onclick={openAdjustColumnsModalBox}></lightning-button>
+              <lightning-button variant="brand" label="Export" class="slds-p-horizontal_xx-small"
+                onclick={exportTimesheets}></lightning-button>
+              <lightning-button variant={clearFiltersVariation} label="Clear Filters" class="slds-p-horizontal_xx-small"
+                onclick={clearFilters}></lightning-button-->
+            </div>
+          </div>
+        </lightning-layout-item>
+        <lightning-layout-item class="slds-p-top_large" size="12">
+          <div class="table__container table_layout" style="overflow-y: scroll">
+            <table class="slds-table slds-table_cell-buffer"
+              aria-labelledby="element-with-table-label other-element-with-table-label">
+              <thead>
+                <tr class="slds-line-height_reset header__row table__header__actionbar">
+                      <th scope="col" class="table__header table-header">
+                        <div  class="column-header-container">
+                          <span class="column-title-text">Candidate Name</span>
+                        </div>
+                      </th>
+                      <th scope="col" class="table__header table-header">
+                        <div  class="column-header-container">
+                          <span class="column-title-text">Week Commencing</span>
+                        </div>
+                      </th>
+                      <th scope="col" class="table__header table-header">
+                        <div  class="column-header-container">
+                          <span class="column-title-text">Mon</span>
+                        </div>
+                      </th>
+                      <th scope="col" class="table__header table-header">
+                        <div  class="column-header-container">
+                          <span class="column-title-text">Tue</span>
+                        </div>
+                      </th>
+                      <th scope="col" class="table__header table-header">
+                        <div  class="column-header-container">
+                          <span class="column-title-text">Wed</span>
+                        </div>
+                      </th>
+                      <th scope="col" class="table__header table-header">
+                        <div  class="column-header-container">
+                          <span class="column-title-text">Thu</span>
+                        </div>
+                      </th>
+                      <th scope="col" class="table__header table-header">
+                        <div  class="column-header-container">
+                          <span class="column-title-text">Fri</span>
+                        </div>
+                      </th>
+                      <th scope="col" class="table__header table-header">
+                        <div  class="column-header-container">
+                          <span class="column-title-text">Sat</span>
+                        </div>
+                      </th>
+                      <th scope="col" class="table__header table-header">
+                        <div  class="column-header-container">
+                          <span class="column-title-text">Sun</span>
+                        </div>
+                      </th>
+                      <th scope="col" class="table__header table-header">
+                        <div  class="column-header-container">
+                          <span class="column-title-text">Total</span>
+                        </div>
+                      </th>
+                </tr>
+              </thead>
+              <tbody>
+                  <template for:each={filteredShifts} for:item="candidate">
+                    <tr class="slds-hint-parent body__row" key={candidate.candidateId}>
+                        <td class="body-text" style="text-align: center"><a href="#" onclick={handleRowClick} data-id={candidate.candidateId}
+                                class="link-style bluearrow-brand-color">{candidate.candidateName}</a></td>
+                        <td class="body-text" style="text-align: center">{candidate.weekCommencing}</td>
+                        <td class="body-text" style="text-align: center">{candidate.days.Mon.hours}</td>
+                        <td class="body-text" style="text-align: center">{candidate.days.Tue.hours}</td>
+                        <td class="body-text" style="text-align: center">{candidate.days.Wed.hours}</td>
+                        <td class="body-text" style="text-align: center">{candidate.days.Thu.hours}</td>
+                        <td class="body-text" style="text-align: center">{candidate.days.Fri.hours}</td>
+                        <td class="body-text" style="text-align: center">{candidate.days.Sat.hours}</td>
+                        <td class="body-text" style="text-align: center">{candidate.days.Sun.hours}</td>
+                        <td class="body-text" style="text-align: center">{candidate.totalHours}</td>
+                    </tr>
+                    </template>
+              </tbody>
+            </table>
+          </div>
+        </lightning-layout-item>
+
+      </lightning-layout>
+    </template>
+    <template if:true={showjoborderdetail}>
+        <lightning-layout-item size="12" padding="around-small">
+        <h2 class="sub__header">{jobOrderTitle}{joborderdetaildata.candidateName}</h2>
+      </lightning-layout-item>
+      <lightning-layout-item class="slds-p-top_large" size="12">
+          <div class="table__container table_layout" style="overflow-y: scroll">
+            <table class="slds-table slds-table_cell-buffer"
+              aria-labelledby="element-with-table-label other-element-with-table-label">
+              <thead>
+                <tr class="slds-line-height_reset header__row table__header__actionbar">
+                      <th scope="col" class="table__header table-header">
+                        <div  class="column-header-container">
+                          <span class="column-title-text">Day</span>
+                        </div>
+                      </th>
+                      <th scope="col" class="table__header table-header">
+                        <div  class="column-header-container">
+                          <span class="column-title-text">Scheduled Start</span>
+                        </div>
+                      </th>
+                      <th scope="col" class="table__header table-header">
+                        <div  class="column-header-container">
+                          <span class="column-title-text">Scheduled End</span>
+                        </div>
+                      </th>
+                      <th scope="col" class="table__header table-header">
+                        <div  class="column-header-container">
+                          <span class="column-title-text">Actual Start</span>
+                        </div>
+                      </th>
+                      <th scope="col" class="table__header table-header">
+                        <div  class="column-header-container">
+                          <span class="column-title-text">Actual End</span>
+                        </div>
+                      </th>
+                      <th scope="col" class="table__header table-header">
+                        <div  class="column-header-container">
+                          <span class="column-title-text">Breaks</span>
+                        </div>
+                      </th>
+                     
+                      <th scope="col" class="table__header table-header">
+                        <div  class="column-header-container">
+                          <span class="column-title-text">Hours</span>
+                        </div>
+                      </th>
+                </tr>
+              </thead>
+              <tbody>
+                  <template for:each={daysList} for:item="day">
+                    <tr class="slds-hint-parent body__row" key={day.dayName}>
+                        <td class="body-text" style="text-align: center">{day.dayName}</td>
+                        <td class="body-text" style="text-align: center">{day.scheduledStart}</td>
+                        <td class="body-text" style="text-align: center">{day.scheduledEnd}</td>
+                        <td class="body-text" style="text-align: center">{day.actualStart}</td>
+                        <td class="body-text" style="text-align: center">{day.actualEnd}</td>
+                        <td class="body-text" style="text-align: center">{day.breaks}</td>
+                        <td class="body-text" style="text-align: center">{day.hours}</td>
+                    </tr>
+                    </template>
+              </tbody>
+            </table>
+          </div>
+        </lightning-layout-item>
+   
+    </template>
+      </div>
+</template>

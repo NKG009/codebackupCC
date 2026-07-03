@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1062_Abingdon_Drive_04_10_23</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND (6  OR 7)</booleanFilter>
+    <columns>Person_Status__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <columns>sirenum__Last_Timesheet__c</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>IP_ComplianceGraphic__c</columns>
+    <columns>IP_PayrollStatus__c</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Person_Status__c</field>
+        <operation>equals</operation>
+        <value>Active,Inactive,Pending</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>notContain</operation>
+        <value>,Iadmi</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>GA,Catering,CA,Clean</value>
+    </filters>
+    <filters>
+        <field>IP_CategoryOfWork__c</field>
+        <operation>equals</operation>
+        <value>Catering</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>GL7,HP14,HP17,HP18,HP22,HP27,MK18,OX1,OX10,OX11,OX12,OX13,OX14,OX18,OX2,OX20,OX25,OX26,OX27,OX28,OX29,OX3,OX33,OX39,OX4,OX44,OX49,OX5,OX6,OX7,OX8,OX9,RG1,RG10,RG13,RG14</value>
+    </filters>
+    <filters>
+        <field>CONTACT.ADDRESS2_ZIP</field>
+        <operation>startsWith</operation>
+        <value>RG15,RG16,RG17,RG18,RG19,RG2,RG20,RG26,RG3,RG30,RG31,RG4,RG5,RG6,RG7,RG8,RG9,SL7,SN1,SN3,SN4,SN6,SN7,SN8</value>
+    </filters>
+    <label>1062 Abingdon Drive 04.10 .23</label>
+</ListView>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "8cd88aa0-2f01-4194-a300-65edb522d44e",
+  "appPageId" : "cb4d05bc-15d6-4e33-beb3-5244832ec585",
+  "configurationTags" : [ ],
+  "devName" : "Notifications__c",
+  "id" : "24e9ffee-98e3-4e5c-bcc3-1a73583410a3",
+  "label" : "Notifications",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-notifications",
+  "type" : "route",
+  "urlPrefix" : "notifications"
+}

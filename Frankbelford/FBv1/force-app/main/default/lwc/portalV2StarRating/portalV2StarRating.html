@@ -1,0 +1,18 @@
+<template>
+  <div class="slds-grid_align-center flex__row">
+    <template if:true={hasRating}>
+    <p class="body-text">{calculatedRating}/{maxStars}</p>
+    <div class="slds-grid_align-center flex__row">
+        <template for:each={starObjects} for:item="star" for:index="index">
+            <img key={star.key} src={star.src} class="star__image" data-index={index} onclick={handleStarClick}></img>
+        </template>
+    </div>
+    <template if:true={ratingOutOfExists}><p class="body-text">({ratingOutOf})</p></template>
+  </template>
+  <template if:false={hasRating}>
+    <p class="body-text">
+      No Rating
+    </p>
+    </template>
+  </div>
+</template>

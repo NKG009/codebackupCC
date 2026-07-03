@@ -1,0 +1,49 @@
+{
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "e9b6e193-a760-4bd9-854a-b89734f3dc6e",
+  "label" : "CV",
+  "regions" : [ {
+    "id" : "0fcb67c3-0788-468b-9e40-a7e1ded3ea1b",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[]",
+        "flowName" : "Public_Flow_BA_CV_Upload"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "e588c681-be36-4453-a318-ea05e8c36c9a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "407880a3-7fc3-473d-bfa8-8895557a0236",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "1bbde0b5-2ba8-4cb7-ae55-1f3c206c9036",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "CV"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "df033081-5fbe-4d86-85e2-868f23e38b88",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "bf691e5e-e159-4ce1-94cb-e502e2837b84",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-cv"
+}

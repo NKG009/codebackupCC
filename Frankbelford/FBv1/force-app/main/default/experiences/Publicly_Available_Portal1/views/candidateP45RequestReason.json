@@ -1,0 +1,49 @@
+{
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "465f41e5-62ef-4428-87e3-d9c4c64bb864",
+  "label" : "Candidate p45 request reason",
+  "regions" : [ {
+    "id" : "2bd12df3-7ecb-4ec9-ab6a-c52b5f125312",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"RecordID\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!ID}\"}]",
+        "flowName" : "Screen_Flow_P45_Request"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "a4aa6003-6bdf-4015-8695-d0254522b6d4",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4f7ca3be-2050-457a-beb1-1fa4ee94ed86",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "c60686b4-351b-4336-a272-06e6c7eee3ee",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Candidate p45 request reason"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "0d6bc154-20a0-4511-a597-5cd8ec4aa143",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ad4962bc-19df-4563-ad6f-f560a949e2c7",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-candidate-p45-request-reason"
+}

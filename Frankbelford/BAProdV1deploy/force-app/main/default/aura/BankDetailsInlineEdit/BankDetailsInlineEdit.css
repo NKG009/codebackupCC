@@ -1,0 +1,40 @@
+.THIS .inputFieldWidth {
+    width:55%;
+}
+.THIS .Backbutton{
+    color : white;
+     background-color: #6f6f6e;
+    border-color: #6f6f6e;
+}
+.THIS .Backbutton:hover{
+    color : white;
+     background-color: #99998e;
+    border-color: #99998e;
+}
+.THIS .Savebutton{
+    color : white;
+     background-color: #a8cd1b;
+    border-color: #a8cd1b;
+    
+}
+.THIS .Savebutton:hover{
+    color : white;
+     background-color: #96aa4b;
+    border-color: #96aa4b;
+}
+.THIS .Canclebutton{
+    color : white;
+     background-color: #A9A9A9;
+    border-color: #A9A9A9;
+    width:70px;
+}
+.THIS .Canclebutton:hover{
+    color : white;
+     background-color: #bab4b4;
+    border-color: #bab4b4;
+}
+.THIS .headingdetails{
+     font-family: Arial;
+     color : #009ee3;
+    
+}

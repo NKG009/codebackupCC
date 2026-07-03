@@ -1,0 +1,21 @@
+<aura:component controller="Temp_Hours_Cnt">
+    <ltng:require scripts="{!join(',',$Resource.Highchartss,
+                           $Resource.highchart3d
+                           )}" afterScriptsLoaded="{!c.afterScriptsLoaded}"/>
+    
+  
+    <aura:attribute name="chartType" type="string"/>
+    <aura:attribute name="chartTitle" type="string" default="Opportunity by StageName"/>
+    <aura:attribute name="chartSubTitle" type="string" default="Display Opportunity Count by StageName"/>
+    <aura:attribute name="xAxisCategories" type="string[]" default="['Jan','Feb','Closed Won','Id. Decision Makers','Proposal/Price Quote','Proposition','Prospecting','Perception Analysis','Needs Analysis']"/>
+    <aura:attribute name="yAxisParameter" type="string" default="Hours"/>
+    <aura:attribute name="data" type="string"/>
+    
+    <!--<aura:handler name="init" value="{!this}" action="{!c.doInit}" />  -->
+    <aura:attribute type="String" name="Monthlist"/>
+    
+     <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--2-of-6 slds-large-size--4-of-12 cusdiv">
+                <div aura:id="linechart" style="height:270px ; width:300px;margin-top:10px;"></div>
+            </div>
+  
+</aura:component>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "7e82bce5-daca-4e39-9836-ae6f32c2e2dc",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "My_Skills__c",
+  "id" : "965fffb7-8062-4069-97a8-9d49b4997425",
+  "label" : "My Skills",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-my-skills",
+  "type" : "route",
+  "urlPrefix" : "my-skills"
+}

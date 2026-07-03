@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "22849772-c564-4418-b0b2-f92500bf6016",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "CV__c",
+  "id" : "fd124b76-7d3e-45a0-ad52-13718a94494a",
+  "label" : "CV",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-cv",
+  "type" : "route",
+  "urlPrefix" : "cv"
+}

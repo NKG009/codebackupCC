@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "4e5ae2b2-b8af-4bbc-ae84-d47bf7db6e2d",
+  "appPageId" : "54b236b8-8feb-4942-9f61-9795a2204e03",
+  "configurationTags" : [ ],
+  "devName" : "MI_Info__c",
+  "id" : "6fe1d968-ea2b-430f-acbd-8b5238d55790",
+  "label" : "MI Info",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-mi-info",
+  "type" : "route",
+  "urlPrefix" : "mi-info"
+}

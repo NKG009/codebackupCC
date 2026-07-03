@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>search_related_objects__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Perform SOSL Search in Employment History, Education History, Skill.</description>
+    <inlineHelpText>If selected, selected fields on the Keyword Search will search in related objects (Employment History, Education History, Skill). It can reduce the limit of maximum Contacts found.</inlineHelpText>
+    <label>Search Related objects</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

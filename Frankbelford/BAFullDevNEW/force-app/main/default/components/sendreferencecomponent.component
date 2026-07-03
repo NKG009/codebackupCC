@@ -1,0 +1,82 @@
+<apex:component controller="referencedetails" access="global" >
+<apex:attribute name="recordId" description="Record Id" type="id" assignTo="{!record_Id}"/> 
+        
+<style>
+.linkunderline{
+    text-decoration: none;
+    color: blue;
+}
+
+</style>
+<html>
+<table BORDER="0" CELLSPACING="0" style="width:640px;height:650px;background-image:url('{!URLFOR($Resource.TemplatePics,'picsfolder/largebackground.jpg')}');">
+<tr >
+
+    <td style="vertical-align:top;text-align:right;height:140px;width:190px;">
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR4-1/c.aspx" id="theLink1"><apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic1.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR5-1/c.aspx" id="theLink2"><apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic2.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR6-1/c.aspx" id="theLink3"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic3.jpg')}" /></apex:outputLink> &nbsp; 
+    <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR7-1/c.aspx" id="theLink4"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/pic4.jpg')}" /></apex:outputLink>
+   
+    </td>
+      <td style="text-align:right;vertical-align:middle;height:140px;width:460px;">
+     <apex:outputLink target="blank" value="https://bluearrowmail.co.uk/t/9AG-5UWKR-BA8MKC-3A8VR8-1/c.aspx" id="theLink5"> <apex:image url="{!URLFOR($Resource.TemplatePics,'picsfolder/logo.png')}" /> </apex:outputLink>
+    </td>
+</tr>
+<tr style="width:650px;">
+<td colspan="2" style="vertical-align:top;">
+<table style="width:630px;">
+<tr style="height:25px;text-align:center;"><td style="text-align:center;">
+<font size="2" face="Calibri" color="black"><b> Reference Request</b></font>
+</td>
+</tr>
+<tr style="height:200px;text-align:center;"><td style="text-align:left;vertical-align:top;">
+<div style="margin-left:30px;margin-right:10px;margin-top:-10px;">
+<font size="2" face="Calibri" color="black">
+
+<br></br>
+
+Dear {!referenceid.Name__c},<br/><br/>
+Blue Arrow are acting on behalf of {!referenceid.Candidate_Name_Text__c} as an employment agency to assist in the next step in their career. <br></br><br></br>
+{!referenceid.TR1__Person_Placed__r.FirstName} has listed you as a reference contact and therefore would appreciate if you could verify some details about {!referenceid.TR1__Person_Placed__r.FirstName} to help us reach our hiring decision.<br></br><br></br>
+<!-- 21/03/2022 PT1-363 Wen Replaced Jobscience reference form with Flow
+<apex:outputLink styleClass="linkunderline" rendered="{!referenceid.Recordtype.Name = 'Professional'}" value="{!FullFormUrl}"
+id="theLink01">Click here to open reference form</apex:outputLink>  
+
+<apex:outputLink styleClass="linkunderline" rendered="{!referenceid.Recordtype.Name = 'Personal'}" value="{!FullFormUrl}"
+id="theLink02">Click here to open reference form</apex:outputLink>  
+
+<apex:outputLink styleClass="linkunderline" rendered="{!referenceid.Recordtype.Name = 'Academic'}" value="{!FullFormUrl}"
+id="theLink03">Click here to open reference form</apex:outputLink>
+-->
+<apex:outputLink styleClass="linkunderline" rendered="true" value="https://yourcompanyportal-15728bf70b1.force.com/Application/s/reference-survey?recordId={!referenceid}">Click here to open reference form</apex:outputLink>  
+
+
+<br></br><br></br>
+If you are not the intended recipient, please <apex:outputLink styleClass="linkunderline" rendered="true" value="https://yourcompanyportal-15728bf70b1.force.com/Application/s/incorrect-referee-email?recordId={!referenceid}"> click here </apex:outputLink> to let us know. 
+<br></br><br></br>
+Thank you so much in advance.  
+
+<br/><br/><div style="font-size:13px;"> </div> 
+ 
+Kind regards, <br/>
+The Blue Arrow Team <br/>
+{!branchphone}
+   
+<br></br>
+<br></br>
+</font>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:60px;">
+<td colspan="2" >
+<apex:image height="80px" width="250px" url="{!URLFOR($Resource.TemplatePics,'picsfolder/IIP_PLAT_19.jpg')}" />
+</td>
+</tr>
+</table>
+</html>
+</apex:component>

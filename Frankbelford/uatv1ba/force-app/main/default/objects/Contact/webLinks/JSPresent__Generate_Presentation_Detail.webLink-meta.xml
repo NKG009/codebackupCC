@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JSPresent__Generate_Presentation_Detail</fullName>
+    <availability>online</availability>
+    <description>Generate Presentation for Detail Page</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Generate Presentation</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/23.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/23.0/apex.js&quot;)}
+
+var record = &apos;{!Contact.Id}&apos;;
+
+if (!setIds(record)) {
+alert(&apos;Jobscience Presentations package is not installed.&apos;);
+}
+
+function setIds(record) {
+var presentation = new sforce.SObject(&quot;Presentation__c&quot;);
+
+if (presentation) {
+var resultItem = new sforce.SObject(&quot;ts2__s_ResultItem__c&quot;);
+
+if (resultItem) {
+resultItem.ts2__sel_contact_id_list__c = record;
+var createRiResult = sforce.connection.create([resultItem]);
+if (createRiResult &amp;&amp; createRiResult[0].getBoolean(&quot;success&quot;)) {
+var page = &quot;/apex/JSPresent__CreatePresentationRecord&quot;;
+var resultId = createRiResult[0].id;
+var url = page+&quot;?cId=&quot; + resultId;
+win = window.open(url);
+win.focus();
+}
+}
+return true;
+}
+return false;
+}</url>
+</WebLink>

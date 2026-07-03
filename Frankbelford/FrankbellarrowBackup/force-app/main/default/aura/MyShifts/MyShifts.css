@@ -1,0 +1,66 @@
+.THIS .TextHeader{
+   color: #009ee3;
+     text-decoration: underline;
+}
+
+.THIS .RedText{
+   color: Red;
+   font-weight: bold;
+}
+
+.THIS .a:visited {
+    color: red;
+}
+.THIS .headingfont{
+   font-family: Arial;
+	font-size: 15px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 26.4px;
+    color : #009ee3;
+  border-bottom: 1px solid darkgray ;
+    border-top: 1px solid darkgray ;
+    
+}
+.THIS .Yesbutton{
+    color : white;
+     background-color: #a8cd1b;
+    border-color: #a8cd1b;
+    width:80px;
+}
+.THIS .Yesbutton:hover{
+    color : white;
+     background-color: #96aa4b;
+    border-color: #96aa4b;
+}
+.THIS .headingdetails{
+     font-family: Arial;
+     color : #009ee3;
+    
+}
+.THIS .Nobutton{
+    color : white;
+     background-color: #e50b7e;
+    border-color: #e50b7e;
+    width:80px;
+}
+.THIS .Nobutton:hover{
+    color : white;
+     background-color: #d65399;
+    border-color: #d65399;
+}
+.THIS .Backbutton{
+    color : white;
+     background-color: #6f6f6e;
+    border-color: #6f6f6e;
+}
+.THIS .Backbutton:hover{
+    color : white;
+     background-color: #99998e;
+    border-color: #99998e;
+}
+
+ .THIS .slds-form-element__icon {/* Replace this class name "slds-form-element__icon" by your finding. */
+    display: none !important;
+}

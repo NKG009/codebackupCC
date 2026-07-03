@@ -1,0 +1,84 @@
+{
+  "forgotPasswordRouteId" : "bad983be-922e-4c18-b91e-0b2e2f98a8e5",
+  "isAvailableToGuests" : true,
+  "isFilteredComponentsView" : false,
+  "isProgressiveRenderingEnabled" : false,
+  "loginAppPageId" : "ee2f222d-6a48-4293-9719-215e6bd08ea6",
+  "mainAppPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "preferredDomain" : "none",
+  "selfRegistrationRouteId" : "41418548-2e90-4b74-950e-5e750221fc46",
+  "trustedSitesForScript" : [ {
+    "id" : "ff196176-c146-44fe-b667-850a37f2ca1a",
+    "isActive" : true,
+    "trustedSiteName" : "www.google-analytics.com",
+    "trustedSiteUrl" : "https://www.google-analytics.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "336f0ebc-e430-4897-95e4-5a8aec8f2713",
+    "isActive" : true,
+    "trustedSiteName" : "stats.g.doubleclick.net",
+    "trustedSiteUrl" : "https://stats.g.doubleclick.net",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "8eef5711-94b1-4db6-8c52-f9aebb659696",
+    "isActive" : true,
+    "trustedSiteName" : "www.googletagmanager.com",
+    "trustedSiteUrl" : "https://www.googletagmanager.com/gtag/js",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "34a7e74e-6c92-4ca4-b05e-ea59f5e3ac91",
+    "isActive" : true,
+    "trustedSiteName" : "Tagmanager",
+    "trustedSiteUrl" : "https://tagmanager.google.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "75bb1406-423c-47b8-9259-cc9b565ebda6",
+    "isActive" : true,
+    "trustedSiteName" : "ssl.gstatic.com",
+    "trustedSiteUrl" : "https://ssl.gstatic.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "7819776e-e0c1-4eda-8206-9764da659767",
+    "isActive" : true,
+    "trustedSiteName" : "googleads",
+    "trustedSiteUrl" : "https://googleads.g.doubleclick.net",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "ec599321-a572-420d-985e-567d645fa488",
+    "isActive" : true,
+    "trustedSiteName" : "www.gstatic.com",
+    "trustedSiteUrl" : "https://www.gstatic.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "1d331b59-3bb6-4c4c-adaa-70b9b842be8f",
+    "isActive" : true,
+    "trustedSiteName" : "googleadservices.com",
+    "trustedSiteUrl" : "https://www.googleadservices.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "09ae4f09-7774-4a52-a70c-a88daf962292",
+    "isActive" : true,
+    "trustedSiteName" : "Google",
+    "trustedSiteUrl" : "https://www.googletagmanager.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "94b6036d-3843-4aae-9a3a-0faabace1a21",
+    "isActive" : true,
+    "trustedSiteName" : "Indeed",
+    "trustedSiteUrl" : "https://conv.indeed.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "774373a7-5175-4c21-9046-dcda37449dd4",
+    "isActive" : true,
+    "trustedSiteName" : "connect.facebook.net",
+    "trustedSiteUrl" : "https://connect.facebook.net/en_US/iab.autofill.js",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "c3affabb-42a5-4996-923d-6b2bb1c0ef4f",
+    "isActive" : true,
+    "trustedSiteName" : "connect.facebook.net1",
+    "trustedSiteUrl" : "https://connect.facebook.net",
+    "type" : "trustedSitesForScripts"
+  } ],
+  "type" : "site"
+}

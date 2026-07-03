@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2388_BAL_Capita_Manchester_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>2388-BAL Capita Manchester</label>
+    <queue>X2388_BAL_Capita_Manchester</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

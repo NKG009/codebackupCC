@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2382_BAL_Wincanton_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>2382-BAL Wincanton</label>
+    <queue>X2382_BAL_Wincanton</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,57 @@
+.THIS .mydivsn{ 
+     text-align:center;
+    width: 20px;
+}
+
+.THIS .Timeinput{ 
+    
+    width: 120px;
+}
+
+.THIS .Textarea{
+   height:100px;
+   width:200px;
+}
+
+.THIS .divclass{
+    
+    height:25px;
+    width:70%;
+   
+    vertical-align: middle;
+    background-color: lightgrey;
+}
+.THIS .modifyclass{
+   
+    vertical-align: middle;
+    color: #e50b7e;
+}
+
+.THIS .detailbutton{
+    
+    height:25px;
+    color: #FFFFFF;
+    
+}
+.THIS .button{
+
+    background-color: #b0adab;
+    color: #fff;
+    border-color:#b0adab;
+}
+
+.THIS .inner {
+     vertical-align: middle;
+    
+}
+
+.THIS .Submitbutton{
+    color : white;
+     background-color: #a8cd1b;
+    border-color: #a8cd1b;
+}
+.THIS .Submitbutton:hover{
+    color : white;
+     background-color: #96aa4b;
+    border-color: #96aa4b;
+}

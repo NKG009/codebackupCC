@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>disable_parsed_company_fields__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If selected, a keyword search using the Company input field will not search the parsed Employer Organization 1, Employer Organization 2, and Employer Organization 3 fields on the Contact record. The Company Name on the Employment History object will be searched.</description>
+    <inlineHelpText>If selected, a keyword search using the Company input field will not search the parsed Employer Organization 1, 2, and 3 fields on the Contact record. The Company Name on the Employment History object will be searched.</inlineHelpText>
+    <label>Disable Parsed Company fields</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

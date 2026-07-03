@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "90844e59-3b93-4ebd-8047-d16390349a6b",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "Track_My_Pay__c",
+  "id" : "9bd1c0f7-f076-4b82-81e6-73c8b23f433c",
+  "label" : "Track My Pay",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-track-my-pay",
+  "type" : "route",
+  "urlPrefix" : "track-my-pay"
+}

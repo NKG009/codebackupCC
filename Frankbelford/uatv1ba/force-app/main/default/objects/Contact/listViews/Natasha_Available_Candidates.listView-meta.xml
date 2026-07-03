@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Natasha_Available_Candidates</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.PHONE3</columns>
+    <columns>IP_CategoryOfWork__c</columns>
+    <columns>ts2__Employer1Title__c</columns>
+    <columns>IP_JobTitle__c</columns>
+    <columns>ts2__Desired_Salary__c</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>ts2__Notice__c</columns>
+    <columns>Perm_Notes__c</columns>
+    <columns>CONTACT.LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Owner__c</field>
+        <operation>equals</operation>
+        <value>Natasha Atwal</value>
+    </filters>
+    <filters>
+        <field>Top_Prospect__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <label>Natasha Available Candidates</label>
+</ListView>

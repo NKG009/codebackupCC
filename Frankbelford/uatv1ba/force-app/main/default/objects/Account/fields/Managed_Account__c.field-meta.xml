@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Managed_Account__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field to define managed accounts for validation rule purposes</description>
+    <label>Rate Card Restriction</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

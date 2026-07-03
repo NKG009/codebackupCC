@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "5a4d2456-5bac-491f-be8a-123c691aa0ed",
+  "appPageId" : "b2fa95b0-e567-41d6-a9bd-0d8201b2a4b0",
+  "configurationTags" : [ ],
+  "devName" : "Shiftaction__c",
+  "id" : "912dcde0-6df7-4d64-a5d0-1e853e2b0a7e",
+  "label" : "Shiftaction",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-shiftaction",
+  "type" : "route",
+  "urlPrefix" : "shiftaction"
+}

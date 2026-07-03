@@ -1,0 +1,50 @@
+<!--
+ - Created by mrahman on 2020-12-08.
+
+ -->
+
+<aura:component implements="lightning:availableForFlowScreens" description="flowNavigationCmp" access="global">
+    <!-- Determine which actions are available -->
+    <aura:attribute name="canPause" type="Boolean" />
+    <aura:attribute name="canBack" type="Boolean" />
+    <aura:attribute name="canNext" type="Boolean" />
+    <aura:attribute name="canFinish" type="Boolean" />
+
+    <aura:attribute name="showError" type="Boolean"/>
+    <aura:attribute name="canProceed" type="Boolean" />
+    <aura:attribute name="msg" type="String" />
+    <aura:attribute name="availableActions" type="String[]" default="['BACK', 'PAUSE']"/>
+    <aura:registerEvent name="navigateFlowEvent" type="c:flowNavigationEvent"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+    <aura:if isTrue="{!v.showError}">
+        <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+            <span class="slds-assistive-text">error</span>
+            <lightning:icon iconName="utility:error" alternativeText="Error!" variant="bare" title="error variant small" size="xx-small" />
+            <div class="slds-p-left_xx-small"><h2>{!v.msg}</h2></div>
+        </div>
+    </aura:if>
+
+    <div aura:id="actionButtonBar" class="slds-clearfix slds-p-top_medium">
+        <div class="slds-float_right">
+            <!-- If Pause, Next, or Finish are available, display to the right -->
+            <aura:if isTrue="{!v.canPause}">
+                <lightning:button aura:id="PAUSE" label="Pause"
+                                  variant="neutral" onclick="{!c.onButtonPressed}" />
+            </aura:if>
+            <aura:if isTrue="{!v.canBack}">
+                <lightning:button aura:id="BACK" label="Previous"
+                                  variant="neutral" onclick="{!c.onButtonPressed}" />
+            </aura:if>
+            <aura:if isTrue="{!v.canNext}">
+                <lightning:button aura:id="NEXT" label="Next"
+                                  variant="brand" onclick="{!c.onButtonPressed}" />
+            </aura:if>
+            <aura:if isTrue="{!v.canFinish}">
+                <lightning:button aura:id="FINISH" label="Done"
+                                  variant="brand" onclick="{!c.onButtonPressed}" />
+            </aura:if>
+        </div>
+    </div>
+</aura:component>

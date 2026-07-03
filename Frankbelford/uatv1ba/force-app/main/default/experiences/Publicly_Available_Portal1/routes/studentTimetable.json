@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "07000b93-de26-4504-98c5-adf00cb80fcc",
+  "appPageId" : "9ef1bd82-2127-484e-b9b3-bc2a5acb17e0",
+  "configurationTags" : [ ],
+  "devName" : "StudentTimetable__c",
+  "id" : "74ef7d0a-cdcf-4f55-8734-189dd1604f09",
+  "label" : "StudentTimetable",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-studenttimetable",
+  "type" : "route",
+  "urlPrefix" : "studenttimetable"
+}

@@ -1,0 +1,962 @@
+<template>
+    <div class="slds-var-p-top_x-large">
+        <h1 class="main__header">
+            My Timesheets
+        </h1>
+        <div class="table__header slds-var-p-top_large">
+            <div class="supplementary__container"></div>
+            <div class="action__container"></div>
+
+            <div class="slds-grid table__header__actionbar flex__row">
+                <div class="slds-grid small__gap flex__row">
+                    <!--<lightning-button variant="brand" label={viewSwitchLabel} onclick={handleViewToggleClick}>
+                </lightning-button>-->
+                    <lightning-button variant="brand" label={timePeriodSwitchLabel}
+                        onclick={handleTimePeriodToggleClick}>
+                    </lightning-button>
+                </div>
+                <div class="slds-grid small__gap flex__row">
+                    <lightning-button variant="base" onclick={clearFilter} label="Clear filters">
+                    </lightning-button>
+                    <lightning-button variant="brand" onclick={handleAdjustColumnClick} label="Adjust columns">
+                    </lightning-button>
+                    <lightning-button variant="brand" onclick={handleExportClick} label="Export Timesheet">
+                    </lightning-button>
+                </div>
+            </div>
+        </div>
+        <div class="table__container">
+            <template if:true={loading}>
+                <div class="spinner slds-align_absolute-center">
+                    <lightning-spinner alternative-text="loading" size="large"></lightning-spinner>
+                </div>
+            </template>
+            <template if:false={loading}>
+                <table class="slds-table slds-table_cell-buffer">
+                    <thead>
+                        <tr class="slds-line-height_reset header__row grey-bg">
+                            <th style="text-align: start" class="table__header">
+                                <lightning-input label="Select All" type="checkbox" variant="label-hidden"
+                                    data-id="all__checkbox" data-role="main"
+                                    onchange={handleMainSelectAll}></lightning-input>
+                            </th>
+                            <th scope="col" class="table__header">
+                                <div class="slds-truncate header-title" title="Candidate Name">
+                                    <p class="table-header">Candidate Name</p>
+                                </div>
+                            </th>
+                            <th scope="col" class="table__header">
+                                <div class="slds-truncate header-title" title="Week commencing">
+                                    <p class="table-header">Week commencing</p>
+                                </div>
+                            </th>
+                            <th scope="col" class="table__header">
+                                <div class="slds-truncate header-title" title="Mon">
+                                    <p class="table-header">Mon</p>
+                                </div>
+                            </th>
+                            <th scope="col" class="table__header">
+                                <div class="slds-truncate header-title" title="Tue">
+                                    <p class="table-header">Tue</p>
+                                </div>
+                            </th>
+                            <th scope="col" class="table__header">
+                                <div class="slds-truncate header-title" title="Wed">
+                                    <p class="table-header">Wed</p>
+                                </div>
+                            </th>
+                            <th scope="col" class="table__header">
+                                <div class="slds-truncate header-title" title="Thu">
+                                    <p class="table-header">Thu</p>
+                                </div>
+                            </th>
+                            <th scope="col" class="table__header">
+                                <div class="slds-truncate header-title" title="Fri">
+                                    <p class="table-header">Fri</p>
+                                </div>
+                            </th>
+                            <th scope="col" class="table__header">
+                                <div class="slds-truncate header-title" title="Sat">
+                                    <p class="table-header">Sat</p>
+                                </div>
+                            </th>
+                            <th scope="col" class="table__header">
+                                <div class="slds-truncate header-title" title="Sun">
+                                    <p class="table-header">Sun</p>
+                                </div>
+                            </th>
+                            <th scope="col" class="table__header">
+                                <div class="slds-truncate header-title" title="Total">
+                                    <p class="table-header">Total</p>
+                                </div>
+                            </th>
+                            <th scope="col" class="table__header">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={timesheets} for:item="timesheet">
+                            <tr class="body__row" key={timesheet.Id}>
+                                <td class="flex__row slds-truncate checkbox__column">
+                                    <div class="checkbox__container">
+                                        <lightning-input variant="label-hidden" label="Select" type="checkbox"
+                                            data-role="main" onchange={handleSingleSelection}></lightning-input>
+                                    </div>
+                                    <div class="caret-container">
+                                        <!--<img alt="Toggle detailed view"
+                                            onclick={toggleSubTableShow}
+                                            class="slds-var-p-left_medium clickable__element caret"
+                                            src={primaryAnchorCaretOpen} />-->
+                                        <img alt="Toggle detailed view" onclick={toggleSubTableShow}
+                                            class="slds-var-p-left_medium clickable__element caret"
+                                            src={primaryAnchorCaret} />
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate" title={timesheet.workerName}>
+                                        <p class="body-text">{timesheet.workerName}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate" title={timesheet.weekCommencing}>
+                                        <p class="body-text">
+                                            {timesheet.weekCommencing}
+                                        </p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate" title={timesheet.monHours}>
+                                        <p class="body-text">{timesheet.monHours}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate" title={timesheet.tueHours}>
+                                        <p class="body-text">{timesheet.tueHours}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate" title={timesheet.wedHours}>
+                                        <p class="body-text">{timesheet.wedHours}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate" title={timesheet.thuHours}>
+                                        <p class="body-text">{timesheet.thuHours}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate" title={timesheet.friHours}>
+                                        <p class="body-text">{timesheet.friHours}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate" title={timesheet.satHours}>
+                                        <p class="body-text">{timesheet.satHours}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate" title={timesheet.sunHours}>
+                                        <p class="body-text">{timesheet.sunHours}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate" title={timesheet.totalHours}>
+                                        <p class="body-text">{timesheet.totalHours}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate">
+                                        <lightning-button variant="brand" label="Approve"
+                                            class="slds-p-horizontal_xx-small"
+                                            onclick={openEndorseApprovalModalBox}></lightning-button>
+                                        <lightning-button variant="brand" label="Reject"
+                                            class="slds-p-horizontal_xx-small"
+                                            onclick={openRejectModalBox}></lightning-button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </template>
+
+                        <!--<tr class="dropdown-row">
+                            <td colspan="6" class="subtable__container">
+                                <table class="slds-table slds-table_cell-buffer">
+                                    <thead>
+                                        <tr class="slds-line-height_reset header__row">
+                                            <th scope="col" class="table__header sub-table__header">
+                                                <lightning-input variant="label-hidden" label="Select All"
+                                                    type="checkbox" data-role="sub" data-id="selectAll"
+                                                    onchange={handleSubSelectAll}></lightning-input>
+                                            </th>
+                                            <th scope="col" class="table__header sub-table__header">
+                                            </th>
+                                            <th scope="col" class="table__header sub-table__header">
+                                            </th>
+                                            <th scope="col" class="table__header sub-table__header">
+                                                <div class="slds-truncate header-title" title="Scheduled Start">
+                                                    <p class="table-header">Scheduled Start</p>
+                                                </div>
+                                            </th>
+                                            <th scope="col" class="table__header sub-table__header">
+                                                <div class="slds-truncate header-title" title="Scheduled End">
+                                                    <p class="table-header">Scheduled End</p>
+                                                </div>
+                                            </th>
+                                            <th scope="col" class="table__header sub-table__header">
+                                                <div class="slds-truncate header-title" title="Actual Start">
+                                                    <p class="table-header">Actual Start</p>
+                                                </div>
+                                            </th>
+                                            <th scope="col" class="table__header sub-table__header">
+                                                <div class="slds-truncate header-title" title="Actual End">
+                                                    <p class="table-header">Actual End</p>
+                                                </div>
+                                            </th>
+                                            <th scope="col" class="table__header sub-table__header">
+                                                <div class="slds-truncate header-title" title="Breaks">
+                                                    <p class="table-header">Breaks</p>
+                                                </div>
+                                            </th>
+                                            <th scope="col" class="table__header sub-table__header">
+                                                <div class="slds-truncate header-title" >
+                                                    <p class="table-header"></p>
+                                                </div>
+                                            </th>
+                                            <th scope="col" class="table__header sub-table__header">
+                                                <div class="slds-truncate header-title" >
+                                                    <p class="table-header"></p>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="body__row">
+                                            <td class="flex__row slds-truncate checkbox__column">
+                                                <div class="checkbox__container">
+                                                    <lightning-input variant="label-hidden" label="Select"
+                                                        type="checkbox" data-role="sub"
+                                                        onchange={handleSubtableSingleSelection}></lightning-input>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="Sarah Manning">
+                                                    <p class="body-text">Sarah Manning</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="Mon">
+                                                    <p class="body-text">Mon</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="7.5">
+                                                    <p class="body-text">7.5</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate">
+                                                    <lightning-button variant="brand" label="Approve"
+                                                        class="slds-p-horizontal_xx-small"
+                                                        onclick={openEndorseApprovalModalBox}></lightning-button>
+                                                    <lightning-button variant="brand" label="Reject"
+                                                        class="slds-p-horizontal_xx-small"
+                                                        onclick={openRejectModalBox}></lightning-button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="body__row">
+                                            <td class="flex__row slds-truncate checkbox__column">
+                                                <div class="checkbox__container">
+                                                    <lightning-input variant="label-hidden" label="Select"
+                                                        type="checkbox" data-role="sub"
+                                                        onchange={handleSubtableSingleSelection}></lightning-input>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="Sarah Manning">
+                                                    <p class="body-text">Sarah Manning</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="Tue">
+                                                    <p class="body-text">Tue</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="7.5">
+                                                    <p class="body-text">7.5</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate">
+                                                    <lightning-button variant="brand" label="Approve"
+                                                        class="slds-p-horizontal_xx-small"
+                                                        onclick={openEndorseApprovalModalBox}></lightning-button>
+                                                    <lightning-button variant="brand" label="Reject"
+                                                        class="slds-p-horizontal_xx-small"
+                                                        onclick={openRejectModalBox}></lightning-button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="body__row">
+                                            <td class="flex__row slds-truncate checkbox__column">
+                                                <div class="checkbox__container">
+                                                    <lightning-input variant="label-hidden" label="Select"
+                                                        type="checkbox" data-role="sub"
+                                                        onchange={handleSubtableSingleSelection}></lightning-input>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="Sarah Manning">
+                                                    <p class="body-text">Sarah Manning</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="Wed">
+                                                    <p class="body-text">Wed</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="7.5">
+                                                    <p class="body-text">7.5</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate">
+                                                    <lightning-button variant="brand" label="Approve"
+                                                        class="slds-p-horizontal_xx-small"
+                                                        onclick={openEndorseApprovalModalBox}></lightning-button>
+                                                    <lightning-button variant="brand" label="Reject"
+                                                        class="slds-p-horizontal_xx-small"
+                                                        onclick={openRejectModalBox}></lightning-button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="body__row">
+                                            <td class="flex__row slds-truncate checkbox__column">
+                                                <div class="checkbox__container">
+                                                    <lightning-input variant="label-hidden" label="Select"
+                                                        type="checkbox" data-role="sub"
+                                                        onchange={handleSubtableSingleSelection}></lightning-input>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="Sarah Manning">
+                                                    <p class="body-text">Sarah Manning</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="Thu">
+                                                    <p class="body-text">Thu</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="7.5">
+                                                    <p class="body-text">7.5</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate">
+                                                    <lightning-button variant="brand" label="Approve"
+                                                        class="slds-p-horizontal_xx-small"
+                                                        onclick={openEndorseApprovalModalBox}></lightning-button>
+                                                    <lightning-button variant="brand" label="Reject"
+                                                        class="slds-p-horizontal_xx-small"
+                                                        onclick={openRejectModalBox}></lightning-button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="body__row">
+                                            <td class="flex__row slds-truncate checkbox__column">
+                                                <div class="checkbox__container">
+                                                    <lightning-input variant="label-hidden" label="Select"
+                                                        type="checkbox" data-role="sub"
+                                                        onchange={handleSubtableSingleSelection}></lightning-input>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="Sarah Manning">
+                                                    <p class="body-text">Sarah Manning</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="Fri">
+                                                    <p class="body-text">Fri</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="7.5">
+                                                    <p class="body-text">7.5</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate">
+                                                    <lightning-button variant="brand" label="Approve"
+                                                        class="slds-p-horizontal_xx-small"
+                                                        onclick={openEndorseApprovalModalBox}></lightning-button>
+                                                    <lightning-button variant="brand" label="Reject"
+                                                        class="slds-p-horizontal_xx-small"
+                                                        onclick={openRejectModalBox}></lightning-button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="body__row">
+                                            <td class="flex__row slds-truncate checkbox__column">
+                                                <div class="checkbox__container">
+                                                    <lightning-input variant="label-hidden" label="Select"
+                                                        type="checkbox" data-role="sub"
+                                                        onchange={handleSubtableSingleSelection}></lightning-input>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="Sarah Manning">
+                                                    <p class="body-text">Sarah Manning</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="Sat">
+                                                    <p class="body-text">Sat</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="7.5">
+                                                    <p class="body-text">7.5</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate">
+                                                    <lightning-button variant="brand" label="Approve"
+                                                        class="slds-p-horizontal_xx-small"
+                                                        onclick={openEndorseApprovalModalBox}></lightning-button>
+                                                    <lightning-button variant="brand" label="Reject"
+                                                        class="slds-p-horizontal_xx-small"
+                                                        onclick={openRejectModalBox}></lightning-button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="body__row">
+                                            <td class="flex__row slds-truncate checkbox__column">
+                                                <div class="checkbox__container">
+                                                    <lightning-input variant="label-hidden" label="Select"
+                                                        type="checkbox" data-role="sub"
+                                                        onchange={handleSubtableSingleSelection}></lightning-input>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="Sarah Manning">
+                                                    <p class="body-text">Sarah Manning</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="Sun">
+                                                    <p class="body-text">Sun</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="7.5">
+                                                    <p class="body-text">7.5</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate">
+                                                    <lightning-button variant="brand" label="Approve"
+                                                        class="slds-p-horizontal_xx-small"
+                                                        onclick={openEndorseApprovalModalBox}></lightning-button>
+                                                    <lightning-button variant="brand" label="Reject"
+                                                        class="slds-p-horizontal_xx-small"
+                                                        onclick={openRejectModalBox}></lightning-button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="body__row">
+                                            <td class="flex__row slds-truncate checkbox__column">
+                                                <div class="checkbox__container">
+                                                    <lightning-input variant="label-hidden" label="Select"
+                                                        type="checkbox" data-role="sub"
+                                                        onchange={handleSubtableSingleSelection}></lightning-input>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="Sarah Manning">
+                                                    <p class="body-text">Sarah Manning</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="Total">
+                                                    <p class="body-text">Total</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="">
+                                                    <p class="body-text"></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" title="7.5">
+                                                    <p class="body-text">7.5</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate">
+                                                    <lightning-button variant="brand" label="Approve"
+                                                        class="slds-p-horizontal_xx-small"
+                                                        onclick={openEndorseApprovalModalBox}></lightning-button>
+                                                    <lightning-button variant="brand" label="Reject"
+                                                        class="slds-p-horizontal_xx-small"
+                                                        onclick={openRejectModalBox}></lightning-button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>-->
+                        <!--<tr class="body__row">
+                            <td class="flex__row slds-truncate checkbox__column">
+                                <div class="checkbox__container">
+                                    <lightning-input variant="label-hidden" label="Select" type="checkbox"
+                                        data-role="main" onchange={handleSingleSelection}></lightning-input>
+                                </div>
+                                <div class="caret-container">
+                                    <!- -<img alt="Toggle detailed view"
+                                        onclick={toggleSubTableShow}
+                                        class="slds-var-p-left_medium clickable__element caret"
+                                        src={primaryAnchorCaretOpen} />- ->
+                                    <img alt="Toggle detailed view" onclick={toggleSubTableShow}
+                                        class="slds-var-p-left_medium clickable__element caret"
+                                        src={primaryAnchorCaret} />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="Bethan Jones">
+                                    <p class="body-text">Bethan Jones</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="17-Mar">
+                                    <p class="body-text">17-Mar</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="7.5">
+                                    <p class="body-text">7.5</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="7.5">
+                                    <p class="body-text">7.5</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="6">
+                                    <p class="body-text">6</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="6">
+                                    <p class="body-text">6</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="6">
+                                    <p class="body-text">6</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="6">
+                                    <p class="body-text">6</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="">
+                                    <p class="body-text"></p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="34.5">
+                                    <p class="body-text">34.5</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate">
+                                    <lightning-button variant="brand" label="Approve" class="slds-p-horizontal_xx-small"
+                                        onclick={openEndorseApprovalModalBox}></lightning-button>
+                                    <lightning-button variant="brand" label="Reject" class="slds-p-horizontal_xx-small"
+                                        onclick={openRejectModalBox}></lightning-button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="body__row">
+                            <td class="flex__row slds-truncate checkbox__column">
+                                <div class="checkbox__container">
+                                    <lightning-input variant="label-hidden" label="Select" type="checkbox"
+                                        data-role="main" onchange={handleSingleSelection}></lightning-input>
+                                </div>
+                                <div class="caret-container">
+                                    <!- -<img alt="Toggle detailed view"
+                                        onclick={toggleSubTableShow}
+                                        class="slds-var-p-left_medium clickable__element caret"
+                                        src={primaryAnchorCaretOpen} />- ->
+                                    <img alt="Toggle detailed view" onclick={toggleSubTableShow}
+                                        class="slds-var-p-left_medium clickable__element caret"
+                                        src={primaryAnchorCaret} />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="Max Andrews">
+                                    <p class="body-text">Max Andrews</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="17-Mar">
+                                    <p class="body-text">17-Mar</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="7.5">
+                                    <p class="body-text">7.5</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="7.5">
+                                    <p class="body-text">7.5</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="6">
+                                    <p class="body-text">6</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="7.5">
+                                    <p class="body-text">7.5</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="7.5">
+                                    <p class="body-text">7.5</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="">
+                                    <p class="body-text"></p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="">
+                                    <p class="body-text"></p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="37.5">
+                                    <p class="body-text">37.5</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate">
+                                    <lightning-button variant="brand" label="Approve" class="slds-p-horizontal_xx-small"
+                                        onclick={openEndorseApprovalModalBox}></lightning-button>
+                                    <lightning-button variant="brand" label="Reject" class="slds-p-horizontal_xx-small"
+                                        onclick={openRejectModalBox}></lightning-button>
+                                </div>
+                            </td>
+                        </tr>-->
+                    </tbody>
+                </table>
+            </template>
+        </div>
+        <div class="table__footer__actionbar">
+            <div class=" slds-grid slds-var-p-horizontal_medium slds-var-p-vertical_small flex__row">
+                <div class="slds-grid small__gap flex__row">
+                    <lightning-button variant="brand" label="Approve All" class="slds-grid_vertical-align-center"
+                        onclick={openEndorseApprovalModalBox}>
+                    </lightning-button>
+                    <lightning-button variant="brand" label="Reject All" class="slds-grid_vertical-align-center"
+                        onclick={openRejectModalBox}>
+                    </lightning-button>
+
+                </div>
+                <template if:true={hasRecords}>
+                    <c-portal-v2-pagination totalrecords={numberOfRecords} onpageselected={handlePageSelected}>
+                    </c-portal-v2-pagination>
+                </template>
+            </div>
+
+
+        </div>
+    </div>
+</template>

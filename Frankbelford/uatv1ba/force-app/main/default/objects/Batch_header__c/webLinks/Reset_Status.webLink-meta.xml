@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reset_Status</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Reset Status</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/apex.js&quot;)}
+
+var result = sforce.connection.query(&quot;SELECT id,IP_State__c,IP_Status__c,IP_ErrorReason__c,IP_LinkField4__c,IP_LinkField2__c FROM IP_BatchLine__c WHERE IP_BatchHeader__c = &apos;{!Batch_header__c.Id }&apos; and IP_Status__c =&apos;Errored&apos; Limit 200&quot;);
+
+var result1 = sforce.connection.query(&quot;SELECT id,IP_BatchType__c FROM Batch_header__c WHERE id = &apos;{!Batch_header__c.Id }&apos; and IP_Status__c =&apos;Errored&apos;&quot;);
+
+
+records = result.getArray(&quot;records&quot;);
+records1 = result1.getArray(&quot;records&quot;);
+
+var type = &apos;{!Batch_header__c.IP_BatchType__c}&apos;;
+
+var updatecertRecord = new Array();
+var idsForDeletion = [];
+for (i=0; i &lt; records.length ; i++)
+{
+var child = records[i];
+child.IP_Status__c=&quot;Open&quot;;
+child.IP_ErrorReason__c=null;
+updatecertRecord.push(child);
+if((records[i].IP_LinkField4__c != null || records[i].IP_LinkField4__c != &apos;&apos;) &amp;&amp; (records[i].IP_LinkField2__c == null || records[i].IP_LinkField2__c == &apos;&apos;))
+idsForDeletion.push(records[i].IP_LinkField4__c);
+}
+result = sforce.connection.update(updatecertRecord);
+if(type == &apos;Capita&apos;)
+{
+if(idsForDeletion[0] != null &amp;&amp; idsForDeletion.length&gt;=1)
+{
+
+sforce.connection.deleteIds(idsForDeletion);
+}
+var apexClassArray= sforce.connection.query(&quot;SELECT Id FROM ApexClass WHERE Name =&apos;CapitaBatchHeaderclass&apos;&quot;);
+
+recordsclassid= apexClassArray.getArray(&quot;records&quot;);
+
+var checkBatchRunningRecords= sforce.connection.query(&quot;SELECT ApexClassId, status FROM AsyncApexJob WHERE ApexClassId =&apos;&quot;+recordsclassid[0].Id+&quot;&apos; AND Status NOT IN (&apos;Completed&apos;,&apos;Aborted&apos;,&apos;Failed&apos;)&quot;);
+
+records= checkBatchRunningRecords.getArray(&quot;records&quot;);
+
+if(records.length&gt;0){
+window.alert(&quot;The batch job is currently executing. Please wait for it to complete.&quot;);
+}
+else{
+window.alert(&apos;The Integration batch job has started.&apos;);
+var batchid=sforce.apex.execute(&quot;WebserviceclassCapita&quot;,&quot;Capitabatch&quot;,{});
+
+}
+}
+if(type == &apos;Netive&apos;)
+{
+var apexClassArray= sforce.connection.query(&quot;SELECT Id FROM ApexClass WHERE Name =&apos;NetiveBatchHeaderclass&apos;&quot;);
+
+recordsclassid= apexClassArray.getArray(&quot;records&quot;);
+
+var checkBatchRunningRecords= sforce.connection.query(&quot;SELECT ApexClassId, status FROM AsyncApexJob WHERE ApexClassId =&apos;&quot;+recordsclassid[0].Id+&quot;&apos; AND Status NOT IN (&apos;Completed&apos;,&apos;Aborted&apos;,&apos;Failed&apos;)&quot;);
+
+records= checkBatchRunningRecords.getArray(&quot;records&quot;);
+
+if(records.length&gt;0){
+window.alert(&quot;The batch job is currently executing. Please wait for it to complete.&quot;);
+}
+else{
+window.alert(&apos;The Integration batch job has started.&apos;);
+var batchid=sforce.apex.execute(&quot;WebserviceclassCapita&quot;,&quot;Netivebatch&quot;,{});
+}
+}
+if(type == &apos;Site Update&apos;)
+{
+var apexClassArray= sforce.connection.query(&quot;SELECT Id FROM ApexClass WHERE Name =&apos;SiteB2FUpdate&apos;&quot;);
+
+recordsclassid= apexClassArray.getArray(&quot;records&quot;);
+
+var checkBatchRunningRecords= sforce.connection.query(&quot;SELECT ApexClassId, status FROM AsyncApexJob WHERE ApexClassId =&apos;&quot;+recordsclassid[0].Id+&quot;&apos; AND Status NOT IN (&apos;Completed&apos;,&apos;Aborted&apos;,&apos;Failed&apos;)&quot;);
+
+records= checkBatchRunningRecords.getArray(&quot;records&quot;);
+
+if(records.length&gt;0){
+window.alert(&quot;The batch job is currently executing. Please wait for it to complete.&quot;);
+}
+else{
+window.alert(&apos;The Integration batch job has started.&apos;);
+var batchid=sforce.apex.execute(&quot;WebserviceclassCapita&quot;,&quot;SiteUpdatebatch&quot;,{});
+}
+}
+if(type == &apos;Topaz Global Account&apos;)
+{
+var apexClassArray= sforce.connection.query(&quot;SELECT Id FROM ApexClass WHERE Name =&apos;TopazGlobalB2FUpdate&apos;&quot;);
+
+recordsclassid= apexClassArray.getArray(&quot;records&quot;);
+
+var checkBatchRunningRecords= sforce.connection.query(&quot;SELECT ApexClassId, status FROM AsyncApexJob WHERE ApexClassId =&apos;&quot;+recordsclassid[0].Id+&quot;&apos; AND Status NOT IN (&apos;Completed&apos;,&apos;Aborted&apos;,&apos;Failed&apos;)&quot;);
+
+records= checkBatchRunningRecords.getArray(&quot;records&quot;);
+
+if(records.length&gt;0){
+window.alert(&quot;The batch job is currently executing. Please wait for it to complete.&quot;);
+}
+else{
+window.alert(&apos;The Integration batch job has started.&apos;);
+var batchid=sforce.apex.execute(&quot;WebserviceclassCapita&quot;,&quot;TopazUpdatebatch&quot;,{});
+}
+}
+if(type == &apos;Ltd Co Pay Profile&apos;)
+{
+var apexClassArray= sforce.connection.query(&quot;SELECT Id FROM ApexClass WHERE Name =&apos;LTDpayprofileB2FUpdate&apos;&quot;);
+
+recordsclassid= apexClassArray.getArray(&quot;records&quot;);
+
+var checkBatchRunningRecords= sforce.connection.query(&quot;SELECT ApexClassId, status FROM AsyncApexJob WHERE ApexClassId =&apos;&quot;+recordsclassid[0].Id+&quot;&apos; AND Status NOT IN (&apos;Completed&apos;,&apos;Aborted&apos;,&apos;Failed&apos;)&quot;);
+
+records= checkBatchRunningRecords.getArray(&quot;records&quot;);
+
+if(records.length&gt;0){
+window.alert(&quot;The batch job is currently executing. Please wait for it to complete.&quot;);
+}
+else{
+window.alert(&apos;The Integration batch job has started.&apos;);
+var batchid=sforce.apex.execute(&quot;WebserviceclassCapita&quot;,&quot;LTDCompanyUpdatebatch&quot;,{});
+}
+}
+if(type == &apos;Perm Placement&apos;)
+{
+var apexClassArray= sforce.connection.query(&quot;SELECT Id FROM ApexClass WHERE Name =&apos;permplacementB2FUpdate&apos;&quot;);
+
+recordsclassid= apexClassArray.getArray(&quot;records&quot;);
+
+var checkBatchRunningRecords= sforce.connection.query(&quot;SELECT ApexClassId, status FROM AsyncApexJob WHERE ApexClassId =&apos;&quot;+recordsclassid[0].Id+&quot;&apos; AND Status NOT IN (&apos;Completed&apos;,&apos;Aborted&apos;,&apos;Failed&apos;)&quot;);
+
+records= checkBatchRunningRecords.getArray(&quot;records&quot;);
+
+if(records.length&gt;0){
+window.alert(&quot;The batch job is currently executing. Please wait for it to complete.&quot;);
+}
+else{
+window.alert(&apos;The Integration batch job has started.&apos;);
+var batchid=sforce.apex.execute(&quot;WebserviceclassCapita&quot;,&quot;PlacementUpdatebatch&quot;,{});
+}
+}
+if(type == &apos;Ltd Co Pay Profile&apos;)
+{
+var apexClassArray= sforce.connection.query(&quot;SELECT Id FROM ApexClass WHERE Name =&apos;LTDpayprofileB2FUpdate&apos;&quot;);
+
+recordsclassid= apexClassArray.getArray(&quot;records&quot;);
+
+var checkBatchRunningRecords= sforce.connection.query(&quot;SELECT ApexClassId, status FROM AsyncApexJob WHERE ApexClassId =&apos;&quot;+recordsclassid[0].Id+&quot;&apos; AND Status NOT IN (&apos;Completed&apos;,&apos;Aborted&apos;,&apos;Failed&apos;)&quot;);
+
+records= checkBatchRunningRecords.getArray(&quot;records&quot;);
+
+if(records.length&gt;0){
+window.alert(&quot;The batch job is currently executing. Please wait for it to complete.&quot;);
+}
+else{
+window.alert(&apos;The Integration batch job has started.&apos;);
+var batchid=sforce.apex.execute(&quot;WebserviceclassCapita&quot;,&quot;LTDCompanyUpdatebatch&quot;,{});
+}
+}
+if(type == &apos;Umbrella Company&apos;)
+{
+var apexClassArray= sforce.connection.query(&quot;SELECT Id FROM ApexClass WHERE Name =&apos;UmbrellaListB2FUpdate&apos;&quot;);
+
+recordsclassid= apexClassArray.getArray(&quot;records&quot;);
+
+var checkBatchRunningRecords= sforce.connection.query(&quot;SELECT ApexClassId, status FROM AsyncApexJob WHERE ApexClassId =&apos;&quot;+recordsclassid[0].Id+&quot;&apos; AND Status NOT IN (&apos;Completed&apos;,&apos;Aborted&apos;,&apos;Failed&apos;)&quot;);
+
+records= checkBatchRunningRecords.getArray(&quot;records&quot;);
+
+if(records.length&gt;0){
+window.alert(&quot;The batch job is currently executing. Please wait for it to complete.&quot;);
+}
+else{
+window.alert(&apos;The Integration batch job has started.&apos;);
+var batchid=sforce.apex.execute(&quot;WebserviceclassCapita&quot;,&quot;UmbrellaListUpdatebatch&quot;,{});
+}
+}
+
+location.reload(true);</url>
+</WebLink>

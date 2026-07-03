@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>National_Insurance_Validation</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF(RecordType.DeveloperName==&apos;PAYE&apos;,
+   ISBLANK(IP_Candidate__r.sirenum__National_Insurance__c),
+ISBLANK(IP_Candidate__r.Birthdate) ||  ISBLANK(TEXT(IP_Candidate__r.ts2__EEO_Gender__c))
+)</errorConditionFormula>
+    <errorDisplayField>IP_BankAccountName__c</errorDisplayField>
+    <errorMessage>On Candidate Page - National Insurance Required If Date of Birth &amp; Gender is blank</errorMessage>
+</ValidationRule>

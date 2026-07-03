@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lab_Technician_Candidates</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>sirenum__General_Comments__c</columns>
+    <columns>CONTACT.ADDRESS2_CITY</columns>
+    <columns>CONTACT.LAST_UPDATE</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CONTACT.ADDRESS2_ZIP</columns>
+    <columns>ts2__Current_Salary__c</columns>
+    <columns>ts2__Desired_Salary__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.ts2__Candidate</value>
+    </filters>
+    <filters>
+        <field>sirenum__General_Comments__c</field>
+        <operation>contains</operation>
+        <value>part time - Leamington Spa</value>
+    </filters>
+    <label>Part Time - Leamington Spa</label>
+    <sharedTo>
+        <role>MGG</role>
+    </sharedTo>
+</ListView>

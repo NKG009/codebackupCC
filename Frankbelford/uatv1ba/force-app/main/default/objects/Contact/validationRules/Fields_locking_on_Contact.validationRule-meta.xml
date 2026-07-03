@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fields_locking_on_Contact</fullName>
+    <active>true</active>
+    <errorConditionFormula>IP_Link_Payprofile__c&gt;0 &amp;&amp; OR(ISCHANGED( IP_CandidateIDlegacy__c ),
+
+ISCHANGED( IP_WorkerStartDate__c))</errorConditionFormula>
+    <errorMessage>Once the profile has been passed to tempest, the fields Candidate Legacy id and Worker Start Date cannot be modified.</errorMessage>
+</ValidationRule>

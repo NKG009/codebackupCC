@@ -1,0 +1,11 @@
+.THIS .titlecolor{
+    color : #1B5297;
+}
+.THIS.slds-modal__container{
+ max-width: 120px !important;
+ width:120px !important;
+}
+.THIS .modal-body .scrollable .slds-modal__content .slds-p-around--medium{
+    max-width: 90rem !important;
+    width:120% !important;    
+}

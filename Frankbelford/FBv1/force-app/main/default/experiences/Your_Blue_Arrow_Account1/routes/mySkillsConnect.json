@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "5b7399e6-d3ef-4b16-9c6d-89d2d56e4f9f",
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "configurationTags" : [ ],
+  "devName" : "My_Skills_Connect__c",
+  "id" : "e17e6dbf-ce50-46dc-83d0-906936c4532d",
+  "label" : "My Skills Connect",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-my-skills-connect",
+  "type" : "route",
+  "urlPrefix" : "my-skills-connect"
+}

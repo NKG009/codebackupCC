@@ -1,0 +1,63 @@
+@import "c/portalV2CSSLibrary";
+
+.parent-grid-container {
+  display: grid;
+
+  --grid-layout-gap: 0.5em;
+  --grid-column-count: 1;
+  --grid-item--min-width: 100%;
+  /*
+  Calculated values.
+ */
+  --gap-count: calc(var(--grid-column-count) - 1);
+  --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+  --grid-item--max-width: calc(
+    (100% - var(--total-gap-width)) / var(--grid-column-count)
+  );
+
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr)
+  );
+  grid-gap: var(--grid-layout-gap);
+}
+
+@media only screen and (min-width: 1025px) {
+  .parent-grid-container {
+    display: grid;
+
+    --grid-layout-gap: 0.5em;
+    --grid-column-count: 2;
+    --grid-item--min-width: 25%;
+    /*
+    Calculated values.
+   */
+    --gap-count: calc(var(--grid-column-count) - 1);
+    --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+    --grid-item--max-width: calc(
+      (100% - var(--total-gap-width)) / var(--grid-column-count)
+    );
+
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr)
+    );
+    grid-gap: var(--grid-layout-gap);
+  }
+}
+.full-tile {
+  grid-column: 1 / 3;
+}
+
+.no-results {
+  position: relative;
+  height: 85vh;
+}
+
+.no-results > h1 {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5em;
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ikea</fullName>
+    <columns>NAME</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>IP_Status__c</columns>
+    <columns>IP_State__c</columns>
+    <columns>IP_CountOfBatchLines__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IP_BatchType__c</field>
+        <operation>contains</operation>
+        <value>Ikea</value>
+    </filters>
+    <label>Ikea</label>
+    <language>en_US</language>
+</ListView>

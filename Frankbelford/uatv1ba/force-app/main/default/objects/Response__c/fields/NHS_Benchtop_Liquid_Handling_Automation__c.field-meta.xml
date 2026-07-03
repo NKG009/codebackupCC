@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NHS_Benchtop_Liquid_Handling_Automation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Do you have experience with benchtop liquid handling automation? (for example Biomek systems, electronic multichannel pipetting systems, multidrops, etc.)</inlineHelpText>
+    <label>Benchtop liquid handling</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

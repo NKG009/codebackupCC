@@ -1,0 +1,38 @@
+{
+  "appPageId" : "e6abc42f-f104-4cbd-ae27-deb95cc78588",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "6804f5bf-85c1-4a22-bd2c-6588d056a3f6",
+  "label" : "NewBookedTemps",
+  "regions" : [ {
+    "id" : "73f32952-aea1-4db2-abb7-252aa5b4b73a",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "cd5ef49a-979f-4e76-a09c-00198dffc904",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "8c38bf58-d679-42ed-9f13-434482949797",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "NewBookedTemps"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "8e7aa02d-6c69-44e6-871a-242522ddc17c",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5b9d16fb-a080-4738-855b-31c37c90c67f",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "rnRnJlcNfnMiallAumEqJpTPCw26gn",
+  "type" : "view",
+  "viewType" : "custom-newbookedtemps"
+}

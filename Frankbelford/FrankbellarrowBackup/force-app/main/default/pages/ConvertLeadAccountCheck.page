@@ -1,0 +1,84 @@
+<apex:page standardController="jsinq__Inquiry__c" extensions="ConvertLeadAccountCheckController" standardStylesheets="true">
+    <script type="text/javascript">
+        function convertselectedaccount(){
+            var checkboxes = document.getElementsByClassName('myChk');
+            var count = 0;
+            for(var i=0; i<checkboxes.length; i++){
+                if(checkboxes[i].checked == true){
+                    count++;
+                }
+            }           
+            if(count==0){
+                alert('Please select an existing account.');
+            }
+            else{
+                callconverttoselectedaccount();
+            }
+        }
+        
+        function convertnewaccount(){
+            var checkboxes = document.getElementsByClassName('myChk');
+            var count = 0;
+            for(var i=0; i<checkboxes.length; i++){
+                if(checkboxes[i].checked == true){
+                    count++;
+                }
+            }
+            if(count>0){
+                alert('Please unselect existing account.');
+            }
+            else{
+                callconverttonewaccount();
+            }
+        }
+        
+        function allowOnePrimary(checkbox){
+            var checkboxes = document.getElementsByClassName('myChk');
+            var count = 0;
+            for(var i=0; i<checkboxes.length; i++){
+                if(checkboxes[i].checked == true){
+                    checkboxes.checked = false;
+                    count++;
+                }
+            }
+            if(count>1){
+                alert('Please select only one account.');
+                checkbox.checked = false;
+            }
+        }
+        function redirectToInquiry(inquiryId){
+            var url = "/"+inquiryid;
+            window.open(url, '_self');  
+        }
+    </script>
+    <apex:form >
+        <apex:pageMessages id="showmsg"></apex:pageMessages>
+        <apex:actionfunction name="callconverttonewaccount" action="{!ConvertToNewAccount}" rerender="showmsg"/>
+        <apex:actionfunction name="callconverttoselectedaccount" action="{!ConvertToSelectedAccount}" rerender="none"/>
+        <apex:pageBlock title="Convert Lead - Account Check">
+            <apex:pageBlockButtons >
+                <apex:commandButton onclick="convertselectedaccount();" value="Convert to Selected Account" id="ConvertSelAccount"/>
+                <apex:commandButton value="Convert to New Account" id="ConvertNewAccount" onclick="convertnewaccount();" oncomplete="redirectToInquiry('{!inquiryId}');"/>
+                <apex:commandButton action="{!Cancel}" value="Cancel" id="Cancel" />
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection title="Convert to Existing Account" columns="2">
+                <apex:outputPanel layout="block" style="overflow:scroll;width:750px;height:318px" >
+                    <apex:pageBlockTable value="{!wrapAccountList}" var="accWrap" id="table">
+                        <apex:column >
+                            <apex:inputCheckbox value="{!accWrap.selected}" id="inputId" styleClass="myChk" onClick="allowOnePrimary(this);"/>
+                        </apex:column>
+                        <apex:column headerValue="Account Name">
+                            <apex:outputLink value="/{!accWrap.acc.Id}" target="_blank">{!accWrap.acc.Name}</apex:outputLink>
+                        </apex:column>
+                        <apex:column value="{!accWrap.acc.ts2__Status__c}" />
+                        <apex:column headerValue="Owner">
+                            <apex:outputLink value="/{!accWrap.acc.OwnerId}" target="_blank">{!accWrap.acc.Owner.Name}</apex:outputLink>
+                        </apex:column>
+                        <apex:column value="{!accWrap.acc.LastModifiedDate}" />
+                    </apex:pageBlockTable>
+                </apex:OutputPanel>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GLAA__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Has the account got a Gangmasters and Labour Abuse Authority licence?</inlineHelpText>
+    <label>GLAA Licence</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

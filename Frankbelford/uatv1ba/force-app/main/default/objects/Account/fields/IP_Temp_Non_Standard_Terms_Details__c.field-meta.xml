@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IP_Temp_Non_Standard_Terms_Details__c</fullName>
+    <inlineHelpText>If you have signed non-standard temp terms &amp; conditions with the Client please provide the details.</inlineHelpText>
+    <label>Temp Non-Standard Terms Details</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

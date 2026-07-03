@@ -1,0 +1,9 @@
+@import "c/portalV2MyShiftsCSSLibrary";
+@import "c/portalV2CSSLibrary";
+
+.caret-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}

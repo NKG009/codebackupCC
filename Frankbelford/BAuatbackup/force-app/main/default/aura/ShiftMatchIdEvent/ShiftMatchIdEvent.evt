@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Event template"  >
+    <aura:attribute name="record" type="Id"/>
+    <aura:attribute name="select" type="boolean"/>
+</aura:event>

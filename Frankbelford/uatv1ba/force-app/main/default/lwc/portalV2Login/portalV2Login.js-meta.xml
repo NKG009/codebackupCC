@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Portal V2 - Login</masterLabel>
+    <targets>
+      <target>lightningCommunity__Default</target>
+      <target>lightningCommunity__Page</target>
+  </targets>
+  <targetConfigs>
+      <targetConfig targets="lightningCommunity__Default">
+          <property
+        name="emailLabel"
+        type="String"
+        label="Email field label"
+        default="Email"
+      />
+      <property
+        name="passwordLabel"
+        type="String"
+        label="Password field label"
+        default="Password"
+      />
+      <property
+        name="emailErrorMessage"
+        type="String"
+        label="Email empty error message"
+        default="Please enter your username."
+      />
+      <property
+        name="passwordErrorMessage"
+        type="String"
+        label="Password empty error message"
+        default="Please enter your password."
+      />
+      <property
+        name="emailAndPasswordDontMatchMessage"
+        type="String"
+        label="Email and password mismatch error message"
+        default="Your username and password do not match. Please try  again."
+      />
+      </targetConfig>
+  </targetConfigs>
+  </LightningComponentBundle>

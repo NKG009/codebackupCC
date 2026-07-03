@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Candidate_Parent</fullName>
+    <active>true</active>
+    <description>Sets dependencies for the Candidate Parent relationship.</description>
+    <errorConditionFormula>(ISBLANK(ParentID__c) &amp;&amp; NOT(ISBLANK( CandidateParentRecord__c))) ||
+
+(NOT(ISBLANK(ParentID__c)) &amp;&amp; ISBLANK( CandidateParentRecord__c))</errorConditionFormula>
+    <errorDisplayField>ParentID__c</errorDisplayField>
+    <errorMessage>If &apos;Candidate Parent ID&apos; or &apos;Candidate Parent Name&apos; are set, then both fields need to be defined.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,10 @@
+<!--
+ - Created by mrahman on 2020-08-21.
+ -->
+
+<design:component>
+    <design:attribute name="status" label="Job Order Status" description="Provide status i.e Ongoing/Complete"/>
+    
+    <!--<design:attribute name="prefe_columns" label="Enter Column label, name and data type to display" description="Enter in JSON format for example, { label: 'Job Order Name', fieldName: 'Name', type: 'text'}, { label: 'Phone', fieldName: 'Phone', type: 'phone'}"/>-->
+
+</design:component>

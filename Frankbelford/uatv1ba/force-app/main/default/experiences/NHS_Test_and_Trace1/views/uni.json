@@ -1,0 +1,59 @@
+{
+  "appPageId" : "d48b4238-eff5-4eb1-9146-c2af07eacb59",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "8643d8fe-1d81-4824-a92b-86f9a792ca36",
+  "label" : "Uni",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" src=\"{!contentAsset.NHS_Test_and_Trace_logo_L_Blue.1}\" style=\"width: 299.438px; height: 117.609px;\" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img class=\"sfdcCbImage\" src=\"{!contentAsset.HMGovernment.1}\" style=\"width: 401.531px; height: 146.797px;\" /></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "ec2efddc-6ba1-4437-8658-2564439c1136",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3a04732b-f83a-4426-8e89-087d043f603e",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "NHS_Pre_Screener_Uni"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "8cd6b4ed-fb5f-4c3d-af66-9c4085ef470b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "011c21da-7003-43e5-a00b-d31794b32f3d",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "9a24874b-5724-4d87-9c2d-0c9b4a57b4b4",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Uni"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "f085d441-2435-4ece-af0b-1f2b5c34b8dd",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6dd20896-0671-4146-bff6-2b49d60e33c4",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-uni"
+}

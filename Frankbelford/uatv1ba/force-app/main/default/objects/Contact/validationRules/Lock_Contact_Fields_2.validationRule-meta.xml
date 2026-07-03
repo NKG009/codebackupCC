@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lock_Contact_Fields_2</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF( Sync_Pay_Profile__c ==True&amp;&amp; Sync_Pay_Profile2__c ==True,
+IF(ISCHANGED( IP_NewStartTaxStatus__c )||
+ISCHANGED( IP_StudentLoan__c )||
+ISCHANGED( IP_WorkerStartDate__c)||
+ISCHANGED( IP_NewStartTaxStatus__c)||
+ISCHANGED( IP_StudentLoan__c)
+
+,True,False)
+,False)</errorConditionFormula>
+    <errorMessage>This can not be changed</errorMessage>
+</ValidationRule>

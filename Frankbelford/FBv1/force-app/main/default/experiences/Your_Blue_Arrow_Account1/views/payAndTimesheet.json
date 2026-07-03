@@ -1,0 +1,69 @@
+{
+  "appPageId" : "9be16a2d-6d75-4b50-9430-4385ac0314c4",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "ed9b54a6-60cd-482b-b85d-7b50e95a0218",
+  "label" : "Pay and Timesheet",
+  "regions" : [ {
+    "id" : "ade65665-4cc4-47f8-b92c-c2cd3949b6af",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "bannerBackgroundColor" : "rgb(0, 170, 227)",
+        "bannerPosition" : "bottom",
+        "bannerSizePercent" : 20,
+        "borderRadius" : 10,
+        "haveBanner" : false,
+        "iconBackgroundColor" : "rgb(255,255,255)",
+        "iconSize" : "large",
+        "noImageColor" : "rgb(212, 212, 212)",
+        "overlay" : "rgba(0,0,0,0.01)",
+        "templateType" : "icon",
+        "tileMenuEditor" : "Pay_and_Timesheets_Tiles",
+        "titleColor" : "",
+        "titleFontSize" : "large",
+        "titleHorizontalAlign" : "center"
+      },
+      "componentName" : "community_navigation:tileMenu",
+      "id" : "4584b494-507a-499f-8789-7940730d667c",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e0d3de5a-08e3-4bd5-a49a-d974f0f7422f",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "10f626b3-7065-4b30-b695-7bb33821c102",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Pay and Timesheet"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "84f49fc0-66e0-4ff2-97ca-7fbf8c4ab4ac",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7c058857-b5c9-4aa5-8c14-37b0cfd97ddc",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "id" : "00d66fa4-62d0-4304-9260-7b868a3625c5",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "b6cd93b0-3da0-49ee-bd2c-c41ea8e4a701",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-pay-and-timesheet"
+}
