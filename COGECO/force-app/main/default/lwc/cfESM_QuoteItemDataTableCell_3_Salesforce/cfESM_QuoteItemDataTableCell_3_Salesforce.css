@@ -1,0 +1,21 @@
+.b2b-cell-width{
+    width: 12.5rem;
+}
+.b2b-width{
+    width: auto;
+}
+.b2b-cell-display{
+    display: contents;
+}
+.b2b-cell-padding{
+    padding-bottom: inherit;
+    padding-block: inherit;
+    margin-block: auto;
+}
+.esm-bullet-point{
+    width: 12px;
+    margin-top: -3px;
+}
+.esm_fit_content{
+    width: fit-content !important;
+}

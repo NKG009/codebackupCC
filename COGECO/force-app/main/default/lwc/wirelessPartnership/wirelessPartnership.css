@@ -1,0 +1,68 @@
+.partnership-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, #3a3f4a, #2f3440);
+    padding: 30px 40px;
+    box-sizing: border-box;
+    color: white;
+    width: 100%;
+    gap: 40px;
+}
+
+.logo-left,
+.logo-right {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo-left .partner-logo {
+    max-height: 90px; /* Cogeco logo */
+}
+
+.logo-right .partner-logo {
+    max-height: 70px; /* Breezeline logo */
+}
+
+.title-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.partnership-title {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 2px;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .partnership-container {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .logo-left,
+    .logo-right {
+        justify-content: center;
+    }
+
+    .logo-left .partner-logo {
+        max-height: 70px; /* Cogeco on mobile */
+    }
+
+    .logo-right .partner-logo {
+        max-height: 60px; /* Breezeline on mobile */
+    }
+
+    .partnership-title {
+        font-size: 26px;
+    }
+}

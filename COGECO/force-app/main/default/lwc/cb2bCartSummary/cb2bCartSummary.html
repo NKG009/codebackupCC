@@ -1,0 +1,49 @@
+<template>
+    <vlocity_cmt-b2b-cart-summary name-list={nList}>
+        <div slot="action" style="display: flex; flex: 1">
+            <div class="slds-grid slds-grid_vertical-align-center slds-grid_align-end" style="justify-content: flex-end; flex: 1">
+                <div class="slds-large-order_1 slds-grid slds-grid_align-center slds-wrap">
+                    <div class="slds-m-left_medium">
+                        <vlocity_cmt-b2b-button theme="slds" variant="neutral" label={labels.addProductsLabel}
+                            icon-name="utility:add" icon-size="x-small" onclick={addProduct}>
+                        </vlocity_cmt-b2b-button>
+                    </div>
+ 
+                     <div class="slds-m-left_medium">
+                        <vlocity_cmt-b2b-button theme="slds" variant="neutral" label={labels.discountsAndPromotionsLabel}
+                            icon-size="x-small" onclick={toggleDiscountPanel}>
+                        </vlocity_cmt-b2b-button>
+                     </div>
+               
+                     <div class="slds-m-left_medium">
+                        <vlocity_cmt-b2b-button theme="slds" variant="neutral" label={labels.createOrdersLabel}
+                            icon-size="x-small" onclick={createOrder}>
+                        </vlocity_cmt-b2b-button>
+                     </div>
+                     <div class="slds-m-left_medium">
+                        <vlocity_cmt-b2b-button theme="slds" variant="neutral" label={labels.viewRecordLabel} icon-size="x-small"
+                            onclick={navigateToQuote}>
+                        </vlocity_cmt-b2b-button>
+                     </div>
+                     <div class="slds-m-left_medium">
+                        <vlocity_cmt-b2b-button theme="slds" variant="neutral" label={labels.cloneQuoteLabel}
+                            icon-size="x-small" onclick={cloneQuote}>
+                        </vlocity_cmt-b2b-button>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <template if:true={quoteRecord}>
+            <div slot="b2bHeaderPricingSection">
+                <div class="nds-size_1-of-4 nds-shrink-none">
+                    <div class="nds-text-color_weak">{labels.TotalLabel}</div>
+                    <div class="b2b-cart-price-text slds-p-top--xx-small">
+                        <lightning-formatted-number value={quoteRecord.fields.Total__c.value} format-style="currency" currency-code="CAD"></lightning-formatted-number>
+                    </div>
+                </div>
+            </div>
+       </template>
+ 
+    </vlocity_cmt-b2b-cart-summary>
+    <vlocity_cmt-b2b-clone-quote-modal class="via-nds"></vlocity_cmt-b2b-clone-quote-modal>
+ </template>

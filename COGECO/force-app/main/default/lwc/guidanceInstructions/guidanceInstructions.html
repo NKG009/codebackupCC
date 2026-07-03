@@ -1,0 +1,30 @@
+<template>
+    <lightning-card>
+        <div>
+            <span class="heading-style">{guidanceInstructionsHeading}</span>
+            <lightning-icon 
+                icon-name={buttonIconDown} 
+                title="Dropdown Indicator" 
+                class="button-style slds-m-right_small"
+                size="small"
+                onclick={toggleAccordion}>
+            </lightning-icon>
+        </div>
+    
+        <!-- Accordion Content -->
+        <template if:true={isAccordionActive}>
+            <div class="slds-box_xx-small slds-scrollable_y">
+                <template if:true={instructions}>
+                    <div class="rich-text-styling">
+                        <lightning-formatted-rich-text value={instructions}></lightning-formatted-rich-text>
+                    </div>
+                </template>
+                <template if:true={error}>
+                    <div class="slds-box slds-box_xx-small slds-text-color_error">
+                        {error}
+                    </div>
+                </template>
+            </div>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,14 @@
+.b2b-padding-cell{
+    padding: inherit;
+}
+.b2b-cell-display{
+    display: contents;
+}
+.esm_attributes_flyout .slds-popover_full-width{
+    width: 300px;
+    position: absolute;
+    left: -15px;
+}
+.esm_attributes_flyout .slds-rise-from-ground{
+    display: none !important;
+}

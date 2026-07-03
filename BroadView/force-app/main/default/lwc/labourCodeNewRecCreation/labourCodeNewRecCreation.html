@@ -1,0 +1,44 @@
+<template>
+    <template if:true={firstmod}>
+    <lightning-modal-header label="New Labour Code">
+    </lightning-modal-header>
+    <lightning-modal-body>
+        <!-- modal content specified in LightningModal component -->
+        <lightning-record-edit-form record-id={recordId}
+        object-api-name={objectApiName}
+        onsuccess={handleSuccess}>
+        <lightning-output-field field-name="AppointmentNumber"></lightning-output-field>
+        </lightning-record-edit-form>
+       
+        <lightning-combobox
+            name="progress"
+            label="Products"
+            value={value}
+            placeholder="Select Product"
+            options={selectOptions}
+            onchange={handleChange} ></lightning-combobox>
+       <template if:true={notfixed}>
+       <lightning-input type="number" step="0.01" label="No.of Hours"  onchange={handlehours} ></lightning-input>
+       </template>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-button
+            class="slds-button"
+            variant="neutral"
+            label="Cancel"
+            onclick={closeModal}
+        ></lightning-button>                
+        <lightning-button
+            class="slds-button slds-m-left_x-small"
+            variant="brand"
+            label="Save"
+            onclick={SaveRecord}
+        ></lightning-button>
+    </lightning-modal-footer>
+     </template>
+     <template if:true={secondmod}>
+        <lightning-modal-body>
+        <h1> Labor Code: {LCrecname} Record has been created successfully</h1>
+        </lightning-modal-body>
+     </template>
+</template>

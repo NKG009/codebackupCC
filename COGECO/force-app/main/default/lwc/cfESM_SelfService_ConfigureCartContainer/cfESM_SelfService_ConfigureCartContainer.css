@@ -1,0 +1,36 @@
+.b2b-selfservice-lineitem-container {
+    padding: 0.5rem;
+    background: rgba(241, 241, 241, 0.34);
+    border-radius: 10px;
+    position: relative;
+}
+
+.b2b-selfservice-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: absolute;
+}
+
+.b2b-selfservice-combobox .slds-input {
+    border-radius: 1rem;
+    padding: 0 0.75rem;
+}
+
+.b2b-selfservice-bulk-delete-action {
+    text-decoration: line-through;
+}
+
+.b2b-selfservice-attributes-container {
+    background: #f8f8f8;
+}
+
+.b2b-selfservice-attributes-wrapper {
+    background: #f8f8f8;
+    border-radius: 2px;
+    padding: 0.5rem;
+    font-size: 14px;
+    line-height: 17px;
+    font-family: var(--lwc-fontFamily);
+}

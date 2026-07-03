@@ -1,0 +1,165 @@
+<template>
+    <!-- Logo Section -->
+    <div class="logo-container">
+        <img src={logoUrl} alt="Logo" class="logo" />
+    </div>
+
+     <!-- Status message if already submitted -->
+        <template if:true={statusMessage}>
+            <div class="status-message">
+                {statusMessage}
+            </div>
+        </template>
+
+    <!-- Main Content Box -->
+    <div class="white-box">
+        <!-- Header -->
+        <h2>
+            <template if:true={isEnglish}>
+                EXPRESS CUSTOMER CONSENT FOR BASIC 911 SERVICE
+            </template>
+            <template if:false={isEnglish}>
+                CONSENTEMENT EXPLICITE DU CLIENT AU SERVICE 911 DE BASE
+            </template>
+        </h2>
+
+        <!-- Content Body -->
+        <div class="content-box">
+            <template if:true={isEnglish}>
+                
+                <p>
+                    The following terms apply to Basic 911 service.
+                </p>
+                <p>
+                    1) DIFFERENCES WITH ENHANCED 911 OR NEXT GENERATION 911 SERVICE. Enhanced or Next-Generation 911 service connects a 911 call to an emergency call center and automatically provides the operator with the caller’s telephone number and address. Basic 911 service connects a 911 call to an emergency call center. Unlike Enhanced or Next Generation 911 service, Basic 911 service does not automatically transmit your address; you must verbally provide your address, and the operator will then route your call to the appropriate emergency center in your area. Cogeco Managed Telephony, SIP Trunking, and PRI Access services give you access to Basic 911 service.
+                </p>
+                <p>
+                    2) DO NOT INTERRUPT THE CALL. Never end your 911 call unless instructed otherwise by the operator. If communication is interrupted, call back immediately.
+                </p>
+                <p>
+                    3) KEEP THE ADDRESS IN YOUR ACCOUNT UP TO DATE. If the caller is unable to provide the address from which the call originated (for example, if you are unable to speak during a 911 call), the operator will automatically send emergency services to the last service address on your account. Please confirm the service address corresponding to each number associated with your account is accurate at all times. If your address is not up to date, emergency services could be sent to the wrong location, which could delay assistance.
+                </p>
+                <p>
+                    4) BE PREPARED FOR ANY SERVICE INTERRUPTION OR OUTAGE. Your Cogeco Managed Telephony, SIP Trunking, and PRI Access services rely on your Internet connection and the electrical grid. In the event of a power outage, network outage, or Internet outage, or if your service is interrupted or suspended due to non-payment, access to 911 service could be limited. We recommend having an alternative telephone service (such as a mobile phone) on hand to ensure access to emergency services in the event of a service interruption.
+                </p>
+                <p>
+                    5) INFORM OTHER USERS. You are obligated to inform all users, including potential end-users, of your IP telephone service, of the nature and limitations of Basic 911 service and place the warning stickers provided to you in a visible location on your telephone devices.
+                </p>
+                <p>
+                    6) LIMITATION OF LIABILITY. Consult the general terms and conditions for liability related to Basic 911 service at <a href="https://www.cogeco.ca/en/terms-and-conditions" target="_blank">https://www.cogeco.ca/en/terms-and-conditions</a>.
+                </p>
+                <p>
+                    You agree not to hold Cogeco and its suppliers responsible for problems related to 911 calls being directed to the wrong address..
+                </p>
+                <p>
+                    You acknowledge that the operator cannot route 911 calls originating from an address outside Canada to an emergency call center in the country where they are located. Cogeco recommends that Customers located outside their local calling area use a mobile phone service to call 911.
+                </p>
+            </template>
+
+            <template if:false={isEnglish}>
+                <p>
+                    Les modalités suivantes s’appliquent au service 911 de base.
+                </p>
+                <p>
+                    1) DIFFÉRENCES AVEC LE SERVICE 911 ÉVOLUÉ OU 911 DE PROCHAINE GÉNÉRATION. Le service 911 évolué ou 911 de prochaine génération relie un appel 911 à un centre d’appels d’urgence et fournit automatiquement au téléphoniste le numéro de téléphone et l’adresse de l’emplacement de l’appelant. Le service 911 de base relie un appel 911 à un centre d’appels d’urgence. Contrairement au service 911 évolué ou 911 de prochaine génération, le service 911 de base ne transmet pas automatiquement votre adresse, vous devez fournir verbalement votre adresse et location souhaitée pour votre appel au centre d’urgence approprié, dans la région où se situe l’appelant. Les services de Téléphonie Gérée, de Liaison SIP et d’Accès PRI de Cogeco vous donnent accès à un service 911 de base.
+                </p>
+                <p>
+                    2) N’INTERROMPEZ PAS L’APPEL. Ne mettez jamais fin à votre appel 911 à moins d’indications contraires du téléphoniste. Si la communication est interrompue, rappelez immédiatement.
+                </p>
+                <p>
+                    3) GARDEZ L’ADRESSE DANS VOTRE DOSSIER À JOUR. Si l’appelant n’est pas en mesure de fournir l’adresse, le téléphoniste utilisera l’adresse enregistrée dans le dossier pour l’appel. Assurez-vous que l’adresse correspond à chacun des numéros associés à votre compte soit exacte en tout temps. Si votre adresse n’est pas exacte ou que vous appelez d’un autre endroit, cela pourrait ralentir les interventions.
+                </p>
+                <p>
+                    4) SOYEZ PRÊT EN CAS D’INTERRUPTION OU DE PANNE DE SERVICE. Vos services de Téléphonie Gérée, de Liaison SIP et d’Accès PRI de Cogeco dépendent de votre connexion Internet et du réseau électrique. En cas de coupure de courant, de panne du réseau ou d’Internet, ou si une facture est non acquittée et fait l’objet d’une suspension de service pour défaut de paiement, l’accès au service 911 pourrait être limité. Nous vous recommandons d’avoir un service téléphonique de recharge (comme un téléphone cellulaire) à portée de main.
+                </p>
+                <p>
+                    5) INFORMEZ LES UTILISATEURS. Vous avez l’obligation d’informer tous les utilisateurs, dont le personnel, des risques éventuels d’utilisation des services téléphoniques par IP et des limitations du service 911 de base.
+                </p>
+                <p>
+                    6) LIMITE DE RESPONSABILITÉ. Consultez les modalités générales pour plus de renseignements à l’adresse <a href="https://www.cogeco.ca/corporate/fr/legale/modalites-generales" target="_blank">https://www.cogeco.ca/corporate/fr/legale/modalites-generales</a>.
+                </p>
+                <p>
+                    Vous acceptez de ne pas tenir Cogeco et ses fournisseurs responsables des problèmes liés au fait que des appels 911 sont dirigés à la mauvaise adresse.
+                </p>
+                <p>
+                    Vous reconnaissez que le téléphoniste ne peut pas acheminer les appels 911 provenant de l’extérieur du Canada à un centre d’appels d’urgence du pays où il se trouve. Cogeco recommande au Client qui se trouve à l’extérieur de sa zone d’appel local d’utiliser un service de téléphonie mobile pour appeler le service 911.
+                </p>
+            </template>
+        </div>
+
+        <!-- Form only shows if form not already submitted -->
+        <template if:true={showForm}>
+            <!-- Form Section -->
+            <div class="form-section">
+                <!-- Signature Dropdown -->
+                <div class="signature-container">
+                <lightning-combobox
+                    name="approver"
+                    label="Signature"
+                    placeholder="Signature"
+                    options={approvers}
+                    value={selectedContact}
+                    onchange={handleContactChange}>
+                </lightning-combobox>
+            </div>
+
+            <div class="checkbox-container">
+                <lightning-input
+                    type="checkbox"
+                    label={checkboxLabel}
+                    data-id="termsCheckbox"
+                    onchange={handleCheckboxChange}>
+                </lightning-input>
+            </div>
+
+             <div class="button-container">
+    <!-- Keep PDF button on top -->
+    <div class="pdf-section">
+        <lightning-button 
+            variant="brand"
+            label="Download PDF"
+            onclick={handleDownloadPDF}>
+        </lightning-button>
+    </div>
+
+    <!-- Approve / Decline buttons -->
+    <div class="approval-buttons">
+        <lightning-button 
+            variant="brand"
+            label="✓ Approve"
+            data-selection="Approved"
+            onclick={customerSelectionMade}>
+        </lightning-button>
+
+        <lightning-button 
+            variant="brand"
+            label="✗ Decline"
+            data-selection="Declined"
+            onclick={customerSelectionMade}>
+        </lightning-button>
+    </div>
+
+    <!-- Submit button below -->
+    <div class="submit-section">
+        <lightning-button 
+            variant="brand"
+            label="Submit"
+            onclick={handleSubmit}
+            disabled={isSubmitDisabled}>
+        </lightning-button>
+    </div>
+</div>
+
+
+                
+                <!-- Success message after submit -->
+                <template if:true={successMessage}>
+                    <div class="success-message">
+                        {successMessage}
+                    </div>
+                </template>
+                
+            </div>
+        </template>
+    </div>
+</template>

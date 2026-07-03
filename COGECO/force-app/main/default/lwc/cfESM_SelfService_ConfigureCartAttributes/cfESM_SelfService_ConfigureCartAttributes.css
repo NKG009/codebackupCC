@@ -1,0 +1,20 @@
+.b2b-selfservice-lineitem-name {
+    text-align: left;
+    font-weight: bold;
+    width: auto;
+    max-width: 66.66%;
+}
+
+.b2b-selfservice-configure-attributes {
+    color: #C5C5C5;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    font-family: var(--lwc-fontFamily);
+}
+
+.b2b-selfservice-root-product {
+    border: 0.05rem solid #C5C5C5;
+    border-radius: 15px;
+    background: #FFFFFF;
+}

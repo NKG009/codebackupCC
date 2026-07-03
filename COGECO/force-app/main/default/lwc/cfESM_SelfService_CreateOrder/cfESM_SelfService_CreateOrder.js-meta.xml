@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>cfESM_SelfService_CreateOrder</masterLabel>
+    <runtimeNamespace>vlocity_cmt</runtimeNamespace>
+    <targets>
+      <target>lightningCommunity__Default</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightningCommunity__Page</target>
+        </targets>
+      <targetConfigs>
+      <targetConfig xmlns="http://soap.sforce.com/2006/04/metadata" targets="lightningCommunity__Default"><property name="recordId" type="String"/><property default="Assets__c" label="Asset Page API Name" name="cfAssetPageApi" type="String"/></targetConfig>
+      </targetConfigs></LightningComponentBundle>

@@ -1,0 +1,128 @@
+/* Button container - vertical layout */
+.button-container {
+    display: flex;
+    flex-direction: column; /* Stack rows vertically */
+    align-items: center;
+    gap: 1rem; /* Space between button rows */
+    margin-top: 2rem;
+}
+
+/* Keep PDF button on top */
+.pdf-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem; /* Space below PDF button */
+}
+
+/* Approve/Decline side by side */
+.approval-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Space between Approve & Decline */
+    margin-bottom: 1rem; /* Space below these buttons */
+}
+
+/* Submit button centered below Approve/Decline */
+.submit-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+/* White box container */
+.white-box {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Add spacing between content and signature */
+.spacer {
+    margin-top: 2rem;
+}
+
+/* Form layout */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+/* Signature field */
+.signature-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.signature-container lightning-combobox {
+    width: 60%;
+    min-width: 400px;
+    max-width: 600px;
+}
+
+/* Checkbox */
+.checkbox-container {
+    margin: 1rem 0 1.5rem 0;
+}
+
+/* Logo styling */
+.logo-container {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo {
+    max-width: 220px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Approve/Decline button colors */
+.approve-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+.approve-button:hover {
+    background-color: #218838;
+}
+
+.decline-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.decline-button:hover {
+    background-color: #c82333;
+}
+
+/* Success message */
+.success-message {
+    margin-top: 1rem;
+    color: green;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Responsive: stack Approve/Decline on mobile */
+@media (max-width: 600px) {
+    .approval-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .signature-container lightning-combobox {
+        width: 90%;
+        min-width: unset;
+    }
+}

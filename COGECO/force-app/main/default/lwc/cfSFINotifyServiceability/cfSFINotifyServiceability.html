@@ -1,0 +1,113 @@
+<template>
+            <div class="slds-grid slds-wrap slds-is-relative ">
+            <div style="position: fixed;z-index: 999999;top: 0;right: 0;">
+  <vlocity_cmt-toast class="flexcard-toast-element" theme="slds" title="" message="" styletype=""> </vlocity_cmt-toast>
+</div>
+            <div if:true={showLoader} class="slds-is-absolute vloc-loader_override" style="height: 100%; width: 100%; min-height:50px; background: transparent; z-index: 99;">
+  <div>
+   <vlocity_cmt-spinner
+      variant="brand"
+      alternative-text="Loading content..."
+      size="medium"
+      theme="slds"
+      ></vlocity_cmt-spinner>
+  </div>
+</div>
+            <template if:false={hasPermission}>
+              You don't have required permissions to view this card.
+            </template>
+            <template if:true={hasPermission}>
+              <template if:true={hasRecords}>
+                        <template for:each={_records} for:item="record" for:index="rindex">
+                            <vlocity_cmt-flex-card-state if:true={record}  key={record._flex.uniqueKey} data-recordid={record.Id} record={record} data-statue="true"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12"  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-bottom_x-small" style="">
+          <div data-style-id="state0element0" class="slds-col   slds-p-vertical_small  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"group":[{"field":"notified","hasMergeField":false,"id":"state-new-condition-0","operator":"!=","type":"custom","value":"true"}],"id":"state-condition-object","isParent":true}' >
+    <vlocity_cmt-block data-style-id="state0element0_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  data-conditions='\{"group":[{"field":"notified","hasMergeField":false,"id":"state-new-condition-0","operator":"!=","type":"custom","value":"true"}],"id":"state-condition-object","isParent":true}'  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0" class="slds-col  slds-text-align_left  slds-size_12-of-12  " data-rindex={rindex} style="      
+         " ><vlocity_cmt-output-field data-style-id="state0element0block_element0_child"   record={record}  card={card}  merge-field="%3Ch4%3E%7BLabel.MSMProcessServiceAbility.b2cMsmStayUpdatedLabel%7D%3C/h4%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element0block_element1" class="slds-col  slds-text-align_left slds-p-vertical_x-small  slds-size_12-of-12  " data-rindex={rindex} style="      
+         color:#415378;
+font-family: Salesforce Sans;
+font-size: 14px;
+line-height: 22px;" ><vlocity_cmt-output-field data-style-id="state0element0block_element1_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.MSMProcessServiceAbility.b2cMsmServiceabilityConcentLabel%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element0block_element2" class="slds-col  slds-text-align_left slds-p-right_small slds-m-bottom_xx-small  slds-size_6-of-12  " data-rindex={rindex} style="      
+         " ><vlocity_cmt-flex-multi-select-input data-style-id="state0element0block_element2_child"   record={record}  card={card}  property-obj='\{"label":"{Label.MSMProcessServiceAbility.b2cMsmServiceProductLabel}","displayMode":"Combobox","fieldBinding":"{services}","options":[{"id":0,"label":"TV","value":"TV"},{"id":1,"label":"Handset","value":"Handset"},{"id":2,"label":"Internet","value":"Internet"}],"required":true,"value":""}'  type="pill"  theme="slds"  ></vlocity_cmt-flex-multi-select-input>
+      </div><div data-style-id="state0element0block_element3" class="slds-col  slds-p-right_x-small slds-size_6-of-12  " data-rindex={rindex} style="" ><vlocity_cmt-base-input-element data-style-id="state0element0block_element3_child"   record={record}  card={card}  property-obj='\{"fieldBinding":"{leademail}","label":"{Label.MSMProcessServiceAbility.b2cMsmServiceEmailLabel}","required":true,"value":"{Parent.Email}","placeholder":"","fieldLevelHelp":""}'  type="email"  theme="slds"  ></vlocity_cmt-base-input-element>
+      </div><div data-style-id="state0element0block_element4" class="slds-col  slds-text-align_right slds-p-horizontal_medium slds-m-vertical_medium  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"group":[{"field":"leademail","hasMergeField":false,"id":"state-new-condition-7","operator":"!=","type":"custom","value":"undefined"},{"field":"services","hasMergeField":false,"id":"state-new-condition-52","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"},{"field":"leademail","hasMergeField":false,"id":"state-new-condition-62","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"services","hasMergeField":false,"id":"state-new-condition-71","logicalOperator":"&&","operator":"!=","type":"custom","value":""}],"id":"state-condition-object","isParent":true}' ><vlocity_cmt-flex-action data-style-id="state0element0block_element4_child"  tracking-obj={_childCardTrackingObj}  class= "state0element0block_element4_child flexActionElement" 
+        data-action-element-class="state0element0block_element4_child" data-action-key="state0element0block_element4" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="action3"   state-obj={record}  record={record}  card={card}  action-list='\[{"actionIndex":0,"draggable":false,"isOpen":true,"key":"1647001298956-8gz1fzcst","label":"Action","stateAction":{"Web Page":{"targetName":"/apex"},"eventName":"reload","id":"flex-action-1666169027061","message":"{\"type\":\"IntegrationProcedures\",\"value\":{\"dsDelay\":\"\",\"ipMethod\":\"sfi_CreateLead\",\"vlocityAsync\":false,\"inputMap\":{\"LastName\":\"{Parent.LastName}\",\"Company\":\"MSM B2C\",\"ProductSelection\":\"{services}\",\"Email\":\"{leademail}\",\"Salutation\":\"{Parent.Title}\",\"Phone\":\"{Parent.Phone}\"},\"jsonMap\":\"{\\\"services\\\":\\\"{services}\\\",\\\"email\\\":\\\"{email}\\\",\\\"Parent.LastName\\\":\\\"{Parent.LastName}\\\",\\\"Parent.Title\\\":\\\"{Parent.Title}\\\",\\\"Parent.Phone\\\":\\\"{Parent.Phone}\\\",\\\"leademail\\\":\\\"{leademail}\\\"}\"},\"orderBy\":{\"name\":\"\",\"isReverse\":\"\"},\"contextVariables\":[{\"name\":\"services\",\"val\":\"\",\"id\":4},{\"name\":\"email\",\"val\":\"\",\"id\":5},{\"name\":\"Parent.LastName\",\"val\":\"\",\"id\":23},{\"name\":\"Parent.Title\",\"val\":\"\",\"id\":24},{\"name\":\"Parent.Phone\",\"val\":\"\",\"id\":26},{\"name\":\"leademail\",\"val\":\"\",\"id\":12}]}","openUrlIn":"Current Window","targetType":"Web Page","type":"DataAction"}},{"actionIndex":1,"card":"{card}","draggable":true,"isOpen":false,"key":"1647002602417-qoryw8mz8","label":"Action","stateAction":{"Web Page":{"targetName":"/apex"},"displayName":"Action","eventName":"setValues","fieldValues":[{"fieldName":"notified","fieldValue":"true"}],"id":"flex-action-1647010180988","openUrlIn":"Current Window","targetType":"Web Page","type":"cardAction","vlocityIcon":"standard-default"}}]'  button-variant="brand"  data-conditions='\{"group":[{"field":"leademail","hasMergeField":false,"id":"state-new-condition-7","operator":"!=","type":"custom","value":"undefined"},{"field":"services","hasMergeField":false,"id":"state-new-condition-52","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"},{"field":"leademail","hasMergeField":false,"id":"state-new-condition-62","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"services","hasMergeField":false,"id":"state-new-condition-71","logicalOperator":"&&","operator":"!=","type":"custom","value":""}],"id":"state-condition-object","isParent":true}'  display-as-button="true"  flyout-details='\{}'  hide-action-icon="true"  icon-name="standard-default"  label="\{Label.MSMProcessServiceAbility.b2cMsmServiceabilitySubmitButtonLabel}"  theme="slds"  ></vlocity_cmt-flex-action>
+      </div>
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element1" class="slds-col   slds-p-around_x-small  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         display:inline-block;"  data-conditions='\{"group":[{"field":"notified","hasMergeField":false,"id":"state-new-condition-4","operator":"==","type":"custom","value":"true"}],"id":"state-condition-object","isParent":true}' >
+    <vlocity_cmt-block data-style-id="state0element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  data-conditions='\{"group":[{"field":"notified","hasMergeField":false,"id":"state-new-condition-4","operator":"==","type":"custom","value":"true"}],"id":"state-condition-object","isParent":true}'  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element1block_element0" class="slds-col  slds-p-right_x-small  slds-size_1-of-12  " data-rindex={rindex} style="      
+         width:auto;" ><vlocity_cmt-flex-icon data-style-id="state0element1block_element0_child"   record={record}  card={card}  extraclass="slds-icon_container slds-icon__svg--default "  icon-name="utility:success"  icon-type="Salesforce SVG"  imgsrc=""  size="small"  variant="success"  theme="slds"  ></vlocity_cmt-flex-icon>
+      </div><div data-style-id="state0element1block_element1" class="slds-col  slds-p-left_small  slds-size_11-of-12  condition-element" data-rindex={rindex} style="      
+         color:#415378;
+font-size:1rem;
+font-family: Salesforce Sans;
+width:auto;
+display:contents;"  data-conditions='\{"group":[],"id":"state-condition-object","isParent":true}' ><vlocity_cmt-output-field data-style-id="state0element1block_element1_child"   record={record}  card={card}  data-conditions='\{"group":[],"id":"state-condition-object","isParent":true}'  merge-field="%3Cp%3E%7BLabel.MSMProcessServiceAbility.b2cMsmServiceabilityLeadConfirmationLabel%7D%3C/p%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div>
+      </vlocity_cmt-flex-card-state>
+                        </template>
+                      </template>
+                      <template if:false={hasRecords}>
+                            <vlocity_cmt-flex-card-state  record={record} data-statue="false"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12"  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-bottom_x-small" style="">
+          <div data-style-id="state0element0" class="slds-col   slds-p-vertical_small  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"group":[{"field":"notified","hasMergeField":false,"id":"state-new-condition-0","operator":"!=","type":"custom","value":"true"}],"id":"state-condition-object","isParent":true}' >
+    <vlocity_cmt-block data-style-id="state0element0_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  data-conditions='\{"group":[{"field":"notified","hasMergeField":false,"id":"state-new-condition-0","operator":"!=","type":"custom","value":"true"}],"id":"state-condition-object","isParent":true}'  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0" class="slds-col  slds-text-align_left  slds-size_12-of-12  " data-rindex={rindex} style="      
+         " ><vlocity_cmt-output-field data-style-id="state0element0block_element0_child"   record={record}  card={card}  merge-field="%3Ch4%3E%7BLabel.MSMProcessServiceAbility.b2cMsmStayUpdatedLabel%7D%3C/h4%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element0block_element1" class="slds-col  slds-text-align_left slds-p-vertical_x-small  slds-size_12-of-12  " data-rindex={rindex} style="      
+         color:#415378;
+font-family: Salesforce Sans;
+font-size: 14px;
+line-height: 22px;" ><vlocity_cmt-output-field data-style-id="state0element0block_element1_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.MSMProcessServiceAbility.b2cMsmServiceabilityConcentLabel%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element0block_element2" class="slds-col  slds-text-align_left slds-p-right_small slds-m-bottom_xx-small  slds-size_6-of-12  " data-rindex={rindex} style="      
+         " ><vlocity_cmt-flex-multi-select-input data-style-id="state0element0block_element2_child"   record={record}  card={card}  property-obj='\{"label":"{Label.MSMProcessServiceAbility.b2cMsmServiceProductLabel}","displayMode":"Combobox","fieldBinding":"{services}","options":[{"id":0,"label":"TV","value":"TV"},{"id":1,"label":"Handset","value":"Handset"},{"id":2,"label":"Internet","value":"Internet"}],"required":true,"value":""}'  type="pill"  theme="slds"  ></vlocity_cmt-flex-multi-select-input>
+      </div><div data-style-id="state0element0block_element3" class="slds-col  slds-p-right_x-small slds-size_6-of-12  " data-rindex={rindex} style="" ><vlocity_cmt-base-input-element data-style-id="state0element0block_element3_child"   record={record}  card={card}  property-obj='\{"fieldBinding":"{leademail}","label":"{Label.MSMProcessServiceAbility.b2cMsmServiceEmailLabel}","required":true,"value":"{Parent.Email}","placeholder":"","fieldLevelHelp":""}'  type="email"  theme="slds"  ></vlocity_cmt-base-input-element>
+      </div><div data-style-id="state0element0block_element4" class="slds-col  slds-text-align_right slds-p-horizontal_medium slds-m-vertical_medium  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"group":[{"field":"leademail","hasMergeField":false,"id":"state-new-condition-7","operator":"!=","type":"custom","value":"undefined"},{"field":"services","hasMergeField":false,"id":"state-new-condition-52","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"},{"field":"leademail","hasMergeField":false,"id":"state-new-condition-62","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"services","hasMergeField":false,"id":"state-new-condition-71","logicalOperator":"&&","operator":"!=","type":"custom","value":""}],"id":"state-condition-object","isParent":true}' ><vlocity_cmt-flex-action data-style-id="state0element0block_element4_child"  tracking-obj={_childCardTrackingObj}  class= "state0element0block_element4_child flexActionElement" 
+        data-action-element-class="state0element0block_element4_child" data-action-key="state0element0block_element4" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="action3"   state-obj={record}  record={record}  card={card}  action-list='\[{"actionIndex":0,"draggable":false,"isOpen":true,"key":"1647001298956-8gz1fzcst","label":"Action","stateAction":{"Web Page":{"targetName":"/apex"},"eventName":"reload","id":"flex-action-1666169027061","message":"{\"type\":\"IntegrationProcedures\",\"value\":{\"dsDelay\":\"\",\"ipMethod\":\"sfi_CreateLead\",\"vlocityAsync\":false,\"inputMap\":{\"LastName\":\"{Parent.LastName}\",\"Company\":\"MSM B2C\",\"ProductSelection\":\"{services}\",\"Email\":\"{leademail}\",\"Salutation\":\"{Parent.Title}\",\"Phone\":\"{Parent.Phone}\"},\"jsonMap\":\"{\\\"services\\\":\\\"{services}\\\",\\\"email\\\":\\\"{email}\\\",\\\"Parent.LastName\\\":\\\"{Parent.LastName}\\\",\\\"Parent.Title\\\":\\\"{Parent.Title}\\\",\\\"Parent.Phone\\\":\\\"{Parent.Phone}\\\",\\\"leademail\\\":\\\"{leademail}\\\"}\"},\"orderBy\":{\"name\":\"\",\"isReverse\":\"\"},\"contextVariables\":[{\"name\":\"services\",\"val\":\"\",\"id\":4},{\"name\":\"email\",\"val\":\"\",\"id\":5},{\"name\":\"Parent.LastName\",\"val\":\"\",\"id\":23},{\"name\":\"Parent.Title\",\"val\":\"\",\"id\":24},{\"name\":\"Parent.Phone\",\"val\":\"\",\"id\":26},{\"name\":\"leademail\",\"val\":\"\",\"id\":12}]}","openUrlIn":"Current Window","targetType":"Web Page","type":"DataAction"}},{"actionIndex":1,"card":"{card}","draggable":true,"isOpen":false,"key":"1647002602417-qoryw8mz8","label":"Action","stateAction":{"Web Page":{"targetName":"/apex"},"displayName":"Action","eventName":"setValues","fieldValues":[{"fieldName":"notified","fieldValue":"true"}],"id":"flex-action-1647010180988","openUrlIn":"Current Window","targetType":"Web Page","type":"cardAction","vlocityIcon":"standard-default"}}]'  button-variant="brand"  data-conditions='\{"group":[{"field":"leademail","hasMergeField":false,"id":"state-new-condition-7","operator":"!=","type":"custom","value":"undefined"},{"field":"services","hasMergeField":false,"id":"state-new-condition-52","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"},{"field":"leademail","hasMergeField":false,"id":"state-new-condition-62","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"services","hasMergeField":false,"id":"state-new-condition-71","logicalOperator":"&&","operator":"!=","type":"custom","value":""}],"id":"state-condition-object","isParent":true}'  display-as-button="true"  flyout-details='\{}'  hide-action-icon="true"  icon-name="standard-default"  label="\{Label.MSMProcessServiceAbility.b2cMsmServiceabilitySubmitButtonLabel}"  theme="slds"  ></vlocity_cmt-flex-action>
+      </div>
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element1" class="slds-col   slds-p-around_x-small  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         display:inline-block;"  data-conditions='\{"group":[{"field":"notified","hasMergeField":false,"id":"state-new-condition-4","operator":"==","type":"custom","value":"true"}],"id":"state-condition-object","isParent":true}' >
+    <vlocity_cmt-block data-style-id="state0element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  data-conditions='\{"group":[{"field":"notified","hasMergeField":false,"id":"state-new-condition-4","operator":"==","type":"custom","value":"true"}],"id":"state-condition-object","isParent":true}'  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element1block_element0" class="slds-col  slds-p-right_x-small  slds-size_1-of-12  " data-rindex={rindex} style="      
+         width:auto;" ><vlocity_cmt-flex-icon data-style-id="state0element1block_element0_child"   record={record}  card={card}  extraclass="slds-icon_container slds-icon__svg--default "  icon-name="utility:success"  icon-type="Salesforce SVG"  imgsrc=""  size="small"  variant="success"  theme="slds"  ></vlocity_cmt-flex-icon>
+      </div><div data-style-id="state0element1block_element1" class="slds-col  slds-p-left_small  slds-size_11-of-12  condition-element" data-rindex={rindex} style="      
+         color:#415378;
+font-size:1rem;
+font-family: Salesforce Sans;
+width:auto;
+display:contents;"  data-conditions='\{"group":[],"id":"state-condition-object","isParent":true}' ><vlocity_cmt-output-field data-style-id="state0element1block_element1_child"   record={record}  card={card}  data-conditions='\{"group":[],"id":"state-condition-object","isParent":true}'  merge-field="%3Cp%3E%7BLabel.MSMProcessServiceAbility.b2cMsmServiceabilityLeadConfirmationLabel%7D%3C/p%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div>
+      </vlocity_cmt-flex-card-state>
+                      </template>
+            </template>
+            <template if:true={hasError}>
+            {error}
+            </template>
+            
+      <vlocity_cmt-action action-wrapperclass="slds-hide" re-render-flyout class="action-trigger slds-col" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+      
+      </vlocity_cmt-action>
+  
+            <vlocity_cmt-action class="execute-action" re-render-flyout action-wrapperclass="slds-hide" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+            
+            </vlocity_cmt-action>
+            </div>
+          </template>

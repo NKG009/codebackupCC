@@ -1,0 +1,14 @@
+<template>
+    <span class="pin-screen">
+        <div class="box">
+            <header>
+                <h1>{finalLabels.header}</h1>
+            </header>
+            <main>
+                <template lwc:if={finalLabels}>
+                    <lightning-formatted-rich-text value={finalLabels.content}></lightning-formatted-rich-text>
+                </template>
+            </main>
+        </div>
+    </span>
+</template>

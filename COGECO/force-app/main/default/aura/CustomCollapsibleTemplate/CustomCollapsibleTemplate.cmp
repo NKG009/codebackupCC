@@ -1,0 +1,27 @@
+<aura:component implements="lightning:recordHomeTemplate" description="Full-width header above a main column and collapsible left sidebar.">
+
+    <aura:attribute name="header" type="Aura.Component[]" description="Header region"/>
+    <aura:attribute name="main" type="Aura.Component[]" description="Main region"/>
+    <aura:attribute name="sidebar" type="Aura.Component[]" description="Collapsible sidebar region"/>
+
+    <aura:attribute name="isSidebarCollapsed" type="Boolean" access="PRIVATE" default="false" />
+
+    <div>
+        <div>{!v.header}</div>
+        <lightning:layout class="slds-m-top_medium">
+            <lightning:layoutItem size="3" class="{!v.isSidebarCollapsed ? 'slds-hide' : ''}">
+                {!v.sidebar}
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="no-flex">
+                <lightning:buttonIcon onclick ="{!c.toggleSection}"
+                                     class="slds-m-horizontal_x-small"
+                                      variant="border-filled"
+                                      iconName="{! v.isSidebarCollapsed ? 'utility:chevronright' : 'utility:chevronleft' }" 
+                                      alternativeText="{! v.isSidebarCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar' }" />
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="auto">
+                {!v.main}
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+</aura:component>

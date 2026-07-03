@@ -1,0 +1,30 @@
+.b2b-left-hand-side-panel {
+    overflow-y: scroll;
+    height: 647px;
+    border: 0.5px
+}
+.b2b-left-padding{
+    padding-left:initial;
+    padding-right:inherit;
+}
+.b2b-padding-card{
+    padding-left: inherit;
+    padding-right: inherit;
+}
+.b2b-padding-left{
+    padding-left: 16px;
+}
+.b2b-border-radius{
+    border-radius: 10px;
+}
+.b2b-label-none{
+    display: none;
+}
+.b2b-padding-left-right{
+    padding-left: inherit;
+    padding-right: inherit;
+}
+.slds-modal__content{
+    padding-left: inherit !important;
+    padding-right: inherit !important;
+}

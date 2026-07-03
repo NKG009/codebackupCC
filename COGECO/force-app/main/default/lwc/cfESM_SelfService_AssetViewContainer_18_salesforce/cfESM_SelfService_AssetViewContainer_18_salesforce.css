@@ -1,0 +1,18 @@
+.b2b-selfservice-column-header .b2b-selfservice-sorticon {
+    display: none;
+}
+.b2b-selfservice-column-header:hover .b2b-selfservice-sorticon {
+    display: block;
+}
+
+.b2b-selfservice-viewer-wrapper {
+    border: solid 0.1px rgba(46, 57, 73, 0.159091);
+}
+
+.b2b-selfservice-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    position: absolute;
+}

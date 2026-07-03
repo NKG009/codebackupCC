@@ -1,0 +1,21 @@
+<design:component>
+	
+    <flexipage:template>
+    
+        <flexipage:region name="header1a" defaultWidth="Small" />
+        <flexipage:region name="header1b" defaultWidth="Small" />
+        <flexipage:region name="header2a" defaultWidth="Small" />
+        <flexipage:region name="header2b" defaultWidth="Small" />
+        <flexipage:region name="header2c" defaultWidth="Small" />
+        <flexipage:region name="header2d" defaultWidth="Small" />
+        <flexipage:region name="header2e" defaultWidth="Small" />
+        <flexipage:region name="header2f" defaultWidth="Small" />
+        <flexipage:region name="left_col" defaultWidth="Large" />
+        <flexipage:region name="mid_col" defaultWidth="Large" />
+        <flexipage:region name="right_col" defaultWidth="Large" />
+        <flexipage:region name="footer1" defaultWidth="Small" />
+    
+    </flexipage:template>
+    
+    
+</design:component>

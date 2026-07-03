@@ -1,0 +1,12 @@
+.b2b-selfservice-column-header .b2b-selfservice-sorticon {
+    display: none;
+}
+.b2b-selfservice-column-header:hover .b2b-selfservice-sorticon {
+    display: block;
+}
+.b2b-selfservice-columns-wrapper .b2b-selfservice-recurring-total {
+    width: 16.6666 !important;
+}
+.b2b-selfservice-group-block + .b2b-selfservice-columns-wrapper .b2b-selfservice-recurring-total {
+    width: 8.3333 !important;
+}

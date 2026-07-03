@@ -1,0 +1,181 @@
+<template>    
+    <div class="afterpin-main container">
+        <template lwc:if={loaded}>
+            <section class="documents-to-approve">
+                <h2 class="first-heading">{pageLabelsObj.AdditionalFiles}</h2>
+                <div class="flex-table documents attachments-table">
+                    <div class="row header">
+                        <div class="row-item">
+                            {pageLabelsObj.ActionHeader}
+                        </div>
+                        <div class="row-item">
+                            {pageLabelsObj.FileNameHeader}
+                        </div>
+                        <div class="row-item">
+                            {pageLabelsObj.ContentTypeHeader}
+                        </div>
+                    </div>
+                    <div class="row body">
+                        <div class="row-item">
+                            <a class="slds-button" href={customerApprovalDetails.downloadUrl} download>{pageLabelsObj.DownloadButton}</a>
+                        </div>
+                        <div class="row-item">
+                            {customerApprovalDetails.fileName}
+                        </div>
+                        <div class="row-item">
+                            {customerApprovalDetails.fileType}
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="signatory">
+                <h2>{pageLabelsObj.ApproverPhysicalSignature}</h2>
+                <div class="section-main-signatory">
+                    <div class="approver-signature-wrapper">
+                        <div class="slds-form-element">
+                            <span class="slds-form-element__label" id="file-selector-primary-label-205">{pageLabelsObj.ApproverSignature}</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-file-selector slds-file-selector_files">
+                                <div class="slds-file-selector__dropzone">
+                                    <input type="file" class="slds-file-selector__input slds-assistive-text" id="file-upload-input-207" aria-labelledby="file-selector-primary-label-205 file-selector-secondary-label206" onchange={openfileUpload}/>
+                                    <label class="slds-file-selector__body" for="file-upload-input-207" id="file-selector-secondary-label206">
+                                    <span class="slds-file-selector__button slds-button slds-button_neutral">
+                                        <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+                                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload"></use>
+                                        </svg>{pageLabelsObj.UploadFiles}</span>
+                                    <span class="slds-file-selector__text slds-medium-show">{pageLabelsObj.OrDropFiles}</span>
+                                    </label>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <template if:true={fileData}>
+                            <p>{fileData.filename}</p>
+                        </template>
+                    </div>
+                    <div class="signatory-name-wrapper">
+                        <lightning-combobox
+                            label={pageLabelsObj.SignatorysName}
+                            value={approver}
+                            options={approvers}
+                            placeholder={pageLabelsObj.SelectAnOption}
+                            data-signatory
+                            required
+                            message-when-value-missing={pageLabelsObj.CompleteThisField}
+                            onchange={handleSignatoryChange}></lightning-combobox>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </section>
+            
+            <template if:true={is911FormRequired}>
+            <section class="signatory">
+                <h2>{pageLabelsObj.X911_Consent_Form}</h2>
+                <div class="section-main-signatory">
+                    <div class="approver-signature-wrapper">
+                        <div class="slds-form-element">
+                            <span class="slds-form-element__label" id="file-selector-primary-label-206">{pageLabelsObj.ApproverSignature}</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-file-selector slds-file-selector_files">
+                                <div class="slds-file-selector__dropzone">
+                                    <input type="file" class="slds-file-selector__input slds-assistive-text" id="file-upload-input-208" aria-labelledby="file-selector-primary-label-205 file-selector-secondary-label206" onchange={openfileUpload1}/>
+                                    <label class="slds-file-selector__body" for="file-upload-input-208" id="file-selector-secondary-label207">
+                                    <span class="slds-file-selector__button slds-button slds-button_neutral">
+                                        <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+                                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload"></use>
+                                        </svg>{pageLabelsObj.UploadFiles}</span>
+                                    <span class="slds-file-selector__text slds-medium-show">{pageLabelsObj.OrDropFiles}</span>
+                                    </label>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <template if:true={fileData1}>
+                            <p>{fileData1.filename}</p>
+                        </template>
+                    </div>
+                    <div class="signatory-name-wrapper">
+                        <lightning-combobox
+                            label={pageLabelsObj.SignatorysName}
+                            value={selectedSignatory}
+                            options={approvers}
+                            placeholder={pageLabelsObj.SelectAnOption}
+                            data-signatory
+                            required
+                            message-when-value-missing={pageLabelsObj.CompleteThisField}
+                            onchange={handleConsentChange}></lightning-combobox>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </section>
+            </template>
+
+         
+        
+            <section class="approve-decline">
+                <div class="radiocontrol">
+                    <!-- Addede CheckBox by vivek singh -->
+                    <lightning-input
+                        type="checkbox"
+                        label= {pageLabelsObj.TermsAndConditions}
+                        checked={isChecked}
+                        required
+                        data-id="termsCheckbox"
+                        message-when-value-missing={pageLabelsObj.CompleteThisCheckbox}
+                        onchange={handleTermsChange}
+                    ></lightning-input>
+
+                    <lightning-button 
+                        data-selection="Approved" 
+                        icon-name="utility:check" 
+                        class="slds-m-left_xx-small"
+                        label={pageLabelsObj.Approve}
+                        title="Approve" 
+                        variant={approvalVariant}
+                        onclick={customerSelectionMade}
+                    ></lightning-button>
+                    <lightning-button 
+                        data-selection="Rejected" 
+                        icon-name="utility:close" 
+                        class="slds-m-left_xx-small"
+                        label={pageLabelsObj.Decline}
+                        title="Rejected" 
+                        variant={declineVariant}
+                        onclick={customerSelectionMade}
+                    ></lightning-button>
+                </div>
+                <template lwc:if={displayFullForm}>
+                    <div class="commentblock">
+                        <label>{pageLabelsObj.CustomerComments}</label>
+                        <div class="requiredInput">
+                            <textarea 
+                                data-comments 
+                                cols="100" 
+                                rows="7" 
+                                class="textarea"
+                            ></textarea>
+                        </div>
+                    </div>
+                </template>
+            </section>
+
+            <template lwc:if={displayFullForm}>
+                <div class="message-div">
+                    <div class="pulse"></div>
+                    <p class="message-text">{pageLabelsObj.PleaseSubmitYourDecision}</p>
+                </div>
+            </template>
+
+            <section class="submission">
+                <lightning-button 
+                    label={pageLabelsObj.Submit}
+                    variant="brand" 
+                    onclick={handleSave} 
+                    disabled={isSubmitDisabled}
+                ></lightning-button>
+            </section>
+
+            <section class="page-bottom"></section>
+        </template>
+    </div>
+</template>

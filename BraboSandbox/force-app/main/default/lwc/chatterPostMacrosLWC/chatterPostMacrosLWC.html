@@ -1,0 +1,31 @@
+<template>
+    <lightning-modal-header label="Send Internal Macros">
+    </lightning-modal-header>
+
+    <lightning-modal-body> 
+        <lightning-combobox
+        name="Macros"
+        label="Internal Macro List"
+        value={value}
+        options={options}
+        onchange={handleChange}
+        placeholder="Select a Macro"
+        required
+        ></lightning-combobox>
+     </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-button
+            class="slds-button"
+            variant="neutral"
+            label="Cancel"
+            onclick={closeModal}
+        ></lightning-button>                
+        <lightning-button
+            class="slds-button slds-m-left_x-small"
+            variant="brand"
+            label="Send"
+            onclick={handleSend}
+        ></lightning-button>
+    </lightning-modal-footer>
+    
+</template>

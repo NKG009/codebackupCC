@@ -1,0 +1,29 @@
+.custom-disable button.vlocity-btn.slds-button.slds-button_neutral{
+    background-color: var(--slds-g-color-neutral-base-100,#fff) !important;
+    border-color: var(--slds-g-color-border-base-4,#c9c9c9) !important;
+    color: var(--slds-g-color-border-base-4,#c9c9c9) !important;
+}
+.custom-disable button.vlocity-btn.slds-button.slds-button_neutral:active, .custom-disable button.vlocity-btn.slds-button.slds-button_neutral:focus{
+    box-shadow: none !important;
+}
+.esm-tooltip-custom-position .bottom-left{
+    left: -16rem !important;
+}
+.esm-tooltip-custom-position .slds-nubbin_bottom-left:after{
+    left: 16.5rem !important;
+}
+.esm-tooltip-custom-position .slds-nubbin_bottom-left:before{
+    left: 16.5rem !important;
+}
+.esm-tooltip-custom-position .tooltipSection{
+    max-width: 18.5rem !important;
+}
+.slds-col .slds-p-around_x-small .esm-header-buttons-block-alignment .slds-size_3-of-12{
+    padding-left: 115px !important;
+}
+.slds-col .slds-p-around_x-small .esm-header-label-alignment .slds-size_9-of-12{
+    padding-right: 800px !important;
+}
+.slds-table tbody tr.slds-is-selected .slds-dropdown a[aria-disabled=true], .slds-table tr.slds-is-selected:hover .slds-dropdown a[aria-disabled=true] {
+    color: var(--slds-g-color-neutral-base-80, var(--lwc-colorTextButtonDefaultDisabled,rgb(201, 201, 201)));
+}

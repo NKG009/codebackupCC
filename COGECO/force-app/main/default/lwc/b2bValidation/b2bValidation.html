@@ -1,0 +1,8 @@
+<template>
+    <template lwc:if={showSignatureComponent}>
+        <c-b2b-signature-capture customer-approval-id={p2} onformsubmitted={handleFormSubmitted}></c-b2b-signature-capture>
+    </template>
+    <template lwc:elseif={showCompletedComponent}>
+        <c-b2b-signature-completed signature-decision={decision} customer-approval-id={p2} is-freshly-completed={freshlyCompleted}></c-b2b-signature-completed>
+    </template>
+</template>

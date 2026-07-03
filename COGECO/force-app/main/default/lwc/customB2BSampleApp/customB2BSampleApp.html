@@ -1,0 +1,22 @@
+<template>
+   <div>
+       <div if:true={initApp}>
+       	<c-cb2b-cart-summary></c-cb2b-cart-summary>
+       <template if:true={route.memberUpload.active}>
+       	<vlocity_cmt-b2b-data-table-wrapper></vlocity_cmt-b2b-data-table-wrapper>
+       </template>
+       <template if:true={route.selectOffer.active}>
+       	<vlocity_cmt-b2b-offer-selection></vlocity_cmt-b2b-offer-selection>
+       </template>
+       <template if:true={route.configureOffer.active}>
+      		 <vlocity_cmt-b2b-offer-config></vlocity_cmt-b2b-offer-config>
+       </template>
+       <template if:true={route.quoteSummary.active}>
+       	<vlocity_cmt-b2b-quote-summary></vlocity_cmt-b2b-quote-summary>
+       </template>
+       </div>
+       <div class="slds-spinner_container" if:false={initApp}>
+       	<lightning-spinner alternative-text="Loading" size="large" variant="brand"></lightning-spinner>
+       </div>
+   </div>
+</template>

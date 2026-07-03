@@ -1,0 +1,268 @@
+<template>
+  <!-- Logo -->
+  <div class="logo-container">
+    <img src={logoUrl} alt="Logo" class="logo" />
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>{headerText}</h1>
+  </header>
+
+  <!-- FORM -->
+  <template if:true={isFormVisible}>
+    <div class="white-box">
+
+      <!-- PAGE 1: Preferred Language -->
+      <template if:true={isStep1}>
+        <div data-step="1">
+          <lightning-radio-group
+            class="bold-label"
+            label="Preferred Language"
+            data-field="Preferred_Language__c"
+            options={preferredLanguageOptions}
+            value={formData.Preferred_Language__c}
+            required
+            onchange={handleRadioChange}
+          ></lightning-radio-group>
+          <lightning-button variant="brand" label="Next" onclick={goNext}></lightning-button>
+        </div>
+      </template>
+
+      <!-- PAGE 2: Rep and Business Info -->
+      <template if:true={isStep2}>
+        <div data-step="2">
+          <lightning-input class="bold-label" label={repIdLabel} data-field="REP_ID__c" value={formData.REP_ID__c} required message-when-value-missing={requiredFieldMessage} onchange={handleChange}></lightning-input>
+          <lightning-input class="bold-label" label={repNameLabel} data-field="Rep_Name__c" value={formData.Rep_Name__c} required message-when-value-missing={requiredFieldMessage} onchange={handleChange}></lightning-input>
+          <lightning-input class="bold-label" label={repEmailLabel} type="email" data-field="Rep_Email__c" value={formData.Rep_Email__c} required message-when-value-missing={requiredFieldMessage} onchange={handleChange}></lightning-input>
+          <lightning-input class="bold-label" label={businessNameLabel} data-field="Business_Name__c" value={formData.Business_Name__c} required message-when-value-missing={requiredFieldMessage} onchange={handleChange}></lightning-input>
+          <lightning-input class="bold-label" label={businessPhoneLabel} data-field="Business_Phone1__c" type="tel" value={formData.Business_Phone1__c} required message-when-value-missing={requiredFieldMessage} onchange={handleChange}></lightning-input>
+          <lightning-input class="bold-label" label={serviceAddressLabel} data-field="Service_Address_Lead_Form__c" value={formData.Service_Address_Lead_Form__c} required message-when-value-missing={requiredFieldMessage} onchange={handleChange}></lightning-input>
+          <lightning-input class="bold-label" label={postalCodeLabel} data-field="Postal_Code__c" value={formData.Postal_Code__c} required message-when-value-missing={requiredFieldMessage} onchange={handleChange}></lightning-input>
+          <lightning-input class="bold-label" label={billingAddressLabel} data-field="Billing_Address_Lead_Form__c" value={formData.Billing_Address_Lead_Form__c} onchange={handleChange}></lightning-input>
+          <lightning-input class="bold-label" label={contactNameLabel} data-field="Contact_Name_Lead_Form__c" value={formData.Contact_Name_Lead_Form__c} required message-when-value-missing={requiredFieldMessage} onchange={handleChange}></lightning-input>
+          <lightning-radio-group class="bold-label" label={contactRoleLabel} data-field="Contact_Role__c" options={contactRoleOptions} value={formData.Contact_Role__c} required message-when-value-missing={requiredFieldMessage} onchange={handleRadioChange}></lightning-radio-group>
+          <lightning-input class="bold-label" label={contactPhoneLabel} data-field="Contact_Phone__c" type="tel" value={formData.Contact_Phone__c} required message-when-value-missing={requiredFieldMessage} onchange={handleChange}></lightning-input>
+          <lightning-input class="bold-label" label={contactEmailLabel} data-field="Contact_Email__c" type="email" value={formData.Contact_Email__c} required message-when-value-missing={requiredFieldMessage} onchange={handleChange}></lightning-input>
+
+          <div class="button-group">
+            <lightning-button class="previous-button" label={previousLabel} onclick={goPrevious}></lightning-button>
+            <lightning-button variant="brand" label={nextLabel} onclick={goNext}></lightning-button>
+          </div>
+        </div>
+      </template>
+
+      <!-- PAGE 3: Internet -->
+      <template if:true={isStep3}>
+        <div data-step="3">
+          <h2 class="subheader">Internet</h2>
+          <lightning-radio-group class="bold-label" label={internetSoldLabel} data-field="Internet_Sold__c" options={yesNoOptions} value={formData.Internet_Sold__c} required message-when-value-missing={requiredFieldMessage} onchange={handleRadioChange}></lightning-radio-group>
+          <div class="button-group">
+            <lightning-button class="previous-button" label={previousLabel} onclick={goPrevious}></lightning-button>
+            <lightning-button variant="brand" label={nextLabel} onclick={goNext}></lightning-button>
+          </div>
+        </div>
+      </template>
+
+      <!-- PAGE 4: Internet Sale Details -->
+      <template if:true={isStep4}>
+        <div data-step="4">
+          <h2 class="subheader">Internet Sale Details</h2>
+          <lightning-radio-group class="bold-label" label={speedLabel} data-field="Speed__c" options={speedOptions} value={formData.Speed__c} required message-when-value-missing={requiredFieldMessage} onchange={handleRadioChange}></lightning-radio-group>
+          <lightning-radio-group class="bold-label" label={internetTermLabel} data-field="Internet_Term__c" options={internetTermOptions} value={formData.Internet_Term__c} required message-when-value-missing={requiredFieldMessage} onchange={handleRadioChange}></lightning-radio-group>
+          <lightning-radio-group class="bold-label" label={configurationLabel} data-field="Configuration__c" options={configurationOptions} value={formData.Configuration__c} required message-when-value-missing={requiredFieldMessage} onchange={handleRadioChange}></lightning-radio-group>
+          <div class="button-group">
+            <lightning-button class="previous-button" label={previousLabel} onclick={goPrevious}></lightning-button>
+            <lightning-button variant="brand" label={nextLabel} onclick={goNext}></lightning-button>
+          </div>
+        </div>
+      </template>
+
+      <!-- PAGE 5: Wi-Fi Type -->
+      <template if:true={isStep5}>
+        <div data-step="5">
+          <h2 class="subheader">Wi-Fi Type</h2>
+          <lightning-radio-group class="bold-label" label={wifiTypeLabel} data-field="Wi_Fi_Type__c" options={wifiTypeOptions} value={formData.Wi_Fi_Type__c} required message-when-value-missing={requiredFieldMessage} onchange={handleRadioChange}></lightning-radio-group>
+          <lightning-combobox class="bold-label" label={wifi6ExtendersLabel} data-field="WiFi_6_Extenders_Required__c" options={wifiExtenderOptions} value={formData.WiFi_6_Extenders_Required__c} placeholder={selectOptionPlaceholder} required message-when-value-missing={requiredFieldMessage} onchange={handleChange}></lightning-combobox>
+          <div class="button-group">
+            <lightning-button class="previous-button" label={previousLabel} onclick={goPrevious}></lightning-button>
+            <lightning-button variant="brand" label={nextLabel} onclick={goNext}></lightning-button>
+          </div>
+        </div>
+      </template>
+
+      <!-- PAGE 6: Internet Revenue -->
+      <template if:true={isStep6}>
+        <div data-step="6">
+          <h2 class="subheader">Internet Revenue</h2>
+          <lightning-input class="bold-label" type="number" step="0.01" label={totalInternetMrrLabel} data-field="Total_Internet_MRR__c" value={formData.Total_Internet_MRR__c} required message-when-value-missing={requiredFieldMessage} onchange={handleChange}></lightning-input>
+          <div class="button-group">
+            <lightning-button class="previous-button" label={previousLabel} onclick={goPrevious}></lightning-button>
+            <lightning-button variant="brand" label={nextLabel} onclick={goNext}></lightning-button>
+          </div>
+        </div>
+      </template>
+
+      <!-- PAGE 7: Voice -->
+      <template if:true={isStep7}>
+        <div data-step="7">
+          <h2 class="subheader">Voice</h2>
+          <lightning-radio-group class="bold-label" label={voiceSoldLabel} data-field="Voice_Sold__c" options={yesNoOptions} value={formData.Voice_Sold__c} required message-when-value-missing={requiredFieldMessage} onchange={handleRadioChange}></lightning-radio-group>
+          <div class="button-group">
+            <lightning-button class="previous-button" label={previousLabel} onclick={goPrevious}></lightning-button>
+            <lightning-button variant="brand" label={nextLabel} onclick={goNext}></lightning-button>
+          </div>
+        </div>
+      </template>
+
+      <!-- PAGE 8: Voice Sale Details -->
+      <template if:true={isStep8}>
+        <div data-step="8">
+          <h2 class="subheader">Voice Sale Details</h2>
+          <lightning-input class="bold-label" type="number" step="0.01" label={numberOfLinesLabel} data-field="of_Lines__c" value={formData.of_Lines__c} required message-when-value-missing={requiredFieldMessage} onchange={handleChange}></lightning-input>
+          <lightning-radio-group class="bold-label" label={voiceTermLabel} data-field="Voice_Term__c" options={internetTermOptions} value={formData.Voice_Term__c} required message-when-value-missing={requiredFieldMessage} onchange={handleRadioChange}></lightning-radio-group>
+          <lightning-radio-group class="bold-label" label={numberTypeLabel} data-field="Number_Type__c" options={numberTypeOptions} value={formData.Number_Type__c} required message-when-value-missing={requiredFieldMessage} onchange={handleRadioChange}></lightning-radio-group>
+          <div class="button-group">
+            <lightning-button class="previous-button" label={previousLabel} onclick={goPrevious}></lightning-button>
+            <lightning-button variant="brand" label={nextLabel} onclick={goNext}></lightning-button>
+          </div>
+        </div>
+      </template>
+
+      <!-- PAGE 9: Voice Revenue -->
+      <template if:true={isStep9}>
+        <div data-step="9">
+          <h2 class="subheader">Voice Revenue</h2>
+          <lightning-input class="bold-label" type="number" step="0.01" label={totalVoiceMrrLabel} data-field="Total_Voice_MRR__c" value={formData.Total_Voice_MRR__c} required message-when-value-missing={requiredFieldMessage} onchange={handleChange}></lightning-input>
+          <div class="button-group">
+            <lightning-button class="previous-button" label={previousLabel} onclick={goPrevious}></lightning-button>
+            <lightning-button variant="brand" label={nextLabel} onclick={goNext}></lightning-button>
+          </div>
+        </div>
+      </template>
+
+      <!-- PAGE 10: Video -->
+      <template if:true={isStep10}>
+        <div data-step="10">
+          <h2 class="subheader">Video</h2>
+          <lightning-radio-group class="bold-label" label={videoSoldLabel} data-field="Video_Sold__c" options={yesNoOptions} value={formData.Video_Sold__c} required message-when-value-missing={requiredFieldMessage} onchange={handleRadioChange}></lightning-radio-group>
+          <div class="button-group">
+            <lightning-button class="previous-button" label={previousLabel} onclick={goPrevious}></lightning-button>
+            <lightning-button variant="brand" label={nextLabel} onclick={goNext}></lightning-button>
+          </div>
+        </div>
+      </template>
+
+      <!-- PAGE 11: Video Sale Details -->
+      <template if:true={isStep11}>
+        <div data-step="11">
+          <h2 class="subheader">Video Sale Details</h2>
+          <lightning-input class="bold-label" label={packageLabel} data-field="Package__c" value={formData.Package__c} required message-when-value-missing={requiredFieldMessage} onchange={handleChange}></lightning-input>
+          <lightning-radio-group class="bold-label" label={videoTermLabel} data-field="Video_Term__c" options={internetTermOptions} value={formData.Video_Term__c} required message-when-value-missing={requiredFieldMessage} onchange={handleRadioChange}></lightning-radio-group>
+          <lightning-input class="bold-label" type="number" label={numberOfBoxesRequiredLabel} data-field="Number_of_Boxes_Required__c" value={formData.Number_of_Boxes_Required__c} required message-when-value-missing={requiredFieldMessage} onchange={handleChange}></lightning-input>
+          <lightning-textarea class="bold-label" label={additionalChannelsPackagesLabel} data-field="List_any_additional_channels_packages_to__c" value={formData.List_any_additional_channels_to__c} required message-when-value-missing={requiredFieldMessage} onchange={handleChange}></lightning-textarea>
+          <div class="button-group">
+            <lightning-button class="previous-button" label={previousLabel} onclick={goPrevious}></lightning-button>
+            <lightning-button variant="brand" label={nextLabel} onclick={goNext}></lightning-button>
+          </div>
+        </div>
+      </template>
+
+      <!-- PAGE 12: Video Revenue -->
+      <template if:true={isStep12}>
+        <div data-step="12">
+          <h2 class="subheader">Video Revenue</h2>
+          <lightning-input class="bold-label" type="number" step="0.01" label={totalVideoMrcLabel} data-field="Total_Video_MRC__c" value={formData.Total_Video_MRC__c} required message-when-value-missing={requiredFieldMessage} onchange={handleChange}></lightning-input>
+          <div class="button-group">
+            <lightning-button class="previous-button" label={previousLabel} onclick={goPrevious}></lightning-button>
+            <lightning-button variant="brand" label={nextLabel} onclick={goNext}></lightning-button>
+          </div>
+        </div>
+      </template>
+
+      <!-- PAGE 13: Final Checks (File Upload) -->
+      <template if:true={isStep13}>
+        <div class="file-upload-container">
+          <label>{uploadRequiredFilesLabel}</label>
+
+          <p>{professionalInstallFeeLabel} - {viewpleaseindicateLabel}</p>
+          <lightning-input 
+              class="bold-label" 
+              type="number" 
+              step="0.01" 
+              label={professionalInstallFeeLabel} 
+              data-field="Professional_Install_Fee__c" 
+              value={formData.Professional_Install_Fee__c} 
+              required 
+              message-when-value-missing={requiredFieldMessage} 
+              onchange={handleChange}>
+          </lightning-input>
+
+          <div class="file-upload-container">
+            <input type="file" multiple accept=".pdf,.png,.jpg,.jpeg" onchange={handleFileSelection} style="display:none;" />
+
+            <!-- Custom Button -->
+            <button type="button" class="slds-button slds" style="background-color: white; color: #16325c; border: 1px solid #0a3d66;" onclick={triggerFileInput}>
+              {fileButtonText}
+            </button>
+
+            <!-- Placeholder -->
+            <span class="file-placeholder">{filePlaceholderText}</span>
+          </div>
+
+          <!-- Selected files list -->
+          <template if:true={filesToUpload}>
+            <ul class="slds-list_vertical slds-m-top_small file-list">
+              <template for:each={filesToUpload} for:item="file">
+                <li key={file.name} class="file-item">
+                  <span class="file-name">{file.name}</span>
+                  <button
+                    type="button"
+                    class="slds-button slds-button_destructive slds-m-left_small remove-btn"
+                    data-name={file.name}
+                    onclick={removePendingFile}
+                  >
+                    {removeButtonText}
+                  </button>
+                </li>
+              </template>
+            </ul>
+          </template>
+
+          <lightning-textarea 
+            class="bold-label" 
+            label={additionalCommentsLabel} 
+            data-field="Additional_Comments__c" 
+            value={formData.Additional_Comments__c} 
+            onchange={handleChange}>
+          </lightning-textarea>
+
+          <div class="button-group">
+            <lightning-button class="previous-button" label={previousLabel} onclick={goPrevious}></lightning-button>
+            <lightning-button variant="brand" label={submitbutton} onclick={handleSubmit}></lightning-button>
+          </div>
+        </div>
+      </template>
+
+    </div> <!-- Close white-box -->
+  </template>
+
+  <!-- THANK YOU -->
+  <template if:true={isSubmitted}>
+    <div class="thank-you-container">
+      <div class="thank-you">
+        <!-- English Message -->
+        <template if:true={isEnglish}>
+          <h2>Thank you!</h2>
+          <p>Your submission has been received successfully.</p>
+        </template>
+
+        <!-- French Message -->
+        <template if:true={isFrench}>
+          <h2>Merci!</h2>
+          <p>Votre soumission a été reçue avec succès.</p>
+        </template>
+      </div>
+    </div>
+  </template>
+</template>

@@ -1,0 +1,54 @@
+<template>
+    <div class="slds-is-relative">
+        <div class="slds-card">
+            <lightning-spinner variant="brand" size="medium" if:false={loaded}></lightning-spinner>
+            <template if:true={loaded}>
+                <div class="slds-card__body slds-card__body_inner" style="padding-left: 0; padding-right: 0; margin-bottom: 0; margin-top: 2rem; overflow: auto">
+                    <div class="slds-text-align_center">
+                        <img lwc:if={tombstone.highlightPhotoUrl} src={tombstone.highlightPhotoUrl}
+                            style="width: 60px;height: 60px;border-radius: 50%;" />
+                            <p class="slds-text-heading_medium slds-p-top_small slds-p-bottom_small">
+                                {tombstone.spotlightValue}
+                                <lightning-formatted-rich-text class="slds-m-around_x-small" value={tombstone.subHighlightPhotoUrl}></lightning-formatted-rich-text>
+                            </p>
+                    </div>
+                    <table class="slds-table slds-table_bordered slds-table_header-hidden slds-table_cell-buffer">
+                        <tbody>
+                            <template for:each={tombstone.tombstoneSections} for:item="tombstoneSection">
+                                <tr key={tombstoneSection.sectionName}>
+                                    <td class="cell-padding">
+                                        <strong>
+                                            <lightning-formatted-text value={tombstoneSection.sectionName}></lightning-formatted-text>
+                                        </strong>
+                                    </td>
+                                    <td class="cell-padding"></td>
+                                </tr>
+        
+                                <template for:each={tombstoneSection.fields} for:item="field">
+                                    <tr key={field.fieldLabel}>
+                                        <td class="cell-padding">
+                                            <lightning-formatted-text value={field.fieldLabel}></lightning-formatted-text>
+                                        </td>
+                                        <td class="cell-padding">
+                                            <strong>
+                                                <template if:true={field.isString}>
+                                                    <lightning-formatted-rich-text value={field.fieldValue}></lightning-formatted-rich-text>
+                                                </template>
+                                                <template if:true={field.isDate}>
+                                                    <lightning-formatted-rich-text value={field.fieldValue}></lightning-formatted-rich-text>
+                                                </template>
+                                                <template if:true={field.isDouble}>
+                                                    <lightning-formatted-number value={field.fieldValue} format-style="currency"></lightning-formatted-number>
+                                                </template>
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                </template>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

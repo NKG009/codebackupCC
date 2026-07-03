@@ -1,0 +1,247 @@
+<template>
+            <div class="slds-grid slds-wrap slds-is-relative ">
+            <div style="position: fixed;z-index: 999999;top: 0;right: 0;">
+  <vlocity_cmt-toast class="flexcard-toast-element" theme="slds" title="" message="" styletype=""> </vlocity_cmt-toast>
+</div>
+            <div if:true={showLoader} class="slds-is-absolute vloc-loader_override" style="height: 100%; width: 100%; min-height:50px; background: transparent; z-index: 99;">
+  <div>
+   <vlocity_cmt-spinner
+      variant="brand"
+      alternative-text="Loading content..."
+      size="medium"
+      theme="slds"
+      ></vlocity_cmt-spinner>
+  </div>
+</div>
+            <template if:false={hasPermission}>
+              You don't have required permissions to view this card.
+            </template>
+            <template if:true={hasPermission}>
+              <template if:true={hasRecords}>
+                        <template for:each={_records} for:item="record" for:index="rindex">
+                            <vlocity_cmt-flex-card-state if:true={record}  key={record._flex.uniqueKey} data-recordid={record.Id} record={record} data-statue="true"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap " style="      
+         ">
+          <div data-style-id="state0element0" class="slds-col   slds-size_12-of-12" data-rindex={rindex} style="" >
+    <vlocity_cmt-custom-lwc-wrapper class="" element-name="vlocity_cmt-b2b-self-service-client-details" property='\{}' data-rindex={rindex} records={records} record={record} record-id={recordId} card={card} ><vlocity_cmt-b2b-self-service-client-details   clear-keys="ESM_SELFSERVICE_BULKACTION_DETAILS,esm_selfservice_asset_group_details_bulk,esm_selfservice_order_type,esm_selfservice_primary_order_id"  event-name="self_service_change_to_order_input"  get-keys="ESM_SELF_SERVICE_USER_INFO,ESM_SELF_SERVICE_PRICE_LIST,ESM_SELF_SERVICE_SELECTED_ASSET_IDS,ESM_SELF_SERVICE_SELECTED_ASSET_REF_IDS" ></vlocity_cmt-b2b-self-service-client-details></vlocity_cmt-custom-lwc-wrapper>
+    </div><div data-style-id="state0element1" class="slds-col   slds-p-around_xx-large  slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-small-size_12-of-12 slds-size_12-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element1_child"  record={record}  card={card}  action='\null'  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element1block_element0" class="slds-col  slds-text-align_center  slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-small-size_12-of-12 slds-size_12-of-12  " data-rindex={rindex} style="      
+         color: var(--lwc-colorTextDefault);
+font-family:var(--lwc-fontFamily);
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 20px;" ><vlocity_cmt-output-field data-style-id="state0element1block_element0_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXSelfServiceChangeToOrderHeading%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element1block_element1" class="slds-col  slds-text-align_center  slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-small-size_12-of-12 slds-size_12-of-12  " data-rindex={rindex} style="      
+         color: var(--lwc-colorTextDefault);
+font-family:var(--lwc-fontFamily);
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 37px;" ><vlocity_cmt-output-field data-style-id="state0element1block_element1_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXSelfServiceChangeToOrderInfo%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element1block_element2" class="slds-col   slds-p-around_x-large slds-m-top_xx-large  slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-small-size_12-of-12 slds-size_12-of-12  " data-rindex={rindex} style="      
+         border-radius: 20px;
+background: #F7FCFF;" >
+    <vlocity_cmt-block data-style-id="state0element1block_element2_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element1block_element2block_element0" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         color: var(--lwc-colorTextDefault);
+font-family:var(--lwc-fontFamily);
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 21px;" ><vlocity_cmt-output-field data-style-id="state0element1block_element2block_element0_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXSelfServiceChangeToOrderInfo2%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element1block_element2block_element1" class="slds-col   slds-p-around_x-small slds-m-top_xx-large  slds-size_12-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element1block_element2block_element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element1block_element2block_element1block_element0" class="slds-col  slds-m-bottom_xx-small  slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-small-size_3-of-12 slds-size_3-of-12  " data-rindex={rindex} style="      
+         color: var(--lwc-colorTextLabel);
+font-family:var(--lwc-fontFamily);
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 16px;
+letter-spacing: -0.575px;" ><vlocity_cmt-base-input-element data-style-id="state0element1block_element2block_element1block_element0_child"   record={record}  card={card}  property-obj='\{"action":null,"customProperties":[],"fieldBinding":"{orderName}","label":"{Label.CMEXSelfServiceChangeToOrderName}","required":true}'  styles='\{"value":{"backgroundColor":"#F7FCFF","fontSize":""}}'  type="text"  theme="slds"  ></vlocity_cmt-base-input-element>
+      </div><div data-style-id="state0element1block_element2block_element1block_element1" class="slds-col   slds-p-around_x-small  slds-large-size_2-of-12 slds-medium-size_2-of-12 slds-small-size_2-of-12 slds-size_2-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element1block_element2block_element1block_element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element1block_element2block_element1block_element2" class="slds-col  slds-p-right_small slds-m-bottom_xx-small  slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-small-size_3-of-12 slds-size_3-of-12  " data-rindex={rindex} style="      
+         color: var(--lwc-colorTextLabel);
+font-family:var(--lwc-fontFamily);
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 16px;
+letter-spacing: -0.575px;" ><vlocity_cmt-base-input-element data-style-id="state0element1block_element2block_element1block_element2_child"   record={record}  card={card}  property-obj='\{"customProperties":[],"fieldBinding":"{orderStartDate}","format":"YYYY-MM-DD","label":"{Label.CMEXSelfServiceChangeToOrderStartDate}","min":"{currentDate}","name":"Block-0-Block-2-Block-1-Date-2","outputFormat":"YYYY-MM-DD","required":true}'  styles='\{"value":{"backgroundColor":"#F7FCFF"}}'  type="date"  theme="slds"  ></vlocity_cmt-base-input-element>
+      </div>
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element1block_element2block_element2" class="slds-col  slds-p-around_large  slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-small-size_12-of-12 slds-size_12-of-12  " data-rindex={rindex} style="      
+         " ><vlocity_cmt-flex-radio-input data-style-id="state0element1block_element2block_element2_child"   record={record}  card={card}  action='\{"actionList":[{"actionIndex":0,"card":"{card}","draggable":false,"isOpen":true,"key":"1656919733337-s4arcvz9d","label":"GetAccountDetails","stateAction":{"displayName":"Action","eventName":"b2b_selfservice_communicate_client_data","extraParams":{"action":"GET","keys":"[\"AccountId\"]"},"hasExtraParams":true,"id":"flex-action-1656924581924","message":"getAccountId","openUrlIn":"Current Window","subType":"PubSub","type":"Event","vlocityIcon":"standard-default"}}],"eventType":"onchange","iconName":"standard-default","label":"Action","showSpinner":"false"}'  property-obj='\{"action":null,"controlHeight":"100","controlWidth":"100","customProperties":[{"id":0,"label":"messageWhenValueMissing","value":"Please select one option"}],"enabledCaption":"true","fieldBinding":"{orderType}","fieldLevelHelp":"","imageCountInRow":"3","label":"","name":"Block-0-Block-2-Radio-2","options":[{"id":0,"imgId":"","label":"{Label.CMEXSelfServiceChangeToOrderTypeBulk}","selected":true,"value":"bulk"},{"id":1,"imgId":"","label":"{Label.CMEXSelfServiceChangeToOrderTypeOneTime}","selected":false,"value":"oneTime"}],"radioDisplayValue":"radiogroup.horizontal","required":true,"value":"bulk"}'  type="radiogroup.horizontal"  extraclass=" slds-text-link_reset"  theme="slds" onchange={executeAction} data-element-label="block0block2radio3" data-action-key="state0element1block_element2block_element2" ></vlocity_cmt-flex-radio-input>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element2" class="slds-col   slds-p-around_x-small  slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-small-size_12-of-12 slds-size_12-of-12  " data-rindex={rindex} style="      
+         border-top: 1px solid #DDDBDA;" >
+    <vlocity_cmt-block data-style-id="state0element2_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element2block_element0" class="slds-col   slds-large-size_2-of-12 slds-medium-size_1-of-12 slds-small-size_1-of-12 slds-size_1-of-12  " data-rindex={rindex} style="      
+         background: #FFFFFF;
+border: 1px solid #54504F;
+font-family:var(--lwc-fontFamily);
+text-transform:var(--lwc-textTransform);
+border-radius: 105px;
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 30px;
+text-align: center;" ><vlocity_cmt-flex-action data-style-id="state0element2block_element0_child"  tracking-obj={_childCardTrackingObj}  class= "state0element2block_element0_child flexActionElement" 
+        data-action-element-class="state0element2block_element0_child" data-action-key="state0element2block_element0" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="block1action0"   state-obj={record}  record={record}  card={card}  action-list='\[{"actionIndex":0,"draggable":true,"isOpen":true,"key":"1655360688600-ibtafuvuc","label":"GoToPreviousPage","stateAction":{"Community Named Page":{"targetName":"{Session.PreviousPageApi}"},"id":"flex-action-1656570312175","openUrlIn":"Current Window","targetType":"Community Named Page","type":"Custom"}}]'  display-as-button="true"  flyout-details='\{}'  hide-action-icon="true"  icon-name="standard-default"  label="\{Label.CMEXSelfServicePreviousButton}"  styles='\{"label":{"color":"#ABACAD"}}'  theme="slds"  ></vlocity_cmt-flex-action>
+      </div><div data-style-id="state0element2block_element1" class="slds-col   slds-p-around_x-small  slds-large-size_8-of-12 slds-medium-size_8-of-12 slds-small-size_8-of-12 slds-size_8-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element2block_element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element2block_element2" class="slds-col   slds-large-size_2-of-12 slds-medium-size_1-of-12 slds-small-size_1-of-12 slds-size_1-of-12  " data-rindex={rindex} style="      
+         background: var(--lwc-colorBackgroundButtonBrand);
+font-family:var(--lwc-fontFamily);
+text-transform:var(--lwc-textTransform);
+border-radius: 105px;
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 30px;
+text-align: center;
+color: #FFFFFF;" ><vlocity_cmt-flex-action data-style-id="state0element2block_element2_child"  tracking-obj={_childCardTrackingObj}  class= "state0element2block_element2_child flexActionElement" 
+        data-action-element-class="state0element2block_element2_child" data-action-key="state0element2block_element2" onexecuteaction={performAction} data-show-spinner="true"
+        data-element-label="block1action2"   state-obj={record}  record={record}  card={card}  action-list='\[{"actionIndex":0,"contextId":"","draggable":true,"isOpen":false,"isTrackingDisabled":false,"key":"1656429915670-pb7uo1qsw","label":"CreateOrderandGroupCartsIP","sObjectType":"","stateAction":{"Attachments":"","ContentDocumentLinks":"","actionConditions":{"group":[{"group":[{"field":"orderName","hasMergeField":false,"id":"state-new-condition-18","operator":"!=","type":"custom","value":"undefined"},{"field":"orderStartDate","hasMergeField":false,"id":"state-new-condition-36","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"},{"field":"orderName","hasMergeField":false,"id":"state-new-condition-404","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"orderStartDate","hasMergeField":false,"id":"state-new-condition-433","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"orderType","hasMergeField":false,"id":"state-new-condition-1","logicalOperator":"&&","operator":"==","type":"custom","value":"bulk"}],"id":"state-new-group-19"}],"id":"state-condition-object","isParent":true},"displayName":"{Label.CPQNew}","id":"flex-action-1658386189924","message":"{\"type\":\"IntegrationProcedures\",\"value\":{\"dsDelay\":\"\",\"ipMethod\":\"ESM_SelfServiceCreateGroupCarts\",\"vlocityAsync\":false,\"inputMap\":{\"AccountId\":\"{accountId}\",\"isBulk\":\"{orderType}\",\"orderName\":\"{orderName}\",\"startDate\":\"{orderStartDate}\",\"priceList\":\"{priceList}\",\"assetIds\":\"{assetList}\",\"cartType\":\"Order\"},\"jsonMap\":\"{\\\"accountId\\\":\\\"{accountId}\\\",\\\"orderType\\\":\\\"{orderType}\\\",\\\"orderName\\\":\\\"{orderName}\\\",\\\"orderStartDate\\\":\\\"{orderStartDate}\\\",\\\"priceList\\\":\\\"{priceList}\\\",\\\"assetIds\\\":\\\"{assetIds}\\\",\\\"assetList\\\":\\\"{assetList}\\\"}\"},\"orderBy\":{\"name\":\"\",\"isReverse\":\"\"},\"contextVariables\":[{\"name\":\"accountId\",\"val\":\"\",\"id\":21},{\"name\":\"orderType\",\"val\":\"\",\"id\":22},{\"name\":\"orderName\",\"val\":\"\",\"id\":23},{\"name\":\"orderStartDate\",\"val\":\"\",\"id\":24},{\"name\":\"priceList\",\"val\":\"\",\"id\":25},{\"name\":\"assetIds\",\"val\":\"\",\"id\":26},{\"name\":\"assetList\",\"val\":\"\",\"id\":14}]}","name":"New Order","openUrlIn":"Current Window","responseNode":"orderResponse","type":"DataAction","vlocityIcon":"icon-v-document1-line"}},{"actionIndex":1,"card":"{card}","draggable":false,"isOpen":true,"isTrackingDisabled":true,"key":"1657301217044-qpczt8qam","label":"CreateOrderForOneTimeFlow","stateAction":{"Web Page":{"targetName":"/apex"},"actionConditions":{"group":[{"field":"orderName","hasMergeField":false,"id":"state-new-condition-89","operator":"!=","type":"custom","value":"undefined"},{"field":"orderStartDate","hasMergeField":false,"id":"state-new-condition-98","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"},{"field":"orderName","hasMergeField":false,"id":"state-new-condition-108","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"orderStartDate","hasMergeField":false,"id":"state-new-condition-117","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"orderType","hasMergeField":false,"id":"state-new-condition-128","logicalOperator":"&&","operator":"==","type":"custom","value":"oneTime"}],"id":"state-condition-object","isParent":true},"displayName":"Action","id":"flex-action-1659005999402","message":"{\"type\":\"IntegrationProcedures\",\"value\":{\"dsDelay\":\"\",\"ipMethod\":\"ESM_SelfServiceCreateFDO\",\"vlocityAsync\":false,\"inputMap\":{\"AccountId\":\"{accountId}\",\"isBulk\":\"{orderType}\",\"orderName\":\"{orderName}\",\"startDate\":\"{orderStartDate}\",\"priceList\":\"{priceList}\",\"assetIds\":\"{assetList}\",\"cartType\":\"Order\",\"assetRefIdsList\":\"{assetRefIdsList}\"},\"jsonMap\":\"{\\\"accountId\\\":\\\"{accountId}\\\",\\\"orderType\\\":\\\"{orderType}\\\",\\\"orderName\\\":\\\"{orderName}\\\",\\\"orderStartDate\\\":\\\"{orderStartDate}\\\",\\\"priceList\\\":\\\"{priceList}\\\",\\\"assetList\\\":\\\"{assetList}\\\",\\\"assetRefIdsList\\\":\\\"{assetRefIdsList}\\\"}\"},\"orderBy\":{\"name\":\"\",\"isReverse\":\"\"},\"contextVariables\":[{\"name\":\"accountId\",\"val\":\"\",\"id\":18},{\"name\":\"orderType\",\"val\":\"\",\"id\":19},{\"name\":\"orderName\",\"val\":\"\",\"id\":20},{\"name\":\"orderStartDate\",\"val\":\"\",\"id\":21},{\"name\":\"priceList\",\"val\":\"\",\"id\":22},{\"name\":\"assetList\",\"val\":\"\",\"id\":23},{\"name\":\"assetRefIdsList\",\"val\":\"\",\"id\":15}]}","openUrlIn":"Current Window","responseNode":"orderResponseOneTime","targetType":"Web Page","type":"DataAction","vlocityIcon":"standard-default"}},{"actionIndex":2,"card":"{card}","draggable":true,"isOpen":false,"key":"1658070089422-vy5899ddx","label":"StoreResponseToLocalStorageBulk","stateAction":{"actionConditions":{"group":[{"field":"orderType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"bulk"},{"field":"orderResponse.primaryOrderId","hasMergeField":false,"id":"state-new-condition-20","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"orderResponse.primaryOrderId","hasMergeField":false,"id":"state-new-condition-27","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"}],"id":"state-condition-object","isParent":true},"displayName":"Action","eventName":"b2b_selfservice_communicate_client_data","extraParams":{"action":"SET","esm_selfservice_asset_group_details_bulk":"{orderResponse}","esm_selfservice_order_type":"{orderType}","esm_selfservice_primary_order_id":"{orderResponse.primaryOrderId}"},"hasExtraParams":true,"id":"flex-action-1658411629422","message":"data","openUrlIn":"Current Window","subType":"PubSub","type":"Event","vlocityIcon":"standard-default"}},{"actionIndex":3,"card":"{card}","draggable":true,"isOpen":false,"key":"1658409490645-05kicc9ws","label":"StoreResponseToLocalStorageOneTime","stateAction":{"actionConditions":{"group":[{"field":"orderType","hasMergeField":false,"id":"state-new-condition-14","operator":"==","type":"custom","value":"oneTime"},{"field":"orderResponseOneTime.primaryOrderId","hasMergeField":false,"id":"state-new-condition-0","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"orderResponseOneTime.primaryOrderId","hasMergeField":false,"id":"state-new-condition-7","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"}],"id":"state-condition-object","isParent":true},"displayName":"Action","eventName":"b2b_selfservice_communicate_client_data","extraParams":{"action":"SET","esm_selfservice_asset_group_details_one_time":"{orderResponseOneTime}","esm_selfservice_order_type":"{orderType}","esm_selfservice_primary_order_id":"{orderResponseOneTime.primaryOrderId}"},"hasExtraParams":true,"id":"flex-action-1658411556477","message":"data","openUrlIn":"Current Window","subType":"PubSub","type":"Event","vlocityIcon":"standard-default"}},{"actionIndex":3,"card":"{card}","draggable":true,"isOpen":false,"key":"1656566920147-1b2hzz1st","label":"GoToConfigurePage","stateAction":{"Community Named Page":{"targetName":"{Session.ConfigurePageApi}"},"actionConditions":{"group":[{"group":[{"field":"orderName","hasMergeField":false,"id":"state-new-condition-58","operator":"!=","type":"custom","value":"undefined"},{"field":"orderStartDate","hasMergeField":false,"id":"state-new-condition-83","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"},{"field":"orderName","hasMergeField":false,"id":"state-new-condition-487","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"orderStartDate","hasMergeField":false,"id":"state-new-condition-512","logicalOperator":"&&","operator":"!=","type":"custom","value":""}],"id":"state-new-group-59"},{"field":"orderResponse.primaryOrderId","hasMergeField":false,"id":"state-new-condition-0","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"orderResponse.primaryOrderId","hasMergeField":false,"id":"state-new-condition-126","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"},{"field":"orderType","hasMergeField":false,"id":"state-new-condition-158","logicalOperator":"&&","operator":"==","type":"custom","value":"bulk"}],"id":"state-condition-object","isParent":true},"displayName":"Action","id":"flex-action-1658314237694","openUrlIn":"Current Window","targetType":"Community Named Page","type":"Custom","vlocityIcon":"standard-default"}},{"actionIndex":5,"card":"{card}","draggable":true,"isOpen":false,"isTrackingDisabled":true,"key":"1656567726839-wltvwprde","label":"GoToSummaryPage","stateAction":{"Community Named Page":{"targetName":"{Session.SummaryPageApi}"},"actionConditions":{"group":[{"field":"orderType","hasMergeField":false,"id":"state-new-condition-7","operator":"==","type":"custom","value":"oneTime"},{"field":"orderResponseOneTime.primaryOrderId","hasMergeField":false,"id":"state-new-condition-186","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"orderResponseOneTime.primaryOrderId","hasMergeField":false,"id":"state-new-condition-203","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"}],"id":"state-condition-object","isParent":true},"displayName":"Action","id":"flex-action-1658500727939","openUrlIn":"Current Window","targetType":"Community Named Page","type":"Custom","vlocityIcon":"standard-default"}},{"actionIndex":6,"card":"{card}","draggable":true,"isOpen":false,"key":"1658513262619-42eqsfn3u","label":"ErrorValidation","stateAction":{"actionConditions":{"group":[{"group":[{"field":"orderType","hasMergeField":false,"id":"state-new-condition-7","operator":"==","type":"custom","value":"bulk"},{"group":[{"field":"orderResponse.primaryOrderId","hasMergeField":false,"id":"state-new-condition-41","operator":"==","type":"custom","value":"undefined"},{"field":"orderResponse.primaryOrderId","hasMergeField":false,"id":"state-new-condition-85","logicalOperator":"||","operator":"==","type":"custom","value":""}],"id":"state-new-group-42","logicalOperator":"&&"}],"id":"state-new-group-8"},{"group":[{"field":"orderType","hasMergeField":false,"id":"state-new-condition-175","operator":"==","type":"custom","value":"oneTime"},{"group":[{"field":"orderResponseOneTime.primaryOrderId","hasMergeField":false,"id":"state-new-condition-250","operator":"==","type":"custom","value":"undefined"},{"field":"orderResponseOneTime.primaryOrderId","hasMergeField":false,"id":"state-new-condition-312","logicalOperator":"||","operator":"==","type":"custom","value":""}],"id":"state-new-group-251","logicalOperator":"&&"}],"id":"state-new-group-176","logicalOperator":"||"}],"id":"state-condition-object","isParent":true},"displayName":"Action","eventName":"b2b_selfservice_communicate_client_data","extraParams":{"action":"ShowToast","message":"We couldn&#39;t create the Order because an Order with a requested Date greater than {orderStartDate} exists","mode":"dismissible","title":"","variant":"error"},"hasExtraParams":true,"id":"flex-action-1658516613468","message":"data","openUrlIn":"Current Window","subType":"PubSub","type":"Event","vlocityIcon":"standard-default"}}]'  display-as-button="true"  flyout-details='\{}'  hide-action-icon="true"  icon-name="custom:custom101"  label="\{Label.CMEXSelfServiceNextButton}"  styles='\{"label":{"color":"#706E6B"}}'  theme="slds"  ></vlocity_cmt-flex-action>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div>
+      </vlocity_cmt-flex-card-state>
+                        </template>
+                      </template>
+                      <template if:false={hasRecords}>
+                            <vlocity_cmt-flex-card-state  record={record} data-statue="false"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap " style="      
+         ">
+          <div data-style-id="state0element0" class="slds-col   slds-size_12-of-12" data-rindex={rindex} style="" >
+    <vlocity_cmt-custom-lwc-wrapper class="" element-name="vlocity_cmt-b2b-self-service-client-details" property='\{}' data-rindex={rindex} records={records} record={record} record-id={recordId} card={card} ><vlocity_cmt-b2b-self-service-client-details   clear-keys="ESM_SELFSERVICE_BULKACTION_DETAILS,esm_selfservice_asset_group_details_bulk,esm_selfservice_order_type,esm_selfservice_primary_order_id"  event-name="self_service_change_to_order_input"  get-keys="ESM_SELF_SERVICE_USER_INFO,ESM_SELF_SERVICE_PRICE_LIST,ESM_SELF_SERVICE_SELECTED_ASSET_IDS,ESM_SELF_SERVICE_SELECTED_ASSET_REF_IDS" ></vlocity_cmt-b2b-self-service-client-details></vlocity_cmt-custom-lwc-wrapper>
+    </div><div data-style-id="state0element1" class="slds-col   slds-p-around_xx-large  slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-small-size_12-of-12 slds-size_12-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element1_child"  record={record}  card={card}  action='\null'  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element1block_element0" class="slds-col  slds-text-align_center  slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-small-size_12-of-12 slds-size_12-of-12  " data-rindex={rindex} style="      
+         color: var(--lwc-colorTextDefault);
+font-family:var(--lwc-fontFamily);
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 20px;" ><vlocity_cmt-output-field data-style-id="state0element1block_element0_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXSelfServiceChangeToOrderHeading%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element1block_element1" class="slds-col  slds-text-align_center  slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-small-size_12-of-12 slds-size_12-of-12  " data-rindex={rindex} style="      
+         color: var(--lwc-colorTextDefault);
+font-family:var(--lwc-fontFamily);
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 37px;" ><vlocity_cmt-output-field data-style-id="state0element1block_element1_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXSelfServiceChangeToOrderInfo%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element1block_element2" class="slds-col   slds-p-around_x-large slds-m-top_xx-large  slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-small-size_12-of-12 slds-size_12-of-12  " data-rindex={rindex} style="      
+         border-radius: 20px;
+background: #F7FCFF;" >
+    <vlocity_cmt-block data-style-id="state0element1block_element2_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element1block_element2block_element0" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         color: var(--lwc-colorTextDefault);
+font-family:var(--lwc-fontFamily);
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 21px;" ><vlocity_cmt-output-field data-style-id="state0element1block_element2block_element0_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXSelfServiceChangeToOrderInfo2%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element1block_element2block_element1" class="slds-col   slds-p-around_x-small slds-m-top_xx-large  slds-size_12-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element1block_element2block_element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element1block_element2block_element1block_element0" class="slds-col  slds-m-bottom_xx-small  slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-small-size_3-of-12 slds-size_3-of-12  " data-rindex={rindex} style="      
+         color: var(--lwc-colorTextLabel);
+font-family:var(--lwc-fontFamily);
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 16px;
+letter-spacing: -0.575px;" ><vlocity_cmt-base-input-element data-style-id="state0element1block_element2block_element1block_element0_child"   record={record}  card={card}  property-obj='\{"action":null,"customProperties":[],"fieldBinding":"{orderName}","label":"{Label.CMEXSelfServiceChangeToOrderName}","required":true}'  styles='\{"value":{"backgroundColor":"#F7FCFF","fontSize":""}}'  type="text"  theme="slds"  ></vlocity_cmt-base-input-element>
+      </div><div data-style-id="state0element1block_element2block_element1block_element1" class="slds-col   slds-p-around_x-small  slds-large-size_2-of-12 slds-medium-size_2-of-12 slds-small-size_2-of-12 slds-size_2-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element1block_element2block_element1block_element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element1block_element2block_element1block_element2" class="slds-col  slds-p-right_small slds-m-bottom_xx-small  slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-small-size_3-of-12 slds-size_3-of-12  " data-rindex={rindex} style="      
+         color: var(--lwc-colorTextLabel);
+font-family:var(--lwc-fontFamily);
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 16px;
+letter-spacing: -0.575px;" ><vlocity_cmt-base-input-element data-style-id="state0element1block_element2block_element1block_element2_child"   record={record}  card={card}  property-obj='\{"customProperties":[],"fieldBinding":"{orderStartDate}","format":"YYYY-MM-DD","label":"{Label.CMEXSelfServiceChangeToOrderStartDate}","min":"{currentDate}","name":"Block-0-Block-2-Block-1-Date-2","outputFormat":"YYYY-MM-DD","required":true}'  styles='\{"value":{"backgroundColor":"#F7FCFF"}}'  type="date"  theme="slds"  ></vlocity_cmt-base-input-element>
+      </div>
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element1block_element2block_element2" class="slds-col  slds-p-around_large  slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-small-size_12-of-12 slds-size_12-of-12  " data-rindex={rindex} style="      
+         " ><vlocity_cmt-flex-radio-input data-style-id="state0element1block_element2block_element2_child"   record={record}  card={card}  action='\{"actionList":[{"actionIndex":0,"card":"{card}","draggable":false,"isOpen":true,"key":"1656919733337-s4arcvz9d","label":"GetAccountDetails","stateAction":{"displayName":"Action","eventName":"b2b_selfservice_communicate_client_data","extraParams":{"action":"GET","keys":"[\"AccountId\"]"},"hasExtraParams":true,"id":"flex-action-1656924581924","message":"getAccountId","openUrlIn":"Current Window","subType":"PubSub","type":"Event","vlocityIcon":"standard-default"}}],"eventType":"onchange","iconName":"standard-default","label":"Action","showSpinner":"false"}'  property-obj='\{"action":null,"controlHeight":"100","controlWidth":"100","customProperties":[{"id":0,"label":"messageWhenValueMissing","value":"Please select one option"}],"enabledCaption":"true","fieldBinding":"{orderType}","fieldLevelHelp":"","imageCountInRow":"3","label":"","name":"Block-0-Block-2-Radio-2","options":[{"id":0,"imgId":"","label":"{Label.CMEXSelfServiceChangeToOrderTypeBulk}","selected":true,"value":"bulk"},{"id":1,"imgId":"","label":"{Label.CMEXSelfServiceChangeToOrderTypeOneTime}","selected":false,"value":"oneTime"}],"radioDisplayValue":"radiogroup.horizontal","required":true,"value":"bulk"}'  type="radiogroup.horizontal"  extraclass=" slds-text-link_reset"  theme="slds" onchange={executeAction} data-element-label="block0block2radio3" data-action-key="state0element1block_element2block_element2" ></vlocity_cmt-flex-radio-input>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element2" class="slds-col   slds-p-around_x-small  slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-small-size_12-of-12 slds-size_12-of-12  " data-rindex={rindex} style="      
+         border-top: 1px solid #DDDBDA;" >
+    <vlocity_cmt-block data-style-id="state0element2_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element2block_element0" class="slds-col   slds-large-size_2-of-12 slds-medium-size_1-of-12 slds-small-size_1-of-12 slds-size_1-of-12  " data-rindex={rindex} style="      
+         background: #FFFFFF;
+border: 1px solid #54504F;
+font-family:var(--lwc-fontFamily);
+text-transform:var(--lwc-textTransform);
+border-radius: 105px;
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 30px;
+text-align: center;" ><vlocity_cmt-flex-action data-style-id="state0element2block_element0_child"  tracking-obj={_childCardTrackingObj}  class= "state0element2block_element0_child flexActionElement" 
+        data-action-element-class="state0element2block_element0_child" data-action-key="state0element2block_element0" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="block1action0"   state-obj={record}  record={record}  card={card}  action-list='\[{"actionIndex":0,"draggable":true,"isOpen":true,"key":"1655360688600-ibtafuvuc","label":"GoToPreviousPage","stateAction":{"Community Named Page":{"targetName":"{Session.PreviousPageApi}"},"id":"flex-action-1656570312175","openUrlIn":"Current Window","targetType":"Community Named Page","type":"Custom"}}]'  display-as-button="true"  flyout-details='\{}'  hide-action-icon="true"  icon-name="standard-default"  label="\{Label.CMEXSelfServicePreviousButton}"  styles='\{"label":{"color":"#ABACAD"}}'  theme="slds"  ></vlocity_cmt-flex-action>
+      </div><div data-style-id="state0element2block_element1" class="slds-col   slds-p-around_x-small  slds-large-size_8-of-12 slds-medium-size_8-of-12 slds-small-size_8-of-12 slds-size_8-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element2block_element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element2block_element2" class="slds-col   slds-large-size_2-of-12 slds-medium-size_1-of-12 slds-small-size_1-of-12 slds-size_1-of-12  " data-rindex={rindex} style="      
+         background: var(--lwc-colorBackgroundButtonBrand);
+font-family:var(--lwc-fontFamily);
+text-transform:var(--lwc-textTransform);
+border-radius: 105px;
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 30px;
+text-align: center;
+color: #FFFFFF;" ><vlocity_cmt-flex-action data-style-id="state0element2block_element2_child"  tracking-obj={_childCardTrackingObj}  class= "state0element2block_element2_child flexActionElement" 
+        data-action-element-class="state0element2block_element2_child" data-action-key="state0element2block_element2" onexecuteaction={performAction} data-show-spinner="true"
+        data-element-label="block1action2"   state-obj={record}  record={record}  card={card}  action-list='\[{"actionIndex":0,"contextId":"","draggable":true,"isOpen":false,"isTrackingDisabled":false,"key":"1656429915670-pb7uo1qsw","label":"CreateOrderandGroupCartsIP","sObjectType":"","stateAction":{"Attachments":"","ContentDocumentLinks":"","actionConditions":{"group":[{"group":[{"field":"orderName","hasMergeField":false,"id":"state-new-condition-18","operator":"!=","type":"custom","value":"undefined"},{"field":"orderStartDate","hasMergeField":false,"id":"state-new-condition-36","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"},{"field":"orderName","hasMergeField":false,"id":"state-new-condition-404","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"orderStartDate","hasMergeField":false,"id":"state-new-condition-433","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"orderType","hasMergeField":false,"id":"state-new-condition-1","logicalOperator":"&&","operator":"==","type":"custom","value":"bulk"}],"id":"state-new-group-19"}],"id":"state-condition-object","isParent":true},"displayName":"{Label.CPQNew}","id":"flex-action-1658386189924","message":"{\"type\":\"IntegrationProcedures\",\"value\":{\"dsDelay\":\"\",\"ipMethod\":\"ESM_SelfServiceCreateGroupCarts\",\"vlocityAsync\":false,\"inputMap\":{\"AccountId\":\"{accountId}\",\"isBulk\":\"{orderType}\",\"orderName\":\"{orderName}\",\"startDate\":\"{orderStartDate}\",\"priceList\":\"{priceList}\",\"assetIds\":\"{assetList}\",\"cartType\":\"Order\"},\"jsonMap\":\"{\\\"accountId\\\":\\\"{accountId}\\\",\\\"orderType\\\":\\\"{orderType}\\\",\\\"orderName\\\":\\\"{orderName}\\\",\\\"orderStartDate\\\":\\\"{orderStartDate}\\\",\\\"priceList\\\":\\\"{priceList}\\\",\\\"assetIds\\\":\\\"{assetIds}\\\",\\\"assetList\\\":\\\"{assetList}\\\"}\"},\"orderBy\":{\"name\":\"\",\"isReverse\":\"\"},\"contextVariables\":[{\"name\":\"accountId\",\"val\":\"\",\"id\":21},{\"name\":\"orderType\",\"val\":\"\",\"id\":22},{\"name\":\"orderName\",\"val\":\"\",\"id\":23},{\"name\":\"orderStartDate\",\"val\":\"\",\"id\":24},{\"name\":\"priceList\",\"val\":\"\",\"id\":25},{\"name\":\"assetIds\",\"val\":\"\",\"id\":26},{\"name\":\"assetList\",\"val\":\"\",\"id\":14}]}","name":"New Order","openUrlIn":"Current Window","responseNode":"orderResponse","type":"DataAction","vlocityIcon":"icon-v-document1-line"}},{"actionIndex":1,"card":"{card}","draggable":false,"isOpen":true,"isTrackingDisabled":true,"key":"1657301217044-qpczt8qam","label":"CreateOrderForOneTimeFlow","stateAction":{"Web Page":{"targetName":"/apex"},"actionConditions":{"group":[{"field":"orderName","hasMergeField":false,"id":"state-new-condition-89","operator":"!=","type":"custom","value":"undefined"},{"field":"orderStartDate","hasMergeField":false,"id":"state-new-condition-98","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"},{"field":"orderName","hasMergeField":false,"id":"state-new-condition-108","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"orderStartDate","hasMergeField":false,"id":"state-new-condition-117","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"orderType","hasMergeField":false,"id":"state-new-condition-128","logicalOperator":"&&","operator":"==","type":"custom","value":"oneTime"}],"id":"state-condition-object","isParent":true},"displayName":"Action","id":"flex-action-1659005999402","message":"{\"type\":\"IntegrationProcedures\",\"value\":{\"dsDelay\":\"\",\"ipMethod\":\"ESM_SelfServiceCreateFDO\",\"vlocityAsync\":false,\"inputMap\":{\"AccountId\":\"{accountId}\",\"isBulk\":\"{orderType}\",\"orderName\":\"{orderName}\",\"startDate\":\"{orderStartDate}\",\"priceList\":\"{priceList}\",\"assetIds\":\"{assetList}\",\"cartType\":\"Order\",\"assetRefIdsList\":\"{assetRefIdsList}\"},\"jsonMap\":\"{\\\"accountId\\\":\\\"{accountId}\\\",\\\"orderType\\\":\\\"{orderType}\\\",\\\"orderName\\\":\\\"{orderName}\\\",\\\"orderStartDate\\\":\\\"{orderStartDate}\\\",\\\"priceList\\\":\\\"{priceList}\\\",\\\"assetList\\\":\\\"{assetList}\\\",\\\"assetRefIdsList\\\":\\\"{assetRefIdsList}\\\"}\"},\"orderBy\":{\"name\":\"\",\"isReverse\":\"\"},\"contextVariables\":[{\"name\":\"accountId\",\"val\":\"\",\"id\":18},{\"name\":\"orderType\",\"val\":\"\",\"id\":19},{\"name\":\"orderName\",\"val\":\"\",\"id\":20},{\"name\":\"orderStartDate\",\"val\":\"\",\"id\":21},{\"name\":\"priceList\",\"val\":\"\",\"id\":22},{\"name\":\"assetList\",\"val\":\"\",\"id\":23},{\"name\":\"assetRefIdsList\",\"val\":\"\",\"id\":15}]}","openUrlIn":"Current Window","responseNode":"orderResponseOneTime","targetType":"Web Page","type":"DataAction","vlocityIcon":"standard-default"}},{"actionIndex":2,"card":"{card}","draggable":true,"isOpen":false,"key":"1658070089422-vy5899ddx","label":"StoreResponseToLocalStorageBulk","stateAction":{"actionConditions":{"group":[{"field":"orderType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"bulk"},{"field":"orderResponse.primaryOrderId","hasMergeField":false,"id":"state-new-condition-20","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"orderResponse.primaryOrderId","hasMergeField":false,"id":"state-new-condition-27","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"}],"id":"state-condition-object","isParent":true},"displayName":"Action","eventName":"b2b_selfservice_communicate_client_data","extraParams":{"action":"SET","esm_selfservice_asset_group_details_bulk":"{orderResponse}","esm_selfservice_order_type":"{orderType}","esm_selfservice_primary_order_id":"{orderResponse.primaryOrderId}"},"hasExtraParams":true,"id":"flex-action-1658411629422","message":"data","openUrlIn":"Current Window","subType":"PubSub","type":"Event","vlocityIcon":"standard-default"}},{"actionIndex":3,"card":"{card}","draggable":true,"isOpen":false,"key":"1658409490645-05kicc9ws","label":"StoreResponseToLocalStorageOneTime","stateAction":{"actionConditions":{"group":[{"field":"orderType","hasMergeField":false,"id":"state-new-condition-14","operator":"==","type":"custom","value":"oneTime"},{"field":"orderResponseOneTime.primaryOrderId","hasMergeField":false,"id":"state-new-condition-0","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"orderResponseOneTime.primaryOrderId","hasMergeField":false,"id":"state-new-condition-7","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"}],"id":"state-condition-object","isParent":true},"displayName":"Action","eventName":"b2b_selfservice_communicate_client_data","extraParams":{"action":"SET","esm_selfservice_asset_group_details_one_time":"{orderResponseOneTime}","esm_selfservice_order_type":"{orderType}","esm_selfservice_primary_order_id":"{orderResponseOneTime.primaryOrderId}"},"hasExtraParams":true,"id":"flex-action-1658411556477","message":"data","openUrlIn":"Current Window","subType":"PubSub","type":"Event","vlocityIcon":"standard-default"}},{"actionIndex":3,"card":"{card}","draggable":true,"isOpen":false,"key":"1656566920147-1b2hzz1st","label":"GoToConfigurePage","stateAction":{"Community Named Page":{"targetName":"{Session.ConfigurePageApi}"},"actionConditions":{"group":[{"group":[{"field":"orderName","hasMergeField":false,"id":"state-new-condition-58","operator":"!=","type":"custom","value":"undefined"},{"field":"orderStartDate","hasMergeField":false,"id":"state-new-condition-83","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"},{"field":"orderName","hasMergeField":false,"id":"state-new-condition-487","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"orderStartDate","hasMergeField":false,"id":"state-new-condition-512","logicalOperator":"&&","operator":"!=","type":"custom","value":""}],"id":"state-new-group-59"},{"field":"orderResponse.primaryOrderId","hasMergeField":false,"id":"state-new-condition-0","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"orderResponse.primaryOrderId","hasMergeField":false,"id":"state-new-condition-126","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"},{"field":"orderType","hasMergeField":false,"id":"state-new-condition-158","logicalOperator":"&&","operator":"==","type":"custom","value":"bulk"}],"id":"state-condition-object","isParent":true},"displayName":"Action","id":"flex-action-1658314237694","openUrlIn":"Current Window","targetType":"Community Named Page","type":"Custom","vlocityIcon":"standard-default"}},{"actionIndex":5,"card":"{card}","draggable":true,"isOpen":false,"isTrackingDisabled":true,"key":"1656567726839-wltvwprde","label":"GoToSummaryPage","stateAction":{"Community Named Page":{"targetName":"{Session.SummaryPageApi}"},"actionConditions":{"group":[{"field":"orderType","hasMergeField":false,"id":"state-new-condition-7","operator":"==","type":"custom","value":"oneTime"},{"field":"orderResponseOneTime.primaryOrderId","hasMergeField":false,"id":"state-new-condition-186","logicalOperator":"&&","operator":"!=","type":"custom","value":""},{"field":"orderResponseOneTime.primaryOrderId","hasMergeField":false,"id":"state-new-condition-203","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"}],"id":"state-condition-object","isParent":true},"displayName":"Action","id":"flex-action-1658500727939","openUrlIn":"Current Window","targetType":"Community Named Page","type":"Custom","vlocityIcon":"standard-default"}},{"actionIndex":6,"card":"{card}","draggable":true,"isOpen":false,"key":"1658513262619-42eqsfn3u","label":"ErrorValidation","stateAction":{"actionConditions":{"group":[{"group":[{"field":"orderType","hasMergeField":false,"id":"state-new-condition-7","operator":"==","type":"custom","value":"bulk"},{"group":[{"field":"orderResponse.primaryOrderId","hasMergeField":false,"id":"state-new-condition-41","operator":"==","type":"custom","value":"undefined"},{"field":"orderResponse.primaryOrderId","hasMergeField":false,"id":"state-new-condition-85","logicalOperator":"||","operator":"==","type":"custom","value":""}],"id":"state-new-group-42","logicalOperator":"&&"}],"id":"state-new-group-8"},{"group":[{"field":"orderType","hasMergeField":false,"id":"state-new-condition-175","operator":"==","type":"custom","value":"oneTime"},{"group":[{"field":"orderResponseOneTime.primaryOrderId","hasMergeField":false,"id":"state-new-condition-250","operator":"==","type":"custom","value":"undefined"},{"field":"orderResponseOneTime.primaryOrderId","hasMergeField":false,"id":"state-new-condition-312","logicalOperator":"||","operator":"==","type":"custom","value":""}],"id":"state-new-group-251","logicalOperator":"&&"}],"id":"state-new-group-176","logicalOperator":"||"}],"id":"state-condition-object","isParent":true},"displayName":"Action","eventName":"b2b_selfservice_communicate_client_data","extraParams":{"action":"ShowToast","message":"We couldn&#39;t create the Order because an Order with a requested Date greater than {orderStartDate} exists","mode":"dismissible","title":"","variant":"error"},"hasExtraParams":true,"id":"flex-action-1658516613468","message":"data","openUrlIn":"Current Window","subType":"PubSub","type":"Event","vlocityIcon":"standard-default"}}]'  display-as-button="true"  flyout-details='\{}'  hide-action-icon="true"  icon-name="custom:custom101"  label="\{Label.CMEXSelfServiceNextButton}"  styles='\{"label":{"color":"#706E6B"}}'  theme="slds"  ></vlocity_cmt-flex-action>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div>
+      </vlocity_cmt-flex-card-state>
+                      </template>
+            </template>
+            <template if:true={hasError}>
+            {error}
+            </template>
+            
+      <vlocity_cmt-action action-wrapperclass="slds-hide" re-render-flyout class="action-trigger slds-col" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+      
+      </vlocity_cmt-action>
+  
+            <vlocity_cmt-action class="execute-action" re-render-flyout action-wrapperclass="slds-hide" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+            
+            </vlocity_cmt-action>
+            </div>
+          </template>

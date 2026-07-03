@@ -1,0 +1,94 @@
+.form-container {
+    width: 700px;       /* Fixed width */
+    margin: 0 auto;     /* Center horizontally */
+    
+}
+
+.logo-container {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.logo {
+    width: 100%;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+.header {
+    background-color: #0070d2;
+    color: white;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.subheader {
+    background-color: #666666;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0.5rem 0;
+    margin: 1rem 0;
+    border-radius: 4px;
+}
+
+.thank-you-container {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.thank-you {
+    background-color: #28a745;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+/* Make all labels bold */
+.bold-label .slds-form-element__label {
+    font-weight: bold;
+}
+
+.white-box {
+    background-color: white;
+    padding: 2rem;
+    margin-top: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+
+.form-container {
+    width: 700px;
+    margin: 2rem auto;
+}
+
+
+/* Button group: adds space between buttons */
+.button-group {
+    display: flex;
+    gap: 1rem; /* Space between buttons */
+    margin-top: 1.5rem;
+}
+
+/* White background Previous button */
+.previous-button button {
+    background-color: white !important;
+    color: #0070d2 !important; /* Salesforce blue text */
+    border: 1px solid #0070d2 !important;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+/* Hover effect for Previous button */
+.previous-button button:hover {
+    background-color: #f0f8ff !important; /* Light blue hover */
+}

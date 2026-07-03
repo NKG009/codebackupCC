@@ -1,0 +1,155 @@
+<template>
+            <div class="slds-grid slds-wrap slds-is-relative ">
+            <div style="position: fixed;z-index: 999999;top: 0;right: 0;">
+  <vlocity_cmt-toast class="flexcard-toast-element" theme="slds" title="" message="" styletype=""> </vlocity_cmt-toast>
+</div>
+            <div if:true={showLoader} class="slds-is-absolute vloc-loader_override" style="height: 100%; width: 100%; min-height:50px; background: transparent; z-index: 99;">
+  <div>
+   <vlocity_cmt-spinner
+      variant="brand"
+      alternative-text="Loading content..."
+      size="medium"
+      theme="slds"
+      ></vlocity_cmt-spinner>
+  </div>
+</div>
+            <template if:false={hasPermission}>
+              You don't have required permissions to view this card.
+            </template>
+            <template if:true={hasPermission}>
+              <template if:true={hasRecords}>
+                        <template for:each={_records} for:item="record" for:index="rindex">
+                            <vlocity_cmt-flex-card-state if:true={record}  key={record._flex.uniqueKey} data-recordid={record.Id} record={record} data-statue="true"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-small-size_12-of-12 slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-p-around_x-small slds-m-bottom_x-small " style="      
+         ">
+          <div data-style-id="state0element0" class="slds-col  slds-p-right_small slds-m-top_xx-small slds-m-bottom_x-large  slds-size_12-of-12  " data-rindex={rindex} style="      
+         color:var(--lwc-colorTextLabel);
+font-family:var(--lwc-fontFamily);
+" ><vlocity_cmt-base-input-element data-style-id="state0element0_child"   record={record}  card={card}  property-obj='\{"fieldBinding":"{username}","label":"{Label.CMEXSelfServiceUsername}","required":true}'  type="text"  theme="slds"  ></vlocity_cmt-base-input-element>
+      </div><div data-style-id="state0element1" class="slds-col   slds-size_12-of-12" data-rindex={rindex} style="" >
+    <vlocity_cmt-custom-lwc-wrapper class="" element-name="vlocity_cmt-b2b-self-service-password-input" property='\{}' data-rindex={rindex} records={records} record={record} record-id={recordId} card={card} ><vlocity_cmt-b2b-self-service-password-input   event-name="updateselfservicepassword"  is-required="true"  label-name="Password" ></vlocity_cmt-b2b-self-service-password-input></vlocity_cmt-custom-lwc-wrapper>
+    </div><div data-style-id="state0element2" class="slds-col   slds-p-around_x-small slds-size_12-of-12 " data-rindex={rindex} style="" >
+    <vlocity_cmt-block data-style-id="state0element2_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element3" class="slds-col   slds-p-around_x-small slds-size_12-of-12 " data-rindex={rindex} style="" >
+    <vlocity_cmt-block data-style-id="state0element3_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element3block_element0" class="slds-col  slds-p-right_small slds-m-bottom_xx-small  slds-size_6-of-12  " data-rindex={rindex} style="      
+         color:var(--lwc-colorTextLabel);
+font-family:var(--lwc-fontFamily);
+" ><vlocity_cmt-base-input-element data-style-id="state0element3block_element0_child"   record={record}  card={card}  property-obj='\{"checked":false,"fieldBinding":"{rememberMe}","label":"Remember me"}'  type="checkbox"  theme="slds"  ></vlocity_cmt-base-input-element>
+      </div><div data-style-id="state0element3block_element1" class="slds-col   slds-size_6-of-12  " data-rindex={rindex} style="      
+        color:#447BED; " ><vlocity_cmt-flex-action data-style-id="state0element3block_element1_child"  tracking-obj={_childCardTrackingObj}  class= "state0element3block_element1_child flexActionElement" 
+        data-action-element-class="state0element3block_element1_child" data-action-key="state0element3block_element1" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="action4"   state-obj={record}  record={record}  card={card}  action-list='\[{"actionIndex":0,"draggable":false,"isOpen":true,"isTrackingDisabled":true,"key":"1653641010179-ijnyd6h40","label":"Action","stateAction":{"Community Named Page":{"targetName":"Forgot_Password"},"id":"flex-action-1657719053702","openUrlIn":"Current Window","targetType":"Community Named Page","type":"Custom"}}]'  display-as-button="false"  flyout-details='\{}'  hide-action-icon="true"  icon-name="standard-default"  label="Forgot Password?"  styles='\{"label":{"textAlign":"right"}}'  theme="slds"  ></vlocity_cmt-flex-action>
+      </div>
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element4" class="slds-col   slds-size_12-of-12" data-rindex={rindex} style="" >
+    <vlocity_cmt-custom-lwc-wrapper class="" element-name="vlocity_cmt-b2b-self-service-client-details" property='\{}' data-rindex={rindex} records={records} record={record} record-id={recordId} card={card} ><vlocity_cmt-b2b-self-service-client-details   event-name="esm_selfservice_user_name"  get-keys="ESM_Self_Service_User_Name" ></vlocity_cmt-b2b-self-service-client-details></vlocity_cmt-custom-lwc-wrapper>
+    </div><div data-style-id="state0element5" class="slds-col   slds-size_12-of-12 " data-rindex={rindex} style="" ><vlocity_cmt-output-field data-style-id="state0element5_child"   record={record}  card={card}  merge-field="%3Cdiv%20class=%22slds-text-color_error%22%3E%7BinvalidInput%7D&nbsp;%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element6" class="slds-col   slds-p-around_x-small  slds-size_12-of-12  " data-rindex={rindex} style="      
+         margin-top:10rem
+" >
+    <vlocity_cmt-block data-style-id="state0element6_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element6block_element0" class="slds-col   slds-p-around_x-small  slds-size_12-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element6block_element0_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element6block_element0block_element0" class="slds-col   slds-p-around_x-small  slds-size_9-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element6block_element0block_element0_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element6block_element0block_element1" class="slds-col  slds-text-align_center  slds-size_3-of-12  " data-rindex={rindex} style="      
+         background: var(--lwc-colorBackgroundButtonBrand);
+font-family:var(--lwc-fontFamily);
+border-radius: 105px;
+display:flex;
+align-items: center;
+justify-content:center;
+padding-top :.3rem;
+padding-top :.2rem;" ><vlocity_cmt-flex-action data-style-id="state0element6block_element0block_element1_child"  tracking-obj={_childCardTrackingObj}  class= "state0element6block_element0block_element1_child flexActionElement" 
+        data-action-element-class="state0element6block_element0block_element1_child" data-action-key="state0element6block_element0block_element1" onexecuteaction={performAction} data-show-spinner="true"
+        data-element-label="block5action1"   state-obj={record}  record={record}  card={card}  action-list='\[{"actionIndex":0,"card":"{card}","draggable":true,"isOpen":false,"isTrackingDisabled":false,"key":"1654178458413-z8cvbgsup","label":"Validate Input","stateAction":{"Web Page":{"targetName":"/apex"},"actionConditions":{"group":[{"field":"username","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"undefined"},{"field":"username","hasMergeField":false,"id":"state-new-condition-7","logicalOperator":"||","operator":"==","type":"custom","value":""},{"field":"password","hasMergeField":false,"id":"state-new-condition-2","logicalOperator":"||","operator":"==","type":"custom","value":"undefined"},{"field":"password","hasMergeField":false,"id":"state-new-condition-34","logicalOperator":"||","operator":"==","type":"custom","value":""}],"id":"state-condition-object","isParent":true},"displayName":"Action","eventName":"setValues","fieldValues":[{"fieldName":"invalidInput","fieldValue":"Please enter valid username and password"}],"id":"flex-action-1654246964202","openUrlIn":"Current Window","targetType":"Web Page","type":"cardAction","vlocityIcon":"standard-default"}},{"actionIndex":1,"draggable":true,"isOpen":false,"key":"1653564120237-3i3xsvapn","label":"Login","stateAction":{"Web Page":{"targetName":"/apex"},"actionConditions":{"group":[],"id":"state-condition-object","isParent":true},"id":"flex-action-1658463525720","message":"{\"type\":\"ApexRemote\",\"value\":{\"dsDelay\":\"\",\"remoteClass\":\"B2BCmexSiteAuthController\",\"remoteMethod\":\"login\",\"vlocityAsync\":false,\"inputMap\":{\"username\":\"{username}\",\"password\":\"{password}\",\"startUrl\":\"/{SiteName}\"},\"jsonMap\":\"{\\\"Session.username\\\":\\\"{Session.username}\\\",\\\"Session.password\\\":\\\"{Session.password}\\\",\\\"Session.startUrl\\\":\\\"{Session.startUrl}\\\",\\\"password\\\":\\\"{password}\\\",\\\"username\\\":\\\"{username}\\\",\\\"startUrl\\\":\\\"{startUrl}\\\",\\\"SiteName\\\":\\\"{SiteName}\\\"}\"},\"orderBy\":{\"name\":\"\",\"isReverse\":\"\"},\"contextVariables\":[{\"name\":\"Session.username\",\"val\":\"\",\"id\":1},{\"name\":\"Session.password\",\"val\":\"\",\"id\":3},{\"name\":\"Session.startUrl\",\"val\":\"\",\"id\":5},{\"name\":\"password\",\"val\":\"\",\"id\":6},{\"name\":\"username\",\"val\":\"\",\"id\":7},{\"name\":\"startUrl\",\"val\":\"\",\"id\":8},{\"name\":\"SiteName\",\"val\":\"\",\"id\":6}]}","openUrlIn":"Current Window","responseNode":"loginResponse","targetType":"Web Page","type":"DataAction"}},{"actionIndex":2,"card":"{card}","draggable":true,"isOpen":true,"key":"1654156175005-yu7lqcnt9","label":"Remember Me","stateAction":{"actionConditions":{"group":[{"field":"rememberMe","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"true"}],"id":"state-condition-object","isParent":true},"displayName":"Action","eventName":"b2b_selfservice_communicate_client_data","extraParams":{"ESM_Self_Service_User_Name":"{username}","action":"SET"},"hasExtraParams":true,"id":"flex-action-1659537148630","message":"data","openUrlIn":"Current Window","subType":"PubSub","type":"Event","vlocityIcon":"standard-default"}},{"actionIndex":5,"card":"{card}","draggable":true,"isOpen":true,"key":"1659536424674-a1sr2cz3f","label":"ResetLocalStorage","stateAction":{"displayName":"Action","eventName":"b2b_selfservice_communicate_client_data","extraParams":{"action":"ClearLocalStorage","keys":"ESM_SELF_SERVICE_SELECTED_ASSET_IDS,ESM_SELF_SERVICE_PRICE_LIST,ESM_SELF_SERVICE_SELECTED_ASSET_REF_IDS,esm_asset_viewer_selected_assets,"},"hasExtraParams":true,"id":"flex-action-1659536617552","message":"data","openUrlIn":"Current Window","subType":"PubSub","type":"Event","vlocityIcon":"standard-default"}},{"actionIndex":3,"card":"{card}","draggable":true,"isOpen":false,"key":"1657183365102-pi20zsulf","label":"Login successfully ","stateAction":{"Web Page":{"targetName":" {loginResponse.redirectUrl} "},"actionConditions":{"group":[{"field":"loginResponse","hasMergeField":false,"id":"state-new-condition-1","operator":"!=","type":"custom","value":""},{"field":"loginResponse","hasMergeField":false,"id":"state-new-condition-48","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"},{"field":"loginResponse.msg","hasMergeField":false,"id":"state-new-condition-57","logicalOperator":"&&","operator":"==","type":"custom","value":"Login Succesful"}],"id":"state-condition-object","isParent":true},"displayName":"Action","id":"flex-action-1657258907010","openUrlIn":"Current Window","targetType":"Web Page","type":"Custom","vlocityIcon":"standard-default"}},{"actionIndex":4,"card":"{card}","draggable":true,"isOpen":false,"key":"1654153369402-21aunhz9m","label":"Login Fail","stateAction":{"Web Page":{"targetName":"/apex"},"actionConditions":{"group":[{"field":"loginResponse","hasMergeField":false,"id":"state-new-condition-49","operator":"!=","type":"custom","value":""},{"field":"loginResponse","hasMergeField":false,"id":"state-new-condition-10","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"},{"field":"loginResponse.msg","hasMergeField":false,"id":"state-new-condition-20","logicalOperator":"&&","operator":"!=","type":"custom","value":"Login Succesful"}],"id":"state-condition-object","isParent":true},"displayName":"Action","eventName":"setValues","fieldValues":[{"fieldName":"invalidInput","fieldValue":"Please enter valid username and password"}],"id":"flex-action-1657258323534","openUrlIn":"Current Window","targetType":"Web Page","type":"cardAction","vlocityIcon":"standard-default"}}]'  flyout-details='\{}'  hide-action-icon="true"  icon-name="standard-default"  label="Login"  styles='\{"label":{"color":"#ffffff","fontFamily":"Helvetica","fontSize":"14px","textAlign":"center"}}'  theme="slds"  ></vlocity_cmt-flex-action>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div>
+      </vlocity_cmt-flex-card-state>
+                        </template>
+                      </template>
+                      <template if:false={hasRecords}>
+                            <vlocity_cmt-flex-card-state  record={record} data-statue="false"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-small-size_12-of-12 slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-p-around_x-small slds-m-bottom_x-small " style="      
+         ">
+          <div data-style-id="state0element0" class="slds-col  slds-p-right_small slds-m-top_xx-small slds-m-bottom_x-large  slds-size_12-of-12  " data-rindex={rindex} style="      
+         color:var(--lwc-colorTextLabel);
+font-family:var(--lwc-fontFamily);
+" ><vlocity_cmt-base-input-element data-style-id="state0element0_child"   record={record}  card={card}  property-obj='\{"fieldBinding":"{username}","label":"{Label.CMEXSelfServiceUsername}","required":true}'  type="text"  theme="slds"  ></vlocity_cmt-base-input-element>
+      </div><div data-style-id="state0element1" class="slds-col   slds-size_12-of-12" data-rindex={rindex} style="" >
+    <vlocity_cmt-custom-lwc-wrapper class="" element-name="vlocity_cmt-b2b-self-service-password-input" property='\{}' data-rindex={rindex} records={records} record={record} record-id={recordId} card={card} ><vlocity_cmt-b2b-self-service-password-input   event-name="updateselfservicepassword"  is-required="true"  label-name="Password" ></vlocity_cmt-b2b-self-service-password-input></vlocity_cmt-custom-lwc-wrapper>
+    </div><div data-style-id="state0element2" class="slds-col   slds-p-around_x-small slds-size_12-of-12 " data-rindex={rindex} style="" >
+    <vlocity_cmt-block data-style-id="state0element2_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element3" class="slds-col   slds-p-around_x-small slds-size_12-of-12 " data-rindex={rindex} style="" >
+    <vlocity_cmt-block data-style-id="state0element3_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element3block_element0" class="slds-col  slds-p-right_small slds-m-bottom_xx-small  slds-size_6-of-12  " data-rindex={rindex} style="      
+         color:var(--lwc-colorTextLabel);
+font-family:var(--lwc-fontFamily);
+" ><vlocity_cmt-base-input-element data-style-id="state0element3block_element0_child"   record={record}  card={card}  property-obj='\{"checked":false,"fieldBinding":"{rememberMe}","label":"Remember me"}'  type="checkbox"  theme="slds"  ></vlocity_cmt-base-input-element>
+      </div><div data-style-id="state0element3block_element1" class="slds-col   slds-size_6-of-12  " data-rindex={rindex} style="      
+        color:#447BED; " ><vlocity_cmt-flex-action data-style-id="state0element3block_element1_child"  tracking-obj={_childCardTrackingObj}  class= "state0element3block_element1_child flexActionElement" 
+        data-action-element-class="state0element3block_element1_child" data-action-key="state0element3block_element1" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="action4"   state-obj={record}  record={record}  card={card}  action-list='\[{"actionIndex":0,"draggable":false,"isOpen":true,"isTrackingDisabled":true,"key":"1653641010179-ijnyd6h40","label":"Action","stateAction":{"Community Named Page":{"targetName":"Forgot_Password"},"id":"flex-action-1657719053702","openUrlIn":"Current Window","targetType":"Community Named Page","type":"Custom"}}]'  display-as-button="false"  flyout-details='\{}'  hide-action-icon="true"  icon-name="standard-default"  label="Forgot Password?"  styles='\{"label":{"textAlign":"right"}}'  theme="slds"  ></vlocity_cmt-flex-action>
+      </div>
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element4" class="slds-col   slds-size_12-of-12" data-rindex={rindex} style="" >
+    <vlocity_cmt-custom-lwc-wrapper class="" element-name="vlocity_cmt-b2b-self-service-client-details" property='\{}' data-rindex={rindex} records={records} record={record} record-id={recordId} card={card} ><vlocity_cmt-b2b-self-service-client-details   event-name="esm_selfservice_user_name"  get-keys="ESM_Self_Service_User_Name" ></vlocity_cmt-b2b-self-service-client-details></vlocity_cmt-custom-lwc-wrapper>
+    </div><div data-style-id="state0element5" class="slds-col   slds-size_12-of-12 " data-rindex={rindex} style="" ><vlocity_cmt-output-field data-style-id="state0element5_child"   record={record}  card={card}  merge-field="%3Cdiv%20class=%22slds-text-color_error%22%3E%7BinvalidInput%7D&nbsp;%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element6" class="slds-col   slds-p-around_x-small  slds-size_12-of-12  " data-rindex={rindex} style="      
+         margin-top:10rem
+" >
+    <vlocity_cmt-block data-style-id="state0element6_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element6block_element0" class="slds-col   slds-p-around_x-small  slds-size_12-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element6block_element0_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element6block_element0block_element0" class="slds-col   slds-p-around_x-small  slds-size_9-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element6block_element0block_element0_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element6block_element0block_element1" class="slds-col  slds-text-align_center  slds-size_3-of-12  " data-rindex={rindex} style="      
+         background: var(--lwc-colorBackgroundButtonBrand);
+font-family:var(--lwc-fontFamily);
+border-radius: 105px;
+display:flex;
+align-items: center;
+justify-content:center;
+padding-top :.3rem;
+padding-top :.2rem;" ><vlocity_cmt-flex-action data-style-id="state0element6block_element0block_element1_child"  tracking-obj={_childCardTrackingObj}  class= "state0element6block_element0block_element1_child flexActionElement" 
+        data-action-element-class="state0element6block_element0block_element1_child" data-action-key="state0element6block_element0block_element1" onexecuteaction={performAction} data-show-spinner="true"
+        data-element-label="block5action1"   state-obj={record}  record={record}  card={card}  action-list='\[{"actionIndex":0,"card":"{card}","draggable":true,"isOpen":false,"isTrackingDisabled":false,"key":"1654178458413-z8cvbgsup","label":"Validate Input","stateAction":{"Web Page":{"targetName":"/apex"},"actionConditions":{"group":[{"field":"username","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"undefined"},{"field":"username","hasMergeField":false,"id":"state-new-condition-7","logicalOperator":"||","operator":"==","type":"custom","value":""},{"field":"password","hasMergeField":false,"id":"state-new-condition-2","logicalOperator":"||","operator":"==","type":"custom","value":"undefined"},{"field":"password","hasMergeField":false,"id":"state-new-condition-34","logicalOperator":"||","operator":"==","type":"custom","value":""}],"id":"state-condition-object","isParent":true},"displayName":"Action","eventName":"setValues","fieldValues":[{"fieldName":"invalidInput","fieldValue":"Please enter valid username and password"}],"id":"flex-action-1654246964202","openUrlIn":"Current Window","targetType":"Web Page","type":"cardAction","vlocityIcon":"standard-default"}},{"actionIndex":1,"draggable":true,"isOpen":false,"key":"1653564120237-3i3xsvapn","label":"Login","stateAction":{"Web Page":{"targetName":"/apex"},"actionConditions":{"group":[],"id":"state-condition-object","isParent":true},"id":"flex-action-1658463525720","message":"{\"type\":\"ApexRemote\",\"value\":{\"dsDelay\":\"\",\"remoteClass\":\"B2BCmexSiteAuthController\",\"remoteMethod\":\"login\",\"vlocityAsync\":false,\"inputMap\":{\"username\":\"{username}\",\"password\":\"{password}\",\"startUrl\":\"/{SiteName}\"},\"jsonMap\":\"{\\\"Session.username\\\":\\\"{Session.username}\\\",\\\"Session.password\\\":\\\"{Session.password}\\\",\\\"Session.startUrl\\\":\\\"{Session.startUrl}\\\",\\\"password\\\":\\\"{password}\\\",\\\"username\\\":\\\"{username}\\\",\\\"startUrl\\\":\\\"{startUrl}\\\",\\\"SiteName\\\":\\\"{SiteName}\\\"}\"},\"orderBy\":{\"name\":\"\",\"isReverse\":\"\"},\"contextVariables\":[{\"name\":\"Session.username\",\"val\":\"\",\"id\":1},{\"name\":\"Session.password\",\"val\":\"\",\"id\":3},{\"name\":\"Session.startUrl\",\"val\":\"\",\"id\":5},{\"name\":\"password\",\"val\":\"\",\"id\":6},{\"name\":\"username\",\"val\":\"\",\"id\":7},{\"name\":\"startUrl\",\"val\":\"\",\"id\":8},{\"name\":\"SiteName\",\"val\":\"\",\"id\":6}]}","openUrlIn":"Current Window","responseNode":"loginResponse","targetType":"Web Page","type":"DataAction"}},{"actionIndex":2,"card":"{card}","draggable":true,"isOpen":true,"key":"1654156175005-yu7lqcnt9","label":"Remember Me","stateAction":{"actionConditions":{"group":[{"field":"rememberMe","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"true"}],"id":"state-condition-object","isParent":true},"displayName":"Action","eventName":"b2b_selfservice_communicate_client_data","extraParams":{"ESM_Self_Service_User_Name":"{username}","action":"SET"},"hasExtraParams":true,"id":"flex-action-1659537148630","message":"data","openUrlIn":"Current Window","subType":"PubSub","type":"Event","vlocityIcon":"standard-default"}},{"actionIndex":5,"card":"{card}","draggable":true,"isOpen":true,"key":"1659536424674-a1sr2cz3f","label":"ResetLocalStorage","stateAction":{"displayName":"Action","eventName":"b2b_selfservice_communicate_client_data","extraParams":{"action":"ClearLocalStorage","keys":"ESM_SELF_SERVICE_SELECTED_ASSET_IDS,ESM_SELF_SERVICE_PRICE_LIST,ESM_SELF_SERVICE_SELECTED_ASSET_REF_IDS,esm_asset_viewer_selected_assets,"},"hasExtraParams":true,"id":"flex-action-1659536617552","message":"data","openUrlIn":"Current Window","subType":"PubSub","type":"Event","vlocityIcon":"standard-default"}},{"actionIndex":3,"card":"{card}","draggable":true,"isOpen":false,"key":"1657183365102-pi20zsulf","label":"Login successfully ","stateAction":{"Web Page":{"targetName":" {loginResponse.redirectUrl} "},"actionConditions":{"group":[{"field":"loginResponse","hasMergeField":false,"id":"state-new-condition-1","operator":"!=","type":"custom","value":""},{"field":"loginResponse","hasMergeField":false,"id":"state-new-condition-48","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"},{"field":"loginResponse.msg","hasMergeField":false,"id":"state-new-condition-57","logicalOperator":"&&","operator":"==","type":"custom","value":"Login Succesful"}],"id":"state-condition-object","isParent":true},"displayName":"Action","id":"flex-action-1657258907010","openUrlIn":"Current Window","targetType":"Web Page","type":"Custom","vlocityIcon":"standard-default"}},{"actionIndex":4,"card":"{card}","draggable":true,"isOpen":false,"key":"1654153369402-21aunhz9m","label":"Login Fail","stateAction":{"Web Page":{"targetName":"/apex"},"actionConditions":{"group":[{"field":"loginResponse","hasMergeField":false,"id":"state-new-condition-49","operator":"!=","type":"custom","value":""},{"field":"loginResponse","hasMergeField":false,"id":"state-new-condition-10","logicalOperator":"&&","operator":"!=","type":"custom","value":"undefined"},{"field":"loginResponse.msg","hasMergeField":false,"id":"state-new-condition-20","logicalOperator":"&&","operator":"!=","type":"custom","value":"Login Succesful"}],"id":"state-condition-object","isParent":true},"displayName":"Action","eventName":"setValues","fieldValues":[{"fieldName":"invalidInput","fieldValue":"Please enter valid username and password"}],"id":"flex-action-1657258323534","openUrlIn":"Current Window","targetType":"Web Page","type":"cardAction","vlocityIcon":"standard-default"}}]'  flyout-details='\{}'  hide-action-icon="true"  icon-name="standard-default"  label="Login"  styles='\{"label":{"color":"#ffffff","fontFamily":"Helvetica","fontSize":"14px","textAlign":"center"}}'  theme="slds"  ></vlocity_cmt-flex-action>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div>
+      </vlocity_cmt-flex-card-state>
+                      </template>
+            </template>
+            <template if:true={hasError}>
+            {error}
+            </template>
+            
+      <vlocity_cmt-action action-wrapperclass="slds-hide" re-render-flyout class="action-trigger slds-col" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+      
+      </vlocity_cmt-action>
+  
+            <vlocity_cmt-action class="execute-action" re-render-flyout action-wrapperclass="slds-hide" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+            
+            </vlocity_cmt-action>
+            </div>
+          </template>

@@ -1,0 +1,80 @@
+<template>
+    <div class="previewer-wrapper">
+        <div class="slds-box slds-p-around_small">
+            <div style="display:flex;flex-direction:row;align-items:center">
+                <div style="flex:1" class="slds-m-right_small">
+                    <div class="slds-scoped-notification slds-media slds-media_center slds-theme_info" role="status">
+                        <div class="slds-media__figure">
+                          <span class="slds-icon_container slds-icon-utility-info" title="info">
+                            <lightning-icon size="small" icon-name="utility:info" class="icon-white"></lightning-icon>
+                            <span class="slds-assistive-text">info</span>
+                          </span>
+                        </div>
+                        <div class="slds-media__body">
+                          <p>{labels.previewMessage}</p>
+                        </div>
+                      </div>
+                </div>
+                <div style="min-width:5rem">
+                    <lightning-input
+                        type="toggle"
+                        variant="label-hidden"
+                        message-toggle-active={labels.sendDocument}
+                        message-toggle-inactive={labels.preview}
+                        class="email-decision"
+                        checked={isPreview}
+                        onchange={setIsPreview}
+                    ></lightning-input>
+                </div>
+                <div style="min-width:5rem">
+                    <lightning-input
+                        type="toggle"
+                        variant="label-hidden"
+                        message-toggle-active={labels.showExisting}
+                        message-toggle-inactive={labels.hideExisting}
+                        class="email-decision"
+                        data-id="input-existing"
+                        checked={isExisting}
+                        onchange={setIsExisting}
+                    ></lightning-input>
+                </div>
+                <div style="min-width:5rem">
+                    <lightning-input
+                        type="toggle"
+                        variant="label-hidden"
+                        message-toggle-active={labels.showDisconnections}
+                        message-toggle-inactive={labels.hideDisconnections}
+                        class="email-decision"
+                        data-id="input-disconnect"
+                        checked={isDisconnections}
+                        onchange={setIsDisconnections}
+                    ></lightning-input>
+                </div>
+               
+            </div>
+        </div>
+
+        <template lwc:if={emailTemplate}>
+            <lightning-input
+                type="text"
+                disabled="true"
+                value={emailTemplate.subject}
+            ></lightning-input>
+            <div class="slds-box slds-m-top_small email-previewer">
+                <lightning-formatted-rich-text class="slds-m-around_x-small" value={emailTemplate.htmlValue}></lightning-formatted-rich-text>
+            </div>
+        </template>
+    </div>
+    <div class="slds-card__footer navigationBar" style="margin-left:-2rem;margin-right:-2rem;margin-bottom:-1.5rem;background:var(--slds-c-modal-footer-color-background, var(--sds-c-modal-footer-color-background, var(--slds-c-modal-color-background, var(--sds-c-modal-color-background, var(--lwc-colorBackground,rgb(243, 243, 243))))));padding:var(--slds-c-modal-footer-spacing-block-start, var(--sds-c-modal-footer-spacing-block-start, var(--lwc-spacingSmall,0.75rem))) var(--slds-c-modal-footer-spacing-inline-end, var(--sds-c-modal-footer-spacing-inline-end, var(--lwc-spacingMedium,1rem))) var(--slds-c-modal-footer-spacing-block-end, var(--sds-c-modal-footer-spacing-block-end, var(--lwc-spacingSmall,0.75rem))) var(--slds-c-modal-footer-spacing-inline-start, var(--sds-c-modal-footer-spacing-inline-start, var(--lwc-spacingMedium,1rem)));border-top:var(--slds-c-modal-sizing-border, var(--sds-c-modal-sizing-border, var(--lwc-borderWidthThick,2px))) solid var(--slds-c-modal-color-border, var(--sds-c-modal-color-border, var(--lwc-colorBorder,rgb(229, 229, 229))));">
+        <footer class="slds-scope footerContainer slds-grid slds-grid_align-spread">
+            <div class="actionsLeft slds-grid slds-m-right_xx-small">
+                <button class="slds-button slds-button_outline-brand" aria-disabled="false" type="button" onclick={handleBack}>{labels.back}</button>
+            </div>
+            <div class="navigation-bar__right-align">
+                <button class="slds-button slds-button_outline-brand" aria-disabled="false" type="button" data-lang="EN-" onclick={changeLanguage}>{labels.english}</button>
+                <button class="slds-button slds-button_outline-brand" aria-disabled="false" type="button" data-lang="FR-" onclick={changeLanguage}>{labels.french}</button>
+                <button class="slds-button slds-button_brand flow-button__NEXT" aria-disabled="false" type="button" onclick={handleSend}>{labels.send}</button>
+            </div>
+        </footer>
+    </div>
+</template>

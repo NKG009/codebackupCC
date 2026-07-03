@@ -1,0 +1,267 @@
+<template>
+            <div class="slds-grid slds-wrap slds-is-relative ">
+            <div style="position: fixed;z-index: 999999;top: 0;right: 0;">
+  <vlocity_cmt-toast class="flexcard-toast-element" theme="slds" title="" message="" styletype=""> </vlocity_cmt-toast>
+</div>
+            <div if:true={showLoader} class="slds-is-absolute vloc-loader_override" style="height: 100%; width: 100%; min-height:50px; background: transparent; z-index: 99;">
+  <div>
+   <vlocity_cmt-spinner
+      variant="brand"
+      alternative-text="Loading content..."
+      size="medium"
+      theme="slds"
+      ></vlocity_cmt-spinner>
+  </div>
+</div>
+            <template if:false={hasPermission}>
+              You don't have required permissions to view this card.
+            </template>
+            <template if:true={hasPermission}>
+              <template if:true={hasRecords}>
+                        <template for:each={_records} for:item="record" for:index="rindex">
+                            <vlocity_cmt-flex-card-state if:true={record}  key={record._flex.uniqueKey} data-recordid={record.Id} record={record} data-statue="true"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-border_top slds-border_right slds-border_bottom slds-border_left " style="background-color:#FFFFFF;     border-top: #DDDBDA 1px solid;border-right: #DDDBDA 1px solid;border-bottom: #DDDBDA 1px solid;border-left: #DDDBDA 1px solid; 
+    border-radius:4;     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.16);margin-bottom: 0.5rem;">
+          <div data-style-id="state0element0" class="slds-col    slds-p-around_x-small  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"CreateQuoteStart"}],"id":"state-condition-object","isParent":true}' >
+    <vlocity_cmt-block data-style-id="state0element0_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"CreateQuoteStart"}],"id":"state-condition-object","isParent":true}'  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0" class="slds-col  slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_xx-small  slds-size_1-of-12  " data-rindex={rindex} style="background-color:#F28B00;     border-top: #FFFFFF 1px solid;border-right: #FFFFFF 1px solid;border-bottom: #FFFFFF 1px solid;border-left: #FFFFFF 1px solid; 
+    border-radius:5;     width:56px;border-radius: 5px;" ><vlocity_cmt-flex-icon data-style-id="state0element0block_element0_child"   record={record}  card={card}  alternative-text="Create Quote"  color="#FFFFFF"  extraclass=""  icon-name="standard:quotes"  icon-type="Salesforce SVG"  imgsrc=""  size="large"  variant="default"  theme="slds"  ></vlocity_cmt-flex-icon>
+      </div><div data-style-id="state0element0block_element1" class="slds-col   slds-p-left_small  slds-size_11-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element0block_element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element1block_element0" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 700;
+font-size: 18px;" ><vlocity_cmt-output-field data-style-id="state0element0block_element1block_element0_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXCreateQuoteJourney%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element0block_element1block_element1" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 400;
+font-size: 13px;" ><vlocity_cmt-output-field data-style-id="state0element0block_element1block_element1_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXCreateQuoteJourneyDescription%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element1" class="slds-col    slds-p-around_x-small  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"CreateQuote"}],"id":"state-condition-object","isParent":true}' >
+    <vlocity_cmt-block data-style-id="state0element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"CreateQuote"}],"id":"state-condition-object","isParent":true}'  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element1block_element0" class="slds-col  slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_xx-small  slds-size_1-of-12  " data-rindex={rindex} style="background-color:#F28B00;     border-top: #FFFFFF 1px solid;border-right: #FFFFFF 1px solid;border-bottom: #FFFFFF 1px solid;border-left: #FFFFFF 1px solid; 
+    border-radius:5;     width:56px;border-radius: 5px;" ><vlocity_cmt-flex-icon data-style-id="state0element1block_element0_child"   record={record}  card={card}  alternative-text="Create Quote"  color="#FFFFFF"  extraclass=""  icon-name="standard:quotes"  icon-type="Salesforce SVG"  imgsrc=""  size="large"  variant="default"  theme="slds"  ></vlocity_cmt-flex-icon>
+      </div><div data-style-id="state0element1block_element1" class="slds-col   slds-p-left_small  slds-size_11-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element1block_element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element1block_element1block_element0" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 700;
+font-size: 18px;" ><vlocity_cmt-output-field data-style-id="state0element1block_element1block_element0_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXESMQuoteJourneyTitle%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element1block_element1block_element1" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 400;
+font-size: 13px;" ><vlocity_cmt-output-field data-style-id="state0element1block_element1block_element1_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXESMQuoteJourneyDescription%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element2" class="slds-col    slds-p-around_x-small  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"AddLocation"}],"id":"state-condition-object","isParent":true}' >
+    <vlocity_cmt-block data-style-id="state0element2_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"AddLocation"}],"id":"state-condition-object","isParent":true}'  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element2block_element0" class="slds-col  slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_xx-small  slds-size_1-of-12  " data-rindex={rindex} style="background-color:#F28B00;     border-top: #FFFFFF 1px solid;border-right: #FFFFFF 1px solid;border-bottom: #FFFFFF 1px solid;border-left: #FFFFFF 1px solid; 
+    border-radius:5;     width:56px;border-radius: 5px;" ><vlocity_cmt-flex-icon data-style-id="state0element2block_element0_child"   record={record}  card={card}  alternative-text="Create Quote"  color="#FFFFFF"  extraclass=""  icon-name="standard:address"  icon-type="Salesforce SVG"  imgsrc=""  size="large"  variant="default"  theme="slds"  ></vlocity_cmt-flex-icon>
+      </div><div data-style-id="state0element2block_element1" class="slds-col   slds-p-left_small  slds-size_11-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element2block_element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element2block_element1block_element0" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 700;
+font-size: 18px;" ><vlocity_cmt-output-field data-style-id="state0element2block_element1block_element0_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXGuidedAddLocations%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element2block_element1block_element1" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 400;
+font-size: 13px;" ><vlocity_cmt-output-field data-style-id="state0element2block_element1block_element1_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXCreateQuoteJourneyDescriptionOnLocationPage%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element3" class="slds-col    slds-p-around_x-small  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-18","operator":"==","type":"custom","value":"AddSubscriber"}],"id":"state-condition-object","isParent":true}' >
+    <vlocity_cmt-block data-style-id="state0element3_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-18","operator":"==","type":"custom","value":"AddSubscriber"}],"id":"state-condition-object","isParent":true}'  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element3block_element0" class="slds-col  slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_xx-small  slds-size_1-of-12  " data-rindex={rindex} style="background-color:#F28B00;     border-top: #FFFFFF 1px solid;border-right: #FFFFFF 1px solid;border-bottom: #FFFFFF 1px solid;border-left: #FFFFFF 1px solid; 
+    border-radius:5;     width:56px;border-radius: 5px;" ><vlocity_cmt-flex-icon data-style-id="state0element3block_element0_child"   record={record}  card={card}  alternative-text="Create Quote"  color="#FFFFFF"  extraclass=""  icon-name="standard:address"  icon-type="Salesforce SVG"  imgsrc=""  size="large"  variant="default"  theme="slds"  ></vlocity_cmt-flex-icon>
+      </div><div data-style-id="state0element3block_element1" class="slds-col   slds-p-left_small  slds-size_11-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element3block_element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element3block_element1block_element0" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 700;
+font-size: 18px;" ><vlocity_cmt-output-field data-style-id="state0element3block_element1block_element0_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXAddSubscriberLabel%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element3block_element1block_element1" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 400;
+font-size: 13px;" ><vlocity_cmt-output-field data-style-id="state0element3block_element1block_element1_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXAddSubscriberLabelDescription%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element4" class="slds-col    slds-p-around_x-small  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"SelectProduct"}],"id":"state-condition-object","isParent":true}' >
+    <vlocity_cmt-block data-style-id="state0element4_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"SelectProduct"}],"id":"state-condition-object","isParent":true}'  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element4block_element0" class="slds-col  slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_xx-small  slds-size_1-of-12  " data-rindex={rindex} style="background-color:#F28B00;     border-top: #FFFFFF 1px solid;border-right: #FFFFFF 1px solid;border-bottom: #FFFFFF 1px solid;border-left: #FFFFFF 1px solid; 
+    border-radius:5;     width:56px;border-radius: 5px;" ><vlocity_cmt-flex-icon data-style-id="state0element4block_element0_child"   record={record}  card={card}  alternative-text="Create Quote"  color="#FFFFFF"  extraclass=""  icon-name="standard:product_service_campaign"  icon-type="Salesforce SVG"  imgsrc=""  size="large"  variant="default"  theme="slds"  ></vlocity_cmt-flex-icon>
+      </div><div data-style-id="state0element4block_element1" class="slds-col   slds-p-left_small  slds-size_11-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element4block_element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element4block_element1block_element0" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 700;
+font-size: 18px;" ><vlocity_cmt-output-field data-style-id="state0element4block_element1block_element0_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXSelectProducts%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element4block_element1block_element1" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 400;
+font-size: 13px;" ><vlocity_cmt-output-field data-style-id="state0element4block_element1block_element1_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXSelectYourProducts%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element5" class="slds-col    slds-p-around_x-small  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"ConfigureCart"}],"id":"state-condition-object","isParent":true}' >
+    <vlocity_cmt-block data-style-id="state0element5_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"ConfigureCart"}],"id":"state-condition-object","isParent":true}'  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element5block_element0" class="slds-col  slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_xx-small  slds-size_1-of-12  " data-rindex={rindex} style="background-color:#F28B00;     border-top: #FFFFFF 1px solid;border-right: #FFFFFF 1px solid;border-bottom: #FFFFFF 1px solid;border-left: #FFFFFF 1px solid; 
+    border-radius:5;     width:56px;border-radius: 5px;" ><vlocity_cmt-flex-icon data-style-id="state0element5block_element0_child"   record={record}  card={card}  alternative-text="Create Quote"  color="#FFFFFF"  extraclass=""  icon-name="standard:product_quantity_rules"  icon-type="Salesforce SVG"  imgsrc=""  size="large"  variant="default"  theme="slds"  ></vlocity_cmt-flex-icon>
+      </div><div data-style-id="state0element5block_element1" class="slds-col   slds-p-left_small  slds-size_11-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element5block_element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element5block_element1block_element0" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 700;
+font-size: 18px;" ><vlocity_cmt-output-field data-style-id="state0element5block_element1block_element0_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXConfigureProducts%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element5block_element1block_element1" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 400;
+font-size: 13px;" ><vlocity_cmt-output-field data-style-id="state0element5block_element1block_element1_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXConfigureProductStep%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div>
+      </vlocity_cmt-flex-card-state>
+                        </template>
+                      </template>
+                      <template if:false={hasRecords}>
+                            <vlocity_cmt-flex-card-state  record={record} data-statue="false"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-border_top slds-border_right slds-border_bottom slds-border_left " style="background-color:#FFFFFF;     border-top: #DDDBDA 1px solid;border-right: #DDDBDA 1px solid;border-bottom: #DDDBDA 1px solid;border-left: #DDDBDA 1px solid; 
+    border-radius:4;     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.16);margin-bottom: 0.5rem;">
+          <div data-style-id="state0element0" class="slds-col    slds-p-around_x-small  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"CreateQuoteStart"}],"id":"state-condition-object","isParent":true}' >
+    <vlocity_cmt-block data-style-id="state0element0_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"CreateQuoteStart"}],"id":"state-condition-object","isParent":true}'  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0" class="slds-col  slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_xx-small  slds-size_1-of-12  " data-rindex={rindex} style="background-color:#F28B00;     border-top: #FFFFFF 1px solid;border-right: #FFFFFF 1px solid;border-bottom: #FFFFFF 1px solid;border-left: #FFFFFF 1px solid; 
+    border-radius:5;     width:56px;border-radius: 5px;" ><vlocity_cmt-flex-icon data-style-id="state0element0block_element0_child"   record={record}  card={card}  alternative-text="Create Quote"  color="#FFFFFF"  extraclass=""  icon-name="standard:quotes"  icon-type="Salesforce SVG"  imgsrc=""  size="large"  variant="default"  theme="slds"  ></vlocity_cmt-flex-icon>
+      </div><div data-style-id="state0element0block_element1" class="slds-col   slds-p-left_small  slds-size_11-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element0block_element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element1block_element0" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 700;
+font-size: 18px;" ><vlocity_cmt-output-field data-style-id="state0element0block_element1block_element0_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXCreateQuoteJourney%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element0block_element1block_element1" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 400;
+font-size: 13px;" ><vlocity_cmt-output-field data-style-id="state0element0block_element1block_element1_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXCreateQuoteJourneyDescription%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element1" class="slds-col    slds-p-around_x-small  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"CreateQuote"}],"id":"state-condition-object","isParent":true}' >
+    <vlocity_cmt-block data-style-id="state0element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"CreateQuote"}],"id":"state-condition-object","isParent":true}'  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element1block_element0" class="slds-col  slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_xx-small  slds-size_1-of-12  " data-rindex={rindex} style="background-color:#F28B00;     border-top: #FFFFFF 1px solid;border-right: #FFFFFF 1px solid;border-bottom: #FFFFFF 1px solid;border-left: #FFFFFF 1px solid; 
+    border-radius:5;     width:56px;border-radius: 5px;" ><vlocity_cmt-flex-icon data-style-id="state0element1block_element0_child"   record={record}  card={card}  alternative-text="Create Quote"  color="#FFFFFF"  extraclass=""  icon-name="standard:quotes"  icon-type="Salesforce SVG"  imgsrc=""  size="large"  variant="default"  theme="slds"  ></vlocity_cmt-flex-icon>
+      </div><div data-style-id="state0element1block_element1" class="slds-col   slds-p-left_small  slds-size_11-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element1block_element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element1block_element1block_element0" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 700;
+font-size: 18px;" ><vlocity_cmt-output-field data-style-id="state0element1block_element1block_element0_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXESMQuoteJourneyTitle%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element1block_element1block_element1" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 400;
+font-size: 13px;" ><vlocity_cmt-output-field data-style-id="state0element1block_element1block_element1_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXESMQuoteJourneyDescription%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element2" class="slds-col    slds-p-around_x-small  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"AddLocation"}],"id":"state-condition-object","isParent":true}' >
+    <vlocity_cmt-block data-style-id="state0element2_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"AddLocation"}],"id":"state-condition-object","isParent":true}'  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element2block_element0" class="slds-col  slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_xx-small  slds-size_1-of-12  " data-rindex={rindex} style="background-color:#F28B00;     border-top: #FFFFFF 1px solid;border-right: #FFFFFF 1px solid;border-bottom: #FFFFFF 1px solid;border-left: #FFFFFF 1px solid; 
+    border-radius:5;     width:56px;border-radius: 5px;" ><vlocity_cmt-flex-icon data-style-id="state0element2block_element0_child"   record={record}  card={card}  alternative-text="Create Quote"  color="#FFFFFF"  extraclass=""  icon-name="standard:address"  icon-type="Salesforce SVG"  imgsrc=""  size="large"  variant="default"  theme="slds"  ></vlocity_cmt-flex-icon>
+      </div><div data-style-id="state0element2block_element1" class="slds-col   slds-p-left_small  slds-size_11-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element2block_element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element2block_element1block_element0" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 700;
+font-size: 18px;" ><vlocity_cmt-output-field data-style-id="state0element2block_element1block_element0_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXGuidedAddLocations%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element2block_element1block_element1" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 400;
+font-size: 13px;" ><vlocity_cmt-output-field data-style-id="state0element2block_element1block_element1_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXCreateQuoteJourneyDescriptionOnLocationPage%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element3" class="slds-col    slds-p-around_x-small  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-18","operator":"==","type":"custom","value":"AddSubscriber"}],"id":"state-condition-object","isParent":true}' >
+    <vlocity_cmt-block data-style-id="state0element3_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-18","operator":"==","type":"custom","value":"AddSubscriber"}],"id":"state-condition-object","isParent":true}'  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element3block_element0" class="slds-col  slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_xx-small  slds-size_1-of-12  " data-rindex={rindex} style="background-color:#F28B00;     border-top: #FFFFFF 1px solid;border-right: #FFFFFF 1px solid;border-bottom: #FFFFFF 1px solid;border-left: #FFFFFF 1px solid; 
+    border-radius:5;     width:56px;border-radius: 5px;" ><vlocity_cmt-flex-icon data-style-id="state0element3block_element0_child"   record={record}  card={card}  alternative-text="Create Quote"  color="#FFFFFF"  extraclass=""  icon-name="standard:address"  icon-type="Salesforce SVG"  imgsrc=""  size="large"  variant="default"  theme="slds"  ></vlocity_cmt-flex-icon>
+      </div><div data-style-id="state0element3block_element1" class="slds-col   slds-p-left_small  slds-size_11-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element3block_element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element3block_element1block_element0" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 700;
+font-size: 18px;" ><vlocity_cmt-output-field data-style-id="state0element3block_element1block_element0_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXAddSubscriberLabel%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element3block_element1block_element1" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 400;
+font-size: 13px;" ><vlocity_cmt-output-field data-style-id="state0element3block_element1block_element1_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXAddSubscriberLabelDescription%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element4" class="slds-col    slds-p-around_x-small  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"SelectProduct"}],"id":"state-condition-object","isParent":true}' >
+    <vlocity_cmt-block data-style-id="state0element4_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"SelectProduct"}],"id":"state-condition-object","isParent":true}'  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element4block_element0" class="slds-col  slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_xx-small  slds-size_1-of-12  " data-rindex={rindex} style="background-color:#F28B00;     border-top: #FFFFFF 1px solid;border-right: #FFFFFF 1px solid;border-bottom: #FFFFFF 1px solid;border-left: #FFFFFF 1px solid; 
+    border-radius:5;     width:56px;border-radius: 5px;" ><vlocity_cmt-flex-icon data-style-id="state0element4block_element0_child"   record={record}  card={card}  alternative-text="Create Quote"  color="#FFFFFF"  extraclass=""  icon-name="standard:product_service_campaign"  icon-type="Salesforce SVG"  imgsrc=""  size="large"  variant="default"  theme="slds"  ></vlocity_cmt-flex-icon>
+      </div><div data-style-id="state0element4block_element1" class="slds-col   slds-p-left_small  slds-size_11-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element4block_element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element4block_element1block_element0" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 700;
+font-size: 18px;" ><vlocity_cmt-output-field data-style-id="state0element4block_element1block_element0_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXSelectProducts%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element4block_element1block_element1" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 400;
+font-size: 13px;" ><vlocity_cmt-output-field data-style-id="state0element4block_element1block_element1_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXSelectYourProducts%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div></vlocity_cmt-block>
+    </div><div data-style-id="state0element5" class="slds-col    slds-p-around_x-small  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"ConfigureCart"}],"id":"state-condition-object","isParent":true}' >
+    <vlocity_cmt-block data-style-id="state0element5_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  data-conditions='\{"group":[{"field":"Parent.pageType","hasMergeField":false,"id":"state-new-condition-0","operator":"==","type":"custom","value":"ConfigureCart"}],"id":"state-condition-object","isParent":true}'  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element5block_element0" class="slds-col  slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_xx-small  slds-size_1-of-12  " data-rindex={rindex} style="background-color:#F28B00;     border-top: #FFFFFF 1px solid;border-right: #FFFFFF 1px solid;border-bottom: #FFFFFF 1px solid;border-left: #FFFFFF 1px solid; 
+    border-radius:5;     width:56px;border-radius: 5px;" ><vlocity_cmt-flex-icon data-style-id="state0element5block_element0_child"   record={record}  card={card}  alternative-text="Create Quote"  color="#FFFFFF"  extraclass=""  icon-name="standard:product_quantity_rules"  icon-type="Salesforce SVG"  imgsrc=""  size="large"  variant="default"  theme="slds"  ></vlocity_cmt-flex-icon>
+      </div><div data-style-id="state0element5block_element1" class="slds-col   slds-p-left_small  slds-size_11-of-12  " data-rindex={rindex} style="      
+         " >
+    <vlocity_cmt-block data-style-id="state0element5block_element1_child"  record={record}  card={card}  collapsed-by-default="false"  collapsible="false"  label="Block"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element5block_element1block_element0" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 700;
+font-size: 18px;" ><vlocity_cmt-output-field data-style-id="state0element5block_element1block_element0_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXConfigureProducts%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div><div data-style-id="state0element5block_element1block_element1" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         font-weight: 400;
+font-size: 13px;" ><vlocity_cmt-output-field data-style-id="state0element5block_element1block_element1_child"   record={record}  card={card}  merge-field="%3Cdiv%3E%7BLabel.CMEXConfigureProductStep%7D%3C/div%3E"  theme="slds"  ></vlocity_cmt-output-field>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div>
+      </vlocity_cmt-flex-card-state>
+                      </template>
+            </template>
+            <template if:true={hasError}>
+            {error}
+            </template>
+            
+      <vlocity_cmt-action action-wrapperclass="slds-hide" re-render-flyout class="action-trigger slds-col" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+      
+      </vlocity_cmt-action>
+  
+            <vlocity_cmt-action class="execute-action" re-render-flyout action-wrapperclass="slds-hide" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+            
+            </vlocity_cmt-action>
+            </div>
+          </template>

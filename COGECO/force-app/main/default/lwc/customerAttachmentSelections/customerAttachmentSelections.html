@@ -1,0 +1,27 @@
+<template>
+  <lightning-spinner alternative-text="Loading" size="medium" variant="brand" lwc:if={loading}></lightning-spinner>
+
+  <template lwc:if={options}>
+    <fieldset class="slds-form-element">
+      <legend class="slds-form-element__legend slds-form-element__label"></legend>
+      <div class="slds-form-element__control" style="display:flex;justify-content:center;flex-wrap:wrap">
+        <template for:each={options} for:item="option">
+          <c-visual-picker-option
+            key={option.Id}
+            option={option}>
+          </c-visual-picker-option>
+        </template>
+      </div>
+    </fieldset>
+  </template>
+  <div class="slds-card__footer navigationBar slds-m-top_large" style="margin-left:-2rem;margin-right:-2rem;margin-bottom:-1.5rem;background:var(--slds-c-modal-footer-color-background, var(--sds-c-modal-footer-color-background, var(--slds-c-modal-color-background, var(--sds-c-modal-color-background, var(--lwc-colorBackground,rgb(243, 243, 243))))));padding:var(--slds-c-modal-footer-spacing-block-start, var(--sds-c-modal-footer-spacing-block-start, var(--lwc-spacingSmall,0.75rem))) var(--slds-c-modal-footer-spacing-inline-end, var(--sds-c-modal-footer-spacing-inline-end, var(--lwc-spacingMedium,1rem))) var(--slds-c-modal-footer-spacing-block-end, var(--sds-c-modal-footer-spacing-block-end, var(--lwc-spacingSmall,0.75rem))) var(--slds-c-modal-footer-spacing-inline-start, var(--sds-c-modal-footer-spacing-inline-start, var(--lwc-spacingMedium,1rem)));border-top:var(--slds-c-modal-sizing-border, var(--sds-c-modal-sizing-border, var(--lwc-borderWidthThick,2px))) solid var(--slds-c-modal-color-border, var(--sds-c-modal-color-border, var(--lwc-colorBorder,rgb(229, 229, 229))));">
+    <footer class="slds-scope footerContainer slds-grid slds-grid_align-spread">
+      <div class="actionsLeft slds-grid slds-m-right_xx-small"></div>
+      <div class="navigation-bar__right-align">
+        <button class="slds-button slds-button_outline-brand" aria-disabled="false" type="button" data-lang="EN-" onclick={changeLanguage}>{labels.ENGLISH}</button>
+        <button class="slds-button slds-button_outline-brand" aria-disabled="false" type="button" data-lang="FR-" onclick={changeLanguage}>{labels.FRENCH}</button>
+        <button class="slds-button slds-button_brand flow-button__NEXT" aria-disabled="false" type="button" onclick={handleNext}>{labels.NEXT}</button>
+      </div>
+    </footer>
+  </div>
+</template>

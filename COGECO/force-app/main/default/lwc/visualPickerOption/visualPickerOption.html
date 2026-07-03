@@ -1,0 +1,26 @@
+<template>
+    <div class="slds-visual-picker slds-visual-picker_vertical slds-visual-picker_large slds-m-around_x-small" onclick={setState} data-id={option.attachmentId}>
+      <label for="visual-picker-106">
+        <span class="slds-visual-picker__figure slds-visual-picker__text slds-p-around_x-small">
+          <div style="display: flex">
+            <lightning-icon
+              icon-name={docType}
+              size="small"
+              style="display:flex; align-self: flex-start">
+            </lightning-icon>
+            <div style="flex: 1" class="slds-m-left_small">
+              <span class="slds-text-heading_small slds-m-bottom_x-small">{option.attachmentName}</span>
+              <span class="slds-text-title">{option.attachmentDescription}</span>
+            </div>
+          </div>
+        </span>
+        <span class="slds-icon_container slds-visual-picker__text-check">
+            <lightning-icon
+              size="x-small"
+              icon-name="utility:check"
+              class="check-icon">
+            </lightning-icon>
+        </span>
+      </label>
+    </div>
+</template>

@@ -1,0 +1,21 @@
+.cf-vlocity-state:nth-child(odd) .b2b-selfservice-lineitem {
+    background: #f3f2f2 !important;
+}
+
+.b2b-selfservice-attributes > .via-slds > .slds-wrap {
+    flex-wrap: nowrap;
+}
+
+.b2b-selfservice-attributes > .via-slds > .slds-wrap {
+    width: fit-content;
+}
+
+.b2b-selfservice-attribute-tooltip {
+    display: none;
+    position: absolute; 
+    top: 5rem;
+}
+
+.b2b-selfservice-attribute-wrapper:hover + .b2b-selfservice-attribute-tooltip {
+    display: block;
+}

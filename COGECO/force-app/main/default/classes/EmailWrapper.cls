@@ -1,0 +1,20 @@
+public class EmailWrapper {
+    @InvocableVariable public String strEmailTemplate;
+    @InvocableVariable public String strOpportunityId;
+    @InvocableVariable public String strLangauge;
+    @InvocableVariable public String recordId;
+    @InvocableVariable public String relatedRecordId;
+    @InvocableVariable public String templateId;
+    @InvocableVariable public String emailFrom;
+    @InvocableVariable public String emailTo;
+    @InvocableVariable public List<String> emailTos;
+    @InvocableVariable public String targetId;
+    @InvocableVariable public String attachmentName;
+    @InvocableVariable public String visualforcePageName;
+    @InvocableVariable public Boolean isFromOrgEmail;
+    @InvocableVariable public Boolean isInternalEmail;
+    @InvocableVariable public Boolean sendAttachment;
+    @InvocableVariable public Boolean createDocumentLink;
+    @InvocableVariable public String additionalContentDocumentIdsForAttachments;
+    @InvocableVariable public List<String> emailBccs;
+}

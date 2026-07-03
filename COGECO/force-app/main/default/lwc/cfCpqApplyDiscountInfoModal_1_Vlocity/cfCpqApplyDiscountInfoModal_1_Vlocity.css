@@ -1,0 +1,14 @@
+.cpq__discount_footer{
+   position: relative;
+    height: 60px;
+}
+.cpq__discount_footer .cpq_btn_solid{
+    position: absolute;
+    width: fit-content;
+    right: 18px;
+}
+.cpq__discount_footer .cpq_btn_inverse{
+    position: absolute;
+   width: fit-content;
+    right: 120px;
+}

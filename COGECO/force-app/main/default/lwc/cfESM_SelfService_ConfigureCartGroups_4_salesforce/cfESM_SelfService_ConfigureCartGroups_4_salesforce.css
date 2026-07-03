@@ -1,0 +1,17 @@
+.b2b-selfservice-groupcount {
+    height: 20px;
+    width: 20px;
+    background-color: #CFD7E6;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.b2b-selfservice-active-group {
+    background-color: #F7F7F7;
+}
+
+.b2b-selfservice-active-group .b2b-selfservice-groupcount {
+    background-color: #FF3366;
+}
